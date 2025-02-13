@@ -1,0 +1,168 @@
+id: https://23id.org/anvil/condition_assertion 
+name: anvil-condition-assertion-schema
+prefixes:
+  anvil: 
+    prefix_prefix: anvil
+    prefix_reference: https://w3id.org/anvil/
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  bioregistry: 
+    prefix_prefix: bioregistry 
+    prefix_reference: https://bioregistry.io/registry#
+  igcondtype: 
+    prefix_prefix: igcondtype 
+    prefix_reference: https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/condition-type
+imports:
+  - linkml:types
+  - anvil_core
+classes: 
+  ConditionAssertion:
+    title: ConditionAssertion 
+    definition_uri: anvil:condition_assertion 
+    annotations:  
+      required:  
+        tag: required 
+        value: 'True' 
+    description: Study Meta Data 
+    is_a: Thing 
+    slots: 
+      - participant_id
+      - condition_code
+      - condition_source_value
+      - condition_assertion 
+      - condition_type
+      - age_at_assertion 
+      - age_at_onset 
+      - age_at_resolution 
+slots: 
+  condition_code:
+    definition_uri: anvil:condition_code 
+    description: | 
+      Condition Code should be from one of a recognized ontology. Multiple codes can be indicated, but should simply be alternative encodings for the same entity such as alternates encodings from other ontologies.       
+      Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA and coded with the corresponding curies
+      * SNOMED : https://bioregistry.io/registry/snomedct
+      * HP : https://bioregistry.io/registry/hp
+      * OMIM : https://bioregistry.io/registry/omim
+      * ORPHA : https://bioregistry.io/registry/orphanet
+    title: condition_code 
+    range: EnumConditionCode
+    required: false 
+    multivalued: true  
+  condition_source_value: 
+    definition_uri: anvil:condition_source_value  
+    description: Original Source Value for condition 
+    title: condition_source_value 
+    range: string 
+    required: true 
+    multivalued: false 
+  condition_assertion: 
+    definition_uri: anvil:condition_assertion 
+    description: Condition Assertion 
+    title: condition_assertion 
+    range: EnumConditionAssertion
+    multivalued: false
+  condition_type: 
+    definition_uri: anvil:condition_type 
+    description: Does this condition represent a specific "type" of condition, such as "Phenotypic Feature" vs "Disease" in a rare disease setting.
+    title: Condition Type 
+    range: EnumConditionType 
+    required: true 
+    multivalued: false 
+  age_at_assertion:
+    definition_uri: anvil:age_at_assertion 
+    description: The age at which this condition is being asserted. 
+    title: age_at_assertion 
+    range: integer 
+    required: false 
+    multivalued: false 
+  age_at_onset:
+    definition_uri: anvil:age_at_onset 
+    description: The age of onset for this condition. 
+    title: age_at_assertion 
+    range: integer
+    required: false 
+    multivalued: false 
+  age_at_resolution:
+    definition_uri: anvil:age_at_resolution 
+    description: The age at which this condition was resolved, abated or cured. Should be left empty in cases of current active status.  
+    title: age_at_resolution 
+    range: integer
+    required: false 
+    multivalued: false 
+enums: 
+  EnumConditionType: 
+    definition_uri: anvil:EnumConditionType
+    description: Distinguish between phenotypic feature and disease. 
+    permissible_values: 
+      phenotypic-feature: 
+        text: phenotypic-feature
+        description: Phenotypic Feature
+        meaning: igcondtype:Phenotypic-Feature
+      disease: 
+        text: disease 
+        description: Disease 
+        meaning: igcondtype:Disease
+      comorbidity: 
+        text: comorbidity 
+        description: Comorbidity
+        meaning: igcondtype:Comorbidity
+      histology: 
+        text: histology 
+        description: Histology 
+        meaning: igcondtype:Histology
+      clinical-finding: 
+        text: clinical-finding 
+        description: Clinical Finding 
+        meaning: igcondtype:Clinical-Finding
+      ehr-condition-code:
+        text: ehr-condition-code 
+        description: ehr-condition-code 
+        meaning: igcondtype:EHR-Condition-Code
+  EnumConditionAssertion:
+    definition_uri: anvil:EnumConditionAssertion 
+    description: Enumerations for Condition Assertion 
+    permissible_values: 
+      present: 
+        text: present 
+        title: Present 
+        description: Present 
+      absent: 
+        text: absent 
+        title: Absent 
+        description: Absent 
+      unsure: 
+        text: unsure 
+        title: Unsure 
+        description: Unsure 
+      unknown: 
+        text: unknown 
+        title: Unknown 
+        description: Unknown 
+  EnumConditionCode:
+    definition_uri: anvil:EnumConditionCode 
+    description: |
+      Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA, prefixed with those curies
+      * SNOMED : https://bioregistry.io/registry/snomedct
+      * HP : https://bioregistry.io/registry/hp
+      * OMIM : https://bioregistry.io/registry/omim
+      * ORPHA : https://bioregistry.io/registry/orphanet
+    # include: 
+      # https://bioregistry.io/registry/snomedct
+      # - reachable_from: 
+      #   source_ontology: bioregistry:snomedct
+      #  is_direct: true 
+      # https://bioregistry.io/registry/hp
+      # - reachable_from: 
+      #   source_ontology: bioregistry:hp 
+      #  is_direct: true 
+      # https://bioregistry.io/registry/omim
+      # - reachable_from:
+      #   source_ontology: bioregistry:omim 
+      #  is_direct: true 
+      # https://bioregistry.io/registry/orphanet
+      # - reachable_from: 
+      #   source_ontology: bioregistry:orphanet 
+      #  is_direct: true 
+
+    

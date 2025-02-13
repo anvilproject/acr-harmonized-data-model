@@ -1,0 +1,28 @@
+id: https://23id.org/anvil/core
+name: anvil-core-schema
+prefixes:
+  anvil: 
+    prefix_prefix: anvil
+    prefix_reference: https://w3id.org/anvil/
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+imports:
+  - linkml:types
+classes:
+  Thing:
+    name: Thing
+    definition_uri: schema:Thing
+    description: Highest Level Class
+    annotations:
+      required:
+        tag: required
+        value: 'False'
+    title: Thing
+slots: 
+  participant_id_fk:
+    definition_uri: anvil:participant_id_fk
+    description: ID associated with the Participant Identifier
+    required: true
+    range: string
+    multivalued: false 

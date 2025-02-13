@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+
+<html class="writer-html5" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://torstees.github.io/mvp-ncpi-data-model/Sample/" rel="canonical"/>
+<link href="../img/favicon.ico" rel="shortcut icon"/>
+<title>Class: Sample (Sample) - MVP AnVIL Data Model</title>
+<link href="../css/theme.css" rel="stylesheet"/>
+<link href="../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
+<script>
+        // Current page data
+        var mkdocs_page_name = "Class: Sample (Sample)";
+        var mkdocs_page_input_path = "Sample.md";
+        var mkdocs_page_url = "/mvp-ncpi-data-model/Sample/";
+      </script>
+<!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href=".."> MVP AnVIL Data Model
+        </a><div role="search">
+<form action="../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input aria-label="Search docs" name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="" href="../anvil-docs/home.md">About</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="Mobile navigation menu" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="..">MVP AnVIL Data Model</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a aria-label="Docs" class="icon icon-home" href=".."></a></li>
+<li class="breadcrumb-item active">Class: Sample (Sample)</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+</ul>
+<hr/>
+</div>
+<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+<div class="section" itemprop="articleBody">
+<h1 id="class-sample-sample">Class: Sample (Sample)</h1>
+<p><em>Biospecimen data</em></p>
+<p>URI: <a href="https://23id.org/anvil/:Sample">https://23id.org/anvil/:Sample</a></p>
+<div class="mermaid"> classDiagram
+    class Sample
+    click Sample href "../Sample"
+      Thing &lt;|-- Sample
+        click Thing href "../Thing"
+
+      Sample : availablity_status
+
+
+
+
+    Sample --&gt; "0..1" EnumAvailabilityStatus : availablity_status
+    click EnumAvailabilityStatus href "../EnumAvailabilityStatus"
+
+
+      Sample : biospecimen_collection_id_fk
+
+      Sample : parent_sample_id
+
+      Sample : participant_id_fk
+
+      Sample : processing
+
+      Sample : quantity
+
+      Sample : sample_id
+
+      Sample : sample_type
+
+      Sample : storage_method
+
+
+</div>
+<h2 id="inheritance">Inheritance</h2>
+<ul>
+<li><a href="../Thing/">Thing</a><ul>
+<li><strong>Sample</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Cardinality and Range</th>
+<th>Description</th>
+<th>Inheritance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../sample_id/">sample_id</a></td>
+<td>1 <br/> <a href="../String/">String</a></td>
+<td>Sample ID</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../participant_id_fk/">participant_id_fk</a></td>
+<td>1 <br/> <a href="../String/">String</a></td>
+<td>ID associated with the Participant Identifier</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../parent_sample_id/">parent_sample_id</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Parent Sample ID</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../biospecimen_collection_id_fk/">biospecimen_collection_id_fk</a></td>
+<td>1 <br/> <a href="../String/">String</a></td>
+<td>ID associated with the Biospecimen Collection event</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../sample_type/">sample_type</a></td>
+<td>1 <br/> <a href="../String/">String</a></td>
+<td>Curied code associated the type of material of which this Sample is comprised</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../processing/">processing</a></td>
+<td>* <br/> <a href="../String/">String</a></td>
+<td>Curied code associated processing that was applied to the Parent Sample or fr...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../availablity_status/">availablity_status</a></td>
+<td>0..1 <br/> <a href="../EnumAvailabilityStatus/">EnumAvailabilityStatus</a></td>
+<td>Can this Sample be requested for further analysis?</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../storage_method/">storage_method</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Curied code indicating how is the Sample stored, eg, Frozen or with additives</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../quantity/">quantity</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Curied code indicating how is the Sample stored, eg, Frozen or with additives</td>
+<td>direct</td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="annotations">Annotations</h3>
+<table>
+<thead>
+<tr>
+<th>property</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>required</td>
+<td>True</td>
+</tr>
+</tbody>
+</table>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://23id.org/anvil</li>
+</ul>
+<h2 id="mappings">Mappings</h2>
+<table>
+<thead>
+<tr>
+<th>Mapping Type</th>
+<th>Mapped Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>https://23id.org/anvil/:Sample</td>
+</tr>
+<tr>
+<td>native</td>
+<td>https://23id.org/anvil/:Sample</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linkml-source">LinkML Source</h2>
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+<h3 id="direct">Direct</h3>
+<details>
+<pre><code class="language-yaml">name: Sample
+definition_uri: anvil:sample
+annotations:
+  required:
+    tag: required
+    value: 'True'
+description: Biospecimen data
+title: Sample
+from_schema: https://23id.org/anvil
+is_a: Thing
+slots:
+- sample_id
+- participant_id_fk
+- parent_sample_id
+- biospecimen_collection_id_fk
+- sample_type
+- processing
+- availablity_status
+- storage_method
+- quantity
+
+</code></pre>
+</details>
+<h3 id="induced">Induced</h3>
+<details>
+<pre><code class="language-yaml">name: Sample
+definition_uri: anvil:sample
+annotations:
+  required:
+    tag: required
+    value: 'True'
+description: Biospecimen data
+title: Sample
+from_schema: https://23id.org/anvil
+is_a: Thing
+attributes:
+  sample_id:
+    name: sample_id
+    definition_uri: anvil:sample_id
+    description: Sample ID
+    from_schema: https://23id.org/anvil
+    rank: 1000
+    identifier: true
+    alias: sample_id
+    owner: Sample
+    domain_of:
+    - Sample
+    range: string
+    required: true
+    multivalued: false
+  participant_id_fk:
+    name: participant_id_fk
+    definition_uri: anvil:participant_id_fk
+    description: ID associated with the Participant Identifier
+    from_schema: https://23id.org/anvil
+    rank: 1000
+    alias: participant_id_fk
+    owner: Sample
+    domain_of:
+    - study_participant
+    - BiospecimenCollection
+    - Sample
+    - Measurement
+    - Procedure
+    range: string
+    required: true
+    multivalued: false
+  parent_sample_id:
+    name: parent_sample_id
+    definition_uri: anvil:parent_sample_id
+    description: Parent Sample ID
+    from_schema: https://23id.org/anvil
+    rank: 1000
+    alias: parent_sample_id
+    owner: Sample
+    domain_of:
+    - Sample
+    range: string
+    required: false
+    multivalued: false
+  biospecimen_collection_id_fk:
+    name: biospecimen_collection_id_fk
+    definition_uri: anvil:biospecimen_collection_id_fk
+    description: ID associated with the Biospecimen Collection event.
+    from_schema: https://23id.org/anvil
+    rank: 1000
+    alias: biospecimen_collection_id_fk
+    owner: Sample
+    domain_of:
+    - Sample
+    range: string
+    required: true
+    multivalued: false
+  sample_type:
+    name: sample_type
+    definition_uri: anvil:sample_type
+    description: Curied code associated the type of material of which this Sample
+      is comprised
+    from_schema: https://23id.org/anvil
+    rank: 1000
+    identifier: false
+    alias: sample_type
+    owner: Sample
+    domain_of:
+    - Sample
+    range: string
+    required: true
+    multivalued: false
+  processing:
+    name: processing
+    definition_uri: anvil:processing
+    description: Curied code associated processing that was applied to the Parent
+      Sample or from the Biospecimen Collection that yielded this distinct sample
+    from_schema: https://23id.org/anvil
+    rank: 1000
+    identifier: false
+    alias: processing
+    owner: Sample
+    domain_of:
+    - Sample
+    range: string
+    required: false
+    multivalued: true
+  availablity_status:
+    name: availablity_status
+    definition_uri: anvil:availablity_status
+    description: Can this Sample be requested for further analysis?
+    from_schema: https://23id.org/anvil
+    rank: 1000
+    alias: availablity_status
+    owner: Sample
+    domain_of:
+    - Sample
+    range: EnumAvailabilityStatus
+    required: false
+  storage_method:
+    name: storage_method
+    definition_uri: anvil:storage_method
+    description: Curied code indicating how is the Sample stored, eg, Frozen or with
+      additives
+    from_schema: https://23id.org/anvil
+    rank: 1000
+    alias: storage_method
+    owner: Sample
+    domain_of:
+    - Sample
+    range: string
+    required: false
+  quantity:
+    name: quantity
+    definition_uri: anvil:quantity
+    description: Curied code indicating how is the Sample stored, eg, Frozen or with
+      additives
+    from_schema: https://23id.org/anvil
+    rank: 1000
+    alias: quantity
+    owner: Sample
+    domain_of:
+    - Sample
+    range: string
+    required: false
+
+</code></pre>
+</details>
+</div>
+</div><footer>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="Versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+</span>
+</div>
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>var base_url = "..";</script>
+<script src="../js/theme_extra.js"></script>
+<script src="../js/theme.js"></script>
+<script src="../search/main.js"></script>
+<script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
+mermaid.initialize({});</script></body>
+</html>

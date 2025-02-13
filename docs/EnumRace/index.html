@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://torstees.github.io/mvp-ncpi-data-model/EnumRace/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Enum: EnumRace - MVP AnVIL Data Model</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Enum: EnumRace";
+        var mkdocs_page_input_path = "EnumRace.md";
+        var mkdocs_page_url = "/mvp-ncpi-data-model/EnumRace/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> MVP AnVIL Data Model
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../anvil-docs/home.md">About</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">MVP AnVIL Data Model</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Enum: EnumRace</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="enum-enumrace">Enum: EnumRace</h1>
+<p>URI: <a href="./">EnumRace</a></p>
+<h2 id="permissible-values">Permissible Values</h2>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>american_indian_or_alaskan_native</td>
+<td>cdc_race_eth:1002-5</td>
+<td>American Indian or Alaskan Native</td>
+</tr>
+<tr>
+<td>asian</td>
+<td>cdc_race_eth:2028-9</td>
+<td>Asian</td>
+</tr>
+<tr>
+<td>black_or_african_american</td>
+<td>cdc_race_eth:2054-5</td>
+<td>Black or African American</td>
+</tr>
+<tr>
+<td>native_hawaiian_or_pacific_islander</td>
+<td>cdc_race_eth:2076-8</td>
+<td>Native Hawaiian or Other Pacific Islander</td>
+</tr>
+<tr>
+<td>white</td>
+<td>cdc_race_eth:2106-3</td>
+<td>White</td>
+</tr>
+<tr>
+<td>other_race</td>
+<td>cdc_race_eth:2131-1</td>
+<td>Other Race</td>
+</tr>
+<tr>
+<td>unknown</td>
+<td>hl7_null:UNK</td>
+<td>unknown</td>
+</tr>
+<tr>
+<td>asked_but_unknown</td>
+<td>hl7_null:ASKU</td>
+<td>asked but unknown</td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../race/">race</a></td>
+<td>Reported race defined by NIH Racial and Ethnic Categories and Definitions (NO...</td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://23id.org/anvil</li>
+</ul>
+<h2 id="linkml-source">LinkML Source</h2>
+<details>
+
+<pre><code class="language-yaml">name: enum_race
+definition_uri: enum_race
+from_schema: https://23id.org/anvil
+rank: 1000
+permissible_values:
+  american_indian_or_alaskan_native:
+    text: american_indian_or_alaskan_native
+    description: American Indian or Alaskan Native
+    meaning: cdc_race_eth:1002-5
+  asian:
+    text: asian
+    description: Asian
+    meaning: cdc_race_eth:2028-9
+  black_or_african_american:
+    text: black_or_african_american
+    description: Black or African American
+    meaning: cdc_race_eth:2054-5
+  native_hawaiian_or_pacific_islander:
+    text: native_hawaiian_or_pacific_islander
+    description: Native Hawaiian or Other Pacific Islander
+    meaning: cdc_race_eth:2076-8
+  white:
+    text: white
+    description: White
+    meaning: cdc_race_eth:2106-3
+  other_race:
+    text: other_race
+    description: Other Race
+    meaning: cdc_race_eth:2131-1
+  unknown:
+    text: unknown
+    description: unknown
+    meaning: hl7_null:UNK
+  asked_but_unknown:
+    text: asked_but_unknown
+    description: asked but unknown
+    meaning: hl7_null:ASKU
+
+</code></pre>
+
+</details>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
