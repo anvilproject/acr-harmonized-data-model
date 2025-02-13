@@ -1,0 +1,88 @@
+id: https://23id.org/anvil/aliquot 
+name: anvil-aliquot-schema
+prefixes:
+  anvil: 
+    prefix_prefix: anvil
+    prefix_reference: https://w3id.org/anvil/
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  ig2-biospecimen-availability: 
+    prefix_prefix: ig2-biospecimen-availability 
+    prefix_reference: https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/biospecimen-availability
+imports:
+  - linkml:types
+  - anvil_core
+classes: 
+  Aliquot:
+    title: Aliquot
+    definition_uri: anvil:aliquot 
+    annotations:  
+      required:  
+        tag: required 
+        value: 'True' 
+    description: Represent exact tubes or total amounts available of a Sample.
+    is_a: Thing 
+    slots: 
+      - aliquot_id 
+      - sample_id_fk
+      - sample_availability_status
+      - sample_volume 
+      - sample_volume_unit 
+      - sample_concentration 
+      - sample_concentration_unit 
+slots: 
+  aliquot_id: 
+    definition_uri: anvil:aliquot_id 
+    description: Aliquot ID 
+    identifier: true 
+    required: true 
+    range: string 
+  sample_id_fk: 
+    definition_uri: anvil:sample_id_fk 
+    description: Sample ID the aliquot is associated with 
+    required: true 
+    range: string 
+  sample_volume: 
+    definition_uri: anvil:sample_volume
+    description: What is the volume of the Aliquot?
+    required: false 
+    range: float 
+  sample_volume_unit:
+    definition_uri: anvil:sample_volume_unit
+    description: Units associated with the volume? UCUM coding preferred (with curie, UCUM)
+    required: false 
+    range: string
+  sample_concentration: 
+    definition_uri: anvil:sample_concentration
+    description: What is the concentration of the analyte in the Aliquot?
+    range: float 
+    required: false 
+  sample_concentration_unit: 
+    definition_uri: anvil:sample_concentration_unit
+    description: Units associated with the concentration of the analyte in the Aliquot? UCUM coding preferred (with curie, UCUM)
+    range: string 
+    required: false 
+  sample_availability_status: 
+    definition_uri: anvil:sample_availability_status 
+    description: Can this Sample be requested for further analysis
+    identifier: false
+    required: false  
+    range: EnumAvailabilityStatus 
+enums: 
+  EnumAvailabilityStatus:
+    name: EnumAvailabilityStatus
+    definition_uri: anvil:EnumAvailabilityStatus
+    permissible_values:
+      available:
+        text: available 
+        title: Available 
+        meaning: ig2-biospecimen-availability:available 
+        description: Biospecimen is Available
+      unavailable: 
+        text: unavailable 
+        title: Unavailable 
+        meaning: ig2-biospecimen-availability:unavailable 
+        description: Biospecimen is Unavailable
+      
+

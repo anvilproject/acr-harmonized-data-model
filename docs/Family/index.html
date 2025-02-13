@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html class="writer-html5" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://torstees.github.io/mvp-ncpi-data-model/Family/" rel="canonical"/>
+<link href="../img/favicon.ico" rel="shortcut icon"/>
+<title>Class: Family (Family) - MVP AnVIL Data Model</title>
+<link href="../css/theme.css" rel="stylesheet"/>
+<link href="../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
+<script>
+        // Current page data
+        var mkdocs_page_name = "Class: Family (Family)";
+        var mkdocs_page_input_path = "Family.md";
+        var mkdocs_page_url = "/mvp-ncpi-data-model/Family/";
+      </script>
+<!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href=".."> MVP AnVIL Data Model
+        </a><div role="search">
+<form action="../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input aria-label="Search docs" name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="" href="../anvil-docs/home.md">About</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="Mobile navigation menu" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="..">MVP AnVIL Data Model</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a aria-label="Docs" class="icon icon-home" href=".."></a></li>
+<li class="breadcrumb-item active">Class: Family (Family)</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+</ul>
+<hr/>
+</div>
+<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+<div class="section" itemprop="articleBody">
+<h1 id="class-family-family">Class: Family (Family)</h1>
+<p><em>Family</em></p>
+<p>URI: <a href="https://23id.org/anvil/:Family">https://23id.org/anvil/:Family</a></p>
+<div class="mermaid"> classDiagram
+    class Family
+    click Family href "../Family"
+      Thing &lt;|-- Family
+        click Thing href "../Thing"
+
+      Family : consanguinity
+
+
+
+
+    Family --&gt; "0..1" EnumConsanguinityAssertion : consanguinity
+    click EnumConsanguinityAssertion href "../EnumConsanguinityAssertion"
+
+
+      Family : family_description
+
+      Family : family_external_id
+
+      Family : family_id
+
+      Family : family_study_focus
+
+      Family : family_type
+
+
+
+
+    Family --&gt; "0..1" EnumFamilyType : family_type
+    click EnumFamilyType href "../EnumFamilyType"
+
+
+
+</div>
+<h2 id="inheritance">Inheritance</h2>
+<ul>
+<li><a href="../Thing/">Thing</a><ul>
+<li><strong>Family</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Cardinality and Range</th>
+<th>Description</th>
+<th>Inheritance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../family_id/">family_id</a></td>
+<td>1 <br/> <a href="../String/">String</a></td>
+<td>Family Identifier</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../family_external_id/">family_external_id</a></td>
+<td>* <br/> <a href="../String/">String</a></td>
+<td>Other study specific study identifiers</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../family_type/">family_type</a></td>
+<td>0..1 <br/> <a href="../EnumFamilyType/">EnumFamilyType</a></td>
+<td>Describes the 'type' of study family, eg, trio</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../family_description/">family_description</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Free text describing the study family, such as potential inheritance or detai...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../consanguinity/">consanguinity</a></td>
+<td>0..1 <br/> <a href="../EnumConsanguinityAssertion/">EnumConsanguinityAssertion</a></td>
+<td>Is there known or suspected consanguinity in this study family?</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../family_study_focus/">family_study_focus</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>What is this study family investigating? EG, a specific condition</td>
+<td>direct</td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="annotations">Annotations</h3>
+<table>
+<thead>
+<tr>
+<th>property</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>required</td>
+<td>False</td>
+</tr>
+</tbody>
+</table>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://23id.org/anvil</li>
+</ul>
+<h2 id="mappings">Mappings</h2>
+<table>
+<thead>
+<tr>
+<th>Mapping Type</th>
+<th>Mapped Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>https://23id.org/anvil/:Family</td>
+</tr>
+<tr>
+<td>native</td>
+<td>https://23id.org/anvil/:Family</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linkml-source">LinkML Source</h2>
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+<h3 id="direct">Direct</h3>
+<details>
+<pre><code class="language-yaml">name: Family
+definition_uri: anvil:family
+annotations:
+  required:
+    tag: required
+    value: 'False'
+description: Family
+title: Family
+from_schema: https://23id.org/anvil
+is_a: Thing
+slots:
+- family_id
+- family_external_id
+- family_type
+- family_description
+- consanguinity
+- family_study_focus
+
+</code></pre>
+</details>
+<h3 id="induced">Induced</h3>
+<details>
+<pre><code class="language-yaml">name: Family
+definition_uri: anvil:family
+annotations:
+  required:
+    tag: required
+    value: 'False'
+description: Family
+title: Family
+from_schema: https://23id.org/anvil
+is_a: Thing
+attributes:
+  family_id:
+    name: family_id
+    definition_uri: anvil:family_id
+    description: Family Identifier
+    from_schema: https://23id.org/anvil
+    rank: 1000
+    alias: family_id
+    owner: Family
+    domain_of:
+    - Family
+    range: string
+    required: true
+    multivalued: false
+  family_external_id:
+    name: family_external_id
+    definition_uri: anvil:family_external_id
+    description: Other study specific study identifiers
+    from_schema: https://23id.org/anvil
+    rank: 1000
+    alias: family_external_id
+    owner: Family
+    domain_of:
+    - Family
+    range: string
+    required: false
+    multivalued: true
+  family_type:
+    name: family_type
+    definition_uri: anvil:family_type
+    description: Describes the 'type' of study family, eg, trio.
+    from_schema: https://23id.org/anvil
+    rank: 1000
+    alias: family_type
+    owner: Family
+    domain_of:
+    - Family
+    range: EnumFamilyType
+    required: false
+    multivalued: false
+  family_description:
+    name: family_description
+    definition_uri: anvil:family_description
+    description: Free text describing the study family, such as potential inheritance
+      or details about consanguinity
+    from_schema: https://23id.org/anvil
+    rank: 1000
+    alias: family_description
+    owner: Family
+    domain_of:
+    - Family
+    range: string
+    required: false
+    multivalued: false
+  consanguinity:
+    name: consanguinity
+    definition_uri: anvil:consanguinity
+    description: Is there known or suspected consanguinity in this study family?
+    from_schema: https://23id.org/anvil
+    rank: 1000
+    alias: consanguinity
+    owner: Family
+    domain_of:
+    - Family
+    range: EnumConsanguinityAssertion
+    required: false
+    multivalued: false
+  family_study_focus:
+    name: family_study_focus
+    definition_uri: anvil:family_study_focus
+    description: "What is this study family investigating? EG, a specific condition.\
+      \ The code should be prefixed with a recognizable curie. \n"
+    from_schema: https://23id.org/anvil
+    rank: 1000
+    alias: family_study_focus
+    owner: Family
+    domain_of:
+    - Family
+    range: string
+    required: false
+    multivalued: false
+
+</code></pre>
+</details>
+</div>
+</div><footer>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="Versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+</span>
+</div>
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>var base_url = "..";</script>
+<script src="../js/theme_extra.js"></script>
+<script src="../js/theme.js"></script>
+<script src="../search/main.js"></script>
+<script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
+mermaid.initialize({});</script></body>
+</html>

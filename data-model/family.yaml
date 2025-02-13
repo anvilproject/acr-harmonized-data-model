@@ -1,0 +1,113 @@
+id: https://23id.org/anvil/family 
+name: anvil-family-schema
+prefixes:
+  anvil: 
+    prefix_prefix: anvil
+    prefix_reference: https://w3id.org/anvil/
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  SNOMED_CT:
+    prefix_prefix: SNOMED_CT
+    prefix_reference: https://bioregistry.io/registry/snomedct
+imports:
+  - linkml:types
+  - anvil_core
+classes:
+  Family:
+    title: Family
+    definition_uri: anvil:family
+    annotations: 
+      required:
+        tag: required
+        value: 'False'
+    description: Family
+    is_a: Thing
+    slots:
+    - family_id
+    - family_external_id
+    - family_type
+    - family_description 
+    - consanguinity
+    - family_study_focus
+slots:
+  family_id:
+    definition_uri: anvil:family_id
+    description: Family Identifier
+    required: true
+    range: string
+    multivalued: false 
+  family_external_id: 
+    definition_uri: anvil:family_external_id 
+    description: Other study specific study identifiers
+    required: false 
+    range: string 
+    multivalued: true 
+  family_type: 
+    definition_uri: anvil:family_type 
+    description: Describes the 'type' of study family, eg, trio.
+    required: false  
+    range: EnumFamilyType 
+    multivalued: false 
+  family_description: 
+    definition_uri: anvil:family_description
+    description: Free text describing the study family, such as potential inheritance or details about consanguinity
+    required: false 
+    range: string 
+    multivalued: false 
+  consanguinity: 
+    definition_uri: anvil:consanguinity 
+    description: Is there known or suspected consanguinity in this study family?
+    required: false 
+    range: EnumConsanguinityAssertion
+    multivalued: false 
+  family_study_focus: 
+    definition_uri: anvil:family_study_focus 
+    description: |
+      What is this study family investigating? EG, a specific condition. The code should be prefixed with a recognizable curie. 
+    required: false 
+    range: string 
+    multivalued: false 
+enums: 
+  EnumFamilyType:
+    definition_uri: anvil:EnumFamilyType 
+    description: Enumerations describing research family type 
+    permissible_values: 
+      control-only:
+        text: control-only 
+        description: Control Only 
+      duo: 
+        text: duo
+        description: Duo 
+      proband-only: 
+        text: proband-only 
+        description: Proband Only 
+      trio: 
+        text: trio 
+        description: Trio (2 parents and affected child)
+      trio+: 
+        text: trio+ 
+        description: 2 Parents and 2 or more children
+      other: 
+        text: other 
+        description: Other 
+  EnumConsanguinityAssertion: 
+    definition_uri: anvil:EnumConsanguinityAssertion 
+    description: Asserts known or suspected consanguinity in this study family
+    permissible_values:  
+      not-suspected: 
+        text: not-suspected
+        description: Not suspected 
+        meaning: SNOMED_CT:428263003
+      suspected: 
+        text: suspected 
+        description: Suspected
+        meaning: SNOMED_CT:415684004
+      known-present: 
+        text: known-present 
+        description: Known Present
+        meaning: SNOMED_CT:410515003
+      unknown: 
+        text: unknown 
+        description: Unknown
+        meaning: SNOMED_CT:261665006

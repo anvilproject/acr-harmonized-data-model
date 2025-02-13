@@ -1,0 +1,68 @@
+id: https://23id.org/anvil/study 
+name: anvil-study-schema
+prefixes:
+  anvil: 
+    prefix_prefix: anvil
+    prefix_reference: https://w3id.org/anvil/
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+imports:
+  - linkml:types
+  - anvil_core
+classes: 
+  Study:
+    title: Study 
+    definition_uri: anvil:study 
+    annotations:  
+      required:  
+        tag: required 
+        value: 'True' 
+    description: Study Meta Data 
+    is_a: Thing 
+    slots: 
+      - study_id 
+      - external_study_id
+      - parent_study_id 
+      - funding_source
+      - principal_investigator 
+      - study_title 
+slots:
+  study_id:
+    definition_uri: anvil:study_id 
+    description: Study ID 
+    required: true 
+    range: string 
+    multivalued: false 
+  external_study_id: 
+    # DbGAP ID, pubmed id, etc
+    definition_uri: anvil:external_study_id
+    description: External Study ID 
+    required: false 
+    range: string 
+    multivalued: true
+  parent_study_id:
+    definition_uri: anvil:parent_study_id 
+    description: Parent Study ID 
+    required: false 
+    range: Study 
+    multivalued: false
+  funding_source:
+    definition_uri: anvil:funding_source 
+    description: Funding Source 
+    required: false 
+    range: string 
+    multivalued: true 
+  principal_investigator:  
+    definition_uri: anvil:principal_investigator 
+    description: Principal Investigator 
+    required: false 
+    range: string 
+    multivalued: true 
+  study_title: 
+    definition_uri: anvil:study_title 
+    description: Study Title  
+    required: true 
+    range: string 
+    multivalued: false 
+
