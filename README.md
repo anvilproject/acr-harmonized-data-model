@@ -1,2 +1,3 @@
 # acr-harmonized-data-model
-ACR Data Model
+LinkML Schema for ACR Harmonmized Data. 
+
