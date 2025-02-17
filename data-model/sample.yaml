@@ -76,7 +76,7 @@ slots:
     range: string 
   quantity: 
     definition_uri: anvil:quantity 
-    description: Curied code indicating how is the Sample stored, eg, Frozen or with additives
+    description: The total quantity of the specimen
     required: false  
     range: string   
       
