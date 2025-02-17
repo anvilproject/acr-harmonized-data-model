@@ -9,7 +9,7 @@ LinkML Schema for ACR Harmonmized Data.
 Users can probably get away with slightly older versions but be aware that later versions of LinkML do require pydantic >= 2.x.x
 
 # Creating the anvil project
-Still unsure if we will use this for anything yet, but here is the command if there is something in here that is ueful. 
+Here is the command to [generate default artifacts](https://linkml.io/linkml/generators/project-generator.html) if there is a need. 
 
 ```
 gen-project -d anvil data-model/anvil.yaml
