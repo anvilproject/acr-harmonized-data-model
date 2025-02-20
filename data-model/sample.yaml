@@ -14,10 +14,6 @@ classes:
   Sample:
     title: Sample 
     definition_uri: anvil:sample 
-    annotations:  
-      required:  
-        tag: required 
-        value: 'True' 
     description: Biospecimen data
     is_a: Thing 
     slots: 

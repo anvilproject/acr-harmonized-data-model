@@ -14,10 +14,6 @@ classes:
   Measurement:
     title: Measurement
     definition_uri: anvil:measurement
-    annotations: 
-      required:
-        tag: required
-        value: 'False'
     description: Measurements
     is_a: Thing
     slots:

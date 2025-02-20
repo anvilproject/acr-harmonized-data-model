@@ -20,10 +20,6 @@ classes:
   ConditionAssertion:
     title: ConditionAssertion 
     definition_uri: anvil:condition_assertion 
-    annotations:  
-      required:  
-        tag: required 
-        value: 'True' 
     description: Study Meta Data 
     is_a: Thing 
     slots: 

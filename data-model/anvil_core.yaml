@@ -14,10 +14,6 @@ classes:
     name: Thing
     definition_uri: schema:Thing
     description: Highest Level Class
-    annotations:
-      required:
-        tag: required
-        value: 'False'
     title: Thing
 slots: 
   participant_id_fk:

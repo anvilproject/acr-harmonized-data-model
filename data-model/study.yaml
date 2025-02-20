@@ -14,10 +14,6 @@ classes:
   Study:
     title: Study 
     definition_uri: anvil:study 
-    annotations:  
-      required:  
-        tag: required 
-        value: 'True' 
     description: Study Meta Data 
     is_a: Thing 
     slots: 

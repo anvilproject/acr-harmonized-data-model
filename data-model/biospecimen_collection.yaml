@@ -14,10 +14,6 @@ classes:
   BiospecimenCollection:
     title: BiospecimenCollection
     definition_uri: anvil:biospecimen_collection 
-    annotations:  
-      required:  
-        tag: required 
-        value: 'True' 
     description: Biospecimen Collection
     is_a: Thing 
     slots: 

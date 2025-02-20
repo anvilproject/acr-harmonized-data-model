@@ -14,10 +14,6 @@ classes:
   FamilyMember:
     title: Family
     definition_uri: anvil:family-member
-    annotations: 
-      required:
-        tag: required
-        value: 'False'
     description: Family
     is_a: Thing
     slots:

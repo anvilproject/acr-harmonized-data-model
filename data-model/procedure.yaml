@@ -14,10 +14,6 @@ classes:
   Procedure:
     title: Procedure
     definition_uri: anvil:procedure
-    annotations: 
-      required:
-        tag: required
-        value: 'False'
     description: Procedures
     is_a: Thing
     slots:

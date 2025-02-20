@@ -29,10 +29,6 @@ classes:
   Participant:
     title: Participant
     definition_uri: anvil:participant
-    annotations: 
-      required:
-        tag: required
-        value: 'True'
     description: Basic participant demographics
     is_a: Thing
     slots:
@@ -53,10 +49,6 @@ classes:
   study_participant: 
     title: StudyParticipant 
     definition_uri: anvil:study_participant
-    annotations: 
-      required:  
-        tag: required 
-        value: 'True'
     description: Research 
     is_a: Thing
     slots:

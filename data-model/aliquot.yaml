@@ -17,10 +17,6 @@ classes:
   Aliquot:
     title: Aliquot
     definition_uri: anvil:aliquot 
-    annotations:  
-      required:  
-        tag: required 
-        value: 'True' 
     description: Represent exact tubes or total amounts available of a Sample.
     is_a: Thing 
     slots: 
