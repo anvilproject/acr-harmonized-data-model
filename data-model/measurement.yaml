@@ -1,9 +1,9 @@
-id: https://23id.org/anvil/measurement 
+id: https://anvilproject.org/acr-harmonized-data-model/measurement 
 name: anvil-measurement-schema
 prefixes:
   anvil: 
     prefix_prefix: anvil
-    prefix_reference: https://w3id.org/anvil/
+    prefix_reference: https://anvilproject.org/acr-harmonized-data-model/
   linkml:
     prefix_prefix: linkml
     prefix_reference: https://w3id.org/linkml/
