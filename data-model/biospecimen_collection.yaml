@@ -18,7 +18,7 @@ classes:
     is_a: Thing 
     slots: 
       - biospecimen_collection_id 
-      - participant_id_fk
+      - participant_id
       - age_at_collection
       - method 
       - site 
@@ -77,7 +77,7 @@ enums:
     description: |
       The location of the specimen collection. Recommended ontology: [SNOMED Body Site](https://hl7.org/fhir/R4B/valueset-body-site.html)
   EnumSpatialQualifiers:
-    definition_uri: anvil:EnumSpatialQualifiers 
+    definition_uri: anvil:EnumSpatialQualifiers
     description: |
       Any spatial/location qualifiers.
   EnumLaterality:

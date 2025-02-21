@@ -18,7 +18,7 @@ classes:
     is_a: Thing
     slots:
     # - procedure_id # ?? I'm not sure we care about this? 
-    - participant_id_fk
+    - participant_id
     - procedure_code
     - procedure_source_value 
     - procedure_detail

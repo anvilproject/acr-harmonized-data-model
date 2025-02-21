@@ -16,9 +16,16 @@ classes:
     description: Highest Level Class
     title: Thing
 slots: 
-  participant_id_fk:
-    definition_uri: anvil:participant_id_fk
-    description: ID associated with the Participant Identifier
+  participant_id:
+    definition_uri: anvil:participant_id
+    description: ID associated with the Participant
+    required: true
+    range: string
+    multivalued: false 
+  id:
+    definition_uri: anvil:id
+    description: ID associated with a class
+    identifier: true
     required: true
     range: string
     multivalued: false 

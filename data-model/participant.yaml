@@ -32,7 +32,7 @@ classes:
     description: Basic participant demographics
     is_a: Thing
     slots:
-    - participant_id
+    - id
     - participant_external_id 
     - organism_type 
     - donor_type 
@@ -52,19 +52,10 @@ classes:
     description: Research 
     is_a: Thing
     slots:
-    # This should probably be a different identifier that becomes a reference
-    # once I know how to link things correctly. 
-    - participant_id_fk
-    - study_id_fk
+    - participant_id
+    - in_study
     - access_policy_id
 slots:
-  participant_id:
-    definition_uri: anvil:participant_id
-    description: Participant Identifier
-    identifier: true
-    required: true
-    range: string
-    multivalued: false 
   # DB GAP ID, etc
   participant_external_id: 
     definition_uri: anvil:participant_external_id 
@@ -72,16 +63,12 @@ slots:
     required: false 
     range: string 
     multivalued: true 
-  study_id_fk: 
-    definition_uri: anvil:study_id_fk
-    title: study_id
-    description: Study Identifier 
-    required: false 
-    range: string
-    # This seems like it's how you are supposed to relate a class to another, 
-    # but it's not working right now and I don't have time to do it properly.
-    # domain: Participant
-    # range: Study 
+  in_study: 
+    definition_uri: anvil:in_study
+    title: in study
+    description: With which study is this class associated?
+    required: false
+    range: Study 
     multivalued: false 
     inlined: false
   organism_type:

@@ -18,7 +18,7 @@ classes:
     is_a: Thing 
     slots: 
       - sample_id 
-      - participant_id_fk 
+      - participant_id 
       - parent_sample_id 
       - biospecimen_collection_id_fk 
       - sample_type
