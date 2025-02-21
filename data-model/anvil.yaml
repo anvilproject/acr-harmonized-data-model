@@ -1,0 +1,30 @@
+id: https://anvilproject.org/acr-harmonized-data-model
+name: anvil-schema
+prefixes:
+  anvil: 
+    prefix_prefix: anvil
+    prefix_reference: https://anvilproject.org/acr-harmonized-data-model/
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  # subset of CDC Race and Ethnicity Code Set Version 1.0
+  cdc_race_eth:
+    prefix_prefix: cdc_race_eth
+    prefix_reference: urn:oid:2.16.840.1.113883.6.238
+  hl7_null:
+    prefix_prefix: hl7_null 
+    prefix_reference: http://terminology.hl7.org/CodeSystem/v3-NullFlavor
+imports:
+  - linkml:types
+  - anvil_core
+  - participant
+  - study
+  - condition_assertion
+  - data_access_policy
+  - biospecimen_collection
+  - aliquot
+  - sample 
+  - measurement 
+  - procedure
+  - family 
+  - family_member

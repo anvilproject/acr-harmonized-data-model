@@ -1,0 +1,79 @@
+id: https://anvilproject.org/acr-harmonized-data-model/sample 
+name: anvil-sample-schema
+prefixes:
+  anvil: 
+    prefix_prefix: anvil
+    prefix_reference: https://anvilproject.org/acr-harmonized-data-model/
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+imports:
+  - linkml:types
+  - anvil_core
+classes: 
+  Sample:
+    title: Sample 
+    definition_uri: anvil:sample 
+    description: Biospecimen data
+    is_a: Thing 
+    slots: 
+      - sample_id 
+      - participant_id 
+      - parent_sample_id 
+      - biospecimen_collection_id_fk 
+      - sample_type
+      - processing 
+      - availablity_status 
+      - storage_method 
+      - quantity 
+slots: 
+  sample_id: 
+    definition_uri: anvil:sample_id 
+    description: Sample ID 
+    identifier: true 
+    required: true 
+    range: string 
+    multivalued: false 
+  parent_sample_id: 
+    definition_uri: anvil:parent_sample_id 
+    description: Parent Sample ID 
+    required: false  
+    range: string 
+    multivalued: false 
+  biospecimen_collection_id_fk: 
+    definition_uri: anvil:biospecimen_collection_id_fk 
+    description: ID associated with the Biospecimen Collection event. 
+    required: true 
+    range: string 
+    multivalued: false 
+  sample_type:
+    definition_uri: anvil:sample_type 
+    description: Curied code associated the type of material of which this Sample is comprised 
+    identifier: false 
+    required: true 
+    range: string  
+    multivalued: false 
+  processing:
+    definition_uri: anvil:processing 
+    description: Curied code associated processing that was applied to the Parent Sample or from the Biospecimen Collection that yielded this distinct sample
+    identifier: false 
+    required: false 
+    range: string 
+    multivalued: true 
+  availablity_status: 
+    definition_uri: anvil:availablity_status 
+    description: Can this Sample be requested for further analysis?
+    required: false  
+    range: EnumAvailabilityStatus 
+  storage_method: 
+    definition_uri: anvil:storage_method 
+    description: Curied code indicating how is the Sample stored, eg, Frozen or with additives
+    required: false  
+    range: string 
+  quantity: 
+    definition_uri: anvil:quantity 
+    description: The total quantity of the specimen
+    required: false  
+    range: string   
+      
+  

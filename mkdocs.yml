@@ -1,0 +1,14 @@
+site_name: "MVP AnVIL Data Model"
+site_url: "https://torstees.github.io/mvp-ncpi-data-model"
+theme:
+  name: readthedocs
+plugins:
+  - search
+  - mermaid2
+#markdown_extensions:
+#  - toc:
+#      permalink: true
+docs_dir: anvil-docs/source
+site_dir: docs
+nav:
+  - About: anvil-docs/home.md

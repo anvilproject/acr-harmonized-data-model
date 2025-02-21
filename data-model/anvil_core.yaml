@@ -1,0 +1,31 @@
+id: https://anvilproject.org/acr-harmonized-data-model/core
+name: anvil-core-schema
+prefixes:
+  anvil: 
+    prefix_prefix: anvil
+    prefix_reference: https://anvilproject.org/acr-harmonized-data-model/
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+imports:
+  - linkml:types
+classes:
+  Thing:
+    name: Thing
+    definition_uri: schema:Thing
+    description: Highest Level Class
+    title: Thing
+slots: 
+  participant_id:
+    definition_uri: anvil:participant_id
+    description: ID associated with the Participant
+    required: true
+    range: string
+    multivalued: false 
+  id:
+    definition_uri: anvil:id
+    description: ID associated with a class
+    identifier: true
+    required: true
+    range: string
+    multivalued: false 

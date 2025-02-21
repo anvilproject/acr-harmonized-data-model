@@ -1,0 +1,152 @@
+id: https://anvilproject.org/acr-harmonized-data-model/data-access-policy
+name: anvil-data-access-policy-schema
+prefixes:
+  anvil: 
+    prefix_prefix: anvil
+    prefix_reference: https://anvilproject.org/acr-harmonized-data-model/
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  rdac:
+    prefix_prefix: rdac 
+    prefix_reference: https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-code
+  rdat: 
+    prefix_prefix: rdat 
+    prefix_reference: https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-type
+imports:
+  - linkml:types
+  - anvil_core
+classes:
+  DataAccessType: 
+    title: Data Access Type 
+    definition_uri: anvil:research_access_type 
+    description: Research Access Policy 
+    is_a: Thing 
+    slots: 
+      - data_access_type_id 
+      - data_access_type
+      - disease_use_limitation 
+  ResearchAccessPolicy: 
+    title: Research Access Policy 
+    definition_uri: anvil:research_access_policy 
+    description: Research Access Policy 
+    is_a: Thing 
+    slots: 
+      - access_policy_id 
+      - access_policy_code
+      - description 
+      - website 
+slots:
+  data_access_type_id:
+    definition_uri: anvil:data_access_type_id 
+    description: Data Access Type ID 
+    identifier: true
+    required: true 
+    range: string 
+    multivalued: false 
+  access_policy_id:
+    definition_uri: anvil:access_policy_id 
+    description: Access Policy ID 
+    identifier: true
+    required: true 
+    range: string 
+    multivalued: false 
+  data_access_type:
+    definition_uri: anvil:data_access_type 
+    description: Data Access Type 
+    required: false 
+    range: enum_access_type
+    multivalued: true
+  access_policy_code:
+    definition_uri: anvil:access_policy_code
+    description: Access Policy Code 
+    required: true
+    range: enum_access_code
+    multivalued: true 
+  description: 
+    definition_uri: anvil:description 
+    description: Description  
+    required: true 
+    range: string 
+    multivalued: false 
+  website: 
+    definition_uri: anvil:website 
+    description: Website 
+    required: false 
+    range: string 
+    multivalued: false 
+  disease_use_limitation: 
+    definition_uri: anvil:disease_use_limitation 
+    description: Disease Use Limitations  
+    required: false 
+    range: string 
+    multivalued: false 
+enums:
+  enum_access_type:
+    name: enum_access_type 
+    definition_uri: anvil:enum_access_type 
+    permissible_values:
+      open: 
+        text: open 
+        meaning: rdat:open 
+        description: Open Access 
+      registered: 
+        text: registered 
+        meaning: rdat:registered 
+        description: Registered Access 
+      controlled: 
+        text: controlled 
+        meaning: rdat:controlled 
+        description: Controlled 
+      gsr-restricted:
+        text: gsr-restricted 
+        meaning: rdat:gsr-restricted 
+        description: GSR Restricted 
+      gsr-allowed:
+        text: gsr-allowed 
+        meaning: rdat:gsr-allowed 
+        description: GSR Allowed 
+  enum_access_code:
+    name: enum_access_code 
+    definition_uri: anvil:enum_access_code
+    permissible_values:
+      GRU: 
+        text: GRU 
+        meaning: rdac:GRU
+        description: General Research Use 
+      HMB: 
+        text: HMB 
+        meaning: rdac:HMB 
+        description: Health/MEdical/Biomedical 
+      DS: 
+        text: DS 
+        meaning: rdac:DS 
+        description: Disease-Specific (Disease/Trait/Exposure)
+      IRB: 
+        text: IRB 
+        meaning: rdac:IRB 
+        description: IRB Approval Required 
+      PUB: 
+        text: PUB 
+        meaning: rdac:PUB 
+        description: Publication Required 
+      COL: 
+        text: COL 
+        meaning: rdac:COL 
+        description: Collaboration Required 
+      NPU: 
+        text: NPU 
+        meaning: rdac:NPU 
+        description: Not-for-profit use only 
+      MDS: 
+        text: MDS 
+        meaning: rdac:MDS 
+        description: Methods 
+      GSO: 
+        text: GSO 
+        meaning: rdac:GSO 
+        description: Genetic Studies only 
+      GSR: 
+        text: GSR 
+        meaning: rdac:GSR 
+        description: Genomic Summary Results 
