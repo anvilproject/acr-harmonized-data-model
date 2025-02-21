@@ -1,5 +1,5 @@
-site_name: "MVP AnVIL Data Model"
-site_url: "https://torstees.github.io/mvp-ncpi-data-model"
+site_name: "ACR Harmonized Data Model"
+site_url: "https://anvilproject.github.io/acr-harmonized-data-model"
 theme:
   name: readthedocs
 plugins:
@@ -8,7 +8,7 @@ plugins:
 #markdown_extensions:
 #  - toc:
 #      permalink: true
-docs_dir: anvil-docs/source
+docs_dir: anvil/docs
 site_dir: docs
 nav:
-  - About: anvil-docs/home.md
+  - About: anvil.md

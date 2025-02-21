@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://torstees.github.io/mvp-ncpi-data-model/data_access_type/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://anvilproject.github.io/acr-harmonized-data-model/data_access_type/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Slot: data_access_type - MVP AnVIL Data Model</title>
+    <title>Slot: data_access_type - ACR Harmonized Data Model</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -14,7 +14,7 @@
         // Current page data
         var mkdocs_page_name = "Slot: data_access_type";
         var mkdocs_page_input_path = "data_access_type.md";
-        var mkdocs_page_url = "/mvp-ncpi-data-model/data_access_type/";
+        var mkdocs_page_url = "/acr-harmonized-data-model/data_access_type/";
       </script>
     
     <!--[if lt IE 9]>
@@ -30,7 +30,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> MVP AnVIL Data Model
+          <a href=".." class="icon icon-home"> ACR Harmonized Data Model
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -40,7 +40,7 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-                <li class="toctree-l1"><a class="" href="../anvil-docs/home.md">About</a>
+                <li class="toctree-l1"><a class="reference internal" href="../anvil/">About</a>
                 </li>
               </ul>
       </div>
@@ -50,7 +50,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">MVP AnVIL Data Model</a>
+          <a href="..">ACR Harmonized Data Model</a>
         
       </nav>
       <div class="wy-nav-content">
@@ -67,78 +67,16 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="slot-data_access_type">Slot: data_access_type</h1>
-<p><em>Data Access Type</em></p>
-<p>URI: <a href="https://23id.org/anvil/:data_access_type">https://23id.org/anvil/:data_access_type</a></p>
-<!-- no inheritance hierarchy -->
-
-<h2 id="applicable-classes">Applicable Classes</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Modifies Slot</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="../DataAccessType/">DataAccessType</a></td>
-<td>Research Access Policy</td>
-<td>no</td>
-</tr>
-</tbody>
-</table>
-<h2 id="properties">Properties</h2>
+<p>Data Access Type</p>
+<p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/data_access_type">anvil:data_access_type</a></p>
+<h2 id="domain-and-range">Domain and Range</h2>
+<p>None &#8594;  <sub>0..*</sub> <a href="../enum_access_type/">enum_access_type</a></p>
+<h2 id="parents">Parents</h2>
+<h2 id="children">Children</h2>
+<h2 id="used-by">Used by</h2>
 <ul>
-<li>
-<p>Range: <a href="../EnumAccessType/">EnumAccessType</a></p>
-</li>
-<li>
-<p>Multivalued: True</p>
-</li>
+<li><a href="../DataAccessType/">DataAccessType</a></li>
 </ul>
-<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
-<h3 id="schema-source">Schema Source</h3>
-<ul>
-<li>from schema: https://23id.org/anvil</li>
-</ul>
-<h2 id="mappings">Mappings</h2>
-<table>
-<thead>
-<tr>
-<th>Mapping Type</th>
-<th>Mapped Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>self</td>
-<td>https://23id.org/anvil/:data_access_type</td>
-</tr>
-<tr>
-<td>native</td>
-<td>https://23id.org/anvil/:data_access_type</td>
-</tr>
-</tbody>
-</table>
-<h2 id="linkml-source">LinkML Source</h2>
-<details>
-
-<pre><code class="language-yaml">name: data_access_type
-definition_uri: anvil:data_access_type
-description: Data Access Type
-from_schema: https://23id.org/anvil
-rank: 1000
-alias: data_access_type
-domain_of:
-- DataAccessType
-range: enum_access_type
-required: false
-multivalued: true
-
-</code></pre>
-
-</details>
               
             </div>
           </div><footer>

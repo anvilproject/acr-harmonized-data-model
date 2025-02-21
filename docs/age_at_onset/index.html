@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://torstees.github.io/mvp-ncpi-data-model/age_at_onset/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://anvilproject.github.io/acr-harmonized-data-model/age_at_onset/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Slot: age_at_assertion (age_at_onset) - MVP AnVIL Data Model</title>
+    <title>Slot: age_at_onset - ACR Harmonized Data Model</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Slot: age_at_assertion (age_at_onset)";
+        var mkdocs_page_name = "Slot: age_at_onset";
         var mkdocs_page_input_path = "age_at_onset.md";
-        var mkdocs_page_url = "/mvp-ncpi-data-model/age_at_onset/";
+        var mkdocs_page_url = "/acr-harmonized-data-model/age_at_onset/";
       </script>
     
     <!--[if lt IE 9]>
@@ -30,7 +30,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> MVP AnVIL Data Model
+          <a href=".." class="icon icon-home"> ACR Harmonized Data Model
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -40,7 +40,7 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-                <li class="toctree-l1"><a class="" href="../anvil-docs/home.md">About</a>
+                <li class="toctree-l1"><a class="reference internal" href="../anvil/">About</a>
                 </li>
               </ul>
       </div>
@@ -50,14 +50,14 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">MVP AnVIL Data Model</a>
+          <a href="..">ACR Harmonized Data Model</a>
         
       </nav>
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Slot: age_at_assertion (age_at_onset)</li>
+      <li class="breadcrumb-item active">Slot: age_at_onset</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -66,75 +66,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="slot-age_at_assertion-age_at_onset">Slot: age_at_assertion (age_at_onset)</h1>
-<p><em>The age of onset for this condition.</em></p>
-<p>URI: <a href="https://23id.org/anvil/:age_at_onset">https://23id.org/anvil/:age_at_onset</a></p>
-<!-- no inheritance hierarchy -->
-
-<h2 id="applicable-classes">Applicable Classes</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Modifies Slot</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="../ConditionAssertion/">ConditionAssertion</a></td>
-<td>Study Meta Data</td>
-<td>no</td>
-</tr>
-</tbody>
-</table>
-<h2 id="properties">Properties</h2>
+                <h1 id="slot-age_at_onset">Slot: age_at_onset</h1>
+<p>The age of onset for this condition.</p>
+<p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/age_at_onset">anvil:age_at_onset</a></p>
+<h2 id="domain-and-range">Domain and Range</h2>
+<p>None &#8594;  <sub>0..1</sub> <a href="../types/Integer/">Integer</a></p>
+<h2 id="parents">Parents</h2>
+<h2 id="children">Children</h2>
+<h2 id="used-by">Used by</h2>
 <ul>
-<li>Range: <a href="../Integer/">Integer</a></li>
+<li><a href="../ConditionAssertion/">ConditionAssertion</a></li>
 </ul>
-<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
-<h3 id="schema-source">Schema Source</h3>
-<ul>
-<li>from schema: https://23id.org/anvil</li>
-</ul>
-<h2 id="mappings">Mappings</h2>
-<table>
-<thead>
-<tr>
-<th>Mapping Type</th>
-<th>Mapped Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>self</td>
-<td>https://23id.org/anvil/:age_at_onset</td>
-</tr>
-<tr>
-<td>native</td>
-<td>https://23id.org/anvil/:age_at_onset</td>
-</tr>
-</tbody>
-</table>
-<h2 id="linkml-source">LinkML Source</h2>
-<details>
-
-<pre><code class="language-yaml">name: age_at_onset
-definition_uri: anvil:age_at_onset
-description: The age of onset for this condition.
-title: age_at_assertion
-from_schema: https://23id.org/anvil
-rank: 1000
-alias: age_at_onset
-domain_of:
-- ConditionAssertion
-range: integer
-required: false
-multivalued: false
-
-</code></pre>
-
-</details>
               
             </div>
           </div><footer>

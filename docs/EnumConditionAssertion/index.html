@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://torstees.github.io/mvp-ncpi-data-model/EnumConditionAssertion/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://anvilproject.github.io/acr-harmonized-data-model/EnumConditionAssertion/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Enum: EnumConditionAssertion - MVP AnVIL Data Model</title>
+    <title>Enum: EnumConditionAssertion - ACR Harmonized Data Model</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -14,7 +14,7 @@
         // Current page data
         var mkdocs_page_name = "Enum: EnumConditionAssertion";
         var mkdocs_page_input_path = "EnumConditionAssertion.md";
-        var mkdocs_page_url = "/mvp-ncpi-data-model/EnumConditionAssertion/";
+        var mkdocs_page_url = "/acr-harmonized-data-model/EnumConditionAssertion/";
       </script>
     
     <!--[if lt IE 9]>
@@ -30,7 +30,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> MVP AnVIL Data Model
+          <a href=".." class="icon icon-home"> ACR Harmonized Data Model
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -40,7 +40,7 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-                <li class="toctree-l1"><a class="" href="../anvil-docs/home.md">About</a>
+                <li class="toctree-l1"><a class="reference internal" href="../anvil/">About</a>
                 </li>
               </ul>
       </div>
@@ -50,7 +50,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">MVP AnVIL Data Model</a>
+          <a href="..">ACR Harmonized Data Model</a>
         
       </nav>
       <div class="wy-nav-content">
@@ -67,89 +67,45 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="enum-enumconditionassertion">Enum: EnumConditionAssertion</h1>
-<p><em>Enumerations for Condition Assertion</em></p>
-<p>URI: <a href="./">EnumConditionAssertion</a></p>
+<p>Enumerations for Condition Assertion</p>
+<p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/EnumConditionAssertion">anvil:EnumConditionAssertion</a></p>
 <h2 id="permissible-values">Permissible Values</h2>
 <table>
 <thead>
 <tr>
-<th>Value</th>
-<th>Meaning</th>
-<th>Description</th>
+<th style="text-align: left;">Text</th>
+<th style="text-align: center;">Description</th>
+<th style="text-align: center;">Meaning</th>
+<th style="text-align: right;">Other Information</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>present</td>
-<td>None</td>
-<td>Present</td>
+<td style="text-align: left;">present</td>
+<td style="text-align: center;">Present</td>
+<td style="text-align: center;"></td>
+<td style="text-align: right;">{'title': 'Present'}</td>
 </tr>
 <tr>
-<td>absent</td>
-<td>None</td>
-<td>Absent</td>
+<td style="text-align: left;">absent</td>
+<td style="text-align: center;">Absent</td>
+<td style="text-align: center;"></td>
+<td style="text-align: right;">{'title': 'Absent'}</td>
 </tr>
 <tr>
-<td>unsure</td>
-<td>None</td>
-<td>Unsure</td>
+<td style="text-align: left;">unsure</td>
+<td style="text-align: center;">Unsure</td>
+<td style="text-align: center;"></td>
+<td style="text-align: right;">{'title': 'Unsure'}</td>
 </tr>
 <tr>
-<td>unknown</td>
-<td>None</td>
-<td>Unknown</td>
+<td style="text-align: left;">unknown</td>
+<td style="text-align: center;">Unknown</td>
+<td style="text-align: center;"></td>
+<td style="text-align: right;">{'title': 'Unknown'}</td>
 </tr>
 </tbody>
 </table>
-<h2 id="slots">Slots</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="../condition_assertion/">condition_assertion</a></td>
-<td>Condition Assertion</td>
-</tr>
-</tbody>
-</table>
-<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
-<h3 id="schema-source">Schema Source</h3>
-<ul>
-<li>from schema: https://23id.org/anvil</li>
-</ul>
-<h2 id="linkml-source">LinkML Source</h2>
-<details>
-
-<pre><code class="language-yaml">name: EnumConditionAssertion
-definition_uri: anvil:EnumConditionAssertion
-description: Enumerations for Condition Assertion
-from_schema: https://23id.org/anvil
-rank: 1000
-permissible_values:
-  present:
-    text: present
-    description: Present
-    title: Present
-  absent:
-    text: absent
-    description: Absent
-    title: Absent
-  unsure:
-    text: unsure
-    description: Unsure
-    title: Unsure
-  unknown:
-    text: unknown
-    description: Unknown
-    title: Unknown
-
-</code></pre>
-
-</details>
               
             </div>
           </div><footer>

@@ -1,0 +1,272 @@
+# metamodel_version: 1.7.0
+enum EnumAccessCode
+  {
+    GRU
+    HMB
+    DS
+    IRB
+    PUB
+    COL
+    NPU
+    MDS
+    GSO
+    GSR
+  }
+
+enum EnumAccessType
+  {
+    open
+    registered
+    controlled
+    gsr__HYPHEN_MINUS__restricted
+    gsr__HYPHEN_MINUS__allowed
+  }
+
+enum EnumDonorType
+  {
+    patient
+    cell_line
+  }
+
+enum EnumEthnicity
+  {
+    hispanic_or_latino
+    not_hispanic_or_latino
+    unknown
+    asked_but_unknown
+  }
+
+enum EnumRace
+  {
+    american_indian_or_alaskan_native
+    asian
+    black_or_african_american
+    native_hawaiian_or_pacific_islander
+    white
+    other_race
+    unknown
+    asked_but_unknown
+  }
+
+enum EnumSex
+  {
+    female
+    male
+    unknown
+    intersex
+  }
+
+enum EnumVitalStatus
+  {
+    alive
+    dead
+    not_reported
+    unknown
+    unspecified
+  }
+
+enum EnumAvailabilityStatus
+  {
+    available
+    unavailable
+  }
+
+enum EnumConditionAssertion
+  {
+    present
+    absent
+    unsure
+    unknown
+  }
+
+enum EnumConditionType
+  {
+    phenotypic__HYPHEN_MINUS__feature
+    disease
+    comorbidity
+    histology
+    clinical__HYPHEN_MINUS__finding
+    ehr__HYPHEN_MINUS__condition__HYPHEN_MINUS__code
+  }
+
+enum EnumConsanguinityAssertion
+  {
+    not__HYPHEN_MINUS__suspected
+    suspected
+    known__HYPHEN_MINUS__present
+    unknown
+  }
+
+enum EnumDateOfBirthType
+  {
+    exact
+    year__HYPHEN_MINUS__only
+    shifted
+    decade__HYPHEN_MINUS__only
+    other
+  }
+
+enum EnumFamilyType
+  {
+    control__HYPHEN_MINUS__only
+    duo
+    proband__HYPHEN_MINUS__only
+    trio
+    trio__PLUS_SIGN__
+    other
+  }
+
+enum EnumMeasurementValueCode
+  {
+    negative
+    positive
+    not__HYPHEN_MINUS__performed
+    indeterminate
+  }
+
+enum EnumProcedureDetail
+  {
+    False
+    True
+    not__HYPHEN_MINUS__reported
+    unknown
+  }
+
+type Aliquot
+  {
+    aliquotId: String!
+    sampleIdFk: String!
+    sampleAvailabilityStatus: EnumAvailabilityStatus
+    sampleVolume: Float
+    sampleVolumeUnit: String
+    sampleConcentration: Float
+    sampleConcentrationUnit: String
+  }
+
+type BiospecimenCollection
+  {
+    biospecimenCollectionId: String!
+    participantId: String!
+    ageAtCollection: Integer
+    method: EnumSampleCollectionMethod
+    site: EnumSite
+    spatialQualifier: EnumSpatialQualifiers
+    laterality: EnumLaterality
+  }
+
+type ConditionAssertion
+  {
+    participantId: String!
+    conditionCode: [EnumConditionCode]
+    conditionSourceValue: String!
+    conditionAssertion: EnumConditionAssertion
+    conditionType: EnumConditionType!
+    ageAtAssertion: Integer
+    ageAtOnset: Integer
+    ageAtResolution: Integer
+  }
+
+type DataAccessType
+  {
+    dataAccessTypeId: String!
+    dataAccessType: [EnumAccessType]
+    diseaseUseLimitation: String
+  }
+
+type Family
+  {
+    familyId: String!
+    familyExternalId: [String]
+    familyType: EnumFamilyType
+    familyDescription: String
+    consanguinity: EnumConsanguinityAssertion
+    familyStudyFocus: String
+  }
+
+type FamilyMember
+  {
+    familyIdFk: String
+    familyMemberId: String!
+    otherFamilyMemberId: String
+    relationshipCode: String
+  }
+
+type Measurement
+  {
+    participantId: String!
+    measurementCode: [String]!
+    measurementUnit: String!
+    measurementValueCode: EnumMeasurementValueCode
+    measurementSourceValue: String!
+    ageAtObservation: Integer
+  }
+
+type Participant
+  {
+    id: String!
+    participantExternalId: [String]
+    organismType: String
+    donorType: EnumDonorType
+    dateOfBirth: Integer
+    dateOfBirthType: EnumDateOfBirthType
+    phenotypicSex: EnumSex!
+    phenotypicSexSourceValue: String
+    race: EnumRace!
+    raceSourceValue: String
+    ethnicity: EnumEthnicity!
+    ethnicitySourceValue: String
+    ageAtLastVitalStatus: Integer
+    vitalStatus: EnumVitalStatus
+  }
+
+type Procedure
+  {
+    participantId: String!
+    procedureCode: [String]!
+    procedureSourceValue: String!
+    procedureDetail: EnumProcedureDetail
+    ageAtObservation: Integer
+  }
+
+type ResearchAccessPolicy
+  {
+    accessPolicyId: String!
+    accessPolicyCode: [EnumAccessCode]!
+    description: String!
+    website: String
+  }
+
+type Sample
+  {
+    sampleId: String!
+    participantId: String!
+    parentSampleId: String
+    biospecimenCollectionIdFk: String!
+    sampleType: String!
+    processing: [String]
+    availablityStatus: EnumAvailabilityStatus
+    storageMethod: String
+    quantity: String
+  }
+
+type Study
+  {
+    studyId: String!
+    externalStudyId: [String]
+    parentStudyId: Study
+    fundingSource: [String]
+    principalInvestigator: [String]
+    studyTitle: String!
+  }
+
+type StudyParticipant
+  {
+    participantId: String!
+    inStudy: Study
+    accessPolicyId: String!
+  }
+
+type Thing
+  {
+  }
+
