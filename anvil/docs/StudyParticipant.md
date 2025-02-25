@@ -1,12 +1,12 @@
 
-# Class: study_participant
+# Class: StudyParticipant
 
 Research
 
 URI: [anvil:StudyParticipant](https://anvilproject.org/acr-harmonized-data-model/StudyParticipant)
 
 
-[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[Study]<in_study%200..1-%20[StudyParticipant&#124;participant_id:string;id(i):string],[Thing]^-[StudyParticipant],[Thing],[Study])](https://yuml.me/diagram/nofunky;dir:TB/class/[Study]<in_study%200..1-%20[StudyParticipant&#124;participant_id:string;id(i):string],[Thing]^-[StudyParticipant],[Thing],[Study])
+[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Study]<in_study%200..1-%20[StudyParticipant&#124;participant_id:string;id(i):string],[Thing]^-[StudyParticipant],[Study])](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Study]<in_study%200..1-%20[StudyParticipant&#124;participant_id:string;id(i):string],[Thing]^-[StudyParticipant],[Study])
 
 ## Parents
 

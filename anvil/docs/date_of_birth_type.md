@@ -1,7 +1,7 @@
 
 # Slot: date_of_birth_type
 
-
+Privacy rule modification applied to date_of_birth.
 
 URI: [anvil:date_of_birth_type](https://anvilproject.org/acr-harmonized-data-model/date_of_birth_type)
 

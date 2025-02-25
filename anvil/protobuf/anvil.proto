@@ -13,7 +13,7 @@ message AccessPolicy
   string id = 0
  repeated  enumAccessType dataAccessType = 0
  repeated  enumAccessCode accessPolicyCode = 0
-  string diseaseUseLimitation = 0
+  string diseaseLimitation = 0
   string description = 0
   string website = 0
  }
@@ -108,7 +108,6 @@ message Procedure
   string participantId = 0
  repeated  string procedureCode = 0
   string procedureSourceValue = 0
-  enumProcedureDetail procedureDetail = 0
   integer ageAtObservation = 0
  }
 // Biospecimen data

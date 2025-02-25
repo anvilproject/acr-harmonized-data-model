@@ -1,7 +1,7 @@
 
 # Slot: date_of_birth
 
-
+Date at which the individual was born. May be impacted by privacy rules described in date_of_birth_type.
 
 URI: [anvil:date_of_birth](https://anvilproject.org/acr-harmonized-data-model/date_of_birth)
 

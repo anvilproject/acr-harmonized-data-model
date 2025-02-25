@@ -1,7 +1,7 @@
 
 # Slot: family_description
 
-Free text describing the study family, such as potential inheritance or details about consanguinity
+Free title describing the study family, such as potential inheritance or details about consanguinity
 
 URI: [anvil:family_description](https://anvilproject.org/acr-harmonized-data-model/family_description)
 

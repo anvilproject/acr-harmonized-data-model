@@ -10,10 +10,10 @@ URI: [anvil:EnumFamilyType](https://anvilproject.org/acr-harmonized-data-model/E
 
 | Text | Description | Meaning | Other Information |
 | :--- | :---: | :---: | ---: |
-| control-only | Control Only |  |  |
-| duo | Duo |  |  |
-| proband-only | Proband Only |  |  |
-| trio | Trio (2 parents and affected child) |  |  |
-| trio+ | 2 Parents and 2 or more children |  |  |
-| other | Other |  |  |
+| control_only | Control Only |  | {'title': 'control-only'} |
+| duo | Duo |  | {'title': 'duo'} |
+| proband_only | Proband Only |  | {'title': 'proband-only'} |
+| trio | Trio (2 parents and affected child) |  | {'title': 'trio'} |
+| trio_plus | 2 Parents and 2 or more children |  | {'title': 'trio+'} |
+| other | Other |  | {'title': 'other'} |
 

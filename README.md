@@ -16,6 +16,12 @@ pip install mkdocs-mermaid2-plugin
 
 Users can probably get away with slightly older versions but be aware that later versions of LinkML do require pydantic >= 2.x.x
 
+# Checking for convention compliance
+It can be helpful to review the [schema for compliance with linkml conventions](https://linkml.io/linkml/schemas/linter.html). To run a check for all files against the default standards the following command can be run.
+```
+linkml-lint data-model
+```
+
 # Creating the anvil project
 Here is the command to [generate default artifacts](https://linkml.io/linkml/generators/project-generator.html) if there is a need. 
 

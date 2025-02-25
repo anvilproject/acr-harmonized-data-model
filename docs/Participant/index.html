@@ -69,7 +69,7 @@
                 <h1 id="class-participant">Class: Participant</h1>
 <p>Basic participant demographics</p>
 <p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/Participant">anvil:Participant</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Sample],[Sample]&lt;has_sample%200..*-%20[Participant&#124;external_id:uriorcurie%20*;organism_type:string%20%3F;donor_type:enum_donor_type%20%3F;date_of_birth:integer%20%3F;date_of_birth_type:EnumDateOfBirthType%20%3F;phenotypic_sex:enum_sex;phenotypic_sex_source_value:string%20%3F;race:enum_race;race_source_value:string%20%3F;ethnicity:enum_ethnicity;ethnicity_source_value:string%20%3F;age_at_last_vital_status:integer%20%3F;vital_status:enum_vital_status%20%3F;id(i):string],[Thing]^-[Participant]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Sample],[Sample]&lt;has_sample%200..*-%20[Participant&#124;external_id:uriorcurie%20*;organism_type:string%20%3F;donor_type:enum_donor_type%20%3F;date_of_birth:integer%20%3F;date_of_birth_type:EnumDateOfBirthType%20%3F;phenotypic_sex:enum_sex;phenotypic_sex_source_value:string%20%3F;race:enum_race;race_source_value:string%20%3F;ethnicity:enum_ethnicity;ethnicity_source_value:string%20%3F;age_at_last_vital_status:integer%20%3F;vital_status:enum_vital_status%20%3F;id(i):string],[Thing]^-[Participant]" /></a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Sample],[Sample]&lt;has_sample%200..*-%20[Participant&#124;external_id:uriorcurie%20*;organism_type:string%20%3F;donor_type:EnumDonorType%20%3F;date_of_birth:integer%20%3F;date_of_birth_type:EnumDateOfBirthType%20%3F;phenotypic_sex:EnumSex;phenotypic_sex_source_value:string%20%3F;race:EnumRace;race_source_value:string%20%3F;ethnicity:EnumEthnicity;ethnicity_source_value:string%20%3F;age_at_last_vital_status:integer%20%3F;vital_status:EnumVitalStatus%20%3F;id(i):string],[Thing]^-[Participant]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Sample],[Sample]&lt;has_sample%200..*-%20[Participant&#124;external_id:uriorcurie%20*;organism_type:string%20%3F;donor_type:EnumDonorType%20%3F;date_of_birth:integer%20%3F;date_of_birth_type:EnumDateOfBirthType%20%3F;phenotypic_sex:EnumSex;phenotypic_sex_source_value:string%20%3F;race:EnumRace;race_source_value:string%20%3F;ethnicity:EnumEthnicity;ethnicity_source_value:string%20%3F;age_at_last_vital_status:integer%20%3F;vital_status:EnumVitalStatus%20%3F;id(i):string],[Thing]^-[Participant]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Thing/">Thing</a> - Highest Level Class</li>
@@ -93,20 +93,23 @@
 </ul>
 </li>
 <li><a href="../donor_type/">donor_type</a>  <sub>0..1</sub><ul>
-<li>Range: <a href="../enum_donor_type/">enum_donor_type</a></li>
+<li>Description: Type of entity this record represents</li>
+<li>Range: <a href="../EnumDonorType/">EnumDonorType</a></li>
 </ul>
 </li>
 <li><a href="../date_of_birth/">date_of_birth</a>  <sub>0..1</sub><ul>
+<li>Description: Date at which the individual was born. May be impacted by privacy rules described in date_of_birth_type.</li>
 <li>Range: <a href="../types/Integer/">Integer</a></li>
 </ul>
 </li>
 <li><a href="../date_of_birth_type/">date_of_birth_type</a>  <sub>0..1</sub><ul>
+<li>Description: Privacy rule modification applied to date_of_birth.</li>
 <li>Range: <a href="../EnumDateOfBirthType/">EnumDateOfBirthType</a></li>
 </ul>
 </li>
 <li><a href="../phenotypic_sex/">phenotypic_sex</a>  <sub>1..1</sub><ul>
 <li>Description: Sex of the Participant</li>
-<li>Range: <a href="../enum_sex/">enum_sex</a></li>
+<li>Range: <a href="../EnumSex/">EnumSex</a></li>
 </ul>
 </li>
 <li><a href="../phenotypic_sex_source_value/">phenotypic_sex_source_value</a>  <sub>0..1</sub><ul>
@@ -116,7 +119,7 @@
 </li>
 <li><a href="../race/">race</a>  <sub>1..1</sub><ul>
 <li>Description: Reported race defined by NIH Racial and Ethnic Categories and Definitions (NOT-OD-15-089)</li>
-<li>Range: <a href="../enum_race/">enum_race</a></li>
+<li>Range: <a href="../EnumRace/">EnumRace</a></li>
 </ul>
 </li>
 <li><a href="../race_source_value/">race_source_value</a>  <sub>0..1</sub><ul>
@@ -126,10 +129,11 @@
 </li>
 <li><a href="../ethnicity/">ethnicity</a>  <sub>1..1</sub><ul>
 <li>Description: Classification categories of human, taken from NIH, based on the social group a person belongs to, and either identifies with or is identified with by others, as a result of a complex of cultural, biological, geographical and other factors such as linguistic, dietary and religion traditions; ancestry, background, allegiance, or association; and physical characteristics traditionally associated with race.</li>
-<li>Range: <a href="../enum_ethnicity/">enum_ethnicity</a></li>
+<li>Range: <a href="../EnumEthnicity/">EnumEthnicity</a></li>
 </ul>
 </li>
 <li><a href="../ethnicity_source_value/">ethnicity_source_value</a>  <sub>0..1</sub><ul>
+<li>Description: Ethnicity value as reported in the original source</li>
 <li>Range: <a href="../types/String/">String</a></li>
 </ul>
 </li>
@@ -140,7 +144,7 @@
 </li>
 <li><a href="../vital_status/">vital_status</a>  <sub>0..1</sub><ul>
 <li>Description: Vital Status</li>
-<li>Range: <a href="../enum_vital_status/">enum_vital_status</a></li>
+<li>Range: <a href="../EnumVitalStatus/">EnumVitalStatus</a></li>
 </ul>
 </li>
 <li><a href="../has_sample/">has_sample</a>  <sub>0..*</sub><ul>

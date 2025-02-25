@@ -13,7 +13,6 @@ imports:
 classes: 
   BiospecimenCollection:
     title: BiospecimenCollection
-    definition_uri: anvil:biospecimen_collection 
     description: Biospecimen Collection
     is_a: Thing 
     slots: 
@@ -25,35 +24,30 @@ classes:
       - laterality 
 slots: 
   age_at_collection:
-    definition_uri: anvil:age_at_collection 
     description: The age at which this biospecimen was collected.
     title: age_at_collection 
     range: integer 
     required: false 
     multivalued: false 
   method: 
-    definition_uri: anvil:method 
     description: The approach used to collect the biospecimen.
     title: method 
     required: false 
     multivalued: false 
     range: EnumSampleCollectionMethod
   site: 
-    definition_uri: anvil:site  
     description: The location of the specimen collection.
     title: site  
     required: false 
     multivalued: false 
     range: EnumSite
   spatial_qualifier: 
-    definition_uri: anvil:spatial_qualifier 
     description: Any spatial/location qualifiers
     title: spatial_qualifier 
     required: false 
     multivalued: false 
     range: EnumSpatialQualifiers
   laterality: 
-    definition_uri: anvil:laterality  
     description: Laterality information for the site
     title: laterality  
     required: false 
@@ -61,19 +55,28 @@ slots:
     range: EnumLaterality
 enums:
   EnumSampleCollectionMethod:
-    definition_uri: anvil:EnumSampleCollectionMethod 
     description: |
       The approach used to collect the biospecimen. Recommend ontology: [LOINC](https://loinc.org).
   EnumSite:
-    definition_uri: anvil:EnumSite 
     description: |
       The location of the specimen collection. Recommended ontology: [SNOMED Body Site](https://hl7.org/fhir/R4B/valueset-body-site.html)
   EnumSpatialQualifiers:
-    definition_uri: anvil:EnumSpatialQualifiers
     description: |
       Any spatial/location qualifiers.
+    enum_uri: http://hl7.org/fhir/us/mcode/ValueSet/mcode-body-location-qualifier-vs 
+    reachable_from:
+      source_ontology: bioregistry:snomedct
+      source_nodes:
+        - snomedct:106233006
+        - snomedct:272424004 
+        - snomedct:51440002
+        - snomedct:399488007
+        - snomedct:24028007
+        - snomedct:7771000
+      is_direct: false
+      relationship_types:
+        - rdfs:subClassOf
   EnumLaterality:
-    definition_uri: anvil:EnumLaterality 
     description: |
       Laterality information for the site
   

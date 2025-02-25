@@ -13,7 +13,6 @@ imports:
 classes:
   FamilyMember:
     title: Family
-    definition_uri: anvil:family-member
     description: Family
     is_a: Thing
     slots:
@@ -23,25 +22,21 @@ classes:
     - relationship_code 
 slots:
   family_id_fk:
-    definition_uri: anvil:family_id_fk
     description: Family Identifier
     required: false 
     range: string
     multivalued: false 
   family_member_id:
-    definition_uri: anvil:family_member_id
     description: Family Member ID indicating presence in the family 
     required: true
     range: string
     multivalued: false 
   other_family_member_id: 
-    definition_uri: anvil:other_family_member_id
     description: Other member of the same family to which there is a relationship being described
     required: false 
     range: string
     multivalued: false 
   relationship_code:
-    definition_uri: anvil:relationship_code
     description: |
       Relationship of the "Family Member" to the "Other Family Member" (i.e. mother, father, etc). This is required if other_family_member_id is present. Code must be from the HL7 [FamilyMember ValueSet](https://terminology.hl7.org/6.2.0/ValueSet-v3-FamilyMember.html)
     required: false 

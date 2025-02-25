@@ -13,7 +13,6 @@ imports:
 classes: 
   Study:
     title: Study 
-    definition_uri: anvil:study 
     description: Study Meta Data 
     is_a: Thing 
     slots: 
@@ -25,31 +24,26 @@ classes:
 slots:
   external_study_id: 
     # DbGAP ID, pubmed id, etc
-    definition_uri: anvil:external_study_id
     description: External Study ID 
     required: false 
     range: string 
     multivalued: true
   parent_study_id:
-    definition_uri: anvil:parent_study_id 
     description: Parent Study ID 
     required: false 
     range: Study 
     multivalued: false
   funding_source:
-    definition_uri: anvil:funding_source 
     description: Funding Source 
     required: false 
     range: string 
     multivalued: true 
   principal_investigator:  
-    definition_uri: anvil:principal_investigator 
     description: Principal Investigator 
     required: false 
     range: string 
     multivalued: true 
   study_title: 
-    definition_uri: anvil:study_title 
     description: Study Title  
     required: true 
     range: string 

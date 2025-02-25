@@ -8,7 +8,7 @@ URI: [anvil:ethnicity](https://anvilproject.org/acr-harmonized-data-model/ethnic
 
 ## Domain and Range
 
-None &#8594;  <sub>1..1</sub> [enum_ethnicity](enum_ethnicity.md)
+None &#8594;  <sub>1..1</sub> [EnumEthnicity](EnumEthnicity.md)
 
 ## Parents
 

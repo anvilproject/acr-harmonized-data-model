@@ -19,7 +19,6 @@ imports:
 classes: 
   ConditionAssertion:
     title: ConditionAssertion 
-    definition_uri: anvil:condition_assertion 
     description: Study Meta Data 
     is_a: Thing 
     slots: 
@@ -33,7 +32,6 @@ classes:
       - age_at_resolution 
 slots: 
   condition_code:
-    definition_uri: anvil:condition_code 
     description: | 
       Condition Code should be from one of a recognized ontology. Multiple codes can be indicated, but should simply be alternative encodings for the same entity such as alternates encodings from other ontologies.       
       Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA and coded with the corresponding curies
@@ -46,97 +44,85 @@ slots:
     required: false 
     multivalued: true  
   condition_source_value: 
-    definition_uri: anvil:condition_source_value  
     description: Original Source Value for condition 
     title: condition_source_value 
     range: string 
     required: true 
     multivalued: false 
   condition_assertion: 
-    definition_uri: anvil:condition_assertion 
     description: Condition Assertion 
     title: condition_assertion 
     range: EnumConditionAssertion
     multivalued: false
   condition_type: 
-    definition_uri: anvil:condition_type 
     description: Does this condition represent a specific "type" of condition, such as "Phenotypic Feature" vs "Disease" in a rare disease setting.
     title: Condition Type 
     range: EnumConditionType 
     required: true 
     multivalued: false 
   age_at_assertion:
-    definition_uri: anvil:age_at_assertion 
     description: The age at which this condition is being asserted. 
     title: age_at_assertion 
     range: integer 
     required: false 
     multivalued: false 
   age_at_onset:
-    definition_uri: anvil:age_at_onset 
     description: The age of onset for this condition. 
     title: age_at_assertion 
     range: integer
     required: false 
     multivalued: false 
   age_at_resolution:
-    definition_uri: anvil:age_at_resolution 
     description: The age at which this condition was resolved, abated or cured. Should be left empty in cases of current active status.  
     title: age_at_resolution 
     range: integer
     required: false 
     multivalued: false 
 enums: 
+# TODO: Revisit this and refine the semantics here, ideally with links out to other definitions.
   EnumConditionType: 
-    definition_uri: anvil:EnumConditionType
-    description: Distinguish between phenotypic feature and disease. 
+    description: Provides options to describe the expressed semantics of a condition. 
     permissible_values: 
-      phenotypic-feature: 
-        text: phenotypic-feature
-        description: Phenotypic Feature
+      phenotypic_feature: 
+        title: Phenotypic Feature
+        description: This is a phenotypic feature
         meaning: igcondtype:Phenotypic-Feature
       disease: 
-        text: disease 
+        title: disease 
         description: Disease 
         meaning: igcondtype:Disease
       comorbidity: 
-        text: comorbidity 
+        title: comorbidity 
         description: Comorbidity
         meaning: igcondtype:Comorbidity
       histology: 
-        text: histology 
+        title: histology 
         description: Histology 
         meaning: igcondtype:Histology
-      clinical-finding: 
-        text: clinical-finding 
+      clinical_finding: 
+        title: clinical-finding 
         description: Clinical Finding 
         meaning: igcondtype:Clinical-Finding
-      ehr-condition-code:
-        text: ehr-condition-code 
-        description: ehr-condition-code 
-        meaning: igcondtype:EHR-Condition-Code
+      ehr_billing_code:
+        title: EHR Billing Code 
+        description: From an EHR billing record, which may indicate only investigation into a possible diagnosis.
+        #meaning: igcondtype:EHR-Condition-Code
   EnumConditionAssertion:
-    definition_uri: anvil:EnumConditionAssertion 
     description: Enumerations for Condition Assertion 
     permissible_values: 
       present: 
-        text: present 
         title: Present 
         description: Present 
       absent: 
-        text: absent 
         title: Absent 
         description: Absent 
       unsure: 
-        text: unsure 
         title: Unsure 
         description: Unsure 
       unknown: 
-        text: unknown 
         title: Unknown 
         description: Unknown 
   EnumConditionCode:
-    definition_uri: anvil:EnumConditionCode 
     description: |
       Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA, prefixed with those curies
       * SNOMED : https://bioregistry.io/registry/snomedct

@@ -7,54 +7,47 @@ prefixes:
   linkml:
     prefix_prefix: linkml
     prefix_reference: https://w3id.org/linkml/
-  rdac:
-    prefix_prefix: rdac 
+  ig2dac:
+    prefix_prefix: ig2dac 
     prefix_reference: https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-code
-  rdat: 
-    prefix_prefix: rdat 
+  ig2dat: 
+    prefix_prefix: ig2dat 
     prefix_reference: https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-type
 imports:
   - linkml:types
   - anvil_core
 classes:
   AccessPolicy: 
-    title: Research Access Policy 
-    definition_uri: anvil:research_access_policy 
     description: Describes the access required for a given element of data.
     is_a: Thing 
     slots: 
       - data_access_type
       - access_policy_code
-      - disease_use_limitation
+      - disease_limitation
       - description 
       - website 
 slots:
   data_access_type:
-    definition_uri: anvil:data_access_type 
     description: Data Access Type 
     required: false 
-    range: enum_access_type
+    range: EnumAccessType
     multivalued: true
   access_policy_code:
-    definition_uri: anvil:access_policy_code
     description: Access Policy Code 
     required: true
-    range: enum_access_code
+    range: EnumAccessCode
     multivalued: true 
   description: 
-    definition_uri: anvil:description 
     description: Description  
     required: true 
     range: string 
     multivalued: false 
   website: 
-    definition_uri: anvil:website 
     description: Website 
     required: false 
     range: string 
     multivalued: false 
-  disease_use_limitation: 
-    definition_uri: anvil:disease_use_limitation 
+  disease_limitation: 
     description: Disease Use Limitations  
     required: false 
     range: string 
@@ -64,71 +57,70 @@ slots:
     range: AccessPolicy
     inlined: false
 enums:
-  enum_access_type:
-    name: enum_access_type 
-    definition_uri: anvil:enum_access_type 
+  EnumAccessType:
+    description: Type of access controls applied
     permissible_values:
       open: 
-        text: open 
-        meaning: rdat:open 
+        title: open 
+        meaning: ig2dat:open 
         description: Open Access 
       registered: 
-        text: registered 
-        meaning: rdat:registered 
+        title: registered 
+        meaning: ig2dat:registered 
         description: Registered Access 
       controlled: 
-        text: controlled 
-        meaning: rdat:controlled 
+        title: controlled 
+        meaning: ig2dat:controlled 
         description: Controlled 
-      gsr-restricted:
-        text: gsr-restricted 
-        meaning: rdat:gsr-restricted 
+      gsr_restricted:
+        title: gsr_restricted 
+        meaning: ig2dat:gsr-restricted 
         description: GSR Restricted 
-      gsr-allowed:
-        text: gsr-allowed 
-        meaning: rdat:gsr-allowed 
+      gsr_allowed:
+        title: gsr_allowed 
+        meaning: ig2dat:gsr-allowed 
         description: GSR Allowed 
-  enum_access_code:
-    name: enum_access_code 
-    definition_uri: anvil:enum_access_code
+  EnumAccessCode:
+  # TODO: Align these with DUO codes vs ig codes
+    description: Type of research use case allowed
     permissible_values:
-      GRU: 
-        text: GRU 
-        meaning: rdac:GRU
+      gru: 
+        title: GRU 
+        meaning: ig2dac:GRU
         description: General Research Use 
-      HMB: 
-        text: HMB 
-        meaning: rdac:HMB 
-        description: Health/MEdical/Biomedical 
-      DS: 
-        text: DS 
-        meaning: rdac:DS 
+      hmb: 
+        title: HMB 
+        meaning: ig2dac:HMB 
+        description: Health/Medical/Biomedical 
+      ds: 
+        title: DS 
+        meaning: ig2dac:DS 
         description: Disease-Specific (Disease/Trait/Exposure)
-      IRB: 
-        text: IRB 
-        meaning: rdac:IRB 
+      irb: 
+        title: IRB 
+        meaning: ig2dac:IRB 
         description: IRB Approval Required 
-      PUB: 
-        text: PUB 
-        meaning: rdac:PUB 
+      pub: 
+        title: PUB 
+        meaning: ig2dac:PUB 
         description: Publication Required 
-      COL: 
-        text: COL 
-        meaning: rdac:COL 
+      col: 
+        title: COL 
+        meaning: ig2dac:COL 
         description: Collaboration Required 
-      NPU: 
-        text: NPU 
-        meaning: rdac:NPU 
+      npu: 
+        title: NPU 
+        meaning: ig2dac:NPU 
         description: Not-for-profit use only 
-      MDS: 
-        text: MDS 
-        meaning: rdac:MDS 
+      mds: 
+        title: MDS 
+        meaning: ig2dac:MDS 
         description: Methods 
-      GSO: 
-        text: GSO 
-        meaning: rdac:GSO 
+      gso: 
+        title: GSO 
+        meaning: ig2dac:GSO 
         description: Genetic Studies only 
-      GSR: 
-        text: GSR 
-        meaning: rdac:GSR 
+      gsr: 
+        title: GSR 
+        meaning: ig2dac:GSR 
         description: Genomic Summary Results 

@@ -351,6 +351,7 @@
     {
       "name": "EnumDateOfBirthType",
       "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/EnumDateOfBirthType",
+      "description": "Privacy rules that may modify a date value.",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/participant",
       "permissible_values": [
         {
@@ -360,7 +361,7 @@
           "title": "Exact"
         },
         {
-          "text": "year-only",
+          "text": "year_only",
           "description": "Year Only",
           "meaning": "ig-dob-method:year-only",
           "title": "Year Only"
@@ -372,7 +373,7 @@
           "title": "Shifted"
         },
         {
-          "text": "decade-only",
+          "text": "decade_only",
           "description": "Decade Only",
           "meaning": "ig-dob-method:decade-only",
           "title": "Decade Only"
@@ -386,8 +387,9 @@
       ]
     },
     {
-      "name": "enum_sex",
+      "name": "EnumSex",
       "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/EnumSex",
+      "description": "Terms describing an individual's sex.",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/participant",
       "permissible_values": [
         {
@@ -416,8 +418,9 @@
       ]
     },
     {
-      "name": "enum_race",
+      "name": "EnumRace",
       "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/EnumRace",
+      "description": "OMB Codes describing race.",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/participant",
       "permissible_values": [
         {
@@ -463,8 +466,9 @@
       ]
     },
     {
-      "name": "enum_ethnicity",
+      "name": "EnumEthnicity",
       "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/EnumEthnicity",
+      "description": "OMB Codes describing Hispanic or Latino ethnicity.",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/participant",
       "permissible_values": [
         {
@@ -490,8 +494,9 @@
       ]
     },
     {
-      "name": "enum_donor_type",
+      "name": "EnumDonorType",
       "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/EnumDonorType",
+      "description": "Types of entities",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/participant",
       "permissible_values": [
         {
@@ -505,8 +510,9 @@
       ]
     },
     {
-      "name": "enum_vital_status",
+      "name": "EnumVitalStatus",
       "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/EnumVitalStatus",
+      "description": "Is the entity living?",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/participant",
       "permissible_values": [
         {
@@ -534,38 +540,43 @@
     {
       "name": "EnumConditionType",
       "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/EnumConditionType",
-      "description": "Distinguish between phenotypic feature and disease.",
+      "description": "Provides options to describe the expressed semantics of a condition.",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
       "permissible_values": [
         {
-          "text": "phenotypic-feature",
-          "description": "Phenotypic Feature",
-          "meaning": "igcondtype:Phenotypic-Feature"
+          "text": "phenotypic_feature",
+          "description": "This is a phenotypic feature",
+          "meaning": "igcondtype:Phenotypic-Feature",
+          "title": "Phenotypic Feature"
         },
         {
           "text": "disease",
           "description": "Disease",
-          "meaning": "igcondtype:Disease"
+          "meaning": "igcondtype:Disease",
+          "title": "disease"
         },
         {
           "text": "comorbidity",
           "description": "Comorbidity",
-          "meaning": "igcondtype:Comorbidity"
+          "meaning": "igcondtype:Comorbidity",
+          "title": "comorbidity"
         },
         {
           "text": "histology",
           "description": "Histology",
-          "meaning": "igcondtype:Histology"
+          "meaning": "igcondtype:Histology",
+          "title": "histology"
         },
         {
-          "text": "clinical-finding",
+          "text": "clinical_finding",
           "description": "Clinical Finding",
-          "meaning": "igcondtype:Clinical-Finding"
+          "meaning": "igcondtype:Clinical-Finding",
+          "title": "clinical-finding"
         },
         {
-          "text": "ehr-condition-code",
-          "description": "ehr-condition-code",
-          "meaning": "igcondtype:EHR-Condition-Code"
+          "text": "ehr_billing_code",
+          "description": "From an EHR billing record, which may indicate only investigation into a possible diagnosis.",
+          "title": "EHR Billing Code"
         }
       ]
     },
@@ -604,91 +615,108 @@
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion"
     },
     {
-      "name": "enum_access_type",
+      "name": "EnumAccessType",
       "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/data-access-policy/EnumAccessType",
+      "description": "Type of access controls applied",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/data-access-policy",
       "permissible_values": [
         {
           "text": "open",
           "description": "Open Access",
-          "meaning": "rdat:open"
+          "meaning": "ig2dat:open",
+          "title": "open"
         },
         {
           "text": "registered",
           "description": "Registered Access",
-          "meaning": "rdat:registered"
+          "meaning": "ig2dat:registered",
+          "title": "registered"
         },
         {
           "text": "controlled",
           "description": "Controlled",
-          "meaning": "rdat:controlled"
+          "meaning": "ig2dat:controlled",
+          "title": "controlled"
         },
         {
-          "text": "gsr-restricted",
+          "text": "gsr_restricted",
           "description": "GSR Restricted",
-          "meaning": "rdat:gsr-restricted"
+          "meaning": "ig2dat:gsr-restricted",
+          "title": "gsr_restricted"
         },
         {
-          "text": "gsr-allowed",
+          "text": "gsr_allowed",
           "description": "GSR Allowed",
-          "meaning": "rdat:gsr-allowed"
+          "meaning": "ig2dat:gsr-allowed",
+          "title": "gsr_allowed"
         }
       ]
     },
     {
-      "name": "enum_access_code",
+      "name": "EnumAccessCode",
       "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/data-access-policy/EnumAccessCode",
+      "description": "Type of research use case allowed",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/data-access-policy",
       "permissible_values": [
         {
-          "text": "GRU",
+          "text": "gru",
           "description": "General Research Use",
-          "meaning": "rdac:GRU"
+          "meaning": "ig2dac:GRU",
+          "title": "GRU"
         },
         {
-          "text": "HMB",
-          "description": "Health/MEdical/Biomedical",
-          "meaning": "rdac:HMB"
+          "text": "hmb",
+          "description": "Health/Medical/Biomedical",
+          "meaning": "ig2dac:HMB",
+          "title": "HMB"
         },
         {
-          "text": "DS",
+          "text": "ds",
           "description": "Disease-Specific (Disease/Trait/Exposure)",
-          "meaning": "rdac:DS"
+          "meaning": "ig2dac:DS",
+          "title": "DS"
         },
         {
-          "text": "IRB",
+          "text": "irb",
           "description": "IRB Approval Required",
-          "meaning": "rdac:IRB"
+          "meaning": "ig2dac:IRB",
+          "title": "IRB"
         },
         {
-          "text": "PUB",
+          "text": "pub",
           "description": "Publication Required",
-          "meaning": "rdac:PUB"
+          "meaning": "ig2dac:PUB",
+          "title": "PUB"
         },
         {
-          "text": "COL",
+          "text": "col",
           "description": "Collaboration Required",
-          "meaning": "rdac:COL"
+          "meaning": "ig2dac:COL",
+          "title": "COL"
         },
         {
-          "text": "NPU",
+          "text": "npu",
           "description": "Not-for-profit use only",
-          "meaning": "rdac:NPU"
+          "meaning": "ig2dac:NPU",
+          "title": "NPU"
         },
         {
-          "text": "MDS",
+          "text": "mds",
           "description": "Methods",
-          "meaning": "rdac:MDS"
+          "meaning": "ig2dac:MDS",
+          "title": "MDS"
         },
         {
-          "text": "GSO",
+          "text": "gso",
           "description": "Genetic Studies only",
-          "meaning": "rdac:GSO"
+          "meaning": "ig2dac:GSO",
+          "title": "GSO"
         },
         {
-          "text": "GSR",
+          "text": "gsr",
           "description": "Genomic Summary Results",
-          "meaning": "rdac:GSR"
+          "meaning": "ig2dac:GSR",
+          "title": "GSR"
         }
       ]
     },
@@ -708,7 +736,22 @@
       "name": "EnumSpatialQualifiers",
       "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/biospecimen_collection/EnumSpatialQualifiers",
       "description": "Any spatial/location qualifiers.\n",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/biospecimen_collection"
+      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/biospecimen_collection",
+      "enum_uri": "http://hl7.org/fhir/us/mcode/ValueSet/mcode-body-location-qualifier-vs",
+      "reachable_from": {
+        "source_ontology": "bioregistry:snomedct",
+        "source_nodes": [
+          "snomedct:106233006",
+          "snomedct:272424004",
+          "snomedct:51440002",
+          "snomedct:399488007",
+          "snomedct:24028007",
+          "snomedct:7771000"
+        ],
+        "relationship_types": [
+          "rdfs:subClassOf"
+        ]
+      }
     },
     {
       "name": "EnumLaterality",
@@ -719,6 +762,7 @@
     {
       "name": "EnumAvailabilityStatus",
       "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/EnumAvailabilityStatus",
+      "description": "Is the Thing available for use?",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/sample",
       "permissible_values": [
         {
@@ -743,43 +787,23 @@
       "permissible_values": [
         {
           "text": "negative",
-          "description": "Negative"
+          "description": "Negative",
+          "title": "negative"
         },
         {
           "text": "positive",
-          "description": "Positive"
+          "description": "Positive",
+          "title": "positive"
         },
         {
-          "text": "not-performed",
-          "description": "Not Performed"
+          "text": "not_performed",
+          "description": "Not Performed",
+          "title": "not-performed"
         },
         {
           "text": "indeterminate",
-          "description": "Indeterminate"
-        }
-      ]
-    },
-    {
-      "name": "EnumProcedureDetail",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/procedure/EnumProcedureDetail",
-      "description": "Indicate procedure details such as yes/no/not reported",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/procedure",
-      "permissible_values": [
-        {
-          "text": "False",
-          "description": "False"
-        },
-        {
-          "text": "True",
-          "description": "True"
-        },
-        {
-          "text": "not-reported",
-          "description": "Not Reported"
-        },
-        {
-          "text": "unknown",
-          "description": "Unknown"
+          "description": "Indeterminate",
+          "title": "indeterminate"
         }
       ]
     },
@@ -790,28 +814,34 @@
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/family",
       "permissible_values": [
         {
-          "text": "control-only",
-          "description": "Control Only"
+          "text": "control_only",
+          "description": "Control Only",
+          "title": "control-only"
         },
         {
           "text": "duo",
-          "description": "Duo"
+          "description": "Duo",
+          "title": "duo"
         },
         {
-          "text": "proband-only",
-          "description": "Proband Only"
+          "text": "proband_only",
+          "description": "Proband Only",
+          "title": "proband-only"
         },
         {
           "text": "trio",
-          "description": "Trio (2 parents and affected child)"
+          "description": "Trio (2 parents and affected child)",
+          "title": "trio"
         },
         {
-          "text": "trio+",
-          "description": "2 Parents and 2 or more children"
+          "text": "trio_plus",
+          "description": "2 Parents and 2 or more children",
+          "title": "trio+"
         },
         {
           "text": "other",
-          "description": "Other"
+          "description": "Other",
+          "title": "other"
         }
       ]
     },
@@ -822,24 +852,28 @@
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/family",
       "permissible_values": [
         {
-          "text": "not-suspected",
+          "text": "not_suspected",
           "description": "Not suspected",
-          "meaning": "SNOMED_CT:428263003"
+          "meaning": "SNOMED_CT:428263003",
+          "title": "not-suspected"
         },
         {
           "text": "suspected",
           "description": "Suspected",
-          "meaning": "SNOMED_CT:415684004"
+          "meaning": "SNOMED_CT:415684004",
+          "title": "suspected"
         },
         {
-          "text": "known-present",
+          "text": "known_present",
           "description": "Known Present",
-          "meaning": "SNOMED_CT:410515003"
+          "meaning": "SNOMED_CT:410515003",
+          "title": "known-present"
         },
         {
           "text": "unknown",
           "description": "Unknown",
-          "meaning": "SNOMED_CT:261665006"
+          "meaning": "SNOMED_CT:261665006",
+          "title": "unknown"
         }
       ]
     }
@@ -925,6 +959,7 @@
     {
       "name": "donor_type",
       "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/donor_type",
+      "description": "Type of entity this record represents",
       "title": "Donor Type",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/participant",
       "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/donor_type",
@@ -932,12 +967,13 @@
       "domain_of": [
         "Participant"
       ],
-      "range": "enum_donor_type",
+      "range": "EnumDonorType",
       "@type": "SlotDefinition"
     },
     {
       "name": "date_of_birth",
       "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/date_of_birth",
+      "description": "Date at which the individual was born. May be impacted by privacy rules described in date_of_birth_type.",
       "title": "Date of Birth",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/participant",
       "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/date_of_birth",
@@ -951,6 +987,7 @@
     {
       "name": "date_of_birth_type",
       "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/date_of_birth_type",
+      "description": "Privacy rule modification applied to date_of_birth.",
       "title": "Date of Birth Type",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/participant",
       "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/date_of_birth_type",
@@ -972,7 +1009,7 @@
       "domain_of": [
         "Participant"
       ],
-      "range": "enum_sex",
+      "range": "EnumSex",
       "required": true,
       "@type": "SlotDefinition"
     },
@@ -1001,7 +1038,7 @@
       "domain_of": [
         "Participant"
       ],
-      "range": "enum_race",
+      "range": "EnumRace",
       "required": true,
       "@type": "SlotDefinition"
     },
@@ -1030,13 +1067,14 @@
       "domain_of": [
         "Participant"
       ],
-      "range": "enum_ethnicity",
+      "range": "EnumEthnicity",
       "required": true,
       "@type": "SlotDefinition"
     },
     {
       "name": "ethnicity_source_value",
       "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/ethnicity_source_value",
+      "description": "Ethnicity value as reported in the original source",
       "title": "Ethnicity Source Value",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/participant",
       "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/ethnicity_source_value",
@@ -1072,7 +1110,7 @@
       "domain_of": [
         "Participant"
       ],
-      "range": "enum_vital_status",
+      "range": "EnumVitalStatus",
       "@type": "SlotDefinition"
     },
     {
@@ -1270,7 +1308,7 @@
       "domain_of": [
         "AccessPolicy"
       ],
-      "range": "enum_access_type",
+      "range": "EnumAccessType",
       "multivalued": true,
       "@type": "SlotDefinition"
     },
@@ -1284,7 +1322,7 @@
       "domain_of": [
         "AccessPolicy"
       ],
-      "range": "enum_access_code",
+      "range": "EnumAccessCode",
       "required": true,
       "multivalued": true,
       "@type": "SlotDefinition"
@@ -1317,11 +1355,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "disease_use_limitation",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/data-access-policy/disease_use_limitation",
+      "name": "disease_limitation",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/data-access-policy/disease_limitation",
       "description": "Disease Use Limitations",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/data-access-policy",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/data-access-policy/disease_use_limitation",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/data-access-policy/disease_limitation",
       "owner": "AccessPolicy",
       "domain_of": [
         "AccessPolicy"
@@ -1688,19 +1726,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "procedure_detail",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/procedure/procedure_detail",
-      "description": "Non-procedure value indicating procedure status",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/procedure",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/procedure/procedure_detail",
-      "owner": "Procedure",
-      "domain_of": [
-        "Procedure"
-      ],
-      "range": "EnumProcedureDetail",
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "age_at_event",
       "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/procedure/age_at_event",
       "description": "Age of participant when procedure was performed/recorded",
@@ -1740,7 +1765,7 @@
     {
       "name": "family_description",
       "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/family/family_description",
-      "description": "Free text describing the study family, such as potential inheritance or details about consanguinity",
+      "description": "Free title describing the study family, such as potential inheritance or details about consanguinity",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/family",
       "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/family/family_description",
       "owner": "Family",
@@ -1947,14 +1972,13 @@
       "name": "AccessPolicy",
       "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/data-access-policy/AccessPolicy",
       "description": "Describes the access required for a given element of data.",
-      "title": "Research Access Policy",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/data-access-policy",
       "is_a": "Thing",
       "slots": [
         "id",
         "data_access_type",
         "access_policy_code",
-        "disease_use_limitation",
+        "disease_limitation",
         "description",
         "website"
       ],
@@ -2055,7 +2079,6 @@
         "participant_id",
         "procedure_code",
         "procedure_source_value",
-        "procedure_detail",
         "age_at_observation"
       ],
       "slot_usage": {},
@@ -2104,7 +2127,7 @@
   "source_file": "anvil.yaml",
   "source_file_date": "2025-02-25T08:10:40",
   "source_file_size": 805,
-  "generation_date": "2025-02-25T09:54:31",
+  "generation_date": "2025-02-25T12:51:39",
   "@type": "SchemaDefinition",
   "@context": [
     "anvil/jsonld/anvil.context.jsonld",

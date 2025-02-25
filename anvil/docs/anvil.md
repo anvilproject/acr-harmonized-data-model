@@ -48,16 +48,16 @@
  * [condition_type](condition_type.md) - Does this condition represent a specific "type" of condition, such as "Phenotypic Feature" vs "Disease" in a rare disease setting.
  * [consanguinity](consanguinity.md) - Is there known or suspected consanguinity in this study family?
  * [data_access_type](data_access_type.md) - Data Access Type
- * [date_of_birth](date_of_birth.md)
- * [date_of_birth_type](date_of_birth_type.md)
+ * [date_of_birth](date_of_birth.md) - Date at which the individual was born. May be impacted by privacy rules described in date_of_birth_type.
+ * [date_of_birth_type](date_of_birth_type.md) - Privacy rule modification applied to date_of_birth.
  * [description](description.md) - Description
- * [disease_use_limitation](disease_use_limitation.md) - Disease Use Limitations
- * [donor_type](donor_type.md)
+ * [disease_limitation](disease_limitation.md) - Disease Use Limitations
+ * [donor_type](donor_type.md) - Type of entity this record represents
  * [ethnicity](ethnicity.md) - Classification categories of human, taken from NIH, based on the social group a person belongs to, and either identifies with or is identified with by others, as a result of a complex of cultural, biological, geographical and other factors such as linguistic, dietary and religion traditions; ancestry, background, allegiance, or association; and physical characteristics traditionally associated with race.
- * [ethnicity_source_value](ethnicity_source_value.md)
+ * [ethnicity_source_value](ethnicity_source_value.md) - Ethnicity value as reported in the original source
  * [external_id](external_id.md) - Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
  * [external_study_id](external_study_id.md) - External Study ID
- * [family_description](family_description.md) - Free text describing the study family, such as potential inheritance or details about consanguinity
+ * [family_description](family_description.md) - Free title describing the study family, such as potential inheritance or details about consanguinity
  * [family_external_id](family_external_id.md) - Other study specific study identifiers
  * [family_id_fk](family_id_fk.md) - Family Identifier
  * [family_member_id](family_member_id.md) - Family Member ID indicating presence in the family
@@ -83,7 +83,6 @@
  * [phenotypic_sex_source_value](phenotypic_sex_source_value.md) - Original source value for phenotypic sex value
  * [principal_investigator](principal_investigator.md) - Principal Investigator
  * [procedure_code](procedure_code.md) - Procedure code should be from a recognized ontology preceded by a recognized curie. Multiple entries should reflect alternate codes for the same procedure. 
- * [procedure_detail](procedure_detail.md) - Non-procedure value indicating procedure status
  * [procedure_source_value](procedure_source_value.md) - Original procedure text
  * [processing](processing.md) - Curied code associated processing that was applied to the Parent Sample or from the Biospecimen Collection that yielded this distinct sample
  * [quantity](quantity.md) - The total quantity of the specimen
@@ -106,26 +105,25 @@
 
 ### Enums
 
- * [EnumAvailabilityStatus](EnumAvailabilityStatus.md)
+ * [EnumAccessCode](EnumAccessCode.md) - Type of research use case allowed
+ * [EnumAccessType](EnumAccessType.md) - Type of access controls applied
+ * [EnumAvailabilityStatus](EnumAvailabilityStatus.md) - Is the Thing available for use?
  * [EnumConditionAssertion](EnumConditionAssertion.md) - Enumerations for Condition Assertion
  * [EnumConditionCode](EnumConditionCode.md) - Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA, prefixed with those curies
- * [EnumConditionType](EnumConditionType.md) - Distinguish between phenotypic feature and disease.
+ * [EnumConditionType](EnumConditionType.md) - Provides options to describe the expressed semantics of a condition.
  * [EnumConsanguinityAssertion](EnumConsanguinityAssertion.md) - Asserts known or suspected consanguinity in this study family
- * [EnumDateOfBirthType](EnumDateOfBirthType.md)
+ * [EnumDateOfBirthType](EnumDateOfBirthType.md) - Privacy rules that may modify a date value.
+ * [EnumDonorType](EnumDonorType.md) - Types of entities
+ * [EnumEthnicity](EnumEthnicity.md) - OMB Codes describing Hispanic or Latino ethnicity.
  * [EnumFamilyType](EnumFamilyType.md) - Enumerations describing research family type
  * [EnumLaterality](EnumLaterality.md) - Laterality information for the site
  * [EnumMeasurementValueCode](EnumMeasurementValueCode.md) - Indicate measurement details such as positive/negative/indeterminate
- * [EnumProcedureDetail](EnumProcedureDetail.md) - Indicate procedure details such as yes/no/not reported
+ * [EnumRace](EnumRace.md) - OMB Codes describing race.
  * [EnumSampleCollectionMethod](EnumSampleCollectionMethod.md) - The approach used to collect the biospecimen. Recommend ontology: [LOINC](https://loinc.org).
+ * [EnumSex](EnumSex.md) - Terms describing an individual's sex.
  * [EnumSite](EnumSite.md) - The location of the specimen collection. Recommended ontology: [SNOMED Body Site](https://hl7.org/fhir/R4B/valueset-body-site.html)
  * [EnumSpatialQualifiers](EnumSpatialQualifiers.md) - Any spatial/location qualifiers.
- * [enum_access_code](enum_access_code.md)
- * [enum_access_type](enum_access_type.md)
- * [enum_donor_type](enum_donor_type.md)
- * [enum_ethnicity](enum_ethnicity.md)
- * [enum_race](enum_race.md)
- * [enum_sex](enum_sex.md)
- * [enum_vital_status](enum_vital_status.md)
+ * [EnumVitalStatus](EnumVitalStatus.md) - Is the entity living?
 
 ### Subsets
 

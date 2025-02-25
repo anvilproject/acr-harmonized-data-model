@@ -1,5 +1,5 @@
 # Auto generated from anvil.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-02-25T09:54:32
+# Generation date: 2025-02-25T12:51:39
 # Schema: anvil-schema
 #
 # id: https://anvilproject.org/acr-harmonized-data-model
@@ -279,7 +279,7 @@ class StudyParticipant(Thing):
 
     class_class_uri: ClassVar[URIRef] = ANVIL["participant/StudyParticipant"]
     class_class_curie: ClassVar[str] = "anvil:participant/StudyParticipant"
-    class_name: ClassVar[str] = "study_participant"
+    class_name: ClassVar[str] = "StudyParticipant"
     class_model_uri: ClassVar[URIRef] = ANVIL.StudyParticipant
 
     id: Union[str, StudyParticipantId] = None
@@ -425,7 +425,7 @@ class AccessPolicy(Thing):
     access_policy_code: Union[Union[str, "EnumAccessCode"], List[Union[str, "EnumAccessCode"]]] = None
     description: str = None
     data_access_type: Optional[Union[Union[str, "EnumAccessType"], List[Union[str, "EnumAccessType"]]]] = empty_list()
-    disease_use_limitation: Optional[str] = None
+    disease_limitation: Optional[str] = None
     website: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -449,8 +449,8 @@ class AccessPolicy(Thing):
             self.data_access_type = [self.data_access_type] if self.data_access_type is not None else []
         self.data_access_type = [v if isinstance(v, EnumAccessType) else EnumAccessType(v) for v in self.data_access_type]
 
-        if self.disease_use_limitation is not None and not isinstance(self.disease_use_limitation, str):
-            self.disease_use_limitation = str(self.disease_use_limitation)
+        if self.disease_limitation is not None and not isinstance(self.disease_limitation, str):
+            self.disease_limitation = str(self.disease_limitation)
 
         if self.website is not None and not isinstance(self.website, str):
             self.website = str(self.website)
@@ -672,7 +672,6 @@ class Procedure(Thing):
     participant_id: str = None
     procedure_code: Union[str, List[str]] = None
     procedure_source_value: str = None
-    procedure_detail: Optional[Union[str, "EnumProcedureDetail"]] = None
     age_at_observation: Optional[int] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -696,9 +695,6 @@ class Procedure(Thing):
             self.MissingRequiredField("procedure_source_value")
         if not isinstance(self.procedure_source_value, str):
             self.procedure_source_value = str(self.procedure_source_value)
-
-        if self.procedure_detail is not None and not isinstance(self.procedure_detail, EnumProcedureDetail):
-            self.procedure_detail = EnumProcedureDetail(self.procedure_detail)
 
         if self.age_at_observation is not None and not isinstance(self.age_at_observation, int):
             self.age_at_observation = int(self.age_at_observation)
@@ -793,15 +789,25 @@ class FamilyMember(Thing):
 
 # Enumerations
 class EnumDateOfBirthType(EnumDefinitionImpl):
-
+    """
+    Privacy rules that may modify a date value.
+    """
     exact = PermissibleValue(
         text="exact",
         description="Exact",
         meaning=IG-DOB-METHOD["exact"])
+    year_only = PermissibleValue(
+        text="year_only",
+        description="Year Only",
+        meaning=IG-DOB-METHOD["year-only"])
     shifted = PermissibleValue(
         text="shifted",
         description="Shifted",
         meaning=IG-DOB-METHOD["shifted"])
+    decade_only = PermissibleValue(
+        text="decade_only",
+        description="Decade Only",
+        meaning=IG-DOB-METHOD["decade-only"])
     other = PermissibleValue(
         text="other",
         description="Other",
@@ -809,23 +815,13 @@ class EnumDateOfBirthType(EnumDefinitionImpl):
 
     _defn = EnumDefinition(
         name="EnumDateOfBirthType",
+        description="Privacy rules that may modify a date value.",
     )
 
-    @classmethod
-    def _addvals(cls):
-        setattr(cls, "year-only",
-            PermissibleValue(
-                text="year-only",
-                description="Year Only",
-                meaning=IG-DOB-METHOD["year-only"]))
-        setattr(cls, "decade-only",
-            PermissibleValue(
-                text="decade-only",
-                description="Decade Only",
-                meaning=IG-DOB-METHOD["decade-only"]))
-
 class EnumSex(EnumDefinitionImpl):
-
+    """
+    Terms describing an individual's sex.
+    """
     female = PermissibleValue(
         text="female",
         description="Female",
@@ -844,10 +840,13 @@ class EnumSex(EnumDefinitionImpl):
 
     _defn = EnumDefinition(
         name="EnumSex",
+        description="Terms describing an individual's sex.",
     )
 
 class EnumRace(EnumDefinitionImpl):
-
+    """
+    OMB Codes describing race.
+    """
     american_indian_or_alaskan_native = PermissibleValue(
         text="american_indian_or_alaskan_native",
         description="American Indian or Alaskan Native",
@@ -883,10 +882,13 @@ class EnumRace(EnumDefinitionImpl):
 
     _defn = EnumDefinition(
         name="EnumRace",
+        description="OMB Codes describing race.",
     )
 
 class EnumEthnicity(EnumDefinitionImpl):
-
+    """
+    OMB Codes describing Hispanic or Latino ethnicity.
+    """
     hispanic_or_latino = PermissibleValue(
         text="hispanic_or_latino",
         description="Hispanic or Latino",
@@ -906,10 +908,13 @@ class EnumEthnicity(EnumDefinitionImpl):
 
     _defn = EnumDefinition(
         name="EnumEthnicity",
+        description="OMB Codes describing Hispanic or Latino ethnicity.",
     )
 
 class EnumDonorType(EnumDefinitionImpl):
-
+    """
+    Types of entities
+    """
     patient = PermissibleValue(
         text="patient",
         description="Patient")
@@ -919,10 +924,13 @@ class EnumDonorType(EnumDefinitionImpl):
 
     _defn = EnumDefinition(
         name="EnumDonorType",
+        description="Types of entities",
     )
 
 class EnumVitalStatus(EnumDefinitionImpl):
-
+    """
+    Is the entity living?
+    """
     alive = PermissibleValue(
         text="alive",
         description="Alive")
@@ -941,12 +949,17 @@ class EnumVitalStatus(EnumDefinitionImpl):
 
     _defn = EnumDefinition(
         name="EnumVitalStatus",
+        description="Is the entity living?",
     )
 
 class EnumConditionType(EnumDefinitionImpl):
     """
-    Distinguish between phenotypic feature and disease.
+    Provides options to describe the expressed semantics of a condition.
     """
+    phenotypic_feature = PermissibleValue(
+        text="phenotypic_feature",
+        description="This is a phenotypic feature",
+        meaning=IGCONDTYPE["Phenotypic-Feature"])
     disease = PermissibleValue(
         text="disease",
         description="Disease",
@@ -959,29 +972,18 @@ class EnumConditionType(EnumDefinitionImpl):
         text="histology",
         description="Histology",
         meaning=IGCONDTYPE["Histology"])
+    clinical_finding = PermissibleValue(
+        text="clinical_finding",
+        description="Clinical Finding",
+        meaning=IGCONDTYPE["Clinical-Finding"])
+    ehr_billing_code = PermissibleValue(
+        text="ehr_billing_code",
+        description="From an EHR billing record, which may indicate only investigation into a possible diagnosis.")
 
     _defn = EnumDefinition(
         name="EnumConditionType",
-        description="Distinguish between phenotypic feature and disease.",
+        description="Provides options to describe the expressed semantics of a condition.",
     )
-
-    @classmethod
-    def _addvals(cls):
-        setattr(cls, "phenotypic-feature",
-            PermissibleValue(
-                text="phenotypic-feature",
-                description="Phenotypic Feature",
-                meaning=IGCONDTYPE["Phenotypic-Feature"]))
-        setattr(cls, "clinical-finding",
-            PermissibleValue(
-                text="clinical-finding",
-                description="Clinical Finding",
-                meaning=IGCONDTYPE["Clinical-Finding"]))
-        setattr(cls, "ehr-condition-code",
-            PermissibleValue(
-                text="ehr-condition-code",
-                description="ehr-condition-code",
-                meaning=IGCONDTYPE["EHR-Condition-Code"]))
 
 class EnumConditionAssertion(EnumDefinitionImpl):
     """
@@ -1023,82 +1025,83 @@ class EnumConditionCode(EnumDefinitionImpl):
     )
 
 class EnumAccessType(EnumDefinitionImpl):
-
+    """
+    Type of access controls applied
+    """
     open = PermissibleValue(
         text="open",
         description="Open Access",
-        meaning=RDAT["open"])
+        meaning=IG2DAT["open"])
     registered = PermissibleValue(
         text="registered",
         description="Registered Access",
-        meaning=RDAT["registered"])
+        meaning=IG2DAT["registered"])
     controlled = PermissibleValue(
         text="controlled",
         description="Controlled",
-        meaning=RDAT["controlled"])
+        meaning=IG2DAT["controlled"])
+    gsr_restricted = PermissibleValue(
+        text="gsr_restricted",
+        description="GSR Restricted",
+        meaning=IG2DAT["gsr-restricted"])
+    gsr_allowed = PermissibleValue(
+        text="gsr_allowed",
+        description="GSR Allowed",
+        meaning=IG2DAT["gsr-allowed"])
 
     _defn = EnumDefinition(
         name="EnumAccessType",
+        description="Type of access controls applied",
     )
 
-    @classmethod
-    def _addvals(cls):
-        setattr(cls, "gsr-restricted",
-            PermissibleValue(
-                text="gsr-restricted",
-                description="GSR Restricted",
-                meaning=RDAT["gsr-restricted"]))
-        setattr(cls, "gsr-allowed",
-            PermissibleValue(
-                text="gsr-allowed",
-                description="GSR Allowed",
-                meaning=RDAT["gsr-allowed"]))
-
 class EnumAccessCode(EnumDefinitionImpl):
-
-    GRU = PermissibleValue(
-        text="GRU",
+    """
+    Type of research use case allowed
+    """
+    gru = PermissibleValue(
+        text="gru",
         description="General Research Use",
-        meaning=RDAC["GRU"])
-    HMB = PermissibleValue(
-        text="HMB",
-        description="Health/MEdical/Biomedical",
-        meaning=RDAC["HMB"])
-    DS = PermissibleValue(
-        text="DS",
+        meaning=IG2DAC["GRU"])
+    hmb = PermissibleValue(
+        text="hmb",
+        description="Health/Medical/Biomedical",
+        meaning=IG2DAC["HMB"])
+    ds = PermissibleValue(
+        text="ds",
         description="Disease-Specific (Disease/Trait/Exposure)",
-        meaning=RDAC["DS"])
-    IRB = PermissibleValue(
-        text="IRB",
+        meaning=IG2DAC["DS"])
+    irb = PermissibleValue(
+        text="irb",
         description="IRB Approval Required",
-        meaning=RDAC["IRB"])
-    PUB = PermissibleValue(
-        text="PUB",
+        meaning=IG2DAC["IRB"])
+    pub = PermissibleValue(
+        text="pub",
         description="Publication Required",
-        meaning=RDAC["PUB"])
-    COL = PermissibleValue(
-        text="COL",
+        meaning=IG2DAC["PUB"])
+    col = PermissibleValue(
+        text="col",
         description="Collaboration Required",
-        meaning=RDAC["COL"])
-    NPU = PermissibleValue(
-        text="NPU",
+        meaning=IG2DAC["COL"])
+    npu = PermissibleValue(
+        text="npu",
         description="Not-for-profit use only",
-        meaning=RDAC["NPU"])
-    MDS = PermissibleValue(
-        text="MDS",
+        meaning=IG2DAC["NPU"])
+    mds = PermissibleValue(
+        text="mds",
         description="Methods",
-        meaning=RDAC["MDS"])
-    GSO = PermissibleValue(
-        text="GSO",
+        meaning=IG2DAC["MDS"])
+    gso = PermissibleValue(
+        text="gso",
         description="Genetic Studies only",
-        meaning=RDAC["GSO"])
-    GSR = PermissibleValue(
-        text="GSR",
+        meaning=IG2DAC["GSO"])
+    gsr = PermissibleValue(
+        text="gsr",
         description="Genomic Summary Results",
-        meaning=RDAC["GSR"])
+        meaning=IG2DAC["GSR"])
 
     _defn = EnumDefinition(
         name="EnumAccessCode",
+        description="Type of research use case allowed",
     )
 
 class EnumSampleCollectionMethod(EnumDefinitionImpl):
@@ -1139,7 +1142,9 @@ class EnumLaterality(EnumDefinitionImpl):
     )
 
 class EnumAvailabilityStatus(EnumDefinitionImpl):
-
+    """
+    Is the Thing available for use?
+    """
     available = PermissibleValue(
         text="available",
         description="Biospecimen is Available",
@@ -1151,6 +1156,7 @@ class EnumAvailabilityStatus(EnumDefinitionImpl):
 
     _defn = EnumDefinition(
         name="EnumAvailabilityStatus",
+        description="Is the Thing available for use?",
     )
 
 class EnumMeasurementValueCode(EnumDefinitionImpl):
@@ -1163,6 +1169,9 @@ class EnumMeasurementValueCode(EnumDefinitionImpl):
     positive = PermissibleValue(
         text="positive",
         description="Positive")
+    not_performed = PermissibleValue(
+        text="not_performed",
+        description="Not Performed")
     indeterminate = PermissibleValue(
         text="indeterminate",
         description="Indeterminate")
@@ -1172,51 +1181,25 @@ class EnumMeasurementValueCode(EnumDefinitionImpl):
         description="Indicate measurement details such as positive/negative/indeterminate",
     )
 
-    @classmethod
-    def _addvals(cls):
-        setattr(cls, "not-performed",
-            PermissibleValue(
-                text="not-performed",
-                description="Not Performed"))
-
-class EnumProcedureDetail(EnumDefinitionImpl):
-    """
-    Indicate procedure details such as yes/no/not reported
-    """
-    unknown = PermissibleValue(
-        text="unknown",
-        description="Unknown")
-
-    _defn = EnumDefinition(
-        name="EnumProcedureDetail",
-        description="Indicate procedure details such as yes/no/not reported",
-    )
-
-    @classmethod
-    def _addvals(cls):
-        setattr(cls, "False",
-            PermissibleValue(
-                text="False",
-                description="False"))
-        setattr(cls, "True",
-            PermissibleValue(
-                text="True",
-                description="True"))
-        setattr(cls, "not-reported",
-            PermissibleValue(
-                text="not-reported",
-                description="Not Reported"))
-
 class EnumFamilyType(EnumDefinitionImpl):
     """
     Enumerations describing research family type
     """
+    control_only = PermissibleValue(
+        text="control_only",
+        description="Control Only")
     duo = PermissibleValue(
         text="duo",
         description="Duo")
+    proband_only = PermissibleValue(
+        text="proband_only",
+        description="Proband Only")
     trio = PermissibleValue(
         text="trio",
         description="Trio (2 parents and affected child)")
+    trio_plus = PermissibleValue(
+        text="trio_plus",
+        description="2 Parents and 2 or more children")
     other = PermissibleValue(
         text="other",
         description="Other")
@@ -1226,29 +1209,22 @@ class EnumFamilyType(EnumDefinitionImpl):
         description="Enumerations describing research family type",
     )
 
-    @classmethod
-    def _addvals(cls):
-        setattr(cls, "control-only",
-            PermissibleValue(
-                text="control-only",
-                description="Control Only"))
-        setattr(cls, "proband-only",
-            PermissibleValue(
-                text="proband-only",
-                description="Proband Only"))
-        setattr(cls, "trio+",
-            PermissibleValue(
-                text="trio+",
-                description="2 Parents and 2 or more children"))
-
 class EnumConsanguinityAssertion(EnumDefinitionImpl):
     """
     Asserts known or suspected consanguinity in this study family
     """
+    not_suspected = PermissibleValue(
+        text="not_suspected",
+        description="Not suspected",
+        meaning=SNOMED_CT["428263003"])
     suspected = PermissibleValue(
         text="suspected",
         description="Suspected",
         meaning=SNOMED_CT["415684004"])
+    known_present = PermissibleValue(
+        text="known_present",
+        description="Known Present",
+        meaning=SNOMED_CT["410515003"])
     unknown = PermissibleValue(
         text="unknown",
         description="Unknown",
@@ -1258,19 +1234,6 @@ class EnumConsanguinityAssertion(EnumDefinitionImpl):
         name="EnumConsanguinityAssertion",
         description="Asserts known or suspected consanguinity in this study family",
     )
-
-    @classmethod
-    def _addvals(cls):
-        setattr(cls, "not-suspected",
-            PermissibleValue(
-                text="not-suspected",
-                description="Not suspected",
-                meaning=SNOMED_CT["428263003"]))
-        setattr(cls, "known-present",
-            PermissibleValue(
-                text="known-present",
-                description="Known Present",
-                meaning=SNOMED_CT["410515003"]))
 
 # Slots
 class slots:
@@ -1375,8 +1338,8 @@ slots.description = Slot(uri=ANVIL['data-access-policy/description'], name="desc
 slots.website = Slot(uri=ANVIL['data-access-policy/website'], name="website", curie=ANVIL.curie('data-access-policy/website'),
                    model_uri=ANVIL.website, domain=None, range=Optional[str])
 
-slots.disease_use_limitation = Slot(uri=ANVIL['data-access-policy/disease_use_limitation'], name="disease_use_limitation", curie=ANVIL.curie('data-access-policy/disease_use_limitation'),
-                   model_uri=ANVIL.disease_use_limitation, domain=None, range=Optional[str])
+slots.disease_limitation = Slot(uri=ANVIL['data-access-policy/disease_limitation'], name="disease_limitation", curie=ANVIL.curie('data-access-policy/disease_limitation'),
+                   model_uri=ANVIL.disease_limitation, domain=None, range=Optional[str])
 
 slots.has_access_policy = Slot(uri=ANVIL['data-access-policy/has_access_policy'], name="has_access_policy", curie=ANVIL.curie('data-access-policy/has_access_policy'),
                    model_uri=ANVIL.has_access_policy, domain=None, range=Optional[Union[str, AccessPolicyId]])
@@ -1455,9 +1418,6 @@ slots.procedure_code = Slot(uri=ANVIL['procedure/procedure_code'], name="procedu
 
 slots.procedure_source_value = Slot(uri=ANVIL['procedure/procedure_source_value'], name="procedure_source_value", curie=ANVIL.curie('procedure/procedure_source_value'),
                    model_uri=ANVIL.procedure_source_value, domain=None, range=str)
-
-slots.procedure_detail = Slot(uri=ANVIL['procedure/procedure_detail'], name="procedure_detail", curie=ANVIL.curie('procedure/procedure_detail'),
-                   model_uri=ANVIL.procedure_detail, domain=None, range=Optional[Union[str, "EnumProcedureDetail"]])
 
 slots.age_at_event = Slot(uri=ANVIL['procedure/age_at_event'], name="age_at_event", curie=ANVIL.curie('procedure/age_at_event'),
                    model_uri=ANVIL.age_at_event, domain=None, range=Optional[int])

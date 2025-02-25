@@ -8,7 +8,7 @@ URI: [anvil:race](https://anvilproject.org/acr-harmonized-data-model/race)
 
 ## Domain and Range
 
-None &#8594;  <sub>1..1</sub> [enum_race](enum_race.md)
+None &#8594;  <sub>1..1</sub> [EnumRace](EnumRace.md)
 
 ## Parents
 

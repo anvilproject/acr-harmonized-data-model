@@ -24,7 +24,7 @@ URI: [anvil:Family](https://anvilproject.org/acr-harmonized-data-model/Family)
      * Description: Describes the 'type' of study family, eg, trio.
      * Range: [EnumFamilyType](EnumFamilyType.md)
  * [family_description](family_description.md)  <sub>0..1</sub>
-     * Description: Free text describing the study family, such as potential inheritance or details about consanguinity
+     * Description: Free title describing the study family, such as potential inheritance or details about consanguinity
      * Range: [String](types/String.md)
  * [consanguinity](consanguinity.md)  <sub>0..1</sub>
      * Description: Is there known or suspected consanguinity in this study family?

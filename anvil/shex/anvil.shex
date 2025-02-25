@@ -75,7 +75,7 @@ linkml:Sparqlpath xsd:string
              <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-codeMDS>
              <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-codeGSO>
              <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-codeGSR> ] + ;
-          <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/disease_use_limitation> @linkml:String ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/disease_limitation> @linkml:String ? ;
           <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/description> @linkml:String ;
           <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/website> @linkml:String ?
        ) ;
@@ -133,7 +133,7 @@ linkml:Sparqlpath xsd:string
              <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/condition-typeComorbidity>
              <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/condition-typeHistology>
              <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/condition-typeClinical-Finding>
-             <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/condition-typeEHR-Condition-Code> ] ;
+             <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/EnumConditionType#ehr_billing_code> ] ;
           <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_assertion> @linkml:Integer ? ;
           <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_onset> @linkml:Integer ? ;
           <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_resolution> @linkml:Integer ?
@@ -148,11 +148,11 @@ linkml:Sparqlpath xsd:string
           rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/Thing> ] ? ;
           <https://anvilproject.org/acr-harmonized-data-model/family/family_external_id> @linkml:String * ;
           <https://anvilproject.org/acr-harmonized-data-model/family/family_type> [
-             <https://anvilproject.org/acr-harmonized-data-model/family/EnumFamilyType#control-only>
+             <https://anvilproject.org/acr-harmonized-data-model/family/EnumFamilyType#control_only>
              <https://anvilproject.org/acr-harmonized-data-model/family/EnumFamilyType#duo>
-             <https://anvilproject.org/acr-harmonized-data-model/family/EnumFamilyType#proband-only>
+             <https://anvilproject.org/acr-harmonized-data-model/family/EnumFamilyType#proband_only>
              <https://anvilproject.org/acr-harmonized-data-model/family/EnumFamilyType#trio>
-             <https://anvilproject.org/acr-harmonized-data-model/family/EnumFamilyType#trio%2B>
+             <https://anvilproject.org/acr-harmonized-data-model/family/EnumFamilyType#trio_plus>
              <https://anvilproject.org/acr-harmonized-data-model/family/EnumFamilyType#other> ] ? ;
           <https://anvilproject.org/acr-harmonized-data-model/family/family_description> @linkml:String ? ;
           <https://anvilproject.org/acr-harmonized-data-model/family/consanguinity> [
@@ -187,7 +187,7 @@ linkml:Sparqlpath xsd:string
           <https://anvilproject.org/acr-harmonized-data-model/measurement/measurement_value_code> [
              <https://anvilproject.org/acr-harmonized-data-model/measurement/EnumMeasurementValueCode#negative>
              <https://anvilproject.org/acr-harmonized-data-model/measurement/EnumMeasurementValueCode#positive>
-             <https://anvilproject.org/acr-harmonized-data-model/measurement/EnumMeasurementValueCode#not-performed>
+             <https://anvilproject.org/acr-harmonized-data-model/measurement/EnumMeasurementValueCode#not_performed>
              <https://anvilproject.org/acr-harmonized-data-model/measurement/EnumMeasurementValueCode#indeterminate> ] ? ;
           <https://anvilproject.org/acr-harmonized-data-model/measurement/measurement_source_value> @linkml:String ;
           <https://anvilproject.org/acr-harmonized-data-model/measurement/age_at_observation> @linkml:Integer ?
@@ -248,11 +248,6 @@ linkml:Sparqlpath xsd:string
           <https://anvilproject.org/acr-harmonized-data-model/core/participant_id> @linkml:String ;
           <https://anvilproject.org/acr-harmonized-data-model/procedure/procedure_code> @linkml:String + ;
           <https://anvilproject.org/acr-harmonized-data-model/procedure/procedure_source_value> @linkml:String ;
-          <https://anvilproject.org/acr-harmonized-data-model/procedure/procedure_detail> [
-             <https://anvilproject.org/acr-harmonized-data-model/procedure/EnumProcedureDetail#False>
-             <https://anvilproject.org/acr-harmonized-data-model/procedure/EnumProcedureDetail#True>
-             <https://anvilproject.org/acr-harmonized-data-model/procedure/EnumProcedureDetail#not-reported>
-             <https://anvilproject.org/acr-harmonized-data-model/procedure/EnumProcedureDetail#unknown> ] ? ;
           <https://anvilproject.org/acr-harmonized-data-model/measurement/age_at_observation> @linkml:Integer ?
        ) ;
        rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/procedure/Procedure> ]

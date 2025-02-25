@@ -13,18 +13,15 @@ imports:
 classes:
   Procedure:
     title: Procedure
-    definition_uri: anvil:procedure
     description: Procedures
     is_a: Thing
     slots:
     - participant_id
     - procedure_code
     - procedure_source_value 
-    - procedure_detail
     - age_at_observation 
 slots:
   procedure_code: 
-    definition_uri: anvil:procedure_code 
     description: |
       Procedure code should be from a recognized ontology preceded by a recognized curie. Multiple entries should reflect alternate codes for the same procedure. 
       * CPT : https://bioregistry.io/registry/cpt
@@ -33,38 +30,13 @@ slots:
     required: true 
     multivalued: true
   procedure_source_value: 
-    definition_uri: anvil:procedure_source_value 
     description: Original procedure text 
     required: true 
     range: string 
     multivalued: false 
-  procedure_detail: 
-    definition_uri: anvil:procedure_detail 
-    description: Non-procedure value indicating procedure status
-    required: false 
-    range: EnumProcedureDetail 
-    multivalued: false 
   age_at_event: 
-    definition_uri: anvil:age_at_event 
     description: Age of participant when procedure was performed/recorded 
     title: age_at_event 
     required: false 
     range: integer 
     multivalued: false 
-enums: 
-  EnumProcedureDetail: 
-    definition_uri: anvil:EnumMeasurementDetail 
-    description: Indicate procedure details such as yes/no/not reported
-    permissible_values:
-      no: 
-        text: no 
-        description: No  
-      yes: 
-        text: yes 
-        description: Yes 
-      not-reported: 
-        text: not-reported 
-        description: Not Reported 
-      unknown:
-        text: unknown 
-        description: Unknown 

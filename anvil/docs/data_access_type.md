@@ -8,7 +8,7 @@ URI: [anvil:data_access_type](https://anvilproject.org/acr-harmonized-data-model
 
 ## Domain and Range
 
-None &#8594;  <sub>0..\*</sub> [enum_access_type](enum_access_type.md)
+None &#8594;  <sub>0..\*</sub> [EnumAccessType](EnumAccessType.md)
 
 ## Parents
 

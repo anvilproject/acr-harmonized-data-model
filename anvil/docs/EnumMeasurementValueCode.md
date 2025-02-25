@@ -10,8 +10,8 @@ URI: [anvil:EnumMeasurementValueCode](https://anvilproject.org/acr-harmonized-da
 
 | Text | Description | Meaning | Other Information |
 | :--- | :---: | :---: | ---: |
-| negative | Negative |  |  |
-| positive | Positive |  |  |
-| not-performed | Not Performed |  |  |
-| indeterminate | Indeterminate |  |  |
+| negative | Negative |  | {'title': 'negative'} |
+| positive | Positive |  | {'title': 'positive'} |
+| not_performed | Not Performed |  | {'title': 'not-performed'} |
+| indeterminate | Indeterminate |  | {'title': 'indeterminate'} |
 

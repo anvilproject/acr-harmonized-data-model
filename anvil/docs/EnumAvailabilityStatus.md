@@ -1,7 +1,7 @@
 
 # Enum: EnumAvailabilityStatus
 
-
+Is the Thing available for use?
 
 URI: [anvil:EnumAvailabilityStatus](https://anvilproject.org/acr-harmonized-data-model/EnumAvailabilityStatus)
 

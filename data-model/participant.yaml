@@ -29,7 +29,6 @@ imports:
 classes:
   Participant:
     title: Participant
-    definition_uri: anvil:participant
     description: Basic participant demographics
     is_a: Thing
     slots:
@@ -48,10 +47,9 @@ classes:
       - age_at_last_vital_status 
       - vital_status
       - has_sample
-  study_participant: 
-#Rework this to be a consent record on the subject.
+  StudyParticipant: 
+# TODO: Rework this to be a consent record on the subject.
     title: StudyParticipant 
-    definition_uri: anvil:study_participant
     description: Research 
     is_a: Thing
     slots:
@@ -60,7 +58,6 @@ classes:
 #      - access_policy_id
 slots:
   in_study: 
-    definition_uri: anvil:in_study
     title: in study
     description: With which study is this class associated?
     required: false
@@ -68,78 +65,67 @@ slots:
     multivalued: false 
     inlined: false
   organism_type:
-    definition_uri: anvil:organism_type 
-    description: Organism Type Label
     title: Organism Type 
+    description: Organism Type Label
     required: false 
     range: string 
   donor_type: 
-    definition_uri: anvil:donor_type 
     title: Donor Type 
+    description: Type of entity this record represents
     required: false 
-    range: enum_donor_type 
+    range: EnumDonorType 
   date_of_birth:
-    definition_uri: anvil:date_of_birth 
     title: Date of Birth 
+    description: Date at which the individual was born. May be impacted by privacy rules described in date_of_birth_type.
     required: false 
     multivalued: false 
     range: integer 
   date_of_birth_type: 
-    definition_uri: anvil:date_of_birth_type 
     title: Date of Birth Type 
+    description: Privacy rule modification applied to date_of_birth.
     required: false 
     multivalued: false 
     range: EnumDateOfBirthType 
   phenotypic_sex: 
-    definition_uri: anvil:phenotypic_sex 
+    title: Phenotypic Sex
     description: Sex of the Participant 
-    title: Phenotypic Sex 
-    range: enum_sex 
+    range: EnumSex 
     required: true
   phenotypic_sex_source_value:
-    definition_uri: anvil:phenotypic_sex_source_value 
-    description: Original source value for phenotypic sex value 
     title: Phenotypic Sex Source Value 
+    description: Original source value for phenotypic sex value 
     range: string 
   race: 
-    name: race
-    definition_uri: anvil:race 
     description: Reported race defined by NIH Racial and Ethnic Categories and Definitions (NOT-OD-15-089) 
     title: Race 
-    range: enum_race
+    range: EnumRace
     required: true 
   race_source_value:
-    definition_uri: anvil:race_source_value 
     description: Race value as observed from the original source text
     title: Race Source value
     range: string 
     required: false
   ethnicity: 
-    definition_uri: anvil:ethnicity 
     description: Classification categories of human, taken from NIH, based on the social group a person belongs to, and either identifies with or is identified with by others, as a result of a complex of cultural, biological, geographical and other factors such as linguistic, dietary and religion traditions; ancestry, background, allegiance, or association; and physical characteristics traditionally associated with race.  
     title: Ethnicity 
-    range: enum_ethnicity
+    range: EnumEthnicity
     required: true 
   ethnicity_source_value:
-    definition_uri: anvil:ethnicity_source_value 
-    description: 
+    description: Ethnicity value as reported in the original source
     title: Ethnicity Source Value
     range: string 
     required: false
   age_at_last_vital_status: 
-    definition_uri: anvil:age_at_last_vital_status 
     description: Age at Last Vital Status 
     title: AgeAtLastVitalStatus 
     range: integer
     required: false     
   vital_status: 
-    definition_uri: anvil:vital_status
     description: Vital Status 
     title: VitalStatus 
-    range: enum_vital_status
+    range: EnumVitalStatus
     required: false
   has_sample: 
-    definition_uri: anvil:has_sample
     title: Has sample
     description: Which samples were collected or processed for this participant?
     required: false
@@ -148,123 +134,97 @@ slots:
     inlined: false
 enums:
   EnumDateOfBirthType:
-    name: EnumDateOfBirthType 
-    definition_uri: anvil:DateOfBirthType 
+    description: Privacy rules that may modify a date value.
     permissible_values:  
       exact:
-        text: exact 
         title: Exact 
         meaning: ig-dob-method:exact 
         description: Exact 
-      year-only: 
-        text: year-only 
+      year_only: 
         title: Year Only 
         meaning:  ig-dob-method:year-only 
         description: Year Only 
       shifted: 
-        text: shifted 
         title: Shifted 
         meaning: ig-dob-method:shifted 
         description: Shifted 
-      decade-only: 
-        text: decade-only 
+      decade_only: 
         title: Decade Only 
         meaning: ig-dob-method:decade-only 
         description: Decade Only 
       other: 
-        text: other 
         title: Other 
         meaning: ig-dob-method:other 
         description: Other
-  enum_sex:
-    name: enum_sex 
-    definition_uri: anvil:EnumSex
+  EnumSex:
+    description: Terms describing an individual's sex.
     permissible_values:
       female: 
-        text: female 
         title: Female 
         meaning: admin_gender:female
         description: Female 
       male: 
-        text: male  
         title: Male 
         meaning: admin_gender:male
         description: Male 
       unknown: 
-        text: unknown 
         title: Unknown 
         meaning: admin_gender:unknown
         description: Unknown 
       intersex: 
-        text: intersex 
         title: Intersex 
         description: Intersex 
-  enum_race: 
-    name: enum_race 
-    definition_uri: enum_race
+  EnumRace: 
+    description: OMB Codes describing race.
     permissible_values:
       american_indian_or_alaskan_native:
-        text: american_indian_or_alaskan_native
         description: American Indian or Alaskan Native
         meaning: cdc_race_eth:1002-5
       asian: 
-        text: asian 
         description: Asian
         meaning: cdc_race_eth:2028-9
       black_or_african_american:
-        text: black_or_african_american
         description: Black or African American
         meaning: cdc_race_eth:2054-5
       native_hawaiian_or_pacific_islander:
-        text: native_hawaiian_or_pacific_islander
         description: Native Hawaiian or Other Pacific Islander
         meaning: cdc_race_eth:2076-8
       white: 
-        text: white 
         description: White
         meaning: cdc_race_eth:2106-3
       other_race:
-        text: other_race 
         description: Other Race 
         meaning: cdc_race_eth:2131-1
       unknown:
-        text: unknown 
         description: unknown 
         meaning: hl7_null:UNK
       asked_but_unknown:
-        text: asked_but_unknown 
         description: asked but unknown
         meaning: hl7_null:ASKU
-  enum_ethnicity: 
-    name: enum_ethnicity 
+  EnumEthnicity: 
+    description: OMB Codes describing Hispanic or Latino ethnicity.
     permissible_values:
       hispanic_or_latino:
-        text: hispanic_or_latino 
         description: Hispanic or Latino
         meaning: cdc_race_eth:2135-2
       not_hispanic_or_latino:
-        text: not_hispanic_or_latino 
         description: Not Hispanic or Latino
         meaning: cdc_race_eth:2186-5
       unknown:
-        text: unknown 
         description: unknown 
         meaning: hl7_null:UNK
       asked_but_unknown:
-        text: asked_but_unknown 
         description: asked but unknown
         meaning: hl7_null:ASKU
-  enum_donor_type:
-    name: enum_donor_type 
+  EnumDonorType:
+    description: Types of entities
     permissible_values: 
       patient: 
-        text: patient 
         description: Patient 
       cell_line: 
-        text: cell_line 
         description: Cell Line
-  enum_vital_status:
-    name: enum_vital_status 
+  EnumVitalStatus:
+    description: Is the entity living?
     permissible_values:
       alive: 
         description: Alive

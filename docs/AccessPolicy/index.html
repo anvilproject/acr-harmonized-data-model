@@ -69,7 +69,7 @@
                 <h1 id="class-accesspolicy">Class: AccessPolicy</h1>
 <p>Describes the access required for a given element of data.</p>
 <p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/AccessPolicy">anvil:AccessPolicy</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[AccessControlledRecord]-%20has_access_policy%200..1&gt;[AccessPolicy&#124;data_access_type:enum_access_type%20*;access_policy_code:enum_access_code%20%2B;disease_use_limitation:string%20%3F;description:string;website:string%20%3F;id(i):string],[Thing]^-[AccessPolicy],[AccessControlledRecord]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[AccessControlledRecord]-%20has_access_policy%200..1&gt;[AccessPolicy&#124;data_access_type:enum_access_type%20*;access_policy_code:enum_access_code%20%2B;disease_use_limitation:string%20%3F;description:string;website:string%20%3F;id(i):string],[Thing]^-[AccessPolicy],[AccessControlledRecord]" /></a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[AccessControlledRecord]-%20has_access_policy%200..1&gt;[AccessPolicy&#124;data_access_type:EnumAccessType%20*;access_policy_code:EnumAccessCode%20%2B;disease_limitation:string%20%3F;description:string;website:string%20%3F;id(i):string],[Thing]^-[AccessPolicy],[AccessControlledRecord]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[AccessControlledRecord]-%20has_access_policy%200..1&gt;[AccessPolicy&#124;data_access_type:EnumAccessType%20*;access_policy_code:EnumAccessCode%20%2B;disease_limitation:string%20%3F;description:string;website:string%20%3F;id(i):string],[Thing]^-[AccessPolicy],[AccessControlledRecord]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Thing/">Thing</a> - Highest Level Class</li>
@@ -83,15 +83,15 @@
 <ul>
 <li><a href="../data_access_type/">data_access_type</a>  <sub>0..*</sub><ul>
 <li>Description: Data Access Type</li>
-<li>Range: <a href="../enum_access_type/">enum_access_type</a></li>
+<li>Range: <a href="../EnumAccessType/">EnumAccessType</a></li>
 </ul>
 </li>
 <li><a href="../access_policy_code/">access_policy_code</a>  <sub>1..*</sub><ul>
 <li>Description: Access Policy Code</li>
-<li>Range: <a href="../enum_access_code/">enum_access_code</a></li>
+<li>Range: <a href="../EnumAccessCode/">EnumAccessCode</a></li>
 </ul>
 </li>
-<li><a href="../disease_use_limitation/">disease_use_limitation</a>  <sub>0..1</sub><ul>
+<li><a href="../disease_limitation/">disease_limitation</a>  <sub>0..1</sub><ul>
 <li>Description: Disease Use Limitations</li>
 <li>Range: <a href="../types/String/">String</a></li>
 </ul>

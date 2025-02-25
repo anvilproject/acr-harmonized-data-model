@@ -1,16 +1,16 @@
 # metamodel_version: 1.7.0
 enum EnumAccessCode
   {
-    GRU
-    HMB
-    DS
-    IRB
-    PUB
-    COL
-    NPU
-    MDS
-    GSO
-    GSR
+    gru
+    hmb
+    ds
+    irb
+    pub
+    col
+    npu
+    mds
+    gso
+    gsr
   }
 
 enum EnumAccessType
@@ -18,8 +18,49 @@ enum EnumAccessType
     open
     registered
     controlled
-    gsr__HYPHEN_MINUS__restricted
-    gsr__HYPHEN_MINUS__allowed
+    gsr_restricted
+    gsr_allowed
+  }
+
+enum EnumAvailabilityStatus
+  {
+    available
+    unavailable
+  }
+
+enum EnumConditionAssertion
+  {
+    present
+    absent
+    unsure
+    unknown
+  }
+
+enum EnumConditionType
+  {
+    phenotypic_feature
+    disease
+    comorbidity
+    histology
+    clinical_finding
+    ehr_billing_code
+  }
+
+enum EnumConsanguinityAssertion
+  {
+    not_suspected
+    suspected
+    known_present
+    unknown
+  }
+
+enum EnumDateOfBirthType
+  {
+    exact
+    year_only
+    shifted
+    decade_only
+    other
   }
 
 enum EnumDonorType
@@ -34,6 +75,24 @@ enum EnumEthnicity
     not_hispanic_or_latino
     unknown
     asked_but_unknown
+  }
+
+enum EnumFamilyType
+  {
+    control_only
+    duo
+    proband_only
+    trio
+    trio_plus
+    other
+  }
+
+enum EnumMeasurementValueCode
+  {
+    negative
+    positive
+    not_performed
+    indeterminate
   }
 
 enum EnumRace
@@ -65,76 +124,25 @@ enum EnumVitalStatus
     unspecified
   }
 
-enum EnumAvailabilityStatus
+type AccessControlledRecord
   {
-    available
-    unavailable
+    id: String!
+    hasAccessPolicy: AccessPolicy
   }
 
-enum EnumConditionAssertion
+type AccessPolicy
   {
-    present
-    absent
-    unsure
-    unknown
-  }
-
-enum EnumConditionType
-  {
-    phenotypic__HYPHEN_MINUS__feature
-    disease
-    comorbidity
-    histology
-    clinical__HYPHEN_MINUS__finding
-    ehr__HYPHEN_MINUS__condition__HYPHEN_MINUS__code
-  }
-
-enum EnumConsanguinityAssertion
-  {
-    not__HYPHEN_MINUS__suspected
-    suspected
-    known__HYPHEN_MINUS__present
-    unknown
-  }
-
-enum EnumDateOfBirthType
-  {
-    exact
-    year__HYPHEN_MINUS__only
-    shifted
-    decade__HYPHEN_MINUS__only
-    other
-  }
-
-enum EnumFamilyType
-  {
-    control__HYPHEN_MINUS__only
-    duo
-    proband__HYPHEN_MINUS__only
-    trio
-    trio__PLUS_SIGN__
-    other
-  }
-
-enum EnumMeasurementValueCode
-  {
-    negative
-    positive
-    not__HYPHEN_MINUS__performed
-    indeterminate
-  }
-
-enum EnumProcedureDetail
-  {
-    False
-    True
-    not__HYPHEN_MINUS__reported
-    unknown
+    id: String!
+    dataAccessType: [EnumAccessType]
+    accessPolicyCode: [EnumAccessCode]!
+    diseaseLimitation: String
+    description: String!
+    website: String
   }
 
 type Aliquot
   {
-    aliquotId: String!
+    id: String!
     sampleIdFk: String!
     sampleAvailabilityStatus: EnumAvailabilityStatus
     sampleVolume: Float
@@ -145,7 +153,7 @@ type Aliquot
 
 type BiospecimenCollection
   {
-    biospecimenCollectionId: String!
+    id: String!
     participantId: String!
     ageAtCollection: Integer
     method: EnumSampleCollectionMethod
@@ -156,6 +164,7 @@ type BiospecimenCollection
 
 type ConditionAssertion
   {
+    id: String!
     participantId: String!
     conditionCode: [EnumConditionCode]
     conditionSourceValue: String!
@@ -166,16 +175,9 @@ type ConditionAssertion
     ageAtResolution: Integer
   }
 
-type DataAccessType
-  {
-    dataAccessTypeId: String!
-    dataAccessType: [EnumAccessType]
-    diseaseUseLimitation: String
-  }
-
 type Family
   {
-    familyId: String!
+    id: String!
     familyExternalId: [String]
     familyType: EnumFamilyType
     familyDescription: String
@@ -185,6 +187,7 @@ type Family
 
 type FamilyMember
   {
+    id: String!
     familyIdFk: String
     familyMemberId: String!
     otherFamilyMemberId: String
@@ -193,6 +196,7 @@ type FamilyMember
 
 type Measurement
   {
+    id: String!
     participantId: String!
     measurementCode: [String]!
     measurementUnit: String!
@@ -222,24 +226,16 @@ type Participant
 
 type Procedure
   {
+    id: String!
     participantId: String!
     procedureCode: [String]!
     procedureSourceValue: String!
-    procedureDetail: EnumProcedureDetail
     ageAtObservation: Integer
-  }
-
-type ResearchAccessPolicy
-  {
-    accessPolicyId: String!
-    accessPolicyCode: [EnumAccessCode]!
-    description: String!
-    website: String
   }
 
 type Sample
   {
-    sampleId: String!
+    id: String!
     parentSampleId: String
     biospecimenCollectionIdFk: String!
     sampleType: String!
@@ -251,7 +247,7 @@ type Sample
 
 type Study
   {
-    studyId: String!
+    id: String!
     externalStudyId: [String]
     parentStudyId: Study
     fundingSource: [String]
@@ -261,12 +257,13 @@ type Study
 
 type StudyParticipant
   {
+    id: String!
     participantId: String!
     inStudy: Study
-    accessPolicyId: String!
   }
 
 type Thing
   {
+    id: String!
   }
 

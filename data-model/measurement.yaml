@@ -13,7 +13,6 @@ imports:
 classes:
   Measurement:
     title: Measurement
-    definition_uri: anvil:measurement
     description: Measurements
     is_a: Thing
     slots:
@@ -25,7 +24,6 @@ classes:
     - age_at_observation 
 slots:
   measurement_code: 
-    definition_uri: anvil:measurement_code 
     description: |
       Measurement code should be from a recognized ontology preceded by a recognized curie. Multiple entries should reflect alternate codes for the same measurement. 
       * LOINC : https://bioregistry.io/registry/loinc
@@ -34,25 +32,21 @@ slots:
     required: true 
     multivalued: true
   measurement_unit: 
-    definition_uri: anvil:measurement_unit 
     description: UCUM Unit associated with the field
     required: true 
     range: string 
     multivalued: false 
   measurement_source_value: 
-    definition_uri: anvil:measurement_source_value 
     description: Original measurement text 
     required: true 
     range: string 
     multivalued: false 
   measurement_value_code: 
-    definition_uri: anvil:measurement_value_code 
     description: Code indicating measurement value such as positive, negative, etc. 
     required: false 
     range: EnumMeasurementValueCode 
     multivalued: false 
   age_at_observation: 
-    definition_uri: anvil:age_at_observation 
     description: Age of participant when measurement was taken/recorded 
     title: age_at_observation 
     required: false 
@@ -60,19 +54,18 @@ slots:
     multivalued: false 
 enums: 
   EnumMeasurementValueCode: 
-    definition_uri: anvil:EnumMeasurementValueCode 
     description: Indicate measurement details such as positive/negative/indeterminate
     permissible_values:
       negative: 
-        text: negative 
+        title: negative 
         description: Negative 
       positive: 
-        text: positive 
+        title: positive 
         description: Positive 
-      not-performed: 
-        text: not-performed 
+      not_performed: 
+        title: not-performed 
         description: Not Performed 
       indeterminate:
-        text: indeterminate 
+        title: indeterminate 
         description: Indeterminate 
       

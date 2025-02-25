@@ -18,18 +18,18 @@
 -- # Class: "Participant" Description: "Basic participant demographics"
 --     * Slot: id Description: ID associated with a class
 --     * Slot: organism_type Description: Organism Type Label
---     * Slot: donor_type Description: 
---     * Slot: date_of_birth Description: 
---     * Slot: date_of_birth_type Description: 
+--     * Slot: donor_type Description: Type of entity this record represents
+--     * Slot: date_of_birth Description: Date at which the individual was born. May be impacted by privacy rules described in date_of_birth_type.
+--     * Slot: date_of_birth_type Description: Privacy rule modification applied to date_of_birth.
 --     * Slot: phenotypic_sex Description: Sex of the Participant
 --     * Slot: phenotypic_sex_source_value Description: Original source value for phenotypic sex value
 --     * Slot: race Description: Reported race defined by NIH Racial and Ethnic Categories and Definitions (NOT-OD-15-089)
 --     * Slot: race_source_value Description: Race value as observed from the original source text
 --     * Slot: ethnicity Description: Classification categories of human, taken from NIH, based on the social group a person belongs to, and either identifies with or is identified with by others, as a result of a complex of cultural, biological, geographical and other factors such as linguistic, dietary and religion traditions; ancestry, background, allegiance, or association; and physical characteristics traditionally associated with race.
---     * Slot: ethnicity_source_value Description: 
+--     * Slot: ethnicity_source_value Description: Ethnicity value as reported in the original source
 --     * Slot: age_at_last_vital_status Description: Age at Last Vital Status
 --     * Slot: vital_status Description: Vital Status
--- # Class: "study_participant" Description: "Research"
+-- # Class: "StudyParticipant" Description: "Research"
 --     * Slot: participant_id Description: ID associated with the Participant
 --     * Slot: in_study Description: With which study is this class associated?
 --     * Slot: id Description: ID associated with a class
@@ -43,7 +43,7 @@
 --     * Slot: age_at_resolution Description: The age at which this condition was resolved, abated or cured. Should be left empty in cases of current active status.
 --     * Slot: id Description: ID associated with a class
 -- # Class: "AccessPolicy" Description: "Describes the access required for a given element of data."
---     * Slot: disease_use_limitation Description: Disease Use Limitations
+--     * Slot: disease_limitation Description: Disease Use Limitations
 --     * Slot: description Description: Description
 --     * Slot: website Description: Website
 --     * Slot: id Description: ID associated with a class
@@ -73,12 +73,11 @@
 -- # Class: "Procedure" Description: "Procedures"
 --     * Slot: participant_id Description: ID associated with the Participant
 --     * Slot: procedure_source_value Description: Original procedure text
---     * Slot: procedure_detail Description: Non-procedure value indicating procedure status
 --     * Slot: age_at_observation Description: Age of participant when measurement was taken/recorded
 --     * Slot: id Description: ID associated with a class
 -- # Class: "Family" Description: "Family"
 --     * Slot: family_type Description: Describes the 'type' of study family, eg, trio.
---     * Slot: family_description Description: Free text describing the study family, such as potential inheritance or details about consanguinity
+--     * Slot: family_description Description: Free title describing the study family, such as potential inheritance or details about consanguinity
 --     * Slot: consanguinity Description: Is there known or suspected consanguinity in this study family?
 --     * Slot: family_study_focus Description: What is this study family investigating? EG, a specific condition. The code should be prefixed with a recognizable curie. 
 --     * Slot: id Description: ID associated with a class
@@ -174,7 +173,7 @@ CREATE TABLE "ConditionAssertion" (
 	PRIMARY KEY (id)
 );
 CREATE TABLE "AccessPolicy" (
-	disease_use_limitation TEXT, 
+	disease_limitation TEXT, 
 	description TEXT NOT NULL, 
 	website TEXT, 
 	id TEXT NOT NULL, 
@@ -212,7 +211,6 @@ CREATE TABLE "Measurement" (
 CREATE TABLE "Procedure" (
 	participant_id TEXT NOT NULL, 
 	procedure_source_value TEXT NOT NULL, 
-	procedure_detail VARCHAR(12), 
 	age_at_observation INTEGER, 
 	id TEXT NOT NULL, 
 	PRIMARY KEY (id)
@@ -239,7 +237,7 @@ CREATE TABLE "AccessControlledRecord" (
 	PRIMARY KEY (id), 
 	FOREIGN KEY(has_access_policy) REFERENCES "AccessPolicy" (id)
 );
-CREATE TABLE study_participant (
+CREATE TABLE "StudyParticipant" (
 	participant_id TEXT NOT NULL, 
 	in_study TEXT, 
 	id TEXT NOT NULL, 

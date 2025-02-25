@@ -127,16 +127,16 @@
 <li><a href="../condition_type/">condition_type</a> - Does this condition represent a specific "type" of condition, such as "Phenotypic Feature" vs "Disease" in a rare disease setting.</li>
 <li><a href="../consanguinity/">consanguinity</a> - Is there known or suspected consanguinity in this study family?</li>
 <li><a href="../data_access_type/">data_access_type</a> - Data Access Type</li>
-<li><a href="../date_of_birth/">date_of_birth</a></li>
-<li><a href="../date_of_birth_type/">date_of_birth_type</a></li>
+<li><a href="../date_of_birth/">date_of_birth</a> - Date at which the individual was born. May be impacted by privacy rules described in date_of_birth_type.</li>
+<li><a href="../date_of_birth_type/">date_of_birth_type</a> - Privacy rule modification applied to date_of_birth.</li>
 <li><a href="../description/">description</a> - Description</li>
-<li><a href="../disease_use_limitation/">disease_use_limitation</a> - Disease Use Limitations</li>
-<li><a href="../donor_type/">donor_type</a></li>
+<li><a href="../disease_limitation/">disease_limitation</a> - Disease Use Limitations</li>
+<li><a href="../donor_type/">donor_type</a> - Type of entity this record represents</li>
 <li><a href="../ethnicity/">ethnicity</a> - Classification categories of human, taken from NIH, based on the social group a person belongs to, and either identifies with or is identified with by others, as a result of a complex of cultural, biological, geographical and other factors such as linguistic, dietary and religion traditions; ancestry, background, allegiance, or association; and physical characteristics traditionally associated with race.</li>
-<li><a href="../ethnicity_source_value/">ethnicity_source_value</a></li>
+<li><a href="../ethnicity_source_value/">ethnicity_source_value</a> - Ethnicity value as reported in the original source</li>
 <li><a href="../external_id/">external_id</a> - Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP</li>
 <li><a href="../external_study_id/">external_study_id</a> - External Study ID</li>
-<li><a href="../family_description/">family_description</a> - Free text describing the study family, such as potential inheritance or details about consanguinity</li>
+<li><a href="../family_description/">family_description</a> - Free title describing the study family, such as potential inheritance or details about consanguinity</li>
 <li><a href="../family_external_id/">family_external_id</a> - Other study specific study identifiers</li>
 <li><a href="../family_id_fk/">family_id_fk</a> - Family Identifier</li>
 <li><a href="../family_member_id/">family_member_id</a> - Family Member ID indicating presence in the family</li>
@@ -162,7 +162,6 @@
 <li><a href="../phenotypic_sex_source_value/">phenotypic_sex_source_value</a> - Original source value for phenotypic sex value</li>
 <li><a href="../principal_investigator/">principal_investigator</a> - Principal Investigator</li>
 <li><a href="../procedure_code/">procedure_code</a> - Procedure code should be from a recognized ontology preceded by a recognized curie. Multiple entries should reflect alternate codes for the same procedure. </li>
-<li><a href="../procedure_detail/">procedure_detail</a> - Non-procedure value indicating procedure status</li>
 <li><a href="../procedure_source_value/">procedure_source_value</a> - Original procedure text</li>
 <li><a href="../processing/">processing</a> - Curied code associated processing that was applied to the Parent Sample or from the Biospecimen Collection that yielded this distinct sample</li>
 <li><a href="../quantity/">quantity</a> - The total quantity of the specimen</li>
@@ -185,26 +184,25 @@
 </ul>
 <h3 id="enums">Enums</h3>
 <ul>
-<li><a href="../EnumAvailabilityStatus/">EnumAvailabilityStatus</a></li>
+<li><a href="../EnumAccessCode/">EnumAccessCode</a> - Type of research use case allowed</li>
+<li><a href="../EnumAccessType/">EnumAccessType</a> - Type of access controls applied</li>
+<li><a href="../EnumAvailabilityStatus/">EnumAvailabilityStatus</a> - Is the Thing available for use?</li>
 <li><a href="../EnumConditionAssertion/">EnumConditionAssertion</a> - Enumerations for Condition Assertion</li>
 <li><a href="../EnumConditionCode/">EnumConditionCode</a> - Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA, prefixed with those curies</li>
-<li><a href="../EnumConditionType/">EnumConditionType</a> - Distinguish between phenotypic feature and disease.</li>
+<li><a href="../EnumConditionType/">EnumConditionType</a> - Provides options to describe the expressed semantics of a condition.</li>
 <li><a href="../EnumConsanguinityAssertion/">EnumConsanguinityAssertion</a> - Asserts known or suspected consanguinity in this study family</li>
-<li><a href="../EnumDateOfBirthType/">EnumDateOfBirthType</a></li>
+<li><a href="../EnumDateOfBirthType/">EnumDateOfBirthType</a> - Privacy rules that may modify a date value.</li>
+<li><a href="../EnumDonorType/">EnumDonorType</a> - Types of entities</li>
+<li><a href="../EnumEthnicity/">EnumEthnicity</a> - OMB Codes describing Hispanic or Latino ethnicity.</li>
 <li><a href="../EnumFamilyType/">EnumFamilyType</a> - Enumerations describing research family type</li>
 <li><a href="../EnumLaterality/">EnumLaterality</a> - Laterality information for the site</li>
 <li><a href="../EnumMeasurementValueCode/">EnumMeasurementValueCode</a> - Indicate measurement details such as positive/negative/indeterminate</li>
-<li><a href="../EnumProcedureDetail/">EnumProcedureDetail</a> - Indicate procedure details such as yes/no/not reported</li>
+<li><a href="../EnumRace/">EnumRace</a> - OMB Codes describing race.</li>
 <li><a href="../EnumSampleCollectionMethod/">EnumSampleCollectionMethod</a> - The approach used to collect the biospecimen. Recommend ontology: <a href="https://loinc.org">LOINC</a>.</li>
+<li><a href="../EnumSex/">EnumSex</a> - Terms describing an individual's sex.</li>
 <li><a href="../EnumSite/">EnumSite</a> - The location of the specimen collection. Recommended ontology: <a href="https://hl7.org/fhir/R4B/valueset-body-site.html">SNOMED Body Site</a></li>
 <li><a href="../EnumSpatialQualifiers/">EnumSpatialQualifiers</a> - Any spatial/location qualifiers.</li>
-<li><a href="../enum_access_code/">enum_access_code</a></li>
-<li><a href="../enum_access_type/">enum_access_type</a></li>
-<li><a href="../enum_donor_type/">enum_donor_type</a></li>
-<li><a href="../enum_ethnicity/">enum_ethnicity</a></li>
-<li><a href="../enum_race/">enum_race</a></li>
-<li><a href="../enum_sex/">enum_sex</a></li>
-<li><a href="../enum_vital_status/">enum_vital_status</a></li>
+<li><a href="../EnumVitalStatus/">EnumVitalStatus</a> - Is the entity living?</li>
 </ul>
 <h3 id="subsets">Subsets</h3>
 <h3 id="types">Types</h3>

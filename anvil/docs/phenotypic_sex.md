@@ -8,7 +8,7 @@ URI: [anvil:phenotypic_sex](https://anvilproject.org/acr-harmonized-data-model/p
 
 ## Domain and Range
 
-None &#8594;  <sub>1..1</sub> [enum_sex](enum_sex.md)
+None &#8594;  <sub>1..1</sub> [EnumSex](EnumSex.md)
 
 ## Parents
 

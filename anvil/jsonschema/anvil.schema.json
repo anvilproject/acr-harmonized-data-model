@@ -47,7 +47,7 @@
                     "description": "Description",
                     "type": "string"
                 },
-                "disease_use_limitation": {
+                "disease_limitation": {
                     "description": "Disease Use Limitations",
                     "type": [
                         "string",
@@ -235,36 +235,36 @@
             "type": "object"
         },
         "EnumAccessCode": {
-            "description": "",
+            "description": "Type of research use case allowed",
             "enum": [
-                "GRU",
-                "HMB",
-                "DS",
-                "IRB",
-                "PUB",
-                "COL",
-                "NPU",
-                "MDS",
-                "GSO",
-                "GSR"
+                "gru",
+                "hmb",
+                "ds",
+                "irb",
+                "pub",
+                "col",
+                "npu",
+                "mds",
+                "gso",
+                "gsr"
             ],
             "title": "EnumAccessCode",
             "type": "string"
         },
         "EnumAccessType": {
-            "description": "",
+            "description": "Type of access controls applied",
             "enum": [
                 "open",
                 "registered",
                 "controlled",
-                "gsr-restricted",
-                "gsr-allowed"
+                "gsr_restricted",
+                "gsr_allowed"
             ],
             "title": "EnumAccessType",
             "type": "string"
         },
         "EnumAvailabilityStatus": {
-            "description": "",
+            "description": "Is the Thing available for use?",
             "enum": [
                 "available",
                 "unavailable"
@@ -289,14 +289,14 @@
             "type": "string"
         },
         "EnumConditionType": {
-            "description": "Distinguish between phenotypic feature and disease.",
+            "description": "Provides options to describe the expressed semantics of a condition.",
             "enum": [
-                "phenotypic-feature",
+                "phenotypic_feature",
                 "disease",
                 "comorbidity",
                 "histology",
-                "clinical-finding",
-                "ehr-condition-code"
+                "clinical_finding",
+                "ehr_billing_code"
             ],
             "title": "EnumConditionType",
             "type": "string"
@@ -304,28 +304,28 @@
         "EnumConsanguinityAssertion": {
             "description": "Asserts known or suspected consanguinity in this study family",
             "enum": [
-                "not-suspected",
+                "not_suspected",
                 "suspected",
-                "known-present",
+                "known_present",
                 "unknown"
             ],
             "title": "EnumConsanguinityAssertion",
             "type": "string"
         },
         "EnumDateOfBirthType": {
-            "description": "",
+            "description": "Privacy rules that may modify a date value.",
             "enum": [
                 "exact",
-                "year-only",
+                "year_only",
                 "shifted",
-                "decade-only",
+                "decade_only",
                 "other"
             ],
             "title": "EnumDateOfBirthType",
             "type": "string"
         },
         "EnumDonorType": {
-            "description": "",
+            "description": "Types of entities",
             "enum": [
                 "patient",
                 "cell_line"
@@ -334,7 +334,7 @@
             "type": "string"
         },
         "EnumEthnicity": {
-            "description": "",
+            "description": "OMB Codes describing Hispanic or Latino ethnicity.",
             "enum": [
                 "hispanic_or_latino",
                 "not_hispanic_or_latino",
@@ -347,11 +347,11 @@
         "EnumFamilyType": {
             "description": "Enumerations describing research family type",
             "enum": [
-                "control-only",
+                "control_only",
                 "duo",
-                "proband-only",
+                "proband_only",
                 "trio",
-                "trio+",
+                "trio_plus",
                 "other"
             ],
             "title": "EnumFamilyType",
@@ -367,25 +367,14 @@
             "enum": [
                 "negative",
                 "positive",
-                "not-performed",
+                "not_performed",
                 "indeterminate"
             ],
             "title": "EnumMeasurementValueCode",
             "type": "string"
         },
-        "EnumProcedureDetail": {
-            "description": "Indicate procedure details such as yes/no/not reported",
-            "enum": [
-                "False",
-                "True",
-                "not-reported",
-                "unknown"
-            ],
-            "title": "EnumProcedureDetail",
-            "type": "string"
-        },
         "EnumRace": {
-            "description": "",
+            "description": "OMB Codes describing race.",
             "enum": [
                 "american_indian_or_alaskan_native",
                 "asian",
@@ -405,7 +394,7 @@
             "type": "string"
         },
         "EnumSex": {
-            "description": "",
+            "description": "Terms describing an individual's sex.",
             "enum": [
                 "female",
                 "male",
@@ -426,7 +415,7 @@
             "type": "string"
         },
         "EnumVitalStatus": {
-            "description": "",
+            "description": "Is the entity living?",
             "enum": [
                 "alive",
                 "dead",
@@ -446,7 +435,7 @@
                     "description": "Is there known or suspected consanguinity in this study family?"
                 },
                 "family_description": {
-                    "description": "Free text describing the study family, such as potential inheritance or details about consanguinity",
+                    "description": "Free title describing the study family, such as potential inheritance or details about consanguinity",
                     "type": [
                         "string",
                         "null"
@@ -586,22 +575,26 @@
                     ]
                 },
                 "date_of_birth": {
+                    "description": "Date at which the individual was born. May be impacted by privacy rules described in date_of_birth_type.",
                     "type": [
                         "integer",
                         "null"
                     ]
                 },
                 "date_of_birth_type": {
-                    "$ref": "#/$defs/EnumDateOfBirthType"
+                    "$ref": "#/$defs/EnumDateOfBirthType",
+                    "description": "Privacy rule modification applied to date_of_birth."
                 },
                 "donor_type": {
-                    "$ref": "#/$defs/EnumDonorType"
+                    "$ref": "#/$defs/EnumDonorType",
+                    "description": "Type of entity this record represents"
                 },
                 "ethnicity": {
                     "$ref": "#/$defs/EnumEthnicity",
                     "description": "Classification categories of human, taken from NIH, based on the social group a person belongs to, and either identifies with or is identified with by others, as a result of a complex of cultural, biological, geographical and other factors such as linguistic, dietary and religion traditions; ancestry, background, allegiance, or association; and physical characteristics traditionally associated with race."
                 },
                 "ethnicity_source_value": {
+                    "description": "Ethnicity value as reported in the original source",
                     "type": [
                         "string",
                         "null"
@@ -699,10 +692,6 @@
                         "type": "string"
                     },
                     "type": "array"
-                },
-                "procedure_detail": {
-                    "$ref": "#/$defs/EnumProcedureDetail",
-                    "description": "Non-procedure value indicating procedure status"
                 },
                 "procedure_source_value": {
                     "description": "Original procedure text",
