@@ -6,7 +6,7 @@ Biospecimen Collection
 URI: [anvil:BiospecimenCollection](https://anvilproject.org/acr-harmonized-data-model/BiospecimenCollection)
 
 
-[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[BiospecimenCollection&#124;biospecimen_collection_id:string;participant_id:string;age_at_collection:integer%20%3F;method:EnumSampleCollectionMethod%20%3F;site:EnumSite%20%3F;spatial_qualifier:EnumSpatialQualifiers%20%3F;laterality:EnumLaterality%20%3F])](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[BiospecimenCollection&#124;biospecimen_collection_id:string;participant_id:string;age_at_collection:integer%20%3F;method:EnumSampleCollectionMethod%20%3F;site:EnumSite%20%3F;spatial_qualifier:EnumSpatialQualifiers%20%3F;laterality:EnumLaterality%20%3F])
+[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[BiospecimenCollection&#124;participant_id:string;age_at_collection:integer%20%3F;method:EnumSampleCollectionMethod%20%3F;site:EnumSite%20%3F;spatial_qualifier:EnumSpatialQualifiers%20%3F;laterality:EnumLaterality%20%3F;id(i):string])](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[BiospecimenCollection&#124;participant_id:string;age_at_collection:integer%20%3F;method:EnumSampleCollectionMethod%20%3F;site:EnumSite%20%3F;spatial_qualifier:EnumSpatialQualifiers%20%3F;laterality:EnumLaterality%20%3F;id(i):string])
 
 ## Parents
 
@@ -17,9 +17,6 @@ URI: [anvil:BiospecimenCollection](https://anvilproject.org/acr-harmonized-data-
 
 ### Own
 
- * [biospecimen_collection_id](biospecimen_collection_id.md)  <sub>1..1</sub>
-     * Description: Biospecimen Collection ID
-     * Range: [String](types/String.md)
  * [participant_id](participant_id.md)  <sub>1..1</sub>
      * Description: ID associated with the Participant
      * Range: [String](types/String.md)
@@ -38,3 +35,9 @@ URI: [anvil:BiospecimenCollection](https://anvilproject.org/acr-harmonized-data-
  * [laterality](laterality.md)  <sub>0..1</sub>
      * Description: Laterality information for the site
      * Range: [EnumLaterality](EnumLaterality.md)
+
+### Inherited from Thing:
+
+ * [id](id.md)  <sub>1..1</sub>
+     * Description: ID associated with a class
+     * Range: [String](types/String.md)

@@ -69,7 +69,7 @@
                 <h1 id="class-biospecimencollection">Class: BiospecimenCollection</h1>
 <p>Biospecimen Collection</p>
 <p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/BiospecimenCollection">anvil:BiospecimenCollection</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[BiospecimenCollection&#124;biospecimen_collection_id:string;participant_id:string;age_at_collection:integer%20%3F;method:EnumSampleCollectionMethod%20%3F;site:EnumSite%20%3F;spatial_qualifier:EnumSpatialQualifiers%20%3F;laterality:EnumLaterality%20%3F]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[BiospecimenCollection&#124;biospecimen_collection_id:string;participant_id:string;age_at_collection:integer%20%3F;method:EnumSampleCollectionMethod%20%3F;site:EnumSite%20%3F;spatial_qualifier:EnumSpatialQualifiers%20%3F;laterality:EnumLaterality%20%3F]" /></a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[BiospecimenCollection&#124;participant_id:string;age_at_collection:integer%20%3F;method:EnumSampleCollectionMethod%20%3F;site:EnumSite%20%3F;spatial_qualifier:EnumSpatialQualifiers%20%3F;laterality:EnumLaterality%20%3F;id(i):string]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[BiospecimenCollection&#124;participant_id:string;age_at_collection:integer%20%3F;method:EnumSampleCollectionMethod%20%3F;site:EnumSite%20%3F;spatial_qualifier:EnumSpatialQualifiers%20%3F;laterality:EnumLaterality%20%3F;id(i):string]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Thing/">Thing</a> - Highest Level Class</li>
@@ -77,11 +77,6 @@
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
-<li><a href="../biospecimen_collection_id/">biospecimen_collection_id</a>  <sub>1..1</sub><ul>
-<li>Description: Biospecimen Collection ID</li>
-<li>Range: <a href="../types/String/">String</a></li>
-</ul>
-</li>
 <li><a href="../participant_id/">participant_id</a>  <sub>1..1</sub><ul>
 <li>Description: ID associated with the Participant</li>
 <li>Range: <a href="../types/String/">String</a></li>
@@ -110,6 +105,14 @@
 <li><a href="../laterality/">laterality</a>  <sub>0..1</sub><ul>
 <li>Description: Laterality information for the site</li>
 <li>Range: <a href="../EnumLaterality/">EnumLaterality</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="inherited-from-thing">Inherited from Thing:</h3>
+<ul>
+<li><a href="../id/">id</a>  <sub>1..1</sub><ul>
+<li>Description: ID associated with a class</li>
+<li>Range: <a href="../types/String/">String</a></li>
 </ul>
 </li>
 </ul>

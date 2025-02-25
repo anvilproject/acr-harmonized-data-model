@@ -69,7 +69,7 @@
                 <h1 id="class-participant">Class: Participant</h1>
 <p>Basic participant demographics</p>
 <p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/Participant">anvil:Participant</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[Participant&#124;id:string;participant_external_id:string%20*;organism_type:string%20%3F;donor_type:enum_donor_type%20%3F;date_of_birth:integer%20%3F;date_of_birth_type:EnumDateOfBirthType%20%3F;phenotypic_sex:enum_sex;phenotypic_sex_source_value:string%20%3F;race:enum_race;race_source_value:string%20%3F;ethnicity:enum_ethnicity;ethnicity_source_value:string%20%3F;age_at_last_vital_status:integer%20%3F;vital_status:enum_vital_status%20%3F]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[Participant&#124;id:string;participant_external_id:string%20*;organism_type:string%20%3F;donor_type:enum_donor_type%20%3F;date_of_birth:integer%20%3F;date_of_birth_type:EnumDateOfBirthType%20%3F;phenotypic_sex:enum_sex;phenotypic_sex_source_value:string%20%3F;race:enum_race;race_source_value:string%20%3F;ethnicity:enum_ethnicity;ethnicity_source_value:string%20%3F;age_at_last_vital_status:integer%20%3F;vital_status:enum_vital_status%20%3F]" /></a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Sample],[Sample]&lt;has_sample%200..*-%20[Participant&#124;external_id:uriorcurie%20*;organism_type:string%20%3F;donor_type:enum_donor_type%20%3F;date_of_birth:integer%20%3F;date_of_birth_type:EnumDateOfBirthType%20%3F;phenotypic_sex:enum_sex;phenotypic_sex_source_value:string%20%3F;race:enum_race;race_source_value:string%20%3F;ethnicity:enum_ethnicity;ethnicity_source_value:string%20%3F;age_at_last_vital_status:integer%20%3F;vital_status:enum_vital_status%20%3F;id(i):string],[Thing]^-[Participant]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Sample],[Sample]&lt;has_sample%200..*-%20[Participant&#124;external_id:uriorcurie%20*;organism_type:string%20%3F;donor_type:enum_donor_type%20%3F;date_of_birth:integer%20%3F;date_of_birth_type:EnumDateOfBirthType%20%3F;phenotypic_sex:enum_sex;phenotypic_sex_source_value:string%20%3F;race:enum_race;race_source_value:string%20%3F;ethnicity:enum_ethnicity;ethnicity_source_value:string%20%3F;age_at_last_vital_status:integer%20%3F;vital_status:enum_vital_status%20%3F;id(i):string],[Thing]^-[Participant]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Thing/">Thing</a> - Highest Level Class</li>
@@ -82,9 +82,9 @@
 <li>Range: <a href="../types/String/">String</a></li>
 </ul>
 </li>
-<li><a href="../participant_external_id/">participant_external_id</a>  <sub>0..*</sub><ul>
-<li>Description: External Participant Identifier</li>
-<li>Range: <a href="../types/String/">String</a></li>
+<li><a href="../external_id/">external_id</a>  <sub>0..*</sub><ul>
+<li>Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP</li>
+<li>Range: <a href="../types/Uriorcurie/">Uriorcurie</a></li>
 </ul>
 </li>
 <li><a href="../organism_type/">organism_type</a>  <sub>0..1</sub><ul>
@@ -141,6 +141,11 @@
 <li><a href="../vital_status/">vital_status</a>  <sub>0..1</sub><ul>
 <li>Description: Vital Status</li>
 <li>Range: <a href="../enum_vital_status/">enum_vital_status</a></li>
+</ul>
+</li>
+<li><a href="../has_sample/">has_sample</a>  <sub>0..*</sub><ul>
+<li>Description: Which samples were collected or processed for this participant?</li>
+<li>Range: <a href="../Sample/">Sample</a></li>
 </ul>
 </li>
 </ul>

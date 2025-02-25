@@ -20,19 +20,12 @@ classes:
     description: Family
     is_a: Thing
     slots:
-    - family_id
     - family_external_id
     - family_type
     - family_description 
     - consanguinity
     - family_study_focus
 slots:
-  family_id:
-    definition_uri: anvil:family_id
-    description: Family Identifier
-    required: true
-    range: string
-    multivalued: false 
   family_external_id: 
     definition_uri: anvil:family_external_id 
     description: Other study specific study identifiers

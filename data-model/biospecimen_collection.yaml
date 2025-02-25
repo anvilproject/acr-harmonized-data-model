@@ -17,7 +17,6 @@ classes:
     description: Biospecimen Collection
     is_a: Thing 
     slots: 
-      - biospecimen_collection_id 
       - participant_id
       - age_at_collection
       - method 
@@ -25,13 +24,6 @@ classes:
       - spatial_qualifier 
       - laterality 
 slots: 
-  biospecimen_collection_id: 
-    definition_uri: anvil:biospecimen_collection_id 
-    description: Biospecimen Collection ID 
-    identifier: true 
-    required: true 
-    range: string 
-    multivalued: false 
   age_at_collection:
     definition_uri: anvil:age_at_collection 
     description: The age at which this biospecimen was collected.

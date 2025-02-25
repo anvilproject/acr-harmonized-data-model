@@ -69,7 +69,7 @@
                 <h1 id="class-conditionassertion">Class: ConditionAssertion</h1>
 <p>Study Meta Data</p>
 <p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/ConditionAssertion">anvil:ConditionAssertion</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[ConditionAssertion&#124;participant_id:string;condition_code:EnumConditionCode%20*;condition_source_value:string;condition_assertion:EnumConditionAssertion%20%3F;condition_type:EnumConditionType;age_at_assertion:integer%20%3F;age_at_onset:integer%20%3F;age_at_resolution:integer%20%3F]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[ConditionAssertion&#124;participant_id:string;condition_code:EnumConditionCode%20*;condition_source_value:string;condition_assertion:EnumConditionAssertion%20%3F;condition_type:EnumConditionType;age_at_assertion:integer%20%3F;age_at_onset:integer%20%3F;age_at_resolution:integer%20%3F]" /></a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[ConditionAssertion&#124;participant_id:string;condition_code:EnumConditionCode%20*;condition_source_value:string;condition_assertion:EnumConditionAssertion%20%3F;condition_type:EnumConditionType;age_at_assertion:integer%20%3F;age_at_onset:integer%20%3F;age_at_resolution:integer%20%3F;id(i):string]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[ConditionAssertion&#124;participant_id:string;condition_code:EnumConditionCode%20*;condition_source_value:string;condition_assertion:EnumConditionAssertion%20%3F;condition_type:EnumConditionType;age_at_assertion:integer%20%3F;age_at_onset:integer%20%3F;age_at_resolution:integer%20%3F;id(i):string]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Thing/">Thing</a> - Highest Level Class</li>
@@ -112,6 +112,14 @@ Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA and coded with the
 <li><a href="../age_at_resolution/">age_at_resolution</a>  <sub>0..1</sub></li>
 <li>Description: The age at which this condition was resolved, abated or cured. Should be left empty in cases of current active status.</li>
 <li>Range: <a href="../types/Integer/">Integer</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="inherited-from-thing">Inherited from Thing:</h3>
+<ul>
+<li><a href="../id/">id</a>  <sub>1..1</sub><ul>
+<li>Description: ID associated with a class</li>
+<li>Range: <a href="../types/String/">String</a></li>
 </ul>
 </li>
 </ul>

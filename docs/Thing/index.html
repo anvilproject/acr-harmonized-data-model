@@ -69,25 +69,33 @@
                 <h1 id="class-thing">Class: Thing</h1>
 <p>Highest Level Class</p>
 <p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/Thing">anvil:Thing</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[StudyParticipant],[Thing]^-[StudyParticipant],[Thing]^-[Study],[Thing]^-[Sample],[Thing]^-[ResearchAccessPolicy],[Thing]^-[Procedure],[Thing]^-[Participant],[Thing]^-[Measurement],[Thing]^-[FamilyMember],[Thing]^-[Family],[Thing]^-[DataAccessType],[Thing]^-[ConditionAssertion],[Thing]^-[BiospecimenCollection],[Thing]^-[Aliquot],[Study],[Sample],[ResearchAccessPolicy],[Procedure],[Participant],[Measurement],[FamilyMember],[Family],[DataAccessType],[ConditionAssertion],[BiospecimenCollection],[Aliquot]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[StudyParticipant],[Thing]^-[StudyParticipant],[Thing]^-[Study],[Thing]^-[Sample],[Thing]^-[ResearchAccessPolicy],[Thing]^-[Procedure],[Thing]^-[Participant],[Thing]^-[Measurement],[Thing]^-[FamilyMember],[Thing]^-[Family],[Thing]^-[DataAccessType],[Thing]^-[ConditionAssertion],[Thing]^-[BiospecimenCollection],[Thing]^-[Aliquot],[Study],[Sample],[ResearchAccessPolicy],[Procedure],[Participant],[Measurement],[FamilyMember],[Family],[DataAccessType],[ConditionAssertion],[BiospecimenCollection],[Aliquot]" /></a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[StudyParticipant],[Thing&#124;id:string]^-[StudyParticipant],[Thing]^-[Study],[Thing]^-[Sample],[Thing]^-[Procedure],[Thing]^-[Participant],[Thing]^-[Measurement],[Thing]^-[FamilyMember],[Thing]^-[Family],[Thing]^-[ConditionAssertion],[Thing]^-[BiospecimenCollection],[Thing]^-[Aliquot],[Thing]^-[AccessPolicy],[Thing]^-[AccessControlledRecord],[Study],[Sample],[Procedure],[Participant],[Measurement],[FamilyMember],[Family],[ConditionAssertion],[BiospecimenCollection],[Aliquot],[AccessPolicy],[AccessControlledRecord]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[StudyParticipant],[Thing&#124;id:string]^-[StudyParticipant],[Thing]^-[Study],[Thing]^-[Sample],[Thing]^-[Procedure],[Thing]^-[Participant],[Thing]^-[Measurement],[Thing]^-[FamilyMember],[Thing]^-[Family],[Thing]^-[ConditionAssertion],[Thing]^-[BiospecimenCollection],[Thing]^-[Aliquot],[Thing]^-[AccessPolicy],[Thing]^-[AccessControlledRecord],[Study],[Sample],[Procedure],[Participant],[Measurement],[FamilyMember],[Family],[ConditionAssertion],[BiospecimenCollection],[Aliquot],[AccessPolicy],[AccessControlledRecord]" /></a></p>
 <h2 id="children">Children</h2>
 <ul>
+<li><a href="../AccessControlledRecord/">AccessControlledRecord</a> - Entity for which specific access control restrictions apply.</li>
+<li><a href="../AccessPolicy/">AccessPolicy</a> - Describes the access required for a given element of data.</li>
 <li><a href="../Aliquot/">Aliquot</a> - Represent exact tubes or total amounts available of a Sample.</li>
 <li><a href="../BiospecimenCollection/">BiospecimenCollection</a> - Biospecimen Collection</li>
 <li><a href="../ConditionAssertion/">ConditionAssertion</a> - Study Meta Data</li>
-<li><a href="../DataAccessType/">DataAccessType</a> - Research Access Policy</li>
 <li><a href="../Family/">Family</a> - Family</li>
 <li><a href="../FamilyMember/">FamilyMember</a> - Family</li>
 <li><a href="../Measurement/">Measurement</a> - Measurements</li>
 <li><a href="../Participant/">Participant</a> - Basic participant demographics</li>
 <li><a href="../Procedure/">Procedure</a> - Procedures</li>
-<li><a href="../ResearchAccessPolicy/">ResearchAccessPolicy</a> - Research Access Policy</li>
 <li><a href="../Sample/">Sample</a> - Biospecimen data</li>
 <li><a href="../Study/">Study</a> - Study Meta Data</li>
 <li><a href="../StudyParticipant/">StudyParticipant</a> - Research</li>
 </ul>
 <h2 id="referenced-by-class">Referenced by Class</h2>
 <h2 id="attributes">Attributes</h2>
+<h3 id="own">Own</h3>
+<ul>
+<li><a href="../id/">id</a>  <sub>1..1</sub><ul>
+<li>Description: ID associated with a class</li>
+<li>Range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+</ul>
               
             </div>
           </div><footer>

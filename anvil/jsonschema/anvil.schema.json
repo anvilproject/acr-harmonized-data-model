@@ -1,11 +1,85 @@
 {
     "$defs": {
+        "AccessControlledRecord": {
+            "additionalProperties": false,
+            "description": "Entity for which specific access control restrictions apply.",
+            "properties": {
+                "has_access_policy": {
+                    "description": "Which access policy applies to this element?",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "ID associated with a class",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "AccessControlledRecord",
+            "type": "object"
+        },
+        "AccessPolicy": {
+            "additionalProperties": false,
+            "description": "Describes the access required for a given element of data.",
+            "properties": {
+                "access_policy_code": {
+                    "description": "Access Policy Code",
+                    "items": {
+                        "$ref": "#/$defs/EnumAccessCode"
+                    },
+                    "type": "array"
+                },
+                "data_access_type": {
+                    "description": "Data Access Type",
+                    "items": {
+                        "$ref": "#/$defs/EnumAccessType"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "Description",
+                    "type": "string"
+                },
+                "disease_use_limitation": {
+                    "description": "Disease Use Limitations",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "ID associated with a class",
+                    "type": "string"
+                },
+                "website": {
+                    "description": "Website",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "access_policy_code",
+                "description",
+                "id"
+            ],
+            "title": "AccessPolicy",
+            "type": "object"
+        },
         "Aliquot": {
             "additionalProperties": false,
             "description": "Represent exact tubes or total amounts available of a Sample.",
             "properties": {
-                "aliquot_id": {
-                    "description": "Aliquot ID",
+                "id": {
+                    "description": "ID associated with a class",
                     "type": "string"
                 },
                 "sample_availability_status": {
@@ -46,8 +120,8 @@
                 }
             },
             "required": [
-                "aliquot_id",
-                "sample_id_fk"
+                "sample_id_fk",
+                "id"
             ],
             "title": "Aliquot",
             "type": "object"
@@ -63,8 +137,8 @@
                         "null"
                     ]
                 },
-                "biospecimen_collection_id": {
-                    "description": "Biospecimen Collection ID",
+                "id": {
+                    "description": "ID associated with a class",
                     "type": "string"
                 },
                 "laterality": {
@@ -89,8 +163,8 @@
                 }
             },
             "required": [
-                "biospecimen_collection_id",
-                "participant_id"
+                "participant_id",
+                "id"
             ],
             "title": "BiospecimenCollection",
             "type": "object"
@@ -142,6 +216,10 @@
                     "$ref": "#/$defs/EnumConditionType",
                     "description": "Does this condition represent a specific \"type\" of condition, such as \"Phenotypic Feature\" vs \"Disease\" in a rare disease setting."
                 },
+                "id": {
+                    "description": "ID associated with a class",
+                    "type": "string"
+                },
                 "participant_id": {
                     "description": "ID associated with the Participant",
                     "type": "string"
@@ -150,41 +228,10 @@
             "required": [
                 "participant_id",
                 "condition_source_value",
-                "condition_type"
+                "condition_type",
+                "id"
             ],
             "title": "ConditionAssertion",
-            "type": "object"
-        },
-        "DataAccessType": {
-            "additionalProperties": false,
-            "description": "Research Access Policy",
-            "properties": {
-                "data_access_type": {
-                    "description": "Data Access Type",
-                    "items": {
-                        "$ref": "#/$defs/EnumAccessType"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "data_access_type_id": {
-                    "description": "Data Access Type ID",
-                    "type": "string"
-                },
-                "disease_use_limitation": {
-                    "description": "Disease Use Limitations",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                }
-            },
-            "required": [
-                "data_access_type_id"
-            ],
-            "title": "DataAccessType",
             "type": "object"
         },
         "EnumAccessCode": {
@@ -415,10 +462,6 @@
                         "null"
                     ]
                 },
-                "family_id": {
-                    "description": "Family Identifier",
-                    "type": "string"
-                },
                 "family_study_focus": {
                     "description": "What is this study family investigating? EG, a specific condition. The code should be prefixed with a recognizable curie. \n",
                     "type": [
@@ -429,10 +472,14 @@
                 "family_type": {
                     "$ref": "#/$defs/EnumFamilyType",
                     "description": "Describes the 'type' of study family, eg, trio."
+                },
+                "id": {
+                    "description": "ID associated with a class",
+                    "type": "string"
                 }
             },
             "required": [
-                "family_id"
+                "id"
             ],
             "title": "Family",
             "type": "object"
@@ -452,6 +499,10 @@
                     "description": "Family Member ID indicating presence in the family",
                     "type": "string"
                 },
+                "id": {
+                    "description": "ID associated with a class",
+                    "type": "string"
+                },
                 "other_family_member_id": {
                     "description": "Other member of the same family to which there is a relationship being described",
                     "type": [
@@ -468,7 +519,8 @@
                 }
             },
             "required": [
-                "family_member_id"
+                "family_member_id",
+                "id"
             ],
             "title": "FamilyMember",
             "type": "object"
@@ -483,6 +535,10 @@
                         "integer",
                         "null"
                     ]
+                },
+                "id": {
+                    "description": "ID associated with a class",
+                    "type": "string"
                 },
                 "measurement_code": {
                     "description": "Measurement code should be from a recognized ontology preceded by a recognized curie. Multiple entries should reflect alternate codes for the same measurement. \n* LOINC : https://bioregistry.io/registry/loinc\n",
@@ -512,7 +568,8 @@
                 "participant_id",
                 "measurement_code",
                 "measurement_unit",
-                "measurement_source_value"
+                "measurement_source_value",
+                "id"
             ],
             "title": "Measurement",
             "type": "object"
@@ -550,6 +607,26 @@
                         "null"
                     ]
                 },
+                "external_id": {
+                    "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "has_sample": {
+                    "description": "Which samples were collected or processed for this participant?",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "id": {
                     "description": "ID associated with a class",
                     "type": "string"
@@ -558,16 +635,6 @@
                     "description": "Organism Type Label",
                     "type": [
                         "string",
-                        "null"
-                    ]
-                },
-                "participant_external_id": {
-                    "description": "External Participant Identifier",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
                         "null"
                     ]
                 },
@@ -618,6 +685,10 @@
                         "null"
                     ]
                 },
+                "id": {
+                    "description": "ID associated with a class",
+                    "type": "string"
+                },
                 "participant_id": {
                     "description": "ID associated with the Participant",
                     "type": "string"
@@ -641,44 +712,10 @@
             "required": [
                 "participant_id",
                 "procedure_code",
-                "procedure_source_value"
+                "procedure_source_value",
+                "id"
             ],
             "title": "Procedure",
-            "type": "object"
-        },
-        "ResearchAccessPolicy": {
-            "additionalProperties": false,
-            "description": "Research Access Policy",
-            "properties": {
-                "access_policy_code": {
-                    "description": "Access Policy Code",
-                    "items": {
-                        "$ref": "#/$defs/EnumAccessCode"
-                    },
-                    "type": "array"
-                },
-                "access_policy_id": {
-                    "description": "Access Policy ID",
-                    "type": "string"
-                },
-                "description": {
-                    "description": "Description",
-                    "type": "string"
-                },
-                "website": {
-                    "description": "Website",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                }
-            },
-            "required": [
-                "access_policy_id",
-                "access_policy_code",
-                "description"
-            ],
-            "title": "ResearchAccessPolicy",
             "type": "object"
         },
         "Sample": {
@@ -693,16 +730,16 @@
                     "description": "ID associated with the Biospecimen Collection event.",
                     "type": "string"
                 },
+                "id": {
+                    "description": "ID associated with a class",
+                    "type": "string"
+                },
                 "parent_sample_id": {
                     "description": "Parent Sample ID",
                     "type": [
                         "string",
                         "null"
                     ]
-                },
-                "participant_id": {
-                    "description": "ID associated with the Participant",
-                    "type": "string"
                 },
                 "processing": {
                     "description": "Curied code associated processing that was applied to the Parent Sample or from the Biospecimen Collection that yielded this distinct sample",
@@ -721,10 +758,6 @@
                         "null"
                     ]
                 },
-                "sample_id": {
-                    "description": "Sample ID",
-                    "type": "string"
-                },
                 "sample_type": {
                     "description": "Curied code associated the type of material of which this Sample is comprised",
                     "type": "string"
@@ -738,10 +771,9 @@
                 }
             },
             "required": [
-                "sample_id",
-                "participant_id",
                 "biospecimen_collection_id_fk",
-                "sample_type"
+                "sample_type",
+                "id"
             ],
             "title": "Sample",
             "type": "object"
@@ -770,16 +802,16 @@
                         "null"
                     ]
                 },
+                "id": {
+                    "description": "ID associated with a class",
+                    "type": "string"
+                },
                 "parent_study_id": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/Study"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "Parent Study ID"
+                    "description": "Parent Study ID",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "principal_investigator": {
                     "description": "Principal Investigator",
@@ -791,18 +823,14 @@
                         "null"
                     ]
                 },
-                "study_id": {
-                    "description": "Study ID",
-                    "type": "string"
-                },
                 "study_title": {
                     "description": "Study Title",
                     "type": "string"
                 }
             },
             "required": [
-                "study_id",
-                "study_title"
+                "study_title",
+                "id"
             ],
             "title": "Study",
             "type": "object"
@@ -811,20 +839,16 @@
             "additionalProperties": false,
             "description": "Research",
             "properties": {
-                "access_policy_id": {
-                    "description": "Access Policy ID",
+                "id": {
+                    "description": "ID associated with a class",
                     "type": "string"
                 },
                 "in_study": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/Study"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "With which study is this class associated?"
+                    "description": "With which study is this class associated?",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "participant_id": {
                     "description": "ID associated with the Participant",
@@ -833,7 +857,7 @@
             },
             "required": [
                 "participant_id",
-                "access_policy_id"
+                "id"
             ],
             "title": "StudyParticipant",
             "type": "object"
@@ -841,6 +865,15 @@
         "Thing": {
             "additionalProperties": false,
             "description": "Highest Level Class",
+            "properties": {
+                "id": {
+                    "description": "ID associated with a class",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
             "title": "Thing",
             "type": "object"
         }

@@ -13,16 +13,16 @@
 ### Classes
 
  * [Thing](Thing.md) - Highest Level Class
+     * [AccessControlledRecord](AccessControlledRecord.md) - Entity for which specific access control restrictions apply.
+     * [AccessPolicy](AccessPolicy.md) - Describes the access required for a given element of data.
      * [Aliquot](Aliquot.md) - Represent exact tubes or total amounts available of a Sample.
      * [BiospecimenCollection](BiospecimenCollection.md) - Biospecimen Collection
      * [ConditionAssertion](ConditionAssertion.md) - Study Meta Data
-     * [DataAccessType](DataAccessType.md) - Research Access Policy
      * [Family](Family.md) - Family
      * [FamilyMember](FamilyMember.md) - Family
      * [Measurement](Measurement.md) - Measurements
      * [Participant](Participant.md) - Basic participant demographics
      * [Procedure](Procedure.md) - Procedures
-     * [ResearchAccessPolicy](ResearchAccessPolicy.md) - Research Access Policy
      * [Sample](Sample.md) - Biospecimen data
      * [Study](Study.md) - Study Meta Data
      * [StudyParticipant](StudyParticipant.md) - Research
@@ -33,7 +33,6 @@
 ### Slots
 
  * [access_policy_code](access_policy_code.md) - Access Policy Code
- * [access_policy_id](access_policy_id.md) - Access Policy ID
  * [age_at_assertion](age_at_assertion.md) - The age at which this condition is being asserted.
  * [age_at_collection](age_at_collection.md) - The age at which this biospecimen was collected.
  * [age_at_event](age_at_event.md) - Age of participant when procedure was performed/recorded
@@ -41,9 +40,7 @@
  * [age_at_observation](age_at_observation.md) - Age of participant when measurement was taken/recorded
  * [age_at_onset](age_at_onset.md) - The age of onset for this condition.
  * [age_at_resolution](age_at_resolution.md) - The age at which this condition was resolved, abated or cured. Should be left empty in cases of current active status.
- * [aliquot_id](aliquot_id.md) - Aliquot ID
  * [availablity_status](availablity_status.md) - Can this Sample be requested for further analysis?
- * [biospecimen_collection_id](biospecimen_collection_id.md) - Biospecimen Collection ID
  * [biospecimen_collection_id_fk](biospecimen_collection_id_fk.md) - ID associated with the Biospecimen Collection event.
  * [condition_assertion](condition_assertion.md) - Condition Assertion
  * [condition_code](condition_code.md) - Condition Code should be from one of a recognized ontology. Multiple codes can be indicated, but should simply be alternative encodings for the same entity such as alternates encodings from other ontologies.       
@@ -51,7 +48,6 @@
  * [condition_type](condition_type.md) - Does this condition represent a specific "type" of condition, such as "Phenotypic Feature" vs "Disease" in a rare disease setting.
  * [consanguinity](consanguinity.md) - Is there known or suspected consanguinity in this study family?
  * [data_access_type](data_access_type.md) - Data Access Type
- * [data_access_type_id](data_access_type_id.md) - Data Access Type ID
  * [date_of_birth](date_of_birth.md)
  * [date_of_birth_type](date_of_birth_type.md)
  * [description](description.md) - Description
@@ -59,15 +55,17 @@
  * [donor_type](donor_type.md)
  * [ethnicity](ethnicity.md) - Classification categories of human, taken from NIH, based on the social group a person belongs to, and either identifies with or is identified with by others, as a result of a complex of cultural, biological, geographical and other factors such as linguistic, dietary and religion traditions; ancestry, background, allegiance, or association; and physical characteristics traditionally associated with race.
  * [ethnicity_source_value](ethnicity_source_value.md)
+ * [external_id](external_id.md) - Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
  * [external_study_id](external_study_id.md) - External Study ID
  * [family_description](family_description.md) - Free text describing the study family, such as potential inheritance or details about consanguinity
  * [family_external_id](family_external_id.md) - Other study specific study identifiers
- * [family_id](family_id.md) - Family Identifier
  * [family_id_fk](family_id_fk.md) - Family Identifier
  * [family_member_id](family_member_id.md) - Family Member ID indicating presence in the family
  * [family_study_focus](family_study_focus.md) - What is this study family investigating? EG, a specific condition. The code should be prefixed with a recognizable curie. 
  * [family_type](family_type.md) - Describes the 'type' of study family, eg, trio.
  * [funding_source](funding_source.md) - Funding Source
+ * [has_access_policy](has_access_policy.md) - Which access policy applies to this element?
+ * [has_sample](has_sample.md) - Which samples were collected or processed for this participant?
  * [id](id.md) - ID associated with a class
  * [in_study](in_study.md) - With which study is this class associated?
  * [laterality](laterality.md) - Laterality information for the site
@@ -80,7 +78,6 @@
  * [other_family_member_id](other_family_member_id.md) - Other member of the same family to which there is a relationship being described
  * [parent_sample_id](parent_sample_id.md) - Parent Sample ID
  * [parent_study_id](parent_study_id.md) - Parent Study ID
- * [participant_external_id](participant_external_id.md) - External Participant Identifier
  * [participant_id](participant_id.md) - ID associated with the Participant
  * [phenotypic_sex](phenotypic_sex.md) - Sex of the Participant
  * [phenotypic_sex_source_value](phenotypic_sex_source_value.md) - Original source value for phenotypic sex value
@@ -96,7 +93,6 @@
  * [sample_availability_status](sample_availability_status.md) - Can this Sample be requested for further analysis
  * [sample_concentration](sample_concentration.md) - What is the concentration of the analyte in the Aliquot?
  * [sample_concentration_unit](sample_concentration_unit.md) - Units associated with the concentration of the analyte in the Aliquot? UCUM coding preferred (with curie, UCUM)
- * [sample_id](sample_id.md) - Sample ID
  * [sample_id_fk](sample_id_fk.md) - Sample ID the aliquot is associated with
  * [sample_type](sample_type.md) - Curied code associated the type of material of which this Sample is comprised
  * [sample_volume](sample_volume.md) - What is the volume of the Aliquot?
@@ -104,7 +100,6 @@
  * [site](site.md) - The location of the specimen collection.
  * [spatial_qualifier](spatial_qualifier.md) - Any spatial/location qualifiers
  * [storage_method](storage_method.md) - Curied code indicating how is the Sample stored, eg, Frozen or with additives
- * [study_id](study_id.md) - Study ID
  * [study_title](study_title.md) - Study Title
  * [vital_status](vital_status.md) - Vital Status
  * [website](website.md) - Website

@@ -204,7 +204,7 @@ type Measurement
 type Participant
   {
     id: String!
-    participantExternalId: [String]
+    externalId: [Uriorcurie]
     organismType: String
     donorType: EnumDonorType
     dateOfBirth: Integer
@@ -217,6 +217,7 @@ type Participant
     ethnicitySourceValue: String
     ageAtLastVitalStatus: Integer
     vitalStatus: EnumVitalStatus
+    hasSample: [Sample]
   }
 
 type Procedure
@@ -239,7 +240,6 @@ type ResearchAccessPolicy
 type Sample
   {
     sampleId: String!
-    participantId: String!
     parentSampleId: String
     biospecimenCollectionIdFk: String!
     sampleType: String!

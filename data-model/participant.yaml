@@ -25,6 +25,7 @@ imports:
   - linkml:types
   - anvil_core
   - study
+  - sample
 classes:
   Participant:
     title: Participant
@@ -32,37 +33,32 @@ classes:
     description: Basic participant demographics
     is_a: Thing
     slots:
-    - id
-    - participant_external_id 
-    - organism_type 
-    - donor_type 
-    - date_of_birth
-    - date_of_birth_type
-    - phenotypic_sex
-    - phenotypic_sex_source_value
-    - race
-    - race_source_value
-    - ethnicity
-    - ethnicity_source_value
-    - age_at_last_vital_status 
-    - vital_status
+      - id
+      - external_id 
+      - organism_type 
+      - donor_type 
+      - date_of_birth
+      - date_of_birth_type
+      - phenotypic_sex
+      - phenotypic_sex_source_value
+      - race
+      - race_source_value
+      - ethnicity
+      - ethnicity_source_value
+      - age_at_last_vital_status 
+      - vital_status
+      - has_sample
   study_participant: 
+#Rework this to be a consent record on the subject.
     title: StudyParticipant 
     definition_uri: anvil:study_participant
     description: Research 
     is_a: Thing
     slots:
-    - participant_id
-    - in_study
-    - access_policy_id
+      - participant_id
+      - in_study
+#      - access_policy_id
 slots:
-  # DB GAP ID, etc
-  participant_external_id: 
-    definition_uri: anvil:participant_external_id 
-    description: External Participant Identifier 
-    required: false 
-    range: string 
-    multivalued: true 
   in_study: 
     definition_uri: anvil:in_study
     title: in study
@@ -142,6 +138,14 @@ slots:
     title: VitalStatus 
     range: enum_vital_status
     required: false
+  has_sample: 
+    definition_uri: anvil:has_sample
+    title: Has sample
+    description: Which samples were collected or processed for this participant?
+    required: false
+    range: Sample
+    multivalued: true
+    inlined: false
 enums:
   EnumDateOfBirthType:
     name: EnumDateOfBirthType 

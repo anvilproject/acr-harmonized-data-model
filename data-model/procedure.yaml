@@ -17,7 +17,6 @@ classes:
     description: Procedures
     is_a: Thing
     slots:
-    # - procedure_id # ?? I'm not sure we care about this? 
     - participant_id
     - procedure_code
     - procedure_source_value 

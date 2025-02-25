@@ -18,4 +18,4 @@ None &#8594;  <sub>1..\*</sub> [enum_access_code](enum_access_code.md)
 
 ## Used by
 
- * [ResearchAccessPolicy](ResearchAccessPolicy.md)
+ * [AccessPolicy](AccessPolicy.md)

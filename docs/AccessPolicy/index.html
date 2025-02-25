@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://anvilproject.github.io/acr-harmonized-data-model/FamilyMember/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://anvilproject.github.io/acr-harmonized-data-model/AccessPolicy/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Class: FamilyMember - ACR Harmonized Data Model</title>
+    <title>Class: AccessPolicy - ACR Harmonized Data Model</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Class: FamilyMember";
-        var mkdocs_page_input_path = "FamilyMember.md";
-        var mkdocs_page_url = "/acr-harmonized-data-model/FamilyMember/";
+        var mkdocs_page_name = "Class: AccessPolicy";
+        var mkdocs_page_input_path = "AccessPolicy.md";
+        var mkdocs_page_url = "/acr-harmonized-data-model/AccessPolicy/";
       </script>
     
     <!--[if lt IE 9]>
@@ -57,7 +57,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Class: FamilyMember</li>
+      <li class="breadcrumb-item active">Class: AccessPolicy</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -66,41 +66,44 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="class-familymember">Class: FamilyMember</h1>
-<p>Family</p>
-<p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/FamilyMember">anvil:FamilyMember</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[FamilyMember&#124;family_id_fk:string%20%3F;family_member_id:string;other_family_member_id:string%20%3F;relationship_code:string%20%3F;id(i):string]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[FamilyMember&#124;family_id_fk:string%20%3F;family_member_id:string;other_family_member_id:string%20%3F;relationship_code:string%20%3F;id(i):string]" /></a></p>
+                <h1 id="class-accesspolicy">Class: AccessPolicy</h1>
+<p>Describes the access required for a given element of data.</p>
+<p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/AccessPolicy">anvil:AccessPolicy</a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[AccessControlledRecord]-%20has_access_policy%200..1&gt;[AccessPolicy&#124;data_access_type:enum_access_type%20*;access_policy_code:enum_access_code%20%2B;disease_use_limitation:string%20%3F;description:string;website:string%20%3F;id(i):string],[Thing]^-[AccessPolicy],[AccessControlledRecord]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[AccessControlledRecord]-%20has_access_policy%200..1&gt;[AccessPolicy&#124;data_access_type:enum_access_type%20*;access_policy_code:enum_access_code%20%2B;disease_use_limitation:string%20%3F;description:string;website:string%20%3F;id(i):string],[Thing]^-[AccessPolicy],[AccessControlledRecord]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Thing/">Thing</a> - Highest Level Class</li>
 </ul>
+<h2 id="referenced-by-class">Referenced by Class</h2>
+<ul>
+<li><strong>None</strong> <em><a href="../has_access_policy/">has_access_policy</a></em>  <sub>0..1</sub>  <strong><a href="./">AccessPolicy</a></strong></li>
+</ul>
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
-<li><a href="../family_id_fk/">family_id_fk</a>  <sub>0..1</sub><ul>
-<li>Description: Family Identifier</li>
+<li><a href="../data_access_type/">data_access_type</a>  <sub>0..*</sub><ul>
+<li>Description: Data Access Type</li>
+<li>Range: <a href="../enum_access_type/">enum_access_type</a></li>
+</ul>
+</li>
+<li><a href="../access_policy_code/">access_policy_code</a>  <sub>1..*</sub><ul>
+<li>Description: Access Policy Code</li>
+<li>Range: <a href="../enum_access_code/">enum_access_code</a></li>
+</ul>
+</li>
+<li><a href="../disease_use_limitation/">disease_use_limitation</a>  <sub>0..1</sub><ul>
+<li>Description: Disease Use Limitations</li>
 <li>Range: <a href="../types/String/">String</a></li>
 </ul>
 </li>
-<li><a href="../family_member_id/">family_member_id</a>  <sub>1..1</sub><ul>
-<li>Description: Family Member ID indicating presence in the family</li>
+<li><a href="../description/">description</a>  <sub>1..1</sub><ul>
+<li>Description: Description</li>
 <li>Range: <a href="../types/String/">String</a></li>
 </ul>
 </li>
-<li><a href="../other_family_member_id/">other_family_member_id</a>  <sub>0..1</sub><ul>
-<li>Description: Other member of the same family to which there is a relationship being described</li>
+<li><a href="../website/">website</a>  <sub>0..1</sub><ul>
+<li>Description: Website</li>
 <li>Range: <a href="../types/String/">String</a></li>
-</ul>
-</li>
-<li>
-<p><a href="../relationship_code/">relationship_code</a>  <sub>0..1</sub></p>
-<ul>
-<li>
-<p>Description: Relationship of the "Family Member" to the "Other Family Member" (i.e. mother, father, etc). This is required if other_family_member_id is present. Code must be from the HL7 <a href="https://terminology.hl7.org/6.2.0/ValueSet-v3-FamilyMember.html">FamilyMember ValueSet</a></p>
-</li>
-<li>
-<p>Range: <a href="../types/String/">String</a></p>
-</li>
 </ul>
 </li>
 </ul>

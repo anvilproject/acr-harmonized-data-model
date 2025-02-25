@@ -17,19 +17,12 @@ classes:
     description: Study Meta Data 
     is_a: Thing 
     slots: 
-      - study_id 
       - external_study_id
       - parent_study_id 
       - funding_source
       - principal_investigator 
       - study_title 
 slots:
-  study_id:
-    definition_uri: anvil:study_id 
-    description: Study ID 
-    required: true 
-    range: string 
-    multivalued: false 
   external_study_id: 
     # DbGAP ID, pubmed id, etc
     definition_uri: anvil:external_study_id

@@ -43,6 +43,46 @@ linkml:Jsonpath xsd:string
 
 linkml:Sparqlpath xsd:string
 
+<https://anvilproject.org/acr-harmonized-data-model/core/AccessControlledRecord> CLOSED {
+    (  $<https://anvilproject.org/acr-harmonized-data-model/core/AccessControlledRecord_tes> ( 
+          &<https://anvilproject.org/acr-harmonized-data-model/core/Thing_tes> ;
+          rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/Thing> ] ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/has_access_policy>
+          @<https://anvilproject.org/acr-harmonized-data-model/data-access-policy/AccessPolicy> ?
+       ) ;
+       rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/AccessControlledRecord> ]
+    )
+}
+
+<https://anvilproject.org/acr-harmonized-data-model/data-access-policy/AccessPolicy> CLOSED {
+    (  $<https://anvilproject.org/acr-harmonized-data-model/data-access-policy/AccessPolicy_tes> ( 
+          &<https://anvilproject.org/acr-harmonized-data-model/core/Thing_tes> ;
+          rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/Thing> ] ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/data_access_type> [
+             <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-typeopen>
+             <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-typeregistered>
+             <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-typecontrolled>
+             <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-typegsr-restricted>
+             <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-typegsr-allowed> ] * ;
+          <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/access_policy_code> [
+             <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-codeGRU>
+             <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-codeHMB>
+             <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-codeDS>
+             <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-codeIRB>
+             <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-codePUB>
+             <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-codeCOL>
+             <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-codeNPU>
+             <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-codeMDS>
+             <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-codeGSO>
+             <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-codeGSR> ] + ;
+          <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/disease_use_limitation> @linkml:String ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/description> @linkml:String ;
+          <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/website> @linkml:String ?
+       ) ;
+       rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/AccessPolicy> ]
+    )
+}
+
 <https://anvilproject.org/acr-harmonized-data-model/aliquot/Aliquot> CLOSED {
     (  $<https://anvilproject.org/acr-harmonized-data-model/aliquot/Aliquot_tes> ( 
           &<https://anvilproject.org/acr-harmonized-data-model/core/Thing_tes> ;
@@ -98,23 +138,7 @@ linkml:Sparqlpath xsd:string
           <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_onset> @linkml:Integer ? ;
           <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_resolution> @linkml:Integer ?
        ) ;
-       rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/ConditionAssertion> ] ?
-    )
-}
-
-<https://anvilproject.org/acr-harmonized-data-model/data-access-policy/DataAccessType> CLOSED {
-    (  $<https://anvilproject.org/acr-harmonized-data-model/data-access-policy/DataAccessType_tes> ( 
-          &<https://anvilproject.org/acr-harmonized-data-model/core/Thing_tes> ;
-          rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/Thing> ] ? ;
-          <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/data_access_type> [
-             <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-typeopen>
-             <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-typeregistered>
-             <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-typecontrolled>
-             <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-typegsr-restricted>
-             <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-typegsr-allowed> ] * ;
-          <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/disease_use_limitation> @linkml:String ?
-       ) ;
-       rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/DataAccessType> ]
+       rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/ConditionAssertion> ]
     )
 }
 
@@ -122,7 +146,6 @@ linkml:Sparqlpath xsd:string
     (  $<https://anvilproject.org/acr-harmonized-data-model/family/Family_tes> ( 
           &<https://anvilproject.org/acr-harmonized-data-model/core/Thing_tes> ;
           rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/Thing> ] ? ;
-          <https://anvilproject.org/acr-harmonized-data-model/family/family_id> @linkml:String ;
           <https://anvilproject.org/acr-harmonized-data-model/family/family_external_id> @linkml:String * ;
           <https://anvilproject.org/acr-harmonized-data-model/family/family_type> [
              <https://anvilproject.org/acr-harmonized-data-model/family/EnumFamilyType#control-only>
@@ -137,7 +160,7 @@ linkml:Sparqlpath xsd:string
              <https://bioregistry.io/registry/snomedct410515003> <https://bioregistry.io/registry/snomedct261665006> ] ? ;
           <https://anvilproject.org/acr-harmonized-data-model/family/family_study_focus> @linkml:String ?
        ) ;
-       rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/family/Family> ] ?
+       rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/family/Family> ]
     )
 }
 
@@ -150,7 +173,7 @@ linkml:Sparqlpath xsd:string
           <https://anvilproject.org/acr-harmonized-data-model/family-member/other_family_member_id> @linkml:String ? ;
           <https://anvilproject.org/acr-harmonized-data-model/family-member/relationship_code> @linkml:String ?
        ) ;
-       rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/family-member/FamilyMember> ] ?
+       rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/family-member/FamilyMember> ]
     )
 }
 
@@ -169,7 +192,7 @@ linkml:Sparqlpath xsd:string
           <https://anvilproject.org/acr-harmonized-data-model/measurement/measurement_source_value> @linkml:String ;
           <https://anvilproject.org/acr-harmonized-data-model/measurement/age_at_observation> @linkml:Integer ?
        ) ;
-       rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/measurement/Measurement> ] ?
+       rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/measurement/Measurement> ]
     )
 }
 
@@ -177,7 +200,7 @@ linkml:Sparqlpath xsd:string
     (  $<https://anvilproject.org/acr-harmonized-data-model/participant/Participant_tes> ( 
           &<https://anvilproject.org/acr-harmonized-data-model/core/Thing_tes> ;
           rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/Thing> ] ? ;
-          <https://anvilproject.org/acr-harmonized-data-model/participant/participant_external_id> @linkml:String * ;
+          <https://anvilproject.org/acr-harmonized-data-model/core/external_id> @linkml:Uriorcurie * ;
           <https://anvilproject.org/acr-harmonized-data-model/participant/organism_type> @linkml:String ? ;
           <https://anvilproject.org/acr-harmonized-data-model/participant/donor_type> [
              <https://anvilproject.org/acr-harmonized-data-model/participant/EnumDonorType#patient>
@@ -210,7 +233,9 @@ linkml:Sparqlpath xsd:string
              <https://anvilproject.org/acr-harmonized-data-model/participant/EnumVitalStatus#dead>
              <https://anvilproject.org/acr-harmonized-data-model/participant/EnumVitalStatus#not_reported>
              <https://anvilproject.org/acr-harmonized-data-model/participant/EnumVitalStatus#unknown>
-             <https://anvilproject.org/acr-harmonized-data-model/participant/EnumVitalStatus#unspecified> ] ?
+             <https://anvilproject.org/acr-harmonized-data-model/participant/EnumVitalStatus#unspecified> ] ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/participant/has_sample>
+          @<https://anvilproject.org/acr-harmonized-data-model/sample/Sample> *
        ) ;
        rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/participant/Participant> ]
     )
@@ -230,29 +255,7 @@ linkml:Sparqlpath xsd:string
              <https://anvilproject.org/acr-harmonized-data-model/procedure/EnumProcedureDetail#unknown> ] ? ;
           <https://anvilproject.org/acr-harmonized-data-model/measurement/age_at_observation> @linkml:Integer ?
        ) ;
-       rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/procedure/Procedure> ] ?
-    )
-}
-
-<https://anvilproject.org/acr-harmonized-data-model/data-access-policy/ResearchAccessPolicy> CLOSED {
-    (  $<https://anvilproject.org/acr-harmonized-data-model/data-access-policy/ResearchAccessPolicy_tes> ( 
-          &<https://anvilproject.org/acr-harmonized-data-model/core/Thing_tes> ;
-          rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/Thing> ] ? ;
-          <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/access_policy_code> [
-             <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-codeGRU>
-             <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-codeHMB>
-             <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-codeDS>
-             <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-codeIRB>
-             <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-codePUB>
-             <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-codeCOL>
-             <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-codeNPU>
-             <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-codeMDS>
-             <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-codeGSO>
-             <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-codeGSR> ] + ;
-          <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/description> @linkml:String ;
-          <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/website> @linkml:String ?
-       ) ;
-       rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/ResearchAccessPolicy> ]
+       rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/procedure/Procedure> ]
     )
 }
 
@@ -260,7 +263,6 @@ linkml:Sparqlpath xsd:string
     (  $<https://anvilproject.org/acr-harmonized-data-model/sample/Sample_tes> ( 
           &<https://anvilproject.org/acr-harmonized-data-model/core/Thing_tes> ;
           rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/Thing> ] ? ;
-          <https://anvilproject.org/acr-harmonized-data-model/core/participant_id> @linkml:String ;
           <https://anvilproject.org/acr-harmonized-data-model/sample/parent_sample_id> @linkml:String ? ;
           <https://anvilproject.org/acr-harmonized-data-model/sample/biospecimen_collection_id_fk> @linkml:String ;
           <https://anvilproject.org/acr-harmonized-data-model/sample/sample_type> @linkml:String ;
@@ -279,7 +281,6 @@ linkml:Sparqlpath xsd:string
     (  $<https://anvilproject.org/acr-harmonized-data-model/study/Study_tes> ( 
           &<https://anvilproject.org/acr-harmonized-data-model/core/Thing_tes> ;
           rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/Thing> ] ? ;
-          <https://anvilproject.org/acr-harmonized-data-model/study/study_id> @linkml:String ;
           <https://anvilproject.org/acr-harmonized-data-model/study/external_study_id> @linkml:String * ;
           <https://anvilproject.org/acr-harmonized-data-model/study/parent_study_id>
           @<https://anvilproject.org/acr-harmonized-data-model/study/Study> ? ;
@@ -287,7 +288,7 @@ linkml:Sparqlpath xsd:string
           <https://anvilproject.org/acr-harmonized-data-model/study/principal_investigator> @linkml:String * ;
           <https://anvilproject.org/acr-harmonized-data-model/study/study_title> @linkml:String
        ) ;
-       rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/study/Study> ] ?
+       rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/study/Study> ]
     )
 }
 
@@ -306,18 +307,18 @@ linkml:Sparqlpath xsd:string
 <https://anvilproject.org/acr-harmonized-data-model/core/Thing>  (
     CLOSED {
        (  $<https://anvilproject.org/acr-harmonized-data-model/core/Thing_tes> rdf:type . * ;
-          rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/Thing> ] ?
+          rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/Thing> ]
        )
-    } OR @<https://anvilproject.org/acr-harmonized-data-model/aliquot/Aliquot> OR
+    } OR @<https://anvilproject.org/acr-harmonized-data-model/core/AccessControlledRecord> OR
+    @<https://anvilproject.org/acr-harmonized-data-model/data-access-policy/AccessPolicy> OR
+    @<https://anvilproject.org/acr-harmonized-data-model/aliquot/Aliquot> OR
     @<https://anvilproject.org/acr-harmonized-data-model/biospecimen_collection/BiospecimenCollection> OR
     @<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/ConditionAssertion> OR
-    @<https://anvilproject.org/acr-harmonized-data-model/data-access-policy/DataAccessType> OR
     @<https://anvilproject.org/acr-harmonized-data-model/family/Family> OR
     @<https://anvilproject.org/acr-harmonized-data-model/family-member/FamilyMember> OR
     @<https://anvilproject.org/acr-harmonized-data-model/measurement/Measurement> OR
     @<https://anvilproject.org/acr-harmonized-data-model/participant/Participant> OR
     @<https://anvilproject.org/acr-harmonized-data-model/procedure/Procedure> OR
-    @<https://anvilproject.org/acr-harmonized-data-model/data-access-policy/ResearchAccessPolicy> OR
     @<https://anvilproject.org/acr-harmonized-data-model/sample/Sample> OR
     @<https://anvilproject.org/acr-harmonized-data-model/study/Study> OR
     @<https://anvilproject.org/acr-harmonized-data-model/participant/StudyParticipant>

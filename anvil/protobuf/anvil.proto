@@ -1,10 +1,26 @@
  syntax="proto3";
  package
 // metamodel_version: 1.7.0
+// Entity for which specific access control restrictions apply.
+message AccessControlledRecord
+ {
+  string id = 0
+  accessPolicy hasAccessPolicy = 0
+ }
+// Describes the access required for a given element of data.
+message AccessPolicy
+ {
+  string id = 0
+ repeated  enumAccessType dataAccessType = 0
+ repeated  enumAccessCode accessPolicyCode = 0
+  string diseaseUseLimitation = 0
+  string description = 0
+  string website = 0
+ }
 // Represent exact tubes or total amounts available of a Sample.
 message Aliquot
  {
-  string aliquotId = 0
+  string id = 0
   string sampleIdFk = 0
   enumAvailabilityStatus sampleAvailabilityStatus = 0
   float sampleVolume = 0
@@ -15,7 +31,7 @@ message Aliquot
 // Biospecimen Collection
 message BiospecimenCollection
  {
-  string biospecimenCollectionId = 0
+  string id = 0
   string participantId = 0
   integer ageAtCollection = 0
   enumSampleCollectionMethod method = 0
@@ -26,6 +42,7 @@ message BiospecimenCollection
 // Study Meta Data
 message ConditionAssertion
  {
+  string id = 0
   string participantId = 0
  repeated  enumConditionCode conditionCode = 0
   string conditionSourceValue = 0
@@ -35,17 +52,10 @@ message ConditionAssertion
   integer ageAtOnset = 0
   integer ageAtResolution = 0
  }
-// Research Access Policy
-message DataAccessType
- {
-  string dataAccessTypeId = 0
- repeated  enumAccessType dataAccessType = 0
-  string diseaseUseLimitation = 0
- }
 // Family
 message Family
  {
-  string familyId = 0
+  string id = 0
  repeated  string familyExternalId = 0
   enumFamilyType familyType = 0
   string familyDescription = 0
@@ -55,6 +65,7 @@ message Family
 // Family
 message FamilyMember
  {
+  string id = 0
   string familyIdFk = 0
   string familyMemberId = 0
   string otherFamilyMemberId = 0
@@ -63,6 +74,7 @@ message FamilyMember
 // Measurements
 message Measurement
  {
+  string id = 0
   string participantId = 0
  repeated  string measurementCode = 0
   string measurementUnit = 0
@@ -74,7 +86,7 @@ message Measurement
 message Participant
  {
   string id = 0
- repeated  string participantExternalId = 0
+ repeated  uriorcurie externalId = 0
   string organismType = 0
   enumDonorType donorType = 0
   integer dateOfBirth = 0
@@ -87,29 +99,22 @@ message Participant
   string ethnicitySourceValue = 0
   integer ageAtLastVitalStatus = 0
   enumVitalStatus vitalStatus = 0
+ repeated  sample hasSample = 0
  }
 // Procedures
 message Procedure
  {
+  string id = 0
   string participantId = 0
  repeated  string procedureCode = 0
   string procedureSourceValue = 0
   enumProcedureDetail procedureDetail = 0
   integer ageAtObservation = 0
  }
-// Research Access Policy
-message ResearchAccessPolicy
- {
-  string accessPolicyId = 0
- repeated  enumAccessCode accessPolicyCode = 0
-  string description = 0
-  string website = 0
- }
 // Biospecimen data
 message Sample
  {
-  string sampleId = 0
-  string participantId = 0
+  string id = 0
   string parentSampleId = 0
   string biospecimenCollectionIdFk = 0
   string sampleType = 0
@@ -121,7 +126,7 @@ message Sample
 // Study Meta Data
 message Study
  {
-  string studyId = 0
+  string id = 0
  repeated  string externalStudyId = 0
   study parentStudyId = 0
  repeated  string fundingSource = 0
@@ -131,7 +136,12 @@ message Study
 // Research
 message StudyParticipant
  {
+  string id = 0
   string participantId = 0
   study inStudy = 0
-  string accessPolicyId = 0
+ }
+// Highest Level Class
+message Thing
+ {
+  string id = 0
  }

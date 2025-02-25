@@ -1,5 +1,5 @@
 # Auto generated from anvil.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-02-20T19:21:44
+# Generation date: 2025-02-25T09:54:32
 # Schema: anvil-schema
 #
 # id: https://anvilproject.org/acr-harmonized-data-model
@@ -57,7 +57,8 @@ from rdflib import (
     URIRef
 )
 
-from linkml_runtime.linkml_model.types import Float, Integer, String
+from linkml_runtime.linkml_model.types import Float, Integer, String, Uriorcurie
+from linkml_runtime.utils.metamodelcore import URIorCURIE
 
 metamodel_version = "1.7.0"
 version = None
@@ -76,34 +77,63 @@ DEFAULT_ = ANVIL
 # Types
 
 # Class references
-class ParticipantId(extended_str):
+class ThingId(extended_str):
     pass
 
 
-class StudyParticipantAccessPolicyId(extended_str):
+class AccessControlledRecordId(ThingId):
     pass
 
 
-class DataAccessTypeDataAccessTypeId(extended_str):
+class ParticipantId(ThingId):
     pass
 
 
-class ResearchAccessPolicyAccessPolicyId(extended_str):
+class StudyParticipantId(ThingId):
     pass
 
 
-class BiospecimenCollectionBiospecimenCollectionId(extended_str):
+class StudyId(ThingId):
     pass
 
 
-class AliquotAliquotId(extended_str):
+class ConditionAssertionId(ThingId):
     pass
 
 
-class SampleSampleId(extended_str):
+class AccessPolicyId(ThingId):
     pass
 
 
+class BiospecimenCollectionId(ThingId):
+    pass
+
+
+class AliquotId(ThingId):
+    pass
+
+
+class SampleId(ThingId):
+    pass
+
+
+class MeasurementId(ThingId):
+    pass
+
+
+class ProcedureId(ThingId):
+    pass
+
+
+class FamilyId(ThingId):
+    pass
+
+
+class FamilyMemberId(ThingId):
+    pass
+
+
+@dataclass(repr=False)
 class Thing(YAMLRoot):
     """
     Highest Level Class
@@ -114,6 +144,43 @@ class Thing(YAMLRoot):
     class_class_curie: ClassVar[str] = "anvil:core/Thing"
     class_name: ClassVar[str] = "Thing"
     class_model_uri: ClassVar[URIRef] = ANVIL.Thing
+
+    id: Union[str, ThingId] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, ThingId):
+            self.id = ThingId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class AccessControlledRecord(Thing):
+    """
+    Entity for which specific access control restrictions apply.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ANVIL["core/AccessControlledRecord"]
+    class_class_curie: ClassVar[str] = "anvil:core/AccessControlledRecord"
+    class_name: ClassVar[str] = "AccessControlledRecord"
+    class_model_uri: ClassVar[URIRef] = ANVIL.AccessControlledRecord
+
+    id: Union[str, AccessControlledRecordId] = None
+    has_access_policy: Optional[Union[str, AccessPolicyId]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, AccessControlledRecordId):
+            self.id = AccessControlledRecordId(self.id)
+
+        if self.has_access_policy is not None and not isinstance(self.has_access_policy, AccessPolicyId):
+            self.has_access_policy = AccessPolicyId(self.has_access_policy)
+
+        super().__post_init__(**kwargs)
 
 
 @dataclass(repr=False)
@@ -132,7 +199,7 @@ class Participant(Thing):
     phenotypic_sex: Union[str, "EnumSex"] = None
     race: Union[str, "EnumRace"] = None
     ethnicity: Union[str, "EnumEthnicity"] = None
-    participant_external_id: Optional[Union[str, List[str]]] = empty_list()
+    external_id: Optional[Union[Union[str, URIorCURIE], List[Union[str, URIorCURIE]]]] = empty_list()
     organism_type: Optional[str] = None
     donor_type: Optional[Union[str, "EnumDonorType"]] = None
     date_of_birth: Optional[int] = None
@@ -142,6 +209,7 @@ class Participant(Thing):
     ethnicity_source_value: Optional[str] = None
     age_at_last_vital_status: Optional[int] = None
     vital_status: Optional[Union[str, "EnumVitalStatus"]] = None
+    has_sample: Optional[Union[Union[str, SampleId], List[Union[str, SampleId]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -164,9 +232,9 @@ class Participant(Thing):
         if not isinstance(self.ethnicity, EnumEthnicity):
             self.ethnicity = EnumEthnicity(self.ethnicity)
 
-        if not isinstance(self.participant_external_id, list):
-            self.participant_external_id = [self.participant_external_id] if self.participant_external_id is not None else []
-        self.participant_external_id = [v if isinstance(v, str) else str(v) for v in self.participant_external_id]
+        if not isinstance(self.external_id, list):
+            self.external_id = [self.external_id] if self.external_id is not None else []
+        self.external_id = [v if isinstance(v, URIorCURIE) else URIorCURIE(v) for v in self.external_id]
 
         if self.organism_type is not None and not isinstance(self.organism_type, str):
             self.organism_type = str(self.organism_type)
@@ -195,6 +263,10 @@ class Participant(Thing):
         if self.vital_status is not None and not isinstance(self.vital_status, EnumVitalStatus):
             self.vital_status = EnumVitalStatus(self.vital_status)
 
+        if not isinstance(self.has_sample, list):
+            self.has_sample = [self.has_sample] if self.has_sample is not None else []
+        self.has_sample = [v if isinstance(v, SampleId) else SampleId(v) for v in self.has_sample]
+
         super().__post_init__(**kwargs)
 
 
@@ -210,23 +282,23 @@ class StudyParticipant(Thing):
     class_name: ClassVar[str] = "study_participant"
     class_model_uri: ClassVar[URIRef] = ANVIL.StudyParticipant
 
-    access_policy_id: Union[str, StudyParticipantAccessPolicyId] = None
+    id: Union[str, StudyParticipantId] = None
     participant_id: str = None
-    in_study: Optional[Union[dict, "Study"]] = None
+    in_study: Optional[Union[str, StudyId]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.access_policy_id):
-            self.MissingRequiredField("access_policy_id")
-        if not isinstance(self.access_policy_id, StudyParticipantAccessPolicyId):
-            self.access_policy_id = StudyParticipantAccessPolicyId(self.access_policy_id)
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, StudyParticipantId):
+            self.id = StudyParticipantId(self.id)
 
         if self._is_empty(self.participant_id):
             self.MissingRequiredField("participant_id")
         if not isinstance(self.participant_id, str):
             self.participant_id = str(self.participant_id)
 
-        if self.in_study is not None and not isinstance(self.in_study, Study):
-            self.in_study = Study(**as_dict(self.in_study))
+        if self.in_study is not None and not isinstance(self.in_study, StudyId):
+            self.in_study = StudyId(self.in_study)
 
         super().__post_init__(**kwargs)
 
@@ -243,18 +315,18 @@ class Study(Thing):
     class_name: ClassVar[str] = "Study"
     class_model_uri: ClassVar[URIRef] = ANVIL.Study
 
-    study_id: str = None
+    id: Union[str, StudyId] = None
     study_title: str = None
     external_study_id: Optional[Union[str, List[str]]] = empty_list()
-    parent_study_id: Optional[Union[dict, "Study"]] = None
+    parent_study_id: Optional[Union[str, StudyId]] = None
     funding_source: Optional[Union[str, List[str]]] = empty_list()
     principal_investigator: Optional[Union[str, List[str]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.study_id):
-            self.MissingRequiredField("study_id")
-        if not isinstance(self.study_id, str):
-            self.study_id = str(self.study_id)
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, StudyId):
+            self.id = StudyId(self.id)
 
         if self._is_empty(self.study_title):
             self.MissingRequiredField("study_title")
@@ -265,8 +337,8 @@ class Study(Thing):
             self.external_study_id = [self.external_study_id] if self.external_study_id is not None else []
         self.external_study_id = [v if isinstance(v, str) else str(v) for v in self.external_study_id]
 
-        if self.parent_study_id is not None and not isinstance(self.parent_study_id, Study):
-            self.parent_study_id = Study(**as_dict(self.parent_study_id))
+        if self.parent_study_id is not None and not isinstance(self.parent_study_id, StudyId):
+            self.parent_study_id = StudyId(self.parent_study_id)
 
         if not isinstance(self.funding_source, list):
             self.funding_source = [self.funding_source] if self.funding_source is not None else []
@@ -291,6 +363,7 @@ class ConditionAssertion(Thing):
     class_name: ClassVar[str] = "ConditionAssertion"
     class_model_uri: ClassVar[URIRef] = ANVIL.ConditionAssertion
 
+    id: Union[str, ConditionAssertionId] = None
     participant_id: str = None
     condition_source_value: str = None
     condition_type: Union[str, "EnumConditionType"] = None
@@ -301,6 +374,11 @@ class ConditionAssertion(Thing):
     age_at_resolution: Optional[int] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, ConditionAssertionId):
+            self.id = ConditionAssertionId(self.id)
+
         if self._is_empty(self.participant_id):
             self.MissingRequiredField("participant_id")
         if not isinstance(self.participant_id, str):
@@ -332,59 +410,29 @@ class ConditionAssertion(Thing):
 
 
 @dataclass(repr=False)
-class DataAccessType(Thing):
+class AccessPolicy(Thing):
     """
-    Research Access Policy
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = ANVIL["data-access-policy/DataAccessType"]
-    class_class_curie: ClassVar[str] = "anvil:data-access-policy/DataAccessType"
-    class_name: ClassVar[str] = "DataAccessType"
-    class_model_uri: ClassVar[URIRef] = ANVIL.DataAccessType
-
-    data_access_type_id: Union[str, DataAccessTypeDataAccessTypeId] = None
-    data_access_type: Optional[Union[Union[str, "EnumAccessType"], List[Union[str, "EnumAccessType"]]]] = empty_list()
-    disease_use_limitation: Optional[str] = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.data_access_type_id):
-            self.MissingRequiredField("data_access_type_id")
-        if not isinstance(self.data_access_type_id, DataAccessTypeDataAccessTypeId):
-            self.data_access_type_id = DataAccessTypeDataAccessTypeId(self.data_access_type_id)
-
-        if not isinstance(self.data_access_type, list):
-            self.data_access_type = [self.data_access_type] if self.data_access_type is not None else []
-        self.data_access_type = [v if isinstance(v, EnumAccessType) else EnumAccessType(v) for v in self.data_access_type]
-
-        if self.disease_use_limitation is not None and not isinstance(self.disease_use_limitation, str):
-            self.disease_use_limitation = str(self.disease_use_limitation)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class ResearchAccessPolicy(Thing):
-    """
-    Research Access Policy
+    Describes the access required for a given element of data.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = ANVIL["data-access-policy/ResearchAccessPolicy"]
-    class_class_curie: ClassVar[str] = "anvil:data-access-policy/ResearchAccessPolicy"
-    class_name: ClassVar[str] = "ResearchAccessPolicy"
-    class_model_uri: ClassVar[URIRef] = ANVIL.ResearchAccessPolicy
+    class_class_uri: ClassVar[URIRef] = ANVIL["data-access-policy/AccessPolicy"]
+    class_class_curie: ClassVar[str] = "anvil:data-access-policy/AccessPolicy"
+    class_name: ClassVar[str] = "AccessPolicy"
+    class_model_uri: ClassVar[URIRef] = ANVIL.AccessPolicy
 
-    access_policy_id: Union[str, ResearchAccessPolicyAccessPolicyId] = None
+    id: Union[str, AccessPolicyId] = None
     access_policy_code: Union[Union[str, "EnumAccessCode"], List[Union[str, "EnumAccessCode"]]] = None
     description: str = None
+    data_access_type: Optional[Union[Union[str, "EnumAccessType"], List[Union[str, "EnumAccessType"]]]] = empty_list()
+    disease_use_limitation: Optional[str] = None
     website: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.access_policy_id):
-            self.MissingRequiredField("access_policy_id")
-        if not isinstance(self.access_policy_id, ResearchAccessPolicyAccessPolicyId):
-            self.access_policy_id = ResearchAccessPolicyAccessPolicyId(self.access_policy_id)
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, AccessPolicyId):
+            self.id = AccessPolicyId(self.id)
 
         if self._is_empty(self.access_policy_code):
             self.MissingRequiredField("access_policy_code")
@@ -396,6 +444,13 @@ class ResearchAccessPolicy(Thing):
             self.MissingRequiredField("description")
         if not isinstance(self.description, str):
             self.description = str(self.description)
+
+        if not isinstance(self.data_access_type, list):
+            self.data_access_type = [self.data_access_type] if self.data_access_type is not None else []
+        self.data_access_type = [v if isinstance(v, EnumAccessType) else EnumAccessType(v) for v in self.data_access_type]
+
+        if self.disease_use_limitation is not None and not isinstance(self.disease_use_limitation, str):
+            self.disease_use_limitation = str(self.disease_use_limitation)
 
         if self.website is not None and not isinstance(self.website, str):
             self.website = str(self.website)
@@ -415,7 +470,7 @@ class BiospecimenCollection(Thing):
     class_name: ClassVar[str] = "BiospecimenCollection"
     class_model_uri: ClassVar[URIRef] = ANVIL.BiospecimenCollection
 
-    biospecimen_collection_id: Union[str, BiospecimenCollectionBiospecimenCollectionId] = None
+    id: Union[str, BiospecimenCollectionId] = None
     participant_id: str = None
     age_at_collection: Optional[int] = None
     method: Optional[Union[str, "EnumSampleCollectionMethod"]] = None
@@ -424,10 +479,10 @@ class BiospecimenCollection(Thing):
     laterality: Optional[Union[str, "EnumLaterality"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.biospecimen_collection_id):
-            self.MissingRequiredField("biospecimen_collection_id")
-        if not isinstance(self.biospecimen_collection_id, BiospecimenCollectionBiospecimenCollectionId):
-            self.biospecimen_collection_id = BiospecimenCollectionBiospecimenCollectionId(self.biospecimen_collection_id)
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, BiospecimenCollectionId):
+            self.id = BiospecimenCollectionId(self.id)
 
         if self._is_empty(self.participant_id):
             self.MissingRequiredField("participant_id")
@@ -452,7 +507,7 @@ class Aliquot(Thing):
     class_name: ClassVar[str] = "Aliquot"
     class_model_uri: ClassVar[URIRef] = ANVIL.Aliquot
 
-    aliquot_id: Union[str, AliquotAliquotId] = None
+    id: Union[str, AliquotId] = None
     sample_id_fk: str = None
     sample_availability_status: Optional[Union[str, "EnumAvailabilityStatus"]] = None
     sample_volume: Optional[float] = None
@@ -461,10 +516,10 @@ class Aliquot(Thing):
     sample_concentration_unit: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.aliquot_id):
-            self.MissingRequiredField("aliquot_id")
-        if not isinstance(self.aliquot_id, AliquotAliquotId):
-            self.aliquot_id = AliquotAliquotId(self.aliquot_id)
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, AliquotId):
+            self.id = AliquotId(self.id)
 
         if self._is_empty(self.sample_id_fk):
             self.MissingRequiredField("sample_id_fk")
@@ -501,8 +556,7 @@ class Sample(Thing):
     class_name: ClassVar[str] = "Sample"
     class_model_uri: ClassVar[URIRef] = ANVIL.Sample
 
-    sample_id: Union[str, SampleSampleId] = None
-    participant_id: str = None
+    id: Union[str, SampleId] = None
     biospecimen_collection_id_fk: str = None
     sample_type: str = None
     parent_sample_id: Optional[str] = None
@@ -512,15 +566,10 @@ class Sample(Thing):
     quantity: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.sample_id):
-            self.MissingRequiredField("sample_id")
-        if not isinstance(self.sample_id, SampleSampleId):
-            self.sample_id = SampleSampleId(self.sample_id)
-
-        if self._is_empty(self.participant_id):
-            self.MissingRequiredField("participant_id")
-        if not isinstance(self.participant_id, str):
-            self.participant_id = str(self.participant_id)
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, SampleId):
+            self.id = SampleId(self.id)
 
         if self._is_empty(self.biospecimen_collection_id_fk):
             self.MissingRequiredField("biospecimen_collection_id_fk")
@@ -563,6 +612,7 @@ class Measurement(Thing):
     class_name: ClassVar[str] = "Measurement"
     class_model_uri: ClassVar[URIRef] = ANVIL.Measurement
 
+    id: Union[str, MeasurementId] = None
     participant_id: str = None
     measurement_code: Union[str, List[str]] = None
     measurement_unit: str = None
@@ -571,6 +621,11 @@ class Measurement(Thing):
     age_at_observation: Optional[int] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, MeasurementId):
+            self.id = MeasurementId(self.id)
+
         if self._is_empty(self.participant_id):
             self.MissingRequiredField("participant_id")
         if not isinstance(self.participant_id, str):
@@ -613,6 +668,7 @@ class Procedure(Thing):
     class_name: ClassVar[str] = "Procedure"
     class_model_uri: ClassVar[URIRef] = ANVIL.Procedure
 
+    id: Union[str, ProcedureId] = None
     participant_id: str = None
     procedure_code: Union[str, List[str]] = None
     procedure_source_value: str = None
@@ -620,6 +676,11 @@ class Procedure(Thing):
     age_at_observation: Optional[int] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, ProcedureId):
+            self.id = ProcedureId(self.id)
+
         if self._is_empty(self.participant_id):
             self.MissingRequiredField("participant_id")
         if not isinstance(self.participant_id, str):
@@ -657,7 +718,7 @@ class Family(Thing):
     class_name: ClassVar[str] = "Family"
     class_model_uri: ClassVar[URIRef] = ANVIL.Family
 
-    family_id: str = None
+    id: Union[str, FamilyId] = None
     family_external_id: Optional[Union[str, List[str]]] = empty_list()
     family_type: Optional[Union[str, "EnumFamilyType"]] = None
     family_description: Optional[str] = None
@@ -665,10 +726,10 @@ class Family(Thing):
     family_study_focus: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.family_id):
-            self.MissingRequiredField("family_id")
-        if not isinstance(self.family_id, str):
-            self.family_id = str(self.family_id)
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, FamilyId):
+            self.id = FamilyId(self.id)
 
         if not isinstance(self.family_external_id, list):
             self.family_external_id = [self.family_external_id] if self.family_external_id is not None else []
@@ -701,12 +762,18 @@ class FamilyMember(Thing):
     class_name: ClassVar[str] = "FamilyMember"
     class_model_uri: ClassVar[URIRef] = ANVIL.FamilyMember
 
+    id: Union[str, FamilyMemberId] = None
     family_member_id: str = None
     family_id_fk: Optional[str] = None
     other_family_member_id: Optional[str] = None
     relationship_code: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, FamilyMemberId):
+            self.id = FamilyMemberId(self.id)
+
         if self._is_empty(self.family_member_id):
             self.MissingRequiredField("family_member_id")
         if not isinstance(self.family_member_id, str):
@@ -1215,11 +1282,11 @@ slots.participant_id = Slot(uri=ANVIL['core/participant_id'], name="participant_
 slots.id = Slot(uri=ANVIL['core/id'], name="id", curie=ANVIL.curie('core/id'),
                    model_uri=ANVIL.id, domain=None, range=URIRef)
 
-slots.participant_external_id = Slot(uri=ANVIL['participant/participant_external_id'], name="participant_external_id", curie=ANVIL.curie('participant/participant_external_id'),
-                   model_uri=ANVIL.participant_external_id, domain=None, range=Optional[Union[str, List[str]]])
+slots.external_id = Slot(uri=ANVIL['core/external_id'], name="external_id", curie=ANVIL.curie('core/external_id'),
+                   model_uri=ANVIL.external_id, domain=None, range=Optional[Union[Union[str, URIorCURIE], List[Union[str, URIorCURIE]]]])
 
 slots.in_study = Slot(uri=ANVIL['participant/in_study'], name="in_study", curie=ANVIL.curie('participant/in_study'),
-                   model_uri=ANVIL.in_study, domain=None, range=Optional[Union[dict, Study]])
+                   model_uri=ANVIL.in_study, domain=None, range=Optional[Union[str, StudyId]])
 
 slots.organism_type = Slot(uri=ANVIL['participant/organism_type'], name="organism_type", curie=ANVIL.curie('participant/organism_type'),
                    model_uri=ANVIL.organism_type, domain=None, range=Optional[str])
@@ -1257,14 +1324,14 @@ slots.age_at_last_vital_status = Slot(uri=ANVIL['participant/age_at_last_vital_s
 slots.vital_status = Slot(uri=ANVIL['participant/vital_status'], name="vital_status", curie=ANVIL.curie('participant/vital_status'),
                    model_uri=ANVIL.vital_status, domain=None, range=Optional[Union[str, "EnumVitalStatus"]])
 
-slots.study_id = Slot(uri=ANVIL['study/study_id'], name="study_id", curie=ANVIL.curie('study/study_id'),
-                   model_uri=ANVIL.study_id, domain=None, range=str)
+slots.has_sample = Slot(uri=ANVIL['participant/has_sample'], name="has_sample", curie=ANVIL.curie('participant/has_sample'),
+                   model_uri=ANVIL.has_sample, domain=None, range=Optional[Union[Union[str, SampleId], List[Union[str, SampleId]]]])
 
 slots.external_study_id = Slot(uri=ANVIL['study/external_study_id'], name="external_study_id", curie=ANVIL.curie('study/external_study_id'),
                    model_uri=ANVIL.external_study_id, domain=None, range=Optional[Union[str, List[str]]])
 
 slots.parent_study_id = Slot(uri=ANVIL['study/parent_study_id'], name="parent_study_id", curie=ANVIL.curie('study/parent_study_id'),
-                   model_uri=ANVIL.parent_study_id, domain=None, range=Optional[Union[dict, Study]])
+                   model_uri=ANVIL.parent_study_id, domain=None, range=Optional[Union[str, StudyId]])
 
 slots.funding_source = Slot(uri=ANVIL['study/funding_source'], name="funding_source", curie=ANVIL.curie('study/funding_source'),
                    model_uri=ANVIL.funding_source, domain=None, range=Optional[Union[str, List[str]]])
@@ -1296,12 +1363,6 @@ slots.age_at_onset = Slot(uri=ANVIL['condition_assertion/age_at_onset'], name="a
 slots.age_at_resolution = Slot(uri=ANVIL['condition_assertion/age_at_resolution'], name="age_at_resolution", curie=ANVIL.curie('condition_assertion/age_at_resolution'),
                    model_uri=ANVIL.age_at_resolution, domain=None, range=Optional[int])
 
-slots.data_access_type_id = Slot(uri=ANVIL['data-access-policy/data_access_type_id'], name="data_access_type_id", curie=ANVIL.curie('data-access-policy/data_access_type_id'),
-                   model_uri=ANVIL.data_access_type_id, domain=None, range=URIRef)
-
-slots.access_policy_id = Slot(uri=ANVIL['data-access-policy/access_policy_id'], name="access_policy_id", curie=ANVIL.curie('data-access-policy/access_policy_id'),
-                   model_uri=ANVIL.access_policy_id, domain=None, range=URIRef)
-
 slots.data_access_type = Slot(uri=ANVIL['data-access-policy/data_access_type'], name="data_access_type", curie=ANVIL.curie('data-access-policy/data_access_type'),
                    model_uri=ANVIL.data_access_type, domain=None, range=Optional[Union[Union[str, "EnumAccessType"], List[Union[str, "EnumAccessType"]]]])
 
@@ -1317,8 +1378,8 @@ slots.website = Slot(uri=ANVIL['data-access-policy/website'], name="website", cu
 slots.disease_use_limitation = Slot(uri=ANVIL['data-access-policy/disease_use_limitation'], name="disease_use_limitation", curie=ANVIL.curie('data-access-policy/disease_use_limitation'),
                    model_uri=ANVIL.disease_use_limitation, domain=None, range=Optional[str])
 
-slots.biospecimen_collection_id = Slot(uri=ANVIL['biospecimen_collection/biospecimen_collection_id'], name="biospecimen_collection_id", curie=ANVIL.curie('biospecimen_collection/biospecimen_collection_id'),
-                   model_uri=ANVIL.biospecimen_collection_id, domain=None, range=URIRef)
+slots.has_access_policy = Slot(uri=ANVIL['data-access-policy/has_access_policy'], name="has_access_policy", curie=ANVIL.curie('data-access-policy/has_access_policy'),
+                   model_uri=ANVIL.has_access_policy, domain=None, range=Optional[Union[str, AccessPolicyId]])
 
 slots.age_at_collection = Slot(uri=ANVIL['biospecimen_collection/age_at_collection'], name="age_at_collection", curie=ANVIL.curie('biospecimen_collection/age_at_collection'),
                    model_uri=ANVIL.age_at_collection, domain=None, range=Optional[int])
@@ -1334,9 +1395,6 @@ slots.spatial_qualifier = Slot(uri=ANVIL['biospecimen_collection/spatial_qualifi
 
 slots.laterality = Slot(uri=ANVIL['biospecimen_collection/laterality'], name="laterality", curie=ANVIL.curie('biospecimen_collection/laterality'),
                    model_uri=ANVIL.laterality, domain=None, range=Optional[Union[str, "EnumLaterality"]])
-
-slots.aliquot_id = Slot(uri=ANVIL['aliquot/aliquot_id'], name="aliquot_id", curie=ANVIL.curie('aliquot/aliquot_id'),
-                   model_uri=ANVIL.aliquot_id, domain=None, range=URIRef)
 
 slots.sample_id_fk = Slot(uri=ANVIL['aliquot/sample_id_fk'], name="sample_id_fk", curie=ANVIL.curie('aliquot/sample_id_fk'),
                    model_uri=ANVIL.sample_id_fk, domain=None, range=str)
@@ -1355,9 +1413,6 @@ slots.sample_concentration_unit = Slot(uri=ANVIL['aliquot/sample_concentration_u
 
 slots.sample_availability_status = Slot(uri=ANVIL['aliquot/sample_availability_status'], name="sample_availability_status", curie=ANVIL.curie('aliquot/sample_availability_status'),
                    model_uri=ANVIL.sample_availability_status, domain=None, range=Optional[Union[str, "EnumAvailabilityStatus"]])
-
-slots.sample_id = Slot(uri=ANVIL['sample/sample_id'], name="sample_id", curie=ANVIL.curie('sample/sample_id'),
-                   model_uri=ANVIL.sample_id, domain=None, range=URIRef)
 
 slots.parent_sample_id = Slot(uri=ANVIL['sample/parent_sample_id'], name="parent_sample_id", curie=ANVIL.curie('sample/parent_sample_id'),
                    model_uri=ANVIL.parent_sample_id, domain=None, range=Optional[str])
@@ -1406,9 +1461,6 @@ slots.procedure_detail = Slot(uri=ANVIL['procedure/procedure_detail'], name="pro
 
 slots.age_at_event = Slot(uri=ANVIL['procedure/age_at_event'], name="age_at_event", curie=ANVIL.curie('procedure/age_at_event'),
                    model_uri=ANVIL.age_at_event, domain=None, range=Optional[int])
-
-slots.family_id = Slot(uri=ANVIL['family/family_id'], name="family_id", curie=ANVIL.curie('family/family_id'),
-                   model_uri=ANVIL.family_id, domain=None, range=str)
 
 slots.family_external_id = Slot(uri=ANVIL['family/family_external_id'], name="family_external_id", curie=ANVIL.curie('family/family_external_id'),
                    model_uri=ANVIL.family_external_id, domain=None, range=Optional[Union[str, List[str]]])

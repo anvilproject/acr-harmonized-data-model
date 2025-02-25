@@ -6,7 +6,7 @@ Study Meta Data
 URI: [anvil:Study](https://anvilproject.org/acr-harmonized-data-model/Study)
 
 
-[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Study]<parent_study_id%200..1-++[Study&#124;study_id:string;external_study_id:string%20*;funding_source:string%20*;principal_investigator:string%20*;study_title:string],[StudyParticipant]++-%20in_study%200..1>[Study],[Thing]^-[Study],[StudyParticipant])](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Study]<parent_study_id%200..1-++[Study&#124;study_id:string;external_study_id:string%20*;funding_source:string%20*;principal_investigator:string%20*;study_title:string],[StudyParticipant]++-%20in_study%200..1>[Study],[Thing]^-[Study],[StudyParticipant])
+[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Study]<parent_study_id%200..1-%20[Study&#124;external_study_id:string%20*;funding_source:string%20*;principal_investigator:string%20*;study_title:string;id(i):string],[StudyParticipant]-%20in_study%200..1>[Study],[Thing]^-[Study],[StudyParticipant])](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Study]<parent_study_id%200..1-%20[Study&#124;external_study_id:string%20*;funding_source:string%20*;principal_investigator:string%20*;study_title:string;id(i):string],[StudyParticipant]-%20in_study%200..1>[Study],[Thing]^-[Study],[StudyParticipant])
 
 ## Parents
 
@@ -22,9 +22,6 @@ URI: [anvil:Study](https://anvilproject.org/acr-harmonized-data-model/Study)
 
 ### Own
 
- * [study_id](study_id.md)  <sub>1..1</sub>
-     * Description: Study ID
-     * Range: [String](types/String.md)
  * [external_study_id](external_study_id.md)  <sub>0..\*</sub>
      * Description: External Study ID
      * Range: [String](types/String.md)
@@ -39,4 +36,10 @@ URI: [anvil:Study](https://anvilproject.org/acr-harmonized-data-model/Study)
      * Range: [String](types/String.md)
  * [study_title](study_title.md)  <sub>1..1</sub>
      * Description: Study Title
+     * Range: [String](types/String.md)
+
+### Inherited from Thing:
+
+ * [id](id.md)  <sub>1..1</sub>
+     * Description: ID associated with a class
      * Range: [String](types/String.md)

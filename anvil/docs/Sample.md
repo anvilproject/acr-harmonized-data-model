@@ -6,23 +6,21 @@ Biospecimen data
 URI: [anvil:Sample](https://anvilproject.org/acr-harmonized-data-model/Sample)
 
 
-[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[Sample&#124;sample_id:string;participant_id:string;parent_sample_id:string%20%3F;biospecimen_collection_id_fk:string;sample_type:string;processing:string%20*;availablity_status:EnumAvailabilityStatus%20%3F;storage_method:string%20%3F;quantity:string%20%3F])](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[Sample&#124;sample_id:string;participant_id:string;parent_sample_id:string%20%3F;biospecimen_collection_id_fk:string;sample_type:string;processing:string%20*;availablity_status:EnumAvailabilityStatus%20%3F;storage_method:string%20%3F;quantity:string%20%3F])
+[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Participant]-%20has_sample%200..*>[Sample&#124;parent_sample_id:string%20%3F;biospecimen_collection_id_fk:string;sample_type:string;processing:string%20*;availablity_status:EnumAvailabilityStatus%20%3F;storage_method:string%20%3F;quantity:string%20%3F;id(i):string],[Thing]^-[Sample],[Participant])](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Participant]-%20has_sample%200..*>[Sample&#124;parent_sample_id:string%20%3F;biospecimen_collection_id_fk:string;sample_type:string;processing:string%20*;availablity_status:EnumAvailabilityStatus%20%3F;storage_method:string%20%3F;quantity:string%20%3F;id(i):string],[Thing]^-[Sample],[Participant])
 
 ## Parents
 
  *  is_a: [Thing](Thing.md) - Highest Level Class
+
+## Referenced by Class
+
+ *  **None** *[has_sample](has_sample.md)*  <sub>0..\*</sub>  **[Sample](Sample.md)**
 
 ## Attributes
 
 
 ### Own
 
- * [sample_id](sample_id.md)  <sub>1..1</sub>
-     * Description: Sample ID
-     * Range: [String](types/String.md)
- * [participant_id](participant_id.md)  <sub>1..1</sub>
-     * Description: ID associated with the Participant
-     * Range: [String](types/String.md)
  * [parent_sample_id](parent_sample_id.md)  <sub>0..1</sub>
      * Description: Parent Sample ID
      * Range: [String](types/String.md)
@@ -43,4 +41,10 @@ URI: [anvil:Sample](https://anvilproject.org/acr-harmonized-data-model/Sample)
      * Range: [String](types/String.md)
  * [quantity](quantity.md)  <sub>0..1</sub>
      * Description: The total quantity of the specimen
+     * Range: [String](types/String.md)
+
+### Inherited from Thing:
+
+ * [id](id.md)  <sub>1..1</sub>
+     * Description: ID associated with a class
      * Range: [String](types/String.md)

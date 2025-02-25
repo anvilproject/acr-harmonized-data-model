@@ -69,7 +69,7 @@
                 <h1 id="class-family">Class: Family</h1>
 <p>Family</p>
 <p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/Family">anvil:Family</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[Family&#124;family_id:string;family_external_id:string%20*;family_type:EnumFamilyType%20%3F;family_description:string%20%3F;consanguinity:EnumConsanguinityAssertion%20%3F;family_study_focus:string%20%3F]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[Family&#124;family_id:string;family_external_id:string%20*;family_type:EnumFamilyType%20%3F;family_description:string%20%3F;consanguinity:EnumConsanguinityAssertion%20%3F;family_study_focus:string%20%3F]" /></a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[Family&#124;family_external_id:string%20*;family_type:EnumFamilyType%20%3F;family_description:string%20%3F;consanguinity:EnumConsanguinityAssertion%20%3F;family_study_focus:string%20%3F;id(i):string]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[Family&#124;family_external_id:string%20*;family_type:EnumFamilyType%20%3F;family_description:string%20%3F;consanguinity:EnumConsanguinityAssertion%20%3F;family_study_focus:string%20%3F;id(i):string]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Thing/">Thing</a> - Highest Level Class</li>
@@ -77,11 +77,6 @@
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
-<li><a href="../family_id/">family_id</a>  <sub>1..1</sub><ul>
-<li>Description: Family Identifier</li>
-<li>Range: <a href="../types/String/">String</a></li>
-</ul>
-</li>
 <li><a href="../family_external_id/">family_external_id</a>  <sub>0..*</sub><ul>
 <li>Description: Other study specific study identifiers</li>
 <li>Range: <a href="../types/String/">String</a></li>
@@ -111,6 +106,14 @@
 <li>
 <p>Range: <a href="../types/String/">String</a></p>
 </li>
+</ul>
+</li>
+</ul>
+<h3 id="inherited-from-thing">Inherited from Thing:</h3>
+<ul>
+<li><a href="../id/">id</a>  <sub>1..1</sub><ul>
+<li>Description: ID associated with a class</li>
+<li>Range: <a href="../types/String/">String</a></li>
 </ul>
 </li>
 </ul>

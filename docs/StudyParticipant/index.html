@@ -69,7 +69,7 @@
                 <h1 id="class-study_participant">Class: study_participant</h1>
 <p>Research</p>
 <p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/StudyParticipant">anvil:StudyParticipant</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Study]&lt;in_study%200..1-++[StudyParticipant&#124;participant_id:string;access_policy_id:string],[Thing]^-[StudyParticipant],[Thing],[Study]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Study]&lt;in_study%200..1-++[StudyParticipant&#124;participant_id:string;access_policy_id:string],[Thing]^-[StudyParticipant],[Thing],[Study]" /></a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Study]&lt;in_study%200..1-%20[StudyParticipant&#124;participant_id:string;id(i):string],[Thing]^-[StudyParticipant],[Thing],[Study]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Study]&lt;in_study%200..1-%20[StudyParticipant&#124;participant_id:string;id(i):string],[Thing]^-[StudyParticipant],[Thing],[Study]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Thing/">Thing</a> - Highest Level Class</li>
@@ -87,8 +87,11 @@
 <li>Range: <a href="../Study/">Study</a></li>
 </ul>
 </li>
-<li><a href="../access_policy_id/">access_policy_id</a>  <sub>1..1</sub><ul>
-<li>Description: Access Policy ID</li>
+</ul>
+<h3 id="inherited-from-thing">Inherited from Thing:</h3>
+<ul>
+<li><a href="../id/">id</a>  <sub>1..1</sub><ul>
+<li>Description: ID associated with a class</li>
 <li>Range: <a href="../types/String/">String</a></li>
 </ul>
 </li>

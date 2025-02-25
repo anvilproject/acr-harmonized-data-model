@@ -18,4 +18,4 @@ None &#8594;  <sub>1..1</sub> [String](types/String.md)
 
 ## Used by
 
- * [ResearchAccessPolicy](ResearchAccessPolicy.md)
+ * [AccessPolicy](AccessPolicy.md)

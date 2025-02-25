@@ -6,7 +6,7 @@ Basic participant demographics
 URI: [anvil:Participant](https://anvilproject.org/acr-harmonized-data-model/Participant)
 
 
-[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[Participant&#124;id:string;participant_external_id:string%20*;organism_type:string%20%3F;donor_type:enum_donor_type%20%3F;date_of_birth:integer%20%3F;date_of_birth_type:EnumDateOfBirthType%20%3F;phenotypic_sex:enum_sex;phenotypic_sex_source_value:string%20%3F;race:enum_race;race_source_value:string%20%3F;ethnicity:enum_ethnicity;ethnicity_source_value:string%20%3F;age_at_last_vital_status:integer%20%3F;vital_status:enum_vital_status%20%3F])](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[Participant&#124;id:string;participant_external_id:string%20*;organism_type:string%20%3F;donor_type:enum_donor_type%20%3F;date_of_birth:integer%20%3F;date_of_birth_type:EnumDateOfBirthType%20%3F;phenotypic_sex:enum_sex;phenotypic_sex_source_value:string%20%3F;race:enum_race;race_source_value:string%20%3F;ethnicity:enum_ethnicity;ethnicity_source_value:string%20%3F;age_at_last_vital_status:integer%20%3F;vital_status:enum_vital_status%20%3F])
+[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Sample],[Sample]<has_sample%200..*-%20[Participant&#124;external_id:uriorcurie%20*;organism_type:string%20%3F;donor_type:enum_donor_type%20%3F;date_of_birth:integer%20%3F;date_of_birth_type:EnumDateOfBirthType%20%3F;phenotypic_sex:enum_sex;phenotypic_sex_source_value:string%20%3F;race:enum_race;race_source_value:string%20%3F;ethnicity:enum_ethnicity;ethnicity_source_value:string%20%3F;age_at_last_vital_status:integer%20%3F;vital_status:enum_vital_status%20%3F;id(i):string],[Thing]^-[Participant])](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Sample],[Sample]<has_sample%200..*-%20[Participant&#124;external_id:uriorcurie%20*;organism_type:string%20%3F;donor_type:enum_donor_type%20%3F;date_of_birth:integer%20%3F;date_of_birth_type:EnumDateOfBirthType%20%3F;phenotypic_sex:enum_sex;phenotypic_sex_source_value:string%20%3F;race:enum_race;race_source_value:string%20%3F;ethnicity:enum_ethnicity;ethnicity_source_value:string%20%3F;age_at_last_vital_status:integer%20%3F;vital_status:enum_vital_status%20%3F;id(i):string],[Thing]^-[Participant])
 
 ## Parents
 
@@ -20,9 +20,9 @@ URI: [anvil:Participant](https://anvilproject.org/acr-harmonized-data-model/Part
  * [id](id.md)  <sub>1..1</sub>
      * Description: ID associated with a class
      * Range: [String](types/String.md)
- * [participant_external_id](participant_external_id.md)  <sub>0..\*</sub>
-     * Description: External Participant Identifier
-     * Range: [String](types/String.md)
+ * [external_id](external_id.md)  <sub>0..\*</sub>
+     * Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
+     * Range: [Uriorcurie](types/Uriorcurie.md)
  * [organism_type](organism_type.md)  <sub>0..1</sub>
      * Description: Organism Type Label
      * Range: [String](types/String.md)
@@ -55,3 +55,6 @@ URI: [anvil:Participant](https://anvilproject.org/acr-harmonized-data-model/Part
  * [vital_status](vital_status.md)  <sub>0..1</sub>
      * Description: Vital Status
      * Range: [enum_vital_status](enum_vital_status.md)
+ * [has_sample](has_sample.md)  <sub>0..\*</sub>
+     * Description: Which samples were collected or processed for this participant?
+     * Range: [Sample](Sample.md)

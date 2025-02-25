@@ -18,4 +18,4 @@ None &#8594;  <sub>0..\*</sub> [enum_access_type](enum_access_type.md)
 
 ## Used by
 
- * [DataAccessType](DataAccessType.md)
+ * [AccessPolicy](AccessPolicy.md)

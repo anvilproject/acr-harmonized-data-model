@@ -69,7 +69,7 @@
                 <h1 id="class-aliquot">Class: Aliquot</h1>
 <p>Represent exact tubes or total amounts available of a Sample.</p>
 <p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/Aliquot">anvil:Aliquot</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[Aliquot&#124;aliquot_id:string;sample_id_fk:string;sample_availability_status:EnumAvailabilityStatus%20%3F;sample_volume:float%20%3F;sample_volume_unit:string%20%3F;sample_concentration:float%20%3F;sample_concentration_unit:string%20%3F]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[Aliquot&#124;aliquot_id:string;sample_id_fk:string;sample_availability_status:EnumAvailabilityStatus%20%3F;sample_volume:float%20%3F;sample_volume_unit:string%20%3F;sample_concentration:float%20%3F;sample_concentration_unit:string%20%3F]" /></a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[Aliquot&#124;sample_id_fk:string;sample_availability_status:EnumAvailabilityStatus%20%3F;sample_volume:float%20%3F;sample_volume_unit:string%20%3F;sample_concentration:float%20%3F;sample_concentration_unit:string%20%3F;id(i):string]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[Aliquot&#124;sample_id_fk:string;sample_availability_status:EnumAvailabilityStatus%20%3F;sample_volume:float%20%3F;sample_volume_unit:string%20%3F;sample_concentration:float%20%3F;sample_concentration_unit:string%20%3F;id(i):string]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Thing/">Thing</a> - Highest Level Class</li>
@@ -77,11 +77,6 @@
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
-<li><a href="../aliquot_id/">aliquot_id</a>  <sub>1..1</sub><ul>
-<li>Description: Aliquot ID</li>
-<li>Range: <a href="../types/String/">String</a></li>
-</ul>
-</li>
 <li><a href="../sample_id_fk/">sample_id_fk</a>  <sub>1..1</sub><ul>
 <li>Description: Sample ID the aliquot is associated with</li>
 <li>Range: <a href="../types/String/">String</a></li>
@@ -109,6 +104,14 @@
 </li>
 <li><a href="../sample_concentration_unit/">sample_concentration_unit</a>  <sub>0..1</sub><ul>
 <li>Description: Units associated with the concentration of the analyte in the Aliquot? UCUM coding preferred (with curie, UCUM)</li>
+<li>Range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="inherited-from-thing">Inherited from Thing:</h3>
+<ul>
+<li><a href="../id/">id</a>  <sub>1..1</sub><ul>
+<li>Description: ID associated with a class</li>
 <li>Range: <a href="../types/String/">String</a></li>
 </ul>
 </li>

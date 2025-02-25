@@ -69,7 +69,7 @@
                 <h1 id="class-procedure">Class: Procedure</h1>
 <p>Procedures</p>
 <p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/Procedure">anvil:Procedure</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[Procedure&#124;participant_id:string;procedure_code:string%20%2B;procedure_source_value:string;procedure_detail:EnumProcedureDetail%20%3F;age_at_observation:integer%20%3F]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[Procedure&#124;participant_id:string;procedure_code:string%20%2B;procedure_source_value:string;procedure_detail:EnumProcedureDetail%20%3F;age_at_observation:integer%20%3F]" /></a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[Procedure&#124;participant_id:string;procedure_code:string%20%2B;procedure_source_value:string;procedure_detail:EnumProcedureDetail%20%3F;age_at_observation:integer%20%3F;id(i):string]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[Procedure&#124;participant_id:string;procedure_code:string%20%2B;procedure_source_value:string;procedure_detail:EnumProcedureDetail%20%3F;age_at_observation:integer%20%3F;id(i):string]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Thing/">Thing</a> - Highest Level Class</li>
@@ -99,6 +99,14 @@
 <li><a href="../age_at_observation/">age_at_observation</a>  <sub>0..1</sub></li>
 <li>Description: Age of participant when measurement was taken/recorded</li>
 <li>Range: <a href="../types/Integer/">Integer</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="inherited-from-thing">Inherited from Thing:</h3>
+<ul>
+<li><a href="../id/">id</a>  <sub>1..1</sub><ul>
+<li>Description: ID associated with a class</li>
+<li>Range: <a href="../types/String/">String</a></li>
 </ul>
 </li>
 </ul>

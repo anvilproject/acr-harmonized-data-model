@@ -6,7 +6,7 @@ Family
 URI: [anvil:FamilyMember](https://anvilproject.org/acr-harmonized-data-model/FamilyMember)
 
 
-[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[FamilyMember&#124;family_id_fk:string%20%3F;family_member_id:string;other_family_member_id:string%20%3F;relationship_code:string%20%3F])](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[FamilyMember&#124;family_id_fk:string%20%3F;family_member_id:string;other_family_member_id:string%20%3F;relationship_code:string%20%3F])
+[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[FamilyMember&#124;family_id_fk:string%20%3F;family_member_id:string;other_family_member_id:string%20%3F;relationship_code:string%20%3F;id(i):string])](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[FamilyMember&#124;family_id_fk:string%20%3F;family_member_id:string;other_family_member_id:string%20%3F;relationship_code:string%20%3F;id(i):string])
 
 ## Parents
 
@@ -29,4 +29,10 @@ URI: [anvil:FamilyMember](https://anvilproject.org/acr-harmonized-data-model/Fam
  * [relationship_code](relationship_code.md)  <sub>0..1</sub>
      * Description: Relationship of the "Family Member" to the "Other Family Member" (i.e. mother, father, etc). This is required if other_family_member_id is present. Code must be from the HL7 [FamilyMember ValueSet](https://terminology.hl7.org/6.2.0/ValueSet-v3-FamilyMember.html)
 
+     * Range: [String](types/String.md)
+
+### Inherited from Thing:
+
+ * [id](id.md)  <sub>1..1</sub>
+     * Description: ID associated with a class
      * Range: [String](types/String.md)

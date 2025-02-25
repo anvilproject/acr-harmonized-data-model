@@ -7,6 +7,9 @@ prefixes:
   linkml:
     prefix_prefix: linkml
     prefix_reference: https://w3id.org/linkml/
+  ig2-biospecimen-availability: 
+    prefix_prefix: ig2-biospecimen-availability 
+    prefix_reference: https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/biospecimen-availability
 imports:
   - linkml:types
   - anvil_core
@@ -17,8 +20,6 @@ classes:
     description: Biospecimen data
     is_a: Thing 
     slots: 
-      - sample_id 
-      - participant_id 
       - parent_sample_id 
       - biospecimen_collection_id_fk 
       - sample_type
@@ -27,13 +28,6 @@ classes:
       - storage_method 
       - quantity 
 slots: 
-  sample_id: 
-    definition_uri: anvil:sample_id 
-    description: Sample ID 
-    identifier: true 
-    required: true 
-    range: string 
-    multivalued: false 
   parent_sample_id: 
     definition_uri: anvil:parent_sample_id 
     description: Parent Sample ID 
@@ -75,5 +69,20 @@ slots:
     description: The total quantity of the specimen
     required: false  
     range: string   
-      
+enums: 
+  EnumAvailabilityStatus:
+    name: EnumAvailabilityStatus
+    definition_uri: anvil:EnumAvailabilityStatus
+    permissible_values:
+      available:
+        text: available 
+        title: Available 
+        meaning: ig2-biospecimen-availability:available 
+        description: Biospecimen is Available
+      unavailable: 
+        text: unavailable 
+        title: Unavailable 
+        meaning: ig2-biospecimen-availability:unavailable 
+        description: Biospecimen is Unavailable
+
   

@@ -69,7 +69,7 @@
                 <h1 id="class-study">Class: Study</h1>
 <p>Study Meta Data</p>
 <p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/Study">anvil:Study</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Study]&lt;parent_study_id%200..1-++[Study&#124;study_id:string;external_study_id:string%20*;funding_source:string%20*;principal_investigator:string%20*;study_title:string],[StudyParticipant]++-%20in_study%200..1&gt;[Study],[Thing]^-[Study],[StudyParticipant]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Study]&lt;parent_study_id%200..1-++[Study&#124;study_id:string;external_study_id:string%20*;funding_source:string%20*;principal_investigator:string%20*;study_title:string],[StudyParticipant]++-%20in_study%200..1&gt;[Study],[Thing]^-[Study],[StudyParticipant]" /></a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Study]&lt;parent_study_id%200..1-%20[Study&#124;external_study_id:string%20*;funding_source:string%20*;principal_investigator:string%20*;study_title:string;id(i):string],[StudyParticipant]-%20in_study%200..1&gt;[Study],[Thing]^-[Study],[StudyParticipant]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Study]&lt;parent_study_id%200..1-%20[Study&#124;external_study_id:string%20*;funding_source:string%20*;principal_investigator:string%20*;study_title:string;id(i):string],[StudyParticipant]-%20in_study%200..1&gt;[Study],[Thing]^-[Study],[StudyParticipant]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Thing/">Thing</a> - Highest Level Class</li>
@@ -82,11 +82,6 @@
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
-<li><a href="../study_id/">study_id</a>  <sub>1..1</sub><ul>
-<li>Description: Study ID</li>
-<li>Range: <a href="../types/String/">String</a></li>
-</ul>
-</li>
 <li><a href="../external_study_id/">external_study_id</a>  <sub>0..*</sub><ul>
 <li>Description: External Study ID</li>
 <li>Range: <a href="../types/String/">String</a></li>
@@ -109,6 +104,14 @@
 </li>
 <li><a href="../study_title/">study_title</a>  <sub>1..1</sub><ul>
 <li>Description: Study Title</li>
+<li>Range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="inherited-from-thing">Inherited from Thing:</h3>
+<ul>
+<li><a href="../id/">id</a>  <sub>1..1</sub><ul>
+<li>Description: ID associated with a class</li>
 <li>Range: <a href="../types/String/">String</a></li>
 </ul>
 </li>

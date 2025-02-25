@@ -17,7 +17,6 @@ classes:
     description: Measurements
     is_a: Thing
     slots:
-    # - measurement_id # ?? I'm not sure we care about this? 
     - participant_id
     - measurement_code
     - measurement_unit

@@ -69,24 +69,18 @@
                 <h1 id="class-sample">Class: Sample</h1>
 <p>Biospecimen data</p>
 <p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/Sample">anvil:Sample</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[Sample&#124;sample_id:string;participant_id:string;parent_sample_id:string%20%3F;biospecimen_collection_id_fk:string;sample_type:string;processing:string%20*;availablity_status:EnumAvailabilityStatus%20%3F;storage_method:string%20%3F;quantity:string%20%3F]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[Sample&#124;sample_id:string;participant_id:string;parent_sample_id:string%20%3F;biospecimen_collection_id_fk:string;sample_type:string;processing:string%20*;availablity_status:EnumAvailabilityStatus%20%3F;storage_method:string%20%3F;quantity:string%20%3F]" /></a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Participant]-%20has_sample%200..*&gt;[Sample&#124;parent_sample_id:string%20%3F;biospecimen_collection_id_fk:string;sample_type:string;processing:string%20*;availablity_status:EnumAvailabilityStatus%20%3F;storage_method:string%20%3F;quantity:string%20%3F;id(i):string],[Thing]^-[Sample],[Participant]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Participant]-%20has_sample%200..*&gt;[Sample&#124;parent_sample_id:string%20%3F;biospecimen_collection_id_fk:string;sample_type:string;processing:string%20*;availablity_status:EnumAvailabilityStatus%20%3F;storage_method:string%20%3F;quantity:string%20%3F;id(i):string],[Thing]^-[Sample],[Participant]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Thing/">Thing</a> - Highest Level Class</li>
 </ul>
+<h2 id="referenced-by-class">Referenced by Class</h2>
+<ul>
+<li><strong>None</strong> <em><a href="../has_sample/">has_sample</a></em>  <sub>0..*</sub>  <strong><a href="./">Sample</a></strong></li>
+</ul>
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
-<li><a href="../sample_id/">sample_id</a>  <sub>1..1</sub><ul>
-<li>Description: Sample ID</li>
-<li>Range: <a href="../types/String/">String</a></li>
-</ul>
-</li>
-<li><a href="../participant_id/">participant_id</a>  <sub>1..1</sub><ul>
-<li>Description: ID associated with the Participant</li>
-<li>Range: <a href="../types/String/">String</a></li>
-</ul>
-</li>
 <li><a href="../parent_sample_id/">parent_sample_id</a>  <sub>0..1</sub><ul>
 <li>Description: Parent Sample ID</li>
 <li>Range: <a href="../types/String/">String</a></li>
@@ -119,6 +113,14 @@
 </li>
 <li><a href="../quantity/">quantity</a>  <sub>0..1</sub><ul>
 <li>Description: The total quantity of the specimen</li>
+<li>Range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="inherited-from-thing">Inherited from Thing:</h3>
+<ul>
+<li><a href="../id/">id</a>  <sub>1..1</sub><ul>
+<li>Description: ID associated with a class</li>
 <li>Range: <a href="../types/String/">String</a></li>
 </ul>
 </li>

@@ -17,40 +17,18 @@ imports:
   - linkml:types
   - anvil_core
 classes:
-  DataAccessType: 
-    title: Data Access Type 
-    definition_uri: anvil:research_access_type 
-    description: Research Access Policy 
-    is_a: Thing 
-    slots: 
-      - data_access_type_id 
-      - data_access_type
-      - disease_use_limitation 
-  ResearchAccessPolicy: 
+  AccessPolicy: 
     title: Research Access Policy 
     definition_uri: anvil:research_access_policy 
-    description: Research Access Policy 
+    description: Describes the access required for a given element of data.
     is_a: Thing 
     slots: 
-      - access_policy_id 
+      - data_access_type
       - access_policy_code
+      - disease_use_limitation
       - description 
       - website 
 slots:
-  data_access_type_id:
-    definition_uri: anvil:data_access_type_id 
-    description: Data Access Type ID 
-    identifier: true
-    required: true 
-    range: string 
-    multivalued: false 
-  access_policy_id:
-    definition_uri: anvil:access_policy_id 
-    description: Access Policy ID 
-    identifier: true
-    required: true 
-    range: string 
-    multivalued: false 
   data_access_type:
     definition_uri: anvil:data_access_type 
     description: Data Access Type 
@@ -81,6 +59,10 @@ slots:
     required: false 
     range: string 
     multivalued: false 
+  has_access_policy:
+    description: Which access policy applies to this element?
+    range: AccessPolicy
+    inlined: false
 enums:
   enum_access_type:
     name: enum_access_type 

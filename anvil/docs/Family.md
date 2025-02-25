@@ -6,7 +6,7 @@ Family
 URI: [anvil:Family](https://anvilproject.org/acr-harmonized-data-model/Family)
 
 
-[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[Family&#124;family_id:string;family_external_id:string%20*;family_type:EnumFamilyType%20%3F;family_description:string%20%3F;consanguinity:EnumConsanguinityAssertion%20%3F;family_study_focus:string%20%3F])](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[Family&#124;family_id:string;family_external_id:string%20*;family_type:EnumFamilyType%20%3F;family_description:string%20%3F;consanguinity:EnumConsanguinityAssertion%20%3F;family_study_focus:string%20%3F])
+[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[Family&#124;family_external_id:string%20*;family_type:EnumFamilyType%20%3F;family_description:string%20%3F;consanguinity:EnumConsanguinityAssertion%20%3F;family_study_focus:string%20%3F;id(i):string])](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[Family&#124;family_external_id:string%20*;family_type:EnumFamilyType%20%3F;family_description:string%20%3F;consanguinity:EnumConsanguinityAssertion%20%3F;family_study_focus:string%20%3F;id(i):string])
 
 ## Parents
 
@@ -17,9 +17,6 @@ URI: [anvil:Family](https://anvilproject.org/acr-harmonized-data-model/Family)
 
 ### Own
 
- * [family_id](family_id.md)  <sub>1..1</sub>
-     * Description: Family Identifier
-     * Range: [String](types/String.md)
  * [family_external_id](family_external_id.md)  <sub>0..\*</sub>
      * Description: Other study specific study identifiers
      * Range: [String](types/String.md)
@@ -35,4 +32,10 @@ URI: [anvil:Family](https://anvilproject.org/acr-harmonized-data-model/Family)
  * [family_study_focus](family_study_focus.md)  <sub>0..1</sub>
      * Description: What is this study family investigating? EG, a specific condition. The code should be prefixed with a recognizable curie. 
 
+     * Range: [String](types/String.md)
+
+### Inherited from Thing:
+
+ * [id](id.md)  <sub>1..1</sub>
+     * Description: ID associated with a class
      * Range: [String](types/String.md)

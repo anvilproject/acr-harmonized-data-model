@@ -9,13 +9,22 @@ prefixes:
     prefix_reference: https://w3id.org/linkml/
 imports:
   - linkml:types
+  - data_access_policy
 classes:
   Thing:
     name: Thing
     definition_uri: schema:Thing
     description: Highest Level Class
     title: Thing
+    slots:
+    - id
+  AccessControlledRecord:
+    description: Entity for which specific access control restrictions apply.
+    is_a: Thing
+    slots:
+      - has_access_policy
 slots: 
+#TODO: See if it's possible to delete this slot and ensure "native" links 
   participant_id:
     definition_uri: anvil:participant_id
     description: ID associated with the Participant
@@ -29,3 +38,10 @@ slots:
     required: true
     range: string
     multivalued: false 
+  external_id: 
+    definition_uri: anvil:external_id 
+    title: External Identifier
+    description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
+    required: false 
+    range: uriorcurie 
+    multivalued: true 

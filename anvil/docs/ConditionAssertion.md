@@ -6,7 +6,7 @@ Study Meta Data
 URI: [anvil:ConditionAssertion](https://anvilproject.org/acr-harmonized-data-model/ConditionAssertion)
 
 
-[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[ConditionAssertion&#124;participant_id:string;condition_code:EnumConditionCode%20*;condition_source_value:string;condition_assertion:EnumConditionAssertion%20%3F;condition_type:EnumConditionType;age_at_assertion:integer%20%3F;age_at_onset:integer%20%3F;age_at_resolution:integer%20%3F])](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[ConditionAssertion&#124;participant_id:string;condition_code:EnumConditionCode%20*;condition_source_value:string;condition_assertion:EnumConditionAssertion%20%3F;condition_type:EnumConditionType;age_at_assertion:integer%20%3F;age_at_onset:integer%20%3F;age_at_resolution:integer%20%3F])
+[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[ConditionAssertion&#124;participant_id:string;condition_code:EnumConditionCode%20*;condition_source_value:string;condition_assertion:EnumConditionAssertion%20%3F;condition_type:EnumConditionType;age_at_assertion:integer%20%3F;age_at_onset:integer%20%3F;age_at_resolution:integer%20%3F;id(i):string])](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[ConditionAssertion&#124;participant_id:string;condition_code:EnumConditionCode%20*;condition_source_value:string;condition_assertion:EnumConditionAssertion%20%3F;condition_type:EnumConditionType;age_at_assertion:integer%20%3F;age_at_onset:integer%20%3F;age_at_resolution:integer%20%3F;id(i):string])
 
 ## Parents
 
@@ -47,3 +47,9 @@ Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA and coded with the
  * [age_at_resolution](age_at_resolution.md)  <sub>0..1</sub>
      * Description: The age at which this condition was resolved, abated or cured. Should be left empty in cases of current active status.
      * Range: [Integer](types/Integer.md)
+
+### Inherited from Thing:
+
+ * [id](id.md)  <sub>1..1</sub>
+     * Description: ID associated with a class
+     * Range: [String](types/String.md)

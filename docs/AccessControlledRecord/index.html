@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://torstees.github.io/mvp-ncpi-data-model/Objectidentifier/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://anvilproject.github.io/acr-harmonized-data-model/AccessControlledRecord/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Type: Objectidentifier - MVP AnVIL Data Model</title>
+    <title>Class: AccessControlledRecord - ACR Harmonized Data Model</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Type: Objectidentifier";
-        var mkdocs_page_input_path = "Objectidentifier.md";
-        var mkdocs_page_url = "/mvp-ncpi-data-model/Objectidentifier/";
+        var mkdocs_page_name = "Class: AccessControlledRecord";
+        var mkdocs_page_input_path = "AccessControlledRecord.md";
+        var mkdocs_page_url = "/acr-harmonized-data-model/AccessControlledRecord/";
       </script>
     
     <!--[if lt IE 9]>
@@ -30,7 +30,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> MVP AnVIL Data Model
+          <a href=".." class="icon icon-home"> ACR Harmonized Data Model
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -40,7 +40,7 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-                <li class="toctree-l1"><a class="" href="../anvil-docs/home.md">About</a>
+                <li class="toctree-l1"><a class="reference internal" href="../anvil/">About</a>
                 </li>
               </ul>
       </div>
@@ -50,14 +50,14 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">MVP AnVIL Data Model</a>
+          <a href="..">ACR Harmonized Data Model</a>
         
       </nav>
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Type: Objectidentifier</li>
+      <li class="breadcrumb-item active">Class: AccessControlledRecord</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -66,48 +66,31 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="type-objectidentifier">Type: Objectidentifier</h1>
-<p><em>A URI or CURIE that represents an object in the model.</em></p>
-<p>URI: <a href="http://www.w3.org/ns/shex#iri">shex:iri</a></p>
+                <h1 id="class-accesscontrolledrecord">Class: AccessControlledRecord</h1>
+<p>Entity for which specific access control restrictions apply.</p>
+<p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/AccessControlledRecord">anvil:AccessControlledRecord</a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[AccessPolicy],[AccessPolicy]&lt;has_access_policy%200..1-%20[AccessControlledRecord&#124;id(i):string],[Thing]^-[AccessControlledRecord]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[AccessPolicy],[AccessPolicy]&lt;has_access_policy%200..1-%20[AccessControlledRecord&#124;id(i):string],[Thing]^-[AccessControlledRecord]" /></a></p>
+<h2 id="parents">Parents</h2>
 <ul>
-<li>
-<p><a href="https://w3id.org/linkml/base">base</a>: ElementIdentifier</p>
-</li>
-<li>
-<p><a href="https://w3id.org/linkml/uri">uri</a>: shex:iri</p>
-</li>
-<li>
-<p><a href="https://w3id.org/linkml/repr">repr</a>: str</p>
+<li>is_a: <a href="../Thing/">Thing</a> - Highest Level Class</li>
+</ul>
+<h2 id="attributes">Attributes</h2>
+<h3 id="own">Own</h3>
+<ul>
+<li><a href="../has_access_policy/">has_access_policy</a>  <sub>0..1</sub><ul>
+<li>Description: Which access policy applies to this element?</li>
+<li>Range: <a href="../AccessPolicy/">AccessPolicy</a></li>
+</ul>
 </li>
 </ul>
-<h2 id="comments">Comments</h2>
+<h3 id="inherited-from-thing">Inherited from Thing:</h3>
 <ul>
-<li>Used for inheritance and type checking</li>
+<li><a href="../id/">id</a>  <sub>1..1</sub><ul>
+<li>Description: ID associated with a class</li>
+<li>Range: <a href="../types/String/">String</a></li>
 </ul>
-<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
-<h3 id="schema-source">Schema Source</h3>
-<ul>
-<li>from schema: https://23id.org/anvil</li>
+</li>
 </ul>
-<h2 id="mappings">Mappings</h2>
-<table>
-<thead>
-<tr>
-<th>Mapping Type</th>
-<th>Mapped Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>self</td>
-<td>shex:iri</td>
-</tr>
-<tr>
-<td>native</td>
-<td>https://23id.org/anvil/:objectidentifier</td>
-</tr>
-</tbody>
-</table>
               
             </div>
           </div><footer>
