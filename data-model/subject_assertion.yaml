@@ -17,20 +17,70 @@ imports:
   - linkml:types
   - anvil_core
 classes: 
-# TODO: Create a parent class of EntityAssertion or similar, then make children classes that specialize
+  SubjectAssertion:
+    title: Subject Assertion
+    description: Generic template for linking information with a given Subject.
+    is_a: Thing
+    slots:
+      - age_at_assertion 
+      - assertion
+      - value
+      - source_assertion
+      - source_value
   ConditionAssertion:
     title: ConditionAssertion 
     description: Study Meta Data 
-    is_a: Thing 
+    is_a: SubjectAssertion 
     slots: 
-      - condition_code
-      - condition_source_value
-      - condition_assertion 
       - condition_type
-      - age_at_assertion 
       - age_at_onset 
       - age_at_resolution 
+  CodedTerm:
+    title: Coded term
+    description: A term that includes a string value as well as an associated uri or curie.
+    attributes:
+      code:
+        range: uriorcurie
+      code_string:
+        range: string
+  Quantity:
+    title: Quantity
+    description: A numeric value and unit
+    attributes:
+      value:
+        range: Any
+        any_of:
+          - range: integer
+          - range: decimal
+      unit:
+        range: CodedTerm
 slots: 
+  assertion:
+    title: Assertion
+    description: The assertion that is being made.
+    range: CodedTerm
+    inlined: true
+  source_assertion:
+    title: Source Assertion
+    description: The assertion that is being made as originally recorded.
+    range: CodedTerm
+    inlined: true
+  value:
+    title: Value
+    description: The value of the assertion that is being made.
+    range: Any
+    any_of:
+      - range: CodedTerm
+      - range: Quantity
+    inlined: true
+  source_value:
+    title: Source Value
+    description: The value of the assertion that is being made as originally recoded.
+    range: Any
+    any_of:
+      - range: CodedTerm
+      - range: Quantity
+    inlined: true
   condition_code:
     description: | 
       Condition Code should be from one of a recognized ontology. Multiple codes can be indicated, but should simply be alternative encodings for the same entity such as alternates encodings from other ontologies.       

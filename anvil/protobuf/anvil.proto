@@ -38,15 +38,22 @@ message BiospecimenCollection
   enumSpatialQualifiers spatialQualifier = 0
   enumLaterality laterality = 0
  }
+// A term that includes a string value as well as an associated uri or curie.
+message CodedTerm
+ {
+  uriorcurie code = 0
+  string codeString = 0
+ }
 // Study Meta Data
 message ConditionAssertion
  {
   string id = 0
- repeated  enumConditionCode conditionCode = 0
-  string conditionSourceValue = 0
-  enumConditionAssertion conditionAssertion = 0
-  enumConditionType conditionType = 0
   integer ageAtAssertion = 0
+  codedTerm assertion = 0
+  any value = 0
+  codedTerm sourceAssertion = 0
+  any sourceValue = 0
+  enumConditionType conditionType = 0
   integer ageAtOnset = 0
   integer ageAtResolution = 0
  }
@@ -86,6 +93,7 @@ message Participant
   accessPolicy hasAccessPolicy = 0
   enumSubjectType subjectType = 0
   string organismType = 0
+ repeated  subjectAssertion subjectAssertion = 0
   integer dateOfBirth = 0
   enumDateOfBirthType dateOfBirthType = 0
   enumSex phenotypicSex = 0
@@ -106,6 +114,12 @@ message Procedure
  repeated  string procedureCode = 0
   string procedureSourceValue = 0
   integer ageAtObservation = 0
+ }
+// A numeric value and unit
+message Quantity
+ {
+  any value = 0
+  codedTerm unit = 0
  }
 // Biospecimen data
 message Sample
@@ -136,6 +150,17 @@ message Subject
   accessPolicy hasAccessPolicy = 0
   enumSubjectType subjectType = 0
   string organismType = 0
+ repeated  subjectAssertion subjectAssertion = 0
+ }
+// Generic template for linking information with a given Subject.
+message SubjectAssertion
+ {
+  string id = 0
+  integer ageAtAssertion = 0
+  codedTerm assertion = 0
+  any value = 0
+  codedTerm sourceAssertion = 0
+  any sourceValue = 0
  }
 // Highest Level Class
 message Thing

@@ -12,6 +12,9 @@
 
 ### Classes
 
+ * [Any](Any.md)
+ * [CodedTerm](CodedTerm.md) - A term that includes a string value as well as an associated uri or curie.
+ * [Quantity](Quantity.md) - A numeric value and unit
  * [Thing](Thing.md) - Highest Level Class
      * [AccessControlledRecord](AccessControlledRecord.md) - Element for which specific access control restrictions apply.
          * [Subject](Subject.md) - This entity is the subject about which data or references are recorded. | This includes the idea of a human participant in a study, a cell line, an animal model, | or any other similar entity.
@@ -19,13 +22,14 @@
      * [AccessPolicy](AccessPolicy.md) - Describes the access required for a given element of data.
      * [Aliquot](Aliquot.md) - Represent exact tubes or total amounts available of a Sample.
      * [BiospecimenCollection](BiospecimenCollection.md) - Biospecimen Collection
-     * [ConditionAssertion](ConditionAssertion.md) - Study Meta Data
      * [Family](Family.md) - Family
      * [FamilyMember](FamilyMember.md) - Family
      * [Measurement](Measurement.md) - Measurements
      * [Procedure](Procedure.md) - Procedures
      * [Sample](Sample.md) - Biospecimen data
      * [Study](Study.md) - Study Meta Data
+     * [SubjectAssertion](SubjectAssertion.md) - Generic template for linking information with a given Subject.
+         * [ConditionAssertion](ConditionAssertion.md) - Study Meta Data
 
 ### Mixins
 
@@ -40,8 +44,11 @@
  * [age_at_observation](age_at_observation.md) - Age of participant when measurement was taken/recorded
  * [age_at_onset](age_at_onset.md) - The age of onset for this condition.
  * [age_at_resolution](age_at_resolution.md) - The age at which this condition was resolved, abated or cured. Should be left empty in cases of current active status.
+ * [assertion](assertion.md) - The assertion that is being made.
  * [availablity_status](availablity_status.md) - Can this Sample be requested for further analysis?
  * [biospecimen_collection_id_fk](biospecimen_collection_id_fk.md) - ID associated with the Biospecimen Collection event.
+ * [➞code](codedTerm__code.md)
+ * [➞code_string](codedTerm__code_string.md)
  * [condition_assertion](condition_assertion.md) - Condition Assertion
  * [condition_code](condition_code.md) - Condition Code should be from one of a recognized ontology. Multiple codes can be indicated, but should simply be alternative encodings for the same entity such as alternates encodings from other ontologies.       
  * [condition_source_value](condition_source_value.md) - Original Source Value for condition
@@ -85,6 +92,8 @@
  * [procedure_source_value](procedure_source_value.md) - Original procedure text
  * [processing](processing.md) - Curied code associated processing that was applied to the Parent Sample or from the Biospecimen Collection that yielded this distinct sample
  * [quantity](quantity.md) - The total quantity of the specimen
+ * [➞unit](quantity__unit.md)
+ * [➞value](quantity__value.md)
  * [race](race.md) - Reported race defined by NIH Racial and Ethnic Categories and Definitions (NOT-OD-15-089)
  * [race_source_value](race_source_value.md) - Race value as observed from the original source text
  * [relationship_code](relationship_code.md) - Relationship of the "Family Member" to the "Other Family Member" (i.e. mother, father, etc). This is required if other_family_member_id is present. Code must be from the HL7 [FamilyMember ValueSet](https://terminology.hl7.org/6.2.0/ValueSet-v3-FamilyMember.html)
@@ -96,10 +105,14 @@
  * [sample_volume](sample_volume.md) - What is the volume of the Aliquot?
  * [sample_volume_unit](sample_volume_unit.md) - Units associated with the volume? UCUM coding preferred (with curie, UCUM)
  * [site](site.md) - The location of the specimen collection.
+ * [source_assertion](source_assertion.md) - The assertion that is being made as originally recorded.
+ * [source_value](source_value.md) - The value of the assertion that is being made as originally recoded.
  * [spatial_qualifier](spatial_qualifier.md) - Any spatial/location qualifiers
  * [storage_method](storage_method.md) - Curied code indicating how is the Sample stored, eg, Frozen or with additives
  * [study_title](study_title.md) - Study Title
+ * [subject_assertion](subject_assertion.md) - Assertions made about this subject.
  * [subject_type](subject_type.md) - Type of entity this record represents
+ * [value](value.md) - The value of the assertion that is being made.
  * [vital_status](vital_status.md) - Vital Status
  * [website](website.md) - Website
 

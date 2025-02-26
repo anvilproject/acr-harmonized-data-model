@@ -102,6 +102,12 @@ linkml:Sparqlpath xsd:string
     )
 }
 
+<https://anvilproject.org/acr-harmonized-data-model/core/Any> CLOSED {
+    (  $<https://anvilproject.org/acr-harmonized-data-model/core/Any_tes> rdf:type . * ;
+       rdf:type [ linkml:Any ] ?
+    )
+}
+
 <https://anvilproject.org/acr-harmonized-data-model/biospecimen_collection/BiospecimenCollection> CLOSED {
     (  $<https://anvilproject.org/acr-harmonized-data-model/biospecimen_collection/BiospecimenCollection_tes> ( 
           &<https://anvilproject.org/acr-harmonized-data-model/core/Thing_tes> ;
@@ -116,17 +122,19 @@ linkml:Sparqlpath xsd:string
     )
 }
 
+<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/CodedTerm> CLOSED {
+    (  $<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/CodedTerm_tes> ( 
+          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/code> @linkml:Uriorcurie ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/code_string> @linkml:String ?
+       ) ;
+       rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/CodedTerm> ] ?
+    )
+}
+
 <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/ConditionAssertion> CLOSED {
     (  $<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/ConditionAssertion_tes> ( 
-          &<https://anvilproject.org/acr-harmonized-data-model/core/Thing_tes> ;
-          rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/Thing> ] ? ;
-          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/condition_code> . * ;
-          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/condition_source_value> @linkml:String ;
-          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/condition_assertion> [
-             <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/EnumConditionAssertion#present>
-             <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/EnumConditionAssertion#absent>
-             <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/EnumConditionAssertion#unsure>
-             <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/EnumConditionAssertion#unknown> ] ? ;
+          &<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/SubjectAssertion_tes> ;
+          rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/SubjectAssertion> ] ? ;
           <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/condition_type> [
              <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/condition-typePhenotypic-Feature>
              <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/condition-typeDisease>
@@ -134,7 +142,6 @@ linkml:Sparqlpath xsd:string
              <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/condition-typeHistology>
              <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/condition-typeClinical-Finding>
              <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/EnumConditionType#ehr_billing_code> ] ;
-          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_assertion> @linkml:Integer ? ;
           <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_onset> @linkml:Integer ? ;
           <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_resolution> @linkml:Integer ?
        ) ;
@@ -249,6 +256,17 @@ linkml:Sparqlpath xsd:string
     )
 }
 
+<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/Quantity> CLOSED {
+    (  $<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/Quantity_tes> ( 
+          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value>
+          @<https://anvilproject.org/acr-harmonized-data-model/core/Any> ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/unit>
+          @<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/CodedTerm> ?
+       ) ;
+       rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/Quantity> ] ?
+    )
+}
+
 <https://anvilproject.org/acr-harmonized-data-model/sample/Sample> CLOSED {
     (  $<https://anvilproject.org/acr-harmonized-data-model/sample/Sample_tes> ( 
           &<https://anvilproject.org/acr-harmonized-data-model/core/Thing_tes> ;
@@ -294,11 +312,33 @@ linkml:Sparqlpath xsd:string
                 <https://anvilproject.org/acr-harmonized-data-model/participant/EnumSubjectType#animal_model>
                 <https://anvilproject.org/acr-harmonized-data-model/participant/EnumSubjectType#group>
                 <https://anvilproject.org/acr-harmonized-data-model/participant/EnumSubjectType#other> ] ;
-             <https://anvilproject.org/acr-harmonized-data-model/participant/organism_type> @linkml:String ?
+             <https://anvilproject.org/acr-harmonized-data-model/participant/organism_type> @linkml:String ? ;
+             <https://anvilproject.org/acr-harmonized-data-model/participant/subject_assertion>
+             @<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/SubjectAssertion> *
           ) ;
           rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/participant/Subject> ]
        )
     } OR @<https://anvilproject.org/acr-harmonized-data-model/participant/Participant>
+)
+
+<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/SubjectAssertion>  (
+    CLOSED {
+       (  $<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/SubjectAssertion_tes> ( 
+             &<https://anvilproject.org/acr-harmonized-data-model/core/Thing_tes> ;
+             rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/Thing> ] ? ;
+             <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_assertion> @linkml:Integer ? ;
+             <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/assertion>
+             @<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/CodedTerm> ? ;
+             <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value>
+             @<https://anvilproject.org/acr-harmonized-data-model/core/Any> ? ;
+             <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/source_assertion>
+             @<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/CodedTerm> ? ;
+             <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/source_value>
+             @<https://anvilproject.org/acr-harmonized-data-model/core/Any> ?
+          ) ;
+          rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/SubjectAssertion> ]
+       )
+    } OR @<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/ConditionAssertion>
 )
 
 <https://anvilproject.org/acr-harmonized-data-model/core/Thing>  (
@@ -310,12 +350,12 @@ linkml:Sparqlpath xsd:string
     @<https://anvilproject.org/acr-harmonized-data-model/data-access-policy/AccessPolicy> OR
     @<https://anvilproject.org/acr-harmonized-data-model/aliquot/Aliquot> OR
     @<https://anvilproject.org/acr-harmonized-data-model/biospecimen_collection/BiospecimenCollection> OR
-    @<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/ConditionAssertion> OR
     @<https://anvilproject.org/acr-harmonized-data-model/family/Family> OR
     @<https://anvilproject.org/acr-harmonized-data-model/family-member/FamilyMember> OR
     @<https://anvilproject.org/acr-harmonized-data-model/measurement/Measurement> OR
     @<https://anvilproject.org/acr-harmonized-data-model/procedure/Procedure> OR
     @<https://anvilproject.org/acr-harmonized-data-model/sample/Sample> OR
-    @<https://anvilproject.org/acr-harmonized-data-model/study/Study>
+    @<https://anvilproject.org/acr-harmonized-data-model/study/Study> OR
+    @<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/SubjectAssertion>
 )
 

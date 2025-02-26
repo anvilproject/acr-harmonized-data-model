@@ -69,52 +69,60 @@
                 <h1 id="class-conditionassertion">Class: ConditionAssertion</h1>
 <p>Study Meta Data</p>
 <p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/ConditionAssertion">anvil:ConditionAssertion</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[ConditionAssertion&#124;condition_code:EnumConditionCode%20*;condition_source_value:string;condition_assertion:EnumConditionAssertion%20%3F;condition_type:EnumConditionType;age_at_assertion:integer%20%3F;age_at_onset:integer%20%3F;age_at_resolution:integer%20%3F;id(i):string]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[ConditionAssertion&#124;condition_code:EnumConditionCode%20*;condition_source_value:string;condition_assertion:EnumConditionAssertion%20%3F;condition_type:EnumConditionType;age_at_assertion:integer%20%3F;age_at_onset:integer%20%3F;age_at_resolution:integer%20%3F;id(i):string]" /></a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[SubjectAssertion],[SubjectAssertion]^-[ConditionAssertion&#124;condition_type:EnumConditionType;age_at_onset:integer%20%3F;age_at_resolution:integer%20%3F;age_at_assertion(i):integer%20%3F;id(i):string],[CodedTerm],[Any]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[SubjectAssertion],[SubjectAssertion]^-[ConditionAssertion&#124;condition_type:EnumConditionType;age_at_onset:integer%20%3F;age_at_resolution:integer%20%3F;age_at_assertion(i):integer%20%3F;id(i):string],[CodedTerm],[Any]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
-<li>is_a: <a href="../Thing/">Thing</a> - Highest Level Class</li>
+<li>is_a: <a href="../SubjectAssertion/">SubjectAssertion</a> - Generic template for linking information with a given Subject.</li>
 </ul>
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
-<li><a href="../condition_code/">condition_code</a>  <sub>0..*</sub><ul>
-<li>Description: Condition Code should be from one of a recognized ontology. Multiple codes can be indicated, but should simply be alternative encodings for the same entity such as alternates encodings from other ontologies.     <br />
-Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA and coded with the corresponding curies</li>
-</ul>
-</li>
-<li>SNOMED : https://bioregistry.io/registry/snomedct</li>
-<li>HP : https://bioregistry.io/registry/hp</li>
-<li>OMIM : https://bioregistry.io/registry/omim</li>
-<li>
-<p>ORPHA : https://bioregistry.io/registry/orphanet</p>
-<ul>
-<li>Range: <a href="../EnumConditionCode/">EnumConditionCode</a></li>
-<li><a href="../condition_source_value/">condition_source_value</a>  <sub>1..1</sub></li>
-<li>Description: Original Source Value for condition</li>
-<li>Range: <a href="../types/String/">String</a></li>
-<li><a href="../condition_assertion/">condition_assertion</a>  <sub>0..1</sub></li>
-<li>Description: Condition Assertion</li>
-<li>Range: <a href="../EnumConditionAssertion/">EnumConditionAssertion</a></li>
-<li><a href="../condition_type/">condition_type</a>  <sub>1..1</sub></li>
+<li><a href="../condition_type/">condition_type</a>  <sub>1..1</sub><ul>
 <li>Description: Does this condition represent a specific "type" of condition, such as "Phenotypic Feature" vs "Disease" in a rare disease setting.</li>
 <li>Range: <a href="../EnumConditionType/">EnumConditionType</a></li>
-<li><a href="../age_at_assertion/">age_at_assertion</a>  <sub>0..1</sub></li>
-<li>Description: The age at which this condition is being asserted.</li>
-<li>Range: <a href="../types/Integer/">Integer</a></li>
-<li><a href="../age_at_onset/">age_at_onset</a>  <sub>0..1</sub></li>
+</ul>
+</li>
+<li><a href="../age_at_onset/">age_at_onset</a>  <sub>0..1</sub><ul>
 <li>Description: The age of onset for this condition.</li>
 <li>Range: <a href="../types/Integer/">Integer</a></li>
-<li><a href="../age_at_resolution/">age_at_resolution</a>  <sub>0..1</sub></li>
+</ul>
+</li>
+<li><a href="../age_at_resolution/">age_at_resolution</a>  <sub>0..1</sub><ul>
 <li>Description: The age at which this condition was resolved, abated or cured. Should be left empty in cases of current active status.</li>
 <li>Range: <a href="../types/Integer/">Integer</a></li>
 </ul>
 </li>
 </ul>
-<h3 id="inherited-from-thing">Inherited from Thing:</h3>
+<h3 id="inherited-from-subjectassertion">Inherited from SubjectAssertion:</h3>
 <ul>
 <li><a href="../id/">id</a>  <sub>1..1</sub><ul>
 <li>Description: ID associated with a class</li>
 <li>Range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+<li><a href="../age_at_assertion/">age_at_assertion</a>  <sub>0..1</sub><ul>
+<li>Description: The age at which this condition is being asserted.</li>
+<li>Range: <a href="../types/Integer/">Integer</a></li>
+</ul>
+</li>
+<li><a href="../assertion/">assertion</a>  <sub>0..1</sub><ul>
+<li>Description: The assertion that is being made.</li>
+<li>Range: <a href="../CodedTerm/">CodedTerm</a></li>
+</ul>
+</li>
+<li><a href="../value/">value</a>  <sub>0..1</sub><ul>
+<li>Description: The value of the assertion that is being made.</li>
+<li>Range: <a href="../Any/">Any</a></li>
+</ul>
+</li>
+<li><a href="../source_assertion/">source_assertion</a>  <sub>0..1</sub><ul>
+<li>Description: The assertion that is being made as originally recorded.</li>
+<li>Range: <a href="../CodedTerm/">CodedTerm</a></li>
+</ul>
+</li>
+<li><a href="../source_value/">source_value</a>  <sub>0..1</sub><ul>
+<li>Description: The value of the assertion that is being made as originally recoded.</li>
+<li>Range: <a href="../Any/">Any</a></li>
 </ul>
 </li>
 </ul>

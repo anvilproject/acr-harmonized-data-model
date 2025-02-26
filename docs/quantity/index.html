@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://anvilproject.github.io/acr-harmonized-data-model/quantity/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Slot: quantity - ACR Harmonized Data Model</title>
+    <title>Class: Quantity - ACR Harmonized Data Model</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Slot: quantity";
+        var mkdocs_page_name = "Class: Quantity";
         var mkdocs_page_input_path = "quantity.md";
         var mkdocs_page_url = "/acr-harmonized-data-model/quantity/";
       </script>
@@ -57,7 +57,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Slot: quantity</li>
+      <li class="breadcrumb-item active">Class: Quantity</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -66,16 +66,21 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="slot-quantity">Slot: quantity</h1>
-<p>The total quantity of the specimen</p>
-<p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/quantity">anvil:quantity</a></p>
-<h2 id="domain-and-range">Domain and Range</h2>
-<p>None &#8594;  <sub>0..1</sub> <a href="../types/String/">String</a></p>
-<h2 id="parents">Parents</h2>
-<h2 id="children">Children</h2>
-<h2 id="used-by">Used by</h2>
+                <h1 id="class-quantity">Class: Quantity</h1>
+<p>A numeric value and unit</p>
+<p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/Quantity">anvil:Quantity</a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[CodedTerm]&lt;unit%200..1-++[Quantity],[Any]&lt;value%200..1-++[Quantity],[CodedTerm],[Any]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[CodedTerm]&lt;unit%200..1-++[Quantity],[Any]&lt;value%200..1-++[Quantity],[CodedTerm],[Any]" /></a></p>
+<h2 id="attributes">Attributes</h2>
+<h3 id="own">Own</h3>
 <ul>
-<li><a href="../Sample/">Sample</a></li>
+<li><a href="../quantity__value/">➞value</a>  <sub>0..1</sub><ul>
+<li>Range: <a href="../Any/">Any</a></li>
+</ul>
+</li>
+<li><a href="../quantity__unit/">➞unit</a>  <sub>0..1</sub><ul>
+<li>Range: <a href="../CodedTerm/">CodedTerm</a></li>
+</ul>
+</li>
 </ul>
               
             </div>

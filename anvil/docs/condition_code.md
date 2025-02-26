@@ -23,4 +23,3 @@ None &#8594;  <sub>0..\*</sub> [EnumConditionCode](EnumConditionCode.md)
 
 ## Used by
 
- * [ConditionAssertion](ConditionAssertion.md)

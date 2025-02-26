@@ -1,5 +1,5 @@
 # Auto generated from anvil.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-02-26T16:07:33
+# Generation date: 2025-02-26T16:39:02
 # Schema: anvil-schema
 #
 # id: https://anvilproject.org/acr-harmonized-data-model
@@ -97,7 +97,11 @@ class StudyId(ThingId):
     pass
 
 
-class ConditionAssertionId(ThingId):
+class SubjectAssertionId(ThingId):
+    pass
+
+
+class ConditionAssertionId(SubjectAssertionId):
     pass
 
 
@@ -183,6 +187,8 @@ class AccessControlledRecord(Thing):
         super().__post_init__(**kwargs)
 
 
+Any = Any
+
 @dataclass(repr=False)
 class Subject(AccessControlledRecord):
     """
@@ -199,6 +205,7 @@ class Subject(AccessControlledRecord):
     id: Union[str, SubjectId] = None
     subject_type: Union[str, "EnumSubjectType"] = None
     organism_type: Optional[str] = None
+    subject_assertion: Optional[Union[Union[str, SubjectAssertionId], List[Union[str, SubjectAssertionId]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -213,6 +220,10 @@ class Subject(AccessControlledRecord):
 
         if self.organism_type is not None and not isinstance(self.organism_type, str):
             self.organism_type = str(self.organism_type)
+
+        if not isinstance(self.subject_assertion, list):
+            self.subject_assertion = [self.subject_assertion] if self.subject_assertion is not None else []
+        self.subject_assertion = [v if isinstance(v, SubjectAssertionId) else SubjectAssertionId(v) for v in self.subject_assertion]
 
         super().__post_init__(**kwargs)
 
@@ -346,7 +357,44 @@ class Study(Thing):
 
 
 @dataclass(repr=False)
-class ConditionAssertion(Thing):
+class SubjectAssertion(Thing):
+    """
+    Generic template for linking information with a given Subject.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ANVIL["condition_assertion/SubjectAssertion"]
+    class_class_curie: ClassVar[str] = "anvil:condition_assertion/SubjectAssertion"
+    class_name: ClassVar[str] = "SubjectAssertion"
+    class_model_uri: ClassVar[URIRef] = ANVIL.SubjectAssertion
+
+    id: Union[str, SubjectAssertionId] = None
+    age_at_assertion: Optional[int] = None
+    assertion: Optional[Union[dict, "CodedTerm"]] = None
+    value: Optional[Union[dict, Any]] = None
+    source_assertion: Optional[Union[dict, "CodedTerm"]] = None
+    source_value: Optional[Union[dict, Any]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, SubjectAssertionId):
+            self.id = SubjectAssertionId(self.id)
+
+        if self.age_at_assertion is not None and not isinstance(self.age_at_assertion, int):
+            self.age_at_assertion = int(self.age_at_assertion)
+
+        if self.assertion is not None and not isinstance(self.assertion, CodedTerm):
+            self.assertion = CodedTerm(**as_dict(self.assertion))
+
+        if self.source_assertion is not None and not isinstance(self.source_assertion, CodedTerm):
+            self.source_assertion = CodedTerm(**as_dict(self.source_assertion))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class ConditionAssertion(SubjectAssertion):
     """
     Study Meta Data
     """
@@ -358,11 +406,7 @@ class ConditionAssertion(Thing):
     class_model_uri: ClassVar[URIRef] = ANVIL.ConditionAssertion
 
     id: Union[str, ConditionAssertionId] = None
-    condition_source_value: str = None
     condition_type: Union[str, "EnumConditionType"] = None
-    condition_code: Optional[Union[Union[str, "EnumConditionCode"], List[Union[str, "EnumConditionCode"]]]] = empty_list()
-    condition_assertion: Optional[Union[str, "EnumConditionAssertion"]] = None
-    age_at_assertion: Optional[int] = None
     age_at_onset: Optional[int] = None
     age_at_resolution: Optional[int] = None
 
@@ -372,27 +416,63 @@ class ConditionAssertion(Thing):
         if not isinstance(self.id, ConditionAssertionId):
             self.id = ConditionAssertionId(self.id)
 
-        if self._is_empty(self.condition_source_value):
-            self.MissingRequiredField("condition_source_value")
-        if not isinstance(self.condition_source_value, str):
-            self.condition_source_value = str(self.condition_source_value)
-
         if self._is_empty(self.condition_type):
             self.MissingRequiredField("condition_type")
         if not isinstance(self.condition_type, EnumConditionType):
             self.condition_type = EnumConditionType(self.condition_type)
-
-        if self.condition_assertion is not None and not isinstance(self.condition_assertion, EnumConditionAssertion):
-            self.condition_assertion = EnumConditionAssertion(self.condition_assertion)
-
-        if self.age_at_assertion is not None and not isinstance(self.age_at_assertion, int):
-            self.age_at_assertion = int(self.age_at_assertion)
 
         if self.age_at_onset is not None and not isinstance(self.age_at_onset, int):
             self.age_at_onset = int(self.age_at_onset)
 
         if self.age_at_resolution is not None and not isinstance(self.age_at_resolution, int):
             self.age_at_resolution = int(self.age_at_resolution)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class CodedTerm(YAMLRoot):
+    """
+    A term that includes a string value as well as an associated uri or curie.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ANVIL["condition_assertion/CodedTerm"]
+    class_class_curie: ClassVar[str] = "anvil:condition_assertion/CodedTerm"
+    class_name: ClassVar[str] = "CodedTerm"
+    class_model_uri: ClassVar[URIRef] = ANVIL.CodedTerm
+
+    code: Optional[Union[str, URIorCURIE]] = None
+    code_string: Optional[str] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.code is not None and not isinstance(self.code, URIorCURIE):
+            self.code = URIorCURIE(self.code)
+
+        if self.code_string is not None and not isinstance(self.code_string, str):
+            self.code_string = str(self.code_string)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class Quantity(YAMLRoot):
+    """
+    A numeric value and unit
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ANVIL["condition_assertion/Quantity"]
+    class_class_curie: ClassVar[str] = "anvil:condition_assertion/Quantity"
+    class_name: ClassVar[str] = "Quantity"
+    class_model_uri: ClassVar[URIRef] = ANVIL.Quantity
+
+    value: Optional[Union[dict, Any]] = None
+    unit: Optional[Union[dict, CodedTerm]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.unit is not None and not isinstance(self.unit, CodedTerm):
+            self.unit = CodedTerm(**as_dict(self.unit))
 
         super().__post_init__(**kwargs)
 
@@ -1230,6 +1310,9 @@ slots.external_id = Slot(uri=ANVIL['core/external_id'], name="external_id", curi
 slots.in_study = Slot(uri=ANVIL['participant/in_study'], name="in_study", curie=ANVIL.curie('participant/in_study'),
                    model_uri=ANVIL.in_study, domain=None, range=Optional[Union[str, StudyId]])
 
+slots.subject_assertion = Slot(uri=ANVIL['participant/subject_assertion'], name="subject_assertion", curie=ANVIL.curie('participant/subject_assertion'),
+                   model_uri=ANVIL.subject_assertion, domain=None, range=Optional[Union[Union[str, SubjectAssertionId], List[Union[str, SubjectAssertionId]]]])
+
 slots.organism_type = Slot(uri=ANVIL['participant/organism_type'], name="organism_type", curie=ANVIL.curie('participant/organism_type'),
                    model_uri=ANVIL.organism_type, domain=None, range=Optional[str])
 
@@ -1286,6 +1369,18 @@ slots.principal_investigator = Slot(uri=ANVIL['study/principal_investigator'], n
 
 slots.study_title = Slot(uri=ANVIL['study/study_title'], name="study_title", curie=ANVIL.curie('study/study_title'),
                    model_uri=ANVIL.study_title, domain=None, range=str)
+
+slots.assertion = Slot(uri=ANVIL['condition_assertion/assertion'], name="assertion", curie=ANVIL.curie('condition_assertion/assertion'),
+                   model_uri=ANVIL.assertion, domain=None, range=Optional[Union[dict, CodedTerm]])
+
+slots.source_assertion = Slot(uri=ANVIL['condition_assertion/source_assertion'], name="source_assertion", curie=ANVIL.curie('condition_assertion/source_assertion'),
+                   model_uri=ANVIL.source_assertion, domain=None, range=Optional[Union[dict, CodedTerm]])
+
+slots.value = Slot(uri=ANVIL['condition_assertion/value'], name="value", curie=ANVIL.curie('condition_assertion/value'),
+                   model_uri=ANVIL.value, domain=None, range=Optional[Union[dict, Any]])
+
+slots.source_value = Slot(uri=ANVIL['condition_assertion/source_value'], name="source_value", curie=ANVIL.curie('condition_assertion/source_value'),
+                   model_uri=ANVIL.source_value, domain=None, range=Optional[Union[dict, Any]])
 
 slots.condition_code = Slot(uri=ANVIL['condition_assertion/condition_code'], name="condition_code", curie=ANVIL.curie('condition_assertion/condition_code'),
                    model_uri=ANVIL.condition_code, domain=None, range=Optional[Union[Union[str, "EnumConditionCode"], List[Union[str, "EnumConditionCode"]]]])
@@ -1430,3 +1525,15 @@ slots.other_family_member_id = Slot(uri=ANVIL['family-member/other_family_member
 
 slots.relationship_code = Slot(uri=ANVIL['family-member/relationship_code'], name="relationship_code", curie=ANVIL.curie('family-member/relationship_code'),
                    model_uri=ANVIL.relationship_code, domain=None, range=Optional[str])
+
+slots.codedTerm__code = Slot(uri=ANVIL['condition_assertion/code'], name="codedTerm__code", curie=ANVIL.curie('condition_assertion/code'),
+                   model_uri=ANVIL.codedTerm__code, domain=None, range=Optional[Union[str, URIorCURIE]])
+
+slots.codedTerm__code_string = Slot(uri=ANVIL['condition_assertion/code_string'], name="codedTerm__code_string", curie=ANVIL.curie('condition_assertion/code_string'),
+                   model_uri=ANVIL.codedTerm__code_string, domain=None, range=Optional[str])
+
+slots.quantity__value = Slot(uri=ANVIL['condition_assertion/value'], name="quantity__value", curie=ANVIL.curie('condition_assertion/value'),
+                   model_uri=ANVIL.quantity__value, domain=None, range=Optional[Union[dict, Any]])
+
+slots.quantity__unit = Slot(uri=ANVIL['condition_assertion/unit'], name="quantity__unit", curie=ANVIL.curie('condition_assertion/unit'),
+                   model_uri=ANVIL.quantity__unit, domain=None, range=Optional[Union[dict, CodedTerm]])

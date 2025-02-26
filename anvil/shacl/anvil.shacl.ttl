@@ -1,5 +1,6 @@
 @prefix cdc_race_eth: <urn:oid:2.16.840.1.113883.6.238> .
 @prefix hl7_null: <http://terminology.hl7.org/CodeSystem/v3-NullFlavor> .
+@prefix linkml: <https://w3id.org/linkml/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -14,25 +15,12 @@
             sh:maxCount 1 ;
             sh:order 1 ;
             sh:path <https://anvilproject.org/acr-harmonized-data-model/aliquot/:sample_availability_status> ],
-        [ sh:datatype <xsd:float> ;
-            sh:description "What is the concentration of the analyte in the Aliquot?" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/aliquot/:sample_concentration> ],
         [ sh:datatype <xsd:string> ;
             sh:description "Units associated with the concentration of the analyte in the Aliquot? UCUM coding preferred (with curie, UCUM)" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 5 ;
             sh:path <https://anvilproject.org/acr-harmonized-data-model/aliquot/:sample_concentration_unit> ],
-        [ sh:datatype <xsd:string> ;
-            sh:description "ID associated with a class" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/core/:id> ],
         [ sh:datatype <xsd:string> ;
             sh:description "Units associated with the volume? UCUM coding preferred (with curie, UCUM)" ;
             sh:maxCount 1 ;
@@ -51,7 +39,20 @@
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/aliquot/:sample_volume> ] ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/aliquot/:sample_volume> ],
+        [ sh:datatype <xsd:float> ;
+            sh:description "What is the concentration of the analyte in the Aliquot?" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/aliquot/:sample_concentration> ],
+        [ sh:datatype <xsd:string> ;
+            sh:description "ID associated with a class" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/core/:id> ] ;
     sh:targetClass <https://anvilproject.org/acr-harmonized-data-model/aliquot/:Aliquot> .
 
 <https://anvilproject.org/acr-harmonized-data-model/biospecimen_collection/:BiospecimenCollection> a sh:NodeShape ;
@@ -59,7 +60,14 @@
     sh:description "Biospecimen Collection" ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:name "BiospecimenCollection" ;
-    sh:property [ sh:description "Any spatial/location qualifiers" ;
+    sh:property [ sh:datatype <xsd:string> ;
+            sh:description "ID associated with a class" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/core/:id> ],
+        [ sh:description "Any spatial/location qualifiers" ;
             sh:in [ ] ;
             sh:maxCount 1 ;
             sh:name "spatial_qualifier" ;
@@ -77,26 +85,19 @@
             sh:name "laterality" ;
             sh:order 4 ;
             sh:path <https://anvilproject.org/acr-harmonized-data-model/biospecimen_collection/:laterality> ],
-        [ sh:description "The approach used to collect the biospecimen." ;
-            sh:in [ ] ;
-            sh:maxCount 1 ;
-            sh:name "method" ;
-            sh:order 1 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/biospecimen_collection/:method> ],
-        [ sh:datatype <xsd:string> ;
-            sh:description "ID associated with a class" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/core/:id> ],
         [ sh:datatype <xsd:integer> ;
             sh:description "The age at which this biospecimen was collected." ;
             sh:maxCount 1 ;
             sh:name "age_at_collection" ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/biospecimen_collection/:age_at_collection> ] ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/biospecimen_collection/:age_at_collection> ],
+        [ sh:description "The approach used to collect the biospecimen." ;
+            sh:in [ ] ;
+            sh:maxCount 1 ;
+            sh:name "method" ;
+            sh:order 1 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/biospecimen_collection/:method> ] ;
     sh:targetClass <https://anvilproject.org/acr-harmonized-data-model/biospecimen_collection/:BiospecimenCollection> .
 
 <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:ConditionAssertion> a sh:NodeShape ;
@@ -104,91 +105,92 @@
     sh:description "Study Meta Data" ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:name "ConditionAssertion" ;
-    sh:property [ sh:description """Condition Code should be from one of a recognized ontology. Multiple codes can be indicated, but should simply be alternative encodings for the same entity such as alternates encodings from other ontologies.       
-Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA and coded with the corresponding curies
-* SNOMED : https://bioregistry.io/registry/snomedct
-* HP : https://bioregistry.io/registry/hp
-* OMIM : https://bioregistry.io/registry/omim
-* ORPHA : https://bioregistry.io/registry/orphanet
-""" ;
-            sh:in [ ] ;
-            sh:name "condition_code" ;
-            sh:order 0 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:condition_code> ],
+    sh:property [ sh:class <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:CodedTerm> ;
+            sh:description "The assertion that is being made." ;
+            sh:maxCount 1 ;
+            sh:name "Assertion" ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 4 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:assertion> ],
         [ sh:description "Does this condition represent a specific \"type\" of condition, such as \"Phenotypic Feature\" vs \"Disease\" in a rare disease setting." ;
             sh:in ( <igcondtype:Phenotypic-Feature> <igcondtype:Disease> <igcondtype:Comorbidity> <igcondtype:Histology> <igcondtype:Clinical-Finding> "ehr_billing_code" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:name "Condition Type" ;
-            sh:order 3 ;
+            sh:order 0 ;
             sh:path <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:condition_type> ],
-        [ sh:datatype <xsd:string> ;
-            sh:description "Original Source Value for condition" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:name "condition_source_value" ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:condition_source_value> ],
-        [ sh:datatype <xsd:string> ;
-            sh:description "ID associated with a class" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/core/:id> ],
-        [ sh:datatype <xsd:integer> ;
-            sh:description "The age at which this condition is being asserted." ;
-            sh:maxCount 1 ;
-            sh:name "age_at_assertion" ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:age_at_assertion> ],
-        [ sh:datatype <xsd:integer> ;
-            sh:description "The age at which this condition was resolved, abated or cured. Should be left empty in cases of current active status." ;
-            sh:maxCount 1 ;
-            sh:name "age_at_resolution" ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:age_at_resolution> ],
-        [ sh:description "Condition Assertion" ;
-            sh:in ( "present" "absent" "unsure" "unknown" ) ;
-            sh:maxCount 1 ;
-            sh:name "condition_assertion" ;
-            sh:order 2 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:condition_assertion> ],
         [ sh:datatype <xsd:integer> ;
             sh:description "The age of onset for this condition." ;
             sh:maxCount 1 ;
             sh:name "age_at_assertion" ;
             sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:age_at_onset> ] ;
-    sh:targetClass <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:ConditionAssertion> .
-
-<https://anvilproject.org/acr-harmonized-data-model/core/:AccessControlledRecord> a sh:NodeShape ;
-    sh:closed true ;
-    sh:description "Element for which specific access control restrictions apply." ;
-    sh:ignoredProperties ( <https://anvilproject.org/acr-harmonized-data-model/participant/:organism_type> <https://anvilproject.org/acr-harmonized-data-model/participant/:ethnicity_source_value> <https://anvilproject.org/acr-harmonized-data-model/participant/:ethnicity> <https://anvilproject.org/acr-harmonized-data-model/participant/:date_of_birth_type> <https://anvilproject.org/acr-harmonized-data-model/participant/:subject_type> <https://anvilproject.org/acr-harmonized-data-model/participant/:race> <https://anvilproject.org/acr-harmonized-data-model/participant/:has_sample> <https://anvilproject.org/acr-harmonized-data-model/participant/:race_source_value> <https://anvilproject.org/acr-harmonized-data-model/participant/:age_at_last_vital_status> <https://anvilproject.org/acr-harmonized-data-model/participant/:phenotypic_sex> <https://anvilproject.org/acr-harmonized-data-model/participant/:has_assertion> rdf:type <https://anvilproject.org/acr-harmonized-data-model/participant/:phenotypic_sex_source_value> <https://anvilproject.org/acr-harmonized-data-model/participant/:vital_status> <https://anvilproject.org/acr-harmonized-data-model/participant/:date_of_birth> ) ;
-    sh:property [ sh:class <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:AccessPolicy> ;
-            sh:description "Which access policy applies to this element?" ;
+            sh:order 1 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:age_at_onset> ],
+        [ sh:datatype <xsd:integer> ;
+            sh:description "The age at which this condition was resolved, abated or cured. Should be left empty in cases of current active status." ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:has_access_policy> ],
+            sh:name "age_at_resolution" ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:age_at_resolution> ],
+        [ sh:datatype <xsd:integer> ;
+            sh:description "The age at which this condition is being asserted." ;
+            sh:maxCount 1 ;
+            sh:name "age_at_assertion" ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:age_at_assertion> ],
+        [ sh:description "The value of the assertion that is being made." ;
+            sh:maxCount 1 ;
+            sh:name "Value" ;
+            sh:or ( [ sh:class <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:CodedTerm> ] [ sh:class <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:Quantity> ] ) ;
+            sh:order 5 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:value> ],
         [ sh:datatype <xsd:string> ;
             sh:description "ID associated with a class" ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/core/:id> ],
+        [ sh:description "The value of the assertion that is being made as originally recoded." ;
+            sh:maxCount 1 ;
+            sh:name "Source Value" ;
+            sh:or ( [ sh:class <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:CodedTerm> ] [ sh:class <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:Quantity> ] ) ;
+            sh:order 7 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:source_value> ],
+        [ sh:class <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:CodedTerm> ;
+            sh:description "The assertion that is being made as originally recorded." ;
+            sh:maxCount 1 ;
+            sh:name "Source Assertion" ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 6 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:source_assertion> ] ;
+    sh:targetClass <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:ConditionAssertion> .
+
+<https://anvilproject.org/acr-harmonized-data-model/core/:AccessControlledRecord> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "Element for which specific access control restrictions apply." ;
+    sh:ignoredProperties ( <https://anvilproject.org/acr-harmonized-data-model/participant/:subject_type> <https://anvilproject.org/acr-harmonized-data-model/participant/:race_source_value> <https://anvilproject.org/acr-harmonized-data-model/participant/:organism_type> rdf:type <https://anvilproject.org/acr-harmonized-data-model/participant/:phenotypic_sex_source_value> <https://anvilproject.org/acr-harmonized-data-model/participant/:date_of_birth> <https://anvilproject.org/acr-harmonized-data-model/participant/:ethnicity_source_value> <https://anvilproject.org/acr-harmonized-data-model/participant/:ethnicity> <https://anvilproject.org/acr-harmonized-data-model/participant/:subject_assertion> <https://anvilproject.org/acr-harmonized-data-model/participant/:vital_status> <https://anvilproject.org/acr-harmonized-data-model/participant/:phenotypic_sex> <https://anvilproject.org/acr-harmonized-data-model/participant/:date_of_birth_type> <https://anvilproject.org/acr-harmonized-data-model/participant/:race> <https://anvilproject.org/acr-harmonized-data-model/participant/:age_at_last_vital_status> <https://anvilproject.org/acr-harmonized-data-model/participant/:has_assertion> <https://anvilproject.org/acr-harmonized-data-model/participant/:has_sample> ) ;
+    sh:property [ sh:datatype <xsd:string> ;
+            sh:description "ID associated with a class" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/core/:id> ] ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/core/:id> ],
+        [ sh:class <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:AccessPolicy> ;
+            sh:description "Which access policy applies to this element?" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:has_access_policy> ] ;
     sh:targetClass <https://anvilproject.org/acr-harmonized-data-model/core/:AccessControlledRecord> .
 
 <https://anvilproject.org/acr-harmonized-data-model/core/:Thing> a sh:NodeShape ;
     sh:closed true ;
     sh:description "Highest Level Class" ;
-    sh:ignoredProperties ( <https://anvilproject.org/acr-harmonized-data-model/participant/:organism_type> <https://anvilproject.org/acr-harmonized-data-model/sample/:storage_method> <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:age_at_onset> <https://anvilproject.org/acr-harmonized-data-model/biospecimen_collection/:age_at_collection> <https://anvilproject.org/acr-harmonized-data-model/participant/:date_of_birth_type> <https://anvilproject.org/acr-harmonized-data-model/sample/:parent_sample_id> <https://anvilproject.org/acr-harmonized-data-model/study/:parent_study_id> <https://anvilproject.org/acr-harmonized-data-model/aliquot/:sample_availability_status> <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:condition_type> <https://anvilproject.org/acr-harmonized-data-model/biospecimen_collection/:laterality> <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:website> <https://anvilproject.org/acr-harmonized-data-model/participant/:subject_type> <https://anvilproject.org/acr-harmonized-data-model/family/:family_external_id> <https://anvilproject.org/acr-harmonized-data-model/participant/:race> <https://anvilproject.org/acr-harmonized-data-model/family-member/:relationship_code> <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:age_at_resolution> <https://anvilproject.org/acr-harmonized-data-model/sample/:sample_type> <https://anvilproject.org/acr-harmonized-data-model/family/:family_study_focus> <https://anvilproject.org/acr-harmonized-data-model/participant/:phenotypic_sex> <https://anvilproject.org/acr-harmonized-data-model/participant/:has_assertion> <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:age_at_assertion> <https://anvilproject.org/acr-harmonized-data-model/measurement/:measurement_value_code> <https://anvilproject.org/acr-harmonized-data-model/study/:external_study_id> <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:condition_code> <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:disease_limitation> <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:condition_assertion> <https://anvilproject.org/acr-harmonized-data-model/study/:principal_investigator> <https://anvilproject.org/acr-harmonized-data-model/participant/:has_sample> <https://anvilproject.org/acr-harmonized-data-model/measurement/:age_at_observation> rdf:type <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:has_access_policy> <https://anvilproject.org/acr-harmonized-data-model/family-member/:family_member_id> <https://anvilproject.org/acr-harmonized-data-model/biospecimen_collection/:method> <https://anvilproject.org/acr-harmonized-data-model/study/:study_title> <https://anvilproject.org/acr-harmonized-data-model/participant/:date_of_birth> <https://anvilproject.org/acr-harmonized-data-model/participant/:race_source_value> <https://anvilproject.org/acr-harmonized-data-model/aliquot/:sample_id_fk> <https://anvilproject.org/acr-harmonized-data-model/aliquot/:sample_concentration_unit> <https://anvilproject.org/acr-harmonized-data-model/measurement/:measurement_code> <https://anvilproject.org/acr-harmonized-data-model/sample/:processing> <https://anvilproject.org/acr-harmonized-data-model/family-member/:family_id_fk> <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:condition_source_value> <https://anvilproject.org/acr-harmonized-data-model/study/:funding_source> <https://anvilproject.org/acr-harmonized-data-model/participant/:vital_status> <https://anvilproject.org/acr-harmonized-data-model/biospecimen_collection/:spatial_qualifier> <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:data_access_type> <https://anvilproject.org/acr-harmonized-data-model/biospecimen_collection/:site> <https://anvilproject.org/acr-harmonized-data-model/family/:consanguinity> <https://anvilproject.org/acr-harmonized-data-model/family/:family_type> <https://anvilproject.org/acr-harmonized-data-model/participant/:ethnicity_source_value> <https://anvilproject.org/acr-harmonized-data-model/participant/:ethnicity> <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:description> <https://anvilproject.org/acr-harmonized-data-model/measurement/:measurement_unit> <https://anvilproject.org/acr-harmonized-data-model/sample/:quantity> <https://anvilproject.org/acr-harmonized-data-model/sample/:biospecimen_collection_id_fk> <https://anvilproject.org/acr-harmonized-data-model/sample/:availablity_status> <https://anvilproject.org/acr-harmonized-data-model/procedure/:procedure_code> <https://anvilproject.org/acr-harmonized-data-model/aliquot/:sample_concentration> <https://anvilproject.org/acr-harmonized-data-model/family/:family_description> <https://anvilproject.org/acr-harmonized-data-model/participant/:age_at_last_vital_status> <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:access_policy_code> <https://anvilproject.org/acr-harmonized-data-model/aliquot/:sample_volume> <https://anvilproject.org/acr-harmonized-data-model/procedure/:procedure_source_value> <https://anvilproject.org/acr-harmonized-data-model/aliquot/:sample_volume_unit> <https://anvilproject.org/acr-harmonized-data-model/participant/:phenotypic_sex_source_value> <https://anvilproject.org/acr-harmonized-data-model/measurement/:measurement_source_value> <https://anvilproject.org/acr-harmonized-data-model/family-member/:other_family_member_id> ) ;
+    sh:ignoredProperties ( <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:age_at_resolution> <https://anvilproject.org/acr-harmonized-data-model/procedure/:procedure_source_value> <https://anvilproject.org/acr-harmonized-data-model/biospecimen_collection/:method> <https://anvilproject.org/acr-harmonized-data-model/aliquot/:sample_id_fk> <https://anvilproject.org/acr-harmonized-data-model/sample/:storage_method> rdf:type <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:age_at_onset> <https://anvilproject.org/acr-harmonized-data-model/participant/:date_of_birth> <https://anvilproject.org/acr-harmonized-data-model/aliquot/:sample_availability_status> <https://anvilproject.org/acr-harmonized-data-model/participant/:ethnicity> <https://anvilproject.org/acr-harmonized-data-model/participant/:subject_assertion> <https://anvilproject.org/acr-harmonized-data-model/family-member/:family_id_fk> <https://anvilproject.org/acr-harmonized-data-model/sample/:processing> <https://anvilproject.org/acr-harmonized-data-model/aliquot/:sample_volume_unit> <https://anvilproject.org/acr-harmonized-data-model/participant/:vital_status> <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:has_access_policy> <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:description> <https://anvilproject.org/acr-harmonized-data-model/biospecimen_collection/:age_at_collection> <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:disease_limitation> <https://anvilproject.org/acr-harmonized-data-model/measurement/:measurement_source_value> <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:age_at_assertion> <https://anvilproject.org/acr-harmonized-data-model/measurement/:age_at_observation> <https://anvilproject.org/acr-harmonized-data-model/family/:family_type> <https://anvilproject.org/acr-harmonized-data-model/sample/:biospecimen_collection_id_fk> <https://anvilproject.org/acr-harmonized-data-model/participant/:ethnicity_source_value> <https://anvilproject.org/acr-harmonized-data-model/study/:principal_investigator> <https://anvilproject.org/acr-harmonized-data-model/family-member/:other_family_member_id> <https://anvilproject.org/acr-harmonized-data-model/aliquot/:sample_concentration_unit> <https://anvilproject.org/acr-harmonized-data-model/participant/:phenotypic_sex> <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:source_assertion> <https://anvilproject.org/acr-harmonized-data-model/family/:family_external_id> <https://anvilproject.org/acr-harmonized-data-model/participant/:has_assertion> <https://anvilproject.org/acr-harmonized-data-model/family/:family_study_focus> <https://anvilproject.org/acr-harmonized-data-model/biospecimen_collection/:site> <https://anvilproject.org/acr-harmonized-data-model/sample/:parent_sample_id> <https://anvilproject.org/acr-harmonized-data-model/participant/:has_sample> <https://anvilproject.org/acr-harmonized-data-model/procedure/:procedure_code> <https://anvilproject.org/acr-harmonized-data-model/sample/:sample_type> <https://anvilproject.org/acr-harmonized-data-model/participant/:subject_type> <https://anvilproject.org/acr-harmonized-data-model/participant/:race_source_value> <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:website> <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:access_policy_code> <https://anvilproject.org/acr-harmonized-data-model/participant/:phenotypic_sex_source_value> <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:assertion> <https://anvilproject.org/acr-harmonized-data-model/aliquot/:sample_volume> <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:data_access_type> <https://anvilproject.org/acr-harmonized-data-model/participant/:date_of_birth_type> <https://anvilproject.org/acr-harmonized-data-model/aliquot/:sample_concentration> <https://anvilproject.org/acr-harmonized-data-model/study/:funding_source> <https://anvilproject.org/acr-harmonized-data-model/biospecimen_collection/:laterality> <https://anvilproject.org/acr-harmonized-data-model/measurement/:measurement_unit> <https://anvilproject.org/acr-harmonized-data-model/family-member/:relationship_code> <https://anvilproject.org/acr-harmonized-data-model/study/:parent_study_id> <https://anvilproject.org/acr-harmonized-data-model/participant/:organism_type> <https://anvilproject.org/acr-harmonized-data-model/biospecimen_collection/:spatial_qualifier> <https://anvilproject.org/acr-harmonized-data-model/family/:family_description> <https://anvilproject.org/acr-harmonized-data-model/measurement/:measurement_value_code> <https://anvilproject.org/acr-harmonized-data-model/family/:consanguinity> <https://anvilproject.org/acr-harmonized-data-model/sample/:quantity> <https://anvilproject.org/acr-harmonized-data-model/participant/:race> <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:condition_type> <https://anvilproject.org/acr-harmonized-data-model/study/:external_study_id> <https://anvilproject.org/acr-harmonized-data-model/sample/:availablity_status> <https://anvilproject.org/acr-harmonized-data-model/participant/:age_at_last_vital_status> <https://anvilproject.org/acr-harmonized-data-model/study/:study_title> <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:value> <https://anvilproject.org/acr-harmonized-data-model/measurement/:measurement_code> <https://anvilproject.org/acr-harmonized-data-model/family-member/:family_member_id> <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:source_value> ) ;
     sh:name "Thing" ;
     sh:property [ sh:datatype <xsd:string> ;
             sh:description "ID associated with a class" ;
@@ -205,11 +207,12 @@ Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA and coded with the
     sh:ignoredProperties ( rdf:type ) ;
     sh:name "Family" ;
     sh:property [ sh:datatype <xsd:string> ;
-            sh:description "Other member of the same family to which there is a relationship being described" ;
+            sh:description "Family Member ID indicating presence in the family" ;
             sh:maxCount 1 ;
+            sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/family-member/:other_family_member_id> ],
+            sh:order 1 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/family-member/:family_member_id> ],
         [ sh:datatype <xsd:string> ;
             sh:description "ID associated with a class" ;
             sh:maxCount 1 ;
@@ -218,25 +221,24 @@ Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA and coded with the
             sh:order 4 ;
             sh:path <https://anvilproject.org/acr-harmonized-data-model/core/:id> ],
         [ sh:datatype <xsd:string> ;
-            sh:description "Family Member ID indicating presence in the family" ;
+            sh:description "Family Identifier" ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/family-member/:family_member_id> ],
+            sh:order 0 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/family-member/:family_id_fk> ],
+        [ sh:datatype <xsd:string> ;
+            sh:description "Other member of the same family to which there is a relationship being described" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/family-member/:other_family_member_id> ],
         [ sh:datatype <xsd:string> ;
             sh:description """Relationship of the "Family Member" to the "Other Family Member" (i.e. mother, father, etc). This is required if other_family_member_id is present. Code must be from the HL7 [FamilyMember ValueSet](https://terminology.hl7.org/6.2.0/ValueSet-v3-FamilyMember.html)
 """ ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/family-member/:relationship_code> ],
-        [ sh:datatype <xsd:string> ;
-            sh:description "Family Identifier" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/family-member/:family_id_fk> ] ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/family-member/:relationship_code> ] ;
     sh:targetClass <https://anvilproject.org/acr-harmonized-data-model/family-member/:FamilyMember> .
 
 <https://anvilproject.org/acr-harmonized-data-model/family/:Family> a sh:NodeShape ;
@@ -245,27 +247,12 @@ Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA and coded with the
     sh:ignoredProperties ( rdf:type ) ;
     sh:name "Family" ;
     sh:property [ sh:datatype <xsd:string> ;
-            sh:description "Other study specific study identifiers" ;
+            sh:description "ID associated with a class" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/family/:family_external_id> ],
-        [ sh:datatype <xsd:string> ;
-            sh:description """What is this study family investigating? EG, a specific condition. The code should be prefixed with a recognizable curie. 
-""" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/family/:family_study_focus> ],
-        [ sh:description "Is there known or suspected consanguinity in this study family?" ;
-            sh:in ( <SNOMED_CT:428263003> <SNOMED_CT:415684004> <SNOMED_CT:410515003> <SNOMED_CT:261665006> ) ;
-            sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/family/:consanguinity> ],
-        [ sh:description "Describes the 'type' of study family, eg, trio." ;
-            sh:in ( "control_only" "duo" "proband_only" "trio" "trio_plus" "other" ) ;
-            sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/family/:family_type> ],
+            sh:order 5 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/core/:id> ],
         [ sh:datatype <xsd:string> ;
             sh:description "Free title describing the study family, such as potential inheritance or details about consanguinity" ;
             sh:maxCount 1 ;
@@ -273,12 +260,27 @@ Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA and coded with the
             sh:order 2 ;
             sh:path <https://anvilproject.org/acr-harmonized-data-model/family/:family_description> ],
         [ sh:datatype <xsd:string> ;
-            sh:description "ID associated with a class" ;
+            sh:description """What is this study family investigating? EG, a specific condition. The code should be prefixed with a recognizable curie. 
+""" ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/core/:id> ] ;
+            sh:order 4 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/family/:family_study_focus> ],
+        [ sh:datatype <xsd:string> ;
+            sh:description "Other study specific study identifiers" ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/family/:family_external_id> ],
+        [ sh:description "Describes the 'type' of study family, eg, trio." ;
+            sh:in ( "control_only" "duo" "proband_only" "trio" "trio_plus" "other" ) ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/family/:family_type> ],
+        [ sh:description "Is there known or suspected consanguinity in this study family?" ;
+            sh:in ( <SNOMED_CT:428263003> <SNOMED_CT:415684004> <SNOMED_CT:410515003> <SNOMED_CT:261665006> ) ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/family/:consanguinity> ] ;
     sh:targetClass <https://anvilproject.org/acr-harmonized-data-model/family/:Family> .
 
 <https://anvilproject.org/acr-harmonized-data-model/measurement/:Measurement> a sh:NodeShape ;
@@ -293,32 +295,6 @@ Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA and coded with the
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
             sh:path <https://anvilproject.org/acr-harmonized-data-model/measurement/:measurement_source_value> ],
-        [ sh:description "Code indicating measurement value such as positive, negative, etc." ;
-            sh:in ( "negative" "positive" "not_performed" "indeterminate" ) ;
-            sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/measurement/:measurement_value_code> ],
-        [ sh:datatype <xsd:string> ;
-            sh:description "UCUM Unit associated with the field" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/measurement/:measurement_unit> ],
-        [ sh:datatype <xsd:integer> ;
-            sh:description "Age of participant when measurement was taken/recorded" ;
-            sh:maxCount 1 ;
-            sh:name "age_at_observation" ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/measurement/:age_at_observation> ],
-        [ sh:datatype <xsd:string> ;
-            sh:description "ID associated with a class" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/core/:id> ],
         [ sh:datatype <xsd:string> ;
             sh:description """Measurement code should be from a recognized ontology preceded by a recognized curie. Multiple entries should reflect alternate codes for the same measurement. 
 * LOINC : https://bioregistry.io/registry/loinc
@@ -327,7 +303,33 @@ Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA and coded with the
             sh:name "measurement_code" ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/measurement/:measurement_code> ] ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/measurement/:measurement_code> ],
+        [ sh:datatype <xsd:string> ;
+            sh:description "UCUM Unit associated with the field" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/measurement/:measurement_unit> ],
+        [ sh:description "Code indicating measurement value such as positive, negative, etc." ;
+            sh:in ( "negative" "positive" "not_performed" "indeterminate" ) ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/measurement/:measurement_value_code> ],
+        [ sh:datatype <xsd:string> ;
+            sh:description "ID associated with a class" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/core/:id> ],
+        [ sh:datatype <xsd:integer> ;
+            sh:description "Age of participant when measurement was taken/recorded" ;
+            sh:maxCount 1 ;
+            sh:name "age_at_observation" ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/measurement/:age_at_observation> ] ;
     sh:targetClass <https://anvilproject.org/acr-harmonized-data-model/measurement/:Measurement> .
 
 <https://anvilproject.org/acr-harmonized-data-model/participant/:Participant> a sh:NodeShape ;
@@ -335,19 +337,13 @@ Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA and coded with the
     sh:description "Basic participant demographics" ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:name "Participant" ;
-    sh:property [ sh:datatype <xsd:string> ;
-            sh:description "Race value as observed from the original source text" ;
+    sh:property [ sh:description "Reported race defined by NIH Racial and Ethnic Categories and Definitions (NOT-OD-15-089)" ;
+            sh:in ( cdc_race_eth:1002-5 cdc_race_eth:2028-9 cdc_race_eth:2054-5 cdc_race_eth:2076-8 cdc_race_eth:2106-3 cdc_race_eth:2131-1 hl7_null:UNK hl7_null:ASKU ) ;
             sh:maxCount 1 ;
-            sh:name "Race Source value" ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/participant/:race_source_value> ],
-        [ sh:class <https://anvilproject.org/acr-harmonized-data-model/sample/:Sample> ;
-            sh:description "Which samples were collected or processed for this participant?" ;
-            sh:name "Has sample" ;
-            sh:nodeKind sh:IRI ;
-            sh:order 11 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/participant/:has_assertion> ],
+            sh:minCount 1 ;
+            sh:name "Race" ;
+            sh:order 4 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/participant/:race> ],
         [ sh:datatype <xsd:integer> ;
             sh:description "Age at Last Vital Status" ;
             sh:maxCount 1 ;
@@ -356,25 +352,18 @@ Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA and coded with the
             sh:order 8 ;
             sh:path <https://anvilproject.org/acr-harmonized-data-model/participant/:age_at_last_vital_status> ],
         [ sh:datatype <xsd:string> ;
-            sh:description "Ethnicity value as reported in the original source" ;
+            sh:description "Race value as observed from the original source text" ;
             sh:maxCount 1 ;
-            sh:name "Ethnicity Source Value" ;
+            sh:name "Race Source value" ;
             sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/participant/:ethnicity_source_value> ],
-        [ sh:class <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:AccessPolicy> ;
-            sh:description "Which access policy applies to this element?" ;
-            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/participant/:race_source_value> ],
+        [ sh:class <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:SubjectAssertion> ;
+            sh:description "Assertions made about this subject." ;
+            sh:name "Subject Assertion" ;
             sh:nodeKind sh:IRI ;
             sh:order 14 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:has_access_policy> ],
-        [ sh:datatype <xsd:integer> ;
-            sh:description "Date at which the individual was born. May be impacted by privacy rules described in date_of_birth_type." ;
-            sh:maxCount 1 ;
-            sh:name "Date of Birth" ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/participant/:date_of_birth> ],
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/participant/:subject_assertion> ],
         [ sh:description "Classification categories of human, taken from NIH, based on the social group a person belongs to, and either identifies with or is identified with by others, as a result of a complex of cultural, biological, geographical and other factors such as linguistic, dietary and religion traditions; ancestry, background, allegiance, or association; and physical characteristics traditionally associated with race." ;
             sh:in ( cdc_race_eth:2135-2 cdc_race_eth:2186-5 hl7_null:UNK hl7_null:ASKU ) ;
             sh:maxCount 1 ;
@@ -383,19 +372,12 @@ Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA and coded with the
             sh:order 6 ;
             sh:path <https://anvilproject.org/acr-harmonized-data-model/participant/:ethnicity> ],
         [ sh:datatype <xsd:string> ;
-            sh:description "Original source value for phenotypic sex value" ;
+            sh:description "ID associated with a class" ;
             sh:maxCount 1 ;
-            sh:name "Phenotypic Sex Source Value" ;
+            sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/participant/:phenotypic_sex_source_value> ],
-        [ sh:datatype <xsd:string> ;
-            sh:description "Organism Type Label" ;
-            sh:maxCount 1 ;
-            sh:name "Organism Type" ;
-            sh:nodeKind sh:Literal ;
-            sh:order 13 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/participant/:organism_type> ],
+            sh:order 16 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/core/:id> ],
         [ sh:description "Vital Status" ;
             sh:in ( "alive" "dead" "not_reported" "unknown" "unspecified" ) ;
             sh:maxCount 1 ;
@@ -403,12 +385,38 @@ Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA and coded with the
             sh:order 9 ;
             sh:path <https://anvilproject.org/acr-harmonized-data-model/participant/:vital_status> ],
         [ sh:datatype <xsd:string> ;
-            sh:description "ID associated with a class" ;
+            sh:description "Organism Type Label" ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
+            sh:name "Organism Type" ;
             sh:nodeKind sh:Literal ;
-            sh:order 15 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/core/:id> ],
+            sh:order 13 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/participant/:organism_type> ],
+        [ sh:description "Privacy rule modification applied to date_of_birth." ;
+            sh:in ( <ig-dob-method:exact> <ig-dob-method:year-only> <ig-dob-method:shifted> <ig-dob-method:decade-only> <ig-dob-method:other> ) ;
+            sh:maxCount 1 ;
+            sh:name "Date of Birth Type" ;
+            sh:order 1 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/participant/:date_of_birth_type> ],
+        [ sh:datatype <xsd:string> ;
+            sh:description "Ethnicity value as reported in the original source" ;
+            sh:maxCount 1 ;
+            sh:name "Ethnicity Source Value" ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/participant/:ethnicity_source_value> ],
+        [ sh:class <https://anvilproject.org/acr-harmonized-data-model/sample/:Sample> ;
+            sh:description "Which samples were collected or processed for this participant?" ;
+            sh:name "Has sample" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 11 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/participant/:has_assertion> ],
+        [ sh:datatype <xsd:integer> ;
+            sh:description "Date at which the individual was born. May be impacted by privacy rules described in date_of_birth_type." ;
+            sh:maxCount 1 ;
+            sh:name "Date of Birth" ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/participant/:date_of_birth> ],
         [ sh:description "Type of entity this record represents" ;
             sh:in ( "participant" "non_participant" "cell_line" "animal_model" "group" "other" ) ;
             sh:maxCount 1 ;
@@ -416,13 +424,6 @@ Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA and coded with the
             sh:name "Subject Type" ;
             sh:order 12 ;
             sh:path <https://anvilproject.org/acr-harmonized-data-model/participant/:subject_type> ],
-        [ sh:description "Reported race defined by NIH Racial and Ethnic Categories and Definitions (NOT-OD-15-089)" ;
-            sh:in ( cdc_race_eth:1002-5 cdc_race_eth:2028-9 cdc_race_eth:2054-5 cdc_race_eth:2076-8 cdc_race_eth:2106-3 cdc_race_eth:2131-1 hl7_null:UNK hl7_null:ASKU ) ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:name "Race" ;
-            sh:order 4 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/participant/:race> ],
         [ sh:description "Sex of the Participant" ;
             sh:in ( <admin_gender:female> <admin_gender:male> <admin_gender:unknown> "intersex" ) ;
             sh:maxCount 1 ;
@@ -430,39 +431,44 @@ Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA and coded with the
             sh:name "Phenotypic Sex" ;
             sh:order 2 ;
             sh:path <https://anvilproject.org/acr-harmonized-data-model/participant/:phenotypic_sex> ],
+        [ sh:datatype <xsd:string> ;
+            sh:description "Original source value for phenotypic sex value" ;
+            sh:maxCount 1 ;
+            sh:name "Phenotypic Sex Source Value" ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/participant/:phenotypic_sex_source_value> ],
+        [ sh:class <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:AccessPolicy> ;
+            sh:description "Which access policy applies to this element?" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 15 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:has_access_policy> ],
         [ sh:class <https://anvilproject.org/acr-harmonized-data-model/sample/:Sample> ;
             sh:description "Which samples were collected or processed for this participant?" ;
             sh:name "Has sample" ;
             sh:nodeKind sh:IRI ;
             sh:order 10 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/participant/:has_sample> ],
-        [ sh:description "Privacy rule modification applied to date_of_birth." ;
-            sh:in ( <ig-dob-method:exact> <ig-dob-method:year-only> <ig-dob-method:shifted> <ig-dob-method:decade-only> <ig-dob-method:other> ) ;
-            sh:maxCount 1 ;
-            sh:name "Date of Birth Type" ;
-            sh:order 1 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/participant/:date_of_birth_type> ] ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/participant/:has_sample> ] ;
     sh:targetClass <https://anvilproject.org/acr-harmonized-data-model/participant/:Participant> .
 
 <https://anvilproject.org/acr-harmonized-data-model/participant/:Subject> a sh:NodeShape ;
     sh:closed true ;
     sh:description "This entity is the subject about which data or references are recorded. | This includes the idea of a human participant in a study, a cell line, an animal model, | or any other similar entity." ;
-    sh:ignoredProperties ( <https://anvilproject.org/acr-harmonized-data-model/participant/:race> <https://anvilproject.org/acr-harmonized-data-model/participant/:has_sample> <https://anvilproject.org/acr-harmonized-data-model/participant/:race_source_value> <https://anvilproject.org/acr-harmonized-data-model/participant/:age_at_last_vital_status> <https://anvilproject.org/acr-harmonized-data-model/participant/:ethnicity_source_value> <https://anvilproject.org/acr-harmonized-data-model/participant/:ethnicity> <https://anvilproject.org/acr-harmonized-data-model/participant/:phenotypic_sex> <https://anvilproject.org/acr-harmonized-data-model/participant/:has_assertion> <https://anvilproject.org/acr-harmonized-data-model/participant/:date_of_birth_type> rdf:type <https://anvilproject.org/acr-harmonized-data-model/participant/:phenotypic_sex_source_value> <https://anvilproject.org/acr-harmonized-data-model/participant/:vital_status> <https://anvilproject.org/acr-harmonized-data-model/participant/:date_of_birth> ) ;
+    sh:ignoredProperties ( <https://anvilproject.org/acr-harmonized-data-model/participant/:vital_status> <https://anvilproject.org/acr-harmonized-data-model/participant/:phenotypic_sex> <https://anvilproject.org/acr-harmonized-data-model/participant/:date_of_birth_type> <https://anvilproject.org/acr-harmonized-data-model/participant/:race> <https://anvilproject.org/acr-harmonized-data-model/participant/:race_source_value> <https://anvilproject.org/acr-harmonized-data-model/participant/:age_at_last_vital_status> <https://anvilproject.org/acr-harmonized-data-model/participant/:has_assertion> rdf:type <https://anvilproject.org/acr-harmonized-data-model/participant/:phenotypic_sex_source_value> <https://anvilproject.org/acr-harmonized-data-model/participant/:date_of_birth> <https://anvilproject.org/acr-harmonized-data-model/participant/:ethnicity_source_value> <https://anvilproject.org/acr-harmonized-data-model/participant/:ethnicity> <https://anvilproject.org/acr-harmonized-data-model/participant/:has_sample> ) ;
     sh:name "Subject of data" ;
-    sh:property [ sh:datatype <xsd:string> ;
-            sh:description "ID associated with a class" ;
+    sh:property [ sh:class <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:AccessPolicy> ;
+            sh:description "Which access policy applies to this element?" ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
+            sh:nodeKind sh:IRI ;
             sh:order 3 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/core/:id> ],
-        [ sh:datatype <xsd:string> ;
-            sh:description "Organism Type Label" ;
-            sh:maxCount 1 ;
-            sh:name "Organism Type" ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/participant/:organism_type> ],
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:has_access_policy> ],
+        [ sh:class <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:SubjectAssertion> ;
+            sh:description "Assertions made about this subject." ;
+            sh:name "Subject Assertion" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/participant/:subject_assertion> ],
         [ sh:description "Type of entity this record represents" ;
             sh:in ( "participant" "non_participant" "cell_line" "animal_model" "group" "other" ) ;
             sh:maxCount 1 ;
@@ -470,12 +476,20 @@ Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA and coded with the
             sh:name "Subject Type" ;
             sh:order 0 ;
             sh:path <https://anvilproject.org/acr-harmonized-data-model/participant/:subject_type> ],
-        [ sh:class <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:AccessPolicy> ;
-            sh:description "Which access policy applies to this element?" ;
+        [ sh:datatype <xsd:string> ;
+            sh:description "ID associated with a class" ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:has_access_policy> ] ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/core/:id> ],
+        [ sh:datatype <xsd:string> ;
+            sh:description "Organism Type Label" ;
+            sh:maxCount 1 ;
+            sh:name "Organism Type" ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/participant/:organism_type> ] ;
     sh:targetClass <https://anvilproject.org/acr-harmonized-data-model/participant/:Subject> .
 
 <https://anvilproject.org/acr-harmonized-data-model/procedure/:Procedure> a sh:NodeShape ;
@@ -483,14 +497,7 @@ Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA and coded with the
     sh:description "Procedures" ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:name "Procedure" ;
-    sh:property [ sh:datatype <xsd:integer> ;
-            sh:description "Age of participant when measurement was taken/recorded" ;
-            sh:maxCount 1 ;
-            sh:name "age_at_observation" ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/measurement/:age_at_observation> ],
-        [ sh:datatype <xsd:string> ;
+    sh:property [ sh:datatype <xsd:string> ;
             sh:description "ID associated with a class" ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -512,8 +519,20 @@ Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA and coded with the
             sh:name "procedure_code" ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/procedure/:procedure_code> ] ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/procedure/:procedure_code> ],
+        [ sh:datatype <xsd:integer> ;
+            sh:description "Age of participant when measurement was taken/recorded" ;
+            sh:maxCount 1 ;
+            sh:name "age_at_observation" ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/measurement/:age_at_observation> ] ;
     sh:targetClass <https://anvilproject.org/acr-harmonized-data-model/procedure/:Procedure> .
+
+linkml:Any a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass linkml:Any .
 
 <https://anvilproject.org/acr-harmonized-data-model/study/:Study> a sh:NodeShape ;
     sh:closed true ;
@@ -521,6 +540,16 @@ Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA and coded with the
     sh:ignoredProperties ( rdf:type ) ;
     sh:name "Study" ;
     sh:property [ sh:datatype <xsd:string> ;
+            sh:description "Principal Investigator" ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/study/:principal_investigator> ],
+        [ sh:datatype <xsd:string> ;
+            sh:description "Funding Source" ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/study/:funding_source> ],
+        [ sh:datatype <xsd:string> ;
             sh:description "ID associated with a class" ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -528,17 +557,10 @@ Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA and coded with the
             sh:order 5 ;
             sh:path <https://anvilproject.org/acr-harmonized-data-model/core/:id> ],
         [ sh:datatype <xsd:string> ;
-            sh:description "Funding Source" ;
+            sh:description "External Study ID" ;
             sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/study/:funding_source> ],
-        [ sh:datatype <xsd:string> ;
-            sh:description "Study Title" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/study/:study_title> ],
+            sh:order 0 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/study/:external_study_id> ],
         [ sh:class <https://anvilproject.org/acr-harmonized-data-model/study/:Study> ;
             sh:description "Parent Study ID" ;
             sh:maxCount 1 ;
@@ -546,16 +568,60 @@ Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA and coded with the
             sh:order 1 ;
             sh:path <https://anvilproject.org/acr-harmonized-data-model/study/:parent_study_id> ],
         [ sh:datatype <xsd:string> ;
-            sh:description "Principal Investigator" ;
+            sh:description "Study Title" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/study/:study_title> ] ;
+    sh:targetClass <https://anvilproject.org/acr-harmonized-data-model/study/:Study> .
+
+<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:SubjectAssertion> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "Generic template for linking information with a given Subject." ;
+    sh:ignoredProperties ( <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:age_at_onset> rdf:type <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:age_at_resolution> <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:condition_type> ) ;
+    sh:name "Subject Assertion" ;
+    sh:property [ sh:description "The value of the assertion that is being made as originally recoded." ;
+            sh:maxCount 1 ;
+            sh:name "Source Value" ;
+            sh:or ( [ sh:class <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:CodedTerm> ] [ sh:class <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:Quantity> ] ) ;
+            sh:order 4 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:source_value> ],
+        [ sh:class <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:CodedTerm> ;
+            sh:description "The assertion that is being made as originally recorded." ;
+            sh:maxCount 1 ;
+            sh:name "Source Assertion" ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 3 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/study/:principal_investigator> ],
-        [ sh:datatype <xsd:string> ;
-            sh:description "External Study ID" ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:source_assertion> ],
+        [ sh:class <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:CodedTerm> ;
+            sh:description "The assertion that is being made." ;
+            sh:maxCount 1 ;
+            sh:name "Assertion" ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 1 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:assertion> ],
+        [ sh:datatype <xsd:integer> ;
+            sh:description "The age at which this condition is being asserted." ;
+            sh:maxCount 1 ;
+            sh:name "age_at_assertion" ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/study/:external_study_id> ] ;
-    sh:targetClass <https://anvilproject.org/acr-harmonized-data-model/study/:Study> .
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:age_at_assertion> ],
+        [ sh:datatype <xsd:string> ;
+            sh:description "ID associated with a class" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/core/:id> ],
+        [ sh:description "The value of the assertion that is being made." ;
+            sh:maxCount 1 ;
+            sh:name "Value" ;
+            sh:or ( [ sh:class <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:CodedTerm> ] [ sh:class <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:Quantity> ] ) ;
+            sh:order 2 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:value> ] ;
+    sh:targetClass <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:SubjectAssertion> .
 
 <https://anvilproject.org/acr-harmonized-data-model/sample/:Sample> a sh:NodeShape ;
     sh:closed true ;
@@ -563,6 +629,12 @@ Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA and coded with the
     sh:ignoredProperties ( rdf:type ) ;
     sh:name "Sample" ;
     sh:property [ sh:datatype <xsd:string> ;
+            sh:description "Parent Sample ID" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/sample/:parent_sample_id> ],
+        [ sh:datatype <xsd:string> ;
             sh:description "Curied code associated the type of material of which this Sample is comprised" ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -576,28 +648,6 @@ Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA and coded with the
             sh:order 6 ;
             sh:path <https://anvilproject.org/acr-harmonized-data-model/sample/:quantity> ],
         [ sh:datatype <xsd:string> ;
-            sh:description "Parent Sample ID" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/sample/:parent_sample_id> ],
-        [ sh:datatype <xsd:string> ;
-            sh:description "Curied code associated processing that was applied to the Parent Sample or from the Biospecimen Collection that yielded this distinct sample" ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/sample/:processing> ],
-        [ sh:datatype <xsd:string> ;
-            sh:description "Curied code indicating how is the Sample stored, eg, Frozen or with additives" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/sample/:storage_method> ],
-        [ sh:description "Can this Sample be requested for further analysis?" ;
-            sh:in ( <ig2-biospecimen-availability:available> <ig2-biospecimen-availability:unavailable> ) ;
-            sh:maxCount 1 ;
-            sh:order 4 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/sample/:availablity_status> ],
-        [ sh:datatype <xsd:string> ;
             sh:description "ID associated with the Biospecimen Collection event." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -610,7 +660,23 @@ Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA and coded with the
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 7 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/core/:id> ] ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/core/:id> ],
+        [ sh:datatype <xsd:string> ;
+            sh:description "Curied code indicating how is the Sample stored, eg, Frozen or with additives" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/sample/:storage_method> ],
+        [ sh:datatype <xsd:string> ;
+            sh:description "Curied code associated processing that was applied to the Parent Sample or from the Biospecimen Collection that yielded this distinct sample" ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/sample/:processing> ],
+        [ sh:description "Can this Sample be requested for further analysis?" ;
+            sh:in ( <ig2-biospecimen-availability:available> <ig2-biospecimen-availability:unavailable> ) ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/sample/:availablity_status> ] ;
     sh:targetClass <https://anvilproject.org/acr-harmonized-data-model/sample/:Sample> .
 
 <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:AccessPolicy> a sh:NodeShape ;
@@ -624,6 +690,12 @@ Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA and coded with the
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
             sh:path <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:description> ],
+        [ sh:datatype <xsd:string> ;
+            sh:description "Website" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:website> ],
         [ sh:datatype <xsd:string> ;
             sh:description "Disease Use Limitations" ;
             sh:maxCount 1 ;
@@ -645,12 +717,41 @@ Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA and coded with the
         [ sh:description "Data Access Type" ;
             sh:in ( <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-typeopen> <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-typeregistered> <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-typecontrolled> <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-typegsr-restricted> <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-typegsr-allowed> ) ;
             sh:order 0 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:data_access_type> ],
-        [ sh:datatype <xsd:string> ;
-            sh:description "Website" ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:data_access_type> ] ;
+    sh:targetClass <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:AccessPolicy> .
+
+<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:Quantity> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A numeric value and unit" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:name "Quantity" ;
+    sh:property [ sh:class <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:CodedTerm> ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 1 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:unit> ],
+        [ sh:maxCount 1 ;
+            sh:or ( [ sh:datatype <xsd:integer> ;
+                        sh:nodeKind sh:Literal ] [ sh:datatype <xsd:decimal> ;
+                        sh:nodeKind sh:Literal ] ) ;
+            sh:order 0 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:value> ] ;
+    sh:targetClass <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:Quantity> .
+
+<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:CodedTerm> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A term that includes a string value as well as an associated uri or curie." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:name "Coded term" ;
+    sh:property [ sh:datatype <xsd:string> ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:website> ] ;
-    sh:targetClass <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:AccessPolicy> .
+            sh:order 1 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:code_string> ],
+        [ sh:datatype <xsd:anyURI> ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:code> ] ;
+    sh:targetClass <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:CodedTerm> .
 

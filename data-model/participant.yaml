@@ -26,6 +26,7 @@ imports:
   - anvil_core
   - study
   - sample
+  - subject_assertion
 classes:
   Subject:
     title: Subject of data
@@ -36,6 +37,7 @@ classes:
     slots:
       - subject_type
       - organism_type
+      - subject_assertion
   Participant:
     title: Participant
     description: Basic participant demographics
@@ -69,6 +71,13 @@ slots:
     required: false
     range: Study 
     multivalued: false 
+    inlined: false
+  subject_assertion: 
+    title: Subject Assertion
+    description: Assertions made about this subject.
+    required: false
+    range: SubjectAssertion 
+    multivalued: true
     inlined: false
 # TODO: Set this as an NCBI Taxon enumeration
   organism_type:

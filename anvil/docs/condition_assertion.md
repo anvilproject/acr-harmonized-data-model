@@ -18,4 +18,3 @@ None &#8594;  <sub>0..1</sub> [EnumConditionAssertion](EnumConditionAssertion.md
 
 ## Used by
 
- * [ConditionAssertion](ConditionAssertion.md)

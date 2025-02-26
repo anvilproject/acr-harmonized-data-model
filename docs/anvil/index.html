@@ -91,6 +91,9 @@
 <p><strong>version:</strong> None</p>
 <h3 id="classes">Classes</h3>
 <ul>
+<li><a href="../Any/">Any</a></li>
+<li><a href="../CodedTerm/">CodedTerm</a> - A term that includes a string value as well as an associated uri or curie.</li>
+<li><a href="Quantity.md">Quantity</a> - A numeric value and unit</li>
 <li><a href="../Thing/">Thing</a> - Highest Level Class<ul>
 <li><a href="../AccessControlledRecord/">AccessControlledRecord</a> - Element for which specific access control restrictions apply.<ul>
 <li><a href="../Subject/">Subject</a> - This entity is the subject about which data or references are recorded. | This includes the idea of a human participant in a study, a cell line, an animal model, | or any other similar entity.<ul>
@@ -102,13 +105,16 @@
 <li><a href="../AccessPolicy/">AccessPolicy</a> - Describes the access required for a given element of data.</li>
 <li><a href="../Aliquot/">Aliquot</a> - Represent exact tubes or total amounts available of a Sample.</li>
 <li><a href="../BiospecimenCollection/">BiospecimenCollection</a> - Biospecimen Collection</li>
-<li><a href="../ConditionAssertion/">ConditionAssertion</a> - Study Meta Data</li>
 <li><a href="../Family/">Family</a> - Family</li>
 <li><a href="../FamilyMember/">FamilyMember</a> - Family</li>
 <li><a href="../Measurement/">Measurement</a> - Measurements</li>
 <li><a href="../Procedure/">Procedure</a> - Procedures</li>
 <li><a href="../Sample/">Sample</a> - Biospecimen data</li>
 <li><a href="../Study/">Study</a> - Study Meta Data</li>
+<li><a href="../SubjectAssertion/">SubjectAssertion</a> - Generic template for linking information with a given Subject.<ul>
+<li><a href="../ConditionAssertion/">ConditionAssertion</a> - Study Meta Data</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -123,8 +129,11 @@
 <li><a href="../age_at_observation/">age_at_observation</a> - Age of participant when measurement was taken/recorded</li>
 <li><a href="../age_at_onset/">age_at_onset</a> - The age of onset for this condition.</li>
 <li><a href="../age_at_resolution/">age_at_resolution</a> - The age at which this condition was resolved, abated or cured. Should be left empty in cases of current active status.</li>
+<li><a href="../assertion/">assertion</a> - The assertion that is being made.</li>
 <li><a href="../availablity_status/">availablity_status</a> - Can this Sample be requested for further analysis?</li>
 <li><a href="../biospecimen_collection_id_fk/">biospecimen_collection_id_fk</a> - ID associated with the Biospecimen Collection event.</li>
+<li><a href="../codedTerm__code/">➞code</a></li>
+<li><a href="../codedTerm__code_string/">➞code_string</a></li>
 <li><a href="../condition_assertion/">condition_assertion</a> - Condition Assertion</li>
 <li><a href="../condition_code/">condition_code</a> - Condition Code should be from one of a recognized ontology. Multiple codes can be indicated, but should simply be alternative encodings for the same entity such as alternates encodings from other ontologies.       </li>
 <li><a href="../condition_source_value/">condition_source_value</a> - Original Source Value for condition</li>
@@ -168,6 +177,8 @@
 <li><a href="../procedure_source_value/">procedure_source_value</a> - Original procedure text</li>
 <li><a href="../processing/">processing</a> - Curied code associated processing that was applied to the Parent Sample or from the Biospecimen Collection that yielded this distinct sample</li>
 <li><a href="../quantity/">quantity</a> - The total quantity of the specimen</li>
+<li><a href="../quantity__unit/">➞unit</a></li>
+<li><a href="../quantity__value/">➞value</a></li>
 <li><a href="../race/">race</a> - Reported race defined by NIH Racial and Ethnic Categories and Definitions (NOT-OD-15-089)</li>
 <li><a href="../race_source_value/">race_source_value</a> - Race value as observed from the original source text</li>
 <li><a href="../relationship_code/">relationship_code</a> - Relationship of the "Family Member" to the "Other Family Member" (i.e. mother, father, etc). This is required if other_family_member_id is present. Code must be from the HL7 <a href="https://terminology.hl7.org/6.2.0/ValueSet-v3-FamilyMember.html">FamilyMember ValueSet</a></li>
@@ -179,10 +190,14 @@
 <li><a href="../sample_volume/">sample_volume</a> - What is the volume of the Aliquot?</li>
 <li><a href="../sample_volume_unit/">sample_volume_unit</a> - Units associated with the volume? UCUM coding preferred (with curie, UCUM)</li>
 <li><a href="../site/">site</a> - The location of the specimen collection.</li>
+<li><a href="../source_assertion/">source_assertion</a> - The assertion that is being made as originally recorded.</li>
+<li><a href="../source_value/">source_value</a> - The value of the assertion that is being made as originally recoded.</li>
 <li><a href="../spatial_qualifier/">spatial_qualifier</a> - Any spatial/location qualifiers</li>
 <li><a href="../storage_method/">storage_method</a> - Curied code indicating how is the Sample stored, eg, Frozen or with additives</li>
 <li><a href="../study_title/">study_title</a> - Study Title</li>
+<li><a href="../subject_assertion/">subject_assertion</a> - Assertions made about this subject.</li>
 <li><a href="../subject_type/">subject_type</a> - Type of entity this record represents</li>
+<li><a href="../value/">value</a> - The value of the assertion that is being made.</li>
 <li><a href="../vital_status/">vital_status</a> - Vital Status</li>
 <li><a href="../website/">website</a> - Website</li>
 </ul>

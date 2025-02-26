@@ -126,6 +126,18 @@
             "title": "Aliquot",
             "type": "object"
         },
+        "Any": {
+            "additionalProperties": true,
+            "description": "",
+            "title": "Any",
+            "type": [
+                "null",
+                "boolean",
+                "object",
+                "number",
+                "string"
+            ]
+        },
         "BiospecimenCollection": {
             "additionalProperties": false,
             "description": "Biospecimen Collection",
@@ -164,6 +176,26 @@
             "title": "BiospecimenCollection",
             "type": "object"
         },
+        "CodedTerm": {
+            "additionalProperties": false,
+            "description": "A term that includes a string value as well as an associated uri or curie.",
+            "properties": {
+                "code": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "code_string": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "CodedTerm",
+            "type": "object"
+        },
         "ConditionAssertion": {
             "additionalProperties": false,
             "description": "Study Meta Data",
@@ -189,23 +221,16 @@
                         "null"
                     ]
                 },
-                "condition_assertion": {
-                    "$ref": "#/$defs/EnumConditionAssertion",
-                    "description": "Condition Assertion"
-                },
-                "condition_code": {
-                    "description": "Condition Code should be from one of a recognized ontology. Multiple codes can be indicated, but should simply be alternative encodings for the same entity such as alternates encodings from other ontologies.       \nRecommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA and coded with the corresponding curies\n* SNOMED : https://bioregistry.io/registry/snomedct\n* HP : https://bioregistry.io/registry/hp\n* OMIM : https://bioregistry.io/registry/omim\n* ORPHA : https://bioregistry.io/registry/orphanet\n",
-                    "items": {
-                        "$ref": "#/$defs/EnumConditionCode"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "condition_source_value": {
-                    "description": "Original Source Value for condition",
-                    "type": "string"
+                "assertion": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/CodedTerm"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The assertion that is being made."
                 },
                 "condition_type": {
                     "$ref": "#/$defs/EnumConditionType",
@@ -214,10 +239,48 @@
                 "id": {
                     "description": "ID associated with a class",
                     "type": "string"
+                },
+                "source_assertion": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/CodedTerm"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The assertion that is being made as originally recorded."
+                },
+                "source_value": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/CodedTerm"
+                        },
+                        {
+                            "$ref": "#/$defs/Quantity"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The value of the assertion that is being made as originally recoded."
+                },
+                "value": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/CodedTerm"
+                        },
+                        {
+                            "$ref": "#/$defs/Quantity"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The value of the assertion that is being made."
                 }
             },
             "required": [
-                "condition_source_value",
                 "condition_type",
                 "id"
             ],
@@ -645,6 +708,16 @@
                         "null"
                     ]
                 },
+                "subject_assertion": {
+                    "description": "Assertions made about this subject.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "subject_type": {
                     "$ref": "#/$defs/EnumSubjectType",
                     "description": "Type of entity this record represents"
@@ -697,6 +770,37 @@
                 "id"
             ],
             "title": "Procedure",
+            "type": "object"
+        },
+        "Quantity": {
+            "additionalProperties": false,
+            "description": "A numeric value and unit",
+            "properties": {
+                "unit": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/CodedTerm"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "value": {
+                    "anyOf": [
+                        {
+                            "type": "integer"
+                        },
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                }
+            },
+            "title": "Quantity",
             "type": "object"
         },
         "Sample": {
@@ -838,6 +942,16 @@
                         "null"
                     ]
                 },
+                "subject_assertion": {
+                    "description": "Assertions made about this subject.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "subject_type": {
                     "$ref": "#/$defs/EnumSubjectType",
                     "description": "Type of entity this record represents"
@@ -848,6 +962,78 @@
                 "id"
             ],
             "title": "Subject",
+            "type": "object"
+        },
+        "SubjectAssertion": {
+            "additionalProperties": false,
+            "description": "Generic template for linking information with a given Subject.",
+            "properties": {
+                "age_at_assertion": {
+                    "description": "The age at which this condition is being asserted.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "assertion": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/CodedTerm"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The assertion that is being made."
+                },
+                "id": {
+                    "description": "ID associated with a class",
+                    "type": "string"
+                },
+                "source_assertion": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/CodedTerm"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The assertion that is being made as originally recorded."
+                },
+                "source_value": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/CodedTerm"
+                        },
+                        {
+                            "$ref": "#/$defs/Quantity"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The value of the assertion that is being made as originally recoded."
+                },
+                "value": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/CodedTerm"
+                        },
+                        {
+                            "$ref": "#/$defs/Quantity"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The value of the assertion that is being made."
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "SubjectAssertion",
             "type": "object"
         },
         "Thing": {

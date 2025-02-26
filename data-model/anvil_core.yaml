@@ -21,6 +21,8 @@ classes:
     is_a: Thing
     slots:
       - has_access_policy
+  Any:
+    class_uri: linkml:Any
 slots: 
   id:
     description: ID associated with a class

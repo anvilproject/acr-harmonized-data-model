@@ -69,7 +69,7 @@
                 <h1 id="class-subject">Class: Subject</h1>
 <p>This entity is the subject about which data or references are recorded. | This includes the idea of a human participant in a study, a cell line, an animal model, | or any other similar entity.</p>
 <p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/Subject">anvil:Subject</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject&#124;subject_type:EnumSubjectType;organism_type:string%20%3F;id(i):string]^-[Participant],[AccessControlledRecord]^-[Subject],[Participant],[AccessPolicy],[AccessControlledRecord]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject&#124;subject_type:EnumSubjectType;organism_type:string%20%3F;id(i):string]^-[Participant],[AccessControlledRecord]^-[Subject],[Participant],[AccessPolicy],[AccessControlledRecord]" /></a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[SubjectAssertion],[SubjectAssertion]&lt;subject_assertion%200..*-%20[Subject&#124;subject_type:EnumSubjectType;organism_type:string%20%3F;id(i):string],[Subject]^-[Participant],[AccessControlledRecord]^-[Subject],[Participant],[AccessPolicy],[AccessControlledRecord]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[SubjectAssertion],[SubjectAssertion]&lt;subject_assertion%200..*-%20[Subject&#124;subject_type:EnumSubjectType;organism_type:string%20%3F;id(i):string],[Subject]^-[Participant],[AccessControlledRecord]^-[Subject],[Participant],[AccessPolicy],[AccessControlledRecord]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../AccessControlledRecord/">AccessControlledRecord</a> - Element for which specific access control restrictions apply.</li>
@@ -90,6 +90,11 @@
 <li><a href="../organism_type/">organism_type</a>  <sub>0..1</sub><ul>
 <li>Description: Organism Type Label</li>
 <li>Range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+<li><a href="../subject_assertion/">subject_assertion</a>  <sub>0..*</sub><ul>
+<li>Description: Assertions made about this subject.</li>
+<li>Range: <a href="../SubjectAssertion/">SubjectAssertion</a></li>
 </ul>
 </li>
 </ul>

@@ -155,6 +155,10 @@ type Aliquot
     sampleConcentrationUnit: String
   }
 
+type Any
+  {
+  }
+
 type BiospecimenCollection
   {
     id: String!
@@ -165,14 +169,21 @@ type BiospecimenCollection
     laterality: EnumLaterality
   }
 
+type CodedTerm
+  {
+    code: Uriorcurie
+    codeString: String
+  }
+
 type ConditionAssertion
   {
     id: String!
-    conditionCode: [EnumConditionCode]
-    conditionSourceValue: String!
-    conditionAssertion: EnumConditionAssertion
-    conditionType: EnumConditionType!
     ageAtAssertion: Integer
+    assertion: CodedTerm
+    value: Any
+    sourceAssertion: CodedTerm
+    sourceValue: Any
+    conditionType: EnumConditionType!
     ageAtOnset: Integer
     ageAtResolution: Integer
   }
@@ -212,6 +223,7 @@ type Participant
     hasAccessPolicy: AccessPolicy
     subjectType: EnumSubjectType!
     organismType: String
+    subjectAssertion: [SubjectAssertion]
     dateOfBirth: Integer
     dateOfBirthType: EnumDateOfBirthType
     phenotypicSex: EnumSex!
@@ -232,6 +244,12 @@ type Procedure
     procedureCode: [String]!
     procedureSourceValue: String!
     ageAtObservation: Integer
+  }
+
+type Quantity
+  {
+    value: Any
+    unit: CodedTerm
   }
 
 type Sample
@@ -262,6 +280,17 @@ type Subject
     hasAccessPolicy: AccessPolicy
     subjectType: EnumSubjectType!
     organismType: String
+    subjectAssertion: [SubjectAssertion]
+  }
+
+type SubjectAssertion
+  {
+    id: String!
+    ageAtAssertion: Integer
+    assertion: CodedTerm
+    value: Any
+    sourceAssertion: CodedTerm
+    sourceValue: Any
   }
 
 type Thing
