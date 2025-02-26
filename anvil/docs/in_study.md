@@ -18,4 +18,3 @@ None &#8594;  <sub>0..1</sub> [Study](Study.md)
 
 ## Used by
 
- * [StudyParticipant](StudyParticipant.md)

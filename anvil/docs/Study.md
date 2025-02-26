@@ -6,7 +6,7 @@ Study Meta Data
 URI: [anvil:Study](https://anvilproject.org/acr-harmonized-data-model/Study)
 
 
-[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Study]<parent_study_id%200..1-%20[Study&#124;external_study_id:string%20*;funding_source:string%20*;principal_investigator:string%20*;study_title:string;id(i):string],[StudyParticipant]-%20in_study%200..1>[Study],[Thing]^-[Study],[StudyParticipant])](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Study]<parent_study_id%200..1-%20[Study&#124;external_study_id:string%20*;funding_source:string%20*;principal_investigator:string%20*;study_title:string;id(i):string],[StudyParticipant]-%20in_study%200..1>[Study],[Thing]^-[Study],[StudyParticipant])
+[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Study]<parent_study_id%200..1-%20[Study&#124;external_study_id:string%20*;funding_source:string%20*;principal_investigator:string%20*;study_title:string;id(i):string],[Thing]^-[Study])](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Study]<parent_study_id%200..1-%20[Study&#124;external_study_id:string%20*;funding_source:string%20*;principal_investigator:string%20*;study_title:string;id(i):string],[Thing]^-[Study])
 
 ## Parents
 

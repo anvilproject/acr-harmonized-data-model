@@ -16,7 +16,6 @@ classes:
     description: Procedures
     is_a: Thing
     slots:
-    - participant_id
     - procedure_code
     - procedure_source_value 
     - age_at_observation 

@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://anvilproject.github.io/acr-harmonized-data-model/in_study/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://anvilproject.github.io/acr-harmonized-data-model/Subject/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Slot: in_study - ACR Harmonized Data Model</title>
+    <title>Class: Subject - ACR Harmonized Data Model</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Slot: in_study";
-        var mkdocs_page_input_path = "in_study.md";
-        var mkdocs_page_url = "/acr-harmonized-data-model/in_study/";
+        var mkdocs_page_name = "Class: Subject";
+        var mkdocs_page_input_path = "Subject.md";
+        var mkdocs_page_url = "/acr-harmonized-data-model/Subject/";
       </script>
     
     <!--[if lt IE 9]>
@@ -57,7 +57,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Slot: in_study</li>
+      <li class="breadcrumb-item active">Class: Subject</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -66,14 +66,46 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="slot-in_study">Slot: in_study</h1>
-<p>With which study is this class associated?</p>
-<p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/in_study">anvil:in_study</a></p>
-<h2 id="domain-and-range">Domain and Range</h2>
-<p>None &#8594;  <sub>0..1</sub> <a href="../Study/">Study</a></p>
+                <h1 id="class-subject">Class: Subject</h1>
+<p>This entity is the subject about which data or references are recorded. | This includes the idea of a human participant in a study, a cell line, an animal model, | or any other similar entity.</p>
+<p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/Subject">anvil:Subject</a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject&#124;subject_type:EnumSubjectType;organism_type:string%20%3F;id(i):string]^-[Participant],[AccessControlledRecord]^-[Subject],[Participant],[AccessPolicy],[AccessControlledRecord]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject&#124;subject_type:EnumSubjectType;organism_type:string%20%3F;id(i):string]^-[Participant],[AccessControlledRecord]^-[Subject],[Participant],[AccessPolicy],[AccessControlledRecord]" /></a></p>
 <h2 id="parents">Parents</h2>
+<ul>
+<li>is_a: <a href="../AccessControlledRecord/">AccessControlledRecord</a> - Element for which specific access control restrictions apply.</li>
+</ul>
 <h2 id="children">Children</h2>
-<h2 id="used-by">Used by</h2>
+<ul>
+<li><a href="../Participant/">Participant</a> - Basic participant demographics</li>
+</ul>
+<h2 id="referenced-by-class">Referenced by Class</h2>
+<h2 id="attributes">Attributes</h2>
+<h3 id="own">Own</h3>
+<ul>
+<li><a href="../subject_type/">subject_type</a>  <sub>1..1</sub><ul>
+<li>Description: Type of entity this record represents</li>
+<li>Range: <a href="../EnumSubjectType/">EnumSubjectType</a></li>
+</ul>
+</li>
+<li><a href="../organism_type/">organism_type</a>  <sub>0..1</sub><ul>
+<li>Description: Organism Type Label</li>
+<li>Range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="inherited-from-accesscontrolledrecord">Inherited from AccessControlledRecord:</h3>
+<ul>
+<li><a href="../id/">id</a>  <sub>1..1</sub><ul>
+<li>Description: ID associated with a class</li>
+<li>Range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+<li><a href="../has_access_policy/">has_access_policy</a>  <sub>0..1</sub><ul>
+<li>Description: Which access policy applies to this element?</li>
+<li>Range: <a href="../AccessPolicy/">AccessPolicy</a></li>
+</ul>
+</li>
+</ul>
               
             </div>
           </div><footer>

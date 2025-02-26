@@ -6,7 +6,7 @@
     "anvil_core",
     "participant",
     "study",
-    "condition_assertion",
+    "subject_assertion",
     "data_access_policy",
     "biospecimen_collection",
     "aliquot",
@@ -494,18 +494,34 @@
       ]
     },
     {
-      "name": "EnumDonorType",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/EnumDonorType",
+      "name": "EnumSubjectType",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/EnumSubjectType",
       "description": "Types of entities",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/participant",
       "permissible_values": [
         {
-          "text": "patient",
-          "description": "Patient"
+          "text": "participant",
+          "description": "Study participant with consent, assent, or waiver of consent."
+        },
+        {
+          "text": "non_participant",
+          "description": "An individual associated with a study who was not explictly consented, eg, the subject | of a reported family history."
         },
         {
           "text": "cell_line",
           "description": "Cell Line"
+        },
+        {
+          "text": "animal_model",
+          "description": "Animal model"
+        },
+        {
+          "text": "group",
+          "description": "A group of individuals or entities."
+        },
+        {
+          "text": "other",
+          "description": "A different entity type- ideally this will be resolved!"
         }
       ]
     },
@@ -880,34 +896,15 @@
   ],
   "slots": [
     {
-      "name": "participant_id",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/core/participant_id",
-      "description": "ID associated with the Participant",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/core",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/core/participant_id",
-      "owner": "Procedure",
-      "domain_of": [
-        "StudyParticipant",
-        "ConditionAssertion",
-        "BiospecimenCollection",
-        "Measurement",
-        "Procedure"
-      ],
-      "range": "string",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "id",
       "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/core/id",
       "description": "ID associated with a class",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/core",
       "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/core/id",
       "identifier": true,
-      "owner": "Participant",
+      "owner": "Thing",
       "domain_of": [
-        "Thing",
-        "Participant"
+        "Thing"
       ],
       "range": "string",
       "required": true,
@@ -920,10 +917,6 @@
       "title": "External Identifier",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/core",
       "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/core/external_id",
-      "owner": "Participant",
-      "domain_of": [
-        "Participant"
-      ],
       "range": "uriorcurie",
       "multivalued": true,
       "@type": "SlotDefinition"
@@ -935,10 +928,6 @@
       "title": "in study",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/participant",
       "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/in_study",
-      "owner": "StudyParticipant",
-      "domain_of": [
-        "StudyParticipant"
-      ],
       "range": "Study",
       "@type": "SlotDefinition"
     },
@@ -949,25 +938,26 @@
       "title": "Organism Type",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/participant",
       "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/organism_type",
-      "owner": "Participant",
+      "owner": "Subject",
       "domain_of": [
-        "Participant"
+        "Subject"
       ],
       "range": "string",
       "@type": "SlotDefinition"
     },
     {
-      "name": "donor_type",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/donor_type",
+      "name": "subject_type",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/subject_type",
       "description": "Type of entity this record represents",
-      "title": "Donor Type",
+      "title": "Subject Type",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/participant",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/donor_type",
-      "owner": "Participant",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/subject_type",
+      "owner": "Subject",
       "domain_of": [
-        "Participant"
+        "Subject"
       ],
-      "range": "EnumDonorType",
+      "range": "EnumSubjectType",
+      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1120,6 +1110,21 @@
       "title": "Has sample",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/participant",
       "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/has_sample",
+      "owner": "Participant",
+      "domain_of": [
+        "Participant"
+      ],
+      "range": "Sample",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "has_assertion",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/has_assertion",
+      "description": "Which samples were collected or processed for this participant?",
+      "title": "Has sample",
+      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/participant",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/has_assertion",
       "owner": "Participant",
       "domain_of": [
         "Participant"
@@ -1872,7 +1877,7 @@
     {
       "name": "AccessControlledRecord",
       "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/core/AccessControlledRecord",
-      "description": "Entity for which specific access control restrictions apply.",
+      "description": "Element for which specific access control restrictions apply.",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/core",
       "is_a": "Thing",
       "slots": [
@@ -1884,17 +1889,34 @@
       "@type": "ClassDefinition"
     },
     {
+      "name": "Subject",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/Subject",
+      "description": "This entity is the subject about which data or references are recorded. | This includes the idea of a human participant in a study, a cell line, an animal model, | or any other similar entity.",
+      "title": "Subject of data",
+      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/participant",
+      "is_a": "AccessControlledRecord",
+      "slots": [
+        "id",
+        "has_access_policy",
+        "subject_type",
+        "organism_type"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/Subject",
+      "@type": "ClassDefinition"
+    },
+    {
       "name": "Participant",
       "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/Participant",
       "description": "Basic participant demographics",
       "title": "Participant",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/participant",
-      "is_a": "Thing",
+      "is_a": "Subject",
       "slots": [
         "id",
-        "external_id",
+        "has_access_policy",
+        "subject_type",
         "organism_type",
-        "donor_type",
         "date_of_birth",
         "date_of_birth_type",
         "phenotypic_sex",
@@ -1905,26 +1927,11 @@
         "ethnicity_source_value",
         "age_at_last_vital_status",
         "vital_status",
-        "has_sample"
+        "has_sample",
+        "has_assertion"
       ],
       "slot_usage": {},
       "class_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/Participant",
-      "@type": "ClassDefinition"
-    },
-    {
-      "name": "StudyParticipant",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/StudyParticipant",
-      "description": "Research",
-      "title": "StudyParticipant",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/participant",
-      "is_a": "Thing",
-      "slots": [
-        "id",
-        "participant_id",
-        "in_study"
-      ],
-      "slot_usage": {},
-      "class_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/StudyParticipant",
       "@type": "ClassDefinition"
     },
     {
@@ -1955,7 +1962,6 @@
       "is_a": "Thing",
       "slots": [
         "id",
-        "participant_id",
         "condition_code",
         "condition_source_value",
         "condition_assertion",
@@ -1995,7 +2001,6 @@
       "is_a": "Thing",
       "slots": [
         "id",
-        "participant_id",
         "age_at_collection",
         "method",
         "site",
@@ -2056,7 +2061,6 @@
       "is_a": "Thing",
       "slots": [
         "id",
-        "participant_id",
         "measurement_code",
         "measurement_unit",
         "measurement_value_code",
@@ -2076,7 +2080,6 @@
       "is_a": "Thing",
       "slots": [
         "id",
-        "participant_id",
         "procedure_code",
         "procedure_source_value",
         "age_at_observation"
@@ -2125,9 +2128,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "anvil.yaml",
-  "source_file_date": "2025-02-25T08:10:40",
-  "source_file_size": 805,
-  "generation_date": "2025-02-25T12:51:39",
+  "source_file_date": "2025-02-26T16:04:58",
+  "source_file_size": 803,
+  "generation_date": "2025-02-26T16:07:33",
   "@type": "SchemaDefinition",
   "@context": [
     "anvil/jsonld/anvil.context.jsonld",
@@ -2135,7 +2138,7 @@
     "anvil_core.context.jsonld",
     "participant.context.jsonld",
     "study.context.jsonld",
-    "condition_assertion.context.jsonld",
+    "subject_assertion.context.jsonld",
     "data_access_policy.context.jsonld",
     "biospecimen_collection.context.jsonld",
     "aliquot.context.jsonld",

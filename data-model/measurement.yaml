@@ -16,7 +16,6 @@ classes:
     description: Measurements
     is_a: Thing
     slots:
-    - participant_id
     - measurement_code
     - measurement_unit
     - measurement_value_code

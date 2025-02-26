@@ -27,15 +27,20 @@ imports:
   - study
   - sample
 classes:
+  Subject:
+    title: Subject of data
+    description: This entity is the subject about which data or references are recorded. |
+      This includes the idea of a human participant in a study, a cell line, an animal model, |
+      or any other similar entity.
+    is_a: AccessControlledRecord
+    slots:
+      - subject_type
+      - organism_type
   Participant:
     title: Participant
     description: Basic participant demographics
-    is_a: Thing
+    is_a: Subject
     slots:
-      - id
-      - external_id 
-      - organism_type 
-      - donor_type 
       - date_of_birth
       - date_of_birth_type
       - phenotypic_sex
@@ -47,14 +52,15 @@ classes:
       - age_at_last_vital_status 
       - vital_status
       - has_sample
-  StudyParticipant: 
-# TODO: Rework this to be a consent record on the subject.
-    title: StudyParticipant 
-    description: Research 
-    is_a: Thing
-    slots:
-      - participant_id
-      - in_study
+      - has_assertion
+# TODO: Rework this to be a consent record on the Participant (if needed?)
+#  StudyParticipant: 
+#    title: StudyParticipant 
+#    description: Research 
+#    is_a: Thing
+#    slots:
+#      - participant
+#      - in_study
 #      - access_policy_id
 slots:
   in_study: 
@@ -64,16 +70,17 @@ slots:
     range: Study 
     multivalued: false 
     inlined: false
+# TODO: Set this as an NCBI Taxon enumeration
   organism_type:
     title: Organism Type 
     description: Organism Type Label
     required: false 
     range: string 
-  donor_type: 
-    title: Donor Type 
+  subject_type: 
+    title: Subject Type 
     description: Type of entity this record represents
-    required: false 
-    range: EnumDonorType 
+    required: true 
+    range: EnumSubjectType 
   date_of_birth:
     title: Date of Birth 
     description: Date at which the individual was born. May be impacted by privacy rules described in date_of_birth_type.
@@ -126,6 +133,13 @@ slots:
     range: EnumVitalStatus
     required: false
   has_sample: 
+    title: Has sample
+    description: Which samples were collected or processed for this participant?
+    required: false
+    range: Sample
+    multivalued: true
+    inlined: false
+  has_assertion: 
     title: Has sample
     description: Which samples were collected or processed for this participant?
     required: false
@@ -216,13 +230,22 @@ enums:
       asked_but_unknown:
         description: asked but unknown
         meaning: hl7_null:ASKU
-  EnumDonorType:
+  EnumSubjectType:
     description: Types of entities
     permissible_values: 
-      patient: 
-        description: Patient 
+      participant: 
+        description: Study participant with consent, assent, or waiver of consent.
+      non_participant:
+        description: An individual associated with a study who was not explictly consented, eg, the subject |
+          of a reported family history.
       cell_line: 
         description: Cell Line
+      animal_model: 
+        description: Animal model
+      group:
+        description: A group of individuals or entities.
+      other:
+        description: A different entity type- ideally this will be resolved!
   EnumVitalStatus:
     description: Is the entity living?
     permissible_values:

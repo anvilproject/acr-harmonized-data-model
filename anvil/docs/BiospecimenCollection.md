@@ -6,7 +6,7 @@ Biospecimen Collection
 URI: [anvil:BiospecimenCollection](https://anvilproject.org/acr-harmonized-data-model/BiospecimenCollection)
 
 
-[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[BiospecimenCollection&#124;participant_id:string;age_at_collection:integer%20%3F;method:EnumSampleCollectionMethod%20%3F;site:EnumSite%20%3F;spatial_qualifier:EnumSpatialQualifiers%20%3F;laterality:EnumLaterality%20%3F;id(i):string])](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[BiospecimenCollection&#124;participant_id:string;age_at_collection:integer%20%3F;method:EnumSampleCollectionMethod%20%3F;site:EnumSite%20%3F;spatial_qualifier:EnumSpatialQualifiers%20%3F;laterality:EnumLaterality%20%3F;id(i):string])
+[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[BiospecimenCollection&#124;age_at_collection:integer%20%3F;method:EnumSampleCollectionMethod%20%3F;site:EnumSite%20%3F;spatial_qualifier:EnumSpatialQualifiers%20%3F;laterality:EnumLaterality%20%3F;id(i):string])](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[BiospecimenCollection&#124;age_at_collection:integer%20%3F;method:EnumSampleCollectionMethod%20%3F;site:EnumSite%20%3F;spatial_qualifier:EnumSpatialQualifiers%20%3F;laterality:EnumLaterality%20%3F;id(i):string])
 
 ## Parents
 
@@ -17,9 +17,6 @@ URI: [anvil:BiospecimenCollection](https://anvilproject.org/acr-harmonized-data-
 
 ### Own
 
- * [participant_id](participant_id.md)  <sub>1..1</sub>
-     * Description: ID associated with the Participant
-     * Range: [String](types/String.md)
  * [age_at_collection](age_at_collection.md)  <sub>0..1</sub>
      * Description: The age at which this biospecimen was collected.
      * Range: [Integer](types/Integer.md)

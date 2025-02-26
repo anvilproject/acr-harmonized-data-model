@@ -63,12 +63,6 @@ enum EnumDateOfBirthType
     other
   }
 
-enum EnumDonorType
-  {
-    patient
-    cell_line
-  }
-
 enum EnumEthnicity
   {
     hispanic_or_latino
@@ -115,6 +109,16 @@ enum EnumSex
     intersex
   }
 
+enum EnumSubjectType
+  {
+    participant
+    non_participant
+    cell_line
+    animal_model
+    group
+    other
+  }
+
 enum EnumVitalStatus
   {
     alive
@@ -154,7 +158,6 @@ type Aliquot
 type BiospecimenCollection
   {
     id: String!
-    participantId: String!
     ageAtCollection: Integer
     method: EnumSampleCollectionMethod
     site: EnumSite
@@ -165,7 +168,6 @@ type BiospecimenCollection
 type ConditionAssertion
   {
     id: String!
-    participantId: String!
     conditionCode: [EnumConditionCode]
     conditionSourceValue: String!
     conditionAssertion: EnumConditionAssertion
@@ -197,7 +199,6 @@ type FamilyMember
 type Measurement
   {
     id: String!
-    participantId: String!
     measurementCode: [String]!
     measurementUnit: String!
     measurementValueCode: EnumMeasurementValueCode
@@ -208,9 +209,9 @@ type Measurement
 type Participant
   {
     id: String!
-    externalId: [Uriorcurie]
+    hasAccessPolicy: AccessPolicy
+    subjectType: EnumSubjectType!
     organismType: String
-    donorType: EnumDonorType
     dateOfBirth: Integer
     dateOfBirthType: EnumDateOfBirthType
     phenotypicSex: EnumSex!
@@ -222,12 +223,12 @@ type Participant
     ageAtLastVitalStatus: Integer
     vitalStatus: EnumVitalStatus
     hasSample: [Sample]
+    hasAssertion: [Sample]
   }
 
 type Procedure
   {
     id: String!
-    participantId: String!
     procedureCode: [String]!
     procedureSourceValue: String!
     ageAtObservation: Integer
@@ -255,11 +256,12 @@ type Study
     studyTitle: String!
   }
 
-type StudyParticipant
+type Subject
   {
     id: String!
-    participantId: String!
-    inStudy: Study
+    hasAccessPolicy: AccessPolicy
+    subjectType: EnumSubjectType!
+    organismType: String
   }
 
 type Thing

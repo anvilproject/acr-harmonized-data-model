@@ -6,7 +6,7 @@ Study Meta Data
 URI: [anvil:ConditionAssertion](https://anvilproject.org/acr-harmonized-data-model/ConditionAssertion)
 
 
-[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[ConditionAssertion&#124;participant_id:string;condition_code:EnumConditionCode%20*;condition_source_value:string;condition_assertion:EnumConditionAssertion%20%3F;condition_type:EnumConditionType;age_at_assertion:integer%20%3F;age_at_onset:integer%20%3F;age_at_resolution:integer%20%3F;id(i):string])](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[ConditionAssertion&#124;participant_id:string;condition_code:EnumConditionCode%20*;condition_source_value:string;condition_assertion:EnumConditionAssertion%20%3F;condition_type:EnumConditionType;age_at_assertion:integer%20%3F;age_at_onset:integer%20%3F;age_at_resolution:integer%20%3F;id(i):string])
+[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[ConditionAssertion&#124;condition_code:EnumConditionCode%20*;condition_source_value:string;condition_assertion:EnumConditionAssertion%20%3F;condition_type:EnumConditionType;age_at_assertion:integer%20%3F;age_at_onset:integer%20%3F;age_at_resolution:integer%20%3F;id(i):string])](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[ConditionAssertion&#124;condition_code:EnumConditionCode%20*;condition_source_value:string;condition_assertion:EnumConditionAssertion%20%3F;condition_type:EnumConditionType;age_at_assertion:integer%20%3F;age_at_onset:integer%20%3F;age_at_resolution:integer%20%3F;id(i):string])
 
 ## Parents
 
@@ -17,9 +17,6 @@ URI: [anvil:ConditionAssertion](https://anvilproject.org/acr-harmonized-data-mod
 
 ### Own
 
- * [participant_id](participant_id.md)  <sub>1..1</sub>
-     * Description: ID associated with the Participant
-     * Range: [String](types/String.md)
  * [condition_code](condition_code.md)  <sub>0..\*</sub>
      * Description: Condition Code should be from one of a recognized ontology. Multiple codes can be indicated, but should simply be alternative encodings for the same entity such as alternates encodings from other ontologies.       
 Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA and coded with the corresponding curies

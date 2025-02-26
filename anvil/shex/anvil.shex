@@ -43,16 +43,18 @@ linkml:Jsonpath xsd:string
 
 linkml:Sparqlpath xsd:string
 
-<https://anvilproject.org/acr-harmonized-data-model/core/AccessControlledRecord> CLOSED {
-    (  $<https://anvilproject.org/acr-harmonized-data-model/core/AccessControlledRecord_tes> ( 
-          &<https://anvilproject.org/acr-harmonized-data-model/core/Thing_tes> ;
-          rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/Thing> ] ? ;
-          <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/has_access_policy>
-          @<https://anvilproject.org/acr-harmonized-data-model/data-access-policy/AccessPolicy> ?
-       ) ;
-       rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/AccessControlledRecord> ]
-    )
-}
+<https://anvilproject.org/acr-harmonized-data-model/core/AccessControlledRecord>  (
+    CLOSED {
+       (  $<https://anvilproject.org/acr-harmonized-data-model/core/AccessControlledRecord_tes> ( 
+             &<https://anvilproject.org/acr-harmonized-data-model/core/Thing_tes> ;
+             rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/Thing> ] ? ;
+             <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/has_access_policy>
+             @<https://anvilproject.org/acr-harmonized-data-model/data-access-policy/AccessPolicy> ?
+          ) ;
+          rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/AccessControlledRecord> ]
+       )
+    } OR @<https://anvilproject.org/acr-harmonized-data-model/participant/Subject>
+)
 
 <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/AccessPolicy> CLOSED {
     (  $<https://anvilproject.org/acr-harmonized-data-model/data-access-policy/AccessPolicy_tes> ( 
@@ -104,7 +106,6 @@ linkml:Sparqlpath xsd:string
     (  $<https://anvilproject.org/acr-harmonized-data-model/biospecimen_collection/BiospecimenCollection_tes> ( 
           &<https://anvilproject.org/acr-harmonized-data-model/core/Thing_tes> ;
           rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/Thing> ] ? ;
-          <https://anvilproject.org/acr-harmonized-data-model/core/participant_id> @linkml:String ;
           <https://anvilproject.org/acr-harmonized-data-model/biospecimen_collection/age_at_collection> @linkml:Integer ? ;
           <https://anvilproject.org/acr-harmonized-data-model/biospecimen_collection/method> . ? ;
           <https://anvilproject.org/acr-harmonized-data-model/biospecimen_collection/site> . ? ;
@@ -119,7 +120,6 @@ linkml:Sparqlpath xsd:string
     (  $<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/ConditionAssertion_tes> ( 
           &<https://anvilproject.org/acr-harmonized-data-model/core/Thing_tes> ;
           rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/Thing> ] ? ;
-          <https://anvilproject.org/acr-harmonized-data-model/core/participant_id> @linkml:String ;
           <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/condition_code> . * ;
           <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/condition_source_value> @linkml:String ;
           <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/condition_assertion> [
@@ -181,7 +181,6 @@ linkml:Sparqlpath xsd:string
     (  $<https://anvilproject.org/acr-harmonized-data-model/measurement/Measurement_tes> ( 
           &<https://anvilproject.org/acr-harmonized-data-model/core/Thing_tes> ;
           rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/Thing> ] ? ;
-          <https://anvilproject.org/acr-harmonized-data-model/core/participant_id> @linkml:String ;
           <https://anvilproject.org/acr-harmonized-data-model/measurement/measurement_code> @linkml:String + ;
           <https://anvilproject.org/acr-harmonized-data-model/measurement/measurement_unit> @linkml:String ;
           <https://anvilproject.org/acr-harmonized-data-model/measurement/measurement_value_code> [
@@ -198,13 +197,8 @@ linkml:Sparqlpath xsd:string
 
 <https://anvilproject.org/acr-harmonized-data-model/participant/Participant> CLOSED {
     (  $<https://anvilproject.org/acr-harmonized-data-model/participant/Participant_tes> ( 
-          &<https://anvilproject.org/acr-harmonized-data-model/core/Thing_tes> ;
-          rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/Thing> ] ? ;
-          <https://anvilproject.org/acr-harmonized-data-model/core/external_id> @linkml:Uriorcurie * ;
-          <https://anvilproject.org/acr-harmonized-data-model/participant/organism_type> @linkml:String ? ;
-          <https://anvilproject.org/acr-harmonized-data-model/participant/donor_type> [
-             <https://anvilproject.org/acr-harmonized-data-model/participant/EnumDonorType#patient>
-             <https://anvilproject.org/acr-harmonized-data-model/participant/EnumDonorType#cell_line> ] ? ;
+          &<https://anvilproject.org/acr-harmonized-data-model/participant/Subject_tes> ;
+          rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/participant/Subject> ] ? ;
           <https://anvilproject.org/acr-harmonized-data-model/participant/date_of_birth> @linkml:Integer ? ;
           <https://anvilproject.org/acr-harmonized-data-model/participant/date_of_birth_type> [
              <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-date-of-birth-methodexact>
@@ -235,6 +229,8 @@ linkml:Sparqlpath xsd:string
              <https://anvilproject.org/acr-harmonized-data-model/participant/EnumVitalStatus#unknown>
              <https://anvilproject.org/acr-harmonized-data-model/participant/EnumVitalStatus#unspecified> ] ? ;
           <https://anvilproject.org/acr-harmonized-data-model/participant/has_sample>
+          @<https://anvilproject.org/acr-harmonized-data-model/sample/Sample> * ;
+          <https://anvilproject.org/acr-harmonized-data-model/participant/has_assertion>
           @<https://anvilproject.org/acr-harmonized-data-model/sample/Sample> *
        ) ;
        rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/participant/Participant> ]
@@ -245,7 +241,6 @@ linkml:Sparqlpath xsd:string
     (  $<https://anvilproject.org/acr-harmonized-data-model/procedure/Procedure_tes> ( 
           &<https://anvilproject.org/acr-harmonized-data-model/core/Thing_tes> ;
           rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/Thing> ] ? ;
-          <https://anvilproject.org/acr-harmonized-data-model/core/participant_id> @linkml:String ;
           <https://anvilproject.org/acr-harmonized-data-model/procedure/procedure_code> @linkml:String + ;
           <https://anvilproject.org/acr-harmonized-data-model/procedure/procedure_source_value> @linkml:String ;
           <https://anvilproject.org/acr-harmonized-data-model/measurement/age_at_observation> @linkml:Integer ?
@@ -287,17 +282,24 @@ linkml:Sparqlpath xsd:string
     )
 }
 
-<https://anvilproject.org/acr-harmonized-data-model/participant/StudyParticipant> CLOSED {
-    (  $<https://anvilproject.org/acr-harmonized-data-model/participant/StudyParticipant_tes> ( 
-          &<https://anvilproject.org/acr-harmonized-data-model/core/Thing_tes> ;
-          rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/Thing> ] ? ;
-          <https://anvilproject.org/acr-harmonized-data-model/core/participant_id> @linkml:String ;
-          <https://anvilproject.org/acr-harmonized-data-model/participant/in_study>
-          @<https://anvilproject.org/acr-harmonized-data-model/study/Study> ?
-       ) ;
-       rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/participant/StudyParticipant> ]
-    )
-}
+<https://anvilproject.org/acr-harmonized-data-model/participant/Subject>  (
+    CLOSED {
+       (  $<https://anvilproject.org/acr-harmonized-data-model/participant/Subject_tes> ( 
+             &<https://anvilproject.org/acr-harmonized-data-model/core/AccessControlledRecord_tes> ;
+             rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/AccessControlledRecord> ] ? ;
+             <https://anvilproject.org/acr-harmonized-data-model/participant/subject_type> [
+                <https://anvilproject.org/acr-harmonized-data-model/participant/EnumSubjectType#participant>
+                <https://anvilproject.org/acr-harmonized-data-model/participant/EnumSubjectType#non_participant>
+                <https://anvilproject.org/acr-harmonized-data-model/participant/EnumSubjectType#cell_line>
+                <https://anvilproject.org/acr-harmonized-data-model/participant/EnumSubjectType#animal_model>
+                <https://anvilproject.org/acr-harmonized-data-model/participant/EnumSubjectType#group>
+                <https://anvilproject.org/acr-harmonized-data-model/participant/EnumSubjectType#other> ] ;
+             <https://anvilproject.org/acr-harmonized-data-model/participant/organism_type> @linkml:String ?
+          ) ;
+          rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/participant/Subject> ]
+       )
+    } OR @<https://anvilproject.org/acr-harmonized-data-model/participant/Participant>
+)
 
 <https://anvilproject.org/acr-harmonized-data-model/core/Thing>  (
     CLOSED {
@@ -312,10 +314,8 @@ linkml:Sparqlpath xsd:string
     @<https://anvilproject.org/acr-harmonized-data-model/family/Family> OR
     @<https://anvilproject.org/acr-harmonized-data-model/family-member/FamilyMember> OR
     @<https://anvilproject.org/acr-harmonized-data-model/measurement/Measurement> OR
-    @<https://anvilproject.org/acr-harmonized-data-model/participant/Participant> OR
     @<https://anvilproject.org/acr-harmonized-data-model/procedure/Procedure> OR
     @<https://anvilproject.org/acr-harmonized-data-model/sample/Sample> OR
-    @<https://anvilproject.org/acr-harmonized-data-model/study/Study> OR
-    @<https://anvilproject.org/acr-harmonized-data-model/participant/StudyParticipant>
+    @<https://anvilproject.org/acr-harmonized-data-model/study/Study>
 )
 

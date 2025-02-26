@@ -18,4 +18,3 @@ None &#8594;  <sub>0..\*</sub> [Uriorcurie](types/Uriorcurie.md)
 
 ## Used by
 
- * [Participant](Participant.md)

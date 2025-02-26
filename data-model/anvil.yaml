@@ -19,7 +19,7 @@ imports:
   - anvil_core
   - participant
   - study
-  - condition_assertion
+  - subject_assertion
   - data_access_policy
   - biospecimen_collection
   - aliquot

@@ -6,11 +6,11 @@ Highest Level Class
 URI: [anvil:Thing](https://anvilproject.org/acr-harmonized-data-model/Thing)
 
 
-[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing&#124;id:string]^-[StudyParticipant],[Thing]^-[Study],[Thing]^-[Sample],[Thing]^-[Procedure],[Thing]^-[Participant],[Thing]^-[Measurement],[Thing]^-[FamilyMember],[Thing]^-[Family],[Thing]^-[ConditionAssertion],[Thing]^-[BiospecimenCollection],[Thing]^-[Aliquot],[Thing]^-[AccessPolicy],[Thing]^-[AccessControlledRecord],[StudyParticipant],[Study],[Sample],[Procedure],[Participant],[Measurement],[FamilyMember],[Family],[ConditionAssertion],[BiospecimenCollection],[Aliquot],[AccessPolicy],[AccessControlledRecord])](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing&#124;id:string]^-[StudyParticipant],[Thing]^-[Study],[Thing]^-[Sample],[Thing]^-[Procedure],[Thing]^-[Participant],[Thing]^-[Measurement],[Thing]^-[FamilyMember],[Thing]^-[Family],[Thing]^-[ConditionAssertion],[Thing]^-[BiospecimenCollection],[Thing]^-[Aliquot],[Thing]^-[AccessPolicy],[Thing]^-[AccessControlledRecord],[StudyParticipant],[Study],[Sample],[Procedure],[Participant],[Measurement],[FamilyMember],[Family],[ConditionAssertion],[BiospecimenCollection],[Aliquot],[AccessPolicy],[AccessControlledRecord])
+[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing&#124;id:string]^-[Study],[Thing]^-[Sample],[Thing]^-[Procedure],[Thing]^-[Measurement],[Thing]^-[FamilyMember],[Thing]^-[Family],[Thing]^-[ConditionAssertion],[Thing]^-[BiospecimenCollection],[Thing]^-[Aliquot],[Thing]^-[AccessPolicy],[Thing]^-[AccessControlledRecord],[Study],[Sample],[Procedure],[Measurement],[FamilyMember],[Family],[ConditionAssertion],[BiospecimenCollection],[Aliquot],[AccessPolicy],[AccessControlledRecord])](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing&#124;id:string]^-[Study],[Thing]^-[Sample],[Thing]^-[Procedure],[Thing]^-[Measurement],[Thing]^-[FamilyMember],[Thing]^-[Family],[Thing]^-[ConditionAssertion],[Thing]^-[BiospecimenCollection],[Thing]^-[Aliquot],[Thing]^-[AccessPolicy],[Thing]^-[AccessControlledRecord],[Study],[Sample],[Procedure],[Measurement],[FamilyMember],[Family],[ConditionAssertion],[BiospecimenCollection],[Aliquot],[AccessPolicy],[AccessControlledRecord])
 
 ## Children
 
- * [AccessControlledRecord](AccessControlledRecord.md) - Entity for which specific access control restrictions apply.
+ * [AccessControlledRecord](AccessControlledRecord.md) - Element for which specific access control restrictions apply.
  * [AccessPolicy](AccessPolicy.md) - Describes the access required for a given element of data.
  * [Aliquot](Aliquot.md) - Represent exact tubes or total amounts available of a Sample.
  * [BiospecimenCollection](BiospecimenCollection.md) - Biospecimen Collection
@@ -18,11 +18,9 @@ URI: [anvil:Thing](https://anvilproject.org/acr-harmonized-data-model/Thing)
  * [Family](Family.md) - Family
  * [FamilyMember](FamilyMember.md) - Family
  * [Measurement](Measurement.md) - Measurements
- * [Participant](Participant.md) - Basic participant demographics
  * [Procedure](Procedure.md) - Procedures
  * [Sample](Sample.md) - Biospecimen data
  * [Study](Study.md) - Study Meta Data
- * [StudyParticipant](StudyParticipant.md) - Research
 
 ## Referenced by Class
 

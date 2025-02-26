@@ -69,7 +69,7 @@
                 <h1 id="class-conditionassertion">Class: ConditionAssertion</h1>
 <p>Study Meta Data</p>
 <p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/ConditionAssertion">anvil:ConditionAssertion</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[ConditionAssertion&#124;participant_id:string;condition_code:EnumConditionCode%20*;condition_source_value:string;condition_assertion:EnumConditionAssertion%20%3F;condition_type:EnumConditionType;age_at_assertion:integer%20%3F;age_at_onset:integer%20%3F;age_at_resolution:integer%20%3F;id(i):string]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[ConditionAssertion&#124;participant_id:string;condition_code:EnumConditionCode%20*;condition_source_value:string;condition_assertion:EnumConditionAssertion%20%3F;condition_type:EnumConditionType;age_at_assertion:integer%20%3F;age_at_onset:integer%20%3F;age_at_resolution:integer%20%3F;id(i):string]" /></a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[ConditionAssertion&#124;condition_code:EnumConditionCode%20*;condition_source_value:string;condition_assertion:EnumConditionAssertion%20%3F;condition_type:EnumConditionType;age_at_assertion:integer%20%3F;age_at_onset:integer%20%3F;age_at_resolution:integer%20%3F;id(i):string]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[ConditionAssertion&#124;condition_code:EnumConditionCode%20*;condition_source_value:string;condition_assertion:EnumConditionAssertion%20%3F;condition_type:EnumConditionType;age_at_assertion:integer%20%3F;age_at_onset:integer%20%3F;age_at_resolution:integer%20%3F;id(i):string]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Thing/">Thing</a> - Highest Level Class</li>
@@ -77,11 +77,6 @@
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
-<li><a href="../participant_id/">participant_id</a>  <sub>1..1</sub><ul>
-<li>Description: ID associated with the Participant</li>
-<li>Range: <a href="../types/String/">String</a></li>
-</ul>
-</li>
 <li><a href="../condition_code/">condition_code</a>  <sub>0..*</sub><ul>
 <li>Description: Condition Code should be from one of a recognized ontology. Multiple codes can be indicated, but should simply be alternative encodings for the same entity such as alternates encodings from other ontologies.     <br />
 Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA and coded with the corresponding curies</li>

@@ -2,7 +2,7 @@
     "$defs": {
         "AccessControlledRecord": {
             "additionalProperties": false,
-            "description": "Entity for which specific access control restrictions apply.",
+            "description": "Element for which specific access control restrictions apply.",
             "properties": {
                 "has_access_policy": {
                     "description": "Which access policy applies to this element?",
@@ -149,10 +149,6 @@
                     "$ref": "#/$defs/EnumSampleCollectionMethod",
                     "description": "The approach used to collect the biospecimen."
                 },
-                "participant_id": {
-                    "description": "ID associated with the Participant",
-                    "type": "string"
-                },
                 "site": {
                     "$ref": "#/$defs/EnumSite",
                     "description": "The location of the specimen collection."
@@ -163,7 +159,6 @@
                 }
             },
             "required": [
-                "participant_id",
                 "id"
             ],
             "title": "BiospecimenCollection",
@@ -219,14 +214,9 @@
                 "id": {
                     "description": "ID associated with a class",
                     "type": "string"
-                },
-                "participant_id": {
-                    "description": "ID associated with the Participant",
-                    "type": "string"
                 }
             },
             "required": [
-                "participant_id",
                 "condition_source_value",
                 "condition_type",
                 "id"
@@ -324,15 +314,6 @@
             "title": "EnumDateOfBirthType",
             "type": "string"
         },
-        "EnumDonorType": {
-            "description": "Types of entities",
-            "enum": [
-                "patient",
-                "cell_line"
-            ],
-            "title": "EnumDonorType",
-            "type": "string"
-        },
         "EnumEthnicity": {
             "description": "OMB Codes describing Hispanic or Latino ethnicity.",
             "enum": [
@@ -412,6 +393,19 @@
         "EnumSpatialQualifiers": {
             "description": "Any spatial/location qualifiers.",
             "title": "EnumSpatialQualifiers",
+            "type": "string"
+        },
+        "EnumSubjectType": {
+            "description": "Types of entities",
+            "enum": [
+                "participant",
+                "non_participant",
+                "cell_line",
+                "animal_model",
+                "group",
+                "other"
+            ],
+            "title": "EnumSubjectType",
             "type": "string"
         },
         "EnumVitalStatus": {
@@ -547,14 +541,9 @@
                 "measurement_value_code": {
                     "$ref": "#/$defs/EnumMeasurementValueCode",
                     "description": "Code indicating measurement value such as positive, negative, etc."
-                },
-                "participant_id": {
-                    "description": "ID associated with the Participant",
-                    "type": "string"
                 }
             },
             "required": [
-                "participant_id",
                 "measurement_code",
                 "measurement_unit",
                 "measurement_source_value",
@@ -585,10 +574,6 @@
                     "$ref": "#/$defs/EnumDateOfBirthType",
                     "description": "Privacy rule modification applied to date_of_birth."
                 },
-                "donor_type": {
-                    "$ref": "#/$defs/EnumDonorType",
-                    "description": "Type of entity this record represents"
-                },
                 "ethnicity": {
                     "$ref": "#/$defs/EnumEthnicity",
                     "description": "Classification categories of human, taken from NIH, based on the social group a person belongs to, and either identifies with or is identified with by others, as a result of a complex of cultural, biological, geographical and other factors such as linguistic, dietary and religion traditions; ancestry, background, allegiance, or association; and physical characteristics traditionally associated with race."
@@ -600,8 +585,15 @@
                         "null"
                     ]
                 },
-                "external_id": {
-                    "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
+                "has_access_policy": {
+                    "description": "Which access policy applies to this element?",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_assertion": {
+                    "description": "Which samples were collected or processed for this participant?",
                     "items": {
                         "type": "string"
                     },
@@ -653,16 +645,21 @@
                         "null"
                     ]
                 },
+                "subject_type": {
+                    "$ref": "#/$defs/EnumSubjectType",
+                    "description": "Type of entity this record represents"
+                },
                 "vital_status": {
                     "$ref": "#/$defs/EnumVitalStatus",
                     "description": "Vital Status"
                 }
             },
             "required": [
-                "id",
                 "phenotypic_sex",
                 "race",
-                "ethnicity"
+                "ethnicity",
+                "subject_type",
+                "id"
             ],
             "title": "Participant",
             "type": "object"
@@ -682,10 +679,6 @@
                     "description": "ID associated with a class",
                     "type": "string"
                 },
-                "participant_id": {
-                    "description": "ID associated with the Participant",
-                    "type": "string"
-                },
                 "procedure_code": {
                     "description": "Procedure code should be from a recognized ontology preceded by a recognized curie. Multiple entries should reflect alternate codes for the same procedure. \n* CPT : https://bioregistry.io/registry/cpt\n",
                     "items": {
@@ -699,7 +692,6 @@
                 }
             },
             "required": [
-                "participant_id",
                 "procedure_code",
                 "procedure_source_value",
                 "id"
@@ -824,31 +816,38 @@
             "title": "Study",
             "type": "object"
         },
-        "StudyParticipant": {
+        "Subject": {
             "additionalProperties": false,
-            "description": "Research",
+            "description": "This entity is the subject about which data or references are recorded. | This includes the idea of a human participant in a study, a cell line, an animal model, | or any other similar entity.",
             "properties": {
-                "id": {
-                    "description": "ID associated with a class",
-                    "type": "string"
-                },
-                "in_study": {
-                    "description": "With which study is this class associated?",
+                "has_access_policy": {
+                    "description": "Which access policy applies to this element?",
                     "type": [
                         "string",
                         "null"
                     ]
                 },
-                "participant_id": {
-                    "description": "ID associated with the Participant",
+                "id": {
+                    "description": "ID associated with a class",
                     "type": "string"
+                },
+                "organism_type": {
+                    "description": "Organism Type Label",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "subject_type": {
+                    "$ref": "#/$defs/EnumSubjectType",
+                    "description": "Type of entity this record represents"
                 }
             },
             "required": [
-                "participant_id",
+                "subject_type",
                 "id"
             ],
-            "title": "StudyParticipant",
+            "title": "Subject",
             "type": "object"
         },
         "Thing": {

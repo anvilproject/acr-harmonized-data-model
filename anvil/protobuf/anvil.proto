@@ -1,7 +1,7 @@
  syntax="proto3";
  package
 // metamodel_version: 1.7.0
-// Entity for which specific access control restrictions apply.
+// Element for which specific access control restrictions apply.
 message AccessControlledRecord
  {
   string id = 0
@@ -32,7 +32,6 @@ message Aliquot
 message BiospecimenCollection
  {
   string id = 0
-  string participantId = 0
   integer ageAtCollection = 0
   enumSampleCollectionMethod method = 0
   enumSite site = 0
@@ -43,7 +42,6 @@ message BiospecimenCollection
 message ConditionAssertion
  {
   string id = 0
-  string participantId = 0
  repeated  enumConditionCode conditionCode = 0
   string conditionSourceValue = 0
   enumConditionAssertion conditionAssertion = 0
@@ -75,7 +73,6 @@ message FamilyMember
 message Measurement
  {
   string id = 0
-  string participantId = 0
  repeated  string measurementCode = 0
   string measurementUnit = 0
   enumMeasurementValueCode measurementValueCode = 0
@@ -86,9 +83,9 @@ message Measurement
 message Participant
  {
   string id = 0
- repeated  uriorcurie externalId = 0
+  accessPolicy hasAccessPolicy = 0
+  enumSubjectType subjectType = 0
   string organismType = 0
-  enumDonorType donorType = 0
   integer dateOfBirth = 0
   enumDateOfBirthType dateOfBirthType = 0
   enumSex phenotypicSex = 0
@@ -100,12 +97,12 @@ message Participant
   integer ageAtLastVitalStatus = 0
   enumVitalStatus vitalStatus = 0
  repeated  sample hasSample = 0
+ repeated  sample hasAssertion = 0
  }
 // Procedures
 message Procedure
  {
   string id = 0
-  string participantId = 0
  repeated  string procedureCode = 0
   string procedureSourceValue = 0
   integer ageAtObservation = 0
@@ -132,12 +129,13 @@ message Study
  repeated  string principalInvestigator = 0
   string studyTitle = 0
  }
-// Research
-message StudyParticipant
+// This entity is the subject about which data or references are recorded. | This includes the idea of a human participant in a study, a cell line, an animal model, | or any other similar entity.
+message Subject
  {
   string id = 0
-  string participantId = 0
-  study inStudy = 0
+  accessPolicy hasAccessPolicy = 0
+  enumSubjectType subjectType = 0
+  string organismType = 0
  }
 // Highest Level Class
 message Thing

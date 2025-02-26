@@ -16,7 +16,6 @@ classes:
     description: Biospecimen Collection
     is_a: Thing 
     slots: 
-      - participant_id
       - age_at_collection
       - method 
       - site 

@@ -1,5 +1,5 @@
 # Auto generated from anvil.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-02-25T12:51:39
+# Generation date: 2025-02-26T16:07:33
 # Schema: anvil-schema
 #
 # id: https://anvilproject.org/acr-harmonized-data-model
@@ -85,11 +85,11 @@ class AccessControlledRecordId(ThingId):
     pass
 
 
-class ParticipantId(ThingId):
+class SubjectId(AccessControlledRecordId):
     pass
 
 
-class StudyParticipantId(ThingId):
+class ParticipantId(SubjectId):
     pass
 
 
@@ -159,7 +159,7 @@ class Thing(YAMLRoot):
 @dataclass(repr=False)
 class AccessControlledRecord(Thing):
     """
-    Entity for which specific access control restrictions apply.
+    Element for which specific access control restrictions apply.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -184,7 +184,41 @@ class AccessControlledRecord(Thing):
 
 
 @dataclass(repr=False)
-class Participant(Thing):
+class Subject(AccessControlledRecord):
+    """
+    This entity is the subject about which data or references are recorded. | This includes the idea of a human
+    participant in a study, a cell line, an animal model, | or any other similar entity.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ANVIL["participant/Subject"]
+    class_class_curie: ClassVar[str] = "anvil:participant/Subject"
+    class_name: ClassVar[str] = "Subject"
+    class_model_uri: ClassVar[URIRef] = ANVIL.Subject
+
+    id: Union[str, SubjectId] = None
+    subject_type: Union[str, "EnumSubjectType"] = None
+    organism_type: Optional[str] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, SubjectId):
+            self.id = SubjectId(self.id)
+
+        if self._is_empty(self.subject_type):
+            self.MissingRequiredField("subject_type")
+        if not isinstance(self.subject_type, EnumSubjectType):
+            self.subject_type = EnumSubjectType(self.subject_type)
+
+        if self.organism_type is not None and not isinstance(self.organism_type, str):
+            self.organism_type = str(self.organism_type)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class Participant(Subject):
     """
     Basic participant demographics
     """
@@ -196,12 +230,10 @@ class Participant(Thing):
     class_model_uri: ClassVar[URIRef] = ANVIL.Participant
 
     id: Union[str, ParticipantId] = None
+    subject_type: Union[str, "EnumSubjectType"] = None
     phenotypic_sex: Union[str, "EnumSex"] = None
     race: Union[str, "EnumRace"] = None
     ethnicity: Union[str, "EnumEthnicity"] = None
-    external_id: Optional[Union[Union[str, URIorCURIE], List[Union[str, URIorCURIE]]]] = empty_list()
-    organism_type: Optional[str] = None
-    donor_type: Optional[Union[str, "EnumDonorType"]] = None
     date_of_birth: Optional[int] = None
     date_of_birth_type: Optional[Union[str, "EnumDateOfBirthType"]] = None
     phenotypic_sex_source_value: Optional[str] = None
@@ -210,6 +242,7 @@ class Participant(Thing):
     age_at_last_vital_status: Optional[int] = None
     vital_status: Optional[Union[str, "EnumVitalStatus"]] = None
     has_sample: Optional[Union[Union[str, SampleId], List[Union[str, SampleId]]]] = empty_list()
+    has_assertion: Optional[Union[Union[str, SampleId], List[Union[str, SampleId]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -231,16 +264,6 @@ class Participant(Thing):
             self.MissingRequiredField("ethnicity")
         if not isinstance(self.ethnicity, EnumEthnicity):
             self.ethnicity = EnumEthnicity(self.ethnicity)
-
-        if not isinstance(self.external_id, list):
-            self.external_id = [self.external_id] if self.external_id is not None else []
-        self.external_id = [v if isinstance(v, URIorCURIE) else URIorCURIE(v) for v in self.external_id]
-
-        if self.organism_type is not None and not isinstance(self.organism_type, str):
-            self.organism_type = str(self.organism_type)
-
-        if self.donor_type is not None and not isinstance(self.donor_type, EnumDonorType):
-            self.donor_type = EnumDonorType(self.donor_type)
 
         if self.date_of_birth is not None and not isinstance(self.date_of_birth, int):
             self.date_of_birth = int(self.date_of_birth)
@@ -267,38 +290,9 @@ class Participant(Thing):
             self.has_sample = [self.has_sample] if self.has_sample is not None else []
         self.has_sample = [v if isinstance(v, SampleId) else SampleId(v) for v in self.has_sample]
 
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class StudyParticipant(Thing):
-    """
-    Research
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = ANVIL["participant/StudyParticipant"]
-    class_class_curie: ClassVar[str] = "anvil:participant/StudyParticipant"
-    class_name: ClassVar[str] = "StudyParticipant"
-    class_model_uri: ClassVar[URIRef] = ANVIL.StudyParticipant
-
-    id: Union[str, StudyParticipantId] = None
-    participant_id: str = None
-    in_study: Optional[Union[str, StudyId]] = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, StudyParticipantId):
-            self.id = StudyParticipantId(self.id)
-
-        if self._is_empty(self.participant_id):
-            self.MissingRequiredField("participant_id")
-        if not isinstance(self.participant_id, str):
-            self.participant_id = str(self.participant_id)
-
-        if self.in_study is not None and not isinstance(self.in_study, StudyId):
-            self.in_study = StudyId(self.in_study)
+        if not isinstance(self.has_assertion, list):
+            self.has_assertion = [self.has_assertion] if self.has_assertion is not None else []
+        self.has_assertion = [v if isinstance(v, SampleId) else SampleId(v) for v in self.has_assertion]
 
         super().__post_init__(**kwargs)
 
@@ -364,7 +358,6 @@ class ConditionAssertion(Thing):
     class_model_uri: ClassVar[URIRef] = ANVIL.ConditionAssertion
 
     id: Union[str, ConditionAssertionId] = None
-    participant_id: str = None
     condition_source_value: str = None
     condition_type: Union[str, "EnumConditionType"] = None
     condition_code: Optional[Union[Union[str, "EnumConditionCode"], List[Union[str, "EnumConditionCode"]]]] = empty_list()
@@ -378,11 +371,6 @@ class ConditionAssertion(Thing):
             self.MissingRequiredField("id")
         if not isinstance(self.id, ConditionAssertionId):
             self.id = ConditionAssertionId(self.id)
-
-        if self._is_empty(self.participant_id):
-            self.MissingRequiredField("participant_id")
-        if not isinstance(self.participant_id, str):
-            self.participant_id = str(self.participant_id)
 
         if self._is_empty(self.condition_source_value):
             self.MissingRequiredField("condition_source_value")
@@ -471,7 +459,6 @@ class BiospecimenCollection(Thing):
     class_model_uri: ClassVar[URIRef] = ANVIL.BiospecimenCollection
 
     id: Union[str, BiospecimenCollectionId] = None
-    participant_id: str = None
     age_at_collection: Optional[int] = None
     method: Optional[Union[str, "EnumSampleCollectionMethod"]] = None
     site: Optional[Union[str, "EnumSite"]] = None
@@ -483,11 +470,6 @@ class BiospecimenCollection(Thing):
             self.MissingRequiredField("id")
         if not isinstance(self.id, BiospecimenCollectionId):
             self.id = BiospecimenCollectionId(self.id)
-
-        if self._is_empty(self.participant_id):
-            self.MissingRequiredField("participant_id")
-        if not isinstance(self.participant_id, str):
-            self.participant_id = str(self.participant_id)
 
         if self.age_at_collection is not None and not isinstance(self.age_at_collection, int):
             self.age_at_collection = int(self.age_at_collection)
@@ -613,7 +595,6 @@ class Measurement(Thing):
     class_model_uri: ClassVar[URIRef] = ANVIL.Measurement
 
     id: Union[str, MeasurementId] = None
-    participant_id: str = None
     measurement_code: Union[str, List[str]] = None
     measurement_unit: str = None
     measurement_source_value: str = None
@@ -625,11 +606,6 @@ class Measurement(Thing):
             self.MissingRequiredField("id")
         if not isinstance(self.id, MeasurementId):
             self.id = MeasurementId(self.id)
-
-        if self._is_empty(self.participant_id):
-            self.MissingRequiredField("participant_id")
-        if not isinstance(self.participant_id, str):
-            self.participant_id = str(self.participant_id)
 
         if self._is_empty(self.measurement_code):
             self.MissingRequiredField("measurement_code")
@@ -669,7 +645,6 @@ class Procedure(Thing):
     class_model_uri: ClassVar[URIRef] = ANVIL.Procedure
 
     id: Union[str, ProcedureId] = None
-    participant_id: str = None
     procedure_code: Union[str, List[str]] = None
     procedure_source_value: str = None
     age_at_observation: Optional[int] = None
@@ -679,11 +654,6 @@ class Procedure(Thing):
             self.MissingRequiredField("id")
         if not isinstance(self.id, ProcedureId):
             self.id = ProcedureId(self.id)
-
-        if self._is_empty(self.participant_id):
-            self.MissingRequiredField("participant_id")
-        if not isinstance(self.participant_id, str):
-            self.participant_id = str(self.participant_id)
 
         if self._is_empty(self.procedure_code):
             self.MissingRequiredField("procedure_code")
@@ -911,19 +881,31 @@ class EnumEthnicity(EnumDefinitionImpl):
         description="OMB Codes describing Hispanic or Latino ethnicity.",
     )
 
-class EnumDonorType(EnumDefinitionImpl):
+class EnumSubjectType(EnumDefinitionImpl):
     """
     Types of entities
     """
-    patient = PermissibleValue(
-        text="patient",
-        description="Patient")
+    participant = PermissibleValue(
+        text="participant",
+        description="Study participant with consent, assent, or waiver of consent.")
+    non_participant = PermissibleValue(
+        text="non_participant",
+        description="""An individual associated with a study who was not explictly consented, eg, the subject | of a reported family history.""")
     cell_line = PermissibleValue(
         text="cell_line",
         description="Cell Line")
+    animal_model = PermissibleValue(
+        text="animal_model",
+        description="Animal model")
+    group = PermissibleValue(
+        text="group",
+        description="A group of individuals or entities.")
+    other = PermissibleValue(
+        text="other",
+        description="A different entity type- ideally this will be resolved!")
 
     _defn = EnumDefinition(
-        name="EnumDonorType",
+        name="EnumSubjectType",
         description="Types of entities",
     )
 
@@ -1239,9 +1221,6 @@ class EnumConsanguinityAssertion(EnumDefinitionImpl):
 class slots:
     pass
 
-slots.participant_id = Slot(uri=ANVIL['core/participant_id'], name="participant_id", curie=ANVIL.curie('core/participant_id'),
-                   model_uri=ANVIL.participant_id, domain=None, range=str)
-
 slots.id = Slot(uri=ANVIL['core/id'], name="id", curie=ANVIL.curie('core/id'),
                    model_uri=ANVIL.id, domain=None, range=URIRef)
 
@@ -1254,8 +1233,8 @@ slots.in_study = Slot(uri=ANVIL['participant/in_study'], name="in_study", curie=
 slots.organism_type = Slot(uri=ANVIL['participant/organism_type'], name="organism_type", curie=ANVIL.curie('participant/organism_type'),
                    model_uri=ANVIL.organism_type, domain=None, range=Optional[str])
 
-slots.donor_type = Slot(uri=ANVIL['participant/donor_type'], name="donor_type", curie=ANVIL.curie('participant/donor_type'),
-                   model_uri=ANVIL.donor_type, domain=None, range=Optional[Union[str, "EnumDonorType"]])
+slots.subject_type = Slot(uri=ANVIL['participant/subject_type'], name="subject_type", curie=ANVIL.curie('participant/subject_type'),
+                   model_uri=ANVIL.subject_type, domain=None, range=Union[str, "EnumSubjectType"])
 
 slots.date_of_birth = Slot(uri=ANVIL['participant/date_of_birth'], name="date_of_birth", curie=ANVIL.curie('participant/date_of_birth'),
                    model_uri=ANVIL.date_of_birth, domain=None, range=Optional[int])
@@ -1289,6 +1268,9 @@ slots.vital_status = Slot(uri=ANVIL['participant/vital_status'], name="vital_sta
 
 slots.has_sample = Slot(uri=ANVIL['participant/has_sample'], name="has_sample", curie=ANVIL.curie('participant/has_sample'),
                    model_uri=ANVIL.has_sample, domain=None, range=Optional[Union[Union[str, SampleId], List[Union[str, SampleId]]]])
+
+slots.has_assertion = Slot(uri=ANVIL['participant/has_assertion'], name="has_assertion", curie=ANVIL.curie('participant/has_assertion'),
+                   model_uri=ANVIL.has_assertion, domain=None, range=Optional[Union[Union[str, SampleId], List[Union[str, SampleId]]]])
 
 slots.external_study_id = Slot(uri=ANVIL['study/external_study_id'], name="external_study_id", curie=ANVIL.curie('study/external_study_id'),
                    model_uri=ANVIL.external_study_id, domain=None, range=Optional[Union[str, List[str]]])

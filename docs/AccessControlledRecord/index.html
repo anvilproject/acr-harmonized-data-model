@@ -67,13 +67,18 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="class-accesscontrolledrecord">Class: AccessControlledRecord</h1>
-<p>Entity for which specific access control restrictions apply.</p>
+<p>Element for which specific access control restrictions apply.</p>
 <p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/AccessControlledRecord">anvil:AccessControlledRecord</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[AccessPolicy],[AccessPolicy]&lt;has_access_policy%200..1-%20[AccessControlledRecord&#124;id(i):string],[Thing]^-[AccessControlledRecord]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[AccessPolicy],[AccessPolicy]&lt;has_access_policy%200..1-%20[AccessControlledRecord&#124;id(i):string],[Thing]^-[AccessControlledRecord]" /></a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Subject],[AccessPolicy],[AccessPolicy]&lt;has_access_policy%200..1-%20[AccessControlledRecord&#124;id(i):string],[AccessControlledRecord]^-[Subject],[Thing]^-[AccessControlledRecord]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Subject],[AccessPolicy],[AccessPolicy]&lt;has_access_policy%200..1-%20[AccessControlledRecord&#124;id(i):string],[AccessControlledRecord]^-[Subject],[Thing]^-[AccessControlledRecord]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Thing/">Thing</a> - Highest Level Class</li>
 </ul>
+<h2 id="children">Children</h2>
+<ul>
+<li><a href="../Subject/">Subject</a> - This entity is the subject about which data or references are recorded. | This includes the idea of a human participant in a study, a cell line, an animal model, | or any other similar entity.</li>
+</ul>
+<h2 id="referenced-by-class">Referenced by Class</h2>
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>

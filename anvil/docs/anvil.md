@@ -13,7 +13,9 @@
 ### Classes
 
  * [Thing](Thing.md) - Highest Level Class
-     * [AccessControlledRecord](AccessControlledRecord.md) - Entity for which specific access control restrictions apply.
+     * [AccessControlledRecord](AccessControlledRecord.md) - Element for which specific access control restrictions apply.
+         * [Subject](Subject.md) - This entity is the subject about which data or references are recorded. | This includes the idea of a human participant in a study, a cell line, an animal model, | or any other similar entity.
+             * [Participant](Participant.md) - Basic participant demographics
      * [AccessPolicy](AccessPolicy.md) - Describes the access required for a given element of data.
      * [Aliquot](Aliquot.md) - Represent exact tubes or total amounts available of a Sample.
      * [BiospecimenCollection](BiospecimenCollection.md) - Biospecimen Collection
@@ -21,11 +23,9 @@
      * [Family](Family.md) - Family
      * [FamilyMember](FamilyMember.md) - Family
      * [Measurement](Measurement.md) - Measurements
-     * [Participant](Participant.md) - Basic participant demographics
      * [Procedure](Procedure.md) - Procedures
      * [Sample](Sample.md) - Biospecimen data
      * [Study](Study.md) - Study Meta Data
-     * [StudyParticipant](StudyParticipant.md) - Research
 
 ### Mixins
 
@@ -52,7 +52,6 @@
  * [date_of_birth_type](date_of_birth_type.md) - Privacy rule modification applied to date_of_birth.
  * [description](description.md) - Description
  * [disease_limitation](disease_limitation.md) - Disease Use Limitations
- * [donor_type](donor_type.md) - Type of entity this record represents
  * [ethnicity](ethnicity.md) - Classification categories of human, taken from NIH, based on the social group a person belongs to, and either identifies with or is identified with by others, as a result of a complex of cultural, biological, geographical and other factors such as linguistic, dietary and religion traditions; ancestry, background, allegiance, or association; and physical characteristics traditionally associated with race.
  * [ethnicity_source_value](ethnicity_source_value.md) - Ethnicity value as reported in the original source
  * [external_id](external_id.md) - Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
@@ -65,6 +64,7 @@
  * [family_type](family_type.md) - Describes the 'type' of study family, eg, trio.
  * [funding_source](funding_source.md) - Funding Source
  * [has_access_policy](has_access_policy.md) - Which access policy applies to this element?
+ * [has_assertion](has_assertion.md) - Which samples were collected or processed for this participant?
  * [has_sample](has_sample.md) - Which samples were collected or processed for this participant?
  * [id](id.md) - ID associated with a class
  * [in_study](in_study.md) - With which study is this class associated?
@@ -78,7 +78,6 @@
  * [other_family_member_id](other_family_member_id.md) - Other member of the same family to which there is a relationship being described
  * [parent_sample_id](parent_sample_id.md) - Parent Sample ID
  * [parent_study_id](parent_study_id.md) - Parent Study ID
- * [participant_id](participant_id.md) - ID associated with the Participant
  * [phenotypic_sex](phenotypic_sex.md) - Sex of the Participant
  * [phenotypic_sex_source_value](phenotypic_sex_source_value.md) - Original source value for phenotypic sex value
  * [principal_investigator](principal_investigator.md) - Principal Investigator
@@ -100,6 +99,7 @@
  * [spatial_qualifier](spatial_qualifier.md) - Any spatial/location qualifiers
  * [storage_method](storage_method.md) - Curied code indicating how is the Sample stored, eg, Frozen or with additives
  * [study_title](study_title.md) - Study Title
+ * [subject_type](subject_type.md) - Type of entity this record represents
  * [vital_status](vital_status.md) - Vital Status
  * [website](website.md) - Website
 
@@ -113,7 +113,6 @@
  * [EnumConditionType](EnumConditionType.md) - Provides options to describe the expressed semantics of a condition.
  * [EnumConsanguinityAssertion](EnumConsanguinityAssertion.md) - Asserts known or suspected consanguinity in this study family
  * [EnumDateOfBirthType](EnumDateOfBirthType.md) - Privacy rules that may modify a date value.
- * [EnumDonorType](EnumDonorType.md) - Types of entities
  * [EnumEthnicity](EnumEthnicity.md) - OMB Codes describing Hispanic or Latino ethnicity.
  * [EnumFamilyType](EnumFamilyType.md) - Enumerations describing research family type
  * [EnumLaterality](EnumLaterality.md) - Laterality information for the site
@@ -123,6 +122,7 @@
  * [EnumSex](EnumSex.md) - Terms describing an individual's sex.
  * [EnumSite](EnumSite.md) - The location of the specimen collection. Recommended ontology: [SNOMED Body Site](https://hl7.org/fhir/R4B/valueset-body-site.html)
  * [EnumSpatialQualifiers](EnumSpatialQualifiers.md) - Any spatial/location qualifiers.
+ * [EnumSubjectType](EnumSubjectType.md) - Types of entities
  * [EnumVitalStatus](EnumVitalStatus.md) - Is the entity living?
 
 ### Subsets

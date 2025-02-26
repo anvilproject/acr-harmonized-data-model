@@ -1,6 +1,6 @@
 -- # Class: "Thing" Description: "Highest Level Class"
 --     * Slot: id Description: ID associated with a class
--- # Class: "AccessControlledRecord" Description: "Entity for which specific access control restrictions apply."
+-- # Class: "AccessControlledRecord" Description: "Element for which specific access control restrictions apply."
 --     * Slot: has_access_policy Description: Which access policy applies to this element?
 --     * Slot: id Description: ID associated with a class
 -- # Class: "Study" Description: "Study Meta Data"
@@ -15,10 +15,12 @@
 --     * Slot: storage_method Description: Curied code indicating how is the Sample stored, eg, Frozen or with additives
 --     * Slot: quantity Description: The total quantity of the specimen
 --     * Slot: id Description: ID associated with a class
--- # Class: "Participant" Description: "Basic participant demographics"
---     * Slot: id Description: ID associated with a class
+-- # Class: "Subject" Description: "This entity is the subject about which data or references are recorded. | This includes the idea of a human participant in a study, a cell line, an animal model, | or any other similar entity."
+--     * Slot: subject_type Description: Type of entity this record represents
 --     * Slot: organism_type Description: Organism Type Label
---     * Slot: donor_type Description: Type of entity this record represents
+--     * Slot: has_access_policy Description: Which access policy applies to this element?
+--     * Slot: id Description: ID associated with a class
+-- # Class: "Participant" Description: "Basic participant demographics"
 --     * Slot: date_of_birth Description: Date at which the individual was born. May be impacted by privacy rules described in date_of_birth_type.
 --     * Slot: date_of_birth_type Description: Privacy rule modification applied to date_of_birth.
 --     * Slot: phenotypic_sex Description: Sex of the Participant
@@ -29,12 +31,11 @@
 --     * Slot: ethnicity_source_value Description: Ethnicity value as reported in the original source
 --     * Slot: age_at_last_vital_status Description: Age at Last Vital Status
 --     * Slot: vital_status Description: Vital Status
--- # Class: "StudyParticipant" Description: "Research"
---     * Slot: participant_id Description: ID associated with the Participant
---     * Slot: in_study Description: With which study is this class associated?
+--     * Slot: subject_type Description: Type of entity this record represents
+--     * Slot: organism_type Description: Organism Type Label
+--     * Slot: has_access_policy Description: Which access policy applies to this element?
 --     * Slot: id Description: ID associated with a class
 -- # Class: "ConditionAssertion" Description: "Study Meta Data"
---     * Slot: participant_id Description: ID associated with the Participant
 --     * Slot: condition_source_value Description: Original Source Value for condition
 --     * Slot: condition_assertion Description: Condition Assertion
 --     * Slot: condition_type Description: Does this condition represent a specific "type" of condition, such as "Phenotypic Feature" vs "Disease" in a rare disease setting.
@@ -48,7 +49,6 @@
 --     * Slot: website Description: Website
 --     * Slot: id Description: ID associated with a class
 -- # Class: "BiospecimenCollection" Description: "Biospecimen Collection"
---     * Slot: participant_id Description: ID associated with the Participant
 --     * Slot: age_at_collection Description: The age at which this biospecimen was collected.
 --     * Slot: method Description: The approach used to collect the biospecimen.
 --     * Slot: site Description: The location of the specimen collection.
@@ -64,14 +64,12 @@
 --     * Slot: sample_concentration_unit Description: Units associated with the concentration of the analyte in the Aliquot? UCUM coding preferred (with curie, UCUM)
 --     * Slot: id Description: ID associated with a class
 -- # Class: "Measurement" Description: "Measurements"
---     * Slot: participant_id Description: ID associated with the Participant
 --     * Slot: measurement_unit Description: UCUM Unit associated with the field
 --     * Slot: measurement_value_code Description: Code indicating measurement value such as positive, negative, etc.
 --     * Slot: measurement_source_value Description: Original measurement text
 --     * Slot: age_at_observation Description: Age of participant when measurement was taken/recorded
 --     * Slot: id Description: ID associated with a class
 -- # Class: "Procedure" Description: "Procedures"
---     * Slot: participant_id Description: ID associated with the Participant
 --     * Slot: procedure_source_value Description: Original procedure text
 --     * Slot: age_at_observation Description: Age of participant when measurement was taken/recorded
 --     * Slot: id Description: ID associated with a class
@@ -99,12 +97,12 @@
 -- # Class: "Sample_processing" Description: ""
 --     * Slot: Sample_id Description: Autocreated FK slot
 --     * Slot: processing Description: Curied code associated processing that was applied to the Parent Sample or from the Biospecimen Collection that yielded this distinct sample
--- # Class: "Participant_external_id" Description: ""
---     * Slot: Participant_id Description: Autocreated FK slot
---     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
 -- # Class: "Participant_has_sample" Description: ""
 --     * Slot: Participant_id Description: Autocreated FK slot
 --     * Slot: has_sample_id Description: Which samples were collected or processed for this participant?
+-- # Class: "Participant_has_assertion" Description: ""
+--     * Slot: Participant_id Description: Autocreated FK slot
+--     * Slot: has_assertion_id Description: Which samples were collected or processed for this participant?
 -- # Class: "ConditionAssertion_condition_code" Description: ""
 --     * Slot: ConditionAssertion_id Description: Autocreated FK slot
 --     * Slot: condition_code Description: Condition Code should be from one of a recognized ontology. Multiple codes can be indicated, but should simply be alternative encodings for the same entity such as alternates encodings from other ontologies.       Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA and coded with the corresponding curies* SNOMED : https://bioregistry.io/registry/snomedct* HP : https://bioregistry.io/registry/hp* OMIM : https://bioregistry.io/registry/omim* ORPHA : https://bioregistry.io/registry/orphanet
@@ -145,24 +143,7 @@ CREATE TABLE "Sample" (
 	id TEXT NOT NULL, 
 	PRIMARY KEY (id)
 );
-CREATE TABLE "Participant" (
-	id TEXT NOT NULL, 
-	organism_type TEXT, 
-	donor_type VARCHAR(9), 
-	date_of_birth INTEGER, 
-	date_of_birth_type VARCHAR(11), 
-	phenotypic_sex VARCHAR(8) NOT NULL, 
-	phenotypic_sex_source_value TEXT, 
-	race VARCHAR(35) NOT NULL, 
-	race_source_value TEXT, 
-	ethnicity VARCHAR(22) NOT NULL, 
-	ethnicity_source_value TEXT, 
-	age_at_last_vital_status INTEGER, 
-	vital_status VARCHAR(12), 
-	PRIMARY KEY (id)
-);
 CREATE TABLE "ConditionAssertion" (
-	participant_id TEXT NOT NULL, 
 	condition_source_value TEXT NOT NULL, 
 	condition_assertion VARCHAR(7), 
 	condition_type VARCHAR(18) NOT NULL, 
@@ -180,7 +161,6 @@ CREATE TABLE "AccessPolicy" (
 	PRIMARY KEY (id)
 );
 CREATE TABLE "BiospecimenCollection" (
-	participant_id TEXT NOT NULL, 
 	age_at_collection INTEGER, 
 	method VARCHAR, 
 	site VARCHAR, 
@@ -200,7 +180,6 @@ CREATE TABLE "Aliquot" (
 	PRIMARY KEY (id)
 );
 CREATE TABLE "Measurement" (
-	participant_id TEXT NOT NULL, 
 	measurement_unit TEXT NOT NULL, 
 	measurement_value_code VARCHAR(13), 
 	measurement_source_value TEXT NOT NULL, 
@@ -209,7 +188,6 @@ CREATE TABLE "Measurement" (
 	PRIMARY KEY (id)
 );
 CREATE TABLE "Procedure" (
-	participant_id TEXT NOT NULL, 
 	procedure_source_value TEXT NOT NULL, 
 	age_at_observation INTEGER, 
 	id TEXT NOT NULL, 
@@ -237,12 +215,31 @@ CREATE TABLE "AccessControlledRecord" (
 	PRIMARY KEY (id), 
 	FOREIGN KEY(has_access_policy) REFERENCES "AccessPolicy" (id)
 );
-CREATE TABLE "StudyParticipant" (
-	participant_id TEXT NOT NULL, 
-	in_study TEXT, 
+CREATE TABLE "Subject" (
+	subject_type VARCHAR(15) NOT NULL, 
+	organism_type TEXT, 
+	has_access_policy TEXT, 
 	id TEXT NOT NULL, 
 	PRIMARY KEY (id), 
-	FOREIGN KEY(in_study) REFERENCES "Study" (id)
+	FOREIGN KEY(has_access_policy) REFERENCES "AccessPolicy" (id)
+);
+CREATE TABLE "Participant" (
+	date_of_birth INTEGER, 
+	date_of_birth_type VARCHAR(11), 
+	phenotypic_sex VARCHAR(8) NOT NULL, 
+	phenotypic_sex_source_value TEXT, 
+	race VARCHAR(35) NOT NULL, 
+	race_source_value TEXT, 
+	ethnicity VARCHAR(22) NOT NULL, 
+	ethnicity_source_value TEXT, 
+	age_at_last_vital_status INTEGER, 
+	vital_status VARCHAR(12), 
+	subject_type VARCHAR(15) NOT NULL, 
+	organism_type TEXT, 
+	has_access_policy TEXT, 
+	id TEXT NOT NULL, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(has_access_policy) REFERENCES "AccessPolicy" (id)
 );
 CREATE TABLE "Study_external_study_id" (
 	"Study_id" TEXT, 
@@ -267,19 +264,6 @@ CREATE TABLE "Sample_processing" (
 	processing TEXT, 
 	PRIMARY KEY ("Sample_id", processing), 
 	FOREIGN KEY("Sample_id") REFERENCES "Sample" (id)
-);
-CREATE TABLE "Participant_external_id" (
-	"Participant_id" TEXT, 
-	external_id TEXT, 
-	PRIMARY KEY ("Participant_id", external_id), 
-	FOREIGN KEY("Participant_id") REFERENCES "Participant" (id)
-);
-CREATE TABLE "Participant_has_sample" (
-	"Participant_id" TEXT, 
-	has_sample_id TEXT, 
-	PRIMARY KEY ("Participant_id", has_sample_id), 
-	FOREIGN KEY("Participant_id") REFERENCES "Participant" (id), 
-	FOREIGN KEY(has_sample_id) REFERENCES "Sample" (id)
 );
 CREATE TABLE "ConditionAssertion_condition_code" (
 	"ConditionAssertion_id" TEXT, 
@@ -316,4 +300,18 @@ CREATE TABLE "Family_family_external_id" (
 	family_external_id TEXT, 
 	PRIMARY KEY ("Family_id", family_external_id), 
 	FOREIGN KEY("Family_id") REFERENCES "Family" (id)
+);
+CREATE TABLE "Participant_has_sample" (
+	"Participant_id" TEXT, 
+	has_sample_id TEXT, 
+	PRIMARY KEY ("Participant_id", has_sample_id), 
+	FOREIGN KEY("Participant_id") REFERENCES "Participant" (id), 
+	FOREIGN KEY(has_sample_id) REFERENCES "Sample" (id)
+);
+CREATE TABLE "Participant_has_assertion" (
+	"Participant_id" TEXT, 
+	has_assertion_id TEXT, 
+	PRIMARY KEY ("Participant_id", has_assertion_id), 
+	FOREIGN KEY("Participant_id") REFERENCES "Participant" (id), 
+	FOREIGN KEY(has_assertion_id) REFERENCES "Sample" (id)
 );

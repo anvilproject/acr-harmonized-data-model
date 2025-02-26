@@ -6,7 +6,7 @@ Procedures
 URI: [anvil:Procedure](https://anvilproject.org/acr-harmonized-data-model/Procedure)
 
 
-[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[Procedure&#124;participant_id:string;procedure_code:string%20%2B;procedure_source_value:string;age_at_observation:integer%20%3F;id(i):string])](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[Procedure&#124;participant_id:string;procedure_code:string%20%2B;procedure_source_value:string;age_at_observation:integer%20%3F;id(i):string])
+[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[Procedure&#124;procedure_code:string%20%2B;procedure_source_value:string;age_at_observation:integer%20%3F;id(i):string])](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[Procedure&#124;procedure_code:string%20%2B;procedure_source_value:string;age_at_observation:integer%20%3F;id(i):string])
 
 ## Parents
 
@@ -17,9 +17,6 @@ URI: [anvil:Procedure](https://anvilproject.org/acr-harmonized-data-model/Proced
 
 ### Own
 
- * [participant_id](participant_id.md)  <sub>1..1</sub>
-     * Description: ID associated with the Participant
-     * Range: [String](types/String.md)
  * [procedure_code](procedure_code.md)  <sub>1..\*</sub>
      * Description: Procedure code should be from a recognized ontology preceded by a recognized curie. Multiple entries should reflect alternate codes for the same procedure. 
 * CPT : https://bioregistry.io/registry/cpt

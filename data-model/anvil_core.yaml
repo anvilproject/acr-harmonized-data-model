@@ -12,23 +12,16 @@ imports:
   - data_access_policy
 classes:
   Thing:
-    name: Thing
     description: Highest Level Class
     title: Thing
     slots:
     - id
   AccessControlledRecord:
-    description: Entity for which specific access control restrictions apply.
+    description: Element for which specific access control restrictions apply.
     is_a: Thing
     slots:
       - has_access_policy
 slots: 
-#TODO: See if it's possible to delete this slot and ensure "native" links 
-  participant_id:
-    description: ID associated with the Participant
-    required: true
-    range: string
-    multivalued: false 
   id:
     description: ID associated with a class
     identifier: true

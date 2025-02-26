@@ -92,7 +92,13 @@
 <h3 id="classes">Classes</h3>
 <ul>
 <li><a href="../Thing/">Thing</a> - Highest Level Class<ul>
-<li><a href="../AccessControlledRecord/">AccessControlledRecord</a> - Entity for which specific access control restrictions apply.</li>
+<li><a href="../AccessControlledRecord/">AccessControlledRecord</a> - Element for which specific access control restrictions apply.<ul>
+<li><a href="../Subject/">Subject</a> - This entity is the subject about which data or references are recorded. | This includes the idea of a human participant in a study, a cell line, an animal model, | or any other similar entity.<ul>
+<li><a href="../Participant/">Participant</a> - Basic participant demographics</li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="../AccessPolicy/">AccessPolicy</a> - Describes the access required for a given element of data.</li>
 <li><a href="../Aliquot/">Aliquot</a> - Represent exact tubes or total amounts available of a Sample.</li>
 <li><a href="../BiospecimenCollection/">BiospecimenCollection</a> - Biospecimen Collection</li>
@@ -100,11 +106,9 @@
 <li><a href="../Family/">Family</a> - Family</li>
 <li><a href="../FamilyMember/">FamilyMember</a> - Family</li>
 <li><a href="../Measurement/">Measurement</a> - Measurements</li>
-<li><a href="../Participant/">Participant</a> - Basic participant demographics</li>
 <li><a href="../Procedure/">Procedure</a> - Procedures</li>
 <li><a href="../Sample/">Sample</a> - Biospecimen data</li>
 <li><a href="../Study/">Study</a> - Study Meta Data</li>
-<li><a href="../StudyParticipant/">StudyParticipant</a> - Research</li>
 </ul>
 </li>
 </ul>
@@ -131,7 +135,6 @@
 <li><a href="../date_of_birth_type/">date_of_birth_type</a> - Privacy rule modification applied to date_of_birth.</li>
 <li><a href="../description/">description</a> - Description</li>
 <li><a href="../disease_limitation/">disease_limitation</a> - Disease Use Limitations</li>
-<li><a href="../donor_type/">donor_type</a> - Type of entity this record represents</li>
 <li><a href="../ethnicity/">ethnicity</a> - Classification categories of human, taken from NIH, based on the social group a person belongs to, and either identifies with or is identified with by others, as a result of a complex of cultural, biological, geographical and other factors such as linguistic, dietary and religion traditions; ancestry, background, allegiance, or association; and physical characteristics traditionally associated with race.</li>
 <li><a href="../ethnicity_source_value/">ethnicity_source_value</a> - Ethnicity value as reported in the original source</li>
 <li><a href="../external_id/">external_id</a> - Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP</li>
@@ -144,6 +147,7 @@
 <li><a href="../family_type/">family_type</a> - Describes the 'type' of study family, eg, trio.</li>
 <li><a href="../funding_source/">funding_source</a> - Funding Source</li>
 <li><a href="../has_access_policy/">has_access_policy</a> - Which access policy applies to this element?</li>
+<li><a href="../has_assertion/">has_assertion</a> - Which samples were collected or processed for this participant?</li>
 <li><a href="../has_sample/">has_sample</a> - Which samples were collected or processed for this participant?</li>
 <li><a href="../id/">id</a> - ID associated with a class</li>
 <li><a href="../in_study/">in_study</a> - With which study is this class associated?</li>
@@ -157,7 +161,6 @@
 <li><a href="../other_family_member_id/">other_family_member_id</a> - Other member of the same family to which there is a relationship being described</li>
 <li><a href="../parent_sample_id/">parent_sample_id</a> - Parent Sample ID</li>
 <li><a href="../parent_study_id/">parent_study_id</a> - Parent Study ID</li>
-<li><a href="../participant_id/">participant_id</a> - ID associated with the Participant</li>
 <li><a href="../phenotypic_sex/">phenotypic_sex</a> - Sex of the Participant</li>
 <li><a href="../phenotypic_sex_source_value/">phenotypic_sex_source_value</a> - Original source value for phenotypic sex value</li>
 <li><a href="../principal_investigator/">principal_investigator</a> - Principal Investigator</li>
@@ -179,6 +182,7 @@
 <li><a href="../spatial_qualifier/">spatial_qualifier</a> - Any spatial/location qualifiers</li>
 <li><a href="../storage_method/">storage_method</a> - Curied code indicating how is the Sample stored, eg, Frozen or with additives</li>
 <li><a href="../study_title/">study_title</a> - Study Title</li>
+<li><a href="../subject_type/">subject_type</a> - Type of entity this record represents</li>
 <li><a href="../vital_status/">vital_status</a> - Vital Status</li>
 <li><a href="../website/">website</a> - Website</li>
 </ul>
@@ -192,7 +196,6 @@
 <li><a href="../EnumConditionType/">EnumConditionType</a> - Provides options to describe the expressed semantics of a condition.</li>
 <li><a href="../EnumConsanguinityAssertion/">EnumConsanguinityAssertion</a> - Asserts known or suspected consanguinity in this study family</li>
 <li><a href="../EnumDateOfBirthType/">EnumDateOfBirthType</a> - Privacy rules that may modify a date value.</li>
-<li><a href="../EnumDonorType/">EnumDonorType</a> - Types of entities</li>
 <li><a href="../EnumEthnicity/">EnumEthnicity</a> - OMB Codes describing Hispanic or Latino ethnicity.</li>
 <li><a href="../EnumFamilyType/">EnumFamilyType</a> - Enumerations describing research family type</li>
 <li><a href="../EnumLaterality/">EnumLaterality</a> - Laterality information for the site</li>
@@ -202,6 +205,7 @@
 <li><a href="../EnumSex/">EnumSex</a> - Terms describing an individual's sex.</li>
 <li><a href="../EnumSite/">EnumSite</a> - The location of the specimen collection. Recommended ontology: <a href="https://hl7.org/fhir/R4B/valueset-body-site.html">SNOMED Body Site</a></li>
 <li><a href="../EnumSpatialQualifiers/">EnumSpatialQualifiers</a> - Any spatial/location qualifiers.</li>
+<li><a href="../EnumSubjectType/">EnumSubjectType</a> - Types of entities</li>
 <li><a href="../EnumVitalStatus/">EnumVitalStatus</a> - Is the entity living?</li>
 </ul>
 <h3 id="subsets">Subsets</h3>

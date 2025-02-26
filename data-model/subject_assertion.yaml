@@ -17,12 +17,12 @@ imports:
   - linkml:types
   - anvil_core
 classes: 
+# TODO: Create a parent class of EntityAssertion or similar, then make children classes that specialize
   ConditionAssertion:
     title: ConditionAssertion 
     description: Study Meta Data 
     is_a: Thing 
     slots: 
-      - participant_id
       - condition_code
       - condition_source_value
       - condition_assertion 
