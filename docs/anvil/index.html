@@ -97,12 +97,12 @@
 <li><a href="../Participant/">Participant</a> - Basic participant demographics</li>
 </ul>
 </li>
+<li><a href="../SubjectAssertion/">SubjectAssertion</a> - Assertion about a particular Subject. May include Conditions, Measurements, etc.</li>
 </ul>
 </li>
 <li><a href="../AccessPolicy/">AccessPolicy</a> - Describes the access required for a given element of data.</li>
 <li><a href="../Aliquot/">Aliquot</a> - Represent exact tubes or total amounts available of a Sample.</li>
 <li><a href="../BiospecimenCollection/">BiospecimenCollection</a> - Biospecimen Collection</li>
-<li><a href="../ConditionAssertion/">ConditionAssertion</a> - Study Meta Data</li>
 <li><a href="../Family/">Family</a> - Family</li>
 <li><a href="../FamilyMember/">FamilyMember</a> - Family</li>
 <li><a href="../Measurement/">Measurement</a> - Measurements</li>
@@ -126,9 +126,7 @@
 <li><a href="../availablity_status/">availablity_status</a> - Can this Sample be requested for further analysis?</li>
 <li><a href="../biospecimen_collection_id_fk/">biospecimen_collection_id_fk</a> - ID associated with the Biospecimen Collection event.</li>
 <li><a href="../condition_assertion/">condition_assertion</a> - Condition Assertion</li>
-<li><a href="../condition_code/">condition_code</a> - Condition Code should be from one of a recognized ontology. Multiple codes can be indicated, but should simply be alternative encodings for the same entity such as alternates encodings from other ontologies.       </li>
 <li><a href="../condition_source_value/">condition_source_value</a> - Original Source Value for condition</li>
-<li><a href="../condition_type/">condition_type</a> - Does this condition represent a specific "type" of condition, such as "Phenotypic Feature" vs "Disease" in a rare disease setting.</li>
 <li><a href="../consanguinity/">consanguinity</a> - Is there known or suspected consanguinity in this study family?</li>
 <li><a href="../data_access_type/">data_access_type</a> - Data Access Type</li>
 <li><a href="../date_of_birth/">date_of_birth</a> - Date at which the individual was born. May be impacted by privacy rules described in date_of_birth_type.</li>
@@ -147,8 +145,8 @@
 <li><a href="../family_type/">family_type</a> - Describes the 'type' of study family, eg, trio.</li>
 <li><a href="../funding_source/">funding_source</a> - Funding Source</li>
 <li><a href="../has_access_policy/">has_access_policy</a> - Which access policy applies to this element?</li>
-<li><a href="../has_assertion/">has_assertion</a> - Which samples were collected or processed for this participant?</li>
-<li><a href="../has_sample/">has_sample</a> - Which samples were collected or processed for this participant?</li>
+<li><a href="../has_assertion/">has_assertion</a> - Which assertions are made about this Subject?</li>
+<li><a href="../has_sample/">has_sample</a> - Which samples were collected or processed for this Subject?</li>
 <li><a href="../id/">id</a> - ID associated with a class</li>
 <li><a href="../in_study/">in_study</a> - With which study is this class associated?</li>
 <li><a href="../laterality/">laterality</a> - Laterality information for the site</li>
@@ -182,6 +180,18 @@
 <li><a href="../spatial_qualifier/">spatial_qualifier</a> - Any spatial/location qualifiers</li>
 <li><a href="../storage_method/">storage_method</a> - Curied code indicating how is the Sample stored, eg, Frozen or with additives</li>
 <li><a href="../study_title/">study_title</a> - Study Title</li>
+<li><a href="../subjectAssertion__age_at_assertion/">➞age_at_assertion</a> - The age in decimal years of the Subject when the assertion was made.</li>
+<li><a href="../subjectAssertion__age_at_event/">➞age_at_event</a> - The age in decimal years of the Subject at the time point which the assertion describes, | eg, age of onset or when a measurement was performed.</li>
+<li><a href="../subjectAssertion__age_at_resolution/">➞age_at_resolution</a> - The age in decimal years of the Subject when the asserted state was resolved.</li>
+<li><a href="../subjectAssertion__assertion_type/">➞assertion_type</a> - The semantic type of the resource, eg, Condition.</li>
+<li><a href="../subjectAssertion__code/">➞code</a> - The structured term defining the meaning of the assertion.</li>
+<li><a href="../subjectAssertion__display/">➞display</a> - The friendly display string of the coded term</li>
+<li><a href="../subjectAssertion__source_code/">➞source_code</a> - The structured term defining the meaning of the assertion as provided by the source.</li>
+<li><a href="../subjectAssertion__source_display/">➞source_display</a> - The friendly display string of the coded term as provided by the source.</li>
+<li><a href="../subjectAssertion__value_code/">➞value_code</a> - The structured term defining the value of the assertion.</li>
+<li><a href="../subjectAssertion__value_display/">➞value_display</a> - The friendly display string of the coded term for the value of the assertion.</li>
+<li><a href="../subjectAssertion__value_number/">➞value_number</a> - The numeric value of the assertion.</li>
+<li><a href="../subjectAssertion__value_units/">➞value_units</a> - The structured term defining the units of the value.</li>
 <li><a href="../subject_type/">subject_type</a> - Type of entity this record represents</li>
 <li><a href="../vital_status/">vital_status</a> - Vital Status</li>
 <li><a href="../website/">website</a> - Website</li>
@@ -190,10 +200,10 @@
 <ul>
 <li><a href="../EnumAccessCode/">EnumAccessCode</a> - Type of research use case allowed</li>
 <li><a href="../EnumAccessType/">EnumAccessType</a> - Type of access controls applied</li>
+<li><a href="../EnumAssertionType/">EnumAssertionType</a> - Provides options to describe the expressed semantics of a condition.</li>
 <li><a href="../EnumAvailabilityStatus/">EnumAvailabilityStatus</a> - Is the Thing available for use?</li>
 <li><a href="../EnumConditionAssertion/">EnumConditionAssertion</a> - Enumerations for Condition Assertion</li>
 <li><a href="../EnumConditionCode/">EnumConditionCode</a> - Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA, prefixed with those curies</li>
-<li><a href="../EnumConditionType/">EnumConditionType</a> - Provides options to describe the expressed semantics of a condition.</li>
 <li><a href="../EnumConsanguinityAssertion/">EnumConsanguinityAssertion</a> - Asserts known or suspected consanguinity in this study family</li>
 <li><a href="../EnumDateOfBirthType/">EnumDateOfBirthType</a> - Privacy rules that may modify a date value.</li>
 <li><a href="../EnumEthnicity/">EnumEthnicity</a> - OMB Codes describing Hispanic or Latino ethnicity.</li>

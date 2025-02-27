@@ -22,6 +22,16 @@ enum EnumAccessType
     gsr_allowed
   }
 
+enum EnumAssertionType
+  {
+    phenotypic_feature
+    disease
+    comorbidity
+    histology
+    clinical_finding
+    ehr_billing_code
+  }
+
 enum EnumAvailabilityStatus
   {
     available
@@ -34,16 +44,6 @@ enum EnumConditionAssertion
     absent
     unsure
     unknown
-  }
-
-enum EnumConditionType
-  {
-    phenotypic_feature
-    disease
-    comorbidity
-    histology
-    clinical_finding
-    ehr_billing_code
   }
 
 enum EnumConsanguinityAssertion
@@ -165,18 +165,6 @@ type BiospecimenCollection
     laterality: EnumLaterality
   }
 
-type ConditionAssertion
-  {
-    id: String!
-    conditionCode: [EnumConditionCode]
-    conditionSourceValue: String!
-    conditionAssertion: EnumConditionAssertion
-    conditionType: EnumConditionType!
-    ageAtAssertion: Integer
-    ageAtOnset: Integer
-    ageAtResolution: Integer
-  }
-
 type Family
   {
     id: String!
@@ -212,6 +200,8 @@ type Participant
     hasAccessPolicy: AccessPolicy
     subjectType: EnumSubjectType!
     organismType: String
+    hasSample: [Sample]
+    hasAssertion: [SubjectAssertion]
     dateOfBirth: Integer
     dateOfBirthType: EnumDateOfBirthType
     phenotypicSex: EnumSex!
@@ -222,8 +212,6 @@ type Participant
     ethnicitySourceValue: String
     ageAtLastVitalStatus: Integer
     vitalStatus: EnumVitalStatus
-    hasSample: [Sample]
-    hasAssertion: [Sample]
   }
 
 type Procedure
@@ -262,6 +250,26 @@ type Subject
     hasAccessPolicy: AccessPolicy
     subjectType: EnumSubjectType!
     organismType: String
+    hasSample: [Sample]
+    hasAssertion: [SubjectAssertion]
+  }
+
+type SubjectAssertion
+  {
+    id: String!
+    hasAccessPolicy: AccessPolicy
+    assertionType: EnumAssertionType
+    code: Uriorcurie
+    display: String
+    sourceCode: Uriorcurie
+    sourceDisplay: String
+    valueCode: Uriorcurie
+    valueDisplay: String
+    valueNumber: Float
+    valueUnits: Uriorcurie
+    ageAtAssertion: Float
+    ageAtEvent: Float
+    ageAtResolution: Float
   }
 
 type Thing

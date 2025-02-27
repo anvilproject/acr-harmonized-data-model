@@ -36,6 +36,8 @@ classes:
     slots:
       - subject_type
       - organism_type
+      - has_sample
+      - has_assertion
   Participant:
     title: Participant
     description: Basic participant demographics
@@ -51,8 +53,6 @@ classes:
       - ethnicity_source_value
       - age_at_last_vital_status 
       - vital_status
-      - has_sample
-      - has_assertion
 # TODO: Rework this to be a consent record on the Participant (if needed?)
 #  StudyParticipant: 
 #    title: StudyParticipant 
@@ -134,18 +134,18 @@ slots:
     required: false
   has_sample: 
     title: Has sample
-    description: Which samples were collected or processed for this participant?
+    description: Which samples were collected or processed for this Subject?
     required: false
     range: Sample
     multivalued: true
-    inlined: false
+    inlined: true
   has_assertion: 
     title: Has sample
-    description: Which samples were collected or processed for this participant?
+    description: Which assertions are made about this Subject?
     required: false
-    range: Sample
+    range: SubjectAssertion
     multivalued: true
-    inlined: false
+    inlined: true
 enums:
   EnumDateOfBirthType:
     description: Privacy rules that may modify a date value.

@@ -16,10 +16,10 @@
      * [AccessControlledRecord](AccessControlledRecord.md) - Element for which specific access control restrictions apply.
          * [Subject](Subject.md) - This entity is the subject about which data or references are recorded. | This includes the idea of a human participant in a study, a cell line, an animal model, | or any other similar entity.
              * [Participant](Participant.md) - Basic participant demographics
+         * [SubjectAssertion](SubjectAssertion.md) - Assertion about a particular Subject. May include Conditions, Measurements, etc.
      * [AccessPolicy](AccessPolicy.md) - Describes the access required for a given element of data.
      * [Aliquot](Aliquot.md) - Represent exact tubes or total amounts available of a Sample.
      * [BiospecimenCollection](BiospecimenCollection.md) - Biospecimen Collection
-     * [ConditionAssertion](ConditionAssertion.md) - Study Meta Data
      * [Family](Family.md) - Family
      * [FamilyMember](FamilyMember.md) - Family
      * [Measurement](Measurement.md) - Measurements
@@ -43,9 +43,7 @@
  * [availablity_status](availablity_status.md) - Can this Sample be requested for further analysis?
  * [biospecimen_collection_id_fk](biospecimen_collection_id_fk.md) - ID associated with the Biospecimen Collection event.
  * [condition_assertion](condition_assertion.md) - Condition Assertion
- * [condition_code](condition_code.md) - Condition Code should be from one of a recognized ontology. Multiple codes can be indicated, but should simply be alternative encodings for the same entity such as alternates encodings from other ontologies.       
  * [condition_source_value](condition_source_value.md) - Original Source Value for condition
- * [condition_type](condition_type.md) - Does this condition represent a specific "type" of condition, such as "Phenotypic Feature" vs "Disease" in a rare disease setting.
  * [consanguinity](consanguinity.md) - Is there known or suspected consanguinity in this study family?
  * [data_access_type](data_access_type.md) - Data Access Type
  * [date_of_birth](date_of_birth.md) - Date at which the individual was born. May be impacted by privacy rules described in date_of_birth_type.
@@ -64,8 +62,8 @@
  * [family_type](family_type.md) - Describes the 'type' of study family, eg, trio.
  * [funding_source](funding_source.md) - Funding Source
  * [has_access_policy](has_access_policy.md) - Which access policy applies to this element?
- * [has_assertion](has_assertion.md) - Which samples were collected or processed for this participant?
- * [has_sample](has_sample.md) - Which samples were collected or processed for this participant?
+ * [has_assertion](has_assertion.md) - Which assertions are made about this Subject?
+ * [has_sample](has_sample.md) - Which samples were collected or processed for this Subject?
  * [id](id.md) - ID associated with a class
  * [in_study](in_study.md) - With which study is this class associated?
  * [laterality](laterality.md) - Laterality information for the site
@@ -99,6 +97,18 @@
  * [spatial_qualifier](spatial_qualifier.md) - Any spatial/location qualifiers
  * [storage_method](storage_method.md) - Curied code indicating how is the Sample stored, eg, Frozen or with additives
  * [study_title](study_title.md) - Study Title
+ * [➞age_at_assertion](subjectAssertion__age_at_assertion.md) - The age in decimal years of the Subject when the assertion was made.
+ * [➞age_at_event](subjectAssertion__age_at_event.md) - The age in decimal years of the Subject at the time point which the assertion describes, | eg, age of onset or when a measurement was performed.
+ * [➞age_at_resolution](subjectAssertion__age_at_resolution.md) - The age in decimal years of the Subject when the asserted state was resolved.
+ * [➞assertion_type](subjectAssertion__assertion_type.md) - The semantic type of the resource, eg, Condition.
+ * [➞code](subjectAssertion__code.md) - The structured term defining the meaning of the assertion.
+ * [➞display](subjectAssertion__display.md) - The friendly display string of the coded term
+ * [➞source_code](subjectAssertion__source_code.md) - The structured term defining the meaning of the assertion as provided by the source.
+ * [➞source_display](subjectAssertion__source_display.md) - The friendly display string of the coded term as provided by the source.
+ * [➞value_code](subjectAssertion__value_code.md) - The structured term defining the value of the assertion.
+ * [➞value_display](subjectAssertion__value_display.md) - The friendly display string of the coded term for the value of the assertion.
+ * [➞value_number](subjectAssertion__value_number.md) - The numeric value of the assertion.
+ * [➞value_units](subjectAssertion__value_units.md) - The structured term defining the units of the value.
  * [subject_type](subject_type.md) - Type of entity this record represents
  * [vital_status](vital_status.md) - Vital Status
  * [website](website.md) - Website
@@ -107,10 +117,10 @@
 
  * [EnumAccessCode](EnumAccessCode.md) - Type of research use case allowed
  * [EnumAccessType](EnumAccessType.md) - Type of access controls applied
+ * [EnumAssertionType](EnumAssertionType.md) - Provides options to describe the expressed semantics of a condition.
  * [EnumAvailabilityStatus](EnumAvailabilityStatus.md) - Is the Thing available for use?
  * [EnumConditionAssertion](EnumConditionAssertion.md) - Enumerations for Condition Assertion
  * [EnumConditionCode](EnumConditionCode.md) - Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA, prefixed with those curies
- * [EnumConditionType](EnumConditionType.md) - Provides options to describe the expressed semantics of a condition.
  * [EnumConsanguinityAssertion](EnumConsanguinityAssertion.md) - Asserts known or suspected consanguinity in this study family
  * [EnumDateOfBirthType](EnumDateOfBirthType.md) - Privacy rules that may modify a date value.
  * [EnumEthnicity](EnumEthnicity.md) - OMB Codes describing Hispanic or Latino ethnicity.

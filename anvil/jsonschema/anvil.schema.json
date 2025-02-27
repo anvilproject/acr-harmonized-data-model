@@ -164,66 +164,6 @@
             "title": "BiospecimenCollection",
             "type": "object"
         },
-        "ConditionAssertion": {
-            "additionalProperties": false,
-            "description": "Study Meta Data",
-            "properties": {
-                "age_at_assertion": {
-                    "description": "The age at which this condition is being asserted.",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
-                },
-                "age_at_onset": {
-                    "description": "The age of onset for this condition.",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
-                },
-                "age_at_resolution": {
-                    "description": "The age at which this condition was resolved, abated or cured. Should be left empty in cases of current active status.",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
-                },
-                "condition_assertion": {
-                    "$ref": "#/$defs/EnumConditionAssertion",
-                    "description": "Condition Assertion"
-                },
-                "condition_code": {
-                    "description": "Condition Code should be from one of a recognized ontology. Multiple codes can be indicated, but should simply be alternative encodings for the same entity such as alternates encodings from other ontologies.       \nRecommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA and coded with the corresponding curies\n* SNOMED : https://bioregistry.io/registry/snomedct\n* HP : https://bioregistry.io/registry/hp\n* OMIM : https://bioregistry.io/registry/omim\n* ORPHA : https://bioregistry.io/registry/orphanet\n",
-                    "items": {
-                        "$ref": "#/$defs/EnumConditionCode"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "condition_source_value": {
-                    "description": "Original Source Value for condition",
-                    "type": "string"
-                },
-                "condition_type": {
-                    "$ref": "#/$defs/EnumConditionType",
-                    "description": "Does this condition represent a specific \"type\" of condition, such as \"Phenotypic Feature\" vs \"Disease\" in a rare disease setting."
-                },
-                "id": {
-                    "description": "ID associated with a class",
-                    "type": "string"
-                }
-            },
-            "required": [
-                "condition_source_value",
-                "condition_type",
-                "id"
-            ],
-            "title": "ConditionAssertion",
-            "type": "object"
-        },
         "EnumAccessCode": {
             "description": "Type of research use case allowed",
             "enum": [
@@ -253,6 +193,19 @@
             "title": "EnumAccessType",
             "type": "string"
         },
+        "EnumAssertionType": {
+            "description": "Provides options to describe the expressed semantics of a condition.",
+            "enum": [
+                "phenotypic_feature",
+                "disease",
+                "comorbidity",
+                "histology",
+                "clinical_finding",
+                "ehr_billing_code"
+            ],
+            "title": "EnumAssertionType",
+            "type": "string"
+        },
         "EnumAvailabilityStatus": {
             "description": "Is the Thing available for use?",
             "enum": [
@@ -276,19 +229,6 @@
         "EnumConditionCode": {
             "description": "Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA, prefixed with those curies\n* SNOMED : https://bioregistry.io/registry/snomedct\n* HP : https://bioregistry.io/registry/hp\n* OMIM : https://bioregistry.io/registry/omim\n* ORPHA : https://bioregistry.io/registry/orphanet",
             "title": "EnumConditionCode",
-            "type": "string"
-        },
-        "EnumConditionType": {
-            "description": "Provides options to describe the expressed semantics of a condition.",
-            "enum": [
-                "phenotypic_feature",
-                "disease",
-                "comorbidity",
-                "histology",
-                "clinical_finding",
-                "ehr_billing_code"
-            ],
-            "title": "EnumConditionType",
             "type": "string"
         },
         "EnumConsanguinityAssertion": {
@@ -593,22 +533,29 @@
                     ]
                 },
                 "has_assertion": {
-                    "description": "Which samples were collected or processed for this participant?",
-                    "items": {
-                        "type": "string"
+                    "additionalProperties": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/SubjectAssertion__identifier_optional"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
+                    "description": "Which assertions are made about this Subject?",
                     "type": [
-                        "array",
+                        "object",
                         "null"
                     ]
                 },
                 "has_sample": {
-                    "description": "Which samples were collected or processed for this participant?",
-                    "items": {
-                        "type": "string"
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Sample__identifier_optional"
                     },
+                    "description": "Which samples were collected or processed for this Subject?",
                     "type": [
-                        "array",
+                        "object",
                         "null"
                     ]
                 },
@@ -759,6 +706,65 @@
             "title": "Sample",
             "type": "object"
         },
+        "Sample__identifier_optional": {
+            "additionalProperties": false,
+            "description": "Biospecimen data",
+            "properties": {
+                "availablity_status": {
+                    "$ref": "#/$defs/EnumAvailabilityStatus",
+                    "description": "Can this Sample be requested for further analysis?"
+                },
+                "biospecimen_collection_id_fk": {
+                    "description": "ID associated with the Biospecimen Collection event.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "ID associated with a class",
+                    "type": "string"
+                },
+                "parent_sample_id": {
+                    "description": "Parent Sample ID",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "processing": {
+                    "description": "Curied code associated processing that was applied to the Parent Sample or from the Biospecimen Collection that yielded this distinct sample",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "quantity": {
+                    "description": "The total quantity of the specimen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "sample_type": {
+                    "description": "Curied code associated the type of material of which this Sample is comprised",
+                    "type": "string"
+                },
+                "storage_method": {
+                    "description": "Curied code indicating how is the Sample stored, eg, Frozen or with additives",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "biospecimen_collection_id_fk",
+                "sample_type"
+            ],
+            "title": "Sample",
+            "type": "object"
+        },
         "Study": {
             "additionalProperties": false,
             "description": "Study Meta Data",
@@ -827,6 +833,33 @@
                         "null"
                     ]
                 },
+                "has_assertion": {
+                    "additionalProperties": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/SubjectAssertion__identifier_optional"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "description": "Which assertions are made about this Subject?",
+                    "type": [
+                        "object",
+                        "null"
+                    ]
+                },
+                "has_sample": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Sample__identifier_optional"
+                    },
+                    "description": "Which samples were collected or processed for this Subject?",
+                    "type": [
+                        "object",
+                        "null"
+                    ]
+                },
                 "id": {
                     "description": "ID associated with a class",
                     "type": "string"
@@ -848,6 +881,210 @@
                 "id"
             ],
             "title": "Subject",
+            "type": "object"
+        },
+        "SubjectAssertion": {
+            "additionalProperties": false,
+            "description": "Assertion about a particular Subject. May include Conditions, Measurements, etc.",
+            "properties": {
+                "age_at_assertion": {
+                    "description": "The age in decimal years of the Subject when the assertion was made.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "age_at_event": {
+                    "description": "The age in decimal years of the Subject at the time point which the assertion describes, | eg, age of onset or when a measurement was performed.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "age_at_resolution": {
+                    "description": "The age in decimal years of the Subject when the asserted state was resolved.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "assertion_type": {
+                    "$ref": "#/$defs/EnumAssertionType",
+                    "description": "The semantic type of the resource, eg, Condition."
+                },
+                "code": {
+                    "description": "The structured term defining the meaning of the assertion.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "display": {
+                    "description": "The friendly display string of the coded term",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_access_policy": {
+                    "description": "Which access policy applies to this element?",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "ID associated with a class",
+                    "type": "string"
+                },
+                "source_code": {
+                    "description": "The structured term defining the meaning of the assertion as provided by the source.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "source_display": {
+                    "description": "The friendly display string of the coded term as provided by the source.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "value_code": {
+                    "description": "The structured term defining the value of the assertion.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "value_display": {
+                    "description": "The friendly display string of the coded term for the value of the assertion.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "value_number": {
+                    "description": "The numeric value of the assertion.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "value_units": {
+                    "description": "The structured term defining the units of the value.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "SubjectAssertion",
+            "type": "object"
+        },
+        "SubjectAssertion__identifier_optional": {
+            "additionalProperties": false,
+            "description": "Assertion about a particular Subject. May include Conditions, Measurements, etc.",
+            "properties": {
+                "age_at_assertion": {
+                    "description": "The age in decimal years of the Subject when the assertion was made.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "age_at_event": {
+                    "description": "The age in decimal years of the Subject at the time point which the assertion describes, | eg, age of onset or when a measurement was performed.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "age_at_resolution": {
+                    "description": "The age in decimal years of the Subject when the asserted state was resolved.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "assertion_type": {
+                    "$ref": "#/$defs/EnumAssertionType",
+                    "description": "The semantic type of the resource, eg, Condition."
+                },
+                "code": {
+                    "description": "The structured term defining the meaning of the assertion.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "display": {
+                    "description": "The friendly display string of the coded term",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_access_policy": {
+                    "description": "Which access policy applies to this element?",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "ID associated with a class",
+                    "type": "string"
+                },
+                "source_code": {
+                    "description": "The structured term defining the meaning of the assertion as provided by the source.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "source_display": {
+                    "description": "The friendly display string of the coded term as provided by the source.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "value_code": {
+                    "description": "The structured term defining the value of the assertion.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "value_display": {
+                    "description": "The friendly display string of the coded term for the value of the assertion.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "value_number": {
+                    "description": "The numeric value of the assertion.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "value_units": {
+                    "description": "The structured term defining the units of the value.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [],
+            "title": "SubjectAssertion",
             "type": "object"
         },
         "Thing": {

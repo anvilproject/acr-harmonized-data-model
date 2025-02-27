@@ -6,7 +6,7 @@ Basic participant demographics
 URI: [anvil:Participant](https://anvilproject.org/acr-harmonized-data-model/Participant)
 
 
-[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Sample],[Sample]<has_assertion%200..*-%20[Participant&#124;date_of_birth:integer%20%3F;date_of_birth_type:EnumDateOfBirthType%20%3F;phenotypic_sex:EnumSex;phenotypic_sex_source_value:string%20%3F;race:EnumRace;race_source_value:string%20%3F;ethnicity:EnumEthnicity;ethnicity_source_value:string%20%3F;age_at_last_vital_status:integer%20%3F;vital_status:EnumVitalStatus%20%3F;subject_type(i):EnumSubjectType;organism_type(i):string%20%3F;id(i):string],[Sample]<has_sample%200..*-%20[Participant],[Subject]^-[Participant],[AccessPolicy])](https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Sample],[Sample]<has_assertion%200..*-%20[Participant&#124;date_of_birth:integer%20%3F;date_of_birth_type:EnumDateOfBirthType%20%3F;phenotypic_sex:EnumSex;phenotypic_sex_source_value:string%20%3F;race:EnumRace;race_source_value:string%20%3F;ethnicity:EnumEthnicity;ethnicity_source_value:string%20%3F;age_at_last_vital_status:integer%20%3F;vital_status:EnumVitalStatus%20%3F;subject_type(i):EnumSubjectType;organism_type(i):string%20%3F;id(i):string],[Sample]<has_sample%200..*-%20[Participant],[Subject]^-[Participant],[AccessPolicy])
+[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[SubjectAssertion],[Subject],[Sample],[Subject]^-[Participant&#124;date_of_birth:integer%20%3F;date_of_birth_type:EnumDateOfBirthType%20%3F;phenotypic_sex:EnumSex;phenotypic_sex_source_value:string%20%3F;race:EnumRace;race_source_value:string%20%3F;ethnicity:EnumEthnicity;ethnicity_source_value:string%20%3F;age_at_last_vital_status:integer%20%3F;vital_status:EnumVitalStatus%20%3F;subject_type(i):EnumSubjectType;organism_type(i):string%20%3F;id(i):string],[AccessPolicy])](https://yuml.me/diagram/nofunky;dir:TB/class/[SubjectAssertion],[Subject],[Sample],[Subject]^-[Participant&#124;date_of_birth:integer%20%3F;date_of_birth_type:EnumDateOfBirthType%20%3F;phenotypic_sex:EnumSex;phenotypic_sex_source_value:string%20%3F;race:EnumRace;race_source_value:string%20%3F;ethnicity:EnumEthnicity;ethnicity_source_value:string%20%3F;age_at_last_vital_status:integer%20%3F;vital_status:EnumVitalStatus%20%3F;subject_type(i):EnumSubjectType;organism_type(i):string%20%3F;id(i):string],[AccessPolicy])
 
 ## Parents
 
@@ -47,12 +47,6 @@ URI: [anvil:Participant](https://anvilproject.org/acr-harmonized-data-model/Part
  * [vital_status](vital_status.md)  <sub>0..1</sub>
      * Description: Vital Status
      * Range: [EnumVitalStatus](EnumVitalStatus.md)
- * [has_sample](has_sample.md)  <sub>0..\*</sub>
-     * Description: Which samples were collected or processed for this participant?
-     * Range: [Sample](Sample.md)
- * [has_assertion](has_assertion.md)  <sub>0..\*</sub>
-     * Description: Which samples were collected or processed for this participant?
-     * Range: [Sample](Sample.md)
 
 ### Inherited from Subject:
 
@@ -68,3 +62,9 @@ URI: [anvil:Participant](https://anvilproject.org/acr-harmonized-data-model/Part
  * [organism_type](organism_type.md)  <sub>0..1</sub>
      * Description: Organism Type Label
      * Range: [String](types/String.md)
+ * [has_sample](has_sample.md)  <sub>0..\*</sub>
+     * Description: Which samples were collected or processed for this Subject?
+     * Range: [Sample](Sample.md)
+ * [has_assertion](has_assertion.md)  <sub>0..\*</sub>
+     * Description: Which assertions are made about this Subject?
+     * Range: [SubjectAssertion](SubjectAssertion.md)

@@ -1,5 +1,5 @@
 # Auto generated from anvil.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-02-26T16:07:33
+# Generation date: 2025-02-27T16:48:55
 # Schema: anvil-schema
 #
 # id: https://anvilproject.org/acr-harmonized-data-model
@@ -97,7 +97,7 @@ class StudyId(ThingId):
     pass
 
 
-class ConditionAssertionId(ThingId):
+class SubjectAssertionId(AccessControlledRecordId):
     pass
 
 
@@ -199,6 +199,8 @@ class Subject(AccessControlledRecord):
     id: Union[str, SubjectId] = None
     subject_type: Union[str, "EnumSubjectType"] = None
     organism_type: Optional[str] = None
+    has_sample: Optional[Union[Dict[Union[str, SampleId], Union[dict, "Sample"]], List[Union[dict, "Sample"]]]] = empty_dict()
+    has_assertion: Optional[Union[Dict[Union[str, SubjectAssertionId], Union[dict, "SubjectAssertion"]], List[Union[dict, "SubjectAssertion"]]]] = empty_dict()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -213,6 +215,10 @@ class Subject(AccessControlledRecord):
 
         if self.organism_type is not None and not isinstance(self.organism_type, str):
             self.organism_type = str(self.organism_type)
+
+        self._normalize_inlined_as_dict(slot_name="has_sample", slot_type=Sample, key_name="id", keyed=True)
+
+        self._normalize_inlined_as_dict(slot_name="has_assertion", slot_type=SubjectAssertion, key_name="id", keyed=True)
 
         super().__post_init__(**kwargs)
 
@@ -241,8 +247,6 @@ class Participant(Subject):
     ethnicity_source_value: Optional[str] = None
     age_at_last_vital_status: Optional[int] = None
     vital_status: Optional[Union[str, "EnumVitalStatus"]] = None
-    has_sample: Optional[Union[Union[str, SampleId], List[Union[str, SampleId]]]] = empty_list()
-    has_assertion: Optional[Union[Union[str, SampleId], List[Union[str, SampleId]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -285,14 +289,6 @@ class Participant(Subject):
 
         if self.vital_status is not None and not isinstance(self.vital_status, EnumVitalStatus):
             self.vital_status = EnumVitalStatus(self.vital_status)
-
-        if not isinstance(self.has_sample, list):
-            self.has_sample = [self.has_sample] if self.has_sample is not None else []
-        self.has_sample = [v if isinstance(v, SampleId) else SampleId(v) for v in self.has_sample]
-
-        if not isinstance(self.has_assertion, list):
-            self.has_assertion = [self.has_assertion] if self.has_assertion is not None else []
-        self.has_assertion = [v if isinstance(v, SampleId) else SampleId(v) for v in self.has_assertion]
 
         super().__post_init__(**kwargs)
 
@@ -346,53 +342,72 @@ class Study(Thing):
 
 
 @dataclass(repr=False)
-class ConditionAssertion(Thing):
+class SubjectAssertion(AccessControlledRecord):
     """
-    Study Meta Data
+    Assertion about a particular Subject. May include Conditions, Measurements, etc.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = ANVIL["condition_assertion/ConditionAssertion"]
-    class_class_curie: ClassVar[str] = "anvil:condition_assertion/ConditionAssertion"
-    class_name: ClassVar[str] = "ConditionAssertion"
-    class_model_uri: ClassVar[URIRef] = ANVIL.ConditionAssertion
+    class_class_uri: ClassVar[URIRef] = ANVIL["condition_assertion/SubjectAssertion"]
+    class_class_curie: ClassVar[str] = "anvil:condition_assertion/SubjectAssertion"
+    class_name: ClassVar[str] = "SubjectAssertion"
+    class_model_uri: ClassVar[URIRef] = ANVIL.SubjectAssertion
 
-    id: Union[str, ConditionAssertionId] = None
-    condition_source_value: str = None
-    condition_type: Union[str, "EnumConditionType"] = None
-    condition_code: Optional[Union[Union[str, "EnumConditionCode"], List[Union[str, "EnumConditionCode"]]]] = empty_list()
-    condition_assertion: Optional[Union[str, "EnumConditionAssertion"]] = None
-    age_at_assertion: Optional[int] = None
-    age_at_onset: Optional[int] = None
-    age_at_resolution: Optional[int] = None
+    id: Union[str, SubjectAssertionId] = None
+    assertion_type: Optional[Union[str, "EnumAssertionType"]] = None
+    code: Optional[Union[str, URIorCURIE]] = None
+    display: Optional[str] = None
+    source_code: Optional[Union[str, URIorCURIE]] = None
+    source_display: Optional[str] = None
+    value_code: Optional[Union[str, URIorCURIE]] = None
+    value_display: Optional[str] = None
+    value_number: Optional[float] = None
+    value_units: Optional[Union[str, URIorCURIE]] = None
+    age_at_assertion: Optional[float] = None
+    age_at_event: Optional[float] = None
+    age_at_resolution: Optional[float] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
             self.MissingRequiredField("id")
-        if not isinstance(self.id, ConditionAssertionId):
-            self.id = ConditionAssertionId(self.id)
+        if not isinstance(self.id, SubjectAssertionId):
+            self.id = SubjectAssertionId(self.id)
 
-        if self._is_empty(self.condition_source_value):
-            self.MissingRequiredField("condition_source_value")
-        if not isinstance(self.condition_source_value, str):
-            self.condition_source_value = str(self.condition_source_value)
+        if self.assertion_type is not None and not isinstance(self.assertion_type, EnumAssertionType):
+            self.assertion_type = EnumAssertionType(self.assertion_type)
 
-        if self._is_empty(self.condition_type):
-            self.MissingRequiredField("condition_type")
-        if not isinstance(self.condition_type, EnumConditionType):
-            self.condition_type = EnumConditionType(self.condition_type)
+        if self.code is not None and not isinstance(self.code, URIorCURIE):
+            self.code = URIorCURIE(self.code)
 
-        if self.condition_assertion is not None and not isinstance(self.condition_assertion, EnumConditionAssertion):
-            self.condition_assertion = EnumConditionAssertion(self.condition_assertion)
+        if self.display is not None and not isinstance(self.display, str):
+            self.display = str(self.display)
 
-        if self.age_at_assertion is not None and not isinstance(self.age_at_assertion, int):
-            self.age_at_assertion = int(self.age_at_assertion)
+        if self.source_code is not None and not isinstance(self.source_code, URIorCURIE):
+            self.source_code = URIorCURIE(self.source_code)
 
-        if self.age_at_onset is not None and not isinstance(self.age_at_onset, int):
-            self.age_at_onset = int(self.age_at_onset)
+        if self.source_display is not None and not isinstance(self.source_display, str):
+            self.source_display = str(self.source_display)
 
-        if self.age_at_resolution is not None and not isinstance(self.age_at_resolution, int):
-            self.age_at_resolution = int(self.age_at_resolution)
+        if self.value_code is not None and not isinstance(self.value_code, URIorCURIE):
+            self.value_code = URIorCURIE(self.value_code)
+
+        if self.value_display is not None and not isinstance(self.value_display, str):
+            self.value_display = str(self.value_display)
+
+        if self.value_number is not None and not isinstance(self.value_number, float):
+            self.value_number = float(self.value_number)
+
+        if self.value_units is not None and not isinstance(self.value_units, URIorCURIE):
+            self.value_units = URIorCURIE(self.value_units)
+
+        if self.age_at_assertion is not None and not isinstance(self.age_at_assertion, float):
+            self.age_at_assertion = float(self.age_at_assertion)
+
+        if self.age_at_event is not None and not isinstance(self.age_at_event, float):
+            self.age_at_event = float(self.age_at_event)
+
+        if self.age_at_resolution is not None and not isinstance(self.age_at_resolution, float):
+            self.age_at_resolution = float(self.age_at_resolution)
 
         super().__post_init__(**kwargs)
 
@@ -934,7 +949,7 @@ class EnumVitalStatus(EnumDefinitionImpl):
         description="Is the entity living?",
     )
 
-class EnumConditionType(EnumDefinitionImpl):
+class EnumAssertionType(EnumDefinitionImpl):
     """
     Provides options to describe the expressed semantics of a condition.
     """
@@ -963,7 +978,7 @@ class EnumConditionType(EnumDefinitionImpl):
         description="From an EHR billing record, which may indicate only investigation into a possible diagnosis.")
 
     _defn = EnumDefinition(
-        name="EnumConditionType",
+        name="EnumAssertionType",
         description="Provides options to describe the expressed semantics of a condition.",
     )
 
@@ -1267,10 +1282,10 @@ slots.vital_status = Slot(uri=ANVIL['participant/vital_status'], name="vital_sta
                    model_uri=ANVIL.vital_status, domain=None, range=Optional[Union[str, "EnumVitalStatus"]])
 
 slots.has_sample = Slot(uri=ANVIL['participant/has_sample'], name="has_sample", curie=ANVIL.curie('participant/has_sample'),
-                   model_uri=ANVIL.has_sample, domain=None, range=Optional[Union[Union[str, SampleId], List[Union[str, SampleId]]]])
+                   model_uri=ANVIL.has_sample, domain=None, range=Optional[Union[Dict[Union[str, SampleId], Union[dict, Sample]], List[Union[dict, Sample]]]])
 
 slots.has_assertion = Slot(uri=ANVIL['participant/has_assertion'], name="has_assertion", curie=ANVIL.curie('participant/has_assertion'),
-                   model_uri=ANVIL.has_assertion, domain=None, range=Optional[Union[Union[str, SampleId], List[Union[str, SampleId]]]])
+                   model_uri=ANVIL.has_assertion, domain=None, range=Optional[Union[Dict[Union[str, SubjectAssertionId], Union[dict, SubjectAssertion]], List[Union[dict, SubjectAssertion]]]])
 
 slots.external_study_id = Slot(uri=ANVIL['study/external_study_id'], name="external_study_id", curie=ANVIL.curie('study/external_study_id'),
                    model_uri=ANVIL.external_study_id, domain=None, range=Optional[Union[str, List[str]]])
@@ -1287,17 +1302,11 @@ slots.principal_investigator = Slot(uri=ANVIL['study/principal_investigator'], n
 slots.study_title = Slot(uri=ANVIL['study/study_title'], name="study_title", curie=ANVIL.curie('study/study_title'),
                    model_uri=ANVIL.study_title, domain=None, range=str)
 
-slots.condition_code = Slot(uri=ANVIL['condition_assertion/condition_code'], name="condition_code", curie=ANVIL.curie('condition_assertion/condition_code'),
-                   model_uri=ANVIL.condition_code, domain=None, range=Optional[Union[Union[str, "EnumConditionCode"], List[Union[str, "EnumConditionCode"]]]])
-
 slots.condition_source_value = Slot(uri=ANVIL['condition_assertion/condition_source_value'], name="condition_source_value", curie=ANVIL.curie('condition_assertion/condition_source_value'),
                    model_uri=ANVIL.condition_source_value, domain=None, range=str)
 
 slots.condition_assertion = Slot(uri=ANVIL['condition_assertion/condition_assertion'], name="condition_assertion", curie=ANVIL.curie('condition_assertion/condition_assertion'),
                    model_uri=ANVIL.condition_assertion, domain=None, range=Optional[Union[str, "EnumConditionAssertion"]])
-
-slots.condition_type = Slot(uri=ANVIL['condition_assertion/condition_type'], name="condition_type", curie=ANVIL.curie('condition_assertion/condition_type'),
-                   model_uri=ANVIL.condition_type, domain=None, range=Union[str, "EnumConditionType"])
 
 slots.age_at_assertion = Slot(uri=ANVIL['condition_assertion/age_at_assertion'], name="age_at_assertion", curie=ANVIL.curie('condition_assertion/age_at_assertion'),
                    model_uri=ANVIL.age_at_assertion, domain=None, range=Optional[int])
@@ -1430,3 +1439,39 @@ slots.other_family_member_id = Slot(uri=ANVIL['family-member/other_family_member
 
 slots.relationship_code = Slot(uri=ANVIL['family-member/relationship_code'], name="relationship_code", curie=ANVIL.curie('family-member/relationship_code'),
                    model_uri=ANVIL.relationship_code, domain=None, range=Optional[str])
+
+slots.subjectAssertion__assertion_type = Slot(uri=ANVIL['condition_assertion/assertion_type'], name="subjectAssertion__assertion_type", curie=ANVIL.curie('condition_assertion/assertion_type'),
+                   model_uri=ANVIL.subjectAssertion__assertion_type, domain=None, range=Optional[Union[str, "EnumAssertionType"]])
+
+slots.subjectAssertion__code = Slot(uri=ANVIL['condition_assertion/code'], name="subjectAssertion__code", curie=ANVIL.curie('condition_assertion/code'),
+                   model_uri=ANVIL.subjectAssertion__code, domain=None, range=Optional[Union[str, URIorCURIE]])
+
+slots.subjectAssertion__display = Slot(uri=ANVIL['condition_assertion/display'], name="subjectAssertion__display", curie=ANVIL.curie('condition_assertion/display'),
+                   model_uri=ANVIL.subjectAssertion__display, domain=None, range=Optional[str])
+
+slots.subjectAssertion__source_code = Slot(uri=ANVIL['condition_assertion/source_code'], name="subjectAssertion__source_code", curie=ANVIL.curie('condition_assertion/source_code'),
+                   model_uri=ANVIL.subjectAssertion__source_code, domain=None, range=Optional[Union[str, URIorCURIE]])
+
+slots.subjectAssertion__source_display = Slot(uri=ANVIL['condition_assertion/source_display'], name="subjectAssertion__source_display", curie=ANVIL.curie('condition_assertion/source_display'),
+                   model_uri=ANVIL.subjectAssertion__source_display, domain=None, range=Optional[str])
+
+slots.subjectAssertion__value_code = Slot(uri=ANVIL['condition_assertion/value_code'], name="subjectAssertion__value_code", curie=ANVIL.curie('condition_assertion/value_code'),
+                   model_uri=ANVIL.subjectAssertion__value_code, domain=None, range=Optional[Union[str, URIorCURIE]])
+
+slots.subjectAssertion__value_display = Slot(uri=ANVIL['condition_assertion/value_display'], name="subjectAssertion__value_display", curie=ANVIL.curie('condition_assertion/value_display'),
+                   model_uri=ANVIL.subjectAssertion__value_display, domain=None, range=Optional[str])
+
+slots.subjectAssertion__value_number = Slot(uri=ANVIL['condition_assertion/value_number'], name="subjectAssertion__value_number", curie=ANVIL.curie('condition_assertion/value_number'),
+                   model_uri=ANVIL.subjectAssertion__value_number, domain=None, range=Optional[float])
+
+slots.subjectAssertion__value_units = Slot(uri=ANVIL['condition_assertion/value_units'], name="subjectAssertion__value_units", curie=ANVIL.curie('condition_assertion/value_units'),
+                   model_uri=ANVIL.subjectAssertion__value_units, domain=None, range=Optional[Union[str, URIorCURIE]])
+
+slots.subjectAssertion__age_at_assertion = Slot(uri=ANVIL['condition_assertion/age_at_assertion'], name="subjectAssertion__age_at_assertion", curie=ANVIL.curie('condition_assertion/age_at_assertion'),
+                   model_uri=ANVIL.subjectAssertion__age_at_assertion, domain=None, range=Optional[float])
+
+slots.subjectAssertion__age_at_event = Slot(uri=ANVIL['condition_assertion/age_at_event'], name="subjectAssertion__age_at_event", curie=ANVIL.curie('condition_assertion/age_at_event'),
+                   model_uri=ANVIL.subjectAssertion__age_at_event, domain=None, range=Optional[float])
+
+slots.subjectAssertion__age_at_resolution = Slot(uri=ANVIL['condition_assertion/age_at_resolution'], name="subjectAssertion__age_at_resolution", curie=ANVIL.curie('condition_assertion/age_at_resolution'),
+                   model_uri=ANVIL.subjectAssertion__age_at_resolution, domain=None, range=Optional[float])

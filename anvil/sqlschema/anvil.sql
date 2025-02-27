@@ -15,6 +15,8 @@
 --     * Slot: storage_method Description: Curied code indicating how is the Sample stored, eg, Frozen or with additives
 --     * Slot: quantity Description: The total quantity of the specimen
 --     * Slot: id Description: ID associated with a class
+--     * Slot: Subject_id Description: Autocreated FK slot
+--     * Slot: Participant_id Description: Autocreated FK slot
 -- # Class: "Subject" Description: "This entity is the subject about which data or references are recorded. | This includes the idea of a human participant in a study, a cell line, an animal model, | or any other similar entity."
 --     * Slot: subject_type Description: Type of entity this record represents
 --     * Slot: organism_type Description: Organism Type Label
@@ -35,14 +37,23 @@
 --     * Slot: organism_type Description: Organism Type Label
 --     * Slot: has_access_policy Description: Which access policy applies to this element?
 --     * Slot: id Description: ID associated with a class
--- # Class: "ConditionAssertion" Description: "Study Meta Data"
---     * Slot: condition_source_value Description: Original Source Value for condition
---     * Slot: condition_assertion Description: Condition Assertion
---     * Slot: condition_type Description: Does this condition represent a specific "type" of condition, such as "Phenotypic Feature" vs "Disease" in a rare disease setting.
---     * Slot: age_at_assertion Description: The age at which this condition is being asserted.
---     * Slot: age_at_onset Description: The age of onset for this condition.
---     * Slot: age_at_resolution Description: The age at which this condition was resolved, abated or cured. Should be left empty in cases of current active status.
+-- # Class: "SubjectAssertion" Description: "Assertion about a particular Subject. May include Conditions, Measurements, etc."
+--     * Slot: assertion_type Description: The semantic type of the resource, eg, Condition.
+--     * Slot: code Description: The structured term defining the meaning of the assertion.
+--     * Slot: display Description: The friendly display string of the coded term
+--     * Slot: source_code Description: The structured term defining the meaning of the assertion as provided by the source.
+--     * Slot: source_display Description: The friendly display string of the coded term as provided by the source.
+--     * Slot: value_code Description: The structured term defining the value of the assertion.
+--     * Slot: value_display Description: The friendly display string of the coded term for the value of the assertion.
+--     * Slot: value_number Description: The numeric value of the assertion.
+--     * Slot: value_units Description: The structured term defining the units of the value.
+--     * Slot: age_at_assertion Description: The age in decimal years of the Subject when the assertion was made.
+--     * Slot: age_at_event Description: The age in decimal years of the Subject at the time point which the assertion describes, | eg, age of onset or when a measurement was performed.
+--     * Slot: age_at_resolution Description: The age in decimal years of the Subject when the asserted state was resolved.
+--     * Slot: has_access_policy Description: Which access policy applies to this element?
 --     * Slot: id Description: ID associated with a class
+--     * Slot: Subject_id Description: Autocreated FK slot
+--     * Slot: Participant_id Description: Autocreated FK slot
 -- # Class: "AccessPolicy" Description: "Describes the access required for a given element of data."
 --     * Slot: disease_limitation Description: Disease Use Limitations
 --     * Slot: description Description: Description
@@ -97,15 +108,6 @@
 -- # Class: "Sample_processing" Description: ""
 --     * Slot: Sample_id Description: Autocreated FK slot
 --     * Slot: processing Description: Curied code associated processing that was applied to the Parent Sample or from the Biospecimen Collection that yielded this distinct sample
--- # Class: "Participant_has_sample" Description: ""
---     * Slot: Participant_id Description: Autocreated FK slot
---     * Slot: has_sample_id Description: Which samples were collected or processed for this participant?
--- # Class: "Participant_has_assertion" Description: ""
---     * Slot: Participant_id Description: Autocreated FK slot
---     * Slot: has_assertion_id Description: Which samples were collected or processed for this participant?
--- # Class: "ConditionAssertion_condition_code" Description: ""
---     * Slot: ConditionAssertion_id Description: Autocreated FK slot
---     * Slot: condition_code Description: Condition Code should be from one of a recognized ontology. Multiple codes can be indicated, but should simply be alternative encodings for the same entity such as alternates encodings from other ontologies.       Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA and coded with the corresponding curies* SNOMED : https://bioregistry.io/registry/snomedct* HP : https://bioregistry.io/registry/hp* OMIM : https://bioregistry.io/registry/omim* ORPHA : https://bioregistry.io/registry/orphanet
 -- # Class: "AccessPolicy_data_access_type" Description: ""
 --     * Slot: AccessPolicy_id Description: Autocreated FK slot
 --     * Slot: data_access_type Description: Data Access Type
@@ -132,26 +134,6 @@ CREATE TABLE "Study" (
 	id TEXT NOT NULL, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY(parent_study_id) REFERENCES "Study" (id)
-);
-CREATE TABLE "Sample" (
-	parent_sample_id TEXT, 
-	biospecimen_collection_id_fk TEXT NOT NULL, 
-	sample_type TEXT NOT NULL, 
-	availablity_status VARCHAR(11), 
-	storage_method TEXT, 
-	quantity TEXT, 
-	id TEXT NOT NULL, 
-	PRIMARY KEY (id)
-);
-CREATE TABLE "ConditionAssertion" (
-	condition_source_value TEXT NOT NULL, 
-	condition_assertion VARCHAR(7), 
-	condition_type VARCHAR(18) NOT NULL, 
-	age_at_assertion INTEGER, 
-	age_at_onset INTEGER, 
-	age_at_resolution INTEGER, 
-	id TEXT NOT NULL, 
-	PRIMARY KEY (id)
 );
 CREATE TABLE "AccessPolicy" (
 	disease_limitation TEXT, 
@@ -259,18 +241,6 @@ CREATE TABLE "Study_principal_investigator" (
 	PRIMARY KEY ("Study_id", principal_investigator), 
 	FOREIGN KEY("Study_id") REFERENCES "Study" (id)
 );
-CREATE TABLE "Sample_processing" (
-	"Sample_id" TEXT, 
-	processing TEXT, 
-	PRIMARY KEY ("Sample_id", processing), 
-	FOREIGN KEY("Sample_id") REFERENCES "Sample" (id)
-);
-CREATE TABLE "ConditionAssertion_condition_code" (
-	"ConditionAssertion_id" TEXT, 
-	condition_code VARCHAR, 
-	PRIMARY KEY ("ConditionAssertion_id", condition_code), 
-	FOREIGN KEY("ConditionAssertion_id") REFERENCES "ConditionAssertion" (id)
-);
 CREATE TABLE "AccessPolicy_data_access_type" (
 	"AccessPolicy_id" TEXT, 
 	data_access_type VARCHAR(14), 
@@ -301,17 +271,45 @@ CREATE TABLE "Family_family_external_id" (
 	PRIMARY KEY ("Family_id", family_external_id), 
 	FOREIGN KEY("Family_id") REFERENCES "Family" (id)
 );
-CREATE TABLE "Participant_has_sample" (
+CREATE TABLE "Sample" (
+	parent_sample_id TEXT, 
+	biospecimen_collection_id_fk TEXT NOT NULL, 
+	sample_type TEXT NOT NULL, 
+	availablity_status VARCHAR(11), 
+	storage_method TEXT, 
+	quantity TEXT, 
+	id TEXT NOT NULL, 
+	"Subject_id" TEXT, 
 	"Participant_id" TEXT, 
-	has_sample_id TEXT, 
-	PRIMARY KEY ("Participant_id", has_sample_id), 
-	FOREIGN KEY("Participant_id") REFERENCES "Participant" (id), 
-	FOREIGN KEY(has_sample_id) REFERENCES "Sample" (id)
+	PRIMARY KEY (id), 
+	FOREIGN KEY("Subject_id") REFERENCES "Subject" (id), 
+	FOREIGN KEY("Participant_id") REFERENCES "Participant" (id)
 );
-CREATE TABLE "Participant_has_assertion" (
+CREATE TABLE "SubjectAssertion" (
+	assertion_type VARCHAR(18), 
+	code TEXT, 
+	display TEXT, 
+	source_code TEXT, 
+	source_display TEXT, 
+	value_code TEXT, 
+	value_display TEXT, 
+	value_number FLOAT, 
+	value_units TEXT, 
+	age_at_assertion FLOAT, 
+	age_at_event FLOAT, 
+	age_at_resolution FLOAT, 
+	has_access_policy TEXT, 
+	id TEXT NOT NULL, 
+	"Subject_id" TEXT, 
 	"Participant_id" TEXT, 
-	has_assertion_id TEXT, 
-	PRIMARY KEY ("Participant_id", has_assertion_id), 
-	FOREIGN KEY("Participant_id") REFERENCES "Participant" (id), 
-	FOREIGN KEY(has_assertion_id) REFERENCES "Sample" (id)
+	PRIMARY KEY (id), 
+	FOREIGN KEY(has_access_policy) REFERENCES "AccessPolicy" (id), 
+	FOREIGN KEY("Subject_id") REFERENCES "Subject" (id), 
+	FOREIGN KEY("Participant_id") REFERENCES "Participant" (id)
+);
+CREATE TABLE "Sample_processing" (
+	"Sample_id" TEXT, 
+	processing TEXT, 
+	PRIMARY KEY ("Sample_id", processing), 
+	FOREIGN KEY("Sample_id") REFERENCES "Sample" (id)
 );
