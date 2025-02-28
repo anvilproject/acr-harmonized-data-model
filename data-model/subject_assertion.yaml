@@ -17,97 +17,95 @@ imports:
   - linkml:types
   - anvil_core
 classes: 
-# TODO: Create a parent class of EntityAssertion or similar, then make children classes that specialize
   SubjectAssertion:
     title: Subject Assertion 
     description: Assertion about a particular Subject. May include Conditions, Measurements, etc.
     is_a: AccessControlledRecord 
-    attributes: 
-      assertion_type:
-        title: Assertion Type
-        description: The semantic type of the resource, eg, Condition.
-        range: EnumAssertionType
-      code:
-        title: Assertion Code
-        description: The structured term defining the meaning of the assertion.
-        range: uriorcurie
-      display:
-        title: Display String
-        description: The friendly display string of the coded term
-        range: string
-      source_code:
-        title: Source Code
-        description: The structured term defining the meaning of the assertion as provided by the source.
-        range: uriorcurie
-      source_display:
-        title: Source Display String
-        description: The friendly display string of the coded term as provided by the source.
-        range: string
-      value_code:
-        title: Value Code
-        description: The structured term defining the value of the assertion.
-        range: uriorcurie
-      value_display:
-        title: Value Display String
-        description: The friendly display string of the coded term for the value of the assertion.
-        range: string
-      value_number:
-        title: Value Number
-        description: The numeric value of the assertion.
-        range: float
-      value_units:
-        title: Value Units
-        description: The structured term defining the units of the value.
-        range: uriorcurie
-      age_at_assertion:
-        title: Age at assertion
-        description: The age in decimal years of the Subject when the assertion was made.
-        range: float
-        unit:
-          ucum_code: a
-      age_at_event:
-        title: Age at event
-        description: The age in decimal years of the Subject at the time point which the assertion describes, |
-          eg, age of onset or when a measurement was performed.
-        range: float
-        unit:
-          ucum_code: a
-      age_at_resolution:
-        title: Age at resolution
-        description: The age in decimal years of the Subject when the asserted state was resolved.
-        range: float
-        unit:
-          ucum_code: a
+    slots:
+      - assertion_type
+      - age_at_assertion
+      - age_at_event
+      - age_at_resolution
+      - code
+      - display
+      - value_code
+      - value_display
+      - value_number
+      - value_units
+      - value_units_display 
+      - source_data
+# TODO: Perhaps this data should actually end up being references to the originally stored data within the TDR?
+# It should also minimally have some way to link within-row source elements.
+  SourceData:
+    title: Source Data 
+    description: Submitted data about a particular Subject.
+    is_a: AccessControlledRecord 
+    slots:
+      - code
+      - display
+      - value_code
+      - value_display
+      - value_number
+      - value_units
+      - value_units_display 
 slots: 
-  condition_source_value: 
-    description: Original Source Value for condition 
-    title: condition_source_value 
-    range: string 
-    required: true 
-    multivalued: false 
-  condition_assertion: 
-    description: Condition Assertion 
-    title: condition_assertion 
-    range: EnumConditionAssertion
-    multivalued: false
+  assertion_type:
+    title: Assertion Type
+    description: The semantic type of the resource, eg, Condition.
+    range: EnumAssertionType
   age_at_assertion:
-    description: The age at which this condition is being asserted. 
-    title: age_at_assertion 
-    range: integer 
-    required: false 
-    multivalued: false 
-  age_at_onset:
-    description: The age of onset for this condition. 
-    title: age_at_assertion 
-    range: integer
-    required: false 
-    multivalued: false 
+    title: Age at assertion
+    description: The age in decimal years of the Subject when the assertion was made.
+    range: float
+    unit:
+      ucum_code: a
+  age_at_event:
+    title: Age at event
+    description: The age in decimal years of the Subject at the time point which the assertion describes, |
+      eg, age of onset or when a measurement was performed.
+    range: float
+    unit:
+      ucum_code: a
   age_at_resolution:
-    description: The age at which this condition was resolved, abated or cured. Should be left empty in cases of current active status.  
-    title: age_at_resolution 
-    range: integer
-    required: false 
-    multivalued: false 
+    title: Age at resolution
+    description: The age in decimal years of the Subject when the asserted state was resolved.
+    range: float
+    unit:
+      ucum_code: a
+  source_data:
+    title: Source Assertion
+    description: The sources from which this assertion was derived
+    range: SourceData
+    multivalued: true
+    inlined: false
+  code:
+    title: Assertion Code
+    description: The structured term defining the meaning of the assertion.
+    range: uriorcurie
+  display:
+    title: Display String
+    description: The friendly display string of the coded term
+    range: string
+  value_code:
+    title: Value Code
+    description: The structured term defining the value of the assertion.
+    range: uriorcurie
+  value_display:
+    title: Value Display String
+    description: The friendly display string of the coded term for the value of the assertion.
+    range: string
+  value_number:
+    title: Value Number
+    description: The numeric value of the assertion.
+    range: float
+  value_units:
+    title: Value Units
+    description: The structured term defining the units of the value.
+    range: uriorcurie
+  value_units_display:
+    title: Value Units
+    description: The friendly display string of units of the value.
+    range: string
 enums: 
 # TODO: Revisit this and refine the semantics here, ideally with links out to other definitions.
   EnumAssertionType: 

@@ -18,4 +18,4 @@ None &#8594;  <sub>1..1</sub> [EnumSex](EnumSex.md)
 
 ## Used by
 
- * [Participant](Participant.md)
+ * [Demographics](Demographics.md)

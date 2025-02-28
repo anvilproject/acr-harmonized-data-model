@@ -38,6 +38,23 @@ message BiospecimenCollection
   enumSpatialQualifiers spatialQualifier = 0
   enumLaterality laterality = 0
  }
+// Basic participant demographics summary
+message Demographics
+ {
+  string id = 0
+  accessPolicy hasAccessPolicy = 0
+  integer dateOfBirth = 0
+  enumDateOfBirthType dateOfBirthType = 0
+  enumSex sex = 0
+  string sexDisplay = 0
+ repeated  enumRace race = 0
+  string raceDisplay = 0
+  enumEthnicity ethnicity = 0
+  string ethnicityDisplay = 0
+  integer ageAtLastVitalStatus = 0
+  enumVitalStatus vitalStatus = 0
+ repeated  sourceData sourceData = 0
+ }
 // Family
 message Family
  {
@@ -67,33 +84,13 @@ message Measurement
   string measurementSourceValue = 0
   integer ageAtObservation = 0
  }
-// Basic participant demographics
-message Participant
- {
-  string id = 0
-  accessPolicy hasAccessPolicy = 0
-  enumSubjectType subjectType = 0
-  string organismType = 0
- repeated  sample hasSample = 0
- repeated  subjectAssertion hasAssertion = 0
-  integer dateOfBirth = 0
-  enumDateOfBirthType dateOfBirthType = 0
-  enumSex phenotypicSex = 0
-  string phenotypicSexSourceValue = 0
-  enumRace race = 0
-  string raceSourceValue = 0
-  enumEthnicity ethnicity = 0
-  string ethnicitySourceValue = 0
-  integer ageAtLastVitalStatus = 0
-  enumVitalStatus vitalStatus = 0
- }
 // Procedures
 message Procedure
  {
   string id = 0
  repeated  string procedureCode = 0
   string procedureSourceValue = 0
-  integer ageAtObservation = 0
+  float ageAtEvent = 0
  }
 // Biospecimen data
 message Sample
@@ -106,6 +103,19 @@ message Sample
   enumAvailabilityStatus availablityStatus = 0
   string storageMethod = 0
   string quantity = 0
+ }
+// Submitted data about a particular Subject.
+message SourceData
+ {
+  string id = 0
+  accessPolicy hasAccessPolicy = 0
+  uriorcurie code = 0
+  string display = 0
+  uriorcurie valueCode = 0
+  string valueDisplay = 0
+  float valueNumber = 0
+  uriorcurie valueUnits = 0
+  string valueUnitsDisplay = 0
  }
 // Study Meta Data
 message Study
@@ -126,6 +136,7 @@ message Subject
   string organismType = 0
  repeated  sample hasSample = 0
  repeated  subjectAssertion hasAssertion = 0
+  demographics hasDemographics = 0
  }
 // Assertion about a particular Subject. May include Conditions, Measurements, etc.
 message SubjectAssertion
@@ -133,17 +144,17 @@ message SubjectAssertion
   string id = 0
   accessPolicy hasAccessPolicy = 0
   enumAssertionType assertionType = 0
+  float ageAtAssertion = 0
+  float ageAtEvent = 0
+  float ageAtResolution = 0
   uriorcurie code = 0
   string display = 0
-  uriorcurie sourceCode = 0
-  string sourceDisplay = 0
   uriorcurie valueCode = 0
   string valueDisplay = 0
   float valueNumber = 0
   uriorcurie valueUnits = 0
-  float ageAtAssertion = 0
-  float ageAtEvent = 0
-  float ageAtResolution = 0
+  string valueUnitsDisplay = 0
+ repeated  sourceData sourceData = 0
  }
 // Highest Level Class
 message Thing

@@ -14,8 +14,9 @@
 
  * [Thing](Thing.md) - Highest Level Class
      * [AccessControlledRecord](AccessControlledRecord.md) - Element for which specific access control restrictions apply.
+         * [Demographics](Demographics.md) - Basic participant demographics summary
+         * [SourceData](SourceData.md) - Submitted data about a particular Subject.
          * [Subject](Subject.md) - This entity is the subject about which data or references are recorded. | This includes the idea of a human participant in a study, a cell line, an animal model, | or any other similar entity.
-             * [Participant](Participant.md) - Basic participant demographics
          * [SubjectAssertion](SubjectAssertion.md) - Assertion about a particular Subject. May include Conditions, Measurements, etc.
      * [AccessPolicy](AccessPolicy.md) - Describes the access required for a given element of data.
      * [Aliquot](Aliquot.md) - Represent exact tubes or total amounts available of a Sample.
@@ -33,25 +34,25 @@
 ### Slots
 
  * [access_policy_code](access_policy_code.md) - Access Policy Code
- * [age_at_assertion](age_at_assertion.md) - The age at which this condition is being asserted.
+ * [age_at_assertion](age_at_assertion.md) - The age in decimal years of the Subject when the assertion was made.
  * [age_at_collection](age_at_collection.md) - The age at which this biospecimen was collected.
- * [age_at_event](age_at_event.md) - Age of participant when procedure was performed/recorded
- * [age_at_last_vital_status](age_at_last_vital_status.md) - Age at Last Vital Status
+ * [age_at_event](age_at_event.md) - The age in decimal years of the Subject at the time point which the assertion describes, | eg, age of onset or when a measurement was performed.
+ * [age_at_last_vital_status](age_at_last_vital_status.md) - Age at last vital status in decimal years.
  * [age_at_observation](age_at_observation.md) - Age of participant when measurement was taken/recorded
- * [age_at_onset](age_at_onset.md) - The age of onset for this condition.
- * [age_at_resolution](age_at_resolution.md) - The age at which this condition was resolved, abated or cured. Should be left empty in cases of current active status.
+ * [age_at_resolution](age_at_resolution.md) - The age in decimal years of the Subject when the asserted state was resolved.
+ * [assertion_type](assertion_type.md) - The semantic type of the resource, eg, Condition.
  * [availablity_status](availablity_status.md) - Can this Sample be requested for further analysis?
  * [biospecimen_collection_id_fk](biospecimen_collection_id_fk.md) - ID associated with the Biospecimen Collection event.
- * [condition_assertion](condition_assertion.md) - Condition Assertion
- * [condition_source_value](condition_source_value.md) - Original Source Value for condition
+ * [code](code.md) - The structured term defining the meaning of the assertion.
  * [consanguinity](consanguinity.md) - Is there known or suspected consanguinity in this study family?
  * [data_access_type](data_access_type.md) - Data Access Type
  * [date_of_birth](date_of_birth.md) - Date at which the individual was born. May be impacted by privacy rules described in date_of_birth_type.
  * [date_of_birth_type](date_of_birth_type.md) - Privacy rule modification applied to date_of_birth.
  * [description](description.md) - Description
  * [disease_limitation](disease_limitation.md) - Disease Use Limitations
- * [ethnicity](ethnicity.md) - Classification categories of human, taken from NIH, based on the social group a person belongs to, and either identifies with or is identified with by others, as a result of a complex of cultural, biological, geographical and other factors such as linguistic, dietary and religion traditions; ancestry, background, allegiance, or association; and physical characteristics traditionally associated with race.
- * [ethnicity_source_value](ethnicity_source_value.md) - Ethnicity value as reported in the original source
+ * [display](display.md) - The friendly display string of the coded term
+ * [ethnicity](ethnicity.md) - Reported ethnicity as defined by the 1997 OMB directives.
+ * [ethnicity_display](ethnicity_display.md) - The friendly display string of the coded term for Ethnicity
  * [external_id](external_id.md) - Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
  * [external_study_id](external_study_id.md) - External Study ID
  * [family_description](family_description.md) - Free title describing the study family, such as potential inheritance or details about consanguinity
@@ -63,6 +64,7 @@
  * [funding_source](funding_source.md) - Funding Source
  * [has_access_policy](has_access_policy.md) - Which access policy applies to this element?
  * [has_assertion](has_assertion.md) - Which assertions are made about this Subject?
+ * [has_demographics](has_demographics.md) - A demographic summary of the participant.
  * [has_sample](has_sample.md) - Which samples were collected or processed for this Subject?
  * [id](id.md) - ID associated with a class
  * [in_study](in_study.md) - With which study is this class associated?
@@ -76,15 +78,13 @@
  * [other_family_member_id](other_family_member_id.md) - Other member of the same family to which there is a relationship being described
  * [parent_sample_id](parent_sample_id.md) - Parent Sample ID
  * [parent_study_id](parent_study_id.md) - Parent Study ID
- * [phenotypic_sex](phenotypic_sex.md) - Sex of the Participant
- * [phenotypic_sex_source_value](phenotypic_sex_source_value.md) - Original source value for phenotypic sex value
  * [principal_investigator](principal_investigator.md) - Principal Investigator
  * [procedure_code](procedure_code.md) - Procedure code should be from a recognized ontology preceded by a recognized curie. Multiple entries should reflect alternate codes for the same procedure. 
  * [procedure_source_value](procedure_source_value.md) - Original procedure text
  * [processing](processing.md) - Curied code associated processing that was applied to the Parent Sample or from the Biospecimen Collection that yielded this distinct sample
  * [quantity](quantity.md) - The total quantity of the specimen
- * [race](race.md) - Reported race defined by NIH Racial and Ethnic Categories and Definitions (NOT-OD-15-089)
- * [race_source_value](race_source_value.md) - Race value as observed from the original source text
+ * [race](race.md) - Reported race as defined by the 1997 OMB directives.
+ * [race_display](race_display.md) - The friendly display string of the coded term(s) for Race
  * [relationship_code](relationship_code.md) - Relationship of the "Family Member" to the "Other Family Member" (i.e. mother, father, etc). This is required if other_family_member_id is present. Code must be from the HL7 [FamilyMember ValueSet](https://terminology.hl7.org/6.2.0/ValueSet-v3-FamilyMember.html)
  * [sample_availability_status](sample_availability_status.md) - Can this Sample be requested for further analysis
  * [sample_concentration](sample_concentration.md) - What is the concentration of the analyte in the Aliquot?
@@ -93,23 +93,19 @@
  * [sample_type](sample_type.md) - Curied code associated the type of material of which this Sample is comprised
  * [sample_volume](sample_volume.md) - What is the volume of the Aliquot?
  * [sample_volume_unit](sample_volume_unit.md) - Units associated with the volume? UCUM coding preferred (with curie, UCUM)
+ * [sex](sex.md) - Sex of the individual
+ * [sex_display](sex_display.md) - The friendly display string of the coded term for Sex
  * [site](site.md) - The location of the specimen collection.
+ * [source_data](source_data.md) - The sources from which this assertion was derived
  * [spatial_qualifier](spatial_qualifier.md) - Any spatial/location qualifiers
  * [storage_method](storage_method.md) - Curied code indicating how is the Sample stored, eg, Frozen or with additives
  * [study_title](study_title.md) - Study Title
- * [➞age_at_assertion](subjectAssertion__age_at_assertion.md) - The age in decimal years of the Subject when the assertion was made.
- * [➞age_at_event](subjectAssertion__age_at_event.md) - The age in decimal years of the Subject at the time point which the assertion describes, | eg, age of onset or when a measurement was performed.
- * [➞age_at_resolution](subjectAssertion__age_at_resolution.md) - The age in decimal years of the Subject when the asserted state was resolved.
- * [➞assertion_type](subjectAssertion__assertion_type.md) - The semantic type of the resource, eg, Condition.
- * [➞code](subjectAssertion__code.md) - The structured term defining the meaning of the assertion.
- * [➞display](subjectAssertion__display.md) - The friendly display string of the coded term
- * [➞source_code](subjectAssertion__source_code.md) - The structured term defining the meaning of the assertion as provided by the source.
- * [➞source_display](subjectAssertion__source_display.md) - The friendly display string of the coded term as provided by the source.
- * [➞value_code](subjectAssertion__value_code.md) - The structured term defining the value of the assertion.
- * [➞value_display](subjectAssertion__value_display.md) - The friendly display string of the coded term for the value of the assertion.
- * [➞value_number](subjectAssertion__value_number.md) - The numeric value of the assertion.
- * [➞value_units](subjectAssertion__value_units.md) - The structured term defining the units of the value.
  * [subject_type](subject_type.md) - Type of entity this record represents
+ * [value_code](value_code.md) - The structured term defining the value of the assertion.
+ * [value_display](value_display.md) - The friendly display string of the coded term for the value of the assertion.
+ * [value_number](value_number.md) - The numeric value of the assertion.
+ * [value_units](value_units.md) - The structured term defining the units of the value.
+ * [value_units_display](value_units_display.md) - The friendly display string of units of the value.
  * [vital_status](vital_status.md) - Vital Status
  * [website](website.md) - Website
 

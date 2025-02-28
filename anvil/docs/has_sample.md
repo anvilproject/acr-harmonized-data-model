@@ -18,5 +18,4 @@ None &#8594;  <sub>0..\*</sub> [Sample](Sample.md)
 
 ## Used by
 
- * [Participant](Participant.md)
  * [Subject](Subject.md)

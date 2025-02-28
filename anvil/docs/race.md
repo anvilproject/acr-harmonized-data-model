@@ -1,14 +1,14 @@
 
 # Slot: race
 
-Reported race defined by NIH Racial and Ethnic Categories and Definitions (NOT-OD-15-089)
+Reported race as defined by the 1997 OMB directives.
 
 URI: [anvil:race](https://anvilproject.org/acr-harmonized-data-model/race)
 
 
 ## Domain and Range
 
-None &#8594;  <sub>1..1</sub> [EnumRace](EnumRace.md)
+None &#8594;  <sub>1..\*</sub> [EnumRace](EnumRace.md)
 
 ## Parents
 
@@ -18,4 +18,4 @@ None &#8594;  <sub>1..1</sub> [EnumRace](EnumRace.md)
 
 ## Used by
 
- * [Participant](Participant.md)
+ * [Demographics](Demographics.md)

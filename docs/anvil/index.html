@@ -93,10 +93,9 @@
 <ul>
 <li><a href="../Thing/">Thing</a> - Highest Level Class<ul>
 <li><a href="../AccessControlledRecord/">AccessControlledRecord</a> - Element for which specific access control restrictions apply.<ul>
-<li><a href="../Subject/">Subject</a> - This entity is the subject about which data or references are recorded. | This includes the idea of a human participant in a study, a cell line, an animal model, | or any other similar entity.<ul>
-<li><a href="../Participant/">Participant</a> - Basic participant demographics</li>
-</ul>
-</li>
+<li><a href="../Demographics/">Demographics</a> - Basic participant demographics summary</li>
+<li><a href="../SourceData/">SourceData</a> - Submitted data about a particular Subject.</li>
+<li><a href="../Subject/">Subject</a> - This entity is the subject about which data or references are recorded. | This includes the idea of a human participant in a study, a cell line, an animal model, | or any other similar entity.</li>
 <li><a href="../SubjectAssertion/">SubjectAssertion</a> - Assertion about a particular Subject. May include Conditions, Measurements, etc.</li>
 </ul>
 </li>
@@ -116,25 +115,25 @@
 <h3 id="slots">Slots</h3>
 <ul>
 <li><a href="../access_policy_code/">access_policy_code</a> - Access Policy Code</li>
-<li><a href="../age_at_assertion/">age_at_assertion</a> - The age at which this condition is being asserted.</li>
+<li><a href="../age_at_assertion/">age_at_assertion</a> - The age in decimal years of the Subject when the assertion was made.</li>
 <li><a href="../age_at_collection/">age_at_collection</a> - The age at which this biospecimen was collected.</li>
-<li><a href="../age_at_event/">age_at_event</a> - Age of participant when procedure was performed/recorded</li>
-<li><a href="../age_at_last_vital_status/">age_at_last_vital_status</a> - Age at Last Vital Status</li>
+<li><a href="../age_at_event/">age_at_event</a> - The age in decimal years of the Subject at the time point which the assertion describes, | eg, age of onset or when a measurement was performed.</li>
+<li><a href="../age_at_last_vital_status/">age_at_last_vital_status</a> - Age at last vital status in decimal years.</li>
 <li><a href="../age_at_observation/">age_at_observation</a> - Age of participant when measurement was taken/recorded</li>
-<li><a href="../age_at_onset/">age_at_onset</a> - The age of onset for this condition.</li>
-<li><a href="../age_at_resolution/">age_at_resolution</a> - The age at which this condition was resolved, abated or cured. Should be left empty in cases of current active status.</li>
+<li><a href="../age_at_resolution/">age_at_resolution</a> - The age in decimal years of the Subject when the asserted state was resolved.</li>
+<li><a href="../assertion_type/">assertion_type</a> - The semantic type of the resource, eg, Condition.</li>
 <li><a href="../availablity_status/">availablity_status</a> - Can this Sample be requested for further analysis?</li>
 <li><a href="../biospecimen_collection_id_fk/">biospecimen_collection_id_fk</a> - ID associated with the Biospecimen Collection event.</li>
-<li><a href="../condition_assertion/">condition_assertion</a> - Condition Assertion</li>
-<li><a href="../condition_source_value/">condition_source_value</a> - Original Source Value for condition</li>
+<li><a href="../code/">code</a> - The structured term defining the meaning of the assertion.</li>
 <li><a href="../consanguinity/">consanguinity</a> - Is there known or suspected consanguinity in this study family?</li>
 <li><a href="../data_access_type/">data_access_type</a> - Data Access Type</li>
 <li><a href="../date_of_birth/">date_of_birth</a> - Date at which the individual was born. May be impacted by privacy rules described in date_of_birth_type.</li>
 <li><a href="../date_of_birth_type/">date_of_birth_type</a> - Privacy rule modification applied to date_of_birth.</li>
 <li><a href="../description/">description</a> - Description</li>
 <li><a href="../disease_limitation/">disease_limitation</a> - Disease Use Limitations</li>
-<li><a href="../ethnicity/">ethnicity</a> - Classification categories of human, taken from NIH, based on the social group a person belongs to, and either identifies with or is identified with by others, as a result of a complex of cultural, biological, geographical and other factors such as linguistic, dietary and religion traditions; ancestry, background, allegiance, or association; and physical characteristics traditionally associated with race.</li>
-<li><a href="../ethnicity_source_value/">ethnicity_source_value</a> - Ethnicity value as reported in the original source</li>
+<li><a href="../display/">display</a> - The friendly display string of the coded term</li>
+<li><a href="../ethnicity/">ethnicity</a> - Reported ethnicity as defined by the 1997 OMB directives.</li>
+<li><a href="../ethnicity_display/">ethnicity_display</a> - The friendly display string of the coded term for Ethnicity</li>
 <li><a href="../external_id/">external_id</a> - Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP</li>
 <li><a href="../external_study_id/">external_study_id</a> - External Study ID</li>
 <li><a href="../family_description/">family_description</a> - Free title describing the study family, such as potential inheritance or details about consanguinity</li>
@@ -146,6 +145,7 @@
 <li><a href="../funding_source/">funding_source</a> - Funding Source</li>
 <li><a href="../has_access_policy/">has_access_policy</a> - Which access policy applies to this element?</li>
 <li><a href="../has_assertion/">has_assertion</a> - Which assertions are made about this Subject?</li>
+<li><a href="../has_demographics/">has_demographics</a> - A demographic summary of the participant.</li>
 <li><a href="../has_sample/">has_sample</a> - Which samples were collected or processed for this Subject?</li>
 <li><a href="../id/">id</a> - ID associated with a class</li>
 <li><a href="../in_study/">in_study</a> - With which study is this class associated?</li>
@@ -159,15 +159,13 @@
 <li><a href="../other_family_member_id/">other_family_member_id</a> - Other member of the same family to which there is a relationship being described</li>
 <li><a href="../parent_sample_id/">parent_sample_id</a> - Parent Sample ID</li>
 <li><a href="../parent_study_id/">parent_study_id</a> - Parent Study ID</li>
-<li><a href="../phenotypic_sex/">phenotypic_sex</a> - Sex of the Participant</li>
-<li><a href="../phenotypic_sex_source_value/">phenotypic_sex_source_value</a> - Original source value for phenotypic sex value</li>
 <li><a href="../principal_investigator/">principal_investigator</a> - Principal Investigator</li>
 <li><a href="../procedure_code/">procedure_code</a> - Procedure code should be from a recognized ontology preceded by a recognized curie. Multiple entries should reflect alternate codes for the same procedure. </li>
 <li><a href="../procedure_source_value/">procedure_source_value</a> - Original procedure text</li>
 <li><a href="../processing/">processing</a> - Curied code associated processing that was applied to the Parent Sample or from the Biospecimen Collection that yielded this distinct sample</li>
 <li><a href="../quantity/">quantity</a> - The total quantity of the specimen</li>
-<li><a href="../race/">race</a> - Reported race defined by NIH Racial and Ethnic Categories and Definitions (NOT-OD-15-089)</li>
-<li><a href="../race_source_value/">race_source_value</a> - Race value as observed from the original source text</li>
+<li><a href="../race/">race</a> - Reported race as defined by the 1997 OMB directives.</li>
+<li><a href="../race_display/">race_display</a> - The friendly display string of the coded term(s) for Race</li>
 <li><a href="../relationship_code/">relationship_code</a> - Relationship of the "Family Member" to the "Other Family Member" (i.e. mother, father, etc). This is required if other_family_member_id is present. Code must be from the HL7 <a href="https://terminology.hl7.org/6.2.0/ValueSet-v3-FamilyMember.html">FamilyMember ValueSet</a></li>
 <li><a href="../sample_availability_status/">sample_availability_status</a> - Can this Sample be requested for further analysis</li>
 <li><a href="../sample_concentration/">sample_concentration</a> - What is the concentration of the analyte in the Aliquot?</li>
@@ -176,23 +174,19 @@
 <li><a href="../sample_type/">sample_type</a> - Curied code associated the type of material of which this Sample is comprised</li>
 <li><a href="../sample_volume/">sample_volume</a> - What is the volume of the Aliquot?</li>
 <li><a href="../sample_volume_unit/">sample_volume_unit</a> - Units associated with the volume? UCUM coding preferred (with curie, UCUM)</li>
+<li><a href="../sex/">sex</a> - Sex of the individual</li>
+<li><a href="../sex_display/">sex_display</a> - The friendly display string of the coded term for Sex</li>
 <li><a href="../site/">site</a> - The location of the specimen collection.</li>
+<li><a href="../source_data/">source_data</a> - The sources from which this assertion was derived</li>
 <li><a href="../spatial_qualifier/">spatial_qualifier</a> - Any spatial/location qualifiers</li>
 <li><a href="../storage_method/">storage_method</a> - Curied code indicating how is the Sample stored, eg, Frozen or with additives</li>
 <li><a href="../study_title/">study_title</a> - Study Title</li>
-<li><a href="../subjectAssertion__age_at_assertion/">➞age_at_assertion</a> - The age in decimal years of the Subject when the assertion was made.</li>
-<li><a href="../subjectAssertion__age_at_event/">➞age_at_event</a> - The age in decimal years of the Subject at the time point which the assertion describes, | eg, age of onset or when a measurement was performed.</li>
-<li><a href="../subjectAssertion__age_at_resolution/">➞age_at_resolution</a> - The age in decimal years of the Subject when the asserted state was resolved.</li>
-<li><a href="../subjectAssertion__assertion_type/">➞assertion_type</a> - The semantic type of the resource, eg, Condition.</li>
-<li><a href="../subjectAssertion__code/">➞code</a> - The structured term defining the meaning of the assertion.</li>
-<li><a href="../subjectAssertion__display/">➞display</a> - The friendly display string of the coded term</li>
-<li><a href="../subjectAssertion__source_code/">➞source_code</a> - The structured term defining the meaning of the assertion as provided by the source.</li>
-<li><a href="../subjectAssertion__source_display/">➞source_display</a> - The friendly display string of the coded term as provided by the source.</li>
-<li><a href="../subjectAssertion__value_code/">➞value_code</a> - The structured term defining the value of the assertion.</li>
-<li><a href="../subjectAssertion__value_display/">➞value_display</a> - The friendly display string of the coded term for the value of the assertion.</li>
-<li><a href="../subjectAssertion__value_number/">➞value_number</a> - The numeric value of the assertion.</li>
-<li><a href="../subjectAssertion__value_units/">➞value_units</a> - The structured term defining the units of the value.</li>
 <li><a href="../subject_type/">subject_type</a> - Type of entity this record represents</li>
+<li><a href="../value_code/">value_code</a> - The structured term defining the value of the assertion.</li>
+<li><a href="../value_display/">value_display</a> - The friendly display string of the coded term for the value of the assertion.</li>
+<li><a href="../value_number/">value_number</a> - The numeric value of the assertion.</li>
+<li><a href="../value_units/">value_units</a> - The structured term defining the units of the value.</li>
+<li><a href="../value_units_display/">value_units_display</a> - The friendly display string of units of the value.</li>
 <li><a href="../vital_status/">vital_status</a> - Vital Status</li>
 <li><a href="../website/">website</a> - Website</li>
 </ul>

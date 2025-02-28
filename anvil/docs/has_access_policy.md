@@ -19,6 +19,7 @@ None &#8594;  <sub>0..1</sub> [AccessPolicy](AccessPolicy.md)
 ## Used by
 
  * [AccessControlledRecord](AccessControlledRecord.md)
- * [Participant](Participant.md)
+ * [Demographics](Demographics.md)
+ * [SourceData](SourceData.md)
  * [Subject](Subject.md)
  * [SubjectAssertion](SubjectAssertion.md)

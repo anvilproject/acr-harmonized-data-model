@@ -165,6 +165,23 @@ type BiospecimenCollection
     laterality: EnumLaterality
   }
 
+type Demographics
+  {
+    id: String!
+    hasAccessPolicy: AccessPolicy
+    dateOfBirth: Integer
+    dateOfBirthType: EnumDateOfBirthType
+    sex: EnumSex!
+    sexDisplay: String!
+    race: [EnumRace]!
+    raceDisplay: String!
+    ethnicity: EnumEthnicity!
+    ethnicityDisplay: String!
+    ageAtLastVitalStatus: Integer
+    vitalStatus: EnumVitalStatus
+    sourceData: [SourceData]
+  }
+
 type Family
   {
     id: String!
@@ -194,32 +211,12 @@ type Measurement
     ageAtObservation: Integer
   }
 
-type Participant
-  {
-    id: String!
-    hasAccessPolicy: AccessPolicy
-    subjectType: EnumSubjectType!
-    organismType: String
-    hasSample: [Sample]
-    hasAssertion: [SubjectAssertion]
-    dateOfBirth: Integer
-    dateOfBirthType: EnumDateOfBirthType
-    phenotypicSex: EnumSex!
-    phenotypicSexSourceValue: String
-    race: EnumRace!
-    raceSourceValue: String
-    ethnicity: EnumEthnicity!
-    ethnicitySourceValue: String
-    ageAtLastVitalStatus: Integer
-    vitalStatus: EnumVitalStatus
-  }
-
 type Procedure
   {
     id: String!
     procedureCode: [String]!
     procedureSourceValue: String!
-    ageAtObservation: Integer
+    ageAtEvent: Float
   }
 
 type Sample
@@ -232,6 +229,19 @@ type Sample
     availablityStatus: EnumAvailabilityStatus
     storageMethod: String
     quantity: String
+  }
+
+type SourceData
+  {
+    id: String!
+    hasAccessPolicy: AccessPolicy
+    code: Uriorcurie
+    display: String
+    valueCode: Uriorcurie
+    valueDisplay: String
+    valueNumber: Float
+    valueUnits: Uriorcurie
+    valueUnitsDisplay: String
   }
 
 type Study
@@ -252,6 +262,7 @@ type Subject
     organismType: String
     hasSample: [Sample]
     hasAssertion: [SubjectAssertion]
+    hasDemographics: Demographics
   }
 
 type SubjectAssertion
@@ -259,17 +270,17 @@ type SubjectAssertion
     id: String!
     hasAccessPolicy: AccessPolicy
     assertionType: EnumAssertionType
+    ageAtAssertion: Float
+    ageAtEvent: Float
+    ageAtResolution: Float
     code: Uriorcurie
     display: String
-    sourceCode: Uriorcurie
-    sourceDisplay: String
     valueCode: Uriorcurie
     valueDisplay: String
     valueNumber: Float
     valueUnits: Uriorcurie
-    ageAtAssertion: Float
-    ageAtEvent: Float
-    ageAtResolution: Float
+    valueUnitsDisplay: String
+    sourceData: [SourceData]
   }
 
 type Thing

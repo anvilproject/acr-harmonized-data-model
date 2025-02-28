@@ -1,5 +1,5 @@
 # Auto generated from anvil.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-02-27T16:48:55
+# Generation date: 2025-02-28T14:00:43
 # Schema: anvil-schema
 #
 # id: https://anvilproject.org/acr-harmonized-data-model
@@ -89,7 +89,7 @@ class SubjectId(AccessControlledRecordId):
     pass
 
 
-class ParticipantId(SubjectId):
+class DemographicsId(AccessControlledRecordId):
     pass
 
 
@@ -98,6 +98,10 @@ class StudyId(ThingId):
 
 
 class SubjectAssertionId(AccessControlledRecordId):
+    pass
+
+
+class SourceDataId(AccessControlledRecordId):
     pass
 
 
@@ -201,6 +205,7 @@ class Subject(AccessControlledRecord):
     organism_type: Optional[str] = None
     has_sample: Optional[Union[Dict[Union[str, SampleId], Union[dict, "Sample"]], List[Union[dict, "Sample"]]]] = empty_dict()
     has_assertion: Optional[Union[Dict[Union[str, SubjectAssertionId], Union[dict, "SubjectAssertion"]], List[Union[dict, "SubjectAssertion"]]]] = empty_dict()
+    has_demographics: Optional[Union[dict, "Demographics"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -220,54 +225,73 @@ class Subject(AccessControlledRecord):
 
         self._normalize_inlined_as_dict(slot_name="has_assertion", slot_type=SubjectAssertion, key_name="id", keyed=True)
 
+        if self.has_demographics is not None and not isinstance(self.has_demographics, Demographics):
+            self.has_demographics = Demographics(**as_dict(self.has_demographics))
+
         super().__post_init__(**kwargs)
 
 
 @dataclass(repr=False)
-class Participant(Subject):
+class Demographics(AccessControlledRecord):
     """
-    Basic participant demographics
+    Basic participant demographics summary
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = ANVIL["participant/Participant"]
-    class_class_curie: ClassVar[str] = "anvil:participant/Participant"
-    class_name: ClassVar[str] = "Participant"
-    class_model_uri: ClassVar[URIRef] = ANVIL.Participant
+    class_class_uri: ClassVar[URIRef] = ANVIL["participant/Demographics"]
+    class_class_curie: ClassVar[str] = "anvil:participant/Demographics"
+    class_name: ClassVar[str] = "Demographics"
+    class_model_uri: ClassVar[URIRef] = ANVIL.Demographics
 
-    id: Union[str, ParticipantId] = None
-    subject_type: Union[str, "EnumSubjectType"] = None
-    phenotypic_sex: Union[str, "EnumSex"] = None
-    race: Union[str, "EnumRace"] = None
+    id: Union[str, DemographicsId] = None
+    sex: Union[str, "EnumSex"] = None
+    sex_display: str = None
+    race: Union[Union[str, "EnumRace"], List[Union[str, "EnumRace"]]] = None
+    race_display: str = None
     ethnicity: Union[str, "EnumEthnicity"] = None
+    ethnicity_display: str = None
     date_of_birth: Optional[int] = None
     date_of_birth_type: Optional[Union[str, "EnumDateOfBirthType"]] = None
-    phenotypic_sex_source_value: Optional[str] = None
-    race_source_value: Optional[str] = None
-    ethnicity_source_value: Optional[str] = None
     age_at_last_vital_status: Optional[int] = None
     vital_status: Optional[Union[str, "EnumVitalStatus"]] = None
+    source_data: Optional[Union[Union[str, SourceDataId], List[Union[str, SourceDataId]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
             self.MissingRequiredField("id")
-        if not isinstance(self.id, ParticipantId):
-            self.id = ParticipantId(self.id)
+        if not isinstance(self.id, DemographicsId):
+            self.id = DemographicsId(self.id)
 
-        if self._is_empty(self.phenotypic_sex):
-            self.MissingRequiredField("phenotypic_sex")
-        if not isinstance(self.phenotypic_sex, EnumSex):
-            self.phenotypic_sex = EnumSex(self.phenotypic_sex)
+        if self._is_empty(self.sex):
+            self.MissingRequiredField("sex")
+        if not isinstance(self.sex, EnumSex):
+            self.sex = EnumSex(self.sex)
+
+        if self._is_empty(self.sex_display):
+            self.MissingRequiredField("sex_display")
+        if not isinstance(self.sex_display, str):
+            self.sex_display = str(self.sex_display)
 
         if self._is_empty(self.race):
             self.MissingRequiredField("race")
-        if not isinstance(self.race, EnumRace):
-            self.race = EnumRace(self.race)
+        if not isinstance(self.race, list):
+            self.race = [self.race] if self.race is not None else []
+        self.race = [v if isinstance(v, EnumRace) else EnumRace(v) for v in self.race]
+
+        if self._is_empty(self.race_display):
+            self.MissingRequiredField("race_display")
+        if not isinstance(self.race_display, str):
+            self.race_display = str(self.race_display)
 
         if self._is_empty(self.ethnicity):
             self.MissingRequiredField("ethnicity")
         if not isinstance(self.ethnicity, EnumEthnicity):
             self.ethnicity = EnumEthnicity(self.ethnicity)
+
+        if self._is_empty(self.ethnicity_display):
+            self.MissingRequiredField("ethnicity_display")
+        if not isinstance(self.ethnicity_display, str):
+            self.ethnicity_display = str(self.ethnicity_display)
 
         if self.date_of_birth is not None and not isinstance(self.date_of_birth, int):
             self.date_of_birth = int(self.date_of_birth)
@@ -275,20 +299,15 @@ class Participant(Subject):
         if self.date_of_birth_type is not None and not isinstance(self.date_of_birth_type, EnumDateOfBirthType):
             self.date_of_birth_type = EnumDateOfBirthType(self.date_of_birth_type)
 
-        if self.phenotypic_sex_source_value is not None and not isinstance(self.phenotypic_sex_source_value, str):
-            self.phenotypic_sex_source_value = str(self.phenotypic_sex_source_value)
-
-        if self.race_source_value is not None and not isinstance(self.race_source_value, str):
-            self.race_source_value = str(self.race_source_value)
-
-        if self.ethnicity_source_value is not None and not isinstance(self.ethnicity_source_value, str):
-            self.ethnicity_source_value = str(self.ethnicity_source_value)
-
         if self.age_at_last_vital_status is not None and not isinstance(self.age_at_last_vital_status, int):
             self.age_at_last_vital_status = int(self.age_at_last_vital_status)
 
         if self.vital_status is not None and not isinstance(self.vital_status, EnumVitalStatus):
             self.vital_status = EnumVitalStatus(self.vital_status)
+
+        if not isinstance(self.source_data, list):
+            self.source_data = [self.source_data] if self.source_data is not None else []
+        self.source_data = [v if isinstance(v, SourceDataId) else SourceDataId(v) for v in self.source_data]
 
         super().__post_init__(**kwargs)
 
@@ -355,17 +374,17 @@ class SubjectAssertion(AccessControlledRecord):
 
     id: Union[str, SubjectAssertionId] = None
     assertion_type: Optional[Union[str, "EnumAssertionType"]] = None
+    age_at_assertion: Optional[float] = None
+    age_at_event: Optional[float] = None
+    age_at_resolution: Optional[float] = None
     code: Optional[Union[str, URIorCURIE]] = None
     display: Optional[str] = None
-    source_code: Optional[Union[str, URIorCURIE]] = None
-    source_display: Optional[str] = None
     value_code: Optional[Union[str, URIorCURIE]] = None
     value_display: Optional[str] = None
     value_number: Optional[float] = None
     value_units: Optional[Union[str, URIorCURIE]] = None
-    age_at_assertion: Optional[float] = None
-    age_at_event: Optional[float] = None
-    age_at_resolution: Optional[float] = None
+    value_units_display: Optional[str] = None
+    source_data: Optional[Union[Union[str, SourceDataId], List[Union[str, SourceDataId]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -376,17 +395,20 @@ class SubjectAssertion(AccessControlledRecord):
         if self.assertion_type is not None and not isinstance(self.assertion_type, EnumAssertionType):
             self.assertion_type = EnumAssertionType(self.assertion_type)
 
+        if self.age_at_assertion is not None and not isinstance(self.age_at_assertion, float):
+            self.age_at_assertion = float(self.age_at_assertion)
+
+        if self.age_at_event is not None and not isinstance(self.age_at_event, float):
+            self.age_at_event = float(self.age_at_event)
+
+        if self.age_at_resolution is not None and not isinstance(self.age_at_resolution, float):
+            self.age_at_resolution = float(self.age_at_resolution)
+
         if self.code is not None and not isinstance(self.code, URIorCURIE):
             self.code = URIorCURIE(self.code)
 
         if self.display is not None and not isinstance(self.display, str):
             self.display = str(self.display)
-
-        if self.source_code is not None and not isinstance(self.source_code, URIorCURIE):
-            self.source_code = URIorCURIE(self.source_code)
-
-        if self.source_display is not None and not isinstance(self.source_display, str):
-            self.source_display = str(self.source_display)
 
         if self.value_code is not None and not isinstance(self.value_code, URIorCURIE):
             self.value_code = URIorCURIE(self.value_code)
@@ -400,14 +422,63 @@ class SubjectAssertion(AccessControlledRecord):
         if self.value_units is not None and not isinstance(self.value_units, URIorCURIE):
             self.value_units = URIorCURIE(self.value_units)
 
-        if self.age_at_assertion is not None and not isinstance(self.age_at_assertion, float):
-            self.age_at_assertion = float(self.age_at_assertion)
+        if self.value_units_display is not None and not isinstance(self.value_units_display, str):
+            self.value_units_display = str(self.value_units_display)
 
-        if self.age_at_event is not None and not isinstance(self.age_at_event, float):
-            self.age_at_event = float(self.age_at_event)
+        if not isinstance(self.source_data, list):
+            self.source_data = [self.source_data] if self.source_data is not None else []
+        self.source_data = [v if isinstance(v, SourceDataId) else SourceDataId(v) for v in self.source_data]
 
-        if self.age_at_resolution is not None and not isinstance(self.age_at_resolution, float):
-            self.age_at_resolution = float(self.age_at_resolution)
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class SourceData(AccessControlledRecord):
+    """
+    Submitted data about a particular Subject.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ANVIL["condition_assertion/SourceData"]
+    class_class_curie: ClassVar[str] = "anvil:condition_assertion/SourceData"
+    class_name: ClassVar[str] = "SourceData"
+    class_model_uri: ClassVar[URIRef] = ANVIL.SourceData
+
+    id: Union[str, SourceDataId] = None
+    code: Optional[Union[str, URIorCURIE]] = None
+    display: Optional[str] = None
+    value_code: Optional[Union[str, URIorCURIE]] = None
+    value_display: Optional[str] = None
+    value_number: Optional[float] = None
+    value_units: Optional[Union[str, URIorCURIE]] = None
+    value_units_display: Optional[str] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, SourceDataId):
+            self.id = SourceDataId(self.id)
+
+        if self.code is not None and not isinstance(self.code, URIorCURIE):
+            self.code = URIorCURIE(self.code)
+
+        if self.display is not None and not isinstance(self.display, str):
+            self.display = str(self.display)
+
+        if self.value_code is not None and not isinstance(self.value_code, URIorCURIE):
+            self.value_code = URIorCURIE(self.value_code)
+
+        if self.value_display is not None and not isinstance(self.value_display, str):
+            self.value_display = str(self.value_display)
+
+        if self.value_number is not None and not isinstance(self.value_number, float):
+            self.value_number = float(self.value_number)
+
+        if self.value_units is not None and not isinstance(self.value_units, URIorCURIE):
+            self.value_units = URIorCURIE(self.value_units)
+
+        if self.value_units_display is not None and not isinstance(self.value_units_display, str):
+            self.value_units_display = str(self.value_units_display)
 
         super().__post_init__(**kwargs)
 
@@ -662,7 +733,7 @@ class Procedure(Thing):
     id: Union[str, ProcedureId] = None
     procedure_code: Union[str, List[str]] = None
     procedure_source_value: str = None
-    age_at_observation: Optional[int] = None
+    age_at_event: Optional[float] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -681,8 +752,8 @@ class Procedure(Thing):
         if not isinstance(self.procedure_source_value, str):
             self.procedure_source_value = str(self.procedure_source_value)
 
-        if self.age_at_observation is not None and not isinstance(self.age_at_observation, int):
-            self.age_at_observation = int(self.age_at_observation)
+        if self.age_at_event is not None and not isinstance(self.age_at_event, float):
+            self.age_at_event = float(self.age_at_event)
 
         super().__post_init__(**kwargs)
 
@@ -834,35 +905,27 @@ class EnumRace(EnumDefinitionImpl):
     """
     american_indian_or_alaskan_native = PermissibleValue(
         text="american_indian_or_alaskan_native",
-        description="American Indian or Alaskan Native",
         meaning=CDC_RACE_ETH["1002-5"])
     asian = PermissibleValue(
         text="asian",
-        description="Asian",
         meaning=CDC_RACE_ETH["2028-9"])
     black_or_african_american = PermissibleValue(
         text="black_or_african_american",
-        description="Black or African American",
         meaning=CDC_RACE_ETH["2054-5"])
     native_hawaiian_or_pacific_islander = PermissibleValue(
         text="native_hawaiian_or_pacific_islander",
-        description="Native Hawaiian or Other Pacific Islander",
         meaning=CDC_RACE_ETH["2076-8"])
     white = PermissibleValue(
         text="white",
-        description="White",
         meaning=CDC_RACE_ETH["2106-3"])
     other_race = PermissibleValue(
         text="other_race",
-        description="Other Race",
         meaning=CDC_RACE_ETH["2131-1"])
     unknown = PermissibleValue(
         text="unknown",
-        description="unknown",
         meaning=HL7_NULL["UNK"])
     asked_but_unknown = PermissibleValue(
         text="asked_but_unknown",
-        description="asked but unknown",
         meaning=HL7_NULL["ASKU"])
 
     _defn = EnumDefinition(
@@ -1257,23 +1320,23 @@ slots.date_of_birth = Slot(uri=ANVIL['participant/date_of_birth'], name="date_of
 slots.date_of_birth_type = Slot(uri=ANVIL['participant/date_of_birth_type'], name="date_of_birth_type", curie=ANVIL.curie('participant/date_of_birth_type'),
                    model_uri=ANVIL.date_of_birth_type, domain=None, range=Optional[Union[str, "EnumDateOfBirthType"]])
 
-slots.phenotypic_sex = Slot(uri=ANVIL['participant/phenotypic_sex'], name="phenotypic_sex", curie=ANVIL.curie('participant/phenotypic_sex'),
-                   model_uri=ANVIL.phenotypic_sex, domain=None, range=Union[str, "EnumSex"])
+slots.sex = Slot(uri=ANVIL['participant/sex'], name="sex", curie=ANVIL.curie('participant/sex'),
+                   model_uri=ANVIL.sex, domain=None, range=Union[str, "EnumSex"])
 
-slots.phenotypic_sex_source_value = Slot(uri=ANVIL['participant/phenotypic_sex_source_value'], name="phenotypic_sex_source_value", curie=ANVIL.curie('participant/phenotypic_sex_source_value'),
-                   model_uri=ANVIL.phenotypic_sex_source_value, domain=None, range=Optional[str])
+slots.sex_display = Slot(uri=ANVIL['participant/sex_display'], name="sex_display", curie=ANVIL.curie('participant/sex_display'),
+                   model_uri=ANVIL.sex_display, domain=None, range=str)
 
 slots.race = Slot(uri=ANVIL['participant/race'], name="race", curie=ANVIL.curie('participant/race'),
-                   model_uri=ANVIL.race, domain=None, range=Union[str, "EnumRace"])
+                   model_uri=ANVIL.race, domain=None, range=Union[Union[str, "EnumRace"], List[Union[str, "EnumRace"]]])
 
-slots.race_source_value = Slot(uri=ANVIL['participant/race_source_value'], name="race_source_value", curie=ANVIL.curie('participant/race_source_value'),
-                   model_uri=ANVIL.race_source_value, domain=None, range=Optional[str])
+slots.race_display = Slot(uri=ANVIL['participant/race_display'], name="race_display", curie=ANVIL.curie('participant/race_display'),
+                   model_uri=ANVIL.race_display, domain=None, range=str)
 
 slots.ethnicity = Slot(uri=ANVIL['participant/ethnicity'], name="ethnicity", curie=ANVIL.curie('participant/ethnicity'),
                    model_uri=ANVIL.ethnicity, domain=None, range=Union[str, "EnumEthnicity"])
 
-slots.ethnicity_source_value = Slot(uri=ANVIL['participant/ethnicity_source_value'], name="ethnicity_source_value", curie=ANVIL.curie('participant/ethnicity_source_value'),
-                   model_uri=ANVIL.ethnicity_source_value, domain=None, range=Optional[str])
+slots.ethnicity_display = Slot(uri=ANVIL['participant/ethnicity_display'], name="ethnicity_display", curie=ANVIL.curie('participant/ethnicity_display'),
+                   model_uri=ANVIL.ethnicity_display, domain=None, range=str)
 
 slots.age_at_last_vital_status = Slot(uri=ANVIL['participant/age_at_last_vital_status'], name="age_at_last_vital_status", curie=ANVIL.curie('participant/age_at_last_vital_status'),
                    model_uri=ANVIL.age_at_last_vital_status, domain=None, range=Optional[int])
@@ -1286,6 +1349,9 @@ slots.has_sample = Slot(uri=ANVIL['participant/has_sample'], name="has_sample", 
 
 slots.has_assertion = Slot(uri=ANVIL['participant/has_assertion'], name="has_assertion", curie=ANVIL.curie('participant/has_assertion'),
                    model_uri=ANVIL.has_assertion, domain=None, range=Optional[Union[Dict[Union[str, SubjectAssertionId], Union[dict, SubjectAssertion]], List[Union[dict, SubjectAssertion]]]])
+
+slots.has_demographics = Slot(uri=ANVIL['participant/has_demographics'], name="has_demographics", curie=ANVIL.curie('participant/has_demographics'),
+                   model_uri=ANVIL.has_demographics, domain=None, range=Optional[Union[dict, Demographics]])
 
 slots.external_study_id = Slot(uri=ANVIL['study/external_study_id'], name="external_study_id", curie=ANVIL.curie('study/external_study_id'),
                    model_uri=ANVIL.external_study_id, domain=None, range=Optional[Union[str, List[str]]])
@@ -1302,20 +1368,41 @@ slots.principal_investigator = Slot(uri=ANVIL['study/principal_investigator'], n
 slots.study_title = Slot(uri=ANVIL['study/study_title'], name="study_title", curie=ANVIL.curie('study/study_title'),
                    model_uri=ANVIL.study_title, domain=None, range=str)
 
-slots.condition_source_value = Slot(uri=ANVIL['condition_assertion/condition_source_value'], name="condition_source_value", curie=ANVIL.curie('condition_assertion/condition_source_value'),
-                   model_uri=ANVIL.condition_source_value, domain=None, range=str)
-
-slots.condition_assertion = Slot(uri=ANVIL['condition_assertion/condition_assertion'], name="condition_assertion", curie=ANVIL.curie('condition_assertion/condition_assertion'),
-                   model_uri=ANVIL.condition_assertion, domain=None, range=Optional[Union[str, "EnumConditionAssertion"]])
+slots.assertion_type = Slot(uri=ANVIL['condition_assertion/assertion_type'], name="assertion_type", curie=ANVIL.curie('condition_assertion/assertion_type'),
+                   model_uri=ANVIL.assertion_type, domain=None, range=Optional[Union[str, "EnumAssertionType"]])
 
 slots.age_at_assertion = Slot(uri=ANVIL['condition_assertion/age_at_assertion'], name="age_at_assertion", curie=ANVIL.curie('condition_assertion/age_at_assertion'),
-                   model_uri=ANVIL.age_at_assertion, domain=None, range=Optional[int])
+                   model_uri=ANVIL.age_at_assertion, domain=None, range=Optional[float])
 
-slots.age_at_onset = Slot(uri=ANVIL['condition_assertion/age_at_onset'], name="age_at_onset", curie=ANVIL.curie('condition_assertion/age_at_onset'),
-                   model_uri=ANVIL.age_at_onset, domain=None, range=Optional[int])
+slots.age_at_event = Slot(uri=ANVIL['condition_assertion/age_at_event'], name="age_at_event", curie=ANVIL.curie('condition_assertion/age_at_event'),
+                   model_uri=ANVIL.age_at_event, domain=None, range=Optional[float])
 
 slots.age_at_resolution = Slot(uri=ANVIL['condition_assertion/age_at_resolution'], name="age_at_resolution", curie=ANVIL.curie('condition_assertion/age_at_resolution'),
-                   model_uri=ANVIL.age_at_resolution, domain=None, range=Optional[int])
+                   model_uri=ANVIL.age_at_resolution, domain=None, range=Optional[float])
+
+slots.source_data = Slot(uri=ANVIL['condition_assertion/source_data'], name="source_data", curie=ANVIL.curie('condition_assertion/source_data'),
+                   model_uri=ANVIL.source_data, domain=None, range=Optional[Union[Union[str, SourceDataId], List[Union[str, SourceDataId]]]])
+
+slots.code = Slot(uri=ANVIL['condition_assertion/code'], name="code", curie=ANVIL.curie('condition_assertion/code'),
+                   model_uri=ANVIL.code, domain=None, range=Optional[Union[str, URIorCURIE]])
+
+slots.display = Slot(uri=ANVIL['condition_assertion/display'], name="display", curie=ANVIL.curie('condition_assertion/display'),
+                   model_uri=ANVIL.display, domain=None, range=Optional[str])
+
+slots.value_code = Slot(uri=ANVIL['condition_assertion/value_code'], name="value_code", curie=ANVIL.curie('condition_assertion/value_code'),
+                   model_uri=ANVIL.value_code, domain=None, range=Optional[Union[str, URIorCURIE]])
+
+slots.value_display = Slot(uri=ANVIL['condition_assertion/value_display'], name="value_display", curie=ANVIL.curie('condition_assertion/value_display'),
+                   model_uri=ANVIL.value_display, domain=None, range=Optional[str])
+
+slots.value_number = Slot(uri=ANVIL['condition_assertion/value_number'], name="value_number", curie=ANVIL.curie('condition_assertion/value_number'),
+                   model_uri=ANVIL.value_number, domain=None, range=Optional[float])
+
+slots.value_units = Slot(uri=ANVIL['condition_assertion/value_units'], name="value_units", curie=ANVIL.curie('condition_assertion/value_units'),
+                   model_uri=ANVIL.value_units, domain=None, range=Optional[Union[str, URIorCURIE]])
+
+slots.value_units_display = Slot(uri=ANVIL['condition_assertion/value_units_display'], name="value_units_display", curie=ANVIL.curie('condition_assertion/value_units_display'),
+                   model_uri=ANVIL.value_units_display, domain=None, range=Optional[str])
 
 slots.data_access_type = Slot(uri=ANVIL['data-access-policy/data_access_type'], name="data_access_type", curie=ANVIL.curie('data-access-policy/data_access_type'),
                    model_uri=ANVIL.data_access_type, domain=None, range=Optional[Union[Union[str, "EnumAccessType"], List[Union[str, "EnumAccessType"]]]])
@@ -1410,9 +1497,6 @@ slots.procedure_code = Slot(uri=ANVIL['procedure/procedure_code'], name="procedu
 slots.procedure_source_value = Slot(uri=ANVIL['procedure/procedure_source_value'], name="procedure_source_value", curie=ANVIL.curie('procedure/procedure_source_value'),
                    model_uri=ANVIL.procedure_source_value, domain=None, range=str)
 
-slots.age_at_event = Slot(uri=ANVIL['procedure/age_at_event'], name="age_at_event", curie=ANVIL.curie('procedure/age_at_event'),
-                   model_uri=ANVIL.age_at_event, domain=None, range=Optional[int])
-
 slots.family_external_id = Slot(uri=ANVIL['family/family_external_id'], name="family_external_id", curie=ANVIL.curie('family/family_external_id'),
                    model_uri=ANVIL.family_external_id, domain=None, range=Optional[Union[str, List[str]]])
 
@@ -1439,39 +1523,3 @@ slots.other_family_member_id = Slot(uri=ANVIL['family-member/other_family_member
 
 slots.relationship_code = Slot(uri=ANVIL['family-member/relationship_code'], name="relationship_code", curie=ANVIL.curie('family-member/relationship_code'),
                    model_uri=ANVIL.relationship_code, domain=None, range=Optional[str])
-
-slots.subjectAssertion__assertion_type = Slot(uri=ANVIL['condition_assertion/assertion_type'], name="subjectAssertion__assertion_type", curie=ANVIL.curie('condition_assertion/assertion_type'),
-                   model_uri=ANVIL.subjectAssertion__assertion_type, domain=None, range=Optional[Union[str, "EnumAssertionType"]])
-
-slots.subjectAssertion__code = Slot(uri=ANVIL['condition_assertion/code'], name="subjectAssertion__code", curie=ANVIL.curie('condition_assertion/code'),
-                   model_uri=ANVIL.subjectAssertion__code, domain=None, range=Optional[Union[str, URIorCURIE]])
-
-slots.subjectAssertion__display = Slot(uri=ANVIL['condition_assertion/display'], name="subjectAssertion__display", curie=ANVIL.curie('condition_assertion/display'),
-                   model_uri=ANVIL.subjectAssertion__display, domain=None, range=Optional[str])
-
-slots.subjectAssertion__source_code = Slot(uri=ANVIL['condition_assertion/source_code'], name="subjectAssertion__source_code", curie=ANVIL.curie('condition_assertion/source_code'),
-                   model_uri=ANVIL.subjectAssertion__source_code, domain=None, range=Optional[Union[str, URIorCURIE]])
-
-slots.subjectAssertion__source_display = Slot(uri=ANVIL['condition_assertion/source_display'], name="subjectAssertion__source_display", curie=ANVIL.curie('condition_assertion/source_display'),
-                   model_uri=ANVIL.subjectAssertion__source_display, domain=None, range=Optional[str])
-
-slots.subjectAssertion__value_code = Slot(uri=ANVIL['condition_assertion/value_code'], name="subjectAssertion__value_code", curie=ANVIL.curie('condition_assertion/value_code'),
-                   model_uri=ANVIL.subjectAssertion__value_code, domain=None, range=Optional[Union[str, URIorCURIE]])
-
-slots.subjectAssertion__value_display = Slot(uri=ANVIL['condition_assertion/value_display'], name="subjectAssertion__value_display", curie=ANVIL.curie('condition_assertion/value_display'),
-                   model_uri=ANVIL.subjectAssertion__value_display, domain=None, range=Optional[str])
-
-slots.subjectAssertion__value_number = Slot(uri=ANVIL['condition_assertion/value_number'], name="subjectAssertion__value_number", curie=ANVIL.curie('condition_assertion/value_number'),
-                   model_uri=ANVIL.subjectAssertion__value_number, domain=None, range=Optional[float])
-
-slots.subjectAssertion__value_units = Slot(uri=ANVIL['condition_assertion/value_units'], name="subjectAssertion__value_units", curie=ANVIL.curie('condition_assertion/value_units'),
-                   model_uri=ANVIL.subjectAssertion__value_units, domain=None, range=Optional[Union[str, URIorCURIE]])
-
-slots.subjectAssertion__age_at_assertion = Slot(uri=ANVIL['condition_assertion/age_at_assertion'], name="subjectAssertion__age_at_assertion", curie=ANVIL.curie('condition_assertion/age_at_assertion'),
-                   model_uri=ANVIL.subjectAssertion__age_at_assertion, domain=None, range=Optional[float])
-
-slots.subjectAssertion__age_at_event = Slot(uri=ANVIL['condition_assertion/age_at_event'], name="subjectAssertion__age_at_event", curie=ANVIL.curie('condition_assertion/age_at_event'),
-                   model_uri=ANVIL.subjectAssertion__age_at_event, domain=None, range=Optional[float])
-
-slots.subjectAssertion__age_at_resolution = Slot(uri=ANVIL['condition_assertion/age_at_resolution'], name="subjectAssertion__age_at_resolution", curie=ANVIL.curie('condition_assertion/age_at_resolution'),
-                   model_uri=ANVIL.subjectAssertion__age_at_resolution, domain=None, range=Optional[float])

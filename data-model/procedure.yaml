@@ -18,7 +18,7 @@ classes:
     slots:
     - procedure_code
     - procedure_source_value 
-    - age_at_observation 
+    - age_at_event 
 slots:
   procedure_code: 
     description: |
@@ -33,9 +33,9 @@ slots:
     required: true 
     range: string 
     multivalued: false 
-  age_at_event: 
-    description: Age of participant when procedure was performed/recorded 
-    title: age_at_event 
-    required: false 
-    range: integer 
-    multivalued: false 
+#  age_at_event: 
+#    description: Age of participant when procedure was performed/recorded 
+#    title: age_at_event 
+#    required: false 
+#    range: integer 
+#    multivalued: false 

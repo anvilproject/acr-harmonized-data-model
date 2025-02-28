@@ -18,5 +18,4 @@ None &#8594;  <sub>1..1</sub> [EnumSubjectType](EnumSubjectType.md)
 
 ## Used by
 
- * [Participant](Participant.md)
  * [Subject](Subject.md)

@@ -69,7 +69,7 @@
                 <h1 id="class-subjectassertion">Class: SubjectAssertion</h1>
 <p>Assertion about a particular Subject. May include Conditions, Measurements, etc.</p>
 <p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/SubjectAssertion">anvil:SubjectAssertion</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject]++-%20has_assertion%200..*&gt;[SubjectAssertion&#124;assertion_type:EnumAssertionType%20%3F;code:uriorcurie%20%3F;display:string%20%3F;source_code:uriorcurie%20%3F;source_display:string%20%3F;value_code:uriorcurie%20%3F;value_display:string%20%3F;value_number:float%20%3F;value_units:uriorcurie%20%3F;age_at_assertion:float%20%3F;age_at_event:float%20%3F;age_at_resolution:float%20%3F;id(i):string],[AccessControlledRecord]^-[SubjectAssertion],[Subject],[AccessPolicy],[AccessControlledRecord]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject]++-%20has_assertion%200..*&gt;[SubjectAssertion&#124;assertion_type:EnumAssertionType%20%3F;code:uriorcurie%20%3F;display:string%20%3F;source_code:uriorcurie%20%3F;source_display:string%20%3F;value_code:uriorcurie%20%3F;value_display:string%20%3F;value_number:float%20%3F;value_units:uriorcurie%20%3F;age_at_assertion:float%20%3F;age_at_event:float%20%3F;age_at_resolution:float%20%3F;id(i):string],[AccessControlledRecord]^-[SubjectAssertion],[Subject],[AccessPolicy],[AccessControlledRecord]" /></a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[SourceData]&lt;source_data%200..*-%20[SubjectAssertion&#124;assertion_type:EnumAssertionType%20%3F;age_at_assertion:float%20%3F;age_at_event:float%20%3F;age_at_resolution:float%20%3F;code:uriorcurie%20%3F;display:string%20%3F;value_code:uriorcurie%20%3F;value_display:string%20%3F;value_number:float%20%3F;value_units:uriorcurie%20%3F;value_units_display:string%20%3F;id(i):string],[Subject]++-%20has_assertion%200..*&gt;[SubjectAssertion],[AccessControlledRecord]^-[SubjectAssertion],[Subject],[SourceData],[AccessPolicy],[AccessControlledRecord]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[SourceData]&lt;source_data%200..*-%20[SubjectAssertion&#124;assertion_type:EnumAssertionType%20%3F;age_at_assertion:float%20%3F;age_at_event:float%20%3F;age_at_resolution:float%20%3F;code:uriorcurie%20%3F;display:string%20%3F;value_code:uriorcurie%20%3F;value_display:string%20%3F;value_number:float%20%3F;value_units:uriorcurie%20%3F;value_units_display:string%20%3F;id(i):string],[Subject]++-%20has_assertion%200..*&gt;[SubjectAssertion],[AccessControlledRecord]^-[SubjectAssertion],[Subject],[SourceData],[AccessPolicy],[AccessControlledRecord]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../AccessControlledRecord/">AccessControlledRecord</a> - Element for which specific access control restrictions apply.</li>
@@ -81,64 +81,64 @@
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
-<li><a href="../subjectAssertion__assertion_type/">➞assertion_type</a>  <sub>0..1</sub><ul>
+<li><a href="../assertion_type/">assertion_type</a>  <sub>0..1</sub><ul>
 <li>Description: The semantic type of the resource, eg, Condition.</li>
 <li>Range: <a href="../EnumAssertionType/">EnumAssertionType</a></li>
 </ul>
 </li>
-<li><a href="../subjectAssertion__code/">➞code</a>  <sub>0..1</sub><ul>
-<li>Description: The structured term defining the meaning of the assertion.</li>
-<li>Range: <a href="../types/Uriorcurie/">Uriorcurie</a></li>
-</ul>
-</li>
-<li><a href="../subjectAssertion__display/">➞display</a>  <sub>0..1</sub><ul>
-<li>Description: The friendly display string of the coded term</li>
-<li>Range: <a href="../types/String/">String</a></li>
-</ul>
-</li>
-<li><a href="../subjectAssertion__source_code/">➞source_code</a>  <sub>0..1</sub><ul>
-<li>Description: The structured term defining the meaning of the assertion as provided by the source.</li>
-<li>Range: <a href="../types/Uriorcurie/">Uriorcurie</a></li>
-</ul>
-</li>
-<li><a href="../subjectAssertion__source_display/">➞source_display</a>  <sub>0..1</sub><ul>
-<li>Description: The friendly display string of the coded term as provided by the source.</li>
-<li>Range: <a href="../types/String/">String</a></li>
-</ul>
-</li>
-<li><a href="../subjectAssertion__value_code/">➞value_code</a>  <sub>0..1</sub><ul>
-<li>Description: The structured term defining the value of the assertion.</li>
-<li>Range: <a href="../types/Uriorcurie/">Uriorcurie</a></li>
-</ul>
-</li>
-<li><a href="../subjectAssertion__value_display/">➞value_display</a>  <sub>0..1</sub><ul>
-<li>Description: The friendly display string of the coded term for the value of the assertion.</li>
-<li>Range: <a href="../types/String/">String</a></li>
-</ul>
-</li>
-<li><a href="../subjectAssertion__value_number/">➞value_number</a>  <sub>0..1</sub><ul>
-<li>Description: The numeric value of the assertion.</li>
-<li>Range: <a href="../types/Float/">Float</a></li>
-</ul>
-</li>
-<li><a href="../subjectAssertion__value_units/">➞value_units</a>  <sub>0..1</sub><ul>
-<li>Description: The structured term defining the units of the value.</li>
-<li>Range: <a href="../types/Uriorcurie/">Uriorcurie</a></li>
-</ul>
-</li>
-<li><a href="../subjectAssertion__age_at_assertion/">➞age_at_assertion</a>  <sub>0..1</sub><ul>
+<li><a href="../age_at_assertion/">age_at_assertion</a>  <sub>0..1</sub><ul>
 <li>Description: The age in decimal years of the Subject when the assertion was made.</li>
 <li>Range: <a href="../types/Float/">Float</a></li>
 </ul>
 </li>
-<li><a href="../subjectAssertion__age_at_event/">➞age_at_event</a>  <sub>0..1</sub><ul>
+<li><a href="../age_at_event/">age_at_event</a>  <sub>0..1</sub><ul>
 <li>Description: The age in decimal years of the Subject at the time point which the assertion describes, | eg, age of onset or when a measurement was performed.</li>
 <li>Range: <a href="../types/Float/">Float</a></li>
 </ul>
 </li>
-<li><a href="../subjectAssertion__age_at_resolution/">➞age_at_resolution</a>  <sub>0..1</sub><ul>
+<li><a href="../age_at_resolution/">age_at_resolution</a>  <sub>0..1</sub><ul>
 <li>Description: The age in decimal years of the Subject when the asserted state was resolved.</li>
 <li>Range: <a href="../types/Float/">Float</a></li>
+</ul>
+</li>
+<li><a href="../code/">code</a>  <sub>0..1</sub><ul>
+<li>Description: The structured term defining the meaning of the assertion.</li>
+<li>Range: <a href="../types/Uriorcurie/">Uriorcurie</a></li>
+</ul>
+</li>
+<li><a href="../display/">display</a>  <sub>0..1</sub><ul>
+<li>Description: The friendly display string of the coded term</li>
+<li>Range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+<li><a href="../value_code/">value_code</a>  <sub>0..1</sub><ul>
+<li>Description: The structured term defining the value of the assertion.</li>
+<li>Range: <a href="../types/Uriorcurie/">Uriorcurie</a></li>
+</ul>
+</li>
+<li><a href="../value_display/">value_display</a>  <sub>0..1</sub><ul>
+<li>Description: The friendly display string of the coded term for the value of the assertion.</li>
+<li>Range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+<li><a href="../value_number/">value_number</a>  <sub>0..1</sub><ul>
+<li>Description: The numeric value of the assertion.</li>
+<li>Range: <a href="../types/Float/">Float</a></li>
+</ul>
+</li>
+<li><a href="../value_units/">value_units</a>  <sub>0..1</sub><ul>
+<li>Description: The structured term defining the units of the value.</li>
+<li>Range: <a href="../types/Uriorcurie/">Uriorcurie</a></li>
+</ul>
+</li>
+<li><a href="../value_units_display/">value_units_display</a>  <sub>0..1</sub><ul>
+<li>Description: The friendly display string of units of the value.</li>
+<li>Range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+<li><a href="../source_data/">source_data</a>  <sub>0..*</sub><ul>
+<li>Description: The sources from which this assertion was derived</li>
+<li>Range: <a href="../SourceData/">SourceData</a></li>
 </ul>
 </li>
 </ul>
