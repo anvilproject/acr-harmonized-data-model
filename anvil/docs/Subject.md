@@ -6,18 +6,11 @@ This entity is the subject about which data or references are recorded. | This i
 URI: [anvil:Subject](https://anvilproject.org/acr-harmonized-data-model/Subject)
 
 
-[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[SubjectAssertion],[SubjectAssertion]<has_assertion%200..*-++[Subject&#124;subject_type:EnumSubjectType;organism_type:string%20%3F;id(i):string],[Sample]<has_sample%200..*-++[Subject],[Subject]^-[Participant],[AccessControlledRecord]^-[Subject],[Sample],[Participant],[AccessPolicy],[AccessControlledRecord])](https://yuml.me/diagram/nofunky;dir:TB/class/[SubjectAssertion],[SubjectAssertion]<has_assertion%200..*-++[Subject&#124;subject_type:EnumSubjectType;organism_type:string%20%3F;id(i):string],[Sample]<has_sample%200..*-++[Subject],[Subject]^-[Participant],[AccessControlledRecord]^-[Subject],[Sample],[Participant],[AccessPolicy],[AccessControlledRecord])
+[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[SubjectAssertion],[Demographics]<has_demographics%200..1-++[Subject&#124;subject_type:EnumSubjectType;organism_type:string%20%3F;id(i):string],[SubjectAssertion]<has_assertion%200..*-++[Subject],[Sample]<has_sample%200..*-++[Subject],[AccessControlledRecord]^-[Subject],[Sample],[Demographics],[AccessPolicy],[AccessControlledRecord])](https://yuml.me/diagram/nofunky;dir:TB/class/[SubjectAssertion],[Demographics]<has_demographics%200..1-++[Subject&#124;subject_type:EnumSubjectType;organism_type:string%20%3F;id(i):string],[SubjectAssertion]<has_assertion%200..*-++[Subject],[Sample]<has_sample%200..*-++[Subject],[AccessControlledRecord]^-[Subject],[Sample],[Demographics],[AccessPolicy],[AccessControlledRecord])
 
 ## Parents
 
  *  is_a: [AccessControlledRecord](AccessControlledRecord.md) - Element for which specific access control restrictions apply.
-
-## Children
-
- * [Participant](Participant.md) - Basic participant demographics
-
-## Referenced by Class
-
 
 ## Attributes
 
@@ -36,6 +29,9 @@ URI: [anvil:Subject](https://anvilproject.org/acr-harmonized-data-model/Subject)
  * [has_assertion](has_assertion.md)  <sub>0..\*</sub>
      * Description: Which assertions are made about this Subject?
      * Range: [SubjectAssertion](SubjectAssertion.md)
+ * [has_demographics](has_demographics.md)  <sub>0..1</sub>
+     * Description: A demographic summary of the participant.
+     * Range: [Demographics](Demographics.md)
 
 ### Inherited from AccessControlledRecord:
 

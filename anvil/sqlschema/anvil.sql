@@ -16,25 +16,22 @@
 --     * Slot: quantity Description: The total quantity of the specimen
 --     * Slot: id Description: ID associated with a class
 --     * Slot: Subject_id Description: Autocreated FK slot
---     * Slot: Participant_id Description: Autocreated FK slot
 -- # Class: "Subject" Description: "This entity is the subject about which data or references are recorded. | This includes the idea of a human participant in a study, a cell line, an animal model, | or any other similar entity."
 --     * Slot: subject_type Description: Type of entity this record represents
 --     * Slot: organism_type Description: Organism Type Label
 --     * Slot: has_access_policy Description: Which access policy applies to this element?
 --     * Slot: id Description: ID associated with a class
--- # Class: "Participant" Description: "Basic participant demographics"
+--     * Slot: has_demographics_id Description: A demographic summary of the participant.
+-- # Class: "Demographics" Description: "Basic participant demographics summary"
 --     * Slot: date_of_birth Description: Date at which the individual was born. May be impacted by privacy rules described in date_of_birth_type.
 --     * Slot: date_of_birth_type Description: Privacy rule modification applied to date_of_birth.
---     * Slot: phenotypic_sex Description: Sex of the Participant
---     * Slot: phenotypic_sex_source_value Description: Original source value for phenotypic sex value
---     * Slot: race Description: Reported race defined by NIH Racial and Ethnic Categories and Definitions (NOT-OD-15-089)
---     * Slot: race_source_value Description: Race value as observed from the original source text
---     * Slot: ethnicity Description: Classification categories of human, taken from NIH, based on the social group a person belongs to, and either identifies with or is identified with by others, as a result of a complex of cultural, biological, geographical and other factors such as linguistic, dietary and religion traditions; ancestry, background, allegiance, or association; and physical characteristics traditionally associated with race.
---     * Slot: ethnicity_source_value Description: Ethnicity value as reported in the original source
---     * Slot: age_at_last_vital_status Description: Age at Last Vital Status
+--     * Slot: sex Description: Sex of the individual
+--     * Slot: sex_display Description: The friendly display string of the coded term for Sex
+--     * Slot: race_display Description: The friendly display string of the coded term(s) for Race
+--     * Slot: ethnicity Description: Reported ethnicity as defined by the 1997 OMB directives.
+--     * Slot: ethnicity_display Description: The friendly display string of the coded term for Ethnicity
+--     * Slot: age_at_last_vital_status Description: Age at last vital status in decimal years.
 --     * Slot: vital_status Description: Vital Status
---     * Slot: subject_type Description: Type of entity this record represents
---     * Slot: organism_type Description: Organism Type Label
 --     * Slot: has_access_policy Description: Which access policy applies to this element?
 --     * Slot: id Description: ID associated with a class
 -- # Class: "SubjectAssertion" Description: "Assertion about a particular Subject. May include Conditions, Measurements, etc."
@@ -52,7 +49,6 @@
 --     * Slot: has_access_policy Description: Which access policy applies to this element?
 --     * Slot: id Description: ID associated with a class
 --     * Slot: Subject_id Description: Autocreated FK slot
---     * Slot: Participant_id Description: Autocreated FK slot
 -- # Class: "SourceData" Description: "Submitted data about a particular Subject."
 --     * Slot: code Description: The structured term defining the meaning of the assertion.
 --     * Slot: display Description: The friendly display string of the coded term
@@ -117,6 +113,12 @@
 -- # Class: "Sample_processing" Description: ""
 --     * Slot: Sample_id Description: Autocreated FK slot
 --     * Slot: processing Description: Curied code associated processing that was applied to the Parent Sample or from the Biospecimen Collection that yielded this distinct sample
+-- # Class: "Demographics_race" Description: ""
+--     * Slot: Demographics_id Description: Autocreated FK slot
+--     * Slot: race Description: Reported race as defined by the 1997 OMB directives.
+-- # Class: "Demographics_source_data" Description: ""
+--     * Slot: Demographics_id Description: Autocreated FK slot
+--     * Slot: source_data_id Description: The sources from which this assertion was derived
 -- # Class: "SubjectAssertion_source_data" Description: ""
 --     * Slot: SubjectAssertion_id Description: Autocreated FK slot
 --     * Slot: source_data_id Description: The sources from which this assertion was derived
@@ -209,27 +211,16 @@ CREATE TABLE "AccessControlledRecord" (
 	PRIMARY KEY (id), 
 	FOREIGN KEY(has_access_policy) REFERENCES "AccessPolicy" (id)
 );
-CREATE TABLE "Subject" (
-	subject_type VARCHAR(15) NOT NULL, 
-	organism_type TEXT, 
-	has_access_policy TEXT, 
-	id TEXT NOT NULL, 
-	PRIMARY KEY (id), 
-	FOREIGN KEY(has_access_policy) REFERENCES "AccessPolicy" (id)
-);
-CREATE TABLE "Participant" (
+CREATE TABLE "Demographics" (
 	date_of_birth INTEGER, 
 	date_of_birth_type VARCHAR(11), 
-	phenotypic_sex VARCHAR(8) NOT NULL, 
-	phenotypic_sex_source_value TEXT, 
-	race VARCHAR(35) NOT NULL, 
-	race_source_value TEXT, 
+	sex VARCHAR(8) NOT NULL, 
+	sex_display TEXT NOT NULL, 
+	race_display TEXT NOT NULL, 
 	ethnicity VARCHAR(22) NOT NULL, 
-	ethnicity_source_value TEXT, 
+	ethnicity_display TEXT NOT NULL, 
 	age_at_last_vital_status INTEGER, 
 	vital_status VARCHAR(12), 
-	subject_type VARCHAR(15) NOT NULL, 
-	organism_type TEXT, 
 	has_access_policy TEXT, 
 	id TEXT NOT NULL, 
 	PRIMARY KEY (id), 
@@ -296,6 +287,29 @@ CREATE TABLE "Family_family_external_id" (
 	PRIMARY KEY ("Family_id", family_external_id), 
 	FOREIGN KEY("Family_id") REFERENCES "Family" (id)
 );
+CREATE TABLE "Subject" (
+	subject_type VARCHAR(15) NOT NULL, 
+	organism_type TEXT, 
+	has_access_policy TEXT, 
+	id TEXT NOT NULL, 
+	has_demographics_id TEXT, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(has_access_policy) REFERENCES "AccessPolicy" (id), 
+	FOREIGN KEY(has_demographics_id) REFERENCES "Demographics" (id)
+);
+CREATE TABLE "Demographics_race" (
+	"Demographics_id" TEXT, 
+	race VARCHAR(35) NOT NULL, 
+	PRIMARY KEY ("Demographics_id", race), 
+	FOREIGN KEY("Demographics_id") REFERENCES "Demographics" (id)
+);
+CREATE TABLE "Demographics_source_data" (
+	"Demographics_id" TEXT, 
+	source_data_id TEXT, 
+	PRIMARY KEY ("Demographics_id", source_data_id), 
+	FOREIGN KEY("Demographics_id") REFERENCES "Demographics" (id), 
+	FOREIGN KEY(source_data_id) REFERENCES "SourceData" (id)
+);
 CREATE TABLE "Sample" (
 	parent_sample_id TEXT, 
 	biospecimen_collection_id_fk TEXT NOT NULL, 
@@ -305,10 +319,8 @@ CREATE TABLE "Sample" (
 	quantity TEXT, 
 	id TEXT NOT NULL, 
 	"Subject_id" TEXT, 
-	"Participant_id" TEXT, 
 	PRIMARY KEY (id), 
-	FOREIGN KEY("Subject_id") REFERENCES "Subject" (id), 
-	FOREIGN KEY("Participant_id") REFERENCES "Participant" (id)
+	FOREIGN KEY("Subject_id") REFERENCES "Subject" (id)
 );
 CREATE TABLE "SubjectAssertion" (
 	assertion_type VARCHAR(18), 
@@ -325,11 +337,9 @@ CREATE TABLE "SubjectAssertion" (
 	has_access_policy TEXT, 
 	id TEXT NOT NULL, 
 	"Subject_id" TEXT, 
-	"Participant_id" TEXT, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY(has_access_policy) REFERENCES "AccessPolicy" (id), 
-	FOREIGN KEY("Subject_id") REFERENCES "Subject" (id), 
-	FOREIGN KEY("Participant_id") REFERENCES "Participant" (id)
+	FOREIGN KEY("Subject_id") REFERENCES "Subject" (id)
 );
 CREATE TABLE "Sample_processing" (
 	"Sample_id" TEXT, 

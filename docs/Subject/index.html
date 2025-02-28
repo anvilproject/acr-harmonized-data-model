@@ -69,16 +69,11 @@
                 <h1 id="class-subject">Class: Subject</h1>
 <p>This entity is the subject about which data or references are recorded. | This includes the idea of a human participant in a study, a cell line, an animal model, | or any other similar entity.</p>
 <p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/Subject">anvil:Subject</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[SubjectAssertion],[SubjectAssertion]&lt;has_assertion%200..*-++[Subject&#124;subject_type:EnumSubjectType;organism_type:string%20%3F;id(i):string],[Sample]&lt;has_sample%200..*-++[Subject],[Subject]^-[Participant],[AccessControlledRecord]^-[Subject],[Sample],[Participant],[AccessPolicy],[AccessControlledRecord]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[SubjectAssertion],[SubjectAssertion]&lt;has_assertion%200..*-++[Subject&#124;subject_type:EnumSubjectType;organism_type:string%20%3F;id(i):string],[Sample]&lt;has_sample%200..*-++[Subject],[Subject]^-[Participant],[AccessControlledRecord]^-[Subject],[Sample],[Participant],[AccessPolicy],[AccessControlledRecord]" /></a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[SubjectAssertion],[Demographics]&lt;has_demographics%200..1-++[Subject&#124;subject_type:EnumSubjectType;organism_type:string%20%3F;id(i):string],[SubjectAssertion]&lt;has_assertion%200..*-++[Subject],[Sample]&lt;has_sample%200..*-++[Subject],[AccessControlledRecord]^-[Subject],[Sample],[Demographics],[AccessPolicy],[AccessControlledRecord]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[SubjectAssertion],[Demographics]&lt;has_demographics%200..1-++[Subject&#124;subject_type:EnumSubjectType;organism_type:string%20%3F;id(i):string],[SubjectAssertion]&lt;has_assertion%200..*-++[Subject],[Sample]&lt;has_sample%200..*-++[Subject],[AccessControlledRecord]^-[Subject],[Sample],[Demographics],[AccessPolicy],[AccessControlledRecord]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../AccessControlledRecord/">AccessControlledRecord</a> - Element for which specific access control restrictions apply.</li>
 </ul>
-<h2 id="children">Children</h2>
-<ul>
-<li><a href="../Participant/">Participant</a> - Basic participant demographics</li>
-</ul>
-<h2 id="referenced-by-class">Referenced by Class</h2>
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
@@ -100,6 +95,11 @@
 <li><a href="../has_assertion/">has_assertion</a>  <sub>0..*</sub><ul>
 <li>Description: Which assertions are made about this Subject?</li>
 <li>Range: <a href="../SubjectAssertion/">SubjectAssertion</a></li>
+</ul>
+</li>
+<li><a href="../has_demographics/">has_demographics</a>  <sub>0..1</sub><ul>
+<li>Description: A demographic summary of the participant.</li>
+<li>Range: <a href="../Demographics/">Demographics</a></li>
 </ul>
 </li>
 </ul>

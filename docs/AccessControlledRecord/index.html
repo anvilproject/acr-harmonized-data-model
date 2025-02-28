@@ -69,13 +69,14 @@
                 <h1 id="class-accesscontrolledrecord">Class: AccessControlledRecord</h1>
 <p>Element for which specific access control restrictions apply.</p>
 <p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/AccessControlledRecord">anvil:AccessControlledRecord</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[SubjectAssertion],[Subject],[SourceData],[AccessPolicy],[AccessPolicy]&lt;has_access_policy%200..1-%20[AccessControlledRecord&#124;id(i):string],[AccessControlledRecord]^-[SubjectAssertion],[AccessControlledRecord]^-[Subject],[AccessControlledRecord]^-[SourceData],[Thing]^-[AccessControlledRecord]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[SubjectAssertion],[Subject],[SourceData],[AccessPolicy],[AccessPolicy]&lt;has_access_policy%200..1-%20[AccessControlledRecord&#124;id(i):string],[AccessControlledRecord]^-[SubjectAssertion],[AccessControlledRecord]^-[Subject],[AccessControlledRecord]^-[SourceData],[Thing]^-[AccessControlledRecord]" /></a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[SubjectAssertion],[Subject],[SourceData],[Demographics],[AccessPolicy],[AccessPolicy]&lt;has_access_policy%200..1-%20[AccessControlledRecord&#124;id(i):string],[AccessControlledRecord]^-[SubjectAssertion],[AccessControlledRecord]^-[Subject],[AccessControlledRecord]^-[SourceData],[AccessControlledRecord]^-[Demographics],[Thing]^-[AccessControlledRecord]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[SubjectAssertion],[Subject],[SourceData],[Demographics],[AccessPolicy],[AccessPolicy]&lt;has_access_policy%200..1-%20[AccessControlledRecord&#124;id(i):string],[AccessControlledRecord]^-[SubjectAssertion],[AccessControlledRecord]^-[Subject],[AccessControlledRecord]^-[SourceData],[AccessControlledRecord]^-[Demographics],[Thing]^-[AccessControlledRecord]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Thing/">Thing</a> - Highest Level Class</li>
 </ul>
 <h2 id="children">Children</h2>
 <ul>
+<li><a href="../Demographics/">Demographics</a> - Basic participant demographics summary</li>
 <li><a href="../SourceData/">SourceData</a> - Submitted data about a particular Subject.</li>
 <li><a href="../Subject/">Subject</a> - This entity is the subject about which data or references are recorded. | This includes the idea of a human participant in a study, a cell line, an animal model, | or any other similar entity.</li>
 <li><a href="../SubjectAssertion/">SubjectAssertion</a> - Assertion about a particular Subject. May include Conditions, Measurements, etc.</li>

@@ -165,6 +165,23 @@ type BiospecimenCollection
     laterality: EnumLaterality
   }
 
+type Demographics
+  {
+    id: String!
+    hasAccessPolicy: AccessPolicy
+    dateOfBirth: Integer
+    dateOfBirthType: EnumDateOfBirthType
+    sex: EnumSex!
+    sexDisplay: String!
+    race: [EnumRace]!
+    raceDisplay: String!
+    ethnicity: EnumEthnicity!
+    ethnicityDisplay: String!
+    ageAtLastVitalStatus: Integer
+    vitalStatus: EnumVitalStatus
+    sourceData: [SourceData]
+  }
+
 type Family
   {
     id: String!
@@ -192,26 +209,6 @@ type Measurement
     measurementValueCode: EnumMeasurementValueCode
     measurementSourceValue: String!
     ageAtObservation: Integer
-  }
-
-type Participant
-  {
-    id: String!
-    hasAccessPolicy: AccessPolicy
-    subjectType: EnumSubjectType!
-    organismType: String
-    hasSample: [Sample]
-    hasAssertion: [SubjectAssertion]
-    dateOfBirth: Integer
-    dateOfBirthType: EnumDateOfBirthType
-    phenotypicSex: EnumSex!
-    phenotypicSexSourceValue: String
-    race: EnumRace!
-    raceSourceValue: String
-    ethnicity: EnumEthnicity!
-    ethnicitySourceValue: String
-    ageAtLastVitalStatus: Integer
-    vitalStatus: EnumVitalStatus
   }
 
 type Procedure
@@ -265,6 +262,7 @@ type Subject
     organismType: String
     hasSample: [Sample]
     hasAssertion: [SubjectAssertion]
+    hasDemographics: Demographics
   }
 
 type SubjectAssertion

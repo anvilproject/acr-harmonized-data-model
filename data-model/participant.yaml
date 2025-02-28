@@ -38,21 +38,24 @@ classes:
       - organism_type
       - has_sample
       - has_assertion
-  Participant:
-    title: Participant
-    description: Basic participant demographics
-    is_a: Subject
+      - has_demographics
+#TODO: Rework this to include a generic "descriptor" parent class that could support non-human summaries
+  Demographics:
+    title: Demographics
+    description: Basic participant demographics summary
+    is_a: AccessControlledRecord
     slots:
       - date_of_birth
       - date_of_birth_type
-      - phenotypic_sex
-      - phenotypic_sex_source_value
+      - sex
+      - sex_display
       - race
-      - race_source_value
+      - race_display
       - ethnicity
-      - ethnicity_source_value
+      - ethnicity_display
       - age_at_last_vital_status 
       - vital_status
+      - source_data
 # TODO: Rework this to be a consent record on the Participant (if needed?)
 #  StudyParticipant: 
 #    title: StudyParticipant 
@@ -93,40 +96,44 @@ slots:
     required: false 
     multivalued: false 
     range: EnumDateOfBirthType 
-  phenotypic_sex: 
-    title: Phenotypic Sex
-    description: Sex of the Participant 
+  sex: 
+    title: Sex
+    description: Sex of the individual 
     range: EnumSex 
     required: true
-  phenotypic_sex_source_value:
-    title: Phenotypic Sex Source Value 
-    description: Original source value for phenotypic sex value 
+  sex_display:
+    title: Sex display string
+    description: The friendly display string of the coded term for Sex
     range: string 
+    required: true
   race: 
-    description: Reported race defined by NIH Racial and Ethnic Categories and Definitions (NOT-OD-15-089) 
+    description: Reported race as defined by the 1997 OMB directives.
     title: Race 
     range: EnumRace
     required: true 
-  race_source_value:
-    description: Race value as observed from the original source text
-    title: Race Source value
+    multivalued: true
+  race_display:
+    title: Race display string
+    description: The friendly display string of the coded term(s) for Race
     range: string 
-    required: false
+    required: true
   ethnicity: 
-    description: Classification categories of human, taken from NIH, based on the social group a person belongs to, and either identifies with or is identified with by others, as a result of a complex of cultural, biological, geographical and other factors such as linguistic, dietary and religion traditions; ancestry, background, allegiance, or association; and physical characteristics traditionally associated with race.  
     title: Ethnicity 
+    description: Reported ethnicity as defined by the 1997 OMB directives.
     range: EnumEthnicity
     required: true 
-  ethnicity_source_value:
-    description: Ethnicity value as reported in the original source
-    title: Ethnicity Source Value
+  ethnicity_display:
+    title: Ethnicity display string
+    description: The friendly display string of the coded term for Ethnicity
     range: string 
-    required: false
+    required: true
   age_at_last_vital_status: 
-    description: Age at Last Vital Status 
-    title: AgeAtLastVitalStatus 
+    title: Age at Last Vital Status  
+    description: Age at last vital status in decimal years.
     range: integer
-    required: false     
+    required: false
+    unit:
+      ucum_code: a     
   vital_status: 
     description: Vital Status 
     title: VitalStatus 
@@ -140,11 +147,18 @@ slots:
     multivalued: true
     inlined: true
   has_assertion: 
-    title: Has sample
+    title: Has assertion
     description: Which assertions are made about this Subject?
     required: false
     range: SubjectAssertion
     multivalued: true
+    inlined: true
+  has_demographics: 
+    title: Has demographics
+    description: A demographic summary of the participant.
+    required: false
+    range: Demographics
+    multivalued: false
     inlined: true
 enums:
   EnumDateOfBirthType:
@@ -192,28 +206,28 @@ enums:
     description: OMB Codes describing race.
     permissible_values:
       american_indian_or_alaskan_native:
-        description: American Indian or Alaskan Native
+        title: American Indian or Alaskan Native
         meaning: cdc_race_eth:1002-5
       asian: 
-        description: Asian
+        title: Asian
         meaning: cdc_race_eth:2028-9
       black_or_african_american:
-        description: Black or African American
+        title: Black or African American
         meaning: cdc_race_eth:2054-5
       native_hawaiian_or_pacific_islander:
-        description: Native Hawaiian or Other Pacific Islander
+        title: Native Hawaiian or Other Pacific Islander
         meaning: cdc_race_eth:2076-8
       white: 
-        description: White
+        title: White
         meaning: cdc_race_eth:2106-3
       other_race:
-        description: Other Race 
+        title: Other Race 
         meaning: cdc_race_eth:2131-1
       unknown:
-        description: unknown 
+        title: unknown 
         meaning: hl7_null:UNK
       asked_but_unknown:
-        description: asked but unknown
+        title: asked but unknown
         meaning: hl7_null:ASKU
   EnumEthnicity: 
     description: OMB Codes describing Hispanic or Latino ethnicity.

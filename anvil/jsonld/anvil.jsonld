@@ -425,43 +425,43 @@
       "permissible_values": [
         {
           "text": "american_indian_or_alaskan_native",
-          "description": "American Indian or Alaskan Native",
-          "meaning": "cdc_race_eth:1002-5"
+          "meaning": "cdc_race_eth:1002-5",
+          "title": "American Indian or Alaskan Native"
         },
         {
           "text": "asian",
-          "description": "Asian",
-          "meaning": "cdc_race_eth:2028-9"
+          "meaning": "cdc_race_eth:2028-9",
+          "title": "Asian"
         },
         {
           "text": "black_or_african_american",
-          "description": "Black or African American",
-          "meaning": "cdc_race_eth:2054-5"
+          "meaning": "cdc_race_eth:2054-5",
+          "title": "Black or African American"
         },
         {
           "text": "native_hawaiian_or_pacific_islander",
-          "description": "Native Hawaiian or Other Pacific Islander",
-          "meaning": "cdc_race_eth:2076-8"
+          "meaning": "cdc_race_eth:2076-8",
+          "title": "Native Hawaiian or Other Pacific Islander"
         },
         {
           "text": "white",
-          "description": "White",
-          "meaning": "cdc_race_eth:2106-3"
+          "meaning": "cdc_race_eth:2106-3",
+          "title": "White"
         },
         {
           "text": "other_race",
-          "description": "Other Race",
-          "meaning": "cdc_race_eth:2131-1"
+          "meaning": "cdc_race_eth:2131-1",
+          "title": "Other Race"
         },
         {
           "text": "unknown",
-          "description": "unknown",
-          "meaning": "hl7_null:UNK"
+          "meaning": "hl7_null:UNK",
+          "title": "unknown"
         },
         {
           "text": "asked_but_unknown",
-          "description": "asked but unknown",
-          "meaning": "hl7_null:ASKU"
+          "meaning": "hl7_null:ASKU",
+          "title": "asked but unknown"
         }
       ]
     },
@@ -967,9 +967,9 @@
       "title": "Date of Birth",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/participant",
       "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/date_of_birth",
-      "owner": "Participant",
+      "owner": "Demographics",
       "domain_of": [
-        "Participant"
+        "Demographics"
       ],
       "range": "integer",
       "@type": "SlotDefinition"
@@ -981,112 +981,120 @@
       "title": "Date of Birth Type",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/participant",
       "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/date_of_birth_type",
-      "owner": "Participant",
+      "owner": "Demographics",
       "domain_of": [
-        "Participant"
+        "Demographics"
       ],
       "range": "EnumDateOfBirthType",
       "@type": "SlotDefinition"
     },
     {
-      "name": "phenotypic_sex",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/phenotypic_sex",
-      "description": "Sex of the Participant",
-      "title": "Phenotypic Sex",
+      "name": "sex",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/sex",
+      "description": "Sex of the individual",
+      "title": "Sex",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/participant",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/phenotypic_sex",
-      "owner": "Participant",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/sex",
+      "owner": "Demographics",
       "domain_of": [
-        "Participant"
+        "Demographics"
       ],
       "range": "EnumSex",
       "required": true,
       "@type": "SlotDefinition"
     },
     {
-      "name": "phenotypic_sex_source_value",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/phenotypic_sex_source_value",
-      "description": "Original source value for phenotypic sex value",
-      "title": "Phenotypic Sex Source Value",
+      "name": "sex_display",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/sex_display",
+      "description": "The friendly display string of the coded term for Sex",
+      "title": "Sex display string",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/participant",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/phenotypic_sex_source_value",
-      "owner": "Participant",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/sex_display",
+      "owner": "Demographics",
       "domain_of": [
-        "Participant"
+        "Demographics"
       ],
       "range": "string",
+      "required": true,
       "@type": "SlotDefinition"
     },
     {
       "name": "race",
       "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/race",
-      "description": "Reported race defined by NIH Racial and Ethnic Categories and Definitions (NOT-OD-15-089)",
+      "description": "Reported race as defined by the 1997 OMB directives.",
       "title": "Race",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/participant",
       "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/race",
-      "owner": "Participant",
+      "owner": "Demographics",
       "domain_of": [
-        "Participant"
+        "Demographics"
       ],
       "range": "EnumRace",
       "required": true,
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
-      "name": "race_source_value",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/race_source_value",
-      "description": "Race value as observed from the original source text",
-      "title": "Race Source value",
+      "name": "race_display",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/race_display",
+      "description": "The friendly display string of the coded term(s) for Race",
+      "title": "Race display string",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/participant",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/race_source_value",
-      "owner": "Participant",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/race_display",
+      "owner": "Demographics",
       "domain_of": [
-        "Participant"
+        "Demographics"
       ],
       "range": "string",
+      "required": true,
       "@type": "SlotDefinition"
     },
     {
       "name": "ethnicity",
       "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/ethnicity",
-      "description": "Classification categories of human, taken from NIH, based on the social group a person belongs to, and either identifies with or is identified with by others, as a result of a complex of cultural, biological, geographical and other factors such as linguistic, dietary and religion traditions; ancestry, background, allegiance, or association; and physical characteristics traditionally associated with race.",
+      "description": "Reported ethnicity as defined by the 1997 OMB directives.",
       "title": "Ethnicity",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/participant",
       "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/ethnicity",
-      "owner": "Participant",
+      "owner": "Demographics",
       "domain_of": [
-        "Participant"
+        "Demographics"
       ],
       "range": "EnumEthnicity",
       "required": true,
       "@type": "SlotDefinition"
     },
     {
-      "name": "ethnicity_source_value",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/ethnicity_source_value",
-      "description": "Ethnicity value as reported in the original source",
-      "title": "Ethnicity Source Value",
+      "name": "ethnicity_display",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/ethnicity_display",
+      "description": "The friendly display string of the coded term for Ethnicity",
+      "title": "Ethnicity display string",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/participant",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/ethnicity_source_value",
-      "owner": "Participant",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/ethnicity_display",
+      "owner": "Demographics",
       "domain_of": [
-        "Participant"
+        "Demographics"
       ],
       "range": "string",
+      "required": true,
       "@type": "SlotDefinition"
     },
     {
       "name": "age_at_last_vital_status",
       "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/age_at_last_vital_status",
-      "description": "Age at Last Vital Status",
-      "title": "AgeAtLastVitalStatus",
+      "description": "Age at last vital status in decimal years.",
+      "title": "Age at Last Vital Status",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/participant",
       "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/age_at_last_vital_status",
-      "owner": "Participant",
+      "owner": "Demographics",
       "domain_of": [
-        "Participant"
+        "Demographics"
       ],
       "range": "integer",
+      "unit": {
+        "ucum_code": "a",
+        "@type": "UnitOfMeasure"
+      },
       "@type": "SlotDefinition"
     },
     {
@@ -1096,9 +1104,9 @@
       "title": "VitalStatus",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/participant",
       "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/vital_status",
-      "owner": "Participant",
+      "owner": "Demographics",
       "domain_of": [
-        "Participant"
+        "Demographics"
       ],
       "range": "EnumVitalStatus",
       "@type": "SlotDefinition"
@@ -1123,7 +1131,7 @@
       "name": "has_assertion",
       "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/has_assertion",
       "description": "Which assertions are made about this Subject?",
-      "title": "Has sample",
+      "title": "Has assertion",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/participant",
       "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/has_assertion",
       "owner": "Subject",
@@ -1132,6 +1140,21 @@
       ],
       "range": "SubjectAssertion",
       "multivalued": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "has_demographics",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/has_demographics",
+      "description": "A demographic summary of the participant.",
+      "title": "Has demographics",
+      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/participant",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/has_demographics",
+      "owner": "Subject",
+      "domain_of": [
+        "Subject"
+      ],
+      "range": "Demographics",
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -1282,6 +1305,7 @@
       "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/source_data",
       "owner": "SubjectAssertion",
       "domain_of": [
+        "Demographics",
         "SubjectAssertion"
       ],
       "range": "SourceData",
@@ -1980,39 +2004,37 @@
         "subject_type",
         "organism_type",
         "has_sample",
-        "has_assertion"
+        "has_assertion",
+        "has_demographics"
       ],
       "slot_usage": {},
       "class_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/Subject",
       "@type": "ClassDefinition"
     },
     {
-      "name": "Participant",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/Participant",
-      "description": "Basic participant demographics",
-      "title": "Participant",
+      "name": "Demographics",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/Demographics",
+      "description": "Basic participant demographics summary",
+      "title": "Demographics",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/participant",
-      "is_a": "Subject",
+      "is_a": "AccessControlledRecord",
       "slots": [
         "id",
         "has_access_policy",
-        "subject_type",
-        "organism_type",
-        "has_sample",
-        "has_assertion",
         "date_of_birth",
         "date_of_birth_type",
-        "phenotypic_sex",
-        "phenotypic_sex_source_value",
+        "sex",
+        "sex_display",
         "race",
-        "race_source_value",
+        "race_display",
         "ethnicity",
-        "ethnicity_source_value",
+        "ethnicity_display",
         "age_at_last_vital_status",
-        "vital_status"
+        "vital_status",
+        "source_data"
       ],
       "slot_usage": {},
-      "class_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/Participant",
+      "class_uri": "https://anvilproject.org/acr-harmonized-data-model/participant/Demographics",
       "@type": "ClassDefinition"
     },
     {
@@ -2239,7 +2261,7 @@
   "source_file": "anvil.yaml",
   "source_file_date": "2025-02-28T12:48:20",
   "source_file_size": 803,
-  "generation_date": "2025-02-28T13:16:15",
+  "generation_date": "2025-02-28T14:00:42",
   "@type": "SchemaDefinition",
   "@context": [
     "anvil/jsonld/anvil.context.jsonld",

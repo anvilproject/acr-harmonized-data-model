@@ -164,6 +164,93 @@
             "title": "BiospecimenCollection",
             "type": "object"
         },
+        "Demographics": {
+            "additionalProperties": false,
+            "description": "Basic participant demographics summary",
+            "properties": {
+                "age_at_last_vital_status": {
+                    "description": "Age at last vital status in decimal years.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "date_of_birth": {
+                    "description": "Date at which the individual was born. May be impacted by privacy rules described in date_of_birth_type.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "date_of_birth_type": {
+                    "$ref": "#/$defs/EnumDateOfBirthType",
+                    "description": "Privacy rule modification applied to date_of_birth."
+                },
+                "ethnicity": {
+                    "$ref": "#/$defs/EnumEthnicity",
+                    "description": "Reported ethnicity as defined by the 1997 OMB directives."
+                },
+                "ethnicity_display": {
+                    "description": "The friendly display string of the coded term for Ethnicity",
+                    "type": "string"
+                },
+                "has_access_policy": {
+                    "description": "Which access policy applies to this element?",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "ID associated with a class",
+                    "type": "string"
+                },
+                "race": {
+                    "description": "Reported race as defined by the 1997 OMB directives.",
+                    "items": {
+                        "$ref": "#/$defs/EnumRace"
+                    },
+                    "type": "array"
+                },
+                "race_display": {
+                    "description": "The friendly display string of the coded term(s) for Race",
+                    "type": "string"
+                },
+                "sex": {
+                    "$ref": "#/$defs/EnumSex",
+                    "description": "Sex of the individual"
+                },
+                "sex_display": {
+                    "description": "The friendly display string of the coded term for Sex",
+                    "type": "string"
+                },
+                "source_data": {
+                    "description": "The sources from which this assertion was derived",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "vital_status": {
+                    "$ref": "#/$defs/EnumVitalStatus",
+                    "description": "Vital Status"
+                }
+            },
+            "required": [
+                "sex",
+                "sex_display",
+                "race",
+                "race_display",
+                "ethnicity",
+                "ethnicity_display",
+                "id"
+            ],
+            "title": "Demographics",
+            "type": "object"
+        },
         "EnumAccessCode": {
             "description": "Type of research use case allowed",
             "enum": [
@@ -492,125 +579,6 @@
             "title": "Measurement",
             "type": "object"
         },
-        "Participant": {
-            "additionalProperties": false,
-            "description": "Basic participant demographics",
-            "properties": {
-                "age_at_last_vital_status": {
-                    "description": "Age at Last Vital Status",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
-                },
-                "date_of_birth": {
-                    "description": "Date at which the individual was born. May be impacted by privacy rules described in date_of_birth_type.",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
-                },
-                "date_of_birth_type": {
-                    "$ref": "#/$defs/EnumDateOfBirthType",
-                    "description": "Privacy rule modification applied to date_of_birth."
-                },
-                "ethnicity": {
-                    "$ref": "#/$defs/EnumEthnicity",
-                    "description": "Classification categories of human, taken from NIH, based on the social group a person belongs to, and either identifies with or is identified with by others, as a result of a complex of cultural, biological, geographical and other factors such as linguistic, dietary and religion traditions; ancestry, background, allegiance, or association; and physical characteristics traditionally associated with race."
-                },
-                "ethnicity_source_value": {
-                    "description": "Ethnicity value as reported in the original source",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "has_access_policy": {
-                    "description": "Which access policy applies to this element?",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "has_assertion": {
-                    "additionalProperties": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/SubjectAssertion__identifier_optional"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ]
-                    },
-                    "description": "Which assertions are made about this Subject?",
-                    "type": [
-                        "object",
-                        "null"
-                    ]
-                },
-                "has_sample": {
-                    "additionalProperties": {
-                        "$ref": "#/$defs/Sample__identifier_optional"
-                    },
-                    "description": "Which samples were collected or processed for this Subject?",
-                    "type": [
-                        "object",
-                        "null"
-                    ]
-                },
-                "id": {
-                    "description": "ID associated with a class",
-                    "type": "string"
-                },
-                "organism_type": {
-                    "description": "Organism Type Label",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "phenotypic_sex": {
-                    "$ref": "#/$defs/EnumSex",
-                    "description": "Sex of the Participant"
-                },
-                "phenotypic_sex_source_value": {
-                    "description": "Original source value for phenotypic sex value",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "race": {
-                    "$ref": "#/$defs/EnumRace",
-                    "description": "Reported race defined by NIH Racial and Ethnic Categories and Definitions (NOT-OD-15-089)"
-                },
-                "race_source_value": {
-                    "description": "Race value as observed from the original source text",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "subject_type": {
-                    "$ref": "#/$defs/EnumSubjectType",
-                    "description": "Type of entity this record represents"
-                },
-                "vital_status": {
-                    "$ref": "#/$defs/EnumVitalStatus",
-                    "description": "Vital Status"
-                }
-            },
-            "required": [
-                "phenotypic_sex",
-                "race",
-                "ethnicity",
-                "subject_type",
-                "id"
-            ],
-            "title": "Participant",
-            "type": "object"
-        },
         "Procedure": {
             "additionalProperties": false,
             "description": "Procedures",
@@ -920,6 +888,17 @@
                         "object",
                         "null"
                     ]
+                },
+                "has_demographics": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Demographics"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "A demographic summary of the participant."
                 },
                 "has_sample": {
                     "additionalProperties": {

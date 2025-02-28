@@ -18,4 +18,5 @@ None &#8594;  <sub>0..\*</sub> [SourceData](SourceData.md)
 
 ## Used by
 
+ * [Demographics](Demographics.md)
  * [SubjectAssertion](SubjectAssertion.md)

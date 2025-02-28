@@ -38,6 +38,23 @@ message BiospecimenCollection
   enumSpatialQualifiers spatialQualifier = 0
   enumLaterality laterality = 0
  }
+// Basic participant demographics summary
+message Demographics
+ {
+  string id = 0
+  accessPolicy hasAccessPolicy = 0
+  integer dateOfBirth = 0
+  enumDateOfBirthType dateOfBirthType = 0
+  enumSex sex = 0
+  string sexDisplay = 0
+ repeated  enumRace race = 0
+  string raceDisplay = 0
+  enumEthnicity ethnicity = 0
+  string ethnicityDisplay = 0
+  integer ageAtLastVitalStatus = 0
+  enumVitalStatus vitalStatus = 0
+ repeated  sourceData sourceData = 0
+ }
 // Family
 message Family
  {
@@ -66,26 +83,6 @@ message Measurement
   enumMeasurementValueCode measurementValueCode = 0
   string measurementSourceValue = 0
   integer ageAtObservation = 0
- }
-// Basic participant demographics
-message Participant
- {
-  string id = 0
-  accessPolicy hasAccessPolicy = 0
-  enumSubjectType subjectType = 0
-  string organismType = 0
- repeated  sample hasSample = 0
- repeated  subjectAssertion hasAssertion = 0
-  integer dateOfBirth = 0
-  enumDateOfBirthType dateOfBirthType = 0
-  enumSex phenotypicSex = 0
-  string phenotypicSexSourceValue = 0
-  enumRace race = 0
-  string raceSourceValue = 0
-  enumEthnicity ethnicity = 0
-  string ethnicitySourceValue = 0
-  integer ageAtLastVitalStatus = 0
-  enumVitalStatus vitalStatus = 0
  }
 // Procedures
 message Procedure
@@ -139,6 +136,7 @@ message Subject
   string organismType = 0
  repeated  sample hasSample = 0
  repeated  subjectAssertion hasAssertion = 0
+  demographics hasDemographics = 0
  }
 // Assertion about a particular Subject. May include Conditions, Measurements, etc.
 message SubjectAssertion

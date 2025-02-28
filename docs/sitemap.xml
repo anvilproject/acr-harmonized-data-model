@@ -25,6 +25,10 @@
          <lastmod>2025-02-28</lastmod>
     </url>
     <url>
+         <loc>https://anvilproject.github.io/acr-harmonized-data-model/Demographics/</loc>
+         <lastmod>2025-02-28</lastmod>
+    </url>
+    <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/EnumAccessCode/</loc>
          <lastmod>2025-02-28</lastmod>
     </url>
@@ -317,6 +321,10 @@
          <lastmod>2025-02-28</lastmod>
     </url>
     <url>
+         <loc>https://anvilproject.github.io/acr-harmonized-data-model/ethnicity_display/</loc>
+         <lastmod>2025-02-28</lastmod>
+    </url>
+    <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/ethnicity_source_value/</loc>
          <lastmod>2025-02-28</lastmod>
     </url>
@@ -366,6 +374,10 @@
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/has_assertion/</loc>
+         <lastmod>2025-02-28</lastmod>
+    </url>
+    <url>
+         <loc>https://anvilproject.github.io/acr-harmonized-data-model/has_demographics/</loc>
          <lastmod>2025-02-28</lastmod>
     </url>
     <url>
@@ -465,6 +477,10 @@
          <lastmod>2025-02-28</lastmod>
     </url>
     <url>
+         <loc>https://anvilproject.github.io/acr-harmonized-data-model/race_display/</loc>
+         <lastmod>2025-02-28</lastmod>
+    </url>
+    <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/race_source_value/</loc>
          <lastmod>2025-02-28</lastmod>
     </url>
@@ -502,6 +518,14 @@
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/sample_volume_unit/</loc>
+         <lastmod>2025-02-28</lastmod>
+    </url>
+    <url>
+         <loc>https://anvilproject.github.io/acr-harmonized-data-model/sex/</loc>
+         <lastmod>2025-02-28</lastmod>
+    </url>
+    <url>
+         <loc>https://anvilproject.github.io/acr-harmonized-data-model/sex_display/</loc>
          <lastmod>2025-02-28</lastmod>
     </url>
     <url>
