@@ -2,646 +2,686 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/AccessControlledRecord/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/AccessPolicy/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/Aliquot/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/BiospecimenCollection/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/ConditionAssertion/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/DataAccessType/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/EnumAccessCode/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/EnumAccessType/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/EnumAssertionType/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/EnumAvailabilityStatus/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/EnumConditionAssertion/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/EnumConditionCode/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/EnumConditionType/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/EnumConsanguinityAssertion/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/EnumDateOfBirthType/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/EnumDonorType/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/EnumEthnicity/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/EnumFamilyType/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/EnumLaterality/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/EnumMeasurementValueCode/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/EnumProcedureDetail/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/EnumRace/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/EnumSampleCollectionMethod/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/EnumSex/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/EnumSite/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/EnumSpatialQualifiers/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/EnumSubjectType/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/EnumVitalStatus/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/Family/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/FamilyMember/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/Measurement/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/Participant/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/Procedure/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/ResearchAccessPolicy/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/Sample/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
+    </url>
+    <url>
+         <loc>https://anvilproject.github.io/acr-harmonized-data-model/SourceData/</loc>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/Study/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/StudyParticipant/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/Subject/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/SubjectAssertion/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/Thing/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/access_policy_code/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/access_policy_id/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/age_at_assertion/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/age_at_collection/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/age_at_event/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/age_at_last_vital_status/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/age_at_observation/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/age_at_onset/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/age_at_resolution/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/aliquot_id/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/anvil/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
+    </url>
+    <url>
+         <loc>https://anvilproject.github.io/acr-harmonized-data-model/assertion_type/</loc>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/availablity_status/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/biospecimen_collection_id/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/biospecimen_collection_id_fk/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
+    </url>
+    <url>
+         <loc>https://anvilproject.github.io/acr-harmonized-data-model/code/</loc>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/condition_assertion/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/condition_code/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/condition_source_value/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/condition_type/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/consanguinity/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/data_access_type/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/data_access_type_id/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/date_of_birth/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/date_of_birth_type/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/description/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/disease_limitation/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/disease_use_limitation/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
+    </url>
+    <url>
+         <loc>https://anvilproject.github.io/acr-harmonized-data-model/display/</loc>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/donor_type/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/enum_access_code/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/enum_access_type/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/enum_donor_type/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/enum_ethnicity/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/enum_race/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/enum_sex/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/enum_vital_status/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/ethnicity/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/ethnicity_source_value/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/external_id/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/external_study_id/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/family_description/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/family_external_id/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/family_id/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/family_id_fk/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/family_member_id/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/family_study_focus/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/family_type/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/funding_source/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/has_access_policy/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/has_assertion/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/has_sample/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/id/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/in_study/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/laterality/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/measurement_code/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/measurement_source_value/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/measurement_unit/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/measurement_value_code/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/method/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/organism_type/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/other_family_member_id/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/parent_sample_id/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/parent_study_id/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/participant_external_id/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/participant_id/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/phenotypic_sex/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/phenotypic_sex_source_value/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/principal_investigator/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/procedure_code/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/procedure_detail/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/procedure_source_value/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/processing/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/quantity/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/race/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/race_source_value/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/relationship_code/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/sample_availability_status/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/sample_concentration/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/sample_concentration_unit/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/sample_id/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/sample_id_fk/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/sample_type/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/sample_volume/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/sample_volume_unit/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/site/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
+    </url>
+    <url>
+         <loc>https://anvilproject.github.io/acr-harmonized-data-model/source_data/</loc>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/spatial_qualifier/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/storage_method/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/study_id/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/study_title/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/subjectAssertion__age_at_assertion/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/subjectAssertion__age_at_event/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/subjectAssertion__age_at_resolution/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/subjectAssertion__assertion_type/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/subjectAssertion__code/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/subjectAssertion__display/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/subjectAssertion__source_code/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/subjectAssertion__source_display/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/subjectAssertion__value_code/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/subjectAssertion__value_display/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/subjectAssertion__value_number/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/subjectAssertion__value_units/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/subject_type/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
+    </url>
+    <url>
+         <loc>https://anvilproject.github.io/acr-harmonized-data-model/value_code/</loc>
+         <lastmod>2025-02-28</lastmod>
+    </url>
+    <url>
+         <loc>https://anvilproject.github.io/acr-harmonized-data-model/value_display/</loc>
+         <lastmod>2025-02-28</lastmod>
+    </url>
+    <url>
+         <loc>https://anvilproject.github.io/acr-harmonized-data-model/value_number/</loc>
+         <lastmod>2025-02-28</lastmod>
+    </url>
+    <url>
+         <loc>https://anvilproject.github.io/acr-harmonized-data-model/value_units/</loc>
+         <lastmod>2025-02-28</lastmod>
+    </url>
+    <url>
+         <loc>https://anvilproject.github.io/acr-harmonized-data-model/value_units_display/</loc>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/vital_status/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/website/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/types/Boolean/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/types/Curie/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/types/Date/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/types/DateOrDatetime/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/types/Datetime/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/types/Decimal/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/types/Double/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/types/Float/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/types/Integer/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/types/Jsonpath/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/types/Jsonpointer/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/types/Ncname/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/types/Nodeidentifier/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/types/Objectidentifier/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/types/Sparqlpath/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/types/String/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/types/Time/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/types/Uri/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/types/Uriorcurie/</loc>
-         <lastmod>2025-02-27</lastmod>
+         <lastmod>2025-02-28</lastmod>
     </url>
 </urlset>

@@ -93,7 +93,7 @@ message Procedure
   string id = 0
  repeated  string procedureCode = 0
   string procedureSourceValue = 0
-  integer ageAtObservation = 0
+  float ageAtEvent = 0
  }
 // Biospecimen data
 message Sample
@@ -106,6 +106,19 @@ message Sample
   enumAvailabilityStatus availablityStatus = 0
   string storageMethod = 0
   string quantity = 0
+ }
+// Submitted data about a particular Subject.
+message SourceData
+ {
+  string id = 0
+  accessPolicy hasAccessPolicy = 0
+  uriorcurie code = 0
+  string display = 0
+  uriorcurie valueCode = 0
+  string valueDisplay = 0
+  float valueNumber = 0
+  uriorcurie valueUnits = 0
+  string valueUnitsDisplay = 0
  }
 // Study Meta Data
 message Study
@@ -133,17 +146,17 @@ message SubjectAssertion
   string id = 0
   accessPolicy hasAccessPolicy = 0
   enumAssertionType assertionType = 0
+  float ageAtAssertion = 0
+  float ageAtEvent = 0
+  float ageAtResolution = 0
   uriorcurie code = 0
   string display = 0
-  uriorcurie sourceCode = 0
-  string sourceDisplay = 0
   uriorcurie valueCode = 0
   string valueDisplay = 0
   float valueNumber = 0
   uriorcurie valueUnits = 0
-  float ageAtAssertion = 0
-  float ageAtEvent = 0
-  float ageAtResolution = 0
+  string valueUnitsDisplay = 0
+ repeated  sourceData sourceData = 0
  }
 // Highest Level Class
 message Thing

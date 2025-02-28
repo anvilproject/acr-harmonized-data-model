@@ -1,14 +1,14 @@
 
 # Slot: age_at_event
 
-Age of participant when procedure was performed/recorded
+The age in decimal years of the Subject at the time point which the assertion describes, | eg, age of onset or when a measurement was performed.
 
 URI: [anvil:age_at_event](https://anvilproject.org/acr-harmonized-data-model/age_at_event)
 
 
 ## Domain and Range
 
-None &#8594;  <sub>0..1</sub> [Integer](types/Integer.md)
+None &#8594;  <sub>0..1</sub> [Float](types/Float.md)
 
 ## Parents
 
@@ -18,3 +18,5 @@ None &#8594;  <sub>0..1</sub> [Integer](types/Integer.md)
 
 ## Used by
 
+ * [Procedure](Procedure.md)
+ * [SubjectAssertion](SubjectAssertion.md)

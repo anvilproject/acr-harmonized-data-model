@@ -39,21 +39,30 @@
 --     * Slot: id Description: ID associated with a class
 -- # Class: "SubjectAssertion" Description: "Assertion about a particular Subject. May include Conditions, Measurements, etc."
 --     * Slot: assertion_type Description: The semantic type of the resource, eg, Condition.
+--     * Slot: age_at_assertion Description: The age in decimal years of the Subject when the assertion was made.
+--     * Slot: age_at_event Description: The age in decimal years of the Subject at the time point which the assertion describes, | eg, age of onset or when a measurement was performed.
+--     * Slot: age_at_resolution Description: The age in decimal years of the Subject when the asserted state was resolved.
 --     * Slot: code Description: The structured term defining the meaning of the assertion.
 --     * Slot: display Description: The friendly display string of the coded term
---     * Slot: source_code Description: The structured term defining the meaning of the assertion as provided by the source.
---     * Slot: source_display Description: The friendly display string of the coded term as provided by the source.
 --     * Slot: value_code Description: The structured term defining the value of the assertion.
 --     * Slot: value_display Description: The friendly display string of the coded term for the value of the assertion.
 --     * Slot: value_number Description: The numeric value of the assertion.
 --     * Slot: value_units Description: The structured term defining the units of the value.
---     * Slot: age_at_assertion Description: The age in decimal years of the Subject when the assertion was made.
---     * Slot: age_at_event Description: The age in decimal years of the Subject at the time point which the assertion describes, | eg, age of onset or when a measurement was performed.
---     * Slot: age_at_resolution Description: The age in decimal years of the Subject when the asserted state was resolved.
+--     * Slot: value_units_display Description: The friendly display string of units of the value.
 --     * Slot: has_access_policy Description: Which access policy applies to this element?
 --     * Slot: id Description: ID associated with a class
 --     * Slot: Subject_id Description: Autocreated FK slot
 --     * Slot: Participant_id Description: Autocreated FK slot
+-- # Class: "SourceData" Description: "Submitted data about a particular Subject."
+--     * Slot: code Description: The structured term defining the meaning of the assertion.
+--     * Slot: display Description: The friendly display string of the coded term
+--     * Slot: value_code Description: The structured term defining the value of the assertion.
+--     * Slot: value_display Description: The friendly display string of the coded term for the value of the assertion.
+--     * Slot: value_number Description: The numeric value of the assertion.
+--     * Slot: value_units Description: The structured term defining the units of the value.
+--     * Slot: value_units_display Description: The friendly display string of units of the value.
+--     * Slot: has_access_policy Description: Which access policy applies to this element?
+--     * Slot: id Description: ID associated with a class
 -- # Class: "AccessPolicy" Description: "Describes the access required for a given element of data."
 --     * Slot: disease_limitation Description: Disease Use Limitations
 --     * Slot: description Description: Description
@@ -82,7 +91,7 @@
 --     * Slot: id Description: ID associated with a class
 -- # Class: "Procedure" Description: "Procedures"
 --     * Slot: procedure_source_value Description: Original procedure text
---     * Slot: age_at_observation Description: Age of participant when measurement was taken/recorded
+--     * Slot: age_at_event Description: The age in decimal years of the Subject at the time point which the assertion describes, | eg, age of onset or when a measurement was performed.
 --     * Slot: id Description: ID associated with a class
 -- # Class: "Family" Description: "Family"
 --     * Slot: family_type Description: Describes the 'type' of study family, eg, trio.
@@ -108,6 +117,9 @@
 -- # Class: "Sample_processing" Description: ""
 --     * Slot: Sample_id Description: Autocreated FK slot
 --     * Slot: processing Description: Curied code associated processing that was applied to the Parent Sample or from the Biospecimen Collection that yielded this distinct sample
+-- # Class: "SubjectAssertion_source_data" Description: ""
+--     * Slot: SubjectAssertion_id Description: Autocreated FK slot
+--     * Slot: source_data_id Description: The sources from which this assertion was derived
 -- # Class: "AccessPolicy_data_access_type" Description: ""
 --     * Slot: AccessPolicy_id Description: Autocreated FK slot
 --     * Slot: data_access_type Description: Data Access Type
@@ -171,7 +183,7 @@ CREATE TABLE "Measurement" (
 );
 CREATE TABLE "Procedure" (
 	procedure_source_value TEXT NOT NULL, 
-	age_at_observation INTEGER, 
+	age_at_event FLOAT, 
 	id TEXT NOT NULL, 
 	PRIMARY KEY (id)
 );
@@ -218,6 +230,19 @@ CREATE TABLE "Participant" (
 	vital_status VARCHAR(12), 
 	subject_type VARCHAR(15) NOT NULL, 
 	organism_type TEXT, 
+	has_access_policy TEXT, 
+	id TEXT NOT NULL, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(has_access_policy) REFERENCES "AccessPolicy" (id)
+);
+CREATE TABLE "SourceData" (
+	code TEXT, 
+	display TEXT, 
+	value_code TEXT, 
+	value_display TEXT, 
+	value_number FLOAT, 
+	value_units TEXT, 
+	value_units_display TEXT, 
 	has_access_policy TEXT, 
 	id TEXT NOT NULL, 
 	PRIMARY KEY (id), 
@@ -287,17 +312,16 @@ CREATE TABLE "Sample" (
 );
 CREATE TABLE "SubjectAssertion" (
 	assertion_type VARCHAR(18), 
+	age_at_assertion FLOAT, 
+	age_at_event FLOAT, 
+	age_at_resolution FLOAT, 
 	code TEXT, 
 	display TEXT, 
-	source_code TEXT, 
-	source_display TEXT, 
 	value_code TEXT, 
 	value_display TEXT, 
 	value_number FLOAT, 
 	value_units TEXT, 
-	age_at_assertion FLOAT, 
-	age_at_event FLOAT, 
-	age_at_resolution FLOAT, 
+	value_units_display TEXT, 
 	has_access_policy TEXT, 
 	id TEXT NOT NULL, 
 	"Subject_id" TEXT, 
@@ -312,4 +336,11 @@ CREATE TABLE "Sample_processing" (
 	processing TEXT, 
 	PRIMARY KEY ("Sample_id", processing), 
 	FOREIGN KEY("Sample_id") REFERENCES "Sample" (id)
+);
+CREATE TABLE "SubjectAssertion_source_data" (
+	"SubjectAssertion_id" TEXT, 
+	source_data_id TEXT, 
+	PRIMARY KEY ("SubjectAssertion_id", source_data_id), 
+	FOREIGN KEY("SubjectAssertion_id") REFERENCES "SubjectAssertion" (id), 
+	FOREIGN KEY(source_data_id) REFERENCES "SourceData" (id)
 );

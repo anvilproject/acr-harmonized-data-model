@@ -69,7 +69,7 @@
                 <h1 id="class-procedure">Class: Procedure</h1>
 <p>Procedures</p>
 <p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/Procedure">anvil:Procedure</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[Procedure&#124;procedure_code:string%20%2B;procedure_source_value:string;age_at_observation:integer%20%3F;id(i):string]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[Procedure&#124;procedure_code:string%20%2B;procedure_source_value:string;age_at_observation:integer%20%3F;id(i):string]" /></a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[Procedure&#124;procedure_code:string%20%2B;procedure_source_value:string;age_at_event:float%20%3F;id(i):string]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Thing]^-[Procedure&#124;procedure_code:string%20%2B;procedure_source_value:string;age_at_event:float%20%3F;id(i):string]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Thing/">Thing</a> - Highest Level Class</li>
@@ -88,9 +88,9 @@
 <li><a href="../procedure_source_value/">procedure_source_value</a>  <sub>1..1</sub></li>
 <li>Description: Original procedure text</li>
 <li>Range: <a href="../types/String/">String</a></li>
-<li><a href="../age_at_observation/">age_at_observation</a>  <sub>0..1</sub></li>
-<li>Description: Age of participant when measurement was taken/recorded</li>
-<li>Range: <a href="../types/Integer/">Integer</a></li>
+<li><a href="../age_at_event/">age_at_event</a>  <sub>0..1</sub></li>
+<li>Description: The age in decimal years of the Subject at the time point which the assertion describes, | eg, age of onset or when a measurement was performed.</li>
+<li>Range: <a href="../types/Float/">Float</a></li>
 </ul>
 </li>
 </ul>

@@ -53,7 +53,8 @@ linkml:Sparqlpath xsd:string
           ) ;
           rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/AccessControlledRecord> ]
        )
-    } OR @<https://anvilproject.org/acr-harmonized-data-model/participant/Subject> OR
+    } OR @<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/SourceData> OR
+    @<https://anvilproject.org/acr-harmonized-data-model/participant/Subject> OR
     @<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/SubjectAssertion>
 )
 
@@ -214,7 +215,7 @@ linkml:Sparqlpath xsd:string
           rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/Thing> ] ? ;
           <https://anvilproject.org/acr-harmonized-data-model/procedure/procedure_code> @linkml:String + ;
           <https://anvilproject.org/acr-harmonized-data-model/procedure/procedure_source_value> @linkml:String ;
-          <https://anvilproject.org/acr-harmonized-data-model/measurement/age_at_observation> @linkml:Integer ?
+          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_event> @linkml:Float ?
        ) ;
        rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/procedure/Procedure> ]
     )
@@ -235,6 +236,22 @@ linkml:Sparqlpath xsd:string
           <https://anvilproject.org/acr-harmonized-data-model/sample/quantity> @linkml:String ?
        ) ;
        rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/sample/Sample> ]
+    )
+}
+
+<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/SourceData> CLOSED {
+    (  $<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/SourceData_tes> ( 
+          &<https://anvilproject.org/acr-harmonized-data-model/core/AccessControlledRecord_tes> ;
+          rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/AccessControlledRecord> ] ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/code> @linkml:Uriorcurie ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/display> @linkml:String ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_code> @linkml:Uriorcurie ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_display> @linkml:String ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_number> @linkml:Float ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_units> @linkml:Uriorcurie ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_units_display> @linkml:String ?
+       ) ;
+       rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/SourceData> ]
     )
 }
 
@@ -287,17 +304,18 @@ linkml:Sparqlpath xsd:string
              <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/condition-typeHistology>
              <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/condition-typeClinical-Finding>
              <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/EnumAssertionType#ehr_billing_code> ] ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_assertion> @linkml:Float ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_event> @linkml:Float ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_resolution> @linkml:Float ? ;
           <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/code> @linkml:Uriorcurie ? ;
           <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/display> @linkml:String ? ;
-          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/source_code> @linkml:Uriorcurie ? ;
-          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/source_display> @linkml:String ? ;
           <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_code> @linkml:Uriorcurie ? ;
           <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_display> @linkml:String ? ;
           <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_number> @linkml:Float ? ;
           <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_units> @linkml:Uriorcurie ? ;
-          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_assertion> @linkml:Float ? ;
-          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_event> @linkml:Float ? ;
-          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_resolution> @linkml:Float ?
+          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_units_display> @linkml:String ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/source_data>
+          @<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/SourceData> *
        ) ;
        rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/SubjectAssertion> ]
     )

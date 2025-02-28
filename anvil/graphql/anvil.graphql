@@ -219,7 +219,7 @@ type Procedure
     id: String!
     procedureCode: [String]!
     procedureSourceValue: String!
-    ageAtObservation: Integer
+    ageAtEvent: Float
   }
 
 type Sample
@@ -232,6 +232,19 @@ type Sample
     availablityStatus: EnumAvailabilityStatus
     storageMethod: String
     quantity: String
+  }
+
+type SourceData
+  {
+    id: String!
+    hasAccessPolicy: AccessPolicy
+    code: Uriorcurie
+    display: String
+    valueCode: Uriorcurie
+    valueDisplay: String
+    valueNumber: Float
+    valueUnits: Uriorcurie
+    valueUnitsDisplay: String
   }
 
 type Study
@@ -259,17 +272,17 @@ type SubjectAssertion
     id: String!
     hasAccessPolicy: AccessPolicy
     assertionType: EnumAssertionType
+    ageAtAssertion: Float
+    ageAtEvent: Float
+    ageAtResolution: Float
     code: Uriorcurie
     display: String
-    sourceCode: Uriorcurie
-    sourceDisplay: String
     valueCode: Uriorcurie
     valueDisplay: String
     valueNumber: Float
     valueUnits: Uriorcurie
-    ageAtAssertion: Float
-    ageAtEvent: Float
-    ageAtResolution: Float
+    valueUnitsDisplay: String
+    sourceData: [SourceData]
   }
 
 type Thing

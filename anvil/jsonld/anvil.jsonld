@@ -1205,54 +1205,192 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "condition_source_value",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/condition_source_value",
-      "description": "Original Source Value for condition",
-      "title": "condition_source_value",
+      "name": "assertion_type",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/assertion_type",
+      "description": "The semantic type of the resource, eg, Condition.",
+      "title": "Assertion Type",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/condition_source_value",
-      "range": "string",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "condition_assertion",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/condition_assertion",
-      "description": "Condition Assertion",
-      "title": "condition_assertion",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/condition_assertion",
-      "range": "EnumConditionAssertion",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/assertion_type",
+      "owner": "SubjectAssertion",
+      "domain_of": [
+        "SubjectAssertion"
+      ],
+      "range": "EnumAssertionType",
       "@type": "SlotDefinition"
     },
     {
       "name": "age_at_assertion",
       "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_assertion",
-      "description": "The age at which this condition is being asserted.",
-      "title": "age_at_assertion",
+      "description": "The age in decimal years of the Subject when the assertion was made.",
+      "title": "Age at assertion",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
       "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_assertion",
-      "range": "integer",
+      "owner": "SubjectAssertion",
+      "domain_of": [
+        "SubjectAssertion"
+      ],
+      "range": "float",
+      "unit": {
+        "ucum_code": "a",
+        "@type": "UnitOfMeasure"
+      },
       "@type": "SlotDefinition"
     },
     {
-      "name": "age_at_onset",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_onset",
-      "description": "The age of onset for this condition.",
-      "title": "age_at_assertion",
+      "name": "age_at_event",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_event",
+      "description": "The age in decimal years of the Subject at the time point which the assertion describes, | eg, age of onset or when a measurement was performed.",
+      "title": "Age at event",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_onset",
-      "range": "integer",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_event",
+      "owner": "Procedure",
+      "domain_of": [
+        "SubjectAssertion",
+        "Procedure"
+      ],
+      "range": "float",
+      "unit": {
+        "ucum_code": "a",
+        "@type": "UnitOfMeasure"
+      },
       "@type": "SlotDefinition"
     },
     {
       "name": "age_at_resolution",
       "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_resolution",
-      "description": "The age at which this condition was resolved, abated or cured. Should be left empty in cases of current active status.",
-      "title": "age_at_resolution",
+      "description": "The age in decimal years of the Subject when the asserted state was resolved.",
+      "title": "Age at resolution",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
       "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_resolution",
-      "range": "integer",
+      "owner": "SubjectAssertion",
+      "domain_of": [
+        "SubjectAssertion"
+      ],
+      "range": "float",
+      "unit": {
+        "ucum_code": "a",
+        "@type": "UnitOfMeasure"
+      },
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "source_data",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/source_data",
+      "description": "The sources from which this assertion was derived",
+      "title": "Source Assertion",
+      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/source_data",
+      "owner": "SubjectAssertion",
+      "domain_of": [
+        "SubjectAssertion"
+      ],
+      "range": "SourceData",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "code",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/code",
+      "description": "The structured term defining the meaning of the assertion.",
+      "title": "Assertion Code",
+      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/code",
+      "owner": "SourceData",
+      "domain_of": [
+        "SubjectAssertion",
+        "SourceData"
+      ],
+      "range": "uriorcurie",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "display",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/display",
+      "description": "The friendly display string of the coded term",
+      "title": "Display String",
+      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/display",
+      "owner": "SourceData",
+      "domain_of": [
+        "SubjectAssertion",
+        "SourceData"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "value_code",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_code",
+      "description": "The structured term defining the value of the assertion.",
+      "title": "Value Code",
+      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_code",
+      "owner": "SourceData",
+      "domain_of": [
+        "SubjectAssertion",
+        "SourceData"
+      ],
+      "range": "uriorcurie",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "value_display",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_display",
+      "description": "The friendly display string of the coded term for the value of the assertion.",
+      "title": "Value Display String",
+      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_display",
+      "owner": "SourceData",
+      "domain_of": [
+        "SubjectAssertion",
+        "SourceData"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "value_number",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_number",
+      "description": "The numeric value of the assertion.",
+      "title": "Value Number",
+      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_number",
+      "owner": "SourceData",
+      "domain_of": [
+        "SubjectAssertion",
+        "SourceData"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "value_units",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_units",
+      "description": "The structured term defining the units of the value.",
+      "title": "Value Units",
+      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_units",
+      "owner": "SourceData",
+      "domain_of": [
+        "SubjectAssertion",
+        "SourceData"
+      ],
+      "range": "uriorcurie",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "value_units_display",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_units_display",
+      "description": "The friendly display string of units of the value.",
+      "title": "Value Units",
+      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_units_display",
+      "owner": "SourceData",
+      "domain_of": [
+        "SubjectAssertion",
+        "SourceData"
+      ],
+      "range": "string",
       "@type": "SlotDefinition"
     },
     {
@@ -1644,10 +1782,9 @@
       "title": "age_at_observation",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/measurement",
       "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/measurement/age_at_observation",
-      "owner": "Procedure",
+      "owner": "Measurement",
       "domain_of": [
-        "Measurement",
-        "Procedure"
+        "Measurement"
       ],
       "range": "integer",
       "@type": "SlotDefinition"
@@ -1680,16 +1817,6 @@
       ],
       "range": "string",
       "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "age_at_event",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/procedure/age_at_event",
-      "description": "Age of participant when procedure was performed/recorded",
-      "title": "age_at_event",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/procedure",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/procedure/age_at_event",
-      "range": "integer",
       "@type": "SlotDefinition"
     },
     {
@@ -1810,186 +1937,6 @@
       ],
       "range": "string",
       "@type": "SlotDefinition"
-    },
-    {
-      "name": "subjectAssertion__assertion_type",
-      "description": "The semantic type of the resource, eg, Condition.",
-      "title": "Assertion Type",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/assertion_type",
-      "alias": "assertion_type",
-      "owner": "SubjectAssertion",
-      "domain_of": [
-        "SubjectAssertion"
-      ],
-      "range": "EnumAssertionType",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "subjectAssertion__code",
-      "description": "The structured term defining the meaning of the assertion.",
-      "title": "Assertion Code",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/code",
-      "alias": "code",
-      "owner": "SubjectAssertion",
-      "domain_of": [
-        "SubjectAssertion"
-      ],
-      "range": "uriorcurie",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "subjectAssertion__display",
-      "description": "The friendly display string of the coded term",
-      "title": "Display String",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/display",
-      "alias": "display",
-      "owner": "SubjectAssertion",
-      "domain_of": [
-        "SubjectAssertion"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "subjectAssertion__source_code",
-      "description": "The structured term defining the meaning of the assertion as provided by the source.",
-      "title": "Source Code",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/source_code",
-      "alias": "source_code",
-      "owner": "SubjectAssertion",
-      "domain_of": [
-        "SubjectAssertion"
-      ],
-      "range": "uriorcurie",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "subjectAssertion__source_display",
-      "description": "The friendly display string of the coded term as provided by the source.",
-      "title": "Source Display String",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/source_display",
-      "alias": "source_display",
-      "owner": "SubjectAssertion",
-      "domain_of": [
-        "SubjectAssertion"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "subjectAssertion__value_code",
-      "description": "The structured term defining the value of the assertion.",
-      "title": "Value Code",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_code",
-      "alias": "value_code",
-      "owner": "SubjectAssertion",
-      "domain_of": [
-        "SubjectAssertion"
-      ],
-      "range": "uriorcurie",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "subjectAssertion__value_display",
-      "description": "The friendly display string of the coded term for the value of the assertion.",
-      "title": "Value Display String",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_display",
-      "alias": "value_display",
-      "owner": "SubjectAssertion",
-      "domain_of": [
-        "SubjectAssertion"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "subjectAssertion__value_number",
-      "description": "The numeric value of the assertion.",
-      "title": "Value Number",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_number",
-      "alias": "value_number",
-      "owner": "SubjectAssertion",
-      "domain_of": [
-        "SubjectAssertion"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "subjectAssertion__value_units",
-      "description": "The structured term defining the units of the value.",
-      "title": "Value Units",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_units",
-      "alias": "value_units",
-      "owner": "SubjectAssertion",
-      "domain_of": [
-        "SubjectAssertion"
-      ],
-      "range": "uriorcurie",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "subjectAssertion__age_at_assertion",
-      "description": "The age in decimal years of the Subject when the assertion was made.",
-      "title": "Age at assertion",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_assertion",
-      "alias": "age_at_assertion",
-      "owner": "SubjectAssertion",
-      "domain_of": [
-        "SubjectAssertion"
-      ],
-      "range": "float",
-      "unit": {
-        "ucum_code": "a",
-        "@type": "UnitOfMeasure"
-      },
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "subjectAssertion__age_at_event",
-      "description": "The age in decimal years of the Subject at the time point which the assertion describes, | eg, age of onset or when a measurement was performed.",
-      "title": "Age at event",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_event",
-      "alias": "age_at_event",
-      "owner": "SubjectAssertion",
-      "domain_of": [
-        "SubjectAssertion"
-      ],
-      "range": "float",
-      "unit": {
-        "ucum_code": "a",
-        "@type": "UnitOfMeasure"
-      },
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "subjectAssertion__age_at_resolution",
-      "description": "The age in decimal years of the Subject when the asserted state was resolved.",
-      "title": "Age at resolution",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_resolution",
-      "alias": "age_at_resolution",
-      "owner": "SubjectAssertion",
-      "domain_of": [
-        "SubjectAssertion"
-      ],
-      "range": "float",
-      "unit": {
-        "ucum_code": "a",
-        "@type": "UnitOfMeasure"
-      },
-      "@type": "SlotDefinition"
     }
   ],
   "classes": [
@@ -2097,119 +2044,43 @@
       "slots": [
         "id",
         "has_access_policy",
-        "subjectAssertion__assertion_type",
-        "subjectAssertion__code",
-        "subjectAssertion__display",
-        "subjectAssertion__source_code",
-        "subjectAssertion__source_display",
-        "subjectAssertion__value_code",
-        "subjectAssertion__value_display",
-        "subjectAssertion__value_number",
-        "subjectAssertion__value_units",
-        "subjectAssertion__age_at_assertion",
-        "subjectAssertion__age_at_event",
-        "subjectAssertion__age_at_resolution"
+        "assertion_type",
+        "age_at_assertion",
+        "age_at_event",
+        "age_at_resolution",
+        "code",
+        "display",
+        "value_code",
+        "value_display",
+        "value_number",
+        "value_units",
+        "value_units_display",
+        "source_data"
       ],
       "slot_usage": {},
-      "attributes": [
-        {
-          "name": "assertion_type",
-          "description": "The semantic type of the resource, eg, Condition.",
-          "title": "Assertion Type",
-          "range": "EnumAssertionType",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "code",
-          "description": "The structured term defining the meaning of the assertion.",
-          "title": "Assertion Code",
-          "range": "uriorcurie",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "display",
-          "description": "The friendly display string of the coded term",
-          "title": "Display String",
-          "range": "string",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "source_code",
-          "description": "The structured term defining the meaning of the assertion as provided by the source.",
-          "title": "Source Code",
-          "range": "uriorcurie",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "source_display",
-          "description": "The friendly display string of the coded term as provided by the source.",
-          "title": "Source Display String",
-          "range": "string",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "value_code",
-          "description": "The structured term defining the value of the assertion.",
-          "title": "Value Code",
-          "range": "uriorcurie",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "value_display",
-          "description": "The friendly display string of the coded term for the value of the assertion.",
-          "title": "Value Display String",
-          "range": "string",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "value_number",
-          "description": "The numeric value of the assertion.",
-          "title": "Value Number",
-          "range": "float",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "value_units",
-          "description": "The structured term defining the units of the value.",
-          "title": "Value Units",
-          "range": "uriorcurie",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "age_at_assertion",
-          "description": "The age in decimal years of the Subject when the assertion was made.",
-          "title": "Age at assertion",
-          "range": "float",
-          "unit": {
-            "ucum_code": "a",
-            "@type": "UnitOfMeasure"
-          },
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "age_at_event",
-          "description": "The age in decimal years of the Subject at the time point which the assertion describes, | eg, age of onset or when a measurement was performed.",
-          "title": "Age at event",
-          "range": "float",
-          "unit": {
-            "ucum_code": "a",
-            "@type": "UnitOfMeasure"
-          },
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "age_at_resolution",
-          "description": "The age in decimal years of the Subject when the asserted state was resolved.",
-          "title": "Age at resolution",
-          "range": "float",
-          "unit": {
-            "ucum_code": "a",
-            "@type": "UnitOfMeasure"
-          },
-          "@type": "SlotDefinition"
-        }
-      ],
       "class_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/SubjectAssertion",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "SourceData",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/SourceData",
+      "description": "Submitted data about a particular Subject.",
+      "title": "Source Data",
+      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
+      "is_a": "AccessControlledRecord",
+      "slots": [
+        "id",
+        "has_access_policy",
+        "code",
+        "display",
+        "value_code",
+        "value_display",
+        "value_number",
+        "value_units",
+        "value_units_display"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/SourceData",
       "@type": "ClassDefinition"
     },
     {
@@ -2320,7 +2191,7 @@
         "id",
         "procedure_code",
         "procedure_source_value",
-        "age_at_observation"
+        "age_at_event"
       ],
       "slot_usage": {},
       "class_uri": "https://anvilproject.org/acr-harmonized-data-model/procedure/Procedure",
@@ -2366,9 +2237,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "anvil.yaml",
-  "source_file_date": "2025-02-26T16:04:58",
+  "source_file_date": "2025-02-28T12:48:20",
   "source_file_size": 803,
-  "generation_date": "2025-02-27T16:48:54",
+  "generation_date": "2025-02-28T13:16:15",
   "@type": "SchemaDefinition",
   "@context": [
     "anvil/jsonld/anvil.context.jsonld",

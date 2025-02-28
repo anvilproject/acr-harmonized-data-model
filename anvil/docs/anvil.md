@@ -14,6 +14,7 @@
 
  * [Thing](Thing.md) - Highest Level Class
      * [AccessControlledRecord](AccessControlledRecord.md) - Element for which specific access control restrictions apply.
+         * [SourceData](SourceData.md) - Submitted data about a particular Subject.
          * [Subject](Subject.md) - This entity is the subject about which data or references are recorded. | This includes the idea of a human participant in a study, a cell line, an animal model, | or any other similar entity.
              * [Participant](Participant.md) - Basic participant demographics
          * [SubjectAssertion](SubjectAssertion.md) - Assertion about a particular Subject. May include Conditions, Measurements, etc.
@@ -33,23 +34,23 @@
 ### Slots
 
  * [access_policy_code](access_policy_code.md) - Access Policy Code
- * [age_at_assertion](age_at_assertion.md) - The age at which this condition is being asserted.
+ * [age_at_assertion](age_at_assertion.md) - The age in decimal years of the Subject when the assertion was made.
  * [age_at_collection](age_at_collection.md) - The age at which this biospecimen was collected.
- * [age_at_event](age_at_event.md) - Age of participant when procedure was performed/recorded
+ * [age_at_event](age_at_event.md) - The age in decimal years of the Subject at the time point which the assertion describes, | eg, age of onset or when a measurement was performed.
  * [age_at_last_vital_status](age_at_last_vital_status.md) - Age at Last Vital Status
  * [age_at_observation](age_at_observation.md) - Age of participant when measurement was taken/recorded
- * [age_at_onset](age_at_onset.md) - The age of onset for this condition.
- * [age_at_resolution](age_at_resolution.md) - The age at which this condition was resolved, abated or cured. Should be left empty in cases of current active status.
+ * [age_at_resolution](age_at_resolution.md) - The age in decimal years of the Subject when the asserted state was resolved.
+ * [assertion_type](assertion_type.md) - The semantic type of the resource, eg, Condition.
  * [availablity_status](availablity_status.md) - Can this Sample be requested for further analysis?
  * [biospecimen_collection_id_fk](biospecimen_collection_id_fk.md) - ID associated with the Biospecimen Collection event.
- * [condition_assertion](condition_assertion.md) - Condition Assertion
- * [condition_source_value](condition_source_value.md) - Original Source Value for condition
+ * [code](code.md) - The structured term defining the meaning of the assertion.
  * [consanguinity](consanguinity.md) - Is there known or suspected consanguinity in this study family?
  * [data_access_type](data_access_type.md) - Data Access Type
  * [date_of_birth](date_of_birth.md) - Date at which the individual was born. May be impacted by privacy rules described in date_of_birth_type.
  * [date_of_birth_type](date_of_birth_type.md) - Privacy rule modification applied to date_of_birth.
  * [description](description.md) - Description
  * [disease_limitation](disease_limitation.md) - Disease Use Limitations
+ * [display](display.md) - The friendly display string of the coded term
  * [ethnicity](ethnicity.md) - Classification categories of human, taken from NIH, based on the social group a person belongs to, and either identifies with or is identified with by others, as a result of a complex of cultural, biological, geographical and other factors such as linguistic, dietary and religion traditions; ancestry, background, allegiance, or association; and physical characteristics traditionally associated with race.
  * [ethnicity_source_value](ethnicity_source_value.md) - Ethnicity value as reported in the original source
  * [external_id](external_id.md) - Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
@@ -94,22 +95,16 @@
  * [sample_volume](sample_volume.md) - What is the volume of the Aliquot?
  * [sample_volume_unit](sample_volume_unit.md) - Units associated with the volume? UCUM coding preferred (with curie, UCUM)
  * [site](site.md) - The location of the specimen collection.
+ * [source_data](source_data.md) - The sources from which this assertion was derived
  * [spatial_qualifier](spatial_qualifier.md) - Any spatial/location qualifiers
  * [storage_method](storage_method.md) - Curied code indicating how is the Sample stored, eg, Frozen or with additives
  * [study_title](study_title.md) - Study Title
- * [➞age_at_assertion](subjectAssertion__age_at_assertion.md) - The age in decimal years of the Subject when the assertion was made.
- * [➞age_at_event](subjectAssertion__age_at_event.md) - The age in decimal years of the Subject at the time point which the assertion describes, | eg, age of onset or when a measurement was performed.
- * [➞age_at_resolution](subjectAssertion__age_at_resolution.md) - The age in decimal years of the Subject when the asserted state was resolved.
- * [➞assertion_type](subjectAssertion__assertion_type.md) - The semantic type of the resource, eg, Condition.
- * [➞code](subjectAssertion__code.md) - The structured term defining the meaning of the assertion.
- * [➞display](subjectAssertion__display.md) - The friendly display string of the coded term
- * [➞source_code](subjectAssertion__source_code.md) - The structured term defining the meaning of the assertion as provided by the source.
- * [➞source_display](subjectAssertion__source_display.md) - The friendly display string of the coded term as provided by the source.
- * [➞value_code](subjectAssertion__value_code.md) - The structured term defining the value of the assertion.
- * [➞value_display](subjectAssertion__value_display.md) - The friendly display string of the coded term for the value of the assertion.
- * [➞value_number](subjectAssertion__value_number.md) - The numeric value of the assertion.
- * [➞value_units](subjectAssertion__value_units.md) - The structured term defining the units of the value.
  * [subject_type](subject_type.md) - Type of entity this record represents
+ * [value_code](value_code.md) - The structured term defining the value of the assertion.
+ * [value_display](value_display.md) - The friendly display string of the coded term for the value of the assertion.
+ * [value_number](value_number.md) - The numeric value of the assertion.
+ * [value_units](value_units.md) - The structured term defining the units of the value.
+ * [value_units_display](value_units_display.md) - The friendly display string of units of the value.
  * [vital_status](vital_status.md) - Vital Status
  * [website](website.md) - Website
 

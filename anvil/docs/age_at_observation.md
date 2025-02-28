@@ -19,4 +19,3 @@ None &#8594;  <sub>0..1</sub> [Integer](types/Integer.md)
 ## Used by
 
  * [Measurement](Measurement.md)
- * [Procedure](Procedure.md)

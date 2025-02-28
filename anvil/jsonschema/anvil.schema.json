@@ -615,10 +615,10 @@
             "additionalProperties": false,
             "description": "Procedures",
             "properties": {
-                "age_at_observation": {
-                    "description": "Age of participant when measurement was taken/recorded",
+                "age_at_event": {
+                    "description": "The age in decimal years of the Subject at the time point which the assertion describes, | eg, age of onset or when a measurement was performed.",
                     "type": [
-                        "integer",
+                        "number",
                         "null"
                     ]
                 },
@@ -763,6 +763,77 @@
                 "sample_type"
             ],
             "title": "Sample",
+            "type": "object"
+        },
+        "SourceData": {
+            "additionalProperties": false,
+            "description": "Submitted data about a particular Subject.",
+            "properties": {
+                "code": {
+                    "description": "The structured term defining the meaning of the assertion.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "display": {
+                    "description": "The friendly display string of the coded term",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_access_policy": {
+                    "description": "Which access policy applies to this element?",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "ID associated with a class",
+                    "type": "string"
+                },
+                "value_code": {
+                    "description": "The structured term defining the value of the assertion.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "value_display": {
+                    "description": "The friendly display string of the coded term for the value of the assertion.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "value_number": {
+                    "description": "The numeric value of the assertion.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "value_units": {
+                    "description": "The structured term defining the units of the value.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "value_units_display": {
+                    "description": "The friendly display string of units of the value.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "SourceData",
             "type": "object"
         },
         "Study": {
@@ -937,17 +1008,13 @@
                     "description": "ID associated with a class",
                     "type": "string"
                 },
-                "source_code": {
-                    "description": "The structured term defining the meaning of the assertion as provided by the source.",
+                "source_data": {
+                    "description": "The sources from which this assertion was derived",
+                    "items": {
+                        "type": "string"
+                    },
                     "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "source_display": {
-                    "description": "The friendly display string of the coded term as provided by the source.",
-                    "type": [
-                        "string",
+                        "array",
                         "null"
                     ]
                 },
@@ -974,6 +1041,13 @@
                 },
                 "value_units": {
                     "description": "The structured term defining the units of the value.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "value_units_display": {
+                    "description": "The friendly display string of units of the value.",
                     "type": [
                         "string",
                         "null"
@@ -1040,17 +1114,13 @@
                     "description": "ID associated with a class",
                     "type": "string"
                 },
-                "source_code": {
-                    "description": "The structured term defining the meaning of the assertion as provided by the source.",
+                "source_data": {
+                    "description": "The sources from which this assertion was derived",
+                    "items": {
+                        "type": "string"
+                    },
                     "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "source_display": {
-                    "description": "The friendly display string of the coded term as provided by the source.",
-                    "type": [
-                        "string",
+                        "array",
                         "null"
                     ]
                 },
@@ -1077,6 +1147,13 @@
                 },
                 "value_units": {
                     "description": "The structured term defining the units of the value.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "value_units_display": {
+                    "description": "The friendly display string of units of the value.",
                     "type": [
                         "string",
                         "null"

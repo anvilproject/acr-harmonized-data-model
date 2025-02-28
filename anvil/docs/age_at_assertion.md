@@ -1,14 +1,14 @@
 
 # Slot: age_at_assertion
 
-The age at which this condition is being asserted.
+The age in decimal years of the Subject when the assertion was made.
 
 URI: [anvil:age_at_assertion](https://anvilproject.org/acr-harmonized-data-model/age_at_assertion)
 
 
 ## Domain and Range
 
-None &#8594;  <sub>0..1</sub> [Integer](types/Integer.md)
+None &#8594;  <sub>0..1</sub> [Float](types/Float.md)
 
 ## Parents
 
@@ -18,3 +18,4 @@ None &#8594;  <sub>0..1</sub> [Integer](types/Integer.md)
 
 ## Used by
 
+ * [SubjectAssertion](SubjectAssertion.md)
