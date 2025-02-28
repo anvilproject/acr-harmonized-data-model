@@ -1,14 +1,14 @@
 
 # Slot: has_assertion
 
-Which samples were collected or processed for this participant?
+Which assertions are made about this Subject?
 
 URI: [anvil:has_assertion](https://anvilproject.org/acr-harmonized-data-model/has_assertion)
 
 
 ## Domain and Range
 
-None &#8594;  <sub>0..\*</sub> [Sample](Sample.md)
+None &#8594;  <sub>0..\*</sub> [SubjectAssertion](SubjectAssertion.md)
 
 ## Parents
 
@@ -19,3 +19,4 @@ None &#8594;  <sub>0..\*</sub> [Sample](Sample.md)
 ## Used by
 
  * [Participant](Participant.md)
+ * [Subject](Subject.md)

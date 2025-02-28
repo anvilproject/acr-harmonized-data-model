@@ -6,7 +6,7 @@ This entity is the subject about which data or references are recorded. | This i
 URI: [anvil:Subject](https://anvilproject.org/acr-harmonized-data-model/Subject)
 
 
-[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[Subject&#124;subject_type:EnumSubjectType;organism_type:string%20%3F;id(i):string]^-[Participant],[AccessControlledRecord]^-[Subject],[Participant],[AccessPolicy],[AccessControlledRecord])](https://yuml.me/diagram/nofunky;dir:TB/class/[Subject&#124;subject_type:EnumSubjectType;organism_type:string%20%3F;id(i):string]^-[Participant],[AccessControlledRecord]^-[Subject],[Participant],[AccessPolicy],[AccessControlledRecord])
+[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[SubjectAssertion],[SubjectAssertion]<has_assertion%200..*-++[Subject&#124;subject_type:EnumSubjectType;organism_type:string%20%3F;id(i):string],[Sample]<has_sample%200..*-++[Subject],[Subject]^-[Participant],[AccessControlledRecord]^-[Subject],[Sample],[Participant],[AccessPolicy],[AccessControlledRecord])](https://yuml.me/diagram/nofunky;dir:TB/class/[SubjectAssertion],[SubjectAssertion]<has_assertion%200..*-++[Subject&#124;subject_type:EnumSubjectType;organism_type:string%20%3F;id(i):string],[Sample]<has_sample%200..*-++[Subject],[Subject]^-[Participant],[AccessControlledRecord]^-[Subject],[Sample],[Participant],[AccessPolicy],[AccessControlledRecord])
 
 ## Parents
 
@@ -30,6 +30,12 @@ URI: [anvil:Subject](https://anvilproject.org/acr-harmonized-data-model/Subject)
  * [organism_type](organism_type.md)  <sub>0..1</sub>
      * Description: Organism Type Label
      * Range: [String](types/String.md)
+ * [has_sample](has_sample.md)  <sub>0..\*</sub>
+     * Description: Which samples were collected or processed for this Subject?
+     * Range: [Sample](Sample.md)
+ * [has_assertion](has_assertion.md)  <sub>0..\*</sub>
+     * Description: Which assertions are made about this Subject?
+     * Range: [SubjectAssertion](SubjectAssertion.md)
 
 ### Inherited from AccessControlledRecord:
 

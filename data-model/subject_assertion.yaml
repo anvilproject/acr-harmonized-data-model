@@ -18,31 +18,67 @@ imports:
   - anvil_core
 classes: 
 # TODO: Create a parent class of EntityAssertion or similar, then make children classes that specialize
-  ConditionAssertion:
-    title: ConditionAssertion 
-    description: Study Meta Data 
-    is_a: Thing 
-    slots: 
-      - condition_code
-      - condition_source_value
-      - condition_assertion 
-      - condition_type
-      - age_at_assertion 
-      - age_at_onset 
-      - age_at_resolution 
+  SubjectAssertion:
+    title: Subject Assertion 
+    description: Assertion about a particular Subject. May include Conditions, Measurements, etc.
+    is_a: AccessControlledRecord 
+    attributes: 
+      assertion_type:
+        title: Assertion Type
+        description: The semantic type of the resource, eg, Condition.
+        range: EnumAssertionType
+      code:
+        title: Assertion Code
+        description: The structured term defining the meaning of the assertion.
+        range: uriorcurie
+      display:
+        title: Display String
+        description: The friendly display string of the coded term
+        range: string
+      source_code:
+        title: Source Code
+        description: The structured term defining the meaning of the assertion as provided by the source.
+        range: uriorcurie
+      source_display:
+        title: Source Display String
+        description: The friendly display string of the coded term as provided by the source.
+        range: string
+      value_code:
+        title: Value Code
+        description: The structured term defining the value of the assertion.
+        range: uriorcurie
+      value_display:
+        title: Value Display String
+        description: The friendly display string of the coded term for the value of the assertion.
+        range: string
+      value_number:
+        title: Value Number
+        description: The numeric value of the assertion.
+        range: float
+      value_units:
+        title: Value Units
+        description: The structured term defining the units of the value.
+        range: uriorcurie
+      age_at_assertion:
+        title: Age at assertion
+        description: The age in decimal years of the Subject when the assertion was made.
+        range: float
+        unit:
+          ucum_code: a
+      age_at_event:
+        title: Age at event
+        description: The age in decimal years of the Subject at the time point which the assertion describes, |
+          eg, age of onset or when a measurement was performed.
+        range: float
+        unit:
+          ucum_code: a
+      age_at_resolution:
+        title: Age at resolution
+        description: The age in decimal years of the Subject when the asserted state was resolved.
+        range: float
+        unit:
+          ucum_code: a
 slots: 
-  condition_code:
-    description: | 
-      Condition Code should be from one of a recognized ontology. Multiple codes can be indicated, but should simply be alternative encodings for the same entity such as alternates encodings from other ontologies.       
-      Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA and coded with the corresponding curies
-      * SNOMED : https://bioregistry.io/registry/snomedct
-      * HP : https://bioregistry.io/registry/hp
-      * OMIM : https://bioregistry.io/registry/omim
-      * ORPHA : https://bioregistry.io/registry/orphanet
-    title: condition_code 
-    range: EnumConditionCode
-    required: false 
-    multivalued: true  
   condition_source_value: 
     description: Original Source Value for condition 
     title: condition_source_value 
@@ -54,12 +90,6 @@ slots:
     title: condition_assertion 
     range: EnumConditionAssertion
     multivalued: false
-  condition_type: 
-    description: Does this condition represent a specific "type" of condition, such as "Phenotypic Feature" vs "Disease" in a rare disease setting.
-    title: Condition Type 
-    range: EnumConditionType 
-    required: true 
-    multivalued: false 
   age_at_assertion:
     description: The age at which this condition is being asserted. 
     title: age_at_assertion 
@@ -80,7 +110,7 @@ slots:
     multivalued: false 
 enums: 
 # TODO: Revisit this and refine the semantics here, ideally with links out to other definitions.
-  EnumConditionType: 
+  EnumAssertionType: 
     description: Provides options to describe the expressed semantics of a condition. 
     permissible_values: 
       phenotypic_feature: 

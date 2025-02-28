@@ -6,7 +6,7 @@ Element for which specific access control restrictions apply.
 URI: [anvil:AccessControlledRecord](https://anvilproject.org/acr-harmonized-data-model/AccessControlledRecord)
 
 
-[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Subject],[AccessPolicy],[AccessPolicy]<has_access_policy%200..1-%20[AccessControlledRecord&#124;id(i):string],[AccessControlledRecord]^-[Subject],[Thing]^-[AccessControlledRecord])](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Subject],[AccessPolicy],[AccessPolicy]<has_access_policy%200..1-%20[AccessControlledRecord&#124;id(i):string],[AccessControlledRecord]^-[Subject],[Thing]^-[AccessControlledRecord])
+[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[SubjectAssertion],[Subject],[AccessPolicy],[AccessPolicy]<has_access_policy%200..1-%20[AccessControlledRecord&#124;id(i):string],[AccessControlledRecord]^-[SubjectAssertion],[AccessControlledRecord]^-[Subject],[Thing]^-[AccessControlledRecord])](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[SubjectAssertion],[Subject],[AccessPolicy],[AccessPolicy]<has_access_policy%200..1-%20[AccessControlledRecord&#124;id(i):string],[AccessControlledRecord]^-[SubjectAssertion],[AccessControlledRecord]^-[Subject],[Thing]^-[AccessControlledRecord])
 
 ## Parents
 
@@ -15,6 +15,7 @@ URI: [anvil:AccessControlledRecord](https://anvilproject.org/acr-harmonized-data
 ## Children
 
  * [Subject](Subject.md) - This entity is the subject about which data or references are recorded. | This includes the idea of a human participant in a study, a cell line, an animal model, | or any other similar entity.
+ * [SubjectAssertion](SubjectAssertion.md) - Assertion about a particular Subject. May include Conditions, Measurements, etc.
 
 ## Referenced by Class
 

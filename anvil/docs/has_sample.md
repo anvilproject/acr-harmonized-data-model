@@ -1,7 +1,7 @@
 
 # Slot: has_sample
 
-Which samples were collected or processed for this participant?
+Which samples were collected or processed for this Subject?
 
 URI: [anvil:has_sample](https://anvilproject.org/acr-harmonized-data-model/has_sample)
 
@@ -19,3 +19,4 @@ None &#8594;  <sub>0..\*</sub> [Sample](Sample.md)
 ## Used by
 
  * [Participant](Participant.md)
+ * [Subject](Subject.md)

@@ -69,7 +69,7 @@
                 <h1 id="class-participant">Class: Participant</h1>
 <p>Basic participant demographics</p>
 <p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/Participant">anvil:Participant</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Sample],[Sample]&lt;has_assertion%200..*-%20[Participant&#124;date_of_birth:integer%20%3F;date_of_birth_type:EnumDateOfBirthType%20%3F;phenotypic_sex:EnumSex;phenotypic_sex_source_value:string%20%3F;race:EnumRace;race_source_value:string%20%3F;ethnicity:EnumEthnicity;ethnicity_source_value:string%20%3F;age_at_last_vital_status:integer%20%3F;vital_status:EnumVitalStatus%20%3F;subject_type(i):EnumSubjectType;organism_type(i):string%20%3F;id(i):string],[Sample]&lt;has_sample%200..*-%20[Participant],[Subject]^-[Participant],[AccessPolicy]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Sample],[Sample]&lt;has_assertion%200..*-%20[Participant&#124;date_of_birth:integer%20%3F;date_of_birth_type:EnumDateOfBirthType%20%3F;phenotypic_sex:EnumSex;phenotypic_sex_source_value:string%20%3F;race:EnumRace;race_source_value:string%20%3F;ethnicity:EnumEthnicity;ethnicity_source_value:string%20%3F;age_at_last_vital_status:integer%20%3F;vital_status:EnumVitalStatus%20%3F;subject_type(i):EnumSubjectType;organism_type(i):string%20%3F;id(i):string],[Sample]&lt;has_sample%200..*-%20[Participant],[Subject]^-[Participant],[AccessPolicy]" /></a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[SubjectAssertion],[Subject],[Sample],[Subject]^-[Participant&#124;date_of_birth:integer%20%3F;date_of_birth_type:EnumDateOfBirthType%20%3F;phenotypic_sex:EnumSex;phenotypic_sex_source_value:string%20%3F;race:EnumRace;race_source_value:string%20%3F;ethnicity:EnumEthnicity;ethnicity_source_value:string%20%3F;age_at_last_vital_status:integer%20%3F;vital_status:EnumVitalStatus%20%3F;subject_type(i):EnumSubjectType;organism_type(i):string%20%3F;id(i):string],[AccessPolicy]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[SubjectAssertion],[Subject],[Sample],[Subject]^-[Participant&#124;date_of_birth:integer%20%3F;date_of_birth_type:EnumDateOfBirthType%20%3F;phenotypic_sex:EnumSex;phenotypic_sex_source_value:string%20%3F;race:EnumRace;race_source_value:string%20%3F;ethnicity:EnumEthnicity;ethnicity_source_value:string%20%3F;age_at_last_vital_status:integer%20%3F;vital_status:EnumVitalStatus%20%3F;subject_type(i):EnumSubjectType;organism_type(i):string%20%3F;id(i):string],[AccessPolicy]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Subject/">Subject</a> - This entity is the subject about which data or references are recorded. | This includes the idea of a human participant in a study, a cell line, an animal model, | or any other similar entity.</li>
@@ -127,16 +127,6 @@
 <li>Range: <a href="../EnumVitalStatus/">EnumVitalStatus</a></li>
 </ul>
 </li>
-<li><a href="../has_sample/">has_sample</a>  <sub>0..*</sub><ul>
-<li>Description: Which samples were collected or processed for this participant?</li>
-<li>Range: <a href="../Sample/">Sample</a></li>
-</ul>
-</li>
-<li><a href="../has_assertion/">has_assertion</a>  <sub>0..*</sub><ul>
-<li>Description: Which samples were collected or processed for this participant?</li>
-<li>Range: <a href="../Sample/">Sample</a></li>
-</ul>
-</li>
 </ul>
 <h3 id="inherited-from-subject">Inherited from Subject:</h3>
 <ul>
@@ -158,6 +148,16 @@
 <li><a href="../organism_type/">organism_type</a>  <sub>0..1</sub><ul>
 <li>Description: Organism Type Label</li>
 <li>Range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+<li><a href="../has_sample/">has_sample</a>  <sub>0..*</sub><ul>
+<li>Description: Which samples were collected or processed for this Subject?</li>
+<li>Range: <a href="../Sample/">Sample</a></li>
+</ul>
+</li>
+<li><a href="../has_assertion/">has_assertion</a>  <sub>0..*</sub><ul>
+<li>Description: Which assertions are made about this Subject?</li>
+<li>Range: <a href="../SubjectAssertion/">SubjectAssertion</a></li>
 </ul>
 </li>
 </ul>

@@ -6,7 +6,7 @@ Biospecimen data
 URI: [anvil:Sample](https://anvilproject.org/acr-harmonized-data-model/Sample)
 
 
-[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Participant]-%20has_assertion%200..*>[Sample&#124;parent_sample_id:string%20%3F;biospecimen_collection_id_fk:string;sample_type:string;processing:string%20*;availablity_status:EnumAvailabilityStatus%20%3F;storage_method:string%20%3F;quantity:string%20%3F;id(i):string],[Participant]-%20has_sample%200..*>[Sample],[Thing]^-[Sample],[Participant])](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Participant]-%20has_assertion%200..*>[Sample&#124;parent_sample_id:string%20%3F;biospecimen_collection_id_fk:string;sample_type:string;processing:string%20*;availablity_status:EnumAvailabilityStatus%20%3F;storage_method:string%20%3F;quantity:string%20%3F;id(i):string],[Participant]-%20has_sample%200..*>[Sample],[Thing]^-[Sample],[Participant])
+[![img](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Subject]++-%20has_sample%200..*>[Sample&#124;parent_sample_id:string%20%3F;biospecimen_collection_id_fk:string;sample_type:string;processing:string%20*;availablity_status:EnumAvailabilityStatus%20%3F;storage_method:string%20%3F;quantity:string%20%3F;id(i):string],[Thing]^-[Sample],[Subject])](https://yuml.me/diagram/nofunky;dir:TB/class/[Thing],[Subject]++-%20has_sample%200..*>[Sample&#124;parent_sample_id:string%20%3F;biospecimen_collection_id_fk:string;sample_type:string;processing:string%20*;availablity_status:EnumAvailabilityStatus%20%3F;storage_method:string%20%3F;quantity:string%20%3F;id(i):string],[Thing]^-[Sample],[Subject])
 
 ## Parents
 
@@ -14,7 +14,6 @@ URI: [anvil:Sample](https://anvilproject.org/acr-harmonized-data-model/Sample)
 
 ## Referenced by Class
 
- *  **None** *[has_assertion](has_assertion.md)*  <sub>0..\*</sub>  **[Sample](Sample.md)**
  *  **None** *[has_sample](has_sample.md)*  <sub>0..\*</sub>  **[Sample](Sample.md)**
 
 ## Attributes

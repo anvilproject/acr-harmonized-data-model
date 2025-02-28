@@ -38,18 +38,6 @@ message BiospecimenCollection
   enumSpatialQualifiers spatialQualifier = 0
   enumLaterality laterality = 0
  }
-// Study Meta Data
-message ConditionAssertion
- {
-  string id = 0
- repeated  enumConditionCode conditionCode = 0
-  string conditionSourceValue = 0
-  enumConditionAssertion conditionAssertion = 0
-  enumConditionType conditionType = 0
-  integer ageAtAssertion = 0
-  integer ageAtOnset = 0
-  integer ageAtResolution = 0
- }
 // Family
 message Family
  {
@@ -86,6 +74,8 @@ message Participant
   accessPolicy hasAccessPolicy = 0
   enumSubjectType subjectType = 0
   string organismType = 0
+ repeated  sample hasSample = 0
+ repeated  subjectAssertion hasAssertion = 0
   integer dateOfBirth = 0
   enumDateOfBirthType dateOfBirthType = 0
   enumSex phenotypicSex = 0
@@ -96,8 +86,6 @@ message Participant
   string ethnicitySourceValue = 0
   integer ageAtLastVitalStatus = 0
   enumVitalStatus vitalStatus = 0
- repeated  sample hasSample = 0
- repeated  sample hasAssertion = 0
  }
 // Procedures
 message Procedure
@@ -136,6 +124,26 @@ message Subject
   accessPolicy hasAccessPolicy = 0
   enumSubjectType subjectType = 0
   string organismType = 0
+ repeated  sample hasSample = 0
+ repeated  subjectAssertion hasAssertion = 0
+ }
+// Assertion about a particular Subject. May include Conditions, Measurements, etc.
+message SubjectAssertion
+ {
+  string id = 0
+  accessPolicy hasAccessPolicy = 0
+  enumAssertionType assertionType = 0
+  uriorcurie code = 0
+  string display = 0
+  uriorcurie sourceCode = 0
+  string sourceDisplay = 0
+  uriorcurie valueCode = 0
+  string valueDisplay = 0
+  float valueNumber = 0
+  uriorcurie valueUnits = 0
+  float ageAtAssertion = 0
+  float ageAtEvent = 0
+  float ageAtResolution = 0
  }
 // Highest Level Class
 message Thing

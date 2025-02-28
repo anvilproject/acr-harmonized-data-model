@@ -69,7 +69,7 @@
                 <h1 id="class-subject">Class: Subject</h1>
 <p>This entity is the subject about which data or references are recorded. | This includes the idea of a human participant in a study, a cell line, an animal model, | or any other similar entity.</p>
 <p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/Subject">anvil:Subject</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject&#124;subject_type:EnumSubjectType;organism_type:string%20%3F;id(i):string]^-[Participant],[AccessControlledRecord]^-[Subject],[Participant],[AccessPolicy],[AccessControlledRecord]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject&#124;subject_type:EnumSubjectType;organism_type:string%20%3F;id(i):string]^-[Participant],[AccessControlledRecord]^-[Subject],[Participant],[AccessPolicy],[AccessControlledRecord]" /></a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[SubjectAssertion],[SubjectAssertion]&lt;has_assertion%200..*-++[Subject&#124;subject_type:EnumSubjectType;organism_type:string%20%3F;id(i):string],[Sample]&lt;has_sample%200..*-++[Subject],[Subject]^-[Participant],[AccessControlledRecord]^-[Subject],[Sample],[Participant],[AccessPolicy],[AccessControlledRecord]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[SubjectAssertion],[SubjectAssertion]&lt;has_assertion%200..*-++[Subject&#124;subject_type:EnumSubjectType;organism_type:string%20%3F;id(i):string],[Sample]&lt;has_sample%200..*-++[Subject],[Subject]^-[Participant],[AccessControlledRecord]^-[Subject],[Sample],[Participant],[AccessPolicy],[AccessControlledRecord]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../AccessControlledRecord/">AccessControlledRecord</a> - Element for which specific access control restrictions apply.</li>
@@ -90,6 +90,16 @@
 <li><a href="../organism_type/">organism_type</a>  <sub>0..1</sub><ul>
 <li>Description: Organism Type Label</li>
 <li>Range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+<li><a href="../has_sample/">has_sample</a>  <sub>0..*</sub><ul>
+<li>Description: Which samples were collected or processed for this Subject?</li>
+<li>Range: <a href="../Sample/">Sample</a></li>
+</ul>
+</li>
+<li><a href="../has_assertion/">has_assertion</a>  <sub>0..*</sub><ul>
+<li>Description: Which assertions are made about this Subject?</li>
+<li>Range: <a href="../SubjectAssertion/">SubjectAssertion</a></li>
 </ul>
 </li>
 </ul>
