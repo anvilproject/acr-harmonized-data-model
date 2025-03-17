@@ -1,6 +1,6 @@
 # On Windows the bash shell that comes with Git for Windows should be used.
 # If it is not on path, give the path to the executable in the following line.
-set windows-shell := ["C:/Users/carrolrj/AppData/Local/Programs/Git/bin/sh", "-cu"]
+#set windows-shell := ["C:/Program Files/Git/usr/bin/sh", "-cu"]
 
 # Load environment variables from config.public.mk or specified file
 set dotenv-load := true
