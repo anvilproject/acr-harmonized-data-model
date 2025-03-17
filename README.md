@@ -1,41 +1,34 @@
 # acr-harmonized-data-model
-LinkML Schema for ACR Harmonmized Data. 
 
-# Tools Required
-* Python 3.12 (3.13 support [coming for linkml](https://github.com/linkml/linkml-runtime/pull/345))
-* LinkML 1.8.6
-* Pydantic 2.10.6
-* [mkdocs](https://www.mkdocs.org/) required to generate the documentation website
+LinkML Schema for ACR Harmonized Data.
 
-Tools to install:
-```
-pip install linkml
-pip install mkdocs
-pip install mkdocs-mermaid2-plugin
-```
+## Website
 
-Users can probably get away with slightly older versions but be aware that later versions of LinkML do require pydantic >= 2.x.x
+[https://anvilproject.github.io/acr-harmonized-data-model](https://anvilproject.github.io/acr-harmonized-data-model)
 
-# Checking for convention compliance
-It can be helpful to review the [schema for compliance with linkml conventions](https://linkml.io/linkml/schemas/linter.html). To run a check for all files against the default standards the following command can be run.
-```
-linkml-lint data-model
-```
+## Repository Structure
 
-# Creating the anvil project
-Here is the command to [generate default artifacts](https://linkml.io/linkml/generators/project-generator.html) if there is a need. 
+* [examples/](examples/) - example data
+* [project/](project/) - project files (do not edit these)
+* [src/](src/) - source files (edit these)
+  * [acr_harmonized_data_model](src/acr_harmonized_data_model)
+    * [schema](src/acr_harmonized_data_model/schema) -- LinkML schema
+      (edit this)
+    * [datamodel](src/acr_harmonized_data_model/datamodel) -- generated
+      Python datamodel
+* [tests/](tests/) - Python tests
 
-```
-gen-project -d anvil data-model/anvil.yaml
-```
+## Developer Documentation
 
-# Creating the docs
-```
-gen-doc -d docs data-model/anvil.yaml
-mkdocs build
-```
+<details>
+To run commands you may use good old make or the command runner [just](https://github.com/casey/just/) which is a better choice on Windows.
+Use the `make` command or `duty` commands to generate project artefacts:
+* `make help` or `just --list`: list all pre-defined tasks
+* `make all` or `just all`: make everything
+* `make deploy` or `just deploy`: deploys site
+</details>
 
-# Validating Test Data
-```
-linkml-validate -s data-model/participant.yaml test-data/participant.csv -C Participant
-```
+## Credits
+
+This project was made with
+[linkml-project-cookiecutter](https://github.com/linkml/linkml-project-cookiecutter).

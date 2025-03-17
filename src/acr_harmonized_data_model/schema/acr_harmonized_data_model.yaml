@@ -1,0 +1,34 @@
+---
+id: https://anvilproject.org/acr-harmonized-data-model
+name: acr-harmonized-data-model
+title: ACR Harmonized Data Model
+description: |-
+  LinkML Schema for ACR Harmonized Data.
+license: MIT
+see_also:
+  - https://anvilproject.github.io/acr-harmonized-data-model
+
+prefixes:
+  anvil: https://anvilproject.org/acr-harmonized-data-model/
+  linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
+  cdc_race_eth: urn:oid:2.16.840.1.113883.6.238
+  hl7_null: http://terminology.hl7.org/CodeSystem/v3-NullFlavor
+
+default_prefix: anvil
+default_range: string
+
+imports:
+  - linkml:types
+  - anvil_core
+  - participant
+  - study
+  - subject_assertion
+  - data_access_policy
+  - biospecimen_collection
+  - aliquot
+  - sample 
+  - measurement 
+  - procedure
+  - family 
+  - family_member
