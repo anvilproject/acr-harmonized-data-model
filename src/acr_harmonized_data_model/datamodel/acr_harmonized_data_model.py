@@ -1,5 +1,5 @@
 # Auto generated from acr_harmonized_data_model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-03-17T16:03:19
+# Generation date: 2025-03-17T16:44:43
 # Schema: acr-harmonized-data-model
 #
 # id: https://anvilproject.org/acr-harmonized-data-model
@@ -151,12 +151,17 @@ class Thing(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = ANVIL.Thing
 
     id: Union[str, ThingId] = None
+    external_id: Optional[Union[Union[str, URIorCURIE], List[Union[str, URIorCURIE]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
             self.MissingRequiredField("id")
         if not isinstance(self.id, ThingId):
             self.id = ThingId(self.id)
+
+        if not isinstance(self.external_id, list):
+            self.external_id = [self.external_id] if self.external_id is not None else []
+        self.external_id = [v if isinstance(v, URIorCURIE) else URIorCURIE(v) for v in self.external_id]
 
         super().__post_init__(**kwargs)
 

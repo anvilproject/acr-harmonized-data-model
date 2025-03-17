@@ -4,6 +4,16 @@
             "additionalProperties": false,
             "description": "Element for which specific access control restrictions apply.",
             "properties": {
+                "external_id": {
+                    "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "has_access_policy": {
                     "description": "Which access policy applies to this element?",
                     "type": [
@@ -54,6 +64,16 @@
                         "null"
                     ]
                 },
+                "external_id": {
+                    "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "id": {
                     "description": "ID associated with a class",
                     "type": "string"
@@ -78,6 +98,16 @@
             "additionalProperties": false,
             "description": "Represent exact tubes or total amounts available of a Sample.",
             "properties": {
+                "external_id": {
+                    "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "id": {
                     "description": "ID associated with a class",
                     "type": "string"
@@ -137,6 +167,16 @@
                         "null"
                     ]
                 },
+                "external_id": {
+                    "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "id": {
                     "description": "ID associated with a class",
                     "type": "string"
@@ -193,6 +233,16 @@
                 "ethnicity_display": {
                     "description": "The friendly display string of the coded term for Ethnicity",
                     "type": "string"
+                },
+                "external_id": {
+                    "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "has_access_policy": {
                     "description": "Which access policy applies to this element?",
@@ -455,6 +505,16 @@
                     "$ref": "#/$defs/EnumConsanguinityAssertion",
                     "description": "Is there known or suspected consanguinity in this study family?"
                 },
+                "external_id": {
+                    "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "family_description": {
                     "description": "Free title describing the study family, such as potential inheritance or details about consanguinity",
                     "type": [
@@ -498,6 +558,16 @@
             "additionalProperties": false,
             "description": "Family",
             "properties": {
+                "external_id": {
+                    "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "family_id_fk": {
                     "description": "Family Identifier",
                     "type": [
@@ -546,6 +616,16 @@
                         "null"
                     ]
                 },
+                "external_id": {
+                    "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "id": {
                     "description": "ID associated with a class",
                     "type": "string"
@@ -590,6 +670,16 @@
                         "null"
                     ]
                 },
+                "external_id": {
+                    "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "id": {
                     "description": "ID associated with a class",
                     "type": "string"
@@ -625,6 +715,16 @@
                 "biospecimen_collection_id_fk": {
                     "description": "ID associated with the Biospecimen Collection event.",
                     "type": "string"
+                },
+                "external_id": {
+                    "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "id": {
                     "description": "ID associated with a class",
@@ -685,6 +785,16 @@
                 "biospecimen_collection_id_fk": {
                     "description": "ID associated with the Biospecimen Collection event.",
                     "type": "string"
+                },
+                "external_id": {
+                    "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "id": {
                     "description": "ID associated with a class",
@@ -751,6 +861,16 @@
                         "null"
                     ]
                 },
+                "external_id": {
+                    "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "has_access_policy": {
                     "description": "Which access policy applies to this element?",
                     "type": [
@@ -808,6 +928,16 @@
             "additionalProperties": false,
             "description": "Study Meta Data",
             "properties": {
+                "external_id": {
+                    "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "external_study_id": {
                     "description": "External Study ID",
                     "items": {
@@ -865,6 +995,16 @@
             "additionalProperties": false,
             "description": "This entity is the subject about which data or references are recorded. | This includes the idea of a human participant in a study, a cell line, an animal model, | or any other similar entity.",
             "properties": {
+                "external_id": {
+                    "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "has_access_policy": {
                     "description": "Which access policy applies to this element?",
                     "type": [
@@ -976,6 +1116,16 @@
                         "null"
                     ]
                 },
+                "external_id": {
+                    "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "has_access_policy": {
                     "description": "Which access policy applies to this element?",
                     "type": [
@@ -1082,6 +1232,16 @@
                         "null"
                     ]
                 },
+                "external_id": {
+                    "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "has_access_policy": {
                     "description": "Which access policy applies to this element?",
                     "type": [
@@ -1147,6 +1307,16 @@
             "additionalProperties": false,
             "description": "Highest Level Class",
             "properties": {
+                "external_id": {
+                    "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "id": {
                     "description": "ID associated with a class",
                     "type": "string"

@@ -908,6 +908,7 @@
       "name": "id",
       "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/core/id",
       "description": "ID associated with a class",
+      "title": "ID",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/core",
       "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/core/id",
       "identifier": true,
@@ -923,9 +924,13 @@
       "name": "external_id",
       "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/core/external_id",
       "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
-      "title": "External Identifier",
+      "title": "External Identifiers",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/core",
       "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/core/external_id",
+      "owner": "Thing",
+      "domain_of": [
+        "Thing"
+      ],
       "range": "uriorcurie",
       "multivalued": true,
       "@type": "SlotDefinition"
@@ -1980,7 +1985,8 @@
       "title": "Thing",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/core",
       "slots": [
-        "id"
+        "id",
+        "external_id"
       ],
       "slot_usage": {},
       "class_uri": "https://anvilproject.org/acr-harmonized-data-model/core/Thing",
@@ -1994,6 +2000,7 @@
       "is_a": "Thing",
       "slots": [
         "id",
+        "external_id",
         "has_access_policy"
       ],
       "slot_usage": {},
@@ -2009,6 +2016,7 @@
       "is_a": "AccessControlledRecord",
       "slots": [
         "id",
+        "external_id",
         "has_access_policy",
         "subject_type",
         "organism_type",
@@ -2029,6 +2037,7 @@
       "is_a": "AccessControlledRecord",
       "slots": [
         "id",
+        "external_id",
         "has_access_policy",
         "date_of_birth",
         "date_of_birth_type",
@@ -2055,6 +2064,7 @@
       "is_a": "Thing",
       "slots": [
         "id",
+        "external_id",
         "external_study_id",
         "parent_study_id",
         "funding_source",
@@ -2074,6 +2084,7 @@
       "is_a": "AccessControlledRecord",
       "slots": [
         "id",
+        "external_id",
         "has_access_policy",
         "assertion_type",
         "age_at_assertion",
@@ -2101,6 +2112,7 @@
       "is_a": "AccessControlledRecord",
       "slots": [
         "id",
+        "external_id",
         "has_access_policy",
         "code",
         "display",
@@ -2122,6 +2134,7 @@
       "is_a": "Thing",
       "slots": [
         "id",
+        "external_id",
         "data_access_type",
         "access_policy_code",
         "disease_limitation",
@@ -2141,6 +2154,7 @@
       "is_a": "Thing",
       "slots": [
         "id",
+        "external_id",
         "age_at_collection",
         "method",
         "site",
@@ -2160,6 +2174,7 @@
       "is_a": "Thing",
       "slots": [
         "id",
+        "external_id",
         "sample_id_fk",
         "sample_availability_status",
         "sample_volume",
@@ -2180,6 +2195,7 @@
       "is_a": "Thing",
       "slots": [
         "id",
+        "external_id",
         "parent_sample_id",
         "biospecimen_collection_id_fk",
         "sample_type",
@@ -2201,6 +2217,7 @@
       "is_a": "Thing",
       "slots": [
         "id",
+        "external_id",
         "measurement_code",
         "measurement_unit",
         "measurement_value_code",
@@ -2220,6 +2237,7 @@
       "is_a": "Thing",
       "slots": [
         "id",
+        "external_id",
         "procedure_code",
         "procedure_source_value",
         "age_at_event"
@@ -2237,6 +2255,7 @@
       "is_a": "Thing",
       "slots": [
         "id",
+        "external_id",
         "family_external_id",
         "family_type",
         "family_description",
@@ -2256,6 +2275,7 @@
       "is_a": "Thing",
       "slots": [
         "id",
+        "external_id",
         "family_id_fk",
         "family_member_id",
         "other_family_member_id",
@@ -2270,7 +2290,7 @@
   "source_file": "acr_harmonized_data_model.yaml",
   "source_file_date": "2025-03-17T16:01:59",
   "source_file_size": 815,
-  "generation_date": "2025-03-17T16:03:18",
+  "generation_date": "2025-03-17T16:44:42",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/acr_harmonized_data_model.context.jsonld",

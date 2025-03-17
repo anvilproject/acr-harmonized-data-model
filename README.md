@@ -23,6 +23,7 @@ You can build the model using link-ml calls or using the makefile/justfile.
 
 ### Linkml tools
 <details>
+
 #### Tools Required
 * Python 3.12 (3.13 support [coming for linkml](https://github.com/linkml/linkml-runtime/pull/345))
 * LinkML 1.8.6
@@ -55,8 +56,11 @@ gen-doc -d docs data-model/anvil.yaml
 mkdocs build
 ```
 </details>
+
 ### Makefile / Justfile
+
 <details>
+
 To run commands you may use good old make or the command runner [just](https://github.com/casey/just/) which is a better choice on Windows.
 Use the `make` command or `duty` commands to generate project artefacts:
 * `make help` or `just --list`: list all pre-defined tasks

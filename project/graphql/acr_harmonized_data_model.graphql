@@ -131,12 +131,14 @@ enum EnumVitalStatus
 type AccessControlledRecord
   {
     id: String!
+    externalId: [Uriorcurie]
     hasAccessPolicy: AccessPolicy
   }
 
 type AccessPolicy
   {
     id: String!
+    externalId: [Uriorcurie]
     dataAccessType: [EnumAccessType]
     accessPolicyCode: [EnumAccessCode]!
     diseaseLimitation: String
@@ -147,6 +149,7 @@ type AccessPolicy
 type Aliquot
   {
     id: String!
+    externalId: [Uriorcurie]
     sampleIdFk: String!
     sampleAvailabilityStatus: EnumAvailabilityStatus
     sampleVolume: Float
@@ -158,6 +161,7 @@ type Aliquot
 type BiospecimenCollection
   {
     id: String!
+    externalId: [Uriorcurie]
     ageAtCollection: Integer
     method: EnumSampleCollectionMethod
     site: EnumSite
@@ -168,6 +172,7 @@ type BiospecimenCollection
 type Demographics
   {
     id: String!
+    externalId: [Uriorcurie]
     hasAccessPolicy: AccessPolicy
     dateOfBirth: Integer
     dateOfBirthType: EnumDateOfBirthType
@@ -185,6 +190,7 @@ type Demographics
 type Family
   {
     id: String!
+    externalId: [Uriorcurie]
     familyExternalId: [String]
     familyType: EnumFamilyType
     familyDescription: String
@@ -195,6 +201,7 @@ type Family
 type FamilyMember
   {
     id: String!
+    externalId: [Uriorcurie]
     familyIdFk: String
     familyMemberId: String!
     otherFamilyMemberId: String
@@ -204,6 +211,7 @@ type FamilyMember
 type Measurement
   {
     id: String!
+    externalId: [Uriorcurie]
     measurementCode: [String]!
     measurementUnit: String!
     measurementValueCode: EnumMeasurementValueCode
@@ -214,6 +222,7 @@ type Measurement
 type Procedure
   {
     id: String!
+    externalId: [Uriorcurie]
     procedureCode: [String]!
     procedureSourceValue: String!
     ageAtEvent: Float
@@ -222,6 +231,7 @@ type Procedure
 type Sample
   {
     id: String!
+    externalId: [Uriorcurie]
     parentSampleId: String
     biospecimenCollectionIdFk: String!
     sampleType: String!
@@ -234,6 +244,7 @@ type Sample
 type SourceData
   {
     id: String!
+    externalId: [Uriorcurie]
     hasAccessPolicy: AccessPolicy
     code: Uriorcurie
     display: String
@@ -247,6 +258,7 @@ type SourceData
 type Study
   {
     id: String!
+    externalId: [Uriorcurie]
     externalStudyId: [String]
     parentStudyId: Study
     fundingSource: [String]
@@ -257,6 +269,7 @@ type Study
 type Subject
   {
     id: String!
+    externalId: [Uriorcurie]
     hasAccessPolicy: AccessPolicy
     subjectType: EnumSubjectType!
     organismType: String
@@ -268,6 +281,7 @@ type Subject
 type SubjectAssertion
   {
     id: String!
+    externalId: [Uriorcurie]
     hasAccessPolicy: AccessPolicy
     assertionType: EnumAssertionType
     ageAtAssertion: Float
@@ -286,5 +300,6 @@ type SubjectAssertion
 type Thing
   {
     id: String!
+    externalId: [Uriorcurie]
   }
 

@@ -325,7 +325,8 @@ linkml:Sparqlpath xsd:string
 
 <https://anvilproject.org/acr-harmonized-data-model/core/Thing>  (
     CLOSED {
-       (  $<https://anvilproject.org/acr-harmonized-data-model/core/Thing_tes> rdf:type . * ;
+       (  $<https://anvilproject.org/acr-harmonized-data-model/core/Thing_tes>
+          <https://anvilproject.org/acr-harmonized-data-model/core/external_id> @linkml:Uriorcurie * ;
           rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/Thing> ]
        )
     } OR @<https://anvilproject.org/acr-harmonized-data-model/core/AccessControlledRecord> OR

@@ -101,6 +101,12 @@
 --     * Slot: other_family_member_id Description: Other member of the same family to which there is a relationship being described
 --     * Slot: relationship_code Description: Relationship of the "Family Member" to the "Other Family Member" (i.e. mother, father, etc). This is required if other_family_member_id is present. Code must be from the HL7 [FamilyMember ValueSet](https://terminology.hl7.org/6.2.0/ValueSet-v3-FamilyMember.html)
 --     * Slot: id Description: ID associated with a class
+-- # Class: "Thing_external_id" Description: ""
+--     * Slot: Thing_id Description: Autocreated FK slot
+--     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
+-- # Class: "AccessControlledRecord_external_id" Description: ""
+--     * Slot: AccessControlledRecord_id Description: Autocreated FK slot
+--     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
 -- # Class: "Study_external_study_id" Description: ""
 --     * Slot: Study_id Description: Autocreated FK slot
 --     * Slot: external_study_id Description: External Study ID
@@ -110,33 +116,72 @@
 -- # Class: "Study_principal_investigator" Description: ""
 --     * Slot: Study_id Description: Autocreated FK slot
 --     * Slot: principal_investigator Description: Principal Investigator
+-- # Class: "Study_external_id" Description: ""
+--     * Slot: Study_id Description: Autocreated FK slot
+--     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
 -- # Class: "Sample_processing" Description: ""
 --     * Slot: Sample_id Description: Autocreated FK slot
 --     * Slot: processing Description: Curied code associated processing that was applied to the Parent Sample or from the Biospecimen Collection that yielded this distinct sample
+-- # Class: "Sample_external_id" Description: ""
+--     * Slot: Sample_id Description: Autocreated FK slot
+--     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
+-- # Class: "Subject_external_id" Description: ""
+--     * Slot: Subject_id Description: Autocreated FK slot
+--     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
 -- # Class: "Demographics_race" Description: ""
 --     * Slot: Demographics_id Description: Autocreated FK slot
 --     * Slot: race Description: Reported race as defined by the 1997 OMB directives.
 -- # Class: "Demographics_source_data" Description: ""
 --     * Slot: Demographics_id Description: Autocreated FK slot
 --     * Slot: source_data_id Description: The sources from which this assertion was derived
+-- # Class: "Demographics_external_id" Description: ""
+--     * Slot: Demographics_id Description: Autocreated FK slot
+--     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
 -- # Class: "SubjectAssertion_source_data" Description: ""
 --     * Slot: SubjectAssertion_id Description: Autocreated FK slot
 --     * Slot: source_data_id Description: The sources from which this assertion was derived
+-- # Class: "SubjectAssertion_external_id" Description: ""
+--     * Slot: SubjectAssertion_id Description: Autocreated FK slot
+--     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
+-- # Class: "SourceData_external_id" Description: ""
+--     * Slot: SourceData_id Description: Autocreated FK slot
+--     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
 -- # Class: "AccessPolicy_data_access_type" Description: ""
 --     * Slot: AccessPolicy_id Description: Autocreated FK slot
 --     * Slot: data_access_type Description: Data Access Type
 -- # Class: "AccessPolicy_access_policy_code" Description: ""
 --     * Slot: AccessPolicy_id Description: Autocreated FK slot
 --     * Slot: access_policy_code Description: Access Policy Code
+-- # Class: "AccessPolicy_external_id" Description: ""
+--     * Slot: AccessPolicy_id Description: Autocreated FK slot
+--     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
+-- # Class: "BiospecimenCollection_external_id" Description: ""
+--     * Slot: BiospecimenCollection_id Description: Autocreated FK slot
+--     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
+-- # Class: "Aliquot_external_id" Description: ""
+--     * Slot: Aliquot_id Description: Autocreated FK slot
+--     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
 -- # Class: "Measurement_measurement_code" Description: ""
 --     * Slot: Measurement_id Description: Autocreated FK slot
 --     * Slot: measurement_code Description: Measurement code should be from a recognized ontology preceded by a recognized curie. Multiple entries should reflect alternate codes for the same measurement. * LOINC : https://bioregistry.io/registry/loinc
+-- # Class: "Measurement_external_id" Description: ""
+--     * Slot: Measurement_id Description: Autocreated FK slot
+--     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
 -- # Class: "Procedure_procedure_code" Description: ""
 --     * Slot: Procedure_id Description: Autocreated FK slot
 --     * Slot: procedure_code Description: Procedure code should be from a recognized ontology preceded by a recognized curie. Multiple entries should reflect alternate codes for the same procedure. * CPT : https://bioregistry.io/registry/cpt
+-- # Class: "Procedure_external_id" Description: ""
+--     * Slot: Procedure_id Description: Autocreated FK slot
+--     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
 -- # Class: "Family_family_external_id" Description: ""
 --     * Slot: Family_id Description: Autocreated FK slot
 --     * Slot: family_external_id Description: Other study specific study identifiers
+-- # Class: "Family_external_id" Description: ""
+--     * Slot: Family_id Description: Autocreated FK slot
+--     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
+-- # Class: "FamilyMember_external_id" Description: ""
+--     * Slot: FamilyMember_id Description: Autocreated FK slot
+--     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
 
 CREATE TABLE "Thing" (
 	id TEXT NOT NULL, 
@@ -239,6 +284,12 @@ CREATE TABLE "SourceData" (
 	PRIMARY KEY (id), 
 	FOREIGN KEY(has_access_policy) REFERENCES "AccessPolicy" (id)
 );
+CREATE TABLE "Thing_external_id" (
+	"Thing_id" TEXT, 
+	external_id TEXT, 
+	PRIMARY KEY ("Thing_id", external_id), 
+	FOREIGN KEY("Thing_id") REFERENCES "Thing" (id)
+);
 CREATE TABLE "Study_external_study_id" (
 	"Study_id" TEXT, 
 	external_study_id TEXT, 
@@ -257,6 +308,12 @@ CREATE TABLE "Study_principal_investigator" (
 	PRIMARY KEY ("Study_id", principal_investigator), 
 	FOREIGN KEY("Study_id") REFERENCES "Study" (id)
 );
+CREATE TABLE "Study_external_id" (
+	"Study_id" TEXT, 
+	external_id TEXT, 
+	PRIMARY KEY ("Study_id", external_id), 
+	FOREIGN KEY("Study_id") REFERENCES "Study" (id)
+);
 CREATE TABLE "AccessPolicy_data_access_type" (
 	"AccessPolicy_id" TEXT, 
 	data_access_type VARCHAR(14), 
@@ -269,10 +326,34 @@ CREATE TABLE "AccessPolicy_access_policy_code" (
 	PRIMARY KEY ("AccessPolicy_id", access_policy_code), 
 	FOREIGN KEY("AccessPolicy_id") REFERENCES "AccessPolicy" (id)
 );
+CREATE TABLE "AccessPolicy_external_id" (
+	"AccessPolicy_id" TEXT, 
+	external_id TEXT, 
+	PRIMARY KEY ("AccessPolicy_id", external_id), 
+	FOREIGN KEY("AccessPolicy_id") REFERENCES "AccessPolicy" (id)
+);
+CREATE TABLE "BiospecimenCollection_external_id" (
+	"BiospecimenCollection_id" TEXT, 
+	external_id TEXT, 
+	PRIMARY KEY ("BiospecimenCollection_id", external_id), 
+	FOREIGN KEY("BiospecimenCollection_id") REFERENCES "BiospecimenCollection" (id)
+);
+CREATE TABLE "Aliquot_external_id" (
+	"Aliquot_id" TEXT, 
+	external_id TEXT, 
+	PRIMARY KEY ("Aliquot_id", external_id), 
+	FOREIGN KEY("Aliquot_id") REFERENCES "Aliquot" (id)
+);
 CREATE TABLE "Measurement_measurement_code" (
 	"Measurement_id" TEXT, 
 	measurement_code TEXT NOT NULL, 
 	PRIMARY KEY ("Measurement_id", measurement_code), 
+	FOREIGN KEY("Measurement_id") REFERENCES "Measurement" (id)
+);
+CREATE TABLE "Measurement_external_id" (
+	"Measurement_id" TEXT, 
+	external_id TEXT, 
+	PRIMARY KEY ("Measurement_id", external_id), 
 	FOREIGN KEY("Measurement_id") REFERENCES "Measurement" (id)
 );
 CREATE TABLE "Procedure_procedure_code" (
@@ -281,11 +362,29 @@ CREATE TABLE "Procedure_procedure_code" (
 	PRIMARY KEY ("Procedure_id", procedure_code), 
 	FOREIGN KEY("Procedure_id") REFERENCES "Procedure" (id)
 );
+CREATE TABLE "Procedure_external_id" (
+	"Procedure_id" TEXT, 
+	external_id TEXT, 
+	PRIMARY KEY ("Procedure_id", external_id), 
+	FOREIGN KEY("Procedure_id") REFERENCES "Procedure" (id)
+);
 CREATE TABLE "Family_family_external_id" (
 	"Family_id" TEXT, 
 	family_external_id TEXT, 
 	PRIMARY KEY ("Family_id", family_external_id), 
 	FOREIGN KEY("Family_id") REFERENCES "Family" (id)
+);
+CREATE TABLE "Family_external_id" (
+	"Family_id" TEXT, 
+	external_id TEXT, 
+	PRIMARY KEY ("Family_id", external_id), 
+	FOREIGN KEY("Family_id") REFERENCES "Family" (id)
+);
+CREATE TABLE "FamilyMember_external_id" (
+	"FamilyMember_id" TEXT, 
+	external_id TEXT, 
+	PRIMARY KEY ("FamilyMember_id", external_id), 
+	FOREIGN KEY("FamilyMember_id") REFERENCES "FamilyMember" (id)
 );
 CREATE TABLE "Subject" (
 	subject_type VARCHAR(15) NOT NULL, 
@@ -296,6 +395,12 @@ CREATE TABLE "Subject" (
 	PRIMARY KEY (id), 
 	FOREIGN KEY(has_access_policy) REFERENCES "AccessPolicy" (id), 
 	FOREIGN KEY(has_demographics_id) REFERENCES "Demographics" (id)
+);
+CREATE TABLE "AccessControlledRecord_external_id" (
+	"AccessControlledRecord_id" TEXT, 
+	external_id TEXT, 
+	PRIMARY KEY ("AccessControlledRecord_id", external_id), 
+	FOREIGN KEY("AccessControlledRecord_id") REFERENCES "AccessControlledRecord" (id)
 );
 CREATE TABLE "Demographics_race" (
 	"Demographics_id" TEXT, 
@@ -309,6 +414,18 @@ CREATE TABLE "Demographics_source_data" (
 	PRIMARY KEY ("Demographics_id", source_data_id), 
 	FOREIGN KEY("Demographics_id") REFERENCES "Demographics" (id), 
 	FOREIGN KEY(source_data_id) REFERENCES "SourceData" (id)
+);
+CREATE TABLE "Demographics_external_id" (
+	"Demographics_id" TEXT, 
+	external_id TEXT, 
+	PRIMARY KEY ("Demographics_id", external_id), 
+	FOREIGN KEY("Demographics_id") REFERENCES "Demographics" (id)
+);
+CREATE TABLE "SourceData_external_id" (
+	"SourceData_id" TEXT, 
+	external_id TEXT, 
+	PRIMARY KEY ("SourceData_id", external_id), 
+	FOREIGN KEY("SourceData_id") REFERENCES "SourceData" (id)
 );
 CREATE TABLE "Sample" (
 	parent_sample_id TEXT, 
@@ -341,10 +458,22 @@ CREATE TABLE "SubjectAssertion" (
 	FOREIGN KEY(has_access_policy) REFERENCES "AccessPolicy" (id), 
 	FOREIGN KEY("Subject_id") REFERENCES "Subject" (id)
 );
+CREATE TABLE "Subject_external_id" (
+	"Subject_id" TEXT, 
+	external_id TEXT, 
+	PRIMARY KEY ("Subject_id", external_id), 
+	FOREIGN KEY("Subject_id") REFERENCES "Subject" (id)
+);
 CREATE TABLE "Sample_processing" (
 	"Sample_id" TEXT, 
 	processing TEXT, 
 	PRIMARY KEY ("Sample_id", processing), 
+	FOREIGN KEY("Sample_id") REFERENCES "Sample" (id)
+);
+CREATE TABLE "Sample_external_id" (
+	"Sample_id" TEXT, 
+	external_id TEXT, 
+	PRIMARY KEY ("Sample_id", external_id), 
 	FOREIGN KEY("Sample_id") REFERENCES "Sample" (id)
 );
 CREATE TABLE "SubjectAssertion_source_data" (
@@ -353,4 +482,10 @@ CREATE TABLE "SubjectAssertion_source_data" (
 	PRIMARY KEY ("SubjectAssertion_id", source_data_id), 
 	FOREIGN KEY("SubjectAssertion_id") REFERENCES "SubjectAssertion" (id), 
 	FOREIGN KEY(source_data_id) REFERENCES "SourceData" (id)
+);
+CREATE TABLE "SubjectAssertion_external_id" (
+	"SubjectAssertion_id" TEXT, 
+	external_id TEXT, 
+	PRIMARY KEY ("SubjectAssertion_id", external_id), 
+	FOREIGN KEY("SubjectAssertion_id") REFERENCES "SubjectAssertion" (id)
 );

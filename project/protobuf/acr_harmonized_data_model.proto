@@ -5,12 +5,14 @@
 message AccessControlledRecord
  {
   string id = 0
+ repeated  uriorcurie externalId = 0
   accessPolicy hasAccessPolicy = 0
  }
 // Describes the access required for a given element of data.
 message AccessPolicy
  {
   string id = 0
+ repeated  uriorcurie externalId = 0
  repeated  enumAccessType dataAccessType = 0
  repeated  enumAccessCode accessPolicyCode = 0
   string diseaseLimitation = 0
@@ -21,6 +23,7 @@ message AccessPolicy
 message Aliquot
  {
   string id = 0
+ repeated  uriorcurie externalId = 0
   string sampleIdFk = 0
   enumAvailabilityStatus sampleAvailabilityStatus = 0
   float sampleVolume = 0
@@ -32,6 +35,7 @@ message Aliquot
 message BiospecimenCollection
  {
   string id = 0
+ repeated  uriorcurie externalId = 0
   integer ageAtCollection = 0
   enumSampleCollectionMethod method = 0
   enumSite site = 0
@@ -42,6 +46,7 @@ message BiospecimenCollection
 message Demographics
  {
   string id = 0
+ repeated  uriorcurie externalId = 0
   accessPolicy hasAccessPolicy = 0
   integer dateOfBirth = 0
   enumDateOfBirthType dateOfBirthType = 0
@@ -59,6 +64,7 @@ message Demographics
 message Family
  {
   string id = 0
+ repeated  uriorcurie externalId = 0
  repeated  string familyExternalId = 0
   enumFamilyType familyType = 0
   string familyDescription = 0
@@ -69,6 +75,7 @@ message Family
 message FamilyMember
  {
   string id = 0
+ repeated  uriorcurie externalId = 0
   string familyIdFk = 0
   string familyMemberId = 0
   string otherFamilyMemberId = 0
@@ -78,6 +85,7 @@ message FamilyMember
 message Measurement
  {
   string id = 0
+ repeated  uriorcurie externalId = 0
  repeated  string measurementCode = 0
   string measurementUnit = 0
   enumMeasurementValueCode measurementValueCode = 0
@@ -88,6 +96,7 @@ message Measurement
 message Procedure
  {
   string id = 0
+ repeated  uriorcurie externalId = 0
  repeated  string procedureCode = 0
   string procedureSourceValue = 0
   float ageAtEvent = 0
@@ -96,6 +105,7 @@ message Procedure
 message Sample
  {
   string id = 0
+ repeated  uriorcurie externalId = 0
   string parentSampleId = 0
   string biospecimenCollectionIdFk = 0
   string sampleType = 0
@@ -108,6 +118,7 @@ message Sample
 message SourceData
  {
   string id = 0
+ repeated  uriorcurie externalId = 0
   accessPolicy hasAccessPolicy = 0
   uriorcurie code = 0
   string display = 0
@@ -121,6 +132,7 @@ message SourceData
 message Study
  {
   string id = 0
+ repeated  uriorcurie externalId = 0
  repeated  string externalStudyId = 0
   study parentStudyId = 0
  repeated  string fundingSource = 0
@@ -131,6 +143,7 @@ message Study
 message Subject
  {
   string id = 0
+ repeated  uriorcurie externalId = 0
   accessPolicy hasAccessPolicy = 0
   enumSubjectType subjectType = 0
   string organismType = 0
@@ -142,6 +155,7 @@ message Subject
 message SubjectAssertion
  {
   string id = 0
+ repeated  uriorcurie externalId = 0
   accessPolicy hasAccessPolicy = 0
   enumAssertionType assertionType = 0
   float ageAtAssertion = 0
@@ -160,4 +174,5 @@ message SubjectAssertion
 message Thing
  {
   string id = 0
+ repeated  uriorcurie externalId = 0
  }
