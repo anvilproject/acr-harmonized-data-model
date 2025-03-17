@@ -18,7 +18,7 @@
     
     
       
-        <title>Slot: External Identifier (external_id) - acr-harmonized-data-model</title>
+        <title>Slot: External Identifiers (external_id) - acr-harmonized-data-model</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-external-identifier-external_id" class="md-skip">
+        <a href="#slot-external-identifiers-external_id" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: External Identifier (external_id)
+              Slot: External Identifiers (external_id)
             
           </span>
         </div>
@@ -281,6 +281,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#applicable-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Applicable Classes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
       Properties
@@ -350,11 +359,98 @@
   
 
 
-<h1 id="slot-external-identifier-external_id">Slot: External Identifier (external_id)</h1>
+<h1 id="slot-external-identifiers-external_id">Slot: External Identifiers (external_id)</h1>
 <p><em>Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP</em></p>
 <p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/external_id">anvil:external_id</a></p>
 <!-- no inheritance hierarchy -->
 
+<h2 id="applicable-classes">Applicable Classes</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Modifies Slot</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../FamilyMember/">FamilyMember</a></td>
+<td>Family</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Measurement/">Measurement</a></td>
+<td>Measurements</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../SubjectAssertion/">SubjectAssertion</a></td>
+<td>Assertion about a particular Subject</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Procedure/">Procedure</a></td>
+<td>Procedures</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Sample/">Sample</a></td>
+<td>Biospecimen data</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Subject/">Subject</a></td>
+<td>This entity is the subject about which data or references are recorded</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../AccessControlledRecord/">AccessControlledRecord</a></td>
+<td>Element for which specific access control restrictions apply</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Thing/">Thing</a></td>
+<td>Highest Level Class</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../AccessPolicy/">AccessPolicy</a></td>
+<td>Describes the access required for a given element of data</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../BiospecimenCollection/">BiospecimenCollection</a></td>
+<td>Biospecimen Collection</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Family/">Family</a></td>
+<td>Family</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../SourceData/">SourceData</a></td>
+<td>Submitted data about a particular Subject</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Aliquot/">Aliquot</a></td>
+<td>Represent exact tubes or total amounts available of a Sample</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Demographics/">Demographics</a></td>
+<td>Basic participant demographics summary</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Study/">Study</a></td>
+<td>Study Meta Data</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
 <h2 id="properties">Properties</h2>
 <ul>
 <li>
@@ -394,10 +490,12 @@
 <pre><code class="language-yaml">name: external_id
 description: Other identifiers for this entity, eg, from the submitting study or in
   systems link dbGaP
-title: External Identifier
+title: External Identifiers
 from_schema: https://anvilproject.org/acr-harmonized-data-model
 rank: 1000
 alias: external_id
+domain_of:
+- Thing
 range: uriorcurie
 required: false
 multivalued: true

@@ -230,6 +230,8 @@
       AccessControlledRecord &lt;|-- Subject
         click AccessControlledRecord href "../AccessControlledRecord"
 
+      Subject : external_id
+
       Subject : has_access_policy
 
 
@@ -342,6 +344,12 @@
 <td><a href="../id/">id</a></td>
 <td>1 <br/> <a href="../String/">String</a></td>
 <td>ID associated with a class</td>
+<td><a href="../Thing/">Thing</a></td>
+</tr>
+<tr>
+<td><a href="../external_id/">external_id</a></td>
+<td>* <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+<td>Other identifiers for this entity, eg, from the submitting study or in system...</td>
 <td><a href="../Thing/">Thing</a></td>
 </tr>
 </tbody>
@@ -480,6 +488,7 @@ attributes:
   id:
     name: id
     description: ID associated with a class
+    title: ID
     from_schema: https://anvilproject.org/acr-harmonized-data-model
     rank: 1000
     identifier: true
@@ -490,6 +499,20 @@ attributes:
     range: string
     required: true
     multivalued: false
+  external_id:
+    name: external_id
+    description: Other identifiers for this entity, eg, from the submitting study
+      or in systems link dbGaP
+    title: External Identifiers
+    from_schema: https://anvilproject.org/acr-harmonized-data-model
+    rank: 1000
+    alias: external_id
+    owner: Subject
+    domain_of:
+    - Thing
+    range: uriorcurie
+    required: false
+    multivalued: true
 
 </code></pre>
 </details>

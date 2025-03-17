@@ -18,7 +18,7 @@
     
     
       
-        <title>Slot: id - acr-harmonized-data-model</title>
+        <title>Slot: ID (id) - acr-harmonized-data-model</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-id" class="md-skip">
+        <a href="#slot-id-id" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: id
+              Slot: ID (id)
             
           </span>
         </div>
@@ -359,7 +359,7 @@
   
 
 
-<h1 id="slot-id">Slot: id</h1>
+<h1 id="slot-id-id">Slot: ID (id)</h1>
 <p><em>ID associated with a class</em></p>
 <p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/id">anvil:id</a></p>
 <!-- no inheritance hierarchy -->
@@ -375,6 +375,26 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../FamilyMember/">FamilyMember</a></td>
+<td>Family</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Measurement/">Measurement</a></td>
+<td>Measurements</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../SubjectAssertion/">SubjectAssertion</a></td>
+<td>Assertion about a particular Subject</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Procedure/">Procedure</a></td>
+<td>Procedures</td>
+<td>no</td>
+</tr>
+<tr>
 <td><a href="../Sample/">Sample</a></td>
 <td>Biospecimen data</td>
 <td>no</td>
@@ -385,48 +405,13 @@
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../Thing/">Thing</a></td>
-<td>Highest Level Class</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Family/">Family</a></td>
-<td>Family</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Aliquot/">Aliquot</a></td>
-<td>Represent exact tubes or total amounts available of a Sample</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../BiospecimenCollection/">BiospecimenCollection</a></td>
-<td>Biospecimen Collection</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Study/">Study</a></td>
-<td>Study Meta Data</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Procedure/">Procedure</a></td>
-<td>Procedures</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Demographics/">Demographics</a></td>
-<td>Basic participant demographics summary</td>
-<td>no</td>
-</tr>
-<tr>
 <td><a href="../AccessControlledRecord/">AccessControlledRecord</a></td>
 <td>Element for which specific access control restrictions apply</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../Measurement/">Measurement</a></td>
-<td>Measurements</td>
+<td><a href="../Thing/">Thing</a></td>
+<td>Highest Level Class</td>
 <td>no</td>
 </tr>
 <tr>
@@ -435,18 +420,33 @@
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../SubjectAssertion/">SubjectAssertion</a></td>
-<td>Assertion about a particular Subject</td>
+<td><a href="../BiospecimenCollection/">BiospecimenCollection</a></td>
+<td>Biospecimen Collection</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../FamilyMember/">FamilyMember</a></td>
+<td><a href="../Family/">Family</a></td>
 <td>Family</td>
 <td>no</td>
 </tr>
 <tr>
 <td><a href="../SourceData/">SourceData</a></td>
 <td>Submitted data about a particular Subject</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Aliquot/">Aliquot</a></td>
+<td>Represent exact tubes or total amounts available of a Sample</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Demographics/">Demographics</a></td>
+<td>Basic participant demographics summary</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Study/">Study</a></td>
+<td>Study Meta Data</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -489,6 +489,7 @@
 
 <pre><code class="language-yaml">name: id
 description: ID associated with a class
+title: ID
 from_schema: https://anvilproject.org/acr-harmonized-data-model
 rank: 1000
 identifier: true
