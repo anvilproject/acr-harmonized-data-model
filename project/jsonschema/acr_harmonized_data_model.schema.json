@@ -94,116 +94,6 @@
             "title": "AccessPolicy",
             "type": "object"
         },
-        "Aliquot": {
-            "additionalProperties": false,
-            "description": "Represent exact tubes or total amounts available of a Sample.",
-            "properties": {
-                "external_id": {
-                    "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "id": {
-                    "description": "ID associated with a class",
-                    "type": "string"
-                },
-                "sample_availability_status": {
-                    "$ref": "#/$defs/EnumAvailabilityStatus",
-                    "description": "Can this Sample be requested for further analysis"
-                },
-                "sample_concentration": {
-                    "description": "What is the concentration of the analyte in the Aliquot?",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
-                },
-                "sample_concentration_unit": {
-                    "description": "Units associated with the concentration of the analyte in the Aliquot? UCUM coding preferred (with curie, UCUM)",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "sample_id_fk": {
-                    "description": "Sample ID the aliquot is associated with",
-                    "type": "string"
-                },
-                "sample_volume": {
-                    "description": "What is the volume of the Aliquot?",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
-                },
-                "sample_volume_unit": {
-                    "description": "Units associated with the volume? UCUM coding preferred (with curie, UCUM)",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                }
-            },
-            "required": [
-                "sample_id_fk",
-                "id"
-            ],
-            "title": "Aliquot",
-            "type": "object"
-        },
-        "BiospecimenCollection": {
-            "additionalProperties": false,
-            "description": "Biospecimen Collection",
-            "properties": {
-                "age_at_collection": {
-                    "description": "The age at which this biospecimen was collected.",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
-                },
-                "external_id": {
-                    "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "id": {
-                    "description": "ID associated with a class",
-                    "type": "string"
-                },
-                "laterality": {
-                    "$ref": "#/$defs/EnumLaterality",
-                    "description": "Laterality information for the site"
-                },
-                "method": {
-                    "$ref": "#/$defs/EnumSampleCollectionMethod",
-                    "description": "The approach used to collect the biospecimen."
-                },
-                "site": {
-                    "$ref": "#/$defs/EnumSite",
-                    "description": "The location of the specimen collection."
-                },
-                "spatial_qualifier": {
-                    "$ref": "#/$defs/EnumSpatialQualifiers",
-                    "description": "Any spatial/location qualifiers"
-                }
-            },
-            "required": [
-                "id"
-            ],
-            "title": "BiospecimenCollection",
-            "type": "object"
-        },
         "Demographics": {
             "additionalProperties": false,
             "description": "Basic participant demographics summary",
@@ -368,17 +258,6 @@
             "title": "EnumConditionCode",
             "type": "string"
         },
-        "EnumConsanguinityAssertion": {
-            "description": "Asserts known or suspected consanguinity in this study family",
-            "enum": [
-                "not_suspected",
-                "suspected",
-                "known_present",
-                "unknown"
-            ],
-            "title": "EnumConsanguinityAssertion",
-            "type": "string"
-        },
         "EnumDateOfBirthType": {
             "description": "Privacy rules that may modify a date value.",
             "enum": [
@@ -402,35 +281,6 @@
             "title": "EnumEthnicity",
             "type": "string"
         },
-        "EnumFamilyType": {
-            "description": "Enumerations describing research family type",
-            "enum": [
-                "control_only",
-                "duo",
-                "proband_only",
-                "trio",
-                "trio_plus",
-                "other"
-            ],
-            "title": "EnumFamilyType",
-            "type": "string"
-        },
-        "EnumLaterality": {
-            "description": "Laterality information for the site",
-            "title": "EnumLaterality",
-            "type": "string"
-        },
-        "EnumMeasurementValueCode": {
-            "description": "Indicate measurement details such as positive/negative/indeterminate",
-            "enum": [
-                "negative",
-                "positive",
-                "not_performed",
-                "indeterminate"
-            ],
-            "title": "EnumMeasurementValueCode",
-            "type": "string"
-        },
         "EnumRace": {
             "description": "OMB Codes describing race.",
             "enum": [
@@ -446,11 +296,6 @@
             "title": "EnumRace",
             "type": "string"
         },
-        "EnumSampleCollectionMethod": {
-            "description": "The approach used to collect the biospecimen. Recommend ontology: [LOINC](https://loinc.org).",
-            "title": "EnumSampleCollectionMethod",
-            "type": "string"
-        },
         "EnumSex": {
             "description": "Terms describing an individual's sex.",
             "enum": [
@@ -460,16 +305,6 @@
                 "intersex"
             ],
             "title": "EnumSex",
-            "type": "string"
-        },
-        "EnumSite": {
-            "description": "The location of the specimen collection. Recommended ontology: [SNOMED Body Site](https://hl7.org/fhir/R4B/valueset-body-site.html)",
-            "title": "EnumSite",
-            "type": "string"
-        },
-        "EnumSpatialQualifiers": {
-            "description": "Any spatial/location qualifiers.",
-            "title": "EnumSpatialQualifiers",
             "type": "string"
         },
         "EnumSubjectType": {
@@ -496,213 +331,6 @@
             ],
             "title": "EnumVitalStatus",
             "type": "string"
-        },
-        "Family": {
-            "additionalProperties": false,
-            "description": "Family",
-            "properties": {
-                "consanguinity": {
-                    "$ref": "#/$defs/EnumConsanguinityAssertion",
-                    "description": "Is there known or suspected consanguinity in this study family?"
-                },
-                "external_id": {
-                    "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "family_description": {
-                    "description": "Free title describing the study family, such as potential inheritance or details about consanguinity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "family_external_id": {
-                    "description": "Other study specific study identifiers",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "family_study_focus": {
-                    "description": "What is this study family investigating? EG, a specific condition. The code should be prefixed with a recognizable curie. \n",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "family_type": {
-                    "$ref": "#/$defs/EnumFamilyType",
-                    "description": "Describes the 'type' of study family, eg, trio."
-                },
-                "id": {
-                    "description": "ID associated with a class",
-                    "type": "string"
-                }
-            },
-            "required": [
-                "id"
-            ],
-            "title": "Family",
-            "type": "object"
-        },
-        "FamilyMember": {
-            "additionalProperties": false,
-            "description": "Family",
-            "properties": {
-                "external_id": {
-                    "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "family_id_fk": {
-                    "description": "Family Identifier",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "family_member_id": {
-                    "description": "Family Member ID indicating presence in the family",
-                    "type": "string"
-                },
-                "id": {
-                    "description": "ID associated with a class",
-                    "type": "string"
-                },
-                "other_family_member_id": {
-                    "description": "Other member of the same family to which there is a relationship being described",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "relationship_code": {
-                    "description": "Relationship of the \"Family Member\" to the \"Other Family Member\" (i.e. mother, father, etc). This is required if other_family_member_id is present. Code must be from the HL7 [FamilyMember ValueSet](https://terminology.hl7.org/6.2.0/ValueSet-v3-FamilyMember.html)\n",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                }
-            },
-            "required": [
-                "family_member_id",
-                "id"
-            ],
-            "title": "FamilyMember",
-            "type": "object"
-        },
-        "Measurement": {
-            "additionalProperties": false,
-            "description": "Measurements",
-            "properties": {
-                "age_at_observation": {
-                    "description": "Age of participant when measurement was taken/recorded",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
-                },
-                "external_id": {
-                    "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "id": {
-                    "description": "ID associated with a class",
-                    "type": "string"
-                },
-                "measurement_code": {
-                    "description": "Measurement code should be from a recognized ontology preceded by a recognized curie. Multiple entries should reflect alternate codes for the same measurement. \n* LOINC : https://bioregistry.io/registry/loinc\n",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "measurement_source_value": {
-                    "description": "Original measurement text",
-                    "type": "string"
-                },
-                "measurement_unit": {
-                    "description": "UCUM Unit associated with the field",
-                    "type": "string"
-                },
-                "measurement_value_code": {
-                    "$ref": "#/$defs/EnumMeasurementValueCode",
-                    "description": "Code indicating measurement value such as positive, negative, etc."
-                }
-            },
-            "required": [
-                "measurement_code",
-                "measurement_unit",
-                "measurement_source_value",
-                "id"
-            ],
-            "title": "Measurement",
-            "type": "object"
-        },
-        "Procedure": {
-            "additionalProperties": false,
-            "description": "Procedures",
-            "properties": {
-                "age_at_event": {
-                    "description": "The age in decimal years of the Subject at the time point which the assertion describes, | eg, age of onset or when a measurement was performed.",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
-                },
-                "external_id": {
-                    "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "id": {
-                    "description": "ID associated with a class",
-                    "type": "string"
-                },
-                "procedure_code": {
-                    "description": "Procedure code should be from a recognized ontology preceded by a recognized curie. Multiple entries should reflect alternate codes for the same procedure. \n* CPT : https://bioregistry.io/registry/cpt\n",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "procedure_source_value": {
-                    "description": "Original procedure text",
-                    "type": "string"
-                }
-            },
-            "required": [
-                "procedure_code",
-                "procedure_source_value",
-                "id"
-            ],
-            "title": "Procedure",
-            "type": "object"
         },
         "Sample": {
             "additionalProperties": false,

@@ -46,14 +46,6 @@ enum EnumConditionAssertion
     unknown
   }
 
-enum EnumConsanguinityAssertion
-  {
-    not_suspected
-    suspected
-    known_present
-    unknown
-  }
-
 enum EnumDateOfBirthType
   {
     exact
@@ -69,24 +61,6 @@ enum EnumEthnicity
     not_hispanic_or_latino
     unknown
     asked_but_unknown
-  }
-
-enum EnumFamilyType
-  {
-    control_only
-    duo
-    proband_only
-    trio
-    trio_plus
-    other
-  }
-
-enum EnumMeasurementValueCode
-  {
-    negative
-    positive
-    not_performed
-    indeterminate
   }
 
 enum EnumRace
@@ -146,29 +120,6 @@ type AccessPolicy
     website: String
   }
 
-type Aliquot
-  {
-    id: String!
-    externalId: [Uriorcurie]
-    sampleIdFk: String!
-    sampleAvailabilityStatus: EnumAvailabilityStatus
-    sampleVolume: Float
-    sampleVolumeUnit: String
-    sampleConcentration: Float
-    sampleConcentrationUnit: String
-  }
-
-type BiospecimenCollection
-  {
-    id: String!
-    externalId: [Uriorcurie]
-    ageAtCollection: Integer
-    method: EnumSampleCollectionMethod
-    site: EnumSite
-    spatialQualifier: EnumSpatialQualifiers
-    laterality: EnumLaterality
-  }
-
 type Demographics
   {
     id: String!
@@ -185,47 +136,6 @@ type Demographics
     ageAtLastVitalStatus: Integer
     vitalStatus: EnumVitalStatus
     sourceData: [SourceData]
-  }
-
-type Family
-  {
-    id: String!
-    externalId: [Uriorcurie]
-    familyExternalId: [String]
-    familyType: EnumFamilyType
-    familyDescription: String
-    consanguinity: EnumConsanguinityAssertion
-    familyStudyFocus: String
-  }
-
-type FamilyMember
-  {
-    id: String!
-    externalId: [Uriorcurie]
-    familyIdFk: String
-    familyMemberId: String!
-    otherFamilyMemberId: String
-    relationshipCode: String
-  }
-
-type Measurement
-  {
-    id: String!
-    externalId: [Uriorcurie]
-    measurementCode: [String]!
-    measurementUnit: String!
-    measurementValueCode: EnumMeasurementValueCode
-    measurementSourceValue: String!
-    ageAtObservation: Integer
-  }
-
-type Procedure
-  {
-    id: String!
-    externalId: [Uriorcurie]
-    procedureCode: [String]!
-    procedureSourceValue: String!
-    ageAtEvent: Float
   }
 
 type Sample

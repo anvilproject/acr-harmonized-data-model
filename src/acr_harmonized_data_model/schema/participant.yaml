@@ -1,26 +1,15 @@
 id: https://anvilproject.org/acr-harmonized-data-model/participant
 name: anvil-participant-schema
 prefixes:
-  anvil: 
-    prefix_prefix: anvil
-    prefix_reference: https://anvilproject.org/acr-harmonized-data-model/
-  linkml:
-    prefix_prefix: linkml
-    prefix_reference: https://w3id.org/linkml/
+  anvil: https://anvilproject.org/acr-harmonized-data-model/
+  linkml: https://w3id.org/linkml/
   # subset of CDC Race and Ethnicity Code Set Version 1.0
-  cdc_race_eth:
-    prefix_prefix: cdc_race_eth
-    prefix_reference: urn:oid:2.16.840.1.113883.6.238
+  cdc_race_eth: urn:oid:2.16.840.1.113883.6.238/
   # Administrative Gender
-  admin_gender:
-    prefix_prefix: admin_gender 
-    prefix_reference: http://hl7.org/fhir/administrative-gender
-  hl7_null:
-    prefix_prefix: hl7_null 
-    prefix_reference: http://terminology.hl7.org/CodeSystem/v3-NullFlavor
-  ig-dob-method:
-    prefix_prefix: ig-dob-method
-    prefix_reference: https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-date-of-birth-method
+  admin_gender: http://hl7.org/fhir/administrative-gender/
+  hl7_null: http://terminology.hl7.org/CodeSystem/v3-NullFlavor/
+  ig_dob_method: https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-date-of-birth-method/
+  
 imports:
   - linkml:types
   - anvil_core
@@ -166,23 +155,23 @@ enums:
     permissible_values:  
       exact:
         title: Exact 
-        meaning: ig-dob-method:exact 
+        meaning: ig_dob_method:exact 
         description: Exact 
       year_only: 
         title: Year Only 
-        meaning:  ig-dob-method:year-only 
+        meaning:  ig_dob_method:year-only 
         description: Year Only 
       shifted: 
         title: Shifted 
-        meaning: ig-dob-method:shifted 
+        meaning: ig_dob_method:shifted 
         description: Shifted 
       decade_only: 
         title: Decade Only 
-        meaning: ig-dob-method:decade-only 
+        meaning: ig_dob_method:decade-only 
         description: Decade Only 
       other: 
         title: Other 
-        meaning: ig-dob-method:other 
+        meaning: ig_dob_method:other 
         description: Other
   EnumSex:
     description: Terms describing an individual's sex.

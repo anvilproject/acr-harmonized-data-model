@@ -1,0 +1,5 @@
+# Example for a valid data object
+---
+id: "001"
+subject_type: participant
+organism_type: human

@@ -1,7 +1,13 @@
 {
+   "admin_gender": "http://hl7.org/fhir/administrative-gender/",
    "anvil": "https://anvilproject.org/acr-harmonized-data-model/",
-   "cdc_race_eth": "urn:oid:2.16.840.1.113883.6.238",
-   "hl7_null": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+   "cdc_race_eth": "urn:oid:2.16.840.1.113883.6.238/",
+   "hl7_null": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor/",
+   "ig2_biospecimen_availability": "https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/biospecimen-availability/",
+   "ig2dac": "https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-code/",
+   "ig2dat": "https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-type/",
+   "ig_dob_method": "https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-date-of-birth-method/",
+   "igcondtype": "https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/condition-type/",
    "linkml": "https://w3id.org/linkml/",
    "schema": "http://schema.org/"
 }

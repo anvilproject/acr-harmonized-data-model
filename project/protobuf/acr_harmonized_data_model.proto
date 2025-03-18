@@ -19,29 +19,6 @@ message AccessPolicy
   string description = 0
   string website = 0
  }
-// Represent exact tubes or total amounts available of a Sample.
-message Aliquot
- {
-  string id = 0
- repeated  uriorcurie externalId = 0
-  string sampleIdFk = 0
-  enumAvailabilityStatus sampleAvailabilityStatus = 0
-  float sampleVolume = 0
-  string sampleVolumeUnit = 0
-  float sampleConcentration = 0
-  string sampleConcentrationUnit = 0
- }
-// Biospecimen Collection
-message BiospecimenCollection
- {
-  string id = 0
- repeated  uriorcurie externalId = 0
-  integer ageAtCollection = 0
-  enumSampleCollectionMethod method = 0
-  enumSite site = 0
-  enumSpatialQualifiers spatialQualifier = 0
-  enumLaterality laterality = 0
- }
 // Basic participant demographics summary
 message Demographics
  {
@@ -59,47 +36,6 @@ message Demographics
   integer ageAtLastVitalStatus = 0
   enumVitalStatus vitalStatus = 0
  repeated  sourceData sourceData = 0
- }
-// Family
-message Family
- {
-  string id = 0
- repeated  uriorcurie externalId = 0
- repeated  string familyExternalId = 0
-  enumFamilyType familyType = 0
-  string familyDescription = 0
-  enumConsanguinityAssertion consanguinity = 0
-  string familyStudyFocus = 0
- }
-// Family
-message FamilyMember
- {
-  string id = 0
- repeated  uriorcurie externalId = 0
-  string familyIdFk = 0
-  string familyMemberId = 0
-  string otherFamilyMemberId = 0
-  string relationshipCode = 0
- }
-// Measurements
-message Measurement
- {
-  string id = 0
- repeated  uriorcurie externalId = 0
- repeated  string measurementCode = 0
-  string measurementUnit = 0
-  enumMeasurementValueCode measurementValueCode = 0
-  string measurementSourceValue = 0
-  integer ageAtObservation = 0
- }
-// Procedures
-message Procedure
- {
-  string id = 0
- repeated  uriorcurie externalId = 0
- repeated  string procedureCode = 0
-  string procedureSourceValue = 0
-  float ageAtEvent = 0
  }
 // Biospecimen data
 message Sample

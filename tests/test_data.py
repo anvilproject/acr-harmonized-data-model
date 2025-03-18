@@ -4,7 +4,7 @@ import glob
 import unittest
 
 from linkml_runtime.loaders import yaml_loader
-from acr_harmonized_data_model.datamodel.acr_harmonized_data_model import PersonCollection
+from src.acr_harmonized_data_model.datamodel.acr_harmonized_data_model import Subject
 
 ROOT = os.path.join(os.path.dirname(__file__), '..')
 DATA_DIR = os.path.join(ROOT, "src", "data", "examples")
@@ -18,5 +18,5 @@ class TestData(unittest.TestCase):
     def test_data(self):
         """Data test."""
         for path in EXAMPLE_FILES:
-            obj = yaml_loader.load(path, target_class=PersonCollection)
+            obj = yaml_loader.load(path, target_class=Subject)
             assert obj

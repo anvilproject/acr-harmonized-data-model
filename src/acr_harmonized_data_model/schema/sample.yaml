@@ -7,9 +7,7 @@ prefixes:
   linkml:
     prefix_prefix: linkml
     prefix_reference: https://w3id.org/linkml/
-  ig2-biospecimen-availability: 
-    prefix_prefix: ig2-biospecimen-availability 
-    prefix_reference: https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/biospecimen-availability
+  ig2_biospecimen_availability: https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/biospecimen-availability/
 imports:
   - linkml:types
   - anvil_core
@@ -67,11 +65,11 @@ enums:
     permissible_values:
       available:
         title: Available 
-        meaning: ig2-biospecimen-availability:available 
+        meaning: ig2_biospecimen_availability:available 
         description: Biospecimen is Available
       unavailable: 
         title: Unavailable 
-        meaning: ig2-biospecimen-availability:unavailable 
+        meaning: ig2_biospecimen_availability:unavailable 
         description: Biospecimen is Unavailable
 
   
