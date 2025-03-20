@@ -16,20 +16,33 @@ imports:
 classes:
   Family:
     title: Family
-    description: Family
-    is_a: Thing
+    description: A group of individuals of some relation who are grouped together in the study.
+    is_a: AccessControlledRecord
     slots:
-    - family_external_id
     - family_type
     - family_description 
     - consanguinity
     - family_study_focus
+    - family_members
+    - family_relationships
+  FamilyRelationship:
+    title: Family Member Relationship
+    description: A relationship between two Subjects.
+    is_a: AccessControlledRecord
+    slots:
+    - family_member
+    - other_family_member
+    - relationship_code
+  FamilyMember:
+    title: Family Member
+    description: Designates a Subject as a member of a family with some specified role.
+    is_a: AccessControlledRecord
+    slots:
+      - family_member
+      - family_role
+
+#TODO: add titles
 slots:
-  family_external_id: 
-    description: Other study specific study identifiers
-    required: false 
-    range: string 
-    multivalued: true 
   family_type: 
     description: Describes the 'type' of study family, eg, trio.
     required: false  
@@ -51,27 +64,64 @@ slots:
     required: false 
     range: string 
     multivalued: false 
+  family_member:
+    description: The family member Subject who is the relationship "subject".
+    required: true
+    range: Subject
+    inlined: false
+    multivalued: false 
+  other_family_member: 
+    description: The family member Subject for the relationship "object".
+    required: true 
+    range: Subject
+    inlined: false
+    multivalued: false 
+  family_relationships: 
+    description: Family relationships associated with this family.
+    required: false
+    range: FamilyRelationship
+    inlined: false
+    multivalued: true 
+  family_members: 
+    description: The Subjects who are included in this family and their roles.
+    required: true
+    range: FamilyMember
+    inlined: true
+    multivalued: true 
+    #TODO: Establish actual valuesets
+  relationship_code:
+    description: |
+      Code definting the relationship predicate. Relationship of the "Family Member" to the "Other Family Member" (i.e. mother, father, etc). Code must be from the HL7 [FamilyMember ValueSet](https://terminology.hl7.org/6.2.0/ValueSet-v3-FamilyMember.html)
+    required: true
+    range: uriorcurie
+    multivalued: false 
+  family_role: 
+    description: The "role" of this indiviudal in this family.
+    required: false 
+    range: uriorcurie
+    multivalued: false 
+    
 enums: 
   EnumFamilyType:
     description: Enumerations describing research family type 
     permissible_values: 
       control_only:
-        title: control-only 
+        title: Control-only 
         description: Control Only 
       duo: 
-        title: duo
+        title: Duo
         description: Duo 
       proband_only: 
-        title: proband-only 
+        title: Proband-only 
         description: Proband Only 
       trio: 
-        title: trio 
+        title: Trio 
         description: Trio (2 parents and affected child)
       trio_plus: 
-        title: trio+ 
+        title: Trio+ 
         description: 2 Parents and 2 or more children
       other: 
-        title: other 
+        title: Other 
         description: Other 
   EnumConsanguinityAssertion: 
     description: Asserts known or suspected consanguinity in this study family

@@ -1,5 +1,5 @@
 # Auto generated from acr_harmonized_data_model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-03-18T08:51:28
+# Generation date: 2025-03-20T10:40:38
 # Schema: acr-harmonized-data-model
 #
 # id: https://anvilproject.org/acr-harmonized-data-model
@@ -116,7 +116,27 @@ class AccessPolicyId(ThingId):
     pass
 
 
-class SampleId(ThingId):
+class FamilyId(AccessControlledRecordId):
+    pass
+
+
+class FamilyRelationshipId(AccessControlledRecordId):
+    pass
+
+
+class FamilyMemberId(AccessControlledRecordId):
+    pass
+
+
+class SampleId(AccessControlledRecordId):
+    pass
+
+
+class BiospecimenCollectionId(AccessControlledRecordId):
+    pass
+
+
+class AliquotId(AccessControlledRecordId):
     pass
 
 
@@ -521,7 +541,130 @@ class AccessPolicy(Thing):
 
 
 @dataclass(repr=False)
-class Sample(Thing):
+class Family(AccessControlledRecord):
+    """
+    A group of individuals of some relation who are grouped together in the study.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ANVIL["family/Family"]
+    class_class_curie: ClassVar[str] = "anvil:family/Family"
+    class_name: ClassVar[str] = "Family"
+    class_model_uri: ClassVar[URIRef] = ANVIL.Family
+
+    id: Union[str, FamilyId] = None
+    family_members: Union[Dict[Union[str, FamilyMemberId], Union[dict, "FamilyMember"]], List[Union[dict, "FamilyMember"]]] = empty_dict()
+    family_type: Optional[Union[str, "EnumFamilyType"]] = None
+    family_description: Optional[str] = None
+    consanguinity: Optional[Union[str, "EnumConsanguinityAssertion"]] = None
+    family_study_focus: Optional[str] = None
+    family_relationships: Optional[Union[Union[str, FamilyRelationshipId], List[Union[str, FamilyRelationshipId]]]] = empty_list()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, FamilyId):
+            self.id = FamilyId(self.id)
+
+        if self._is_empty(self.family_members):
+            self.MissingRequiredField("family_members")
+        self._normalize_inlined_as_dict(slot_name="family_members", slot_type=FamilyMember, key_name="id", keyed=True)
+
+        if self.family_type is not None and not isinstance(self.family_type, EnumFamilyType):
+            self.family_type = EnumFamilyType(self.family_type)
+
+        if self.family_description is not None and not isinstance(self.family_description, str):
+            self.family_description = str(self.family_description)
+
+        if self.consanguinity is not None and not isinstance(self.consanguinity, EnumConsanguinityAssertion):
+            self.consanguinity = EnumConsanguinityAssertion(self.consanguinity)
+
+        if self.family_study_focus is not None and not isinstance(self.family_study_focus, str):
+            self.family_study_focus = str(self.family_study_focus)
+
+        if not isinstance(self.family_relationships, list):
+            self.family_relationships = [self.family_relationships] if self.family_relationships is not None else []
+        self.family_relationships = [v if isinstance(v, FamilyRelationshipId) else FamilyRelationshipId(v) for v in self.family_relationships]
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class FamilyRelationship(AccessControlledRecord):
+    """
+    A relationship between two Subjects.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ANVIL["family/FamilyRelationship"]
+    class_class_curie: ClassVar[str] = "anvil:family/FamilyRelationship"
+    class_name: ClassVar[str] = "FamilyRelationship"
+    class_model_uri: ClassVar[URIRef] = ANVIL.FamilyRelationship
+
+    id: Union[str, FamilyRelationshipId] = None
+    family_member: Union[str, SubjectId] = None
+    other_family_member: Union[str, SubjectId] = None
+    relationship_code: Union[str, URIorCURIE] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, FamilyRelationshipId):
+            self.id = FamilyRelationshipId(self.id)
+
+        if self._is_empty(self.family_member):
+            self.MissingRequiredField("family_member")
+        if not isinstance(self.family_member, SubjectId):
+            self.family_member = SubjectId(self.family_member)
+
+        if self._is_empty(self.other_family_member):
+            self.MissingRequiredField("other_family_member")
+        if not isinstance(self.other_family_member, SubjectId):
+            self.other_family_member = SubjectId(self.other_family_member)
+
+        if self._is_empty(self.relationship_code):
+            self.MissingRequiredField("relationship_code")
+        if not isinstance(self.relationship_code, URIorCURIE):
+            self.relationship_code = URIorCURIE(self.relationship_code)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class FamilyMember(AccessControlledRecord):
+    """
+    Designates a Subject as a member of a family with some specified role.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ANVIL["family/FamilyMember"]
+    class_class_curie: ClassVar[str] = "anvil:family/FamilyMember"
+    class_name: ClassVar[str] = "FamilyMember"
+    class_model_uri: ClassVar[URIRef] = ANVIL.FamilyMember
+
+    id: Union[str, FamilyMemberId] = None
+    family_member: Union[str, SubjectId] = None
+    family_role: Optional[Union[str, URIorCURIE]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, FamilyMemberId):
+            self.id = FamilyMemberId(self.id)
+
+        if self._is_empty(self.family_member):
+            self.MissingRequiredField("family_member")
+        if not isinstance(self.family_member, SubjectId):
+            self.family_member = SubjectId(self.family_member)
+
+        if self.family_role is not None and not isinstance(self.family_role, URIorCURIE):
+            self.family_role = URIorCURIE(self.family_role)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class Sample(AccessControlledRecord):
     """
     Biospecimen data
     """
@@ -533,13 +676,15 @@ class Sample(Thing):
     class_model_uri: ClassVar[URIRef] = ANVIL.Sample
 
     id: Union[str, SampleId] = None
-    biospecimen_collection_id_fk: str = None
-    sample_type: str = None
-    parent_sample_id: Optional[str] = None
-    processing: Optional[Union[str, List[str]]] = empty_list()
+    sample_type: Union[str, URIorCURIE] = None
+    biospecimen_collection: Optional[Union[dict, "BiospecimenCollection"]] = None
+    parent_sample: Optional[Union[str, SampleId]] = None
+    processing: Optional[Union[Union[str, URIorCURIE], List[Union[str, URIorCURIE]]]] = empty_list()
     availablity_status: Optional[Union[str, "EnumAvailabilityStatus"]] = None
-    storage_method: Optional[str] = None
-    quantity: Optional[str] = None
+    storage_method: Optional[Union[Union[str, URIorCURIE], List[Union[str, URIorCURIE]]]] = empty_list()
+    quantity_number: Optional[float] = None
+    quantity_units: Optional[Union[str, URIorCURIE]] = None
+    aliquots: Optional[Union[Dict[Union[str, AliquotId], Union[dict, "Aliquot"]], List[Union[dict, "Aliquot"]]]] = empty_dict()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -547,31 +692,109 @@ class Sample(Thing):
         if not isinstance(self.id, SampleId):
             self.id = SampleId(self.id)
 
-        if self._is_empty(self.biospecimen_collection_id_fk):
-            self.MissingRequiredField("biospecimen_collection_id_fk")
-        if not isinstance(self.biospecimen_collection_id_fk, str):
-            self.biospecimen_collection_id_fk = str(self.biospecimen_collection_id_fk)
-
         if self._is_empty(self.sample_type):
             self.MissingRequiredField("sample_type")
-        if not isinstance(self.sample_type, str):
-            self.sample_type = str(self.sample_type)
+        if not isinstance(self.sample_type, URIorCURIE):
+            self.sample_type = URIorCURIE(self.sample_type)
 
-        if self.parent_sample_id is not None and not isinstance(self.parent_sample_id, str):
-            self.parent_sample_id = str(self.parent_sample_id)
+        if self.biospecimen_collection is not None and not isinstance(self.biospecimen_collection, BiospecimenCollection):
+            self.biospecimen_collection = BiospecimenCollection(**as_dict(self.biospecimen_collection))
+
+        if self.parent_sample is not None and not isinstance(self.parent_sample, SampleId):
+            self.parent_sample = SampleId(self.parent_sample)
 
         if not isinstance(self.processing, list):
             self.processing = [self.processing] if self.processing is not None else []
-        self.processing = [v if isinstance(v, str) else str(v) for v in self.processing]
+        self.processing = [v if isinstance(v, URIorCURIE) else URIorCURIE(v) for v in self.processing]
 
         if self.availablity_status is not None and not isinstance(self.availablity_status, EnumAvailabilityStatus):
             self.availablity_status = EnumAvailabilityStatus(self.availablity_status)
 
-        if self.storage_method is not None and not isinstance(self.storage_method, str):
-            self.storage_method = str(self.storage_method)
+        if not isinstance(self.storage_method, list):
+            self.storage_method = [self.storage_method] if self.storage_method is not None else []
+        self.storage_method = [v if isinstance(v, URIorCURIE) else URIorCURIE(v) for v in self.storage_method]
 
-        if self.quantity is not None and not isinstance(self.quantity, str):
-            self.quantity = str(self.quantity)
+        if self.quantity_number is not None and not isinstance(self.quantity_number, float):
+            self.quantity_number = float(self.quantity_number)
+
+        if self.quantity_units is not None and not isinstance(self.quantity_units, URIorCURIE):
+            self.quantity_units = URIorCURIE(self.quantity_units)
+
+        self._normalize_inlined_as_dict(slot_name="aliquots", slot_type=Aliquot, key_name="id", keyed=True)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class BiospecimenCollection(AccessControlledRecord):
+    """
+    Biospecimen Collection
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ANVIL["sample/BiospecimenCollection"]
+    class_class_curie: ClassVar[str] = "anvil:sample/BiospecimenCollection"
+    class_name: ClassVar[str] = "BiospecimenCollection"
+    class_model_uri: ClassVar[URIRef] = ANVIL.BiospecimenCollection
+
+    id: Union[str, BiospecimenCollectionId] = None
+    age_at_collection: Optional[int] = None
+    method: Optional[Union[str, "EnumSampleCollectionMethod"]] = None
+    site: Optional[Union[str, "EnumSite"]] = None
+    spatial_qualifier: Optional[Union[str, "EnumSpatialQualifiers"]] = None
+    laterality: Optional[Union[str, "EnumLaterality"]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, BiospecimenCollectionId):
+            self.id = BiospecimenCollectionId(self.id)
+
+        if self.age_at_collection is not None and not isinstance(self.age_at_collection, int):
+            self.age_at_collection = int(self.age_at_collection)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class Aliquot(AccessControlledRecord):
+    """
+    Specific tubes or details of a Sample.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ANVIL["sample/Aliquot"]
+    class_class_curie: ClassVar[str] = "anvil:sample/Aliquot"
+    class_name: ClassVar[str] = "Aliquot"
+    class_model_uri: ClassVar[URIRef] = ANVIL.Aliquot
+
+    id: Union[str, AliquotId] = None
+    availablity_status: Optional[Union[str, "EnumAvailabilityStatus"]] = None
+    quantity_number: Optional[float] = None
+    quantity_units: Optional[Union[str, URIorCURIE]] = None
+    concentration_number: Optional[float] = None
+    concentration_unit: Optional[Union[str, URIorCURIE]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, AliquotId):
+            self.id = AliquotId(self.id)
+
+        if self.availablity_status is not None and not isinstance(self.availablity_status, EnumAvailabilityStatus):
+            self.availablity_status = EnumAvailabilityStatus(self.availablity_status)
+
+        if self.quantity_number is not None and not isinstance(self.quantity_number, float):
+            self.quantity_number = float(self.quantity_number)
+
+        if self.quantity_units is not None and not isinstance(self.quantity_units, URIorCURIE):
+            self.quantity_units = URIorCURIE(self.quantity_units)
+
+        if self.concentration_number is not None and not isinstance(self.concentration_number, float):
+            self.concentration_number = float(self.concentration_number)
+
+        if self.concentration_unit is not None and not isinstance(self.concentration_unit, URIorCURIE):
+            self.concentration_unit = URIorCURIE(self.concentration_unit)
 
         super().__post_init__(**kwargs)
 
@@ -897,6 +1120,60 @@ class EnumAccessCode(EnumDefinitionImpl):
         description="Type of research use case allowed",
     )
 
+class EnumFamilyType(EnumDefinitionImpl):
+    """
+    Enumerations describing research family type
+    """
+    control_only = PermissibleValue(
+        text="control_only",
+        description="Control Only")
+    duo = PermissibleValue(
+        text="duo",
+        description="Duo")
+    proband_only = PermissibleValue(
+        text="proband_only",
+        description="Proband Only")
+    trio = PermissibleValue(
+        text="trio",
+        description="Trio (2 parents and affected child)")
+    trio_plus = PermissibleValue(
+        text="trio_plus",
+        description="2 Parents and 2 or more children")
+    other = PermissibleValue(
+        text="other",
+        description="Other")
+
+    _defn = EnumDefinition(
+        name="EnumFamilyType",
+        description="Enumerations describing research family type",
+    )
+
+class EnumConsanguinityAssertion(EnumDefinitionImpl):
+    """
+    Asserts known or suspected consanguinity in this study family
+    """
+    not_suspected = PermissibleValue(
+        text="not_suspected",
+        description="Not suspected",
+        meaning=SNOMED_CT["428263003"])
+    suspected = PermissibleValue(
+        text="suspected",
+        description="Suspected",
+        meaning=SNOMED_CT["415684004"])
+    known_present = PermissibleValue(
+        text="known_present",
+        description="Known Present",
+        meaning=SNOMED_CT["410515003"])
+    unknown = PermissibleValue(
+        text="unknown",
+        description="Unknown",
+        meaning=SNOMED_CT["261665006"])
+
+    _defn = EnumDefinition(
+        name="EnumConsanguinityAssertion",
+        description="Asserts known or suspected consanguinity in this study family",
+    )
+
 class EnumAvailabilityStatus(EnumDefinitionImpl):
     """
     Is the Thing available for use?
@@ -913,6 +1190,43 @@ class EnumAvailabilityStatus(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="EnumAvailabilityStatus",
         description="Is the Thing available for use?",
+    )
+
+class EnumSampleCollectionMethod(EnumDefinitionImpl):
+    """
+    The approach used to collect the biospecimen. Recommend ontology: [LOINC](https://loinc.org).
+    """
+    _defn = EnumDefinition(
+        name="EnumSampleCollectionMethod",
+        description="""The approach used to collect the biospecimen. Recommend ontology: [LOINC](https://loinc.org).""",
+    )
+
+class EnumSite(EnumDefinitionImpl):
+    """
+    The location of the specimen collection. Recommended ontology: [SNOMED Body
+    Site](https://hl7.org/fhir/R4B/valueset-body-site.html)
+    """
+    _defn = EnumDefinition(
+        name="EnumSite",
+        description="""The location of the specimen collection. Recommended ontology: [SNOMED Body Site](https://hl7.org/fhir/R4B/valueset-body-site.html)""",
+    )
+
+class EnumSpatialQualifiers(EnumDefinitionImpl):
+    """
+    Any spatial/location qualifiers.
+    """
+    _defn = EnumDefinition(
+        name="EnumSpatialQualifiers",
+        description="""Any spatial/location qualifiers.""",
+    )
+
+class EnumLaterality(EnumDefinitionImpl):
+    """
+    Laterality information for the site
+    """
+    _defn = EnumDefinition(
+        name="EnumLaterality",
+        description="""Laterality information for the site""",
     )
 
 # Slots
@@ -1042,23 +1356,80 @@ slots.disease_limitation = Slot(uri=ANVIL['data-access-policy/disease_limitation
 slots.has_access_policy = Slot(uri=ANVIL['data-access-policy/has_access_policy'], name="has_access_policy", curie=ANVIL.curie('data-access-policy/has_access_policy'),
                    model_uri=ANVIL.has_access_policy, domain=None, range=Optional[Union[str, AccessPolicyId]])
 
-slots.parent_sample_id = Slot(uri=ANVIL['sample/parent_sample_id'], name="parent_sample_id", curie=ANVIL.curie('sample/parent_sample_id'),
-                   model_uri=ANVIL.parent_sample_id, domain=None, range=Optional[str])
+slots.family_type = Slot(uri=ANVIL['family/family_type'], name="family_type", curie=ANVIL.curie('family/family_type'),
+                   model_uri=ANVIL.family_type, domain=None, range=Optional[Union[str, "EnumFamilyType"]])
 
-slots.biospecimen_collection_id_fk = Slot(uri=ANVIL['sample/biospecimen_collection_id_fk'], name="biospecimen_collection_id_fk", curie=ANVIL.curie('sample/biospecimen_collection_id_fk'),
-                   model_uri=ANVIL.biospecimen_collection_id_fk, domain=None, range=str)
+slots.family_description = Slot(uri=ANVIL['family/family_description'], name="family_description", curie=ANVIL.curie('family/family_description'),
+                   model_uri=ANVIL.family_description, domain=None, range=Optional[str])
+
+slots.consanguinity = Slot(uri=ANVIL['family/consanguinity'], name="consanguinity", curie=ANVIL.curie('family/consanguinity'),
+                   model_uri=ANVIL.consanguinity, domain=None, range=Optional[Union[str, "EnumConsanguinityAssertion"]])
+
+slots.family_study_focus = Slot(uri=ANVIL['family/family_study_focus'], name="family_study_focus", curie=ANVIL.curie('family/family_study_focus'),
+                   model_uri=ANVIL.family_study_focus, domain=None, range=Optional[str])
+
+slots.family_member = Slot(uri=ANVIL['family/family_member'], name="family_member", curie=ANVIL.curie('family/family_member'),
+                   model_uri=ANVIL.family_member, domain=None, range=Union[str, SubjectId])
+
+slots.other_family_member = Slot(uri=ANVIL['family/other_family_member'], name="other_family_member", curie=ANVIL.curie('family/other_family_member'),
+                   model_uri=ANVIL.other_family_member, domain=None, range=Union[str, SubjectId])
+
+slots.family_relationships = Slot(uri=ANVIL['family/family_relationships'], name="family_relationships", curie=ANVIL.curie('family/family_relationships'),
+                   model_uri=ANVIL.family_relationships, domain=None, range=Optional[Union[Union[str, FamilyRelationshipId], List[Union[str, FamilyRelationshipId]]]])
+
+slots.family_members = Slot(uri=ANVIL['family/family_members'], name="family_members", curie=ANVIL.curie('family/family_members'),
+                   model_uri=ANVIL.family_members, domain=None, range=Union[Dict[Union[str, FamilyMemberId], Union[dict, FamilyMember]], List[Union[dict, FamilyMember]]])
+
+slots.relationship_code = Slot(uri=ANVIL['family/relationship_code'], name="relationship_code", curie=ANVIL.curie('family/relationship_code'),
+                   model_uri=ANVIL.relationship_code, domain=None, range=Union[str, URIorCURIE])
+
+slots.family_role = Slot(uri=ANVIL['family/family_role'], name="family_role", curie=ANVIL.curie('family/family_role'),
+                   model_uri=ANVIL.family_role, domain=None, range=Optional[Union[str, URIorCURIE]])
+
+slots.parent_sample = Slot(uri=ANVIL['sample/parent_sample'], name="parent_sample", curie=ANVIL.curie('sample/parent_sample'),
+                   model_uri=ANVIL.parent_sample, domain=None, range=Optional[Union[str, SampleId]])
+
+slots.biospecimen_collection = Slot(uri=ANVIL['sample/biospecimen_collection'], name="biospecimen_collection", curie=ANVIL.curie('sample/biospecimen_collection'),
+                   model_uri=ANVIL.biospecimen_collection, domain=None, range=Optional[Union[dict, BiospecimenCollection]])
+
+slots.aliquots = Slot(uri=ANVIL['sample/aliquots'], name="aliquots", curie=ANVIL.curie('sample/aliquots'),
+                   model_uri=ANVIL.aliquots, domain=None, range=Optional[Union[Dict[Union[str, AliquotId], Union[dict, Aliquot]], List[Union[dict, Aliquot]]]])
 
 slots.sample_type = Slot(uri=ANVIL['sample/sample_type'], name="sample_type", curie=ANVIL.curie('sample/sample_type'),
-                   model_uri=ANVIL.sample_type, domain=None, range=str)
+                   model_uri=ANVIL.sample_type, domain=None, range=Union[str, URIorCURIE])
 
 slots.processing = Slot(uri=ANVIL['sample/processing'], name="processing", curie=ANVIL.curie('sample/processing'),
-                   model_uri=ANVIL.processing, domain=None, range=Optional[Union[str, List[str]]])
+                   model_uri=ANVIL.processing, domain=None, range=Optional[Union[Union[str, URIorCURIE], List[Union[str, URIorCURIE]]]])
 
 slots.availablity_status = Slot(uri=ANVIL['sample/availablity_status'], name="availablity_status", curie=ANVIL.curie('sample/availablity_status'),
                    model_uri=ANVIL.availablity_status, domain=None, range=Optional[Union[str, "EnumAvailabilityStatus"]])
 
 slots.storage_method = Slot(uri=ANVIL['sample/storage_method'], name="storage_method", curie=ANVIL.curie('sample/storage_method'),
-                   model_uri=ANVIL.storage_method, domain=None, range=Optional[str])
+                   model_uri=ANVIL.storage_method, domain=None, range=Optional[Union[Union[str, URIorCURIE], List[Union[str, URIorCURIE]]]])
 
-slots.quantity = Slot(uri=ANVIL['sample/quantity'], name="quantity", curie=ANVIL.curie('sample/quantity'),
-                   model_uri=ANVIL.quantity, domain=None, range=Optional[str])
+slots.quantity_number = Slot(uri=ANVIL['sample/quantity_number'], name="quantity_number", curie=ANVIL.curie('sample/quantity_number'),
+                   model_uri=ANVIL.quantity_number, domain=None, range=Optional[float])
+
+slots.quantity_units = Slot(uri=ANVIL['sample/quantity_units'], name="quantity_units", curie=ANVIL.curie('sample/quantity_units'),
+                   model_uri=ANVIL.quantity_units, domain=None, range=Optional[Union[str, URIorCURIE]])
+
+slots.concentration_number = Slot(uri=ANVIL['sample/concentration_number'], name="concentration_number", curie=ANVIL.curie('sample/concentration_number'),
+                   model_uri=ANVIL.concentration_number, domain=None, range=Optional[float])
+
+slots.concentration_unit = Slot(uri=ANVIL['sample/concentration_unit'], name="concentration_unit", curie=ANVIL.curie('sample/concentration_unit'),
+                   model_uri=ANVIL.concentration_unit, domain=None, range=Optional[Union[str, URIorCURIE]])
+
+slots.age_at_collection = Slot(uri=ANVIL['sample/age_at_collection'], name="age_at_collection", curie=ANVIL.curie('sample/age_at_collection'),
+                   model_uri=ANVIL.age_at_collection, domain=None, range=Optional[int])
+
+slots.method = Slot(uri=ANVIL['sample/method'], name="method", curie=ANVIL.curie('sample/method'),
+                   model_uri=ANVIL.method, domain=None, range=Optional[Union[str, "EnumSampleCollectionMethod"]])
+
+slots.site = Slot(uri=ANVIL['sample/site'], name="site", curie=ANVIL.curie('sample/site'),
+                   model_uri=ANVIL.site, domain=None, range=Optional[Union[str, "EnumSite"]])
+
+slots.spatial_qualifier = Slot(uri=ANVIL['sample/spatial_qualifier'], name="spatial_qualifier", curie=ANVIL.curie('sample/spatial_qualifier'),
+                   model_uri=ANVIL.spatial_qualifier, domain=None, range=Optional[Union[str, "EnumSpatialQualifiers"]])
+
+slots.laterality = Slot(uri=ANVIL['sample/laterality'], name="laterality", curie=ANVIL.curie('sample/laterality'),
+                   model_uri=ANVIL.laterality, domain=None, range=Optional[Union[str, "EnumLaterality"]])

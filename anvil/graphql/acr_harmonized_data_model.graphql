@@ -138,30 +138,6 @@ type AccessPolicy
     website: String
   }
 
-type Aliquot
-  {
-    id: String!
-    externalId: [Uriorcurie]
-    hasAccessPolicy: AccessPolicy
-    availablityStatus: EnumAvailabilityStatus
-    quantityNumber: Float
-    quantityUnits: Uriorcurie
-    concentrationNumber: Float
-    concentrationUnit: Uriorcurie
-  }
-
-type BiospecimenCollection
-  {
-    id: String!
-    externalId: [Uriorcurie]
-    hasAccessPolicy: AccessPolicy
-    ageAtCollection: Integer
-    method: EnumSampleCollectionMethod
-    site: EnumSite
-    spatialQualifier: EnumSpatialQualifiers
-    laterality: EnumLaterality
-  }
-
 type Demographics
   {
     id: String!
@@ -189,8 +165,8 @@ type Family
     familyDescription: String
     consanguinity: EnumConsanguinityAssertion
     familyStudyFocus: String
-    familyMembers: [FamilyMember]!
-    familyRelationships: [FamilyRelationship]
+    familyMember: [FamilyMember]!
+    familyRelationship: [FamilyRelationship]
   }
 
 type FamilyMember
@@ -198,7 +174,7 @@ type FamilyMember
     id: String!
     externalId: [Uriorcurie]
     hasAccessPolicy: AccessPolicy
-    familyMember: Subject!
+    familyMember: [FamilyMember]!
     familyRole: Uriorcurie
   }
 
@@ -207,8 +183,8 @@ type FamilyRelationship
     id: String!
     externalId: [Uriorcurie]
     hasAccessPolicy: AccessPolicy
-    familyMember: Subject!
-    otherFamilyMember: Subject!
+    relationshipSubject: Subject!
+    relationshipTarget: Subject!
     relationshipCode: Uriorcurie!
   }
 
@@ -216,16 +192,13 @@ type Sample
   {
     id: String!
     externalId: [Uriorcurie]
-    hasAccessPolicy: AccessPolicy
-    biospecimenCollection: BiospecimenCollection
-    parentSample: Sample
-    sampleType: Uriorcurie!
-    processing: [Uriorcurie]
+    parentSampleId: String
+    biospecimenCollectionIdFk: String!
+    sampleType: String!
+    processing: [String]
     availablityStatus: EnumAvailabilityStatus
-    storageMethod: [Uriorcurie]
-    quantityNumber: Float
-    quantityUnits: Uriorcurie
-    aliquots: [Aliquot]
+    storageMethod: String
+    quantity: String
   }
 
 type SourceData

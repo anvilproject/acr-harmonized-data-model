@@ -94,6 +94,187 @@
             "title": "AccessPolicy",
             "type": "object"
         },
+        "Aliquot": {
+            "additionalProperties": false,
+            "description": "Specific tubes or details of a Sample.",
+            "properties": {
+                "availablity_status": {
+                    "$ref": "#/$defs/EnumAvailabilityStatus",
+                    "description": "Can this Sample be requested for further analysis?"
+                },
+                "concentration_number": {
+                    "description": "What is the concentration of the analyte in the Aliquot?",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "concentration_unit": {
+                    "description": "Units associated with the concentration of the analyte in the Aliquot? UCUM coding preferred (with curie, UCUM)",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "external_id": {
+                    "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "has_access_policy": {
+                    "description": "Which access policy applies to this element?",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "ID associated with a class",
+                    "type": "string"
+                },
+                "quantity_number": {
+                    "description": "The total quantity of the specimen",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "quantity_units": {
+                    "description": "The structured term defining the units of the quantity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Aliquot",
+            "type": "object"
+        },
+        "Aliquot__identifier_optional": {
+            "additionalProperties": false,
+            "description": "Specific tubes or details of a Sample.",
+            "properties": {
+                "availablity_status": {
+                    "$ref": "#/$defs/EnumAvailabilityStatus",
+                    "description": "Can this Sample be requested for further analysis?"
+                },
+                "concentration_number": {
+                    "description": "What is the concentration of the analyte in the Aliquot?",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "concentration_unit": {
+                    "description": "Units associated with the concentration of the analyte in the Aliquot? UCUM coding preferred (with curie, UCUM)",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "external_id": {
+                    "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "has_access_policy": {
+                    "description": "Which access policy applies to this element?",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "ID associated with a class",
+                    "type": "string"
+                },
+                "quantity_number": {
+                    "description": "The total quantity of the specimen",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "quantity_units": {
+                    "description": "The structured term defining the units of the quantity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [],
+            "title": "Aliquot",
+            "type": "object"
+        },
+        "BiospecimenCollection": {
+            "additionalProperties": false,
+            "description": "Biospecimen Collection",
+            "properties": {
+                "age_at_collection": {
+                    "description": "The age at which this biospecimen was collected.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "external_id": {
+                    "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "has_access_policy": {
+                    "description": "Which access policy applies to this element?",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "ID associated with a class",
+                    "type": "string"
+                },
+                "laterality": {
+                    "$ref": "#/$defs/EnumLaterality",
+                    "description": "Laterality information for the site"
+                },
+                "method": {
+                    "$ref": "#/$defs/EnumSampleCollectionMethod",
+                    "description": "The approach used to collect the biospecimen."
+                },
+                "site": {
+                    "$ref": "#/$defs/EnumSite",
+                    "description": "The location of the specimen collection."
+                },
+                "spatial_qualifier": {
+                    "$ref": "#/$defs/EnumSpatialQualifiers",
+                    "description": "Any spatial/location qualifiers"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "BiospecimenCollection",
+            "type": "object"
+        },
         "Demographics": {
             "additionalProperties": false,
             "description": "Basic participant demographics summary",
@@ -258,6 +439,17 @@
             "title": "EnumConditionCode",
             "type": "string"
         },
+        "EnumConsanguinityAssertion": {
+            "description": "Asserts known or suspected consanguinity in this study family",
+            "enum": [
+                "not_suspected",
+                "suspected",
+                "known_present",
+                "unknown"
+            ],
+            "title": "EnumConsanguinityAssertion",
+            "type": "string"
+        },
         "EnumDateOfBirthType": {
             "description": "Privacy rules that may modify a date value.",
             "enum": [
@@ -281,6 +473,24 @@
             "title": "EnumEthnicity",
             "type": "string"
         },
+        "EnumFamilyType": {
+            "description": "Enumerations describing research family type",
+            "enum": [
+                "control_only",
+                "duo",
+                "proband_only",
+                "trio",
+                "trio_plus",
+                "other"
+            ],
+            "title": "EnumFamilyType",
+            "type": "string"
+        },
+        "EnumLaterality": {
+            "description": "Laterality information for the site",
+            "title": "EnumLaterality",
+            "type": "string"
+        },
         "EnumRace": {
             "description": "OMB Codes describing race.",
             "enum": [
@@ -296,6 +506,11 @@
             "title": "EnumRace",
             "type": "string"
         },
+        "EnumSampleCollectionMethod": {
+            "description": "The approach used to collect the biospecimen. Recommend ontology: [LOINC](https://loinc.org).",
+            "title": "EnumSampleCollectionMethod",
+            "type": "string"
+        },
         "EnumSex": {
             "description": "Terms describing an individual's sex.",
             "enum": [
@@ -305,6 +520,16 @@
                 "intersex"
             ],
             "title": "EnumSex",
+            "type": "string"
+        },
+        "EnumSite": {
+            "description": "The location of the specimen collection. Recommended ontology: [SNOMED Body Site](https://hl7.org/fhir/R4B/valueset-body-site.html)",
+            "title": "EnumSite",
+            "type": "string"
+        },
+        "EnumSpatialQualifiers": {
+            "description": "Any spatial/location qualifiers.",
+            "title": "EnumSpatialQualifiers",
             "type": "string"
         },
         "EnumSubjectType": {
@@ -332,17 +557,13 @@
             "title": "EnumVitalStatus",
             "type": "string"
         },
-        "Sample": {
+        "Family": {
             "additionalProperties": false,
-            "description": "Biospecimen data",
+            "description": "A group of individuals of some relation who are grouped together in the study.",
             "properties": {
-                "availablity_status": {
-                    "$ref": "#/$defs/EnumAvailabilityStatus",
-                    "description": "Can this Sample be requested for further analysis?"
-                },
-                "biospecimen_collection_id_fk": {
-                    "description": "ID associated with the Biospecimen Collection event.",
-                    "type": "string"
+                "consanguinity": {
+                    "$ref": "#/$defs/EnumConsanguinityAssertion",
+                    "description": "Is there known or suspected consanguinity in this study family?"
                 },
                 "external_id": {
                     "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
@@ -354,19 +575,30 @@
                         "null"
                     ]
                 },
-                "id": {
-                    "description": "ID associated with a class",
-                    "type": "string"
-                },
-                "parent_sample_id": {
-                    "description": "Parent Sample ID",
+                "family_description": {
+                    "description": "Free title describing the study family, such as potential inheritance or details about consanguinity",
                     "type": [
                         "string",
                         "null"
                     ]
                 },
-                "processing": {
-                    "description": "Curied code associated processing that was applied to the Parent Sample or from the Biospecimen Collection that yielded this distinct sample",
+                "family_members": {
+                    "additionalProperties": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/FamilyMember__identifier_optional"
+                            },
+                            {
+                                "description": "The family member Subject who is the relationship \"subject\".",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    "description": "The Subjects who are included in this family and their roles.",
+                    "type": "object"
+                },
+                "family_relationships": {
+                    "description": "Family relationships associated with this family.",
                     "items": {
                         "type": "string"
                     },
@@ -375,27 +607,274 @@
                         "null"
                     ]
                 },
-                "quantity": {
+                "family_study_focus": {
+                    "description": "What is this study family investigating? EG, a specific condition. The code should be prefixed with a recognizable curie. \n",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "family_type": {
+                    "$ref": "#/$defs/EnumFamilyType",
+                    "description": "Describes the 'type' of study family, eg, trio."
+                },
+                "has_access_policy": {
+                    "description": "Which access policy applies to this element?",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "ID associated with a class",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "family_members",
+                "id"
+            ],
+            "title": "Family",
+            "type": "object"
+        },
+        "FamilyMember": {
+            "additionalProperties": false,
+            "description": "Designates a Subject as a member of a family with some specified role.",
+            "properties": {
+                "external_id": {
+                    "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "family_member": {
+                    "description": "The family member Subject who is the relationship \"subject\".",
+                    "type": "string"
+                },
+                "family_role": {
+                    "description": "The \"role\" of this indiviudal in this family.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_access_policy": {
+                    "description": "Which access policy applies to this element?",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "ID associated with a class",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "family_member",
+                "id"
+            ],
+            "title": "FamilyMember",
+            "type": "object"
+        },
+        "FamilyMember__identifier_optional": {
+            "additionalProperties": false,
+            "description": "Designates a Subject as a member of a family with some specified role.",
+            "properties": {
+                "external_id": {
+                    "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "family_member": {
+                    "description": "The family member Subject who is the relationship \"subject\".",
+                    "type": "string"
+                },
+                "family_role": {
+                    "description": "The \"role\" of this indiviudal in this family.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_access_policy": {
+                    "description": "Which access policy applies to this element?",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "ID associated with a class",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "family_member"
+            ],
+            "title": "FamilyMember",
+            "type": "object"
+        },
+        "FamilyRelationship": {
+            "additionalProperties": false,
+            "description": "A relationship between two Subjects.",
+            "properties": {
+                "external_id": {
+                    "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "family_member": {
+                    "description": "The family member Subject who is the relationship \"subject\".",
+                    "type": "string"
+                },
+                "has_access_policy": {
+                    "description": "Which access policy applies to this element?",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "ID associated with a class",
+                    "type": "string"
+                },
+                "other_family_member": {
+                    "description": "The family member Subject for the relationship \"object\".",
+                    "type": "string"
+                },
+                "relationship_code": {
+                    "description": "Code definting the relationship predicate. Relationship of the \"Family Member\" to the \"Other Family Member\" (i.e. mother, father, etc). Code must be from the HL7 [FamilyMember ValueSet](https://terminology.hl7.org/6.2.0/ValueSet-v3-FamilyMember.html)\n",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "family_member",
+                "other_family_member",
+                "relationship_code",
+                "id"
+            ],
+            "title": "FamilyRelationship",
+            "type": "object"
+        },
+        "Sample": {
+            "additionalProperties": false,
+            "description": "Biospecimen data",
+            "properties": {
+                "aliquots": {
+                    "additionalProperties": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/Aliquot__identifier_optional"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "description": "Aliquot(s) from this Sample.",
+                    "type": [
+                        "object",
+                        "null"
+                    ]
+                },
+                "availablity_status": {
+                    "$ref": "#/$defs/EnumAvailabilityStatus",
+                    "description": "Can this Sample be requested for further analysis?"
+                },
+                "biospecimen_collection": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/BiospecimenCollection"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Biospecimen Collection that generated this sample."
+                },
+                "external_id": {
+                    "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "has_access_policy": {
+                    "description": "Which access policy applies to this element?",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "ID associated with a class",
+                    "type": "string"
+                },
+                "parent_sample": {
+                    "description": "Sample from which this sample is derived",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "processing": {
+                    "description": "Processing that was applied to the Parent Sample or from the Biospecimen Collection that yielded this distinct sample",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "quantity_number": {
                     "description": "The total quantity of the specimen",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "quantity_units": {
+                    "description": "The structured term defining the units of the quantity.",
                     "type": [
                         "string",
                         "null"
                     ]
                 },
                 "sample_type": {
-                    "description": "Curied code associated the type of material of which this Sample is comprised",
+                    "description": "Type of material of which this Sample is comprised",
                     "type": "string"
                 },
                 "storage_method": {
-                    "description": "Curied code indicating how is the Sample stored, eg, Frozen or with additives",
+                    "description": "Sample storage method, eg, Frozen or with additives",
+                    "items": {
+                        "type": "string"
+                    },
                     "type": [
-                        "string",
+                        "array",
                         "null"
                     ]
                 }
             },
             "required": [
-                "biospecimen_collection_id_fk",
                 "sample_type",
                 "id"
             ],
@@ -406,13 +885,37 @@
             "additionalProperties": false,
             "description": "Biospecimen data",
             "properties": {
+                "aliquots": {
+                    "additionalProperties": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/Aliquot__identifier_optional"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "description": "Aliquot(s) from this Sample.",
+                    "type": [
+                        "object",
+                        "null"
+                    ]
+                },
                 "availablity_status": {
                     "$ref": "#/$defs/EnumAvailabilityStatus",
                     "description": "Can this Sample be requested for further analysis?"
                 },
-                "biospecimen_collection_id_fk": {
-                    "description": "ID associated with the Biospecimen Collection event.",
-                    "type": "string"
+                "biospecimen_collection": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/BiospecimenCollection"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Biospecimen Collection that generated this sample."
                 },
                 "external_id": {
                     "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
@@ -424,19 +927,26 @@
                         "null"
                     ]
                 },
+                "has_access_policy": {
+                    "description": "Which access policy applies to this element?",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "id": {
                     "description": "ID associated with a class",
                     "type": "string"
                 },
-                "parent_sample_id": {
-                    "description": "Parent Sample ID",
+                "parent_sample": {
+                    "description": "Sample from which this sample is derived",
                     "type": [
                         "string",
                         "null"
                     ]
                 },
                 "processing": {
-                    "description": "Curied code associated processing that was applied to the Parent Sample or from the Biospecimen Collection that yielded this distinct sample",
+                    "description": "Processing that was applied to the Parent Sample or from the Biospecimen Collection that yielded this distinct sample",
                     "items": {
                         "type": "string"
                     },
@@ -445,27 +955,36 @@
                         "null"
                     ]
                 },
-                "quantity": {
+                "quantity_number": {
                     "description": "The total quantity of the specimen",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "quantity_units": {
+                    "description": "The structured term defining the units of the quantity.",
                     "type": [
                         "string",
                         "null"
                     ]
                 },
                 "sample_type": {
-                    "description": "Curied code associated the type of material of which this Sample is comprised",
+                    "description": "Type of material of which this Sample is comprised",
                     "type": "string"
                 },
                 "storage_method": {
-                    "description": "Curied code indicating how is the Sample stored, eg, Frozen or with additives",
+                    "description": "Sample storage method, eg, Frozen or with additives",
+                    "items": {
+                        "type": "string"
+                    },
                     "type": [
-                        "string",
+                        "array",
                         "null"
                     ]
                 }
             },
             "required": [
-                "biospecimen_collection_id_fk",
                 "sample_type"
             ],
             "title": "Sample",
@@ -670,7 +1189,15 @@
                 },
                 "has_sample": {
                     "additionalProperties": {
-                        "$ref": "#/$defs/Sample__identifier_optional"
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/Sample__identifier_optional"
+                            },
+                            {
+                                "description": "Type of material of which this Sample is comprised",
+                                "type": "string"
+                            }
+                        ]
                     },
                     "description": "Which samples were collected or processed for this Subject?",
                     "type": [

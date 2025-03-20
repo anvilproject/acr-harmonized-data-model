@@ -8,14 +8,32 @@
 --     * Slot: study_title Description: Study Title
 --     * Slot: id Description: ID associated with a class
 -- # Class: "Sample" Description: "Biospecimen data"
---     * Slot: parent_sample_id Description: Parent Sample ID
---     * Slot: biospecimen_collection_id_fk Description: ID associated with the Biospecimen Collection event.
---     * Slot: sample_type Description: Curied code associated the type of material of which this Sample is comprised
+--     * Slot: parent_sample Description: Sample from which this sample is derived
+--     * Slot: sample_type Description: Type of material of which this Sample is comprised
 --     * Slot: availablity_status Description: Can this Sample be requested for further analysis?
---     * Slot: storage_method Description: Curied code indicating how is the Sample stored, eg, Frozen or with additives
---     * Slot: quantity Description: The total quantity of the specimen
+--     * Slot: quantity_number Description: The total quantity of the specimen
+--     * Slot: quantity_units Description: The structured term defining the units of the quantity.
+--     * Slot: has_access_policy Description: Which access policy applies to this element?
 --     * Slot: id Description: ID associated with a class
 --     * Slot: Subject_id Description: Autocreated FK slot
+--     * Slot: biospecimen_collection_id Description: Biospecimen Collection that generated this sample.
+-- # Class: "BiospecimenCollection" Description: "Biospecimen Collection"
+--     * Slot: age_at_collection Description: The age at which this biospecimen was collected.
+--     * Slot: method Description: The approach used to collect the biospecimen.
+--     * Slot: site Description: The location of the specimen collection.
+--     * Slot: spatial_qualifier Description: Any spatial/location qualifiers
+--     * Slot: laterality Description: Laterality information for the site
+--     * Slot: has_access_policy Description: Which access policy applies to this element?
+--     * Slot: id Description: ID associated with a class
+-- # Class: "Aliquot" Description: "Specific tubes or details of a Sample."
+--     * Slot: availablity_status Description: Can this Sample be requested for further analysis?
+--     * Slot: quantity_number Description: The total quantity of the specimen
+--     * Slot: quantity_units Description: The structured term defining the units of the quantity.
+--     * Slot: concentration_number Description: What is the concentration of the analyte in the Aliquot?
+--     * Slot: concentration_unit Description: Units associated with the concentration of the analyte in the Aliquot? UCUM coding preferred (with curie, UCUM)
+--     * Slot: has_access_policy Description: Which access policy applies to this element?
+--     * Slot: id Description: ID associated with a class
+--     * Slot: Sample_id Description: Autocreated FK slot
 -- # Class: "Subject" Description: "This entity is the subject about which data or references are recorded. | This includes the idea of a human participant in a study, a cell line, an animal model, | or any other similar entity."
 --     * Slot: subject_type Description: Type of entity this record represents
 --     * Slot: organism_type Description: Organism Type Label
@@ -64,6 +82,25 @@
 --     * Slot: description Description: Description
 --     * Slot: website Description: Website
 --     * Slot: id Description: ID associated with a class
+-- # Class: "Family" Description: "A group of individuals of some relation who are grouped together in the study."
+--     * Slot: family_type Description: Describes the 'type' of study family, eg, trio.
+--     * Slot: family_description Description: Free title describing the study family, such as potential inheritance or details about consanguinity
+--     * Slot: consanguinity Description: Is there known or suspected consanguinity in this study family?
+--     * Slot: family_study_focus Description: What is this study family investigating? EG, a specific condition. The code should be prefixed with a recognizable curie. 
+--     * Slot: has_access_policy Description: Which access policy applies to this element?
+--     * Slot: id Description: ID associated with a class
+-- # Class: "FamilyRelationship" Description: "A relationship between two Subjects."
+--     * Slot: family_member Description: The family member Subject who is the relationship "subject".
+--     * Slot: other_family_member Description: The family member Subject for the relationship "object".
+--     * Slot: relationship_code Description: Code definting the relationship predicate. Relationship of the "Family Member" to the "Other Family Member" (i.e. mother, father, etc). Code must be from the HL7 [FamilyMember ValueSet](https://terminology.hl7.org/6.2.0/ValueSet-v3-FamilyMember.html)
+--     * Slot: has_access_policy Description: Which access policy applies to this element?
+--     * Slot: id Description: ID associated with a class
+-- # Class: "FamilyMember" Description: "Designates a Subject as a member of a family with some specified role."
+--     * Slot: family_member Description: The family member Subject who is the relationship "subject".
+--     * Slot: family_role Description: The "role" of this indiviudal in this family.
+--     * Slot: has_access_policy Description: Which access policy applies to this element?
+--     * Slot: id Description: ID associated with a class
+--     * Slot: Family_id Description: Autocreated FK slot
 -- # Class: "Thing_external_id" Description: ""
 --     * Slot: Thing_id Description: Autocreated FK slot
 --     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
@@ -84,9 +121,18 @@
 --     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
 -- # Class: "Sample_processing" Description: ""
 --     * Slot: Sample_id Description: Autocreated FK slot
---     * Slot: processing Description: Curied code associated processing that was applied to the Parent Sample or from the Biospecimen Collection that yielded this distinct sample
+--     * Slot: processing Description: Processing that was applied to the Parent Sample or from the Biospecimen Collection that yielded this distinct sample
+-- # Class: "Sample_storage_method" Description: ""
+--     * Slot: Sample_id Description: Autocreated FK slot
+--     * Slot: storage_method Description: Sample storage method, eg, Frozen or with additives
 -- # Class: "Sample_external_id" Description: ""
 --     * Slot: Sample_id Description: Autocreated FK slot
+--     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
+-- # Class: "BiospecimenCollection_external_id" Description: ""
+--     * Slot: BiospecimenCollection_id Description: Autocreated FK slot
+--     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
+-- # Class: "Aliquot_external_id" Description: ""
+--     * Slot: Aliquot_id Description: Autocreated FK slot
 --     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
 -- # Class: "Subject_external_id" Description: ""
 --     * Slot: Subject_id Description: Autocreated FK slot
@@ -118,6 +164,18 @@
 -- # Class: "AccessPolicy_external_id" Description: ""
 --     * Slot: AccessPolicy_id Description: Autocreated FK slot
 --     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
+-- # Class: "Family_family_relationships" Description: ""
+--     * Slot: Family_id Description: Autocreated FK slot
+--     * Slot: family_relationships_id Description: Family relationships associated with this family.
+-- # Class: "Family_external_id" Description: ""
+--     * Slot: Family_id Description: Autocreated FK slot
+--     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
+-- # Class: "FamilyRelationship_external_id" Description: ""
+--     * Slot: FamilyRelationship_id Description: Autocreated FK slot
+--     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
+-- # Class: "FamilyMember_external_id" Description: ""
+--     * Slot: FamilyMember_id Description: Autocreated FK slot
+--     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
 
 CREATE TABLE "Thing" (
 	id TEXT NOT NULL, 
@@ -138,6 +196,17 @@ CREATE TABLE "AccessPolicy" (
 	PRIMARY KEY (id)
 );
 CREATE TABLE "AccessControlledRecord" (
+	has_access_policy TEXT, 
+	id TEXT NOT NULL, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(has_access_policy) REFERENCES "AccessPolicy" (id)
+);
+CREATE TABLE "BiospecimenCollection" (
+	age_at_collection INTEGER, 
+	method VARCHAR, 
+	site VARCHAR, 
+	spatial_qualifier VARCHAR, 
+	laterality VARCHAR, 
 	has_access_policy TEXT, 
 	id TEXT NOT NULL, 
 	PRIMARY KEY (id), 
@@ -166,6 +235,16 @@ CREATE TABLE "SourceData" (
 	value_number FLOAT, 
 	value_units TEXT, 
 	value_units_display TEXT, 
+	has_access_policy TEXT, 
+	id TEXT NOT NULL, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(has_access_policy) REFERENCES "AccessPolicy" (id)
+);
+CREATE TABLE "Family" (
+	family_type VARCHAR(12), 
+	family_description TEXT, 
+	consanguinity VARCHAR(13), 
+	family_study_focus TEXT, 
 	has_access_policy TEXT, 
 	id TEXT NOT NULL, 
 	PRIMARY KEY (id), 
@@ -235,6 +314,12 @@ CREATE TABLE "AccessControlledRecord_external_id" (
 	PRIMARY KEY ("AccessControlledRecord_id", external_id), 
 	FOREIGN KEY("AccessControlledRecord_id") REFERENCES "AccessControlledRecord" (id)
 );
+CREATE TABLE "BiospecimenCollection_external_id" (
+	"BiospecimenCollection_id" TEXT, 
+	external_id TEXT, 
+	PRIMARY KEY ("BiospecimenCollection_id", external_id), 
+	FOREIGN KEY("BiospecimenCollection_id") REFERENCES "BiospecimenCollection" (id)
+);
 CREATE TABLE "Demographics_race" (
 	"Demographics_id" TEXT, 
 	race VARCHAR(35) NOT NULL, 
@@ -260,17 +345,27 @@ CREATE TABLE "SourceData_external_id" (
 	PRIMARY KEY ("SourceData_id", external_id), 
 	FOREIGN KEY("SourceData_id") REFERENCES "SourceData" (id)
 );
+CREATE TABLE "Family_external_id" (
+	"Family_id" TEXT, 
+	external_id TEXT, 
+	PRIMARY KEY ("Family_id", external_id), 
+	FOREIGN KEY("Family_id") REFERENCES "Family" (id)
+);
 CREATE TABLE "Sample" (
-	parent_sample_id TEXT, 
-	biospecimen_collection_id_fk TEXT NOT NULL, 
+	parent_sample TEXT, 
 	sample_type TEXT NOT NULL, 
 	availablity_status VARCHAR(11), 
-	storage_method TEXT, 
-	quantity TEXT, 
+	quantity_number FLOAT, 
+	quantity_units TEXT, 
+	has_access_policy TEXT, 
 	id TEXT NOT NULL, 
 	"Subject_id" TEXT, 
+	biospecimen_collection_id TEXT, 
 	PRIMARY KEY (id), 
-	FOREIGN KEY("Subject_id") REFERENCES "Subject" (id)
+	FOREIGN KEY(parent_sample) REFERENCES "Sample" (id), 
+	FOREIGN KEY(has_access_policy) REFERENCES "AccessPolicy" (id), 
+	FOREIGN KEY("Subject_id") REFERENCES "Subject" (id), 
+	FOREIGN KEY(biospecimen_collection_id) REFERENCES "BiospecimenCollection" (id)
 );
 CREATE TABLE "SubjectAssertion" (
 	assertion_type VARCHAR(18), 
@@ -291,16 +386,57 @@ CREATE TABLE "SubjectAssertion" (
 	FOREIGN KEY(has_access_policy) REFERENCES "AccessPolicy" (id), 
 	FOREIGN KEY("Subject_id") REFERENCES "Subject" (id)
 );
+CREATE TABLE "FamilyRelationship" (
+	family_member TEXT NOT NULL, 
+	other_family_member TEXT NOT NULL, 
+	relationship_code TEXT NOT NULL, 
+	has_access_policy TEXT, 
+	id TEXT NOT NULL, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(family_member) REFERENCES "Subject" (id), 
+	FOREIGN KEY(other_family_member) REFERENCES "Subject" (id), 
+	FOREIGN KEY(has_access_policy) REFERENCES "AccessPolicy" (id)
+);
+CREATE TABLE "FamilyMember" (
+	family_member TEXT NOT NULL, 
+	family_role TEXT, 
+	has_access_policy TEXT, 
+	id TEXT NOT NULL, 
+	"Family_id" TEXT, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(family_member) REFERENCES "Subject" (id), 
+	FOREIGN KEY(has_access_policy) REFERENCES "AccessPolicy" (id), 
+	FOREIGN KEY("Family_id") REFERENCES "Family" (id)
+);
 CREATE TABLE "Subject_external_id" (
 	"Subject_id" TEXT, 
 	external_id TEXT, 
 	PRIMARY KEY ("Subject_id", external_id), 
 	FOREIGN KEY("Subject_id") REFERENCES "Subject" (id)
 );
+CREATE TABLE "Aliquot" (
+	availablity_status VARCHAR(11), 
+	quantity_number FLOAT, 
+	quantity_units TEXT, 
+	concentration_number FLOAT, 
+	concentration_unit TEXT, 
+	has_access_policy TEXT, 
+	id TEXT NOT NULL, 
+	"Sample_id" TEXT, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(has_access_policy) REFERENCES "AccessPolicy" (id), 
+	FOREIGN KEY("Sample_id") REFERENCES "Sample" (id)
+);
 CREATE TABLE "Sample_processing" (
 	"Sample_id" TEXT, 
 	processing TEXT, 
 	PRIMARY KEY ("Sample_id", processing), 
+	FOREIGN KEY("Sample_id") REFERENCES "Sample" (id)
+);
+CREATE TABLE "Sample_storage_method" (
+	"Sample_id" TEXT, 
+	storage_method TEXT, 
+	PRIMARY KEY ("Sample_id", storage_method), 
 	FOREIGN KEY("Sample_id") REFERENCES "Sample" (id)
 );
 CREATE TABLE "Sample_external_id" (
@@ -321,4 +457,29 @@ CREATE TABLE "SubjectAssertion_external_id" (
 	external_id TEXT, 
 	PRIMARY KEY ("SubjectAssertion_id", external_id), 
 	FOREIGN KEY("SubjectAssertion_id") REFERENCES "SubjectAssertion" (id)
+);
+CREATE TABLE "Family_family_relationships" (
+	"Family_id" TEXT, 
+	family_relationships_id TEXT, 
+	PRIMARY KEY ("Family_id", family_relationships_id), 
+	FOREIGN KEY("Family_id") REFERENCES "Family" (id), 
+	FOREIGN KEY(family_relationships_id) REFERENCES "FamilyRelationship" (id)
+);
+CREATE TABLE "FamilyRelationship_external_id" (
+	"FamilyRelationship_id" TEXT, 
+	external_id TEXT, 
+	PRIMARY KEY ("FamilyRelationship_id", external_id), 
+	FOREIGN KEY("FamilyRelationship_id") REFERENCES "FamilyRelationship" (id)
+);
+CREATE TABLE "FamilyMember_external_id" (
+	"FamilyMember_id" TEXT, 
+	external_id TEXT, 
+	PRIMARY KEY ("FamilyMember_id", external_id), 
+	FOREIGN KEY("FamilyMember_id") REFERENCES "FamilyMember" (id)
+);
+CREATE TABLE "Aliquot_external_id" (
+	"Aliquot_id" TEXT, 
+	external_id TEXT, 
+	PRIMARY KEY ("Aliquot_id", external_id), 
+	FOREIGN KEY("Aliquot_id") REFERENCES "Aliquot" (id)
 );

@@ -19,6 +19,30 @@ message AccessPolicy
   string description = 0
   string website = 0
  }
+// Specific tubes or details of a Sample.
+message Aliquot
+ {
+  string id = 0
+ repeated  uriorcurie externalId = 0
+  accessPolicy hasAccessPolicy = 0
+  enumAvailabilityStatus availablityStatus = 0
+  float quantityNumber = 0
+  uriorcurie quantityUnits = 0
+  float concentrationNumber = 0
+  uriorcurie concentrationUnit = 0
+ }
+// Biospecimen Collection
+message BiospecimenCollection
+ {
+  string id = 0
+ repeated  uriorcurie externalId = 0
+  accessPolicy hasAccessPolicy = 0
+  integer ageAtCollection = 0
+  enumSampleCollectionMethod method = 0
+  enumSite site = 0
+  enumSpatialQualifiers spatialQualifier = 0
+  enumLaterality laterality = 0
+ }
 // Basic participant demographics summary
 message Demographics
  {
@@ -37,18 +61,53 @@ message Demographics
   enumVitalStatus vitalStatus = 0
  repeated  sourceData sourceData = 0
  }
+// A group of individuals of some relation who are grouped together in the study.
+message Family
+ {
+  string id = 0
+ repeated  uriorcurie externalId = 0
+  accessPolicy hasAccessPolicy = 0
+  enumFamilyType familyType = 0
+  string familyDescription = 0
+  enumConsanguinityAssertion consanguinity = 0
+  string familyStudyFocus = 0
+ repeated  familyMember familyMembers = 0
+ repeated  familyRelationship familyRelationships = 0
+ }
+// Designates a Subject as a member of a family with some specified role.
+message FamilyMember
+ {
+  string id = 0
+ repeated  uriorcurie externalId = 0
+  accessPolicy hasAccessPolicy = 0
+  subject familyMember = 0
+  uriorcurie familyRole = 0
+ }
+// A relationship between two Subjects.
+message FamilyRelationship
+ {
+  string id = 0
+ repeated  uriorcurie externalId = 0
+  accessPolicy hasAccessPolicy = 0
+  subject familyMember = 0
+  subject otherFamilyMember = 0
+  uriorcurie relationshipCode = 0
+ }
 // Biospecimen data
 message Sample
  {
   string id = 0
  repeated  uriorcurie externalId = 0
-  string parentSampleId = 0
-  string biospecimenCollectionIdFk = 0
-  string sampleType = 0
- repeated  string processing = 0
+  accessPolicy hasAccessPolicy = 0
+  biospecimenCollection biospecimenCollection = 0
+  sample parentSample = 0
+  uriorcurie sampleType = 0
+ repeated  uriorcurie processing = 0
   enumAvailabilityStatus availablityStatus = 0
-  string storageMethod = 0
-  string quantity = 0
+ repeated  uriorcurie storageMethod = 0
+  float quantityNumber = 0
+  uriorcurie quantityUnits = 0
+ repeated  aliquot aliquots = 0
  }
 // Submitted data about a particular Subject.
 message SourceData

@@ -15,50 +15,127 @@ classes:
   Sample:
     title: Sample 
     description: Biospecimen data
-    is_a: Thing 
+    is_a: AccessControlledRecord 
     slots: 
-      - parent_sample_id 
-      - biospecimen_collection_id_fk 
+      - biospecimen_collection 
+      - parent_sample 
       - sample_type
       - processing 
       - availablity_status 
       - storage_method 
-      - quantity 
+      - quantity_number
+      - quantity_units 
+      - aliquots
+
+  BiospecimenCollection:
+    title: BiospecimenCollection
+    description: Biospecimen Collection
+    is_a: AccessControlledRecord 
+    slots: 
+      - age_at_collection
+      - method 
+      - site 
+      - spatial_qualifier 
+      - laterality 
+  Aliquot:
+    title: Aliquot
+    description: Specific tubes or details of a Sample.
+    is_a: AccessControlledRecord 
+    slots: 
+      - availablity_status
+      - quantity_number
+      - quantity_units 
+      - concentration_number
+      - concentration_unit 
+
+#TODO: Fix titles
 slots: 
-  parent_sample_id: 
-    description: Parent Sample ID 
+#TODO Do we need to reverse the direction for linkml?
+  parent_sample: 
+    description: Sample from which this sample is derived
     required: false  
-    range: string 
+    range: Sample 
     multivalued: false 
-  biospecimen_collection_id_fk: 
-    description: ID associated with the Biospecimen Collection event. 
-    required: true 
-    range: string 
+    inlined: false
+  biospecimen_collection: 
+    description: Biospecimen Collection that generated this sample.
+    required: false 
+    range: BiospecimenCollection 
     multivalued: false 
+    inlined: true
+  aliquots: 
+    description: Aliquot(s) from this Sample.
+    required: false 
+    range: Aliquot 
+    multivalued: true 
+    inlined: true
   sample_type:
-    description: Curied code associated the type of material of which this Sample is comprised 
+    description: Type of material of which this Sample is comprised 
     identifier: false 
     required: true 
-    range: string  
+    range: uriorcurie  
     multivalued: false 
   processing:
-    description: Curied code associated processing that was applied to the Parent Sample or from the Biospecimen Collection that yielded this distinct sample
+    description: Processing that was applied to the Parent Sample or from the Biospecimen Collection that yielded this distinct sample
     identifier: false 
     required: false 
-    range: string 
+    range: uriorcurie 
     multivalued: true 
   availablity_status: 
     description: Can this Sample be requested for further analysis?
     required: false  
     range: EnumAvailabilityStatus 
   storage_method: 
-    description: Curied code indicating how is the Sample stored, eg, Frozen or with additives
+    description: Sample storage method, eg, Frozen or with additives
     required: false  
-    range: string 
-  quantity: 
+    range: uriorcurie
+    multivalued: true
+  quantity_number:
+    title: Quantity
     description: The total quantity of the specimen
-    required: false  
-    range: string   
+    range: float
+  quantity_units:
+    title: Quantity Units
+    description: The structured term defining the units of the quantity.
+    range: uriorcurie
+  concentration_number: 
+    description: What is the concentration of the analyte in the Aliquot?
+    range: float 
+    required: false 
+  concentration_unit: 
+    description: Units associated with the concentration of the analyte in the Aliquot? UCUM coding preferred (with curie, UCUM)
+    range: uriorcurie 
+    required: false 
+  age_at_collection:
+    description: The age at which this biospecimen was collected.
+    title: age_at_collection 
+    range: integer 
+    required: false 
+    multivalued: false 
+  method: 
+    description: The approach used to collect the biospecimen.
+    title: method 
+    required: false 
+    multivalued: false 
+    range: EnumSampleCollectionMethod
+  site: 
+    description: The location of the specimen collection.
+    title: site  
+    required: false 
+    multivalued: false 
+    range: EnumSite
+  spatial_qualifier: 
+    description: Any spatial/location qualifiers
+    title: spatial_qualifier 
+    required: false 
+    multivalued: false 
+    range: EnumSpatialQualifiers
+  laterality: 
+    description: Laterality information for the site
+    title: laterality  
+    required: false 
+    multivalued: false 
+    range: EnumLaterality
 enums: 
   EnumAvailabilityStatus:
     description: Is the Thing available for use?
@@ -71,5 +148,29 @@ enums:
         title: Unavailable 
         meaning: ig2_biospecimen_availability:unavailable 
         description: Biospecimen is Unavailable
-
+  EnumSampleCollectionMethod:
+    description: |
+      The approach used to collect the biospecimen. Recommend ontology: [LOINC](https://loinc.org).
+  EnumSite:
+    description: |
+      The location of the specimen collection. Recommended ontology: [SNOMED Body Site](https://hl7.org/fhir/R4B/valueset-body-site.html)
+  EnumSpatialQualifiers:
+    description: |
+      Any spatial/location qualifiers.
+    enum_uri: http://hl7.org/fhir/us/mcode/ValueSet/mcode-body-location-qualifier-vs 
+    reachable_from:
+      source_ontology: bioregistry:snomedct
+      source_nodes:
+        - snomedct:106233006
+        - snomedct:272424004 
+        - snomedct:51440002
+        - snomedct:399488007
+        - snomedct:24028007
+        - snomedct:7771000
+      is_direct: false
+      relationship_types:
+        - rdfs:subClassOf
+  EnumLaterality:
+    description: |
+      Laterality information for the site
   

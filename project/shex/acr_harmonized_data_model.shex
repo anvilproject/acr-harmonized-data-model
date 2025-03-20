@@ -61,7 +61,13 @@ linkml:Sparqlpath xsd:string
           ) ;
           rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/AccessControlledRecord> ]
        )
-    } OR @<https://anvilproject.org/acr-harmonized-data-model/participant/Demographics> OR
+    } OR @<https://anvilproject.org/acr-harmonized-data-model/sample/Aliquot> OR
+    @<https://anvilproject.org/acr-harmonized-data-model/sample/BiospecimenCollection> OR
+    @<https://anvilproject.org/acr-harmonized-data-model/participant/Demographics> OR
+    @<https://anvilproject.org/acr-harmonized-data-model/family/Family> OR
+    @<https://anvilproject.org/acr-harmonized-data-model/family/FamilyMember> OR
+    @<https://anvilproject.org/acr-harmonized-data-model/family/FamilyRelationship> OR
+    @<https://anvilproject.org/acr-harmonized-data-model/sample/Sample> OR
     @<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/SourceData> OR
     @<https://anvilproject.org/acr-harmonized-data-model/participant/Subject> OR
     @<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/SubjectAssertion>
@@ -80,6 +86,35 @@ linkml:Sparqlpath xsd:string
           <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/website> @linkml:String ?
        ) ;
        rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/AccessPolicy> ]
+    )
+}
+
+<https://anvilproject.org/acr-harmonized-data-model/sample/Aliquot> CLOSED {
+    (  $<https://anvilproject.org/acr-harmonized-data-model/sample/Aliquot_tes> ( 
+          &<https://anvilproject.org/acr-harmonized-data-model/core/AccessControlledRecord_tes> ;
+          rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/AccessControlledRecord> ] ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/sample/availablity_status> [ ig2_biospecimen_availability:available
+             ig2_biospecimen_availability:unavailable ] ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/sample/quantity_number> @linkml:Float ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/sample/quantity_units> @linkml:Uriorcurie ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/sample/concentration_number> @linkml:Float ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/sample/concentration_unit> @linkml:Uriorcurie ?
+       ) ;
+       rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/sample/Aliquot> ]
+    )
+}
+
+<https://anvilproject.org/acr-harmonized-data-model/sample/BiospecimenCollection> CLOSED {
+    (  $<https://anvilproject.org/acr-harmonized-data-model/sample/BiospecimenCollection_tes> ( 
+          &<https://anvilproject.org/acr-harmonized-data-model/core/AccessControlledRecord_tes> ;
+          rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/AccessControlledRecord> ] ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/sample/age_at_collection> @linkml:Integer ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/sample/method> . ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/sample/site> . ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/sample/spatial_qualifier> . ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/sample/laterality> . ?
+       ) ;
+       rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/sample/BiospecimenCollection> ]
     )
 }
 
@@ -113,18 +148,74 @@ linkml:Sparqlpath xsd:string
     )
 }
 
+<https://anvilproject.org/acr-harmonized-data-model/family/Family> CLOSED {
+    (  $<https://anvilproject.org/acr-harmonized-data-model/family/Family_tes> ( 
+          &<https://anvilproject.org/acr-harmonized-data-model/core/AccessControlledRecord_tes> ;
+          rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/AccessControlledRecord> ] ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/family/family_type> [
+             <https://anvilproject.org/acr-harmonized-data-model/family/EnumFamilyType#control_only>
+             <https://anvilproject.org/acr-harmonized-data-model/family/EnumFamilyType#duo>
+             <https://anvilproject.org/acr-harmonized-data-model/family/EnumFamilyType#proband_only>
+             <https://anvilproject.org/acr-harmonized-data-model/family/EnumFamilyType#trio>
+             <https://anvilproject.org/acr-harmonized-data-model/family/EnumFamilyType#trio_plus>
+             <https://anvilproject.org/acr-harmonized-data-model/family/EnumFamilyType#other> ] ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/family/family_description> @linkml:String ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/family/consanguinity> [
+             <https://bioregistry.io/registry/snomedct428263003> <https://bioregistry.io/registry/snomedct415684004>
+             <https://bioregistry.io/registry/snomedct410515003> <https://bioregistry.io/registry/snomedct261665006> ] ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/family/family_study_focus> @linkml:String ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/family/family_members>
+          @<https://anvilproject.org/acr-harmonized-data-model/family/FamilyMember> + ;
+          <https://anvilproject.org/acr-harmonized-data-model/family/family_relationships>
+          @<https://anvilproject.org/acr-harmonized-data-model/family/FamilyRelationship> *
+       ) ;
+       rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/family/Family> ]
+    )
+}
+
+<https://anvilproject.org/acr-harmonized-data-model/family/FamilyMember> CLOSED {
+    (  $<https://anvilproject.org/acr-harmonized-data-model/family/FamilyMember_tes> ( 
+          &<https://anvilproject.org/acr-harmonized-data-model/core/AccessControlledRecord_tes> ;
+          rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/AccessControlledRecord> ] ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/family/family_member>
+          @<https://anvilproject.org/acr-harmonized-data-model/participant/Subject> ;
+          <https://anvilproject.org/acr-harmonized-data-model/family/family_role> @linkml:Uriorcurie ?
+       ) ;
+       rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/family/FamilyMember> ]
+    )
+}
+
+<https://anvilproject.org/acr-harmonized-data-model/family/FamilyRelationship> CLOSED {
+    (  $<https://anvilproject.org/acr-harmonized-data-model/family/FamilyRelationship_tes> ( 
+          &<https://anvilproject.org/acr-harmonized-data-model/core/AccessControlledRecord_tes> ;
+          rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/AccessControlledRecord> ] ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/family/family_member>
+          @<https://anvilproject.org/acr-harmonized-data-model/participant/Subject> ;
+          <https://anvilproject.org/acr-harmonized-data-model/family/other_family_member>
+          @<https://anvilproject.org/acr-harmonized-data-model/participant/Subject> ;
+          <https://anvilproject.org/acr-harmonized-data-model/family/relationship_code> @linkml:Uriorcurie
+       ) ;
+       rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/family/FamilyRelationship> ]
+    )
+}
+
 <https://anvilproject.org/acr-harmonized-data-model/sample/Sample> CLOSED {
     (  $<https://anvilproject.org/acr-harmonized-data-model/sample/Sample_tes> ( 
-          &<https://anvilproject.org/acr-harmonized-data-model/core/Thing_tes> ;
-          rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/Thing> ] ? ;
-          <https://anvilproject.org/acr-harmonized-data-model/sample/parent_sample_id> @linkml:String ? ;
-          <https://anvilproject.org/acr-harmonized-data-model/sample/biospecimen_collection_id_fk> @linkml:String ;
-          <https://anvilproject.org/acr-harmonized-data-model/sample/sample_type> @linkml:String ;
-          <https://anvilproject.org/acr-harmonized-data-model/sample/processing> @linkml:String * ;
+          &<https://anvilproject.org/acr-harmonized-data-model/core/AccessControlledRecord_tes> ;
+          rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/AccessControlledRecord> ] ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/sample/biospecimen_collection>
+          @<https://anvilproject.org/acr-harmonized-data-model/sample/BiospecimenCollection> ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/sample/parent_sample>
+          @<https://anvilproject.org/acr-harmonized-data-model/sample/Sample> ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/sample/sample_type> @linkml:Uriorcurie ;
+          <https://anvilproject.org/acr-harmonized-data-model/sample/processing> @linkml:Uriorcurie * ;
           <https://anvilproject.org/acr-harmonized-data-model/sample/availablity_status> [ ig2_biospecimen_availability:available
              ig2_biospecimen_availability:unavailable ] ? ;
-          <https://anvilproject.org/acr-harmonized-data-model/sample/storage_method> @linkml:String ? ;
-          <https://anvilproject.org/acr-harmonized-data-model/sample/quantity> @linkml:String ?
+          <https://anvilproject.org/acr-harmonized-data-model/sample/storage_method> @linkml:Uriorcurie * ;
+          <https://anvilproject.org/acr-harmonized-data-model/sample/quantity_number> @linkml:Float ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/sample/quantity_units> @linkml:Uriorcurie ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/sample/aliquots>
+          @<https://anvilproject.org/acr-harmonized-data-model/sample/Aliquot> *
        ) ;
        rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/sample/Sample> ]
     )
@@ -216,7 +307,6 @@ linkml:Sparqlpath xsd:string
        )
     } OR @<https://anvilproject.org/acr-harmonized-data-model/core/AccessControlledRecord> OR
     @<https://anvilproject.org/acr-harmonized-data-model/data-access-policy/AccessPolicy> OR
-    @<https://anvilproject.org/acr-harmonized-data-model/sample/Sample> OR
     @<https://anvilproject.org/acr-harmonized-data-model/study/Study>
 )
 

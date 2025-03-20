@@ -34,10 +34,8 @@ imports:
   - study
   - subject_assertion
   - data_access_policy
-  #- biospecimen_collection
-  #- aliquot
-  #- sample 
+  - family 
+  - sample 
   #- measurement 
   #- procedure
-  #- family 
-  #- family_member
+  

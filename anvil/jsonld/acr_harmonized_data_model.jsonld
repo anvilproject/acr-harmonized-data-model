@@ -853,45 +853,6 @@
           "title": "Unavailable"
         }
       ]
-    },
-    {
-      "name": "EnumSampleCollectionMethod",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/EnumSampleCollectionMethod",
-      "description": "The approach used to collect the biospecimen. Recommend ontology: [LOINC](https://loinc.org).\n",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/sample"
-    },
-    {
-      "name": "EnumSite",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/EnumSite",
-      "description": "The location of the specimen collection. Recommended ontology: [SNOMED Body Site](https://hl7.org/fhir/R4B/valueset-body-site.html)\n",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/sample"
-    },
-    {
-      "name": "EnumSpatialQualifiers",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/EnumSpatialQualifiers",
-      "description": "Any spatial/location qualifiers.\n",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/sample",
-      "enum_uri": "http://hl7.org/fhir/us/mcode/ValueSet/mcode-body-location-qualifier-vs",
-      "reachable_from": {
-        "source_ontology": "bioregistry:snomedct",
-        "source_nodes": [
-          "snomedct:106233006",
-          "snomedct:272424004",
-          "snomedct:51440002",
-          "snomedct:399488007",
-          "snomedct:24028007",
-          "snomedct:7771000"
-        ],
-        "relationship_types": [
-          "rdfs:subClassOf"
-        ]
-      }
-    },
-    {
-      "name": "EnumLaterality",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/EnumLaterality",
-      "description": "Laterality information for the site\n",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/sample"
     }
   ],
   "slots": [
@@ -1556,26 +1517,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "family_member",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/family/family_member",
+      "name": "relationship_subject",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/family/relationship_subject",
       "description": "The family member Subject who is the relationship \"subject\".",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/family",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/family/family_member",
-      "owner": "FamilyMember",
-      "domain_of": [
-        "FamilyRelationship",
-        "FamilyMember"
-      ],
-      "range": "Subject",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "other_family_member",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/family/other_family_member",
-      "description": "The family member Subject for the relationship \"object\".",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/family",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/family/other_family_member",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/family/relationship_subject",
       "owner": "FamilyRelationship",
       "domain_of": [
         "FamilyRelationship"
@@ -1585,11 +1531,25 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "family_relationships",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/family/family_relationships",
+      "name": "relationship_target",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/family/relationship_target",
+      "description": "The family member Subject for the relationship \"object\".",
+      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/family",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/family/relationship_target",
+      "owner": "FamilyRelationship",
+      "domain_of": [
+        "FamilyRelationship"
+      ],
+      "range": "Subject",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "family_relationship",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/family/family_relationship",
       "description": "Family relationships associated with this family.",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/family",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/family/family_relationships",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/family/family_relationship",
       "owner": "Family",
       "domain_of": [
         "Family"
@@ -1599,14 +1559,15 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "family_members",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/family/family_members",
+      "name": "family_member",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/family/family_member",
       "description": "The Subjects who are included in this family and their roles.",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/family",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/family/family_members",
-      "owner": "Family",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/family/family_member",
+      "owner": "FamilyMember",
       "domain_of": [
-        "Family"
+        "Family",
+        "FamilyMember"
       ],
       "range": "FamilyMember",
       "required": true,
@@ -1642,72 +1603,57 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "parent_sample",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/parent_sample",
-      "description": "Sample from which this sample is derived",
+      "name": "parent_sample_id",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/parent_sample_id",
+      "description": "Parent Sample ID",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/sample",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/parent_sample",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/parent_sample_id",
       "owner": "Sample",
       "domain_of": [
         "Sample"
       ],
-      "range": "Sample",
+      "range": "string",
       "@type": "SlotDefinition"
     },
     {
-      "name": "biospecimen_collection",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/biospecimen_collection",
-      "description": "Biospecimen Collection that generated this sample.",
+      "name": "biospecimen_collection_id_fk",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/biospecimen_collection_id_fk",
+      "description": "ID associated with the Biospecimen Collection event.",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/sample",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/biospecimen_collection",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/biospecimen_collection_id_fk",
       "owner": "Sample",
       "domain_of": [
         "Sample"
       ],
-      "range": "BiospecimenCollection",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "aliquots",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/aliquots",
-      "description": "Aliquot(s) from this Sample.",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/sample",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/aliquots",
-      "owner": "Sample",
-      "domain_of": [
-        "Sample"
-      ],
-      "range": "Aliquot",
-      "multivalued": true,
-      "inlined": true,
+      "range": "string",
+      "required": true,
       "@type": "SlotDefinition"
     },
     {
       "name": "sample_type",
       "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/sample_type",
-      "description": "Type of material of which this Sample is comprised",
+      "description": "Curied code associated the type of material of which this Sample is comprised",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/sample",
       "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/sample_type",
       "owner": "Sample",
       "domain_of": [
         "Sample"
       ],
-      "range": "uriorcurie",
+      "range": "string",
       "required": true,
       "@type": "SlotDefinition"
     },
     {
       "name": "processing",
       "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/processing",
-      "description": "Processing that was applied to the Parent Sample or from the Biospecimen Collection that yielded this distinct sample",
+      "description": "Curied code associated processing that was applied to the Parent Sample or from the Biospecimen Collection that yielded this distinct sample",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/sample",
       "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/processing",
       "owner": "Sample",
       "domain_of": [
         "Sample"
       ],
-      "range": "uriorcurie",
+      "range": "string",
       "multivalued": true,
       "@type": "SlotDefinition"
     },
@@ -1717,10 +1663,9 @@
       "description": "Can this Sample be requested for further analysis?",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/sample",
       "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/availablity_status",
-      "owner": "Aliquot",
+      "owner": "Sample",
       "domain_of": [
-        "Sample",
-        "Aliquot"
+        "Sample"
       ],
       "range": "EnumAvailabilityStatus",
       "@type": "SlotDefinition"
@@ -1728,141 +1673,27 @@
     {
       "name": "storage_method",
       "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/storage_method",
-      "description": "Sample storage method, eg, Frozen or with additives",
+      "description": "Curied code indicating how is the Sample stored, eg, Frozen or with additives",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/sample",
       "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/storage_method",
       "owner": "Sample",
       "domain_of": [
         "Sample"
       ],
-      "range": "uriorcurie",
-      "multivalued": true,
+      "range": "string",
       "@type": "SlotDefinition"
     },
     {
-      "name": "quantity_number",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/quantity_number",
+      "name": "quantity",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/quantity",
       "description": "The total quantity of the specimen",
-      "title": "Quantity",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/sample",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/quantity_number",
-      "owner": "Aliquot",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/quantity",
+      "owner": "Sample",
       "domain_of": [
-        "Sample",
-        "Aliquot"
+        "Sample"
       ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "quantity_units",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/quantity_units",
-      "description": "The structured term defining the units of the quantity.",
-      "title": "Quantity Units",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/sample",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/quantity_units",
-      "owner": "Aliquot",
-      "domain_of": [
-        "Sample",
-        "Aliquot"
-      ],
-      "range": "uriorcurie",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "concentration_number",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/concentration_number",
-      "description": "What is the concentration of the analyte in the Aliquot?",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/sample",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/concentration_number",
-      "owner": "Aliquot",
-      "domain_of": [
-        "Aliquot"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "concentration_unit",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/concentration_unit",
-      "description": "Units associated with the concentration of the analyte in the Aliquot? UCUM coding preferred (with curie, UCUM)",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/sample",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/concentration_unit",
-      "owner": "Aliquot",
-      "domain_of": [
-        "Aliquot"
-      ],
-      "range": "uriorcurie",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "age_at_collection",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/age_at_collection",
-      "description": "The age at which this biospecimen was collected.",
-      "title": "age_at_collection",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/sample",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/age_at_collection",
-      "owner": "BiospecimenCollection",
-      "domain_of": [
-        "BiospecimenCollection"
-      ],
-      "range": "integer",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "method",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/method",
-      "description": "The approach used to collect the biospecimen.",
-      "title": "method",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/sample",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/method",
-      "owner": "BiospecimenCollection",
-      "domain_of": [
-        "BiospecimenCollection"
-      ],
-      "range": "EnumSampleCollectionMethod",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "site",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/site",
-      "description": "The location of the specimen collection.",
-      "title": "site",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/sample",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/site",
-      "owner": "BiospecimenCollection",
-      "domain_of": [
-        "BiospecimenCollection"
-      ],
-      "range": "EnumSite",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "spatial_qualifier",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/spatial_qualifier",
-      "description": "Any spatial/location qualifiers",
-      "title": "spatial_qualifier",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/sample",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/spatial_qualifier",
-      "owner": "BiospecimenCollection",
-      "domain_of": [
-        "BiospecimenCollection"
-      ],
-      "range": "EnumSpatialQualifiers",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "laterality",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/laterality",
-      "description": "Laterality information for the site",
-      "title": "laterality",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/sample",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/laterality",
-      "owner": "BiospecimenCollection",
-      "domain_of": [
-        "BiospecimenCollection"
-      ],
-      "range": "EnumLaterality",
+      "range": "string",
       "@type": "SlotDefinition"
     }
   ],
@@ -2049,8 +1880,8 @@
         "family_description",
         "consanguinity",
         "family_study_focus",
-        "family_members",
-        "family_relationships"
+        "family_member",
+        "family_relationship"
       ],
       "slot_usage": {},
       "class_uri": "https://anvilproject.org/acr-harmonized-data-model/family/Family",
@@ -2067,8 +1898,8 @@
         "id",
         "external_id",
         "has_access_policy",
-        "family_member",
-        "other_family_member",
+        "relationship_subject",
+        "relationship_target",
         "relationship_code"
       ],
       "slot_usage": {},
@@ -2099,76 +1930,31 @@
       "description": "Biospecimen data",
       "title": "Sample",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/sample",
-      "is_a": "AccessControlledRecord",
+      "is_a": "Thing",
       "slots": [
         "id",
         "external_id",
-        "has_access_policy",
-        "biospecimen_collection",
-        "parent_sample",
+        "parent_sample_id",
+        "biospecimen_collection_id_fk",
         "sample_type",
         "processing",
         "availablity_status",
         "storage_method",
-        "quantity_number",
-        "quantity_units",
-        "aliquots"
+        "quantity"
       ],
       "slot_usage": {},
       "class_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/Sample",
-      "@type": "ClassDefinition"
-    },
-    {
-      "name": "BiospecimenCollection",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/BiospecimenCollection",
-      "description": "Biospecimen Collection",
-      "title": "BiospecimenCollection",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/sample",
-      "is_a": "AccessControlledRecord",
-      "slots": [
-        "id",
-        "external_id",
-        "has_access_policy",
-        "age_at_collection",
-        "method",
-        "site",
-        "spatial_qualifier",
-        "laterality"
-      ],
-      "slot_usage": {},
-      "class_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/BiospecimenCollection",
-      "@type": "ClassDefinition"
-    },
-    {
-      "name": "Aliquot",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/Aliquot",
-      "description": "Specific tubes or details of a Sample.",
-      "title": "Aliquot",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/sample",
-      "is_a": "AccessControlledRecord",
-      "slots": [
-        "id",
-        "external_id",
-        "has_access_policy",
-        "availablity_status",
-        "quantity_number",
-        "quantity_units",
-        "concentration_number",
-        "concentration_unit"
-      ],
-      "slot_usage": {},
-      "class_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/Aliquot",
       "@type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.7.0",
   "source_file": "acr_harmonized_data_model.yaml",
-  "source_file_date": "2025-03-20T10:37:40",
-  "source_file_size": 1405,
-  "generation_date": "2025-03-20T10:40:37",
+  "source_file_date": "2025-03-20T10:13:47",
+  "source_file_size": 1449,
+  "generation_date": "2025-03-20T10:20:43",
   "@type": "SchemaDefinition",
   "@context": [
-    "project/jsonld/acr_harmonized_data_model.context.jsonld",
+    "anvil/jsonld/acr_harmonized_data_model.context.jsonld",
     "https://w3id.org/linkml/types.context.jsonld",
     "anvil_core.context.jsonld",
     "participant.context.jsonld",

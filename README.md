@@ -40,19 +40,19 @@ pip install mkdocs-mermaid2-plugin
 #### Checking for convention compliance
 It can be helpful to review the [schema for compliance with linkml conventions](https://linkml.io/linkml/schemas/linter.html). To run a check for all files against the default standards the following command can be run.
 ```
-linkml-lint data-model
+linkml-lint ./src/acr_harmonized_data_model
 ```
 
 #### Creating the anvil project
 Here is the command to [generate default artifacts](https://linkml.io/linkml/generators/project-generator.html) if there is a need. 
 
 ```
-gen-project -d anvil data-model/anvil.yaml
+gen-project -d anvil ./src/acr_harmonized_data_model/schema/acr_harmonized_data_model.yaml
 ```
 
 #### Creating the docs
 ```
-gen-doc -d docs data-model/anvil.yaml
+gen-doc -d docs ./src/acr_harmonized_data_model/schema/acr_harmonized_data_model.yaml
 mkdocs build
 ```
 </details>
