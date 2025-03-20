@@ -360,7 +360,7 @@
 
 
 <h1 id="slot-sample_type">Slot: sample_type</h1>
-<p><em>Curied code associated the type of material of which this Sample is comprised</em></p>
+<p><em>Type of material of which this Sample is comprised</em></p>
 <p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/sample_type">anvil:sample_type</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -384,7 +384,7 @@
 <h2 id="properties">Properties</h2>
 <ul>
 <li>
-<p>Range: <a href="../String/">String</a></p>
+<p>Range: <a href="../Uriorcurie/">Uriorcurie</a></p>
 </li>
 <li>
 <p>Required: True</p>
@@ -418,14 +418,14 @@
 <details>
 
 <pre><code class="language-yaml">name: sample_type
-description: Curied code associated the type of material of which this Sample is comprised
+description: Type of material of which this Sample is comprised
 from_schema: https://anvilproject.org/acr-harmonized-data-model
 rank: 1000
 identifier: false
 alias: sample_type
 domain_of:
 - Sample
-range: string
+range: uriorcurie
 required: true
 multivalued: false
 

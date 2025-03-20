@@ -360,7 +360,7 @@
 
 
 <h1 id="slot-processing">Slot: processing</h1>
-<p><em>Curied code associated processing that was applied to the Parent Sample or from the Biospecimen Collection that yielded this distinct sample</em></p>
+<p><em>Processing that was applied to the Parent Sample or from the Biospecimen Collection that yielded this distinct sample</em></p>
 <p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/processing">anvil:processing</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -384,7 +384,7 @@
 <h2 id="properties">Properties</h2>
 <ul>
 <li>
-<p>Range: <a href="../String/">String</a></p>
+<p>Range: <a href="../Uriorcurie/">Uriorcurie</a></p>
 </li>
 <li>
 <p>Multivalued: True</p>
@@ -418,15 +418,15 @@
 <details>
 
 <pre><code class="language-yaml">name: processing
-description: Curied code associated processing that was applied to the Parent Sample
-  or from the Biospecimen Collection that yielded this distinct sample
+description: Processing that was applied to the Parent Sample or from the Biospecimen
+  Collection that yielded this distinct sample
 from_schema: https://anvilproject.org/acr-harmonized-data-model
 rank: 1000
 identifier: false
 alias: processing
 domain_of:
 - Sample
-range: string
+range: uriorcurie
 required: false
 multivalued: true
 

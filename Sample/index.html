@@ -234,8 +234,17 @@
 <div class="mermaid"> classDiagram
     class Sample
     click Sample href "../Sample"
-      Thing &lt;|-- Sample
-        click Thing href "../Thing"
+      AccessControlledRecord &lt;|-- Sample
+        click AccessControlledRecord href "../AccessControlledRecord"
+
+      Sample : aliquots
+
+
+
+
+    Sample --&gt; "*" Aliquot : aliquots
+    click Aliquot href "../Aliquot"
+
 
       Sample : availablity_status
 
@@ -246,17 +255,42 @@
     click EnumAvailabilityStatus href "../EnumAvailabilityStatus"
 
 
-      Sample : biospecimen_collection_id_fk
+      Sample : biospecimen_collection
+
+
+
+
+    Sample --&gt; "0..1" BiospecimenCollection : biospecimen_collection
+    click BiospecimenCollection href "../BiospecimenCollection"
+
 
       Sample : external_id
 
+      Sample : has_access_policy
+
+
+
+
+    Sample --&gt; "0..1" AccessPolicy : has_access_policy
+    click AccessPolicy href "../AccessPolicy"
+
+
       Sample : id
 
-      Sample : parent_sample_id
+      Sample : parent_sample
+
+
+
+
+    Sample --&gt; "0..1" Sample : parent_sample
+    click Sample href "../Sample"
+
 
       Sample : processing
 
-      Sample : quantity
+      Sample : quantity_number
+
+      Sample : quantity_units
 
       Sample : sample_type
 
@@ -267,7 +301,10 @@
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><a href="../Thing/">Thing</a><ul>
+<li><a href="../AccessControlledRecord/">AccessControlledRecord</a><ul>
 <li><strong>Sample</strong></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -283,27 +320,27 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../parent_sample_id/">parent_sample_id</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>Parent Sample ID</td>
+<td><a href="../biospecimen_collection/">biospecimen_collection</a></td>
+<td>0..1 <br/> <a href="../BiospecimenCollection/">BiospecimenCollection</a></td>
+<td>Biospecimen Collection that generated this sample</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../biospecimen_collection_id_fk/">biospecimen_collection_id_fk</a></td>
-<td>1 <br/> <a href="../String/">String</a></td>
-<td>ID associated with the Biospecimen Collection event</td>
+<td><a href="../parent_sample/">parent_sample</a></td>
+<td>0..1 <br/> <a href="./">Sample</a></td>
+<td>Sample from which this sample is derived</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../sample_type/">sample_type</a></td>
-<td>1 <br/> <a href="../String/">String</a></td>
-<td>Curied code associated the type of material of which this Sample is comprised</td>
+<td>1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+<td>Type of material of which this Sample is comprised</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../processing/">processing</a></td>
-<td>* <br/> <a href="../String/">String</a></td>
-<td>Curied code associated processing that was applied to the Parent Sample or fr...</td>
+<td>* <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+<td>Processing that was applied to the Parent Sample or from the Biospecimen Coll...</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -314,15 +351,33 @@
 </tr>
 <tr>
 <td><a href="../storage_method/">storage_method</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>Curied code indicating how is the Sample stored, eg, Frozen or with additives</td>
+<td>* <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+<td>Sample storage method, eg, Frozen or with additives</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../quantity/">quantity</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
+<td><a href="../quantity_number/">quantity_number</a></td>
+<td>0..1 <br/> <a href="../Float/">Float</a></td>
 <td>The total quantity of the specimen</td>
 <td>direct</td>
+</tr>
+<tr>
+<td><a href="../quantity_units/">quantity_units</a></td>
+<td>0..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+<td>The structured term defining the units of the quantity</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../aliquots/">aliquots</a></td>
+<td>* <br/> <a href="../Aliquot/">Aliquot</a></td>
+<td>Aliquot(s) from this Sample</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../has_access_policy/">has_access_policy</a></td>
+<td>0..1 <br/> <a href="../AccessPolicy/">AccessPolicy</a></td>
+<td>Which access policy applies to this element?</td>
+<td><a href="../AccessControlledRecord/">AccessControlledRecord</a></td>
 </tr>
 <tr>
 <td><a href="../id/">id</a></td>
@@ -349,6 +404,12 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="./">Sample</a></td>
+<td><a href="../parent_sample/">parent_sample</a></td>
+<td>range</td>
+<td><a href="./">Sample</a></td>
+</tr>
 <tr>
 <td><a href="../Subject/">Subject</a></td>
 <td><a href="../has_sample/">has_sample</a></td>
@@ -389,15 +450,17 @@
 description: Biospecimen data
 title: Sample
 from_schema: https://anvilproject.org/acr-harmonized-data-model
-is_a: Thing
+is_a: AccessControlledRecord
 slots:
-- parent_sample_id
-- biospecimen_collection_id_fk
+- biospecimen_collection
+- parent_sample
 - sample_type
 - processing
 - availablity_status
 - storage_method
-- quantity
+- quantity_number
+- quantity_units
+- aliquots
 
 </code></pre>
 </details>
@@ -407,36 +470,37 @@ slots:
 description: Biospecimen data
 title: Sample
 from_schema: https://anvilproject.org/acr-harmonized-data-model
-is_a: Thing
+is_a: AccessControlledRecord
 attributes:
-  parent_sample_id:
-    name: parent_sample_id
-    description: Parent Sample ID
+  biospecimen_collection:
+    name: biospecimen_collection
+    description: Biospecimen Collection that generated this sample.
     from_schema: https://anvilproject.org/acr-harmonized-data-model
     rank: 1000
-    alias: parent_sample_id
+    alias: biospecimen_collection
     owner: Sample
     domain_of:
     - Sample
-    range: string
+    range: BiospecimenCollection
     required: false
     multivalued: false
-  biospecimen_collection_id_fk:
-    name: biospecimen_collection_id_fk
-    description: ID associated with the Biospecimen Collection event.
+    inlined: true
+  parent_sample:
+    name: parent_sample
+    description: Sample from which this sample is derived
     from_schema: https://anvilproject.org/acr-harmonized-data-model
     rank: 1000
-    alias: biospecimen_collection_id_fk
+    alias: parent_sample
     owner: Sample
     domain_of:
     - Sample
-    range: string
-    required: true
+    range: Sample
+    required: false
     multivalued: false
+    inlined: false
   sample_type:
     name: sample_type
-    description: Curied code associated the type of material of which this Sample
-      is comprised
+    description: Type of material of which this Sample is comprised
     from_schema: https://anvilproject.org/acr-harmonized-data-model
     rank: 1000
     identifier: false
@@ -444,13 +508,13 @@ attributes:
     owner: Sample
     domain_of:
     - Sample
-    range: string
+    range: uriorcurie
     required: true
     multivalued: false
   processing:
     name: processing
-    description: Curied code associated processing that was applied to the Parent
-      Sample or from the Biospecimen Collection that yielded this distinct sample
+    description: Processing that was applied to the Parent Sample or from the Biospecimen
+      Collection that yielded this distinct sample
     from_schema: https://anvilproject.org/acr-harmonized-data-model
     rank: 1000
     identifier: false
@@ -458,7 +522,7 @@ attributes:
     owner: Sample
     domain_of:
     - Sample
-    range: string
+    range: uriorcurie
     required: false
     multivalued: true
   availablity_status:
@@ -470,31 +534,69 @@ attributes:
     owner: Sample
     domain_of:
     - Sample
+    - Aliquot
     range: EnumAvailabilityStatus
     required: false
   storage_method:
     name: storage_method
-    description: Curied code indicating how is the Sample stored, eg, Frozen or with
-      additives
+    description: Sample storage method, eg, Frozen or with additives
     from_schema: https://anvilproject.org/acr-harmonized-data-model
     rank: 1000
     alias: storage_method
     owner: Sample
     domain_of:
     - Sample
-    range: string
+    range: uriorcurie
     required: false
-  quantity:
-    name: quantity
+    multivalued: true
+  quantity_number:
+    name: quantity_number
     description: The total quantity of the specimen
+    title: Quantity
     from_schema: https://anvilproject.org/acr-harmonized-data-model
     rank: 1000
-    alias: quantity
+    alias: quantity_number
     owner: Sample
     domain_of:
     - Sample
-    range: string
+    - Aliquot
+    range: float
+  quantity_units:
+    name: quantity_units
+    description: The structured term defining the units of the quantity.
+    title: Quantity Units
+    from_schema: https://anvilproject.org/acr-harmonized-data-model
+    rank: 1000
+    alias: quantity_units
+    owner: Sample
+    domain_of:
+    - Sample
+    - Aliquot
+    range: uriorcurie
+  aliquots:
+    name: aliquots
+    description: Aliquot(s) from this Sample.
+    from_schema: https://anvilproject.org/acr-harmonized-data-model
+    rank: 1000
+    alias: aliquots
+    owner: Sample
+    domain_of:
+    - Sample
+    range: Aliquot
     required: false
+    multivalued: true
+    inlined: true
+  has_access_policy:
+    name: has_access_policy
+    description: Which access policy applies to this element?
+    from_schema: https://anvilproject.org/acr-harmonized-data-model
+    rank: 1000
+    alias: has_access_policy
+    owner: Sample
+    domain_of:
+    - AccessControlledRecord
+    range: AccessPolicy
+    inlined: false
   id:
     name: id
     description: ID associated with a class

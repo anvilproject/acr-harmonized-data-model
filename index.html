@@ -454,8 +454,32 @@
 <td>Element for which specific access control restrictions apply.</td>
 </tr>
 <tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Aliquot/">Aliquot</a></td>
+<td>Specific tubes or details of a Sample.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="BiospecimenCollection/">BiospecimenCollection</a></td>
+<td>Biospecimen Collection</td>
+</tr>
+<tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Demographics/">Demographics</a></td>
 <td>Basic participant demographics summary</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Family/">Family</a></td>
+<td>A group of individuals of some relation who are grouped together in the study.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="FamilyMember/">FamilyMember</a></td>
+<td>Designates a Subject as a member of a family with some specified role.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="FamilyRelationship/">FamilyRelationship</a></td>
+<td>A relationship between two Subjects.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Sample/">Sample</a></td>
+<td>Biospecimen data</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="SourceData/">SourceData</a></td>
@@ -472,10 +496,6 @@
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="AccessPolicy/">AccessPolicy</a></td>
 <td>Describes the access required for a given element of data.</td>
-</tr>
-<tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Sample/">Sample</a></td>
-<td>Biospecimen data</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Study/">Study</a></td>
@@ -501,6 +521,10 @@
 <td>The age in decimal years of the Subject when the assertion was made</td>
 </tr>
 <tr>
+<td><a href="age_at_collection/">age_at_collection</a></td>
+<td>The age at which this biospecimen was collected</td>
+</tr>
+<tr>
 <td><a href="age_at_event/">age_at_event</a></td>
 <td>The age in decimal years of the Subject at the time point which the assertion...</td>
 </tr>
@@ -513,6 +537,10 @@
 <td>The age in decimal years of the Subject when the asserted state was resolved</td>
 </tr>
 <tr>
+<td><a href="aliquots/">aliquots</a></td>
+<td>Aliquot(s) from this Sample</td>
+</tr>
+<tr>
 <td><a href="assertion_type/">assertion_type</a></td>
 <td>The semantic type of the resource, eg, Condition</td>
 </tr>
@@ -521,12 +549,24 @@
 <td>Can this Sample be requested for further analysis?</td>
 </tr>
 <tr>
-<td><a href="biospecimen_collection_id_fk/">biospecimen_collection_id_fk</a></td>
-<td>ID associated with the Biospecimen Collection event</td>
+<td><a href="biospecimen_collection/">biospecimen_collection</a></td>
+<td>Biospecimen Collection that generated this sample</td>
 </tr>
 <tr>
 <td><a href="code/">code</a></td>
 <td>The structured term defining the meaning of the assertion</td>
+</tr>
+<tr>
+<td><a href="concentration_number/">concentration_number</a></td>
+<td>What is the concentration of the analyte in the Aliquot?</td>
+</tr>
+<tr>
+<td><a href="concentration_unit/">concentration_unit</a></td>
+<td>Units associated with the concentration of the analyte in the Aliquot? UCUM c...</td>
+</tr>
+<tr>
+<td><a href="consanguinity/">consanguinity</a></td>
+<td>Is there known or suspected consanguinity in this study family?</td>
 </tr>
 <tr>
 <td><a href="data_access_type/">data_access_type</a></td>
@@ -569,6 +609,34 @@
 <td>External Study ID</td>
 </tr>
 <tr>
+<td><a href="family_description/">family_description</a></td>
+<td>Free title describing the study family, such as potential inheritance or deta...</td>
+</tr>
+<tr>
+<td><a href="family_member/">family_member</a></td>
+<td>The family member Subject who is the relationship "subject"</td>
+</tr>
+<tr>
+<td><a href="family_members/">family_members</a></td>
+<td>The Subjects who are included in this family and their roles</td>
+</tr>
+<tr>
+<td><a href="family_relationships/">family_relationships</a></td>
+<td>Family relationships associated with this family</td>
+</tr>
+<tr>
+<td><a href="family_role/">family_role</a></td>
+<td>The "role" of this indiviudal in this family</td>
+</tr>
+<tr>
+<td><a href="family_study_focus/">family_study_focus</a></td>
+<td>What is this study family investigating? EG, a specific condition</td>
+</tr>
+<tr>
+<td><a href="family_type/">family_type</a></td>
+<td>Describes the 'type' of study family, eg, trio</td>
+</tr>
+<tr>
 <td><a href="funding_source/">funding_source</a></td>
 <td>Funding Source</td>
 </tr>
@@ -597,12 +665,24 @@
 <td>With which study is this class associated?</td>
 </tr>
 <tr>
+<td><a href="laterality/">laterality</a></td>
+<td>Laterality information for the site</td>
+</tr>
+<tr>
+<td><a href="method/">method</a></td>
+<td>The approach used to collect the biospecimen</td>
+</tr>
+<tr>
 <td><a href="organism_type/">organism_type</a></td>
 <td>Organism Type Label</td>
 </tr>
 <tr>
-<td><a href="parent_sample_id/">parent_sample_id</a></td>
-<td>Parent Sample ID</td>
+<td><a href="other_family_member/">other_family_member</a></td>
+<td>The family member Subject for the relationship "object"</td>
+</tr>
+<tr>
+<td><a href="parent_sample/">parent_sample</a></td>
+<td>Sample from which this sample is derived</td>
 </tr>
 <tr>
 <td><a href="parent_study_id/">parent_study_id</a></td>
@@ -614,11 +694,15 @@
 </tr>
 <tr>
 <td><a href="processing/">processing</a></td>
-<td>Curied code associated processing that was applied to the Parent Sample or fr...</td>
+<td>Processing that was applied to the Parent Sample or from the Biospecimen Coll...</td>
 </tr>
 <tr>
-<td><a href="quantity/">quantity</a></td>
+<td><a href="quantity_number/">quantity_number</a></td>
 <td>The total quantity of the specimen</td>
+</tr>
+<tr>
+<td><a href="quantity_units/">quantity_units</a></td>
+<td>The structured term defining the units of the quantity</td>
 </tr>
 <tr>
 <td><a href="race/">race</a></td>
@@ -629,8 +713,12 @@
 <td>The friendly display string of the coded term(s) for Race</td>
 </tr>
 <tr>
+<td><a href="relationship_code/">relationship_code</a></td>
+<td>Code definting the relationship predicate</td>
+</tr>
+<tr>
 <td><a href="sample_type/">sample_type</a></td>
-<td>Curied code associated the type of material of which this Sample is comprised</td>
+<td>Type of material of which this Sample is comprised</td>
 </tr>
 <tr>
 <td><a href="sex/">sex</a></td>
@@ -641,12 +729,20 @@
 <td>The friendly display string of the coded term for Sex</td>
 </tr>
 <tr>
+<td><a href="site/">site</a></td>
+<td>The location of the specimen collection</td>
+</tr>
+<tr>
 <td><a href="source_data/">source_data</a></td>
 <td>The sources from which this assertion was derived</td>
 </tr>
 <tr>
+<td><a href="spatial_qualifier/">spatial_qualifier</a></td>
+<td>Any spatial/location qualifiers</td>
+</tr>
+<tr>
 <td><a href="storage_method/">storage_method</a></td>
-<td>Curied code indicating how is the Sample stored, eg, Frozen or with additives</td>
+<td>Sample storage method, eg, Frozen or with additives</td>
 </tr>
 <tr>
 <td><a href="study_title/">study_title</a></td>
@@ -720,6 +816,10 @@
 <td>Recommended ontologies include: SNOMED_CT, HP, OMIM and ORPHA, prefixed with ...</td>
 </tr>
 <tr>
+<td><a href="EnumConsanguinityAssertion/">EnumConsanguinityAssertion</a></td>
+<td>Asserts known or suspected consanguinity in this study family</td>
+</tr>
+<tr>
 <td><a href="EnumDateOfBirthType/">EnumDateOfBirthType</a></td>
 <td>Privacy rules that may modify a date value</td>
 </tr>
@@ -728,12 +828,32 @@
 <td>OMB Codes describing Hispanic or Latino ethnicity</td>
 </tr>
 <tr>
+<td><a href="EnumFamilyType/">EnumFamilyType</a></td>
+<td>Enumerations describing research family type</td>
+</tr>
+<tr>
+<td><a href="EnumLaterality/">EnumLaterality</a></td>
+<td>Laterality information for the site</td>
+</tr>
+<tr>
 <td><a href="EnumRace/">EnumRace</a></td>
 <td>OMB Codes describing race</td>
 </tr>
 <tr>
+<td><a href="EnumSampleCollectionMethod/">EnumSampleCollectionMethod</a></td>
+<td>The approach used to collect the biospecimen</td>
+</tr>
+<tr>
 <td><a href="EnumSex/">EnumSex</a></td>
 <td>Terms describing an individual's sex</td>
+</tr>
+<tr>
+<td><a href="EnumSite/">EnumSite</a></td>
+<td>The location of the specimen collection</td>
+</tr>
+<tr>
+<td><a href="EnumSpatialQualifiers/">EnumSpatialQualifiers</a></td>
+<td>Any spatial/location qualifiers</td>
 </tr>
 <tr>
 <td><a href="EnumSubjectType/">EnumSubjectType</a></td>
