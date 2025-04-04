@@ -1,54 +1,48 @@
 name: Data Model Type Request
 description: Request a data type not currently included in the harmonized data model
-title: '[Data Type Request]: '
-labels:
-  - request
-projects:
-  - Data Model Requests
-assignees:
+title: "[Data Type Request]: "
+labels: ["request"]
+projects: ["Data Model Requests"]
+assignees: 
   - SophieFormanVUMC
+
 body:
   - type: input
-    question: >-
-      What is the data type you are requesting to be added to the AnVIL Data
-      Model?
+    label: What is the data type you are requesting to be added to the AnVIL Data Model?
     description: A clear and concise description of the data type being requested.
     text_box: Enter details here...
+    
   - type: textarea
-    question: Is your feature request related to a problem? Please describe.
-    description: >-
-      A clear and concise description of what the problem is, and who it
-      impacts. Ex: My team collects X type of data that is not currently
-      included in the AnVIL data model, and we'd like to include it.
+    label: Is your feature request related to a problem? Please describe.
+    description: "A clear and concise description of what the problem is, and who it impacts. Ex: My team collects X type of data that is not currently included in the AnVIL data model, and we'd like to include it."
     text_box: Enter details here...
+
   - type: textarea
-    question: Describe the solution you'd like
+    label: Describe the solution you'd like
     description: A clear and concise description of what you want to happen.
     text_box: Enter solution here...
+
   - type: textarea
-    question: Describe alternatives you've considered
-    description: >-
-      A clear and concise description of any alternative solutions or features
-      you've considered.
+    label: Describe alternatives you've considered
+    description: A clear and concise description of any alternative solutions or features you've considered.
     text_box: Enter alternatives here...
+
   - type: dropdown
     label: Was the request brought to an AnVIL workgroup?
     options:
-      - 'Yes'
-      - 'No'
+      - Yes
+      - No
   - type: input
-    label: 'If yes, which workgroup?'
+    label: If yes, which workgroup?
   - type: input
     label: What date?
   - type: textarea
-    description: 'If yes, what was the feedback received?'
+    description: If yes, what was the feedback received? 
     text_box: Enter details here...
+
   - type: textarea
-    question: Additional context
-    description: >
-      Links? References? Anything that will give us more context about the issue
-      you are encountering!
+    label: Additional context
+    description: |
+      Links? References? Anything that will give us more context about the issue you are encountering!
 
-
-      Tip: You can attach images or log files by clicking this area to highlight
-      it and then dragging files in.
+      Tip: You can attach images or log files by clicking this area to highlight it and then dragging files in.
