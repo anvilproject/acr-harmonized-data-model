@@ -11,7 +11,7 @@ body:
   attributes:
     label: "What is the data type you are requesting to be added to the AnVIL Data Model?"
     description: "A clear and concise description of the data type being requested."
-    text_box: "Enter details here..."
+    placeholder: "Enter details here..."
 
 - type: textarea
   attributes:
