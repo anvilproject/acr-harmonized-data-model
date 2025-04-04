@@ -93,6 +93,31 @@ message FamilyRelationship
   subject otherFamilyMember = 0
   uriorcurie relationshipCode = 0
  }
+// File
+message File
+ {
+  string id = 0
+ repeated  uriorcurie externalId = 0
+  accessPolicy hasAccessPolicy = 0
+ repeated  subject subject = 0
+ repeated  sample sample = 0
+  string filename = 0
+  eDAMFormats format = 0
+  eDAMDataTypes dataType = 0
+  integer size = 0
+  uriorcurie drsUri = 0
+  fileMetadata fileMetadata = 0
+ }
+// Metadata about the contents of the file.
+message FileMetadata
+ {
+  string id = 0
+ repeated  uriorcurie externalId = 0
+  uriorcurie code = 0
+  string display = 0
+  uriorcurie valueCode = 0
+  string valueDisplay = 0
+ }
 // Biospecimen data
 message Sample
  {

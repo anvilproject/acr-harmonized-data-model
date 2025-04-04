@@ -14,7 +14,8 @@
     "subject_assertion",
     "data_access_policy",
     "family",
-    "sample"
+    "sample",
+    "file"
   ],
   "license": "MIT",
   "prefixes": [
@@ -61,6 +62,10 @@
     {
       "prefix_prefix": "ig2_biospecimen_availability",
       "prefix_reference": "https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/biospecimen-availability/"
+    },
+    {
+      "prefix_prefix": "snomed_ct",
+      "prefix_reference": "http://snomed.info/id/"
     }
   ],
   "default_prefix": "anvil",
@@ -811,25 +816,25 @@
         {
           "text": "not_suspected",
           "description": "Not suspected",
-          "meaning": "SNOMED_CT:428263003",
+          "meaning": "snomed_ct:428263003",
           "title": "not-suspected"
         },
         {
           "text": "suspected",
           "description": "Suspected",
-          "meaning": "SNOMED_CT:415684004",
+          "meaning": "snomed_ct:415684004",
           "title": "suspected"
         },
         {
           "text": "known_present",
           "description": "Known Present",
-          "meaning": "SNOMED_CT:410515003",
+          "meaning": "snomed_ct:410515003",
           "title": "known-present"
         },
         {
           "text": "unknown",
           "description": "Unknown",
-          "meaning": "SNOMED_CT:261665006",
+          "meaning": "snomed_ct:261665006",
           "title": "unknown"
         }
       ]
@@ -892,6 +897,36 @@
       "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/EnumLaterality",
       "description": "Laterality information for the site\n",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/sample"
+    },
+    {
+      "name": "EDAMFormats",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/file/EDAMFormats",
+      "description": "Data formats from the EDAM ontology.",
+      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/file",
+      "reachable_from": {
+        "source_ontology": "bioregistry:edam",
+        "source_nodes": [
+          "edam:format_1915"
+        ],
+        "relationship_types": [
+          "rdfs:subClassOf"
+        ]
+      }
+    },
+    {
+      "name": "EDAMDataTypes",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/file/EDAMDataTypes",
+      "description": "Data types from the EDAM ontology.",
+      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/file",
+      "reachable_from": {
+        "source_ontology": "bioregistry:edam",
+        "source_nodes": [
+          "edam:data_0006"
+        ],
+        "relationship_types": [
+          "rdfs:subClassOf"
+        ]
+      }
     }
   ],
   "slots": [
@@ -1323,10 +1358,11 @@
       "title": "Assertion Code",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
       "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/code",
-      "owner": "SourceData",
+      "owner": "FileMetadata",
       "domain_of": [
         "SubjectAssertion",
-        "SourceData"
+        "SourceData",
+        "FileMetadata"
       ],
       "range": "uriorcurie",
       "@type": "SlotDefinition"
@@ -1338,10 +1374,11 @@
       "title": "Display String",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
       "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/display",
-      "owner": "SourceData",
+      "owner": "FileMetadata",
       "domain_of": [
         "SubjectAssertion",
-        "SourceData"
+        "SourceData",
+        "FileMetadata"
       ],
       "range": "string",
       "@type": "SlotDefinition"
@@ -1353,10 +1390,11 @@
       "title": "Value Code",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
       "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_code",
-      "owner": "SourceData",
+      "owner": "FileMetadata",
       "domain_of": [
         "SubjectAssertion",
-        "SourceData"
+        "SourceData",
+        "FileMetadata"
       ],
       "range": "uriorcurie",
       "@type": "SlotDefinition"
@@ -1368,10 +1406,11 @@
       "title": "Value Display String",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
       "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_display",
-      "owner": "SourceData",
+      "owner": "FileMetadata",
       "domain_of": [
         "SubjectAssertion",
-        "SourceData"
+        "SourceData",
+        "FileMetadata"
       ],
       "range": "string",
       "@type": "SlotDefinition"
@@ -1864,6 +1903,120 @@
       ],
       "range": "EnumLaterality",
       "@type": "SlotDefinition"
+    },
+    {
+      "name": "subject",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/file/subject",
+      "description": "The Subject(s) which this file describes.",
+      "title": "Subject(s) of file",
+      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/file",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/file/subject",
+      "owner": "File",
+      "domain_of": [
+        "File"
+      ],
+      "range": "Subject",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "sample",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/file/sample",
+      "description": "The Samples(s) used to generate data in this file.",
+      "title": "Sample(s) related to file",
+      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/file",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/file/sample",
+      "owner": "File",
+      "domain_of": [
+        "File"
+      ],
+      "range": "Sample",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "filename",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/file/filename",
+      "description": "The name of the file.",
+      "title": "Filename",
+      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/file",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/file/filename",
+      "owner": "File",
+      "domain_of": [
+        "File"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "format",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/file/format",
+      "description": "The format of the file.",
+      "title": "File Format",
+      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/file",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/file/format",
+      "owner": "File",
+      "domain_of": [
+        "File"
+      ],
+      "range": "EDAMFormats",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "data_type",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/file/data_type",
+      "description": "The type of data within this file.",
+      "title": "Data Type",
+      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/file",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/file/data_type",
+      "owner": "File",
+      "domain_of": [
+        "File"
+      ],
+      "range": "EDAMDataTypes",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "size",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/file/size",
+      "description": "Size of the file, in Bytes.",
+      "title": "File Size",
+      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/file",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/file/size",
+      "owner": "File",
+      "domain_of": [
+        "File"
+      ],
+      "range": "integer",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "drs_uri",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/file/drs_uri",
+      "description": "DRS location to access the data.",
+      "title": "DRS URI",
+      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/file",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/file/drs_uri",
+      "owner": "File",
+      "domain_of": [
+        "File"
+      ],
+      "range": "uriorcurie",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "file_metadata",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/file/file_metadata",
+      "description": "Additional metadata about the contents of the file, eg, genome reference build.",
+      "title": "File Metadata",
+      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/file",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/file/file_metadata",
+      "owner": "File",
+      "domain_of": [
+        "File"
+      ],
+      "range": "FileMetadata",
+      "@type": "SlotDefinition"
     }
   ],
   "classes": [
@@ -2159,13 +2312,56 @@
       "slot_usage": {},
       "class_uri": "https://anvilproject.org/acr-harmonized-data-model/sample/Aliquot",
       "@type": "ClassDefinition"
+    },
+    {
+      "name": "File",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/file/File",
+      "description": "File",
+      "title": "File",
+      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/file",
+      "is_a": "AccessControlledRecord",
+      "slots": [
+        "id",
+        "external_id",
+        "has_access_policy",
+        "subject",
+        "sample",
+        "filename",
+        "format",
+        "data_type",
+        "size",
+        "drs_uri",
+        "file_metadata"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://anvilproject.org/acr-harmonized-data-model/file/File",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "FileMetadata",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/file/FileMetadata",
+      "description": "Metadata about the contents of the file.",
+      "title": "File Metadata",
+      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/file",
+      "is_a": "Thing",
+      "slots": [
+        "id",
+        "external_id",
+        "code",
+        "display",
+        "value_code",
+        "value_display"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://anvilproject.org/acr-harmonized-data-model/file/FileMetadata",
+      "@type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.7.0",
   "source_file": "acr_harmonized_data_model.yaml",
-  "source_file_date": "2025-03-20T10:37:40",
-  "source_file_size": 1405,
-  "generation_date": "2025-03-20T10:40:37",
+  "source_file_date": "2025-04-04T17:04:53",
+  "source_file_size": 1416,
+  "generation_date": "2025-04-04T17:05:24",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/acr_harmonized_data_model.context.jsonld",
@@ -2177,6 +2373,7 @@
     "data_access_policy.context.jsonld",
     "family.context.jsonld",
     "sample.context.jsonld",
+    "file.context.jsonld",
     {
       "@base": "https://anvilproject.org/acr-harmonized-data-model/"
     }

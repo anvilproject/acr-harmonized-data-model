@@ -372,6 +372,16 @@
             "title": "Demographics",
             "type": "object"
         },
+        "EDAMDataTypes": {
+            "description": "Data types from the EDAM ontology.",
+            "title": "EDAMDataTypes",
+            "type": "string"
+        },
+        "EDAMFormats": {
+            "description": "Data formats from the EDAM ontology.",
+            "title": "EDAMFormats",
+            "type": "string"
+        },
         "EnumAccessCode": {
             "description": "Type of research use case allowed",
             "enum": [
@@ -769,6 +779,147 @@
                 "id"
             ],
             "title": "FamilyRelationship",
+            "type": "object"
+        },
+        "File": {
+            "additionalProperties": false,
+            "description": "File",
+            "properties": {
+                "data_type": {
+                    "$ref": "#/$defs/EDAMDataTypes",
+                    "description": "The type of data within this file."
+                },
+                "drs_uri": {
+                    "description": "DRS location to access the data.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "external_id": {
+                    "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "file_metadata": {
+                    "description": "Additional metadata about the contents of the file, eg, genome reference build.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "filename": {
+                    "description": "The name of the file.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "format": {
+                    "$ref": "#/$defs/EDAMFormats",
+                    "description": "The format of the file."
+                },
+                "has_access_policy": {
+                    "description": "Which access policy applies to this element?",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "ID associated with a class",
+                    "type": "string"
+                },
+                "sample": {
+                    "description": "The Samples(s) used to generate data in this file.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "size": {
+                    "description": "Size of the file, in Bytes.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "subject": {
+                    "description": "The Subject(s) which this file describes.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "File",
+            "type": "object"
+        },
+        "FileMetadata": {
+            "additionalProperties": false,
+            "description": "Metadata about the contents of the file.",
+            "properties": {
+                "code": {
+                    "description": "The structured term defining the meaning of the assertion.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "display": {
+                    "description": "The friendly display string of the coded term",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "external_id": {
+                    "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "ID associated with a class",
+                    "type": "string"
+                },
+                "value_code": {
+                    "description": "The structured term defining the value of the assertion.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "value_display": {
+                    "description": "The friendly display string of the coded term for the value of the assertion.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "FileMetadata",
             "type": "object"
         },
         "Sample": {

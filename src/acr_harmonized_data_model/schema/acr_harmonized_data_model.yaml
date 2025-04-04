@@ -22,6 +22,7 @@ prefixes:
   ig2dac: https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-code/
   ig2dat: https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-type/
   ig2_biospecimen_availability: https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/biospecimen-availability/
+  snomed_ct: 	http://snomed.info/id/
 
 
 default_prefix: anvil
@@ -36,6 +37,4 @@ imports:
   - data_access_policy
   - family 
   - sample 
-  #- measurement 
-  #- procedure
-  
+  - file

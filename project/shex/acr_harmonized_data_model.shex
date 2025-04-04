@@ -11,6 +11,7 @@ PREFIX igcondtype: <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/conditi
 PREFIX ig2dac: <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-code/>
 PREFIX ig2dat: <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-type/>
 PREFIX ig2_biospecimen_availability: <https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/biospecimen-availability/>
+PREFIX snomed_ct: <http://snomed.info/id/>
 
 
 linkml:String xsd:string
@@ -67,6 +68,7 @@ linkml:Sparqlpath xsd:string
     @<https://anvilproject.org/acr-harmonized-data-model/family/Family> OR
     @<https://anvilproject.org/acr-harmonized-data-model/family/FamilyMember> OR
     @<https://anvilproject.org/acr-harmonized-data-model/family/FamilyRelationship> OR
+    @<https://anvilproject.org/acr-harmonized-data-model/file/File> OR
     @<https://anvilproject.org/acr-harmonized-data-model/sample/Sample> OR
     @<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/SourceData> OR
     @<https://anvilproject.org/acr-harmonized-data-model/participant/Subject> OR
@@ -160,9 +162,8 @@ linkml:Sparqlpath xsd:string
              <https://anvilproject.org/acr-harmonized-data-model/family/EnumFamilyType#trio_plus>
              <https://anvilproject.org/acr-harmonized-data-model/family/EnumFamilyType#other> ] ? ;
           <https://anvilproject.org/acr-harmonized-data-model/family/family_description> @linkml:String ? ;
-          <https://anvilproject.org/acr-harmonized-data-model/family/consanguinity> [
-             <https://bioregistry.io/registry/snomedct428263003> <https://bioregistry.io/registry/snomedct415684004>
-             <https://bioregistry.io/registry/snomedct410515003> <https://bioregistry.io/registry/snomedct261665006> ] ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/family/consanguinity> [ snomed_ct:428263003 snomed_ct:415684004
+             snomed_ct:410515003 snomed_ct:261665006 ] ? ;
           <https://anvilproject.org/acr-harmonized-data-model/family/family_study_focus> @linkml:String ? ;
           <https://anvilproject.org/acr-harmonized-data-model/family/family_members>
           @<https://anvilproject.org/acr-harmonized-data-model/family/FamilyMember> + ;
@@ -196,6 +197,39 @@ linkml:Sparqlpath xsd:string
           <https://anvilproject.org/acr-harmonized-data-model/family/relationship_code> @linkml:Uriorcurie
        ) ;
        rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/family/FamilyRelationship> ]
+    )
+}
+
+<https://anvilproject.org/acr-harmonized-data-model/file/File> CLOSED {
+    (  $<https://anvilproject.org/acr-harmonized-data-model/file/File_tes> ( 
+          &<https://anvilproject.org/acr-harmonized-data-model/core/AccessControlledRecord_tes> ;
+          rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/AccessControlledRecord> ] ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/file/subject>
+          @<https://anvilproject.org/acr-harmonized-data-model/participant/Subject> * ;
+          <https://anvilproject.org/acr-harmonized-data-model/file/sample>
+          @<https://anvilproject.org/acr-harmonized-data-model/sample/Sample> * ;
+          <https://anvilproject.org/acr-harmonized-data-model/file/filename> @linkml:String ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/file/format> . ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/file/data_type> . ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/file/size> @linkml:Integer ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/file/drs_uri> @linkml:Uriorcurie ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/file/file_metadata>
+          @<https://anvilproject.org/acr-harmonized-data-model/file/FileMetadata> ?
+       ) ;
+       rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/file/File> ]
+    )
+}
+
+<https://anvilproject.org/acr-harmonized-data-model/file/FileMetadata> CLOSED {
+    (  $<https://anvilproject.org/acr-harmonized-data-model/file/FileMetadata_tes> ( 
+          &<https://anvilproject.org/acr-harmonized-data-model/core/Thing_tes> ;
+          rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/core/Thing> ] ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/code> @linkml:Uriorcurie ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/display> @linkml:String ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_code> @linkml:Uriorcurie ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_display> @linkml:String ?
+       ) ;
+       rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/file/FileMetadata> ]
     )
 }
 
@@ -307,6 +341,7 @@ linkml:Sparqlpath xsd:string
        )
     } OR @<https://anvilproject.org/acr-harmonized-data-model/core/AccessControlledRecord> OR
     @<https://anvilproject.org/acr-harmonized-data-model/data-access-policy/AccessPolicy> OR
+    @<https://anvilproject.org/acr-harmonized-data-model/file/FileMetadata> OR
     @<https://anvilproject.org/acr-harmonized-data-model/study/Study>
 )
 

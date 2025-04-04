@@ -1,0 +1,99 @@
+id: https://anvilproject.org/acr-harmonized-data-model/file 
+name: anvil-file
+prefixes:
+  anvil: 
+    prefix_prefix: anvil
+    prefix_reference: https://anvilproject.org/acr-harmonized-data-model/
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+imports:
+  - linkml:types
+  - anvil_core
+  - subject_assertion
+classes: 
+  File:
+    title: File
+    description: File
+    is_a: AccessControlledRecord 
+    slots: 
+      - subject
+      - sample
+      - filename
+      - format
+      - data_type
+      - size
+      - drs_uri
+      #Hash provided by DRS?
+      - file_metadata
+  #TODO: Consider a GREGoR-style resource with inheritance instead
+  FileMetadata:
+    title: File Metadata
+    description: Metadata about the contents of the file.
+    is_a: Thing
+    slots:
+      - code
+      - display
+      - value_code
+      - value_display
+
+slots:
+  subject:
+    title: Subject(s) of file 
+    description: The Subject(s) which this file describes.
+    range: Subject
+    multivalued: true
+    inlined: false
+  sample:
+    title: Sample(s) related to file 
+    description: The Samples(s) used to generate data in this file.
+    range: Sample
+    multivalued: true
+    inlined: false
+  filename:
+    title: Filename
+    description: The name of the file.
+    range: string
+  format:
+    title: File Format
+    description: The format of the file.
+    range: EDAMFormats
+  data_type:
+    title: Data Type
+    description: The type of data within this file.
+    range: EDAMDataTypes
+  size:
+    title: File Size
+    description: Size of the file, in Bytes.
+    range: integer
+  drs_uri:
+    title: DRS URI
+    description: DRS location to access the data.
+    range: uriorcurie
+  #TODO: Hash provided by DRS?
+  file_metadata:
+    title: File Metadata
+    description: Additional metadata about the contents of the file, eg, genome reference build.
+    range: FileMetadata
+
+enums: 
+  EDAMFormats:
+    description: Data formats from the EDAM ontology.
+    reachable_from:
+      source_ontology: bioregistry:edam
+      source_nodes:
+        - edam:format_1915 #Format
+      include_self: false
+      is_direct: false
+      relationship_types:
+        - rdfs:subClassOf
+  EDAMDataTypes:
+    description: Data types from the EDAM ontology.
+    reachable_from:
+      source_ontology: bioregistry:edam
+      source_nodes:
+        - edam:data_0006 #Data
+      include_self: false
+      is_direct: false
+      relationship_types:
+        - rdfs:subClassOf

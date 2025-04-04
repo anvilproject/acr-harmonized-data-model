@@ -1,5 +1,5 @@
 # Auto generated from acr_harmonized_data_model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-03-20T10:40:38
+# Generation date: 2025-04-04T17:05:25
 # Schema: acr-harmonized-data-model
 #
 # id: https://anvilproject.org/acr-harmonized-data-model
@@ -78,6 +78,7 @@ IG_DOB_METHOD = CurieNamespace('ig_dob_method', 'https://nih-ncpi.github.io/ncpi
 IGCONDTYPE = CurieNamespace('igcondtype', 'https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/condition-type/')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
 SCHEMA = CurieNamespace('schema', 'http://schema.org/')
+SNOMED_CT = CurieNamespace('snomed_ct', 'http://snomed.info/id/')
 DEFAULT_ = ANVIL
 
 
@@ -137,6 +138,14 @@ class BiospecimenCollectionId(AccessControlledRecordId):
 
 
 class AliquotId(AccessControlledRecordId):
+    pass
+
+
+class FileId(AccessControlledRecordId):
+    pass
+
+
+class FileMetadataId(ThingId):
     pass
 
 
@@ -799,6 +808,96 @@ class Aliquot(AccessControlledRecord):
         super().__post_init__(**kwargs)
 
 
+@dataclass(repr=False)
+class File(AccessControlledRecord):
+    """
+    File
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ANVIL["file/File"]
+    class_class_curie: ClassVar[str] = "anvil:file/File"
+    class_name: ClassVar[str] = "File"
+    class_model_uri: ClassVar[URIRef] = ANVIL.File
+
+    id: Union[str, FileId] = None
+    subject: Optional[Union[Union[str, SubjectId], List[Union[str, SubjectId]]]] = empty_list()
+    sample: Optional[Union[Union[str, SampleId], List[Union[str, SampleId]]]] = empty_list()
+    filename: Optional[str] = None
+    format: Optional[Union[str, "EDAMFormats"]] = None
+    data_type: Optional[Union[str, "EDAMDataTypes"]] = None
+    size: Optional[int] = None
+    drs_uri: Optional[Union[str, URIorCURIE]] = None
+    file_metadata: Optional[Union[str, FileMetadataId]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, FileId):
+            self.id = FileId(self.id)
+
+        if not isinstance(self.subject, list):
+            self.subject = [self.subject] if self.subject is not None else []
+        self.subject = [v if isinstance(v, SubjectId) else SubjectId(v) for v in self.subject]
+
+        if not isinstance(self.sample, list):
+            self.sample = [self.sample] if self.sample is not None else []
+        self.sample = [v if isinstance(v, SampleId) else SampleId(v) for v in self.sample]
+
+        if self.filename is not None and not isinstance(self.filename, str):
+            self.filename = str(self.filename)
+
+        if self.size is not None and not isinstance(self.size, int):
+            self.size = int(self.size)
+
+        if self.drs_uri is not None and not isinstance(self.drs_uri, URIorCURIE):
+            self.drs_uri = URIorCURIE(self.drs_uri)
+
+        if self.file_metadata is not None and not isinstance(self.file_metadata, FileMetadataId):
+            self.file_metadata = FileMetadataId(self.file_metadata)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class FileMetadata(Thing):
+    """
+    Metadata about the contents of the file.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ANVIL["file/FileMetadata"]
+    class_class_curie: ClassVar[str] = "anvil:file/FileMetadata"
+    class_name: ClassVar[str] = "FileMetadata"
+    class_model_uri: ClassVar[URIRef] = ANVIL.FileMetadata
+
+    id: Union[str, FileMetadataId] = None
+    code: Optional[Union[str, URIorCURIE]] = None
+    display: Optional[str] = None
+    value_code: Optional[Union[str, URIorCURIE]] = None
+    value_display: Optional[str] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, FileMetadataId):
+            self.id = FileMetadataId(self.id)
+
+        if self.code is not None and not isinstance(self.code, URIorCURIE):
+            self.code = URIorCURIE(self.code)
+
+        if self.display is not None and not isinstance(self.display, str):
+            self.display = str(self.display)
+
+        if self.value_code is not None and not isinstance(self.value_code, URIorCURIE):
+            self.value_code = URIorCURIE(self.value_code)
+
+        if self.value_display is not None and not isinstance(self.value_display, str):
+            self.value_display = str(self.value_display)
+
+        super().__post_init__(**kwargs)
+
+
 # Enumerations
 class EnumDateOfBirthType(EnumDefinitionImpl):
     """
@@ -1229,6 +1328,24 @@ class EnumLaterality(EnumDefinitionImpl):
         description="""Laterality information for the site""",
     )
 
+class EDAMFormats(EnumDefinitionImpl):
+    """
+    Data formats from the EDAM ontology.
+    """
+    _defn = EnumDefinition(
+        name="EDAMFormats",
+        description="Data formats from the EDAM ontology.",
+    )
+
+class EDAMDataTypes(EnumDefinitionImpl):
+    """
+    Data types from the EDAM ontology.
+    """
+    _defn = EnumDefinition(
+        name="EDAMDataTypes",
+        description="Data types from the EDAM ontology.",
+    )
+
 # Slots
 class slots:
     pass
@@ -1433,3 +1550,27 @@ slots.spatial_qualifier = Slot(uri=ANVIL['sample/spatial_qualifier'], name="spat
 
 slots.laterality = Slot(uri=ANVIL['sample/laterality'], name="laterality", curie=ANVIL.curie('sample/laterality'),
                    model_uri=ANVIL.laterality, domain=None, range=Optional[Union[str, "EnumLaterality"]])
+
+slots.subject = Slot(uri=ANVIL['file/subject'], name="subject", curie=ANVIL.curie('file/subject'),
+                   model_uri=ANVIL.subject, domain=None, range=Optional[Union[Union[str, SubjectId], List[Union[str, SubjectId]]]])
+
+slots.sample = Slot(uri=ANVIL['file/sample'], name="sample", curie=ANVIL.curie('file/sample'),
+                   model_uri=ANVIL.sample, domain=None, range=Optional[Union[Union[str, SampleId], List[Union[str, SampleId]]]])
+
+slots.filename = Slot(uri=ANVIL['file/filename'], name="filename", curie=ANVIL.curie('file/filename'),
+                   model_uri=ANVIL.filename, domain=None, range=Optional[str])
+
+slots.format = Slot(uri=ANVIL['file/format'], name="format", curie=ANVIL.curie('file/format'),
+                   model_uri=ANVIL.format, domain=None, range=Optional[Union[str, "EDAMFormats"]])
+
+slots.data_type = Slot(uri=ANVIL['file/data_type'], name="data_type", curie=ANVIL.curie('file/data_type'),
+                   model_uri=ANVIL.data_type, domain=None, range=Optional[Union[str, "EDAMDataTypes"]])
+
+slots.size = Slot(uri=ANVIL['file/size'], name="size", curie=ANVIL.curie('file/size'),
+                   model_uri=ANVIL.size, domain=None, range=Optional[int])
+
+slots.drs_uri = Slot(uri=ANVIL['file/drs_uri'], name="drs_uri", curie=ANVIL.curie('file/drs_uri'),
+                   model_uri=ANVIL.drs_uri, domain=None, range=Optional[Union[str, URIorCURIE]])
+
+slots.file_metadata = Slot(uri=ANVIL['file/file_metadata'], name="file_metadata", curie=ANVIL.curie('file/file_metadata'),
+                   model_uri=ANVIL.file_metadata, domain=None, range=Optional[Union[str, FileMetadataId]])

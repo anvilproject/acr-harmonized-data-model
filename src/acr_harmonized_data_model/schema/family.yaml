@@ -1,15 +1,9 @@
 id: https://anvilproject.org/acr-harmonized-data-model/family 
 name: anvil-family-schema
 prefixes:
-  anvil: 
-    prefix_prefix: anvil
-    prefix_reference: https://anvilproject.org/acr-harmonized-data-model/
-  linkml:
-    prefix_prefix: linkml
-    prefix_reference: https://w3id.org/linkml/
-  SNOMED_CT:
-    prefix_prefix: SNOMED_CT
-    prefix_reference: https://bioregistry.io/registry/snomedct
+  anvil: https://anvilproject.org/acr-harmonized-data-model/
+  linkml: https://w3id.org/linkml/
+
 imports:
   - linkml:types
   - anvil_core
@@ -129,16 +123,16 @@ enums:
       not_suspected: 
         title: not-suspected
         description: Not suspected 
-        meaning: SNOMED_CT:428263003
+        meaning: snomed_ct:428263003
       suspected: 
         title: suspected 
         description: Suspected
-        meaning: SNOMED_CT:415684004
+        meaning: snomed_ct:415684004
       known_present: 
         title: known-present 
         description: Known Present
-        meaning: SNOMED_CT:410515003
+        meaning: snomed_ct:410515003
       unknown: 
         title: unknown 
         description: Unknown
-        meaning: SNOMED_CT:261665006
+        meaning: snomed_ct:261665006
