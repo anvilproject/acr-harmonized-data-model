@@ -53,6 +53,14 @@
          <lastmod>2025-04-04</lastmod>
     </url>
     <url>
+         <loc>https://anvilproject.github.io/acr-harmonized-data-model/EDAMDataTypes/</loc>
+         <lastmod>2025-04-04</lastmod>
+    </url>
+    <url>
+         <loc>https://anvilproject.github.io/acr-harmonized-data-model/EDAMFormats/</loc>
+         <lastmod>2025-04-04</lastmod>
+    </url>
+    <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/EnumAccessCode/</loc>
          <lastmod>2025-04-04</lastmod>
     </url>
@@ -134,6 +142,14 @@
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/FamilyRelationship/</loc>
+         <lastmod>2025-04-04</lastmod>
+    </url>
+    <url>
+         <loc>https://anvilproject.github.io/acr-harmonized-data-model/File/</loc>
+         <lastmod>2025-04-04</lastmod>
+    </url>
+    <url>
+         <loc>https://anvilproject.github.io/acr-harmonized-data-model/FileMetadata/</loc>
          <lastmod>2025-04-04</lastmod>
     </url>
     <url>
@@ -277,6 +293,10 @@
          <lastmod>2025-04-04</lastmod>
     </url>
     <url>
+         <loc>https://anvilproject.github.io/acr-harmonized-data-model/data_type/</loc>
+         <lastmod>2025-04-04</lastmod>
+    </url>
+    <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/date_of_birth/</loc>
          <lastmod>2025-04-04</lastmod>
     </url>
@@ -294,6 +314,10 @@
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/display/</loc>
+         <lastmod>2025-04-04</lastmod>
+    </url>
+    <url>
+         <loc>https://anvilproject.github.io/acr-harmonized-data-model/drs_uri/</loc>
          <lastmod>2025-04-04</lastmod>
     </url>
     <url>
@@ -338,6 +362,18 @@
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/family_type/</loc>
+         <lastmod>2025-04-04</lastmod>
+    </url>
+    <url>
+         <loc>https://anvilproject.github.io/acr-harmonized-data-model/file_metadata/</loc>
+         <lastmod>2025-04-04</lastmod>
+    </url>
+    <url>
+         <loc>https://anvilproject.github.io/acr-harmonized-data-model/filename/</loc>
+         <lastmod>2025-04-04</lastmod>
+    </url>
+    <url>
+         <loc>https://anvilproject.github.io/acr-harmonized-data-model/format/</loc>
          <lastmod>2025-04-04</lastmod>
     </url>
     <url>
@@ -421,6 +457,10 @@
          <lastmod>2025-04-04</lastmod>
     </url>
     <url>
+         <loc>https://anvilproject.github.io/acr-harmonized-data-model/sample/</loc>
+         <lastmod>2025-04-04</lastmod>
+    </url>
+    <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/sample_type/</loc>
          <lastmod>2025-04-04</lastmod>
     </url>
@@ -437,6 +477,10 @@
          <lastmod>2025-04-04</lastmod>
     </url>
     <url>
+         <loc>https://anvilproject.github.io/acr-harmonized-data-model/size/</loc>
+         <lastmod>2025-04-04</lastmod>
+    </url>
+    <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/source_data/</loc>
          <lastmod>2025-04-04</lastmod>
     </url>
@@ -450,6 +494,10 @@
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/study_title/</loc>
+         <lastmod>2025-04-04</lastmod>
+    </url>
+    <url>
+         <loc>https://anvilproject.github.io/acr-harmonized-data-model/subject/</loc>
          <lastmod>2025-04-04</lastmod>
     </url>
     <url>

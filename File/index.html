@@ -5,10 +5,10 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://anvilproject.github.io/acr-harmonized-data-model/AccessControlledRecord/" rel="canonical"/>
+<link href="https://anvilproject.github.io/acr-harmonized-data-model/File/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.9" name="generator"/>
-<title>Class: AccessControlledRecord - acr-harmonized-data-model</title>
+<title>Class: File (File) - acr-harmonized-data-model</title>
 <link href="../assets/stylesheets/main.4af4bdda.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -23,7 +23,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#class-accesscontrolledrecord">
+<a class="md-skip" href="#class-file-file">
           Skip to content
         </a>
 </div>
@@ -47,7 +47,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Class: AccessControlledRecord
+              Class: File (File)
             
           </span>
 </div>
@@ -221,70 +221,86 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="class-accesscontrolledrecord">Class: AccessControlledRecord</h1>
-<p><em>Element for which specific access control restrictions apply.</em></p>
-<p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/AccessControlledRecord">anvil:AccessControlledRecord</a></p>
+<h1 id="class-file-file">Class: File (File)</h1>
+<p><em>File</em></p>
+<p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/File">anvil:File</a></p>
 <div class="mermaid"> classDiagram
-    class AccessControlledRecord
-    click AccessControlledRecord href "../AccessControlledRecord"
-      Thing &lt;|-- AccessControlledRecord
-        click Thing href "../Thing"
-
-
-      AccessControlledRecord &lt;|-- Sample
-        click Sample href "../Sample"
-      AccessControlledRecord &lt;|-- BiospecimenCollection
-        click BiospecimenCollection href "../BiospecimenCollection"
-      AccessControlledRecord &lt;|-- Aliquot
-        click Aliquot href "../Aliquot"
-      AccessControlledRecord &lt;|-- Subject
-        click Subject href "../Subject"
-      AccessControlledRecord &lt;|-- Demographics
-        click Demographics href "../Demographics"
-      AccessControlledRecord &lt;|-- SubjectAssertion
-        click SubjectAssertion href "../SubjectAssertion"
-      AccessControlledRecord &lt;|-- SourceData
-        click SourceData href "../SourceData"
-      AccessControlledRecord &lt;|-- Family
-        click Family href "../Family"
-      AccessControlledRecord &lt;|-- FamilyRelationship
-        click FamilyRelationship href "../FamilyRelationship"
-      AccessControlledRecord &lt;|-- FamilyMember
-        click FamilyMember href "../FamilyMember"
+    class File
+    click File href "../File"
       AccessControlledRecord &lt;|-- File
-        click File href "../File"
+        click AccessControlledRecord href "../AccessControlledRecord"
 
-
-      AccessControlledRecord : external_id
-
-      AccessControlledRecord : has_access_policy
+      File : data_type
 
 
 
 
-    AccessControlledRecord --&gt; "0..1" AccessPolicy : has_access_policy
+    File --&gt; "0..1" EDAMDataTypes : data_type
+    click EDAMDataTypes href "../EDAMDataTypes"
+
+
+      File : drs_uri
+
+      File : external_id
+
+      File : file_metadata
+
+
+
+
+    File --&gt; "0..1" FileMetadata : file_metadata
+    click FileMetadata href "../FileMetadata"
+
+
+      File : filename
+
+      File : format
+
+
+
+
+    File --&gt; "0..1" EDAMFormats : format
+    click EDAMFormats href "../EDAMFormats"
+
+
+      File : has_access_policy
+
+
+
+
+    File --&gt; "0..1" AccessPolicy : has_access_policy
     click AccessPolicy href "../AccessPolicy"
 
 
-      AccessControlledRecord : id
+      File : id
+
+      File : sample
+
+
+
+
+    File --&gt; "*" Sample : sample
+    click Sample href "../Sample"
+
+
+      File : size
+
+      File : subject
+
+
+
+
+    File --&gt; "*" Subject : subject
+    click Subject href "../Subject"
+
 
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><a href="../Thing/">Thing</a><ul>
-<li><strong>AccessControlledRecord</strong><ul>
-<li><a href="../Sample/">Sample</a></li>
-<li><a href="../BiospecimenCollection/">BiospecimenCollection</a></li>
-<li><a href="../Aliquot/">Aliquot</a></li>
-<li><a href="../Subject/">Subject</a></li>
-<li><a href="../Demographics/">Demographics</a></li>
-<li><a href="../SubjectAssertion/">SubjectAssertion</a></li>
-<li><a href="../SourceData/">SourceData</a></li>
-<li><a href="../Family/">Family</a></li>
-<li><a href="../FamilyRelationship/">FamilyRelationship</a></li>
-<li><a href="../FamilyMember/">FamilyMember</a></li>
-<li><a href="../File/">File</a></li>
+<li><a href="../AccessControlledRecord/">AccessControlledRecord</a><ul>
+<li><strong>File</strong></li>
 </ul>
 </li>
 </ul>
@@ -302,10 +318,58 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../subject/">subject</a></td>
+<td>* <br/> <a href="../Subject/">Subject</a></td>
+<td>The Subject(s) which this file describes</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../sample/">sample</a></td>
+<td>* <br/> <a href="../Sample/">Sample</a></td>
+<td>The Samples(s) used to generate data in this file</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../filename/">filename</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The name of the file</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../format/">format</a></td>
+<td>0..1 <br/> <a href="../EDAMFormats/">EDAMFormats</a></td>
+<td>The format of the file</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../data_type/">data_type</a></td>
+<td>0..1 <br/> <a href="../EDAMDataTypes/">EDAMDataTypes</a></td>
+<td>The type of data within this file</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../size/">size</a></td>
+<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
+<td>Size of the file, in Bytes</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../drs_uri/">drs_uri</a></td>
+<td>0..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+<td>DRS location to access the data</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../file_metadata/">file_metadata</a></td>
+<td>0..1 <br/> <a href="../FileMetadata/">FileMetadata</a></td>
+<td>Additional metadata about the contents of the file, eg, genome reference buil...</td>
+<td>direct</td>
+</tr>
+<tr>
 <td><a href="../has_access_policy/">has_access_policy</a></td>
 <td>0..1 <br/> <a href="../AccessPolicy/">AccessPolicy</a></td>
 <td>Which access policy applies to this element?</td>
-<td>direct</td>
+<td><a href="../AccessControlledRecord/">AccessControlledRecord</a></td>
 </tr>
 <tr>
 <td><a href="../id/">id</a></td>
@@ -337,11 +401,11 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>anvil:AccessControlledRecord</td>
+<td>anvil:File</td>
 </tr>
 <tr>
 <td>native</td>
-<td>anvil:AccessControlledRecord</td>
+<td>anvil:File</td>
 </tr>
 </tbody>
 </table>
@@ -349,29 +413,131 @@
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 <h3 id="direct">Direct</h3>
 <details>
-<pre><code class="language-yaml">name: AccessControlledRecord
-description: Element for which specific access control restrictions apply.
+<pre><code class="language-yaml">name: File
+description: File
+title: File
 from_schema: https://anvilproject.org/acr-harmonized-data-model
-is_a: Thing
+is_a: AccessControlledRecord
 slots:
-- has_access_policy
+- subject
+- sample
+- filename
+- format
+- data_type
+- size
+- drs_uri
+- file_metadata
 
 </code></pre>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
-<pre><code class="language-yaml">name: AccessControlledRecord
-description: Element for which specific access control restrictions apply.
+<pre><code class="language-yaml">name: File
+description: File
+title: File
 from_schema: https://anvilproject.org/acr-harmonized-data-model
-is_a: Thing
+is_a: AccessControlledRecord
 attributes:
+  subject:
+    name: subject
+    description: The Subject(s) which this file describes.
+    title: Subject(s) of file
+    from_schema: https://anvilproject.org/acr-harmonized-data-model
+    rank: 1000
+    alias: subject
+    owner: File
+    domain_of:
+    - File
+    range: Subject
+    multivalued: true
+    inlined: false
+  sample:
+    name: sample
+    description: The Samples(s) used to generate data in this file.
+    title: Sample(s) related to file
+    from_schema: https://anvilproject.org/acr-harmonized-data-model
+    rank: 1000
+    alias: sample
+    owner: File
+    domain_of:
+    - File
+    range: Sample
+    multivalued: true
+    inlined: false
+  filename:
+    name: filename
+    description: The name of the file.
+    title: Filename
+    from_schema: https://anvilproject.org/acr-harmonized-data-model
+    rank: 1000
+    alias: filename
+    owner: File
+    domain_of:
+    - File
+    range: string
+  format:
+    name: format
+    description: The format of the file.
+    title: File Format
+    from_schema: https://anvilproject.org/acr-harmonized-data-model
+    rank: 1000
+    alias: format
+    owner: File
+    domain_of:
+    - File
+    range: EDAMFormats
+  data_type:
+    name: data_type
+    description: The type of data within this file.
+    title: Data Type
+    from_schema: https://anvilproject.org/acr-harmonized-data-model
+    rank: 1000
+    alias: data_type
+    owner: File
+    domain_of:
+    - File
+    range: EDAMDataTypes
+  size:
+    name: size
+    description: Size of the file, in Bytes.
+    title: File Size
+    from_schema: https://anvilproject.org/acr-harmonized-data-model
+    rank: 1000
+    alias: size
+    owner: File
+    domain_of:
+    - File
+    range: integer
+  drs_uri:
+    name: drs_uri
+    description: DRS location to access the data.
+    title: DRS URI
+    from_schema: https://anvilproject.org/acr-harmonized-data-model
+    rank: 1000
+    alias: drs_uri
+    owner: File
+    domain_of:
+    - File
+    range: uriorcurie
+  file_metadata:
+    name: file_metadata
+    description: Additional metadata about the contents of the file, eg, genome reference
+      build.
+    title: File Metadata
+    from_schema: https://anvilproject.org/acr-harmonized-data-model
+    rank: 1000
+    alias: file_metadata
+    owner: File
+    domain_of:
+    - File
+    range: FileMetadata
   has_access_policy:
     name: has_access_policy
     description: Which access policy applies to this element?
     from_schema: https://anvilproject.org/acr-harmonized-data-model
     rank: 1000
     alias: has_access_policy
-    owner: AccessControlledRecord
+    owner: File
     domain_of:
     - AccessControlledRecord
     range: AccessPolicy
@@ -384,7 +550,7 @@ attributes:
     rank: 1000
     identifier: true
     alias: id
-    owner: AccessControlledRecord
+    owner: File
     domain_of:
     - Thing
     range: string
@@ -398,7 +564,7 @@ attributes:
     from_schema: https://anvilproject.org/acr-harmonized-data-model
     rank: 1000
     alias: external_id
-    owner: AccessControlledRecord
+    owner: File
     domain_of:
     - Thing
     range: uriorcurie

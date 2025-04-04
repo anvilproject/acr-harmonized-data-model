@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://anvilproject.github.io/acr-harmonized-data-model/family_member/">
+        <link rel="canonical" href="https://anvilproject.github.io/acr-harmonized-data-model/file_metadata/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Slot: family_member - acr-harmonized-data-model</title>
+        <title>Slot: File Metadata (file_metadata) - acr-harmonized-data-model</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-family_member" class="md-skip">
+        <a href="#slot-file-metadata-file_metadata" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: family_member
+              Slot: File Metadata (file_metadata)
             
           </span>
         </div>
@@ -359,9 +359,9 @@
   
 
 
-<h1 id="slot-family_member">Slot: family_member</h1>
-<p><em>The family member Subject who is the relationship "subject".</em></p>
-<p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/family_member">anvil:family_member</a></p>
+<h1 id="slot-file-metadata-file_metadata">Slot: File Metadata (file_metadata)</h1>
+<p><em>Additional metadata about the contents of the file, eg, genome reference build.</em></p>
+<p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/file_metadata">anvil:file_metadata</a></p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="applicable-classes">Applicable Classes</h2>
@@ -375,25 +375,15 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../FamilyRelationship/">FamilyRelationship</a></td>
-<td>A relationship between two Subjects</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../FamilyMember/">FamilyMember</a></td>
-<td>Designates a Subject as a member of a family with some specified role</td>
+<td><a href="../File/">File</a></td>
+<td>File</td>
 <td>no</td>
 </tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>
-<p>Range: <a href="../Subject/">Subject</a></p>
-</li>
-<li>
-<p>Required: True</p>
-</li>
+<li>Range: <a href="../FileMetadata/">FileMetadata</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -411,29 +401,27 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>anvil:family_member</td>
+<td>anvil:file_metadata</td>
 </tr>
 <tr>
 <td>native</td>
-<td>anvil:family_member</td>
+<td>anvil:file_metadata</td>
 </tr>
 </tbody>
 </table>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
-<pre><code class="language-yaml">name: family_member
-description: The family member Subject who is the relationship &quot;subject&quot;.
+<pre><code class="language-yaml">name: file_metadata
+description: Additional metadata about the contents of the file, eg, genome reference
+  build.
+title: File Metadata
 from_schema: https://anvilproject.org/acr-harmonized-data-model
 rank: 1000
-alias: family_member
+alias: file_metadata
 domain_of:
-- FamilyRelationship
-- FamilyMember
-range: Subject
-required: true
-multivalued: false
-inlined: false
+- File
+range: FileMetadata
 
 </code></pre>
 

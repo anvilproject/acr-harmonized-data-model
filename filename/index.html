@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://anvilproject.github.io/acr-harmonized-data-model/family_member/">
+        <link rel="canonical" href="https://anvilproject.github.io/acr-harmonized-data-model/filename/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Slot: family_member - acr-harmonized-data-model</title>
+        <title>Slot: Filename (filename) - acr-harmonized-data-model</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-family_member" class="md-skip">
+        <a href="#slot-filename-filename" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: family_member
+              Slot: Filename (filename)
             
           </span>
         </div>
@@ -359,9 +359,9 @@
   
 
 
-<h1 id="slot-family_member">Slot: family_member</h1>
-<p><em>The family member Subject who is the relationship "subject".</em></p>
-<p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/family_member">anvil:family_member</a></p>
+<h1 id="slot-filename-filename">Slot: Filename (filename)</h1>
+<p><em>The name of the file.</em></p>
+<p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/filename">anvil:filename</a></p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="applicable-classes">Applicable Classes</h2>
@@ -375,25 +375,15 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../FamilyRelationship/">FamilyRelationship</a></td>
-<td>A relationship between two Subjects</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../FamilyMember/">FamilyMember</a></td>
-<td>Designates a Subject as a member of a family with some specified role</td>
+<td><a href="../File/">File</a></td>
+<td>File</td>
 <td>no</td>
 </tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>
-<p>Range: <a href="../Subject/">Subject</a></p>
-</li>
-<li>
-<p>Required: True</p>
-</li>
+<li>Range: <a href="../String/">String</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -411,29 +401,26 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>anvil:family_member</td>
+<td>anvil:filename</td>
 </tr>
 <tr>
 <td>native</td>
-<td>anvil:family_member</td>
+<td>anvil:filename</td>
 </tr>
 </tbody>
 </table>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
-<pre><code class="language-yaml">name: family_member
-description: The family member Subject who is the relationship &quot;subject&quot;.
+<pre><code class="language-yaml">name: filename
+description: The name of the file.
+title: Filename
 from_schema: https://anvilproject.org/acr-harmonized-data-model
 rank: 1000
-alias: family_member
+alias: filename
 domain_of:
-- FamilyRelationship
-- FamilyMember
-range: Subject
-required: true
-multivalued: false
-inlined: false
+- File
+range: string
 
 </code></pre>
 

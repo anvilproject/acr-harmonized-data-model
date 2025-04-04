@@ -5,10 +5,10 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://anvilproject.github.io/acr-harmonized-data-model/AccessControlledRecord/" rel="canonical"/>
+<link href="https://anvilproject.github.io/acr-harmonized-data-model/FileMetadata/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.9" name="generator"/>
-<title>Class: AccessControlledRecord - acr-harmonized-data-model</title>
+<title>Class: File Metadata (FileMetadata) - acr-harmonized-data-model</title>
 <link href="../assets/stylesheets/main.4af4bdda.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -23,7 +23,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#class-accesscontrolledrecord">
+<a class="md-skip" href="#class-file-metadata-filemetadata">
           Skip to content
         </a>
 </div>
@@ -47,7 +47,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Class: AccessControlledRecord
+              Class: File Metadata (FileMetadata)
             
           </span>
 </div>
@@ -165,6 +165,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#usages">
+<span class="md-ellipsis">
+      Usages
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#identifier-and-mapping-information">
 <span class="md-ellipsis">
       Identifier and Mapping Information
@@ -221,72 +228,33 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="class-accesscontrolledrecord">Class: AccessControlledRecord</h1>
-<p><em>Element for which specific access control restrictions apply.</em></p>
-<p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/AccessControlledRecord">anvil:AccessControlledRecord</a></p>
+<h1 id="class-file-metadata-filemetadata">Class: File Metadata (FileMetadata)</h1>
+<p><em>Metadata about the contents of the file.</em></p>
+<p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/FileMetadata">anvil:FileMetadata</a></p>
 <div class="mermaid"> classDiagram
-    class AccessControlledRecord
-    click AccessControlledRecord href "../AccessControlledRecord"
-      Thing &lt;|-- AccessControlledRecord
+    class FileMetadata
+    click FileMetadata href "../FileMetadata"
+      Thing &lt;|-- FileMetadata
         click Thing href "../Thing"
 
+      FileMetadata : code
 
-      AccessControlledRecord &lt;|-- Sample
-        click Sample href "../Sample"
-      AccessControlledRecord &lt;|-- BiospecimenCollection
-        click BiospecimenCollection href "../BiospecimenCollection"
-      AccessControlledRecord &lt;|-- Aliquot
-        click Aliquot href "../Aliquot"
-      AccessControlledRecord &lt;|-- Subject
-        click Subject href "../Subject"
-      AccessControlledRecord &lt;|-- Demographics
-        click Demographics href "../Demographics"
-      AccessControlledRecord &lt;|-- SubjectAssertion
-        click SubjectAssertion href "../SubjectAssertion"
-      AccessControlledRecord &lt;|-- SourceData
-        click SourceData href "../SourceData"
-      AccessControlledRecord &lt;|-- Family
-        click Family href "../Family"
-      AccessControlledRecord &lt;|-- FamilyRelationship
-        click FamilyRelationship href "../FamilyRelationship"
-      AccessControlledRecord &lt;|-- FamilyMember
-        click FamilyMember href "../FamilyMember"
-      AccessControlledRecord &lt;|-- File
-        click File href "../File"
+      FileMetadata : display
 
+      FileMetadata : external_id
 
-      AccessControlledRecord : external_id
+      FileMetadata : id
 
-      AccessControlledRecord : has_access_policy
+      FileMetadata : value_code
 
-
-
-
-    AccessControlledRecord --&gt; "0..1" AccessPolicy : has_access_policy
-    click AccessPolicy href "../AccessPolicy"
-
-
-      AccessControlledRecord : id
+      FileMetadata : value_display
 
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><a href="../Thing/">Thing</a><ul>
-<li><strong>AccessControlledRecord</strong><ul>
-<li><a href="../Sample/">Sample</a></li>
-<li><a href="../BiospecimenCollection/">BiospecimenCollection</a></li>
-<li><a href="../Aliquot/">Aliquot</a></li>
-<li><a href="../Subject/">Subject</a></li>
-<li><a href="../Demographics/">Demographics</a></li>
-<li><a href="../SubjectAssertion/">SubjectAssertion</a></li>
-<li><a href="../SourceData/">SourceData</a></li>
-<li><a href="../Family/">Family</a></li>
-<li><a href="../FamilyRelationship/">FamilyRelationship</a></li>
-<li><a href="../FamilyMember/">FamilyMember</a></li>
-<li><a href="../File/">File</a></li>
-</ul>
-</li>
+<li><strong>FileMetadata</strong></li>
 </ul>
 </li>
 </ul>
@@ -302,9 +270,27 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../has_access_policy/">has_access_policy</a></td>
-<td>0..1 <br/> <a href="../AccessPolicy/">AccessPolicy</a></td>
-<td>Which access policy applies to this element?</td>
+<td><a href="../code/">code</a></td>
+<td>0..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+<td>The structured term defining the meaning of the assertion</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../display/">display</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The friendly display string of the coded term</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../value_code/">value_code</a></td>
+<td>0..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+<td>The structured term defining the value of the assertion</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../value_display/">value_display</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The friendly display string of the coded term for the value of the assertion</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -318,6 +304,25 @@
 <td>* <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
 <td>Other identifiers for this entity, eg, from the submitting study or in system...</td>
 <td><a href="../Thing/">Thing</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="usages">Usages</h2>
+<table>
+<thead>
+<tr>
+<th>used by</th>
+<th>used in</th>
+<th>type</th>
+<th>used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../File/">File</a></td>
+<td><a href="../file_metadata/">file_metadata</a></td>
+<td>range</td>
+<td><a href="./">FileMetadata</a></td>
 </tr>
 </tbody>
 </table>
@@ -337,11 +342,11 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>anvil:AccessControlledRecord</td>
+<td>anvil:FileMetadata</td>
 </tr>
 <tr>
 <td>native</td>
-<td>anvil:AccessControlledRecord</td>
+<td>anvil:FileMetadata</td>
 </tr>
 </tbody>
 </table>
@@ -349,33 +354,80 @@
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 <h3 id="direct">Direct</h3>
 <details>
-<pre><code class="language-yaml">name: AccessControlledRecord
-description: Element for which specific access control restrictions apply.
+<pre><code class="language-yaml">name: FileMetadata
+description: Metadata about the contents of the file.
+title: File Metadata
 from_schema: https://anvilproject.org/acr-harmonized-data-model
 is_a: Thing
 slots:
-- has_access_policy
+- code
+- display
+- value_code
+- value_display
 
 </code></pre>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
-<pre><code class="language-yaml">name: AccessControlledRecord
-description: Element for which specific access control restrictions apply.
+<pre><code class="language-yaml">name: FileMetadata
+description: Metadata about the contents of the file.
+title: File Metadata
 from_schema: https://anvilproject.org/acr-harmonized-data-model
 is_a: Thing
 attributes:
-  has_access_policy:
-    name: has_access_policy
-    description: Which access policy applies to this element?
+  code:
+    name: code
+    description: The structured term defining the meaning of the assertion.
+    title: Assertion Code
     from_schema: https://anvilproject.org/acr-harmonized-data-model
     rank: 1000
-    alias: has_access_policy
-    owner: AccessControlledRecord
+    alias: code
+    owner: FileMetadata
     domain_of:
-    - AccessControlledRecord
-    range: AccessPolicy
-    inlined: false
+    - SubjectAssertion
+    - SourceData
+    - FileMetadata
+    range: uriorcurie
+  display:
+    name: display
+    description: The friendly display string of the coded term
+    title: Display String
+    from_schema: https://anvilproject.org/acr-harmonized-data-model
+    rank: 1000
+    alias: display
+    owner: FileMetadata
+    domain_of:
+    - SubjectAssertion
+    - SourceData
+    - FileMetadata
+    range: string
+  value_code:
+    name: value_code
+    description: The structured term defining the value of the assertion.
+    title: Value Code
+    from_schema: https://anvilproject.org/acr-harmonized-data-model
+    rank: 1000
+    alias: value_code
+    owner: FileMetadata
+    domain_of:
+    - SubjectAssertion
+    - SourceData
+    - FileMetadata
+    range: uriorcurie
+  value_display:
+    name: value_display
+    description: The friendly display string of the coded term for the value of the
+      assertion.
+    title: Value Display String
+    from_schema: https://anvilproject.org/acr-harmonized-data-model
+    rank: 1000
+    alias: value_display
+    owner: FileMetadata
+    domain_of:
+    - SubjectAssertion
+    - SourceData
+    - FileMetadata
+    range: string
   id:
     name: id
     description: ID associated with a class
@@ -384,7 +436,7 @@ attributes:
     rank: 1000
     identifier: true
     alias: id
-    owner: AccessControlledRecord
+    owner: FileMetadata
     domain_of:
     - Thing
     range: string
@@ -398,7 +450,7 @@ attributes:
     from_schema: https://anvilproject.org/acr-harmonized-data-model
     rank: 1000
     alias: external_id
-    owner: AccessControlledRecord
+    owner: FileMetadata
     domain_of:
     - Thing
     range: uriorcurie
