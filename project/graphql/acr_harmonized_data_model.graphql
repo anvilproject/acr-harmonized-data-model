@@ -212,6 +212,31 @@ type FamilyRelationship
     relationshipCode: Uriorcurie!
   }
 
+type File
+  {
+    id: String!
+    externalId: [Uriorcurie]
+    hasAccessPolicy: AccessPolicy
+    subject: [Subject]
+    sample: [Sample]
+    filename: String
+    format: EDAMFormats
+    dataType: EDAMDataTypes
+    size: Integer
+    drsUri: Uriorcurie
+    fileMetadata: FileMetadata
+  }
+
+type FileMetadata
+  {
+    id: String!
+    externalId: [Uriorcurie]
+    code: Uriorcurie
+    display: String
+    valueCode: Uriorcurie
+    valueDisplay: String
+  }
+
 type Sample
   {
     id: String!

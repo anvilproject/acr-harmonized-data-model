@@ -101,6 +101,21 @@
 --     * Slot: has_access_policy Description: Which access policy applies to this element?
 --     * Slot: id Description: ID associated with a class
 --     * Slot: Family_id Description: Autocreated FK slot
+-- # Class: "File" Description: "File"
+--     * Slot: filename Description: The name of the file.
+--     * Slot: format Description: The format of the file.
+--     * Slot: data_type Description: The type of data within this file.
+--     * Slot: size Description: Size of the file, in Bytes.
+--     * Slot: drs_uri Description: DRS location to access the data.
+--     * Slot: file_metadata Description: Additional metadata about the contents of the file, eg, genome reference build.
+--     * Slot: has_access_policy Description: Which access policy applies to this element?
+--     * Slot: id Description: ID associated with a class
+-- # Class: "FileMetadata" Description: "Metadata about the contents of the file."
+--     * Slot: code Description: The structured term defining the meaning of the assertion.
+--     * Slot: display Description: The friendly display string of the coded term
+--     * Slot: value_code Description: The structured term defining the value of the assertion.
+--     * Slot: value_display Description: The friendly display string of the coded term for the value of the assertion.
+--     * Slot: id Description: ID associated with a class
 -- # Class: "Thing_external_id" Description: ""
 --     * Slot: Thing_id Description: Autocreated FK slot
 --     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
@@ -176,6 +191,18 @@
 -- # Class: "FamilyMember_external_id" Description: ""
 --     * Slot: FamilyMember_id Description: Autocreated FK slot
 --     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
+-- # Class: "File_subject" Description: ""
+--     * Slot: File_id Description: Autocreated FK slot
+--     * Slot: subject_id Description: The Subject(s) which this file describes.
+-- # Class: "File_sample" Description: ""
+--     * Slot: File_id Description: Autocreated FK slot
+--     * Slot: sample_id Description: The Samples(s) used to generate data in this file.
+-- # Class: "File_external_id" Description: ""
+--     * Slot: File_id Description: Autocreated FK slot
+--     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
+-- # Class: "FileMetadata_external_id" Description: ""
+--     * Slot: FileMetadata_id Description: Autocreated FK slot
+--     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
 
 CREATE TABLE "Thing" (
 	id TEXT NOT NULL, 
@@ -192,6 +219,14 @@ CREATE TABLE "AccessPolicy" (
 	disease_limitation TEXT, 
 	description TEXT NOT NULL, 
 	website TEXT, 
+	id TEXT NOT NULL, 
+	PRIMARY KEY (id)
+);
+CREATE TABLE "FileMetadata" (
+	code TEXT, 
+	display TEXT, 
+	value_code TEXT, 
+	value_display TEXT, 
 	id TEXT NOT NULL, 
 	PRIMARY KEY (id)
 );
@@ -250,6 +285,19 @@ CREATE TABLE "Family" (
 	PRIMARY KEY (id), 
 	FOREIGN KEY(has_access_policy) REFERENCES "AccessPolicy" (id)
 );
+CREATE TABLE "File" (
+	filename TEXT, 
+	format VARCHAR, 
+	data_type VARCHAR, 
+	size INTEGER, 
+	drs_uri TEXT, 
+	file_metadata TEXT, 
+	has_access_policy TEXT, 
+	id TEXT NOT NULL, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(file_metadata) REFERENCES "FileMetadata" (id), 
+	FOREIGN KEY(has_access_policy) REFERENCES "AccessPolicy" (id)
+);
 CREATE TABLE "Thing_external_id" (
 	"Thing_id" TEXT, 
 	external_id TEXT, 
@@ -297,6 +345,12 @@ CREATE TABLE "AccessPolicy_external_id" (
 	external_id TEXT, 
 	PRIMARY KEY ("AccessPolicy_id", external_id), 
 	FOREIGN KEY("AccessPolicy_id") REFERENCES "AccessPolicy" (id)
+);
+CREATE TABLE "FileMetadata_external_id" (
+	"FileMetadata_id" TEXT, 
+	external_id TEXT, 
+	PRIMARY KEY ("FileMetadata_id", external_id), 
+	FOREIGN KEY("FileMetadata_id") REFERENCES "FileMetadata" (id)
 );
 CREATE TABLE "Subject" (
 	subject_type VARCHAR(15) NOT NULL, 
@@ -350,6 +404,12 @@ CREATE TABLE "Family_external_id" (
 	external_id TEXT, 
 	PRIMARY KEY ("Family_id", external_id), 
 	FOREIGN KEY("Family_id") REFERENCES "Family" (id)
+);
+CREATE TABLE "File_external_id" (
+	"File_id" TEXT, 
+	external_id TEXT, 
+	PRIMARY KEY ("File_id", external_id), 
+	FOREIGN KEY("File_id") REFERENCES "File" (id)
 );
 CREATE TABLE "Sample" (
 	parent_sample TEXT, 
@@ -414,6 +474,13 @@ CREATE TABLE "Subject_external_id" (
 	PRIMARY KEY ("Subject_id", external_id), 
 	FOREIGN KEY("Subject_id") REFERENCES "Subject" (id)
 );
+CREATE TABLE "File_subject" (
+	"File_id" TEXT, 
+	subject_id TEXT, 
+	PRIMARY KEY ("File_id", subject_id), 
+	FOREIGN KEY("File_id") REFERENCES "File" (id), 
+	FOREIGN KEY(subject_id) REFERENCES "Subject" (id)
+);
 CREATE TABLE "Aliquot" (
 	availablity_status VARCHAR(11), 
 	quantity_number FLOAT, 
@@ -476,6 +543,13 @@ CREATE TABLE "FamilyMember_external_id" (
 	external_id TEXT, 
 	PRIMARY KEY ("FamilyMember_id", external_id), 
 	FOREIGN KEY("FamilyMember_id") REFERENCES "FamilyMember" (id)
+);
+CREATE TABLE "File_sample" (
+	"File_id" TEXT, 
+	sample_id TEXT, 
+	PRIMARY KEY ("File_id", sample_id), 
+	FOREIGN KEY("File_id") REFERENCES "File" (id), 
+	FOREIGN KEY(sample_id) REFERENCES "Sample" (id)
 );
 CREATE TABLE "Aliquot_external_id" (
 	"Aliquot_id" TEXT, 
