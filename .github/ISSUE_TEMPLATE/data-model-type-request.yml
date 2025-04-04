@@ -14,7 +14,7 @@ body:
     
   - type: textarea
     question: Is your feature request related to a problem? Please describe.
-    description: A clear and concise description of what the problem is, and who it impacts. Ex: My team collects X type of data that is not currently included in the AnVIL data model, and we'd like to include it.
+    description: "A clear and concise description of what the problem is, and who it impacts. Ex: My team collects X type of data that is not currently included in the AnVIL data model, and we'd like to include it."
     text_box: Enter details here...
 
   - type: textarea
