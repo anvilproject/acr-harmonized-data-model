@@ -1,5 +1,5 @@
-name: Data Model Bug Report
-description: Create a report to help us improve
+name: "Data Model Bug Report"
+description: "Create a report to help us improve"
 title: "[Bug]: "
 labels: ["bug"]
 projects: ["Data Model Requests"]
