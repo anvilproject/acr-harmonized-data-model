@@ -32,14 +32,14 @@ body:
     required: false
 
 - type: markdown
-   attributes:
-     value: |
+  attributes:
+    value: |
        "Screenshots:
        If applicable, add screenshots to help explain your problem."
   
 - type: markdown
-   attributes:
-     value: |
+  attributes:
+    value: |
        "Desktop (please complete the following information):"
 - type: input
  attributes:
