@@ -42,15 +42,14 @@ body:
     value: |
        "Desktop (please complete the following information):"
 - type: input
- attributes:
-  label: "OS: [e.g. iOS]"
+  attributes:
+    label: "OS: [e.g. iOS]"
 - type: input
- attributes:
-  label: "Browser [e.g. chrome, safari]"
+  attributes:
+    label: "Browser [e.g. chrome, safari]"
  - type: input
- attributes:
-  label: "Version [e.g. 22]"
-
+   attributes:
+    label: "Version [e.g. 22]"
 - type: textarea
   attributes:
     label: Additional context
