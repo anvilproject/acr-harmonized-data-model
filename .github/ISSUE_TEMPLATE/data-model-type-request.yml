@@ -17,19 +17,19 @@ body:
   attributes:
     label: "Is your feature request related to a problem? Please describe."
     description: "A clear and concise description of what the problem is, and who it impacts. Ex: My team collects X type of data that is not currently included in the AnVIL data model, and we'd like to include it."
-    text_box: "Enter details here..."
+    placeholder: "Enter details here..."
 
 - type: textarea
   attributes:
     label: "Describe the solution you'd like"
     description: "A clear and concise description of what you want to happen."
-    text_box: "Enter solution here..."
+    placeholder: "Enter solution here..."
 
 - type: textarea
   attributes:
     label: "Describe alternatives you've considered"
     description: "A clear and concise description of any alternative solutions or features you've considered."
-    text_box: "Enter alternatives here..."
+    placeholder: "Enter alternatives here..."
 
 - type: dropdown
   attributes:
@@ -49,7 +49,7 @@ body:
 - type: textarea
   attributes:
     label: "If yes, what was the feedback received?"
-    text_box: "Enter details here..."
+    placeholder: "Enter details here..."
 
 - type: textarea
   attributes:
