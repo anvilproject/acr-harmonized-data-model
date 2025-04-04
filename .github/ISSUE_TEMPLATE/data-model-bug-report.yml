@@ -3,54 +3,59 @@ description: "Create a report to help us improve"
 title: "[Bug]: "
 labels: ["bug"]
 projects: ["Data Model Requests"]
-assignees: 
+assignees:
   - SophieFormanVUMC
 
 body:
-- type: input
-  attributes:
-    label: "Describe the bug"
-    description: "A clear and concise description of what the bug is."
-    placeholder: "A clear and concise description of what the bug is."
-- type: textarea
-  attributes:
-    label: Steps To Reproduce
-    description: Steps to reproduce the behavior.
-    placeholder: |
-      1. Go to '...'
-      2. Click on '....'
-      3. Scroll down to '....'
-      4. See error
-  validations:
-    required: false
+  - type: input
+    attributes:
+      label: "Describe the bug"
+      description: "A clear and concise description of what the bug is."
+      placeholder: "A clear and concise description of what the bug is."
 
-- type: textarea
-  attributes:
-    label: Expected Behavior
-    description: A concise description of what you expected to happen.
-  validations:
-    required: false
+  - type: textarea
+    attributes:
+      label: "Steps To Reproduce"
+      description: "Steps to reproduce the behavior."
+      placeholder: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
+    validations:
+      required: false
 
-- type: markdown
-  attributes:
-    value: |
-       "Screenshots:
-       If applicable, add screenshots to help explain your problem."
-  
-- type: markdown
-  attributes:
-    value: |
-       "Desktop (please complete the following information):"
-- type: input
-  attributes:
-    label: "OS: [e.g. iOS]"
-- type: input
-  attributes:
-    label: "Browser [e.g. chrome, safari]"
- - type: input
-   attributes:
-    label: "Version [e.g. 22]"
-- type: textarea
-  attributes:
-    label: Additional context
-    description: Add any other context about the problem here.
+  - type: textarea
+    attributes:
+      label: "Expected Behavior"
+      description: "A concise description of what you expected to happen."
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        "Screenshots:
+        If applicable, add screenshots to help explain your problem."
+
+  - type: markdown
+    attributes:
+      value: |
+        "Desktop (please complete the following information):"
+
+  - type: input
+    attributes:
+      label: "OS: [e.g. iOS]"
+
+  - type: input
+    attributes:
+      label: "Browser [e.g. chrome, safari]"
+
+  - type: input
+    attributes:
+      label: "Version [e.g. 22]"
+
+  - type: textarea
+    attributes:
+      label: "Additional context"
+      description: "Add any other context about the problem here."
