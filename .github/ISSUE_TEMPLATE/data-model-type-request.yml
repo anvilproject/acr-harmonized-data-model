@@ -9,6 +9,10 @@ assignees:
 body:
 - type: input
   attributes:
+    label: "If you are submitting the request for someone other than yourself, who is the request for?"
+    placeholder: "Name, affiliation, contact information"
+- type: input
+  attributes:
     label: "What is the data type you are requesting to be added to the AnVIL Data Model?"
     description: "A clear and concise description of the data type being requested."
     placeholder: "Enter details here..."
