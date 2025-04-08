@@ -18,8 +18,13 @@ body:
     placeholder: "Enter details here..."
 - type: textarea
   attributes:
-    label: "What are use cases for this requested addition"
+    label: "What are use cases for this requested addition?"
     description: "Clear use cases for this addition to the data model."
+    placeholder: "Enter details here..."
+- type: textarea
+  attributes:
+    label: "What consortia or groups could this impact?"
+    description: "For example, eMERGE, All of Us, MOHD..."
     placeholder: "Enter details here..."
 - type: textarea
   attributes:
@@ -61,9 +66,8 @@ body:
 
 - type: textarea
   attributes:
-    label: "Additional context"
+    label: "Any Additional context"
     description: |
-      "What consortia or groups would this impact? 
-      Links? References? Anything that will give us more context about the issue you are encountering!
+      Insert any links, references, and/or anything that will give us more context about the issue you are encountering!
       
-      Tip: You can attach images or log files by clicking this area to highlight it and then dragging files in."
+      Tip: You can attach images or log files by clicking this area to highlight it and then dragging files in.
