@@ -1,5 +1,5 @@
 name: Data Model Type Request
-description: Request a data type not currently included in the harmonized data model
+description: Request a data type not currently included in the ACR harmonized data model
 title: "[Data Type Request]: "
 labels: ["request"]
 projects: ["Data Model Requests"]
@@ -13,51 +13,42 @@ body:
     placeholder: "Name, affiliation, contact information"
 - type: input
   attributes:
-    label: "What is the data type you are requesting to be added to the AnVIL Data Model?"
+    label: "What is the data type you are requesting to be added to the ACR Data Model?"
     description: "A clear and concise description of the data type being requested."
     placeholder: "Enter details here..."
 - type: textarea
   attributes:
-    label: "What are use cases for this requested addition?"
-    description: "Clear use cases for this addition to the data model."
+    label: "What are use cases for this requested addition, and/or what problem is this feature request aiming to solve? Is this request time-sensitive?"
+    description: ""A clear and concise description of the use cases for this feature request, what the problem is, and who it impacts. Ex: My team collects X type of data that is not currently included in the AnVIL data model, and we'd like to include it to submit in May 2025."
     placeholder: "Enter details here..."
 - type: textarea
   attributes:
-    label: "What consortia or groups could this impact?"
+    label: "What timeline are you envisioning?"
+    placeholder: "Enter timeline details here..."
+- type: textarea
+  attributes:
+    label: "What consortia or groups could this support?"
     description: "For example, eMERGE, All of Us, MOHD..."
     placeholder: "Enter details here..."
 - type: textarea
   attributes:
-    label: "Is your feature request related to a problem? Please describe."
-    description: "A clear and concise description of what the problem is, and who it impacts. Ex: My team collects X type of data that is not currently included in the AnVIL data model, and we'd like to include it."
-    placeholder: "Enter details here..."
-
-- type: textarea
-  attributes:
-    label: "Describe the solution you'd like"
-    description: "A clear and concise description of what you want to happen."
+    label: "Describe the solution(s) you'd like"
+    description: "A clear and concise description(s) of proposed solutions."
     placeholder: "Enter solution here..."
 
 - type: textarea
   attributes:
-    label: "Describe alternatives you've considered"
-    description: "A clear and concise description of any alternative solutions or features you've considered."
-    placeholder: "Enter alternatives here..."
+    label: "If this isn't included in the data model, what are workarounds you are currently using?"
+    description: "A clear and concise description of your current process or workarounds in use."
+    placeholder: "Enter details here..."
 
 - type: dropdown
   attributes:
-    label: "Was the request brought to an AnVIL workgroup?"
+    label: "Was the request brought to the AnVIL Phenotype Working Group?"
+    description: "If not, our team will be in contact to arrange this."
     options:
       - "Yes"
       - "No"
-
-- type: input
-  attributes:
-    label: "If yes, which workgroup?"
-
-- type: input
-  attributes:
-    label: "What date?"
 
 - type: textarea
   attributes:
