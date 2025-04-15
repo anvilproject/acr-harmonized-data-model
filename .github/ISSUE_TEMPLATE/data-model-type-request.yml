@@ -25,7 +25,7 @@ body:
   attributes:
     label: "What timeline are you envisioning?"
     placeholder: "Enter timeline details here..."
-- type: textarea
+- type: input
   attributes:
     label: "What consortia or groups could this support?"
     description: "For example, eMERGE, All of Us, MOHD..."
