@@ -36,21 +36,13 @@ body:
       value: "### Screenshots:
         If applicable, add screenshots to help explain your problem."
 
-  - type: markdown
-    attributes:
-      value: "### Desktop (please complete the following information):"
-
   - type: input
     attributes:
-      label: "OS: [e.g. iOS]"
+      label: "How are you accessing? For example, through an AnVIL workspace, or through TDR?"
 
-  - type: input
+  - type: textarea
     attributes:
-      label: "Browser [e.g. chrome, safari]"
-
-  - type: input
-    attributes:
-      label: "Version [e.g. 22]"
+      label: "Please share the code used that is producing the bug"
 
   - type: textarea
     attributes:
