@@ -18,7 +18,7 @@ body:
     placeholder: "Enter details here..."
 - type: textarea
   attributes:
-    label: "What are use cases for this requested addition, and/or what problem is this feature request aiming to solve? Is this request time-sensitive?"
+    label: "What are use cases for this requested addition, and/or what problem is this feature request aiming to solve?"
     description: "A clear and concise description of the use cases for this feature request, what the problem is, and who it impacts. Ex: My team collects X type of data that is not currently included in the AnVIL data model, and we'd like to include it to submit in May 2025."
     placeholder: "Enter details here..."
 - type: textarea
@@ -32,10 +32,9 @@ body:
     placeholder: "Enter details here..."
 - type: textarea
   attributes:
-    label: "Describe the solution(s) you'd like"
-    description: "A clear and concise description(s) of proposed solutions."
-    placeholder: "Enter solution here..."
-
+    label: "Describe the solution(s) you'd like. Is there another model you believe solves this problem well?"
+    description: "A clear and concise description(s) of a reference model addressing this issue successfully. If not known, provide a proposed solution."
+    placeholder: "Enter reference solution here..."
 - type: textarea
   attributes:
     label: "If this isn't included in the data model, what are workarounds you are currently using?"
