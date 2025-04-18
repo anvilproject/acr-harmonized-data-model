@@ -23,15 +23,6 @@ body:
     placeholder: "Enter details here..."
 - type: textarea
   attributes:
-    label: "What timeline are you envisioning?"
-    placeholder: "Enter timeline details here..."
-- type: input
-  attributes:
-    label: "What consortia or groups could this support?"
-    description: "For example, eMERGE, All of Us, MOHD..."
-    placeholder: "Enter details here..."
-- type: textarea
-  attributes:
     label: "Describe the solution(s) you'd like. Is there another model you believe solves this problem well?"
     description: "A clear and concise description(s) of a reference model addressing this issue successfully. If not known, provide a proposed solution."
     placeholder: "Enter reference solution here..."
@@ -40,7 +31,15 @@ body:
     label: "If this isn't included in the data model, what are workarounds you are currently using?"
     description: "A clear and concise description of your current process or workarounds in use."
     placeholder: "Enter details here..."
-
+- type: textarea
+  attributes:
+    label: "What timeline are you envisioning?"
+    placeholder: "Enter timeline details here..."
+- type: input
+  attributes:
+    label: "What consortia or groups could this support?"
+    description: "For example, eMERGE, All of Us, MOHD..."
+    placeholder: "Enter details here..."
 - type: dropdown
   attributes:
     label: "Was the request brought to the AnVIL Phenotype Working Group?"
