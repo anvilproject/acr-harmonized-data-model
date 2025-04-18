@@ -1,0 +1,28 @@
+name: "Data Model Use Query"
+description: "Submit questions to the ACR team"
+title: "[Question]: "
+labels: ["question"]
+projects: ["Data Model Requests"]
+assignees:
+  - SophieFormanVUMC
+
+body:
+  - type: input
+    attributes:
+      label: "Write your question here."
+      description: "A clear and concise description of what the question is."
+   - type: input
+    attributes:
+      label: "What topic(s) is this question most closely related to?"
+      description: "For example: Data model implementation, Data model access, Use case clarification, etc"
+  - type: textarea
+    attributes:
+      label: "In as much detail as possible, what is the information you are searching for?"
+  - type: textarea
+    attributes:
+      label: "Where have you looked for the answer to your question? Where you think this information should be located?"
+      description: "Include links and screenshots as needed."
+ - type: textarea
+    attributes:
+      label: "Additional context"
+      description: "Add any other context about the problem here."
