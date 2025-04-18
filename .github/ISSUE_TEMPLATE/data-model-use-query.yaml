@@ -11,7 +11,7 @@ body:
     attributes:
       label: "Write your question here."
       description: "A clear and concise description of what the question is."
-   - type: input
+  - type: input
      attributes:
       label: "What topic(s) is this question most closely related to?"
       description: "For example: Data model implementation, Data model access, Use case clarification, etc"
