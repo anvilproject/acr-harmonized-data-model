@@ -1,0 +1,10 @@
+variable_name,description,data_type,min,max,units,enumerations,comment
+parent_sample,Sample from which this sample is derived,string,,,,,Foreign Key: Sample.id
+sample_type,Type of material of which this Sample is comprised,string,,,,,
+availablity_status,Can this Sample be requested for further analysis?,enumeration,,,,available=Biospecimen is Available;unavailable=Biospecimen is Unavailable,
+quantity_number,The total quantity of the specimen,number,,,,,
+quantity_units,The structured term defining the units of the quantity.,string,,,,,
+has_access_policy,Which access policy applies to this element?,string,,,,,Foreign Key: AccessPolicy.id
+id,ID associated with a class,string,,,,,
+Subject_id,Autocreated FK slot,string,,,,,Foreign Key: Subject.id
+biospecimen_collection_id,Biospecimen Collection that generated this sample.,string,,,,,Foreign Key: BiospecimenCollection.id

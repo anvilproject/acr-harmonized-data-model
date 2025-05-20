@@ -1,0 +1,4 @@
+variable_name,description,data_type,min,max,units,enumerations,comment
+parent_study_id,Parent Study ID,string,,,,,Foreign Key: Study.id
+study_title,Study Title,string,,,,,
+id,ID associated with a class,string,,,,,

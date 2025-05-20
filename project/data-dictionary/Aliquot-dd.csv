@@ -1,0 +1,9 @@
+variable_name,description,data_type,min,max,units,enumerations,comment
+availablity_status,Can this Sample be requested for further analysis?,enumeration,,,,available=Biospecimen is Available;unavailable=Biospecimen is Unavailable,
+quantity_number,The total quantity of the specimen,number,,,,,
+quantity_units,The structured term defining the units of the quantity.,string,,,,,
+concentration_number,What is the concentration of the analyte in the Aliquot?,number,,,,,
+concentration_unit,"Units associated with the concentration of the analyte in the Aliquot? UCUM coding preferred (with curie, UCUM)",string,,,,,
+has_access_policy,Which access policy applies to this element?,string,,,,,Foreign Key: AccessPolicy.id
+id,ID associated with a class,string,,,,,
+Sample_id,Autocreated FK slot,string,,,,,Foreign Key: Sample.id

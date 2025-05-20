@@ -1,0 +1,7 @@
+variable_name,description,data_type,min,max,units,enumerations,comment
+family_member,"The family member Subject who is the relationship ""subject"".",string,,,,,Foreign Key: Subject.id
+other_family_member,"The family member Subject for the relationship ""object"".",string,,,,,Foreign Key: Subject.id
+relationship_code,"Code definting the relationship predicate. Relationship of the ""Family Member"" to the ""Other Family Member"" (i.e. mother, father, etc). Code must be from the HL7 [FamilyMember ValueSet](https://terminology.hl7.org/6.2.0/ValueSet-v3-FamilyMember.html)
+",string,,,,,
+has_access_policy,Which access policy applies to this element?,string,,,,,Foreign Key: AccessPolicy.id
+id,ID associated with a class,string,,,,,

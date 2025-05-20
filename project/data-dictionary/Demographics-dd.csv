@@ -1,0 +1,12 @@
+variable_name,description,data_type,min,max,units,enumerations,comment
+date_of_birth,Date at which the individual was born. May be impacted by privacy rules described in date_of_birth_type.,integer,,,,,
+date_of_birth_type,Privacy rule modification applied to date_of_birth.,enumeration,,,,exact=Exact;year_only=Year Only;shifted=Shifted;decade_only=Decade Only;other=Other,
+sex,Sex of the individual,enumeration,,,,female=Female;male=Male;unknown=Unknown;intersex=Intersex,
+sex_display,The friendly display string of the coded term for Sex,string,,,,,
+race_display,The friendly display string of the coded term(s) for Race,string,,,,,
+ethnicity,Reported ethnicity as defined by the 1997 OMB directives.,enumeration,,,,hispanic_or_latino=Hispanic or Latino;not_hispanic_or_latino=Not Hispanic or Latino;unknown=unknown;asked_but_unknown=asked but unknown,
+ethnicity_display,The friendly display string of the coded term for Ethnicity,string,,,,,
+age_at_last_vital_status,Age at last vital status in decimal years.,integer,,,UCUM:a,,
+vital_status,Vital Status,enumeration,,,,alive=Alive;dead=Dead;not_reported=Not Reported;unknown=Unknown;unspecified=Unspecified,
+has_access_policy,Which access policy applies to this element?,string,,,,,Foreign Key: AccessPolicy.id
+id,ID associated with a class,string,,,,,

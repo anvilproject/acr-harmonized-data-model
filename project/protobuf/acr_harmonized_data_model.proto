@@ -190,9 +190,3 @@ message SubjectAssertion
   string valueUnitsDisplay = 0
  repeated  sourceData sourceData = 0
  }
-// Highest Level Class
-message Thing
- {
-  string id = 0
- repeated  uriorcurie externalId = 0
- }

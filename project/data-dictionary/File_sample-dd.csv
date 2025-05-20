@@ -1,0 +1,3 @@
+variable_name,description,data_type,min,max,units,enumerations,comment
+File_id,Autocreated FK slot,string,,,,,Foreign Key: File.id
+sample_id,The Samples(s) used to generate data in this file.,string,,,,,Foreign Key: Sample.id

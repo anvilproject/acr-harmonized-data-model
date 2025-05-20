@@ -1608,31 +1608,6 @@
             "required": [],
             "title": "SubjectAssertion",
             "type": "object"
-        },
-        "Thing": {
-            "additionalProperties": false,
-            "description": "Highest Level Class",
-            "properties": {
-                "external_id": {
-                    "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "id": {
-                    "description": "ID associated with a class",
-                    "type": "string"
-                }
-            },
-            "required": [
-                "id"
-            ],
-            "title": "Thing",
-            "type": "object"
         }
     },
     "$id": "https://anvilproject.org/acr-harmonized-data-model",

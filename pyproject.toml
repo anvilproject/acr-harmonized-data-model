@@ -12,7 +12,7 @@ license = "MIT"
 readme = "README.md"
 include = ["README.md", "src/acr_harmonized_data_model/schema", "project"]
 
-requires-python = ">=3.9,<4.0"
+requires-python = ">=3.10,<4.0"
 
 dynamic = ["version"]
 

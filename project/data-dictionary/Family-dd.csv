@@ -1,0 +1,8 @@
+variable_name,description,data_type,min,max,units,enumerations,comment
+family_type,"Describes the 'type' of study family, eg, trio.",enumeration,,,,control_only=Control Only;duo=Duo;proband_only=Proband Only;trio=Trio (2 parents and affected child);trio_plus=2 Parents and 2 or more children;other=Other,
+family_description,"Free title describing the study family, such as potential inheritance or details about consanguinity",string,,,,,
+consanguinity,Is there known or suspected consanguinity in this study family?,enumeration,,,,not_suspected=Not suspected;suspected=Suspected;known_present=Known Present;unknown=Unknown,
+family_study_focus,"What is this study family investigating? EG, a specific condition. The code should be prefixed with a recognizable curie. 
+",string,,,,,
+has_access_policy,Which access policy applies to this element?,string,,,,,Foreign Key: AccessPolicy.id
+id,ID associated with a class,string,,,,,
