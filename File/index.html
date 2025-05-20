@@ -235,8 +235,10 @@
 
 
 
-    File --&gt; "0..1" EDAMDataTypes : data_type
-    click EDAMDataTypes href "../EDAMDataTypes"
+
+        File --&gt; "0..1" EDAMDataTypes : data_type
+        click EDAMDataTypes href "../EDAMDataTypes"
+
 
 
       File : drs_uri
@@ -248,8 +250,10 @@
 
 
 
-    File --&gt; "0..1" FileMetadata : file_metadata
-    click FileMetadata href "../FileMetadata"
+
+        File --&gt; "0..1" FileMetadata : file_metadata
+        click FileMetadata href "../FileMetadata"
+
 
 
       File : filename
@@ -259,8 +263,10 @@
 
 
 
-    File --&gt; "0..1" EDAMFormats : format
-    click EDAMFormats href "../EDAMFormats"
+
+        File --&gt; "0..1" EDAMFormats : format
+        click EDAMFormats href "../EDAMFormats"
+
 
 
       File : has_access_policy
@@ -268,8 +274,10 @@
 
 
 
-    File --&gt; "0..1" AccessPolicy : has_access_policy
-    click AccessPolicy href "../AccessPolicy"
+
+        File --&gt; "0..1" AccessPolicy : has_access_policy
+        click AccessPolicy href "../AccessPolicy"
+
 
 
       File : id
@@ -279,8 +287,10 @@
 
 
 
-    File --&gt; "*" Sample : sample
-    click Sample href "../Sample"
+
+        File --&gt; "*" Sample : sample
+        click Sample href "../Sample"
+
 
 
       File : size
@@ -290,8 +300,10 @@
 
 
 
-    File --&gt; "*" Subject : subject
-    click Subject href "../Subject"
+
+        File --&gt; "*" Subject : subject
+        click Subject href "../Subject"
+
 
 
 

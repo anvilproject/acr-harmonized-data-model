@@ -242,8 +242,10 @@
 
 
 
-    AccessPolicy --&gt; "1..*" EnumAccessCode : access_policy_code
-    click EnumAccessCode href "../EnumAccessCode"
+
+        AccessPolicy --&gt; "1..*" EnumAccessCode : access_policy_code
+        click EnumAccessCode href "../EnumAccessCode"
+
 
 
       AccessPolicy : data_access_type
@@ -251,8 +253,10 @@
 
 
 
-    AccessPolicy --&gt; "*" EnumAccessType : data_access_type
-    click EnumAccessType href "../EnumAccessType"
+
+        AccessPolicy --&gt; "*" EnumAccessType : data_access_type
+        click EnumAccessType href "../EnumAccessType"
+
 
 
       AccessPolicy : description

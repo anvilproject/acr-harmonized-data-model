@@ -244,8 +244,10 @@
 
 
 
-    Subject --&gt; "0..1" AccessPolicy : has_access_policy
-    click AccessPolicy href "../AccessPolicy"
+
+        Subject --&gt; "0..1" AccessPolicy : has_access_policy
+        click AccessPolicy href "../AccessPolicy"
+
 
 
       Subject : has_assertion
@@ -253,8 +255,10 @@
 
 
 
-    Subject --&gt; "*" SubjectAssertion : has_assertion
-    click SubjectAssertion href "../SubjectAssertion"
+
+        Subject --&gt; "*" SubjectAssertion : has_assertion
+        click SubjectAssertion href "../SubjectAssertion"
+
 
 
       Subject : has_demographics
@@ -262,8 +266,10 @@
 
 
 
-    Subject --&gt; "0..1" Demographics : has_demographics
-    click Demographics href "../Demographics"
+
+        Subject --&gt; "0..1" Demographics : has_demographics
+        click Demographics href "../Demographics"
+
 
 
       Subject : has_sample
@@ -271,8 +277,10 @@
 
 
 
-    Subject --&gt; "*" Sample : has_sample
-    click Sample href "../Sample"
+
+        Subject --&gt; "*" Sample : has_sample
+        click Sample href "../Sample"
+
 
 
       Subject : id
@@ -284,8 +292,10 @@
 
 
 
-    Subject --&gt; "1" EnumSubjectType : subject_type
-    click EnumSubjectType href "../EnumSubjectType"
+
+        Subject --&gt; "1" EnumSubjectType : subject_type
+        click EnumSubjectType href "../EnumSubjectType"
+
 
 
 

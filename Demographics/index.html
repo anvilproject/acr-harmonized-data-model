@@ -246,8 +246,10 @@
 
 
 
-    Demographics --&gt; "0..1" EnumDateOfBirthType : date_of_birth_type
-    click EnumDateOfBirthType href "../EnumDateOfBirthType"
+
+        Demographics --&gt; "0..1" EnumDateOfBirthType : date_of_birth_type
+        click EnumDateOfBirthType href "../EnumDateOfBirthType"
+
 
 
       Demographics : ethnicity
@@ -255,8 +257,10 @@
 
 
 
-    Demographics --&gt; "1" EnumEthnicity : ethnicity
-    click EnumEthnicity href "../EnumEthnicity"
+
+        Demographics --&gt; "1" EnumEthnicity : ethnicity
+        click EnumEthnicity href "../EnumEthnicity"
+
 
 
       Demographics : ethnicity_display
@@ -268,8 +272,10 @@
 
 
 
-    Demographics --&gt; "0..1" AccessPolicy : has_access_policy
-    click AccessPolicy href "../AccessPolicy"
+
+        Demographics --&gt; "0..1" AccessPolicy : has_access_policy
+        click AccessPolicy href "../AccessPolicy"
+
 
 
       Demographics : id
@@ -279,8 +285,10 @@
 
 
 
-    Demographics --&gt; "1..*" EnumRace : race
-    click EnumRace href "../EnumRace"
+
+        Demographics --&gt; "1..*" EnumRace : race
+        click EnumRace href "../EnumRace"
+
 
 
       Demographics : race_display
@@ -290,8 +298,10 @@
 
 
 
-    Demographics --&gt; "1" EnumSex : sex
-    click EnumSex href "../EnumSex"
+
+        Demographics --&gt; "1" EnumSex : sex
+        click EnumSex href "../EnumSex"
+
 
 
       Demographics : sex_display
@@ -301,8 +311,10 @@
 
 
 
-    Demographics --&gt; "*" SourceData : source_data
-    click SourceData href "../SourceData"
+
+        Demographics --&gt; "*" SourceData : source_data
+        click SourceData href "../SourceData"
+
 
 
       Demographics : vital_status
@@ -310,8 +322,10 @@
 
 
 
-    Demographics --&gt; "0..1" EnumVitalStatus : vital_status
-    click EnumVitalStatus href "../EnumVitalStatus"
+
+        Demographics --&gt; "0..1" EnumVitalStatus : vital_status
+        click EnumVitalStatus href "../EnumVitalStatus"
+
 
 
 

@@ -244,8 +244,10 @@
 
 
 
-    FamilyMember --&gt; "1" Subject : family_member
-    click Subject href "../Subject"
+
+        FamilyMember --&gt; "1" Subject : family_member
+        click Subject href "../Subject"
+
 
 
       FamilyMember : family_role
@@ -255,8 +257,10 @@
 
 
 
-    FamilyMember --&gt; "0..1" AccessPolicy : has_access_policy
-    click AccessPolicy href "../AccessPolicy"
+
+        FamilyMember --&gt; "0..1" AccessPolicy : has_access_policy
+        click AccessPolicy href "../AccessPolicy"
+
 
 
       FamilyMember : id

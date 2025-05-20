@@ -223,6 +223,9 @@
 <article class="md-content__inner md-typeset">
 <h1 id="class-thing-thing">Class: Thing (Thing)</h1>
 <p><em>Highest Level Class</em></p>
+<ul>
+<li><strong>NOTE</strong>: this is an abstract class and should not be instantiated directly</li>
+</ul>
 <p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/Thing">anvil:Thing</a></p>
 <div class="mermaid"> classDiagram
     class Thing
@@ -309,6 +312,7 @@
 description: Highest Level Class
 title: Thing
 from_schema: https://anvilproject.org/acr-harmonized-data-model
+abstract: true
 slots:
 - id
 - external_id
@@ -321,6 +325,7 @@ slots:
 description: Highest Level Class
 title: Thing
 from_schema: https://anvilproject.org/acr-harmonized-data-model
+abstract: true
 attributes:
   id:
     name: id

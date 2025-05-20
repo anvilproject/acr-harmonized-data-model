@@ -235,8 +235,10 @@
 
 
 
-    Family --&gt; "0..1" EnumConsanguinityAssertion : consanguinity
-    click EnumConsanguinityAssertion href "../EnumConsanguinityAssertion"
+
+        Family --&gt; "0..1" EnumConsanguinityAssertion : consanguinity
+        click EnumConsanguinityAssertion href "../EnumConsanguinityAssertion"
+
 
 
       Family : external_id
@@ -248,8 +250,10 @@
 
 
 
-    Family --&gt; "1..*" FamilyMember : family_members
-    click FamilyMember href "../FamilyMember"
+
+        Family --&gt; "1..*" FamilyMember : family_members
+        click FamilyMember href "../FamilyMember"
+
 
 
       Family : family_relationships
@@ -257,8 +261,10 @@
 
 
 
-    Family --&gt; "*" FamilyRelationship : family_relationships
-    click FamilyRelationship href "../FamilyRelationship"
+
+        Family --&gt; "*" FamilyRelationship : family_relationships
+        click FamilyRelationship href "../FamilyRelationship"
+
 
 
       Family : family_study_focus
@@ -268,8 +274,10 @@
 
 
 
-    Family --&gt; "0..1" EnumFamilyType : family_type
-    click EnumFamilyType href "../EnumFamilyType"
+
+        Family --&gt; "0..1" EnumFamilyType : family_type
+        click EnumFamilyType href "../EnumFamilyType"
+
 
 
       Family : has_access_policy
@@ -277,8 +285,10 @@
 
 
 
-    Family --&gt; "0..1" AccessPolicy : has_access_policy
-    click AccessPolicy href "../AccessPolicy"
+
+        Family --&gt; "0..1" AccessPolicy : has_access_policy
+        click AccessPolicy href "../AccessPolicy"
+
 
 
       Family : id

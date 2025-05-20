@@ -244,8 +244,10 @@
 
 
 
-    FamilyRelationship --&gt; "1" Subject : family_member
-    click Subject href "../Subject"
+
+        FamilyRelationship --&gt; "1" Subject : family_member
+        click Subject href "../Subject"
+
 
 
       FamilyRelationship : has_access_policy
@@ -253,8 +255,10 @@
 
 
 
-    FamilyRelationship --&gt; "0..1" AccessPolicy : has_access_policy
-    click AccessPolicy href "../AccessPolicy"
+
+        FamilyRelationship --&gt; "0..1" AccessPolicy : has_access_policy
+        click AccessPolicy href "../AccessPolicy"
+
 
 
       FamilyRelationship : id
@@ -264,8 +268,10 @@
 
 
 
-    FamilyRelationship --&gt; "1" Subject : other_family_member
-    click Subject href "../Subject"
+
+        FamilyRelationship --&gt; "1" Subject : other_family_member
+        click Subject href "../Subject"
+
 
 
       FamilyRelationship : relationship_code

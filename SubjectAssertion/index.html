@@ -248,8 +248,10 @@
 
 
 
-    SubjectAssertion --&gt; "0..1" EnumAssertionType : assertion_type
-    click EnumAssertionType href "../EnumAssertionType"
+
+        SubjectAssertion --&gt; "0..1" EnumAssertionType : assertion_type
+        click EnumAssertionType href "../EnumAssertionType"
+
 
 
       SubjectAssertion : code
@@ -263,8 +265,10 @@
 
 
 
-    SubjectAssertion --&gt; "0..1" AccessPolicy : has_access_policy
-    click AccessPolicy href "../AccessPolicy"
+
+        SubjectAssertion --&gt; "0..1" AccessPolicy : has_access_policy
+        click AccessPolicy href "../AccessPolicy"
+
 
 
       SubjectAssertion : id
@@ -274,8 +278,10 @@
 
 
 
-    SubjectAssertion --&gt; "*" SourceData : source_data
-    click SourceData href "../SourceData"
+
+        SubjectAssertion --&gt; "*" SourceData : source_data
+        click SourceData href "../SourceData"
+
 
 
       SubjectAssertion : value_code
