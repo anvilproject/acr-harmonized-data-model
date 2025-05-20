@@ -1,39 +1,8 @@
--- # Abstract Class: "Thing" Description: "Highest Level Class"
+-- # Class: "Thing" Description: "Highest Level Class"
 --     * Slot: id Description: ID associated with a class
 -- # Class: "AccessControlledRecord" Description: "Element for which specific access control restrictions apply."
 --     * Slot: has_access_policy Description: Which access policy applies to this element?
 --     * Slot: id Description: ID associated with a class
--- # Class: "Study" Description: "Study Meta Data"
---     * Slot: parent_study_id Description: Parent Study ID
---     * Slot: study_title Description: Study Title
---     * Slot: id Description: ID associated with a class
--- # Class: "Sample" Description: "Biospecimen data"
---     * Slot: parent_sample Description: Sample from which this sample is derived
---     * Slot: sample_type Description: Type of material of which this Sample is comprised
---     * Slot: availablity_status Description: Can this Sample be requested for further analysis?
---     * Slot: quantity_number Description: The total quantity of the specimen
---     * Slot: quantity_units Description: The structured term defining the units of the quantity.
---     * Slot: has_access_policy Description: Which access policy applies to this element?
---     * Slot: id Description: ID associated with a class
---     * Slot: Subject_id Description: Autocreated FK slot
---     * Slot: biospecimen_collection_id Description: Biospecimen Collection that generated this sample.
--- # Class: "BiospecimenCollection" Description: "Biospecimen Collection"
---     * Slot: age_at_collection Description: The age at which this biospecimen was collected.
---     * Slot: method Description: The approach used to collect the biospecimen.
---     * Slot: site Description: The location of the specimen collection.
---     * Slot: spatial_qualifier Description: Any spatial/location qualifiers
---     * Slot: laterality Description: Laterality information for the site
---     * Slot: has_access_policy Description: Which access policy applies to this element?
---     * Slot: id Description: ID associated with a class
--- # Class: "Aliquot" Description: "Specific tubes or details of a Sample."
---     * Slot: availablity_status Description: Can this Sample be requested for further analysis?
---     * Slot: quantity_number Description: The total quantity of the specimen
---     * Slot: quantity_units Description: The structured term defining the units of the quantity.
---     * Slot: concentration_number Description: What is the concentration of the analyte in the Aliquot?
---     * Slot: concentration_unit Description: Units associated with the concentration of the analyte in the Aliquot? UCUM coding preferred (with curie, UCUM)
---     * Slot: has_access_policy Description: Which access policy applies to this element?
---     * Slot: id Description: ID associated with a class
---     * Slot: Sample_id Description: Autocreated FK slot
 -- # Class: "Subject" Description: "This entity is the subject about which data or references are recorded. | This includes the idea of a human participant in a study, a cell line, an animal model, | or any other similar entity."
 --     * Slot: subject_type Description: Type of entity this record represents
 --     * Slot: organism_type Description: Organism Type Label
@@ -51,6 +20,10 @@
 --     * Slot: age_at_last_vital_status Description: Age at last vital status in decimal years.
 --     * Slot: vital_status Description: Vital Status
 --     * Slot: has_access_policy Description: Which access policy applies to this element?
+--     * Slot: id Description: ID associated with a class
+-- # Class: "Study" Description: "Study Meta Data"
+--     * Slot: parent_study_id Description: Parent Study ID
+--     * Slot: study_title Description: Study Title
 --     * Slot: id Description: ID associated with a class
 -- # Class: "SubjectAssertion" Description: "Assertion about a particular Subject. May include Conditions, Measurements, etc."
 --     * Slot: assertion_type Description: The semantic type of the resource, eg, Condition.
@@ -101,6 +74,33 @@
 --     * Slot: has_access_policy Description: Which access policy applies to this element?
 --     * Slot: id Description: ID associated with a class
 --     * Slot: Family_id Description: Autocreated FK slot
+-- # Class: "Sample" Description: "Biospecimen data"
+--     * Slot: parent_sample Description: Sample from which this sample is derived
+--     * Slot: sample_type Description: Type of material of which this Sample is comprised
+--     * Slot: availablity_status Description: Can this Sample be requested for further analysis?
+--     * Slot: quantity_number Description: The total quantity of the specimen
+--     * Slot: quantity_units Description: The structured term defining the units of the quantity.
+--     * Slot: has_access_policy Description: Which access policy applies to this element?
+--     * Slot: id Description: ID associated with a class
+--     * Slot: Subject_id Description: Autocreated FK slot
+--     * Slot: biospecimen_collection_id Description: Biospecimen Collection that generated this sample.
+-- # Class: "BiospecimenCollection" Description: "Biospecimen Collection"
+--     * Slot: age_at_collection Description: The age at which this biospecimen was collected.
+--     * Slot: method Description: The approach used to collect the biospecimen.
+--     * Slot: site Description: The location of the specimen collection.
+--     * Slot: spatial_qualifier Description: Any spatial/location qualifiers
+--     * Slot: laterality Description: Laterality information for the site
+--     * Slot: has_access_policy Description: Which access policy applies to this element?
+--     * Slot: id Description: ID associated with a class
+-- # Class: "Aliquot" Description: "Specific tubes or details of a Sample."
+--     * Slot: availablity_status Description: Can this Sample be requested for further analysis?
+--     * Slot: quantity_number Description: The total quantity of the specimen
+--     * Slot: quantity_units Description: The structured term defining the units of the quantity.
+--     * Slot: concentration_number Description: What is the concentration of the analyte in the Aliquot?
+--     * Slot: concentration_unit Description: Units associated with the concentration of the analyte in the Aliquot? UCUM coding preferred (with curie, UCUM)
+--     * Slot: has_access_policy Description: Which access policy applies to this element?
+--     * Slot: id Description: ID associated with a class
+--     * Slot: Sample_id Description: Autocreated FK slot
 -- # Class: "File" Description: "File"
 --     * Slot: filename Description: The name of the file.
 --     * Slot: format Description: The format of the file.
@@ -122,33 +122,6 @@
 -- # Class: "AccessControlledRecord_external_id" Description: ""
 --     * Slot: AccessControlledRecord_id Description: Autocreated FK slot
 --     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
--- # Class: "Study_external_study_id" Description: ""
---     * Slot: Study_id Description: Autocreated FK slot
---     * Slot: external_study_id Description: External Study ID
--- # Class: "Study_funding_source" Description: ""
---     * Slot: Study_id Description: Autocreated FK slot
---     * Slot: funding_source Description: Funding Source
--- # Class: "Study_principal_investigator" Description: ""
---     * Slot: Study_id Description: Autocreated FK slot
---     * Slot: principal_investigator Description: Principal Investigator
--- # Class: "Study_external_id" Description: ""
---     * Slot: Study_id Description: Autocreated FK slot
---     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
--- # Class: "Sample_processing" Description: ""
---     * Slot: Sample_id Description: Autocreated FK slot
---     * Slot: processing Description: Processing that was applied to the Parent Sample or from the Biospecimen Collection that yielded this distinct sample
--- # Class: "Sample_storage_method" Description: ""
---     * Slot: Sample_id Description: Autocreated FK slot
---     * Slot: storage_method Description: Sample storage method, eg, Frozen or with additives
--- # Class: "Sample_external_id" Description: ""
---     * Slot: Sample_id Description: Autocreated FK slot
---     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
--- # Class: "BiospecimenCollection_external_id" Description: ""
---     * Slot: BiospecimenCollection_id Description: Autocreated FK slot
---     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
--- # Class: "Aliquot_external_id" Description: ""
---     * Slot: Aliquot_id Description: Autocreated FK slot
---     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
 -- # Class: "Subject_external_id" Description: ""
 --     * Slot: Subject_id Description: Autocreated FK slot
 --     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
@@ -160,6 +133,18 @@
 --     * Slot: source_data_id Description: The sources from which this assertion was derived
 -- # Class: "Demographics_external_id" Description: ""
 --     * Slot: Demographics_id Description: Autocreated FK slot
+--     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
+-- # Class: "Study_external_study_id" Description: ""
+--     * Slot: Study_id Description: Autocreated FK slot
+--     * Slot: external_study_id Description: External Study ID
+-- # Class: "Study_funding_source" Description: ""
+--     * Slot: Study_id Description: Autocreated FK slot
+--     * Slot: funding_source Description: Funding Source
+-- # Class: "Study_principal_investigator" Description: ""
+--     * Slot: Study_id Description: Autocreated FK slot
+--     * Slot: principal_investigator Description: Principal Investigator
+-- # Class: "Study_external_id" Description: ""
+--     * Slot: Study_id Description: Autocreated FK slot
 --     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
 -- # Class: "SubjectAssertion_source_data" Description: ""
 --     * Slot: SubjectAssertion_id Description: Autocreated FK slot
@@ -190,6 +175,21 @@
 --     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
 -- # Class: "FamilyMember_external_id" Description: ""
 --     * Slot: FamilyMember_id Description: Autocreated FK slot
+--     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
+-- # Class: "Sample_processing" Description: ""
+--     * Slot: Sample_id Description: Autocreated FK slot
+--     * Slot: processing Description: Processing that was applied to the Parent Sample or from the Biospecimen Collection that yielded this distinct sample
+-- # Class: "Sample_storage_method" Description: ""
+--     * Slot: Sample_id Description: Autocreated FK slot
+--     * Slot: storage_method Description: Sample storage method, eg, Frozen or with additives
+-- # Class: "Sample_external_id" Description: ""
+--     * Slot: Sample_id Description: Autocreated FK slot
+--     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
+-- # Class: "BiospecimenCollection_external_id" Description: ""
+--     * Slot: BiospecimenCollection_id Description: Autocreated FK slot
+--     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
+-- # Class: "Aliquot_external_id" Description: ""
+--     * Slot: Aliquot_id Description: Autocreated FK slot
 --     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
 -- # Class: "File_subject" Description: ""
 --     * Slot: File_id Description: Autocreated FK slot
@@ -236,17 +236,6 @@ CREATE TABLE "AccessControlledRecord" (
 	PRIMARY KEY (id), 
 	FOREIGN KEY(has_access_policy) REFERENCES "AccessPolicy" (id)
 );
-CREATE TABLE "BiospecimenCollection" (
-	age_at_collection INTEGER, 
-	method VARCHAR, 
-	site VARCHAR, 
-	spatial_qualifier VARCHAR, 
-	laterality VARCHAR, 
-	has_access_policy TEXT, 
-	id TEXT NOT NULL, 
-	PRIMARY KEY (id), 
-	FOREIGN KEY(has_access_policy) REFERENCES "AccessPolicy" (id)
-);
 CREATE TABLE "Demographics" (
 	date_of_birth INTEGER, 
 	date_of_birth_type VARCHAR(11), 
@@ -280,6 +269,17 @@ CREATE TABLE "Family" (
 	family_description TEXT, 
 	consanguinity VARCHAR(13), 
 	family_study_focus TEXT, 
+	has_access_policy TEXT, 
+	id TEXT NOT NULL, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(has_access_policy) REFERENCES "AccessPolicy" (id)
+);
+CREATE TABLE "BiospecimenCollection" (
+	age_at_collection INTEGER, 
+	method VARCHAR, 
+	site VARCHAR, 
+	spatial_qualifier VARCHAR, 
+	laterality VARCHAR, 
 	has_access_policy TEXT, 
 	id TEXT NOT NULL, 
 	PRIMARY KEY (id), 
@@ -368,12 +368,6 @@ CREATE TABLE "AccessControlledRecord_external_id" (
 	PRIMARY KEY ("AccessControlledRecord_id", external_id), 
 	FOREIGN KEY("AccessControlledRecord_id") REFERENCES "AccessControlledRecord" (id)
 );
-CREATE TABLE "BiospecimenCollection_external_id" (
-	"BiospecimenCollection_id" TEXT, 
-	external_id TEXT, 
-	PRIMARY KEY ("BiospecimenCollection_id", external_id), 
-	FOREIGN KEY("BiospecimenCollection_id") REFERENCES "BiospecimenCollection" (id)
-);
 CREATE TABLE "Demographics_race" (
 	"Demographics_id" TEXT, 
 	race VARCHAR(35) NOT NULL, 
@@ -405,27 +399,17 @@ CREATE TABLE "Family_external_id" (
 	PRIMARY KEY ("Family_id", external_id), 
 	FOREIGN KEY("Family_id") REFERENCES "Family" (id)
 );
+CREATE TABLE "BiospecimenCollection_external_id" (
+	"BiospecimenCollection_id" TEXT, 
+	external_id TEXT, 
+	PRIMARY KEY ("BiospecimenCollection_id", external_id), 
+	FOREIGN KEY("BiospecimenCollection_id") REFERENCES "BiospecimenCollection" (id)
+);
 CREATE TABLE "File_external_id" (
 	"File_id" TEXT, 
 	external_id TEXT, 
 	PRIMARY KEY ("File_id", external_id), 
 	FOREIGN KEY("File_id") REFERENCES "File" (id)
-);
-CREATE TABLE "Sample" (
-	parent_sample TEXT, 
-	sample_type TEXT NOT NULL, 
-	availablity_status VARCHAR(11), 
-	quantity_number FLOAT, 
-	quantity_units TEXT, 
-	has_access_policy TEXT, 
-	id TEXT NOT NULL, 
-	"Subject_id" TEXT, 
-	biospecimen_collection_id TEXT, 
-	PRIMARY KEY (id), 
-	FOREIGN KEY(parent_sample) REFERENCES "Sample" (id), 
-	FOREIGN KEY(has_access_policy) REFERENCES "AccessPolicy" (id), 
-	FOREIGN KEY("Subject_id") REFERENCES "Subject" (id), 
-	FOREIGN KEY(biospecimen_collection_id) REFERENCES "BiospecimenCollection" (id)
 );
 CREATE TABLE "SubjectAssertion" (
 	assertion_type VARCHAR(18), 
@@ -468,6 +452,22 @@ CREATE TABLE "FamilyMember" (
 	FOREIGN KEY(has_access_policy) REFERENCES "AccessPolicy" (id), 
 	FOREIGN KEY("Family_id") REFERENCES "Family" (id)
 );
+CREATE TABLE "Sample" (
+	parent_sample TEXT, 
+	sample_type TEXT NOT NULL, 
+	availablity_status VARCHAR(11), 
+	quantity_number FLOAT, 
+	quantity_units TEXT, 
+	has_access_policy TEXT, 
+	id TEXT NOT NULL, 
+	"Subject_id" TEXT, 
+	biospecimen_collection_id TEXT, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(parent_sample) REFERENCES "Sample" (id), 
+	FOREIGN KEY(has_access_policy) REFERENCES "AccessPolicy" (id), 
+	FOREIGN KEY("Subject_id") REFERENCES "Subject" (id), 
+	FOREIGN KEY(biospecimen_collection_id) REFERENCES "BiospecimenCollection" (id)
+);
 CREATE TABLE "Subject_external_id" (
 	"Subject_id" TEXT, 
 	external_id TEXT, 
@@ -492,24 +492,6 @@ CREATE TABLE "Aliquot" (
 	"Sample_id" TEXT, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY(has_access_policy) REFERENCES "AccessPolicy" (id), 
-	FOREIGN KEY("Sample_id") REFERENCES "Sample" (id)
-);
-CREATE TABLE "Sample_processing" (
-	"Sample_id" TEXT, 
-	processing TEXT, 
-	PRIMARY KEY ("Sample_id", processing), 
-	FOREIGN KEY("Sample_id") REFERENCES "Sample" (id)
-);
-CREATE TABLE "Sample_storage_method" (
-	"Sample_id" TEXT, 
-	storage_method TEXT, 
-	PRIMARY KEY ("Sample_id", storage_method), 
-	FOREIGN KEY("Sample_id") REFERENCES "Sample" (id)
-);
-CREATE TABLE "Sample_external_id" (
-	"Sample_id" TEXT, 
-	external_id TEXT, 
-	PRIMARY KEY ("Sample_id", external_id), 
 	FOREIGN KEY("Sample_id") REFERENCES "Sample" (id)
 );
 CREATE TABLE "SubjectAssertion_source_data" (
@@ -543,6 +525,24 @@ CREATE TABLE "FamilyMember_external_id" (
 	external_id TEXT, 
 	PRIMARY KEY ("FamilyMember_id", external_id), 
 	FOREIGN KEY("FamilyMember_id") REFERENCES "FamilyMember" (id)
+);
+CREATE TABLE "Sample_processing" (
+	"Sample_id" TEXT, 
+	processing TEXT, 
+	PRIMARY KEY ("Sample_id", processing), 
+	FOREIGN KEY("Sample_id") REFERENCES "Sample" (id)
+);
+CREATE TABLE "Sample_storage_method" (
+	"Sample_id" TEXT, 
+	storage_method TEXT, 
+	PRIMARY KEY ("Sample_id", storage_method), 
+	FOREIGN KEY("Sample_id") REFERENCES "Sample" (id)
+);
+CREATE TABLE "Sample_external_id" (
+	"Sample_id" TEXT, 
+	external_id TEXT, 
+	PRIMARY KEY ("Sample_id", external_id), 
+	FOREIGN KEY("Sample_id") REFERENCES "Sample" (id)
 );
 CREATE TABLE "File_sample" (
 	"File_id" TEXT, 

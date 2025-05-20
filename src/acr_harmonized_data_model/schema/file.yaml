@@ -1,16 +1,8 @@
 id: https://anvilproject.org/acr-harmonized-data-model/file 
 name: anvil-file
-prefixes:
-  anvil: 
-    prefix_prefix: anvil
-    prefix_reference: https://anvilproject.org/acr-harmonized-data-model/
-  linkml:
-    prefix_prefix: linkml
-    prefix_reference: https://w3id.org/linkml/
 imports:
   - linkml:types
-  - anvil_core
-  - subject_assertion
+  - acr_harmonized_data_model
 classes: 
   File:
     title: File

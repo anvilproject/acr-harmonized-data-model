@@ -30,7 +30,6 @@ default_range: string
 
 imports:
   - linkml:types
-  - anvil_core
   - participant
   - study
   - subject_assertion
@@ -38,3 +37,31 @@ imports:
   - family 
   - sample 
   - file
+
+classes:
+  Thing:
+    description: Highest Level Class
+    title: Thing
+    abstract: true
+    slots:
+    - id
+    - external_id
+  AccessControlledRecord:
+    description: Element for which specific access control restrictions apply.
+    is_a: Thing
+    slots:
+      - has_access_policy
+slots: 
+  id:
+    title: ID
+    description: ID associated with a class
+    identifier: true
+    required: true
+    range: string
+    multivalued: false 
+  external_id: 
+    title: External Identifiers
+    description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
+    required: false 
+    range: uriorcurie 
+    multivalued: true 

@@ -1,16 +1,8 @@
 id: https://anvilproject.org/acr-harmonized-data-model/sample 
 name: anvil-sample-schema
-prefixes:
-  anvil: 
-    prefix_prefix: anvil
-    prefix_reference: https://anvilproject.org/acr-harmonized-data-model/
-  linkml:
-    prefix_prefix: linkml
-    prefix_reference: https://w3id.org/linkml/
-  ig2_biospecimen_availability: https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/biospecimen-availability/
 imports:
   - linkml:types
-  - anvil_core
+  - acr_harmonized_data_model
 classes: 
   Sample:
     title: Sample 

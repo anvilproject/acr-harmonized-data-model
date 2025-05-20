@@ -1,19 +1,8 @@
 id: https://anvilproject.org/acr-harmonized-data-model/condition_assertion 
 name: anvil-condition-assertion-schema
-prefixes:
-  anvil: 
-    prefix_prefix: anvil
-    prefix_reference: https://anvilproject.org/acr-harmonized-data-model/
-  linkml:
-    prefix_prefix: linkml
-    prefix_reference: https://w3id.org/linkml/
-  bioregistry: 
-    prefix_prefix: bioregistry 
-    prefix_reference: https://bioregistry.io/registry#
-  igcondtype: https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/condition-type/
 imports:
   - linkml:types
-  - anvil_core
+  - acr_harmonized_data_model
 classes: 
   SubjectAssertion:
     title: Subject Assertion 
