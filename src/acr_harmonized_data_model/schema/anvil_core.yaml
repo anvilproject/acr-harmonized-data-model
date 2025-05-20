@@ -14,6 +14,7 @@ classes:
   Thing:
     description: Highest Level Class
     title: Thing
+    abstract: true
     slots:
     - id
     - external_id
