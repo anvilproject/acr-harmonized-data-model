@@ -8,14 +8,14 @@
   "id": "https://anvilproject.org/acr-harmonized-data-model",
   "imports": [
     "linkml:types",
-    "anvil_core",
     "participant",
     "study",
     "subject_assertion",
     "data_access_policy",
     "family",
     "sample",
-    "file"
+    "file",
+    "acr_harmonized_data_model"
   ],
   "license": "MIT",
   "prefixes": [
@@ -932,11 +932,11 @@
   "slots": [
     {
       "name": "id",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/core/id",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/id",
       "description": "ID associated with a class",
       "title": "ID",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/core",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/core/id",
+      "from_schema": "https://anvilproject.org/acr-harmonized-data-model",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/id",
       "identifier": true,
       "owner": "Thing",
       "domain_of": [
@@ -948,11 +948,11 @@
     },
     {
       "name": "external_id",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/core/external_id",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/external_id",
       "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
       "title": "External Identifiers",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/core",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/core/external_id",
+      "from_schema": "https://anvilproject.org/acr-harmonized-data-model",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/external_id",
       "owner": "Thing",
       "domain_of": [
         "Thing"
@@ -2022,24 +2022,24 @@
   "classes": [
     {
       "name": "Thing",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/core/Thing",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/Thing",
       "description": "Highest Level Class",
       "title": "Thing",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/core",
+      "from_schema": "https://anvilproject.org/acr-harmonized-data-model",
       "abstract": true,
       "slots": [
         "id",
         "external_id"
       ],
       "slot_usage": {},
-      "class_uri": "https://anvilproject.org/acr-harmonized-data-model/core/Thing",
+      "class_uri": "https://anvilproject.org/acr-harmonized-data-model/Thing",
       "@type": "ClassDefinition"
     },
     {
       "name": "AccessControlledRecord",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/core/AccessControlledRecord",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/AccessControlledRecord",
       "description": "Element for which specific access control restrictions apply.",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/core",
+      "from_schema": "https://anvilproject.org/acr-harmonized-data-model",
       "is_a": "Thing",
       "slots": [
         "id",
@@ -2047,7 +2047,7 @@
         "has_access_policy"
       ],
       "slot_usage": {},
-      "class_uri": "https://anvilproject.org/acr-harmonized-data-model/core/AccessControlledRecord",
+      "class_uri": "https://anvilproject.org/acr-harmonized-data-model/AccessControlledRecord",
       "@type": "ClassDefinition"
     },
     {
@@ -2360,14 +2360,13 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "acr_harmonized_data_model.yaml",
-  "source_file_date": "2025-05-20T09:12:28",
-  "source_file_size": 1376,
-  "generation_date": "2025-05-20T12:29:14",
+  "source_file_date": "2025-05-20T13:49:28",
+  "source_file_size": 2092,
+  "generation_date": "2025-05-20T13:51:39",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/acr_harmonized_data_model.context.jsonld",
     "https://w3id.org/linkml/types.context.jsonld",
-    "anvil_core.context.jsonld",
     "participant.context.jsonld",
     "study.context.jsonld",
     "subject_assertion.context.jsonld",
