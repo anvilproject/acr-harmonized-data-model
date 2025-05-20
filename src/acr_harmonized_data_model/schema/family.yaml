@@ -86,7 +86,7 @@ slots:
     range: uriorcurie
     multivalued: false 
   family_role: 
-    description: The "role" of this indiviudal in this family.
+    description: The "role" of this individual in this family. Could include terms like "proband", "mother", etc.
     required: false 
     range: uriorcurie
     multivalued: false 
