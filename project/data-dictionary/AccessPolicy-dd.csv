@@ -1,0 +1,5 @@
+variable_name,description,data_type,min,max,units,enumerations,comment
+disease_limitation,Disease Use Limitations,string,,,,,
+description,Description,string,,,,,
+website,Website,string,,,,,
+id,ID associated with a class,string,,,,,

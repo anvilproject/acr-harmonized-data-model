@@ -309,7 +309,7 @@ type SubjectAssertion
     sourceData: [SourceData]
   }
 
-type Thing
+interface Thing
   {
     id: String!
     externalId: [Uriorcurie]

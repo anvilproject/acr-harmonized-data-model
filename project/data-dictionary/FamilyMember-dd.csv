@@ -1,0 +1,6 @@
+variable_name,description,data_type,min,max,units,enumerations,comment
+family_member,"The family member Subject who is the relationship ""subject"".",string,,,,,Foreign Key: Subject.id
+family_role,"The ""role"" of this indiviudal in this family.",string,,,,,
+has_access_policy,Which access policy applies to this element?,string,,,,,Foreign Key: AccessPolicy.id
+id,ID associated with a class,string,,,,,
+Family_id,Autocreated FK slot,string,,,,,Foreign Key: Family.id

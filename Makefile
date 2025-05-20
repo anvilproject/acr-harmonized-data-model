@@ -126,6 +126,7 @@ gen-examples:
 
 gen-project: $(PYMODEL)
 	$(RUN) gen-project ${CONFIG_YAML} -d $(DEST) $(SOURCE_SCHEMA_PATH) && mv $(DEST)/*.py $(PYMODEL)
+	$(RUN) linkml_extract_dd  $(SOURCE_SCHEMA_PATH)
 
 
 # non-empty arg triggers owl (workaround https://github.com/linkml/linkml/issues/1453)

@@ -1,0 +1,9 @@
+variable_name,description,data_type,min,max,units,enumerations,comment
+filename,The name of the file.,string,,,,,
+format,The format of the file.,enumeration,,,,,Data formats from the EDAM ontology.
+data_type,The type of data within this file.,enumeration,,,,,Data types from the EDAM ontology.
+size,"Size of the file, in Bytes.",integer,,,,,
+drs_uri,DRS location to access the data.,string,,,,,
+file_metadata,"Additional metadata about the contents of the file, eg, genome reference build.",string,,,,,Foreign Key: FileMetadata.id
+has_access_policy,Which access policy applies to this element?,string,,,,,Foreign Key: AccessPolicy.id
+id,ID associated with a class,string,,,,,

@@ -12,13 +12,14 @@ license = "MIT"
 readme = "README.md"
 include = ["README.md", "src/acr_harmonized_data_model/schema", "project"]
 
-requires-python = ">=3.9,<4.0"
+requires-python = ">=3.10,<4.0"
 
 dynamic = ["version"]
 
 dependencies = [
   "linkml-runtime >=1.1.24",
   "pytest (>=8.3.5,<9.0.0)",
+  "ftd-dd @ git+https://github.com/carrollaboratory/ftd-dd"
 ]
 
 [tool.poetry]
@@ -40,3 +41,4 @@ mkdocs-mermaid2-plugin = ">=1.1.1"
 schemasheets = ">=0.1.14"
 jupyter = ">=1.0.0"
 mknotebooks = ">= 0.8.0"
+
