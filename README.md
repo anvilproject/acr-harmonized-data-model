@@ -57,6 +57,34 @@ mkdocs build
 ```
 </details>
 
+#### Manually building the Map Dragon formatted Data Dictionary
+The DD export uses [ftd-dd](https://github.com/carrollaboratory/ftd-dd) library to generate the CSV Files. This has been integrated into the command <b>make site</b>, but can also be run manually. 
+
+You can install this library using pip: 
+
+```
+pip install -r requirements.txt 
+```
+
+or via the makefile
+```
+make install
+```
+
+Once installed, the dd-files can be built manually:
+```
+linkml_extract_dd src/acr_harmonized_data_model/schema/acr_harmonized_data_model.yaml
+```
+
+Otherwise, just build the site as usual and the data-dictionary will be created alongside the rest of the artifacts. 
+
+```
+make site
+```
+
+Resulting DD files can be found in: project/data-dictionary
+
+
 ### Makefile / Justfile
 
 <details>
