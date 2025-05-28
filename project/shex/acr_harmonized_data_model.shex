@@ -116,6 +116,19 @@ linkml:Sparqlpath xsd:string
     )
 }
 
+<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/DataSource> CLOSED {
+    (  $<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/DataSource_tes> (  &<Thing_tes> ;
+          rdf:type [ <Thing> ] ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/snapshot_id> @linkml:String ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/google_data_project> @linkml:String ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/snapshot_dataset> @linkml:String ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/table> @linkml:String ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/parameterized_query> @linkml:String ?
+       ) ;
+       rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/DataSource> ]
+    )
+}
+
 <https://anvilproject.org/acr-harmonized-data-model/participant/Demographics> CLOSED {
     (  $<https://anvilproject.org/acr-harmonized-data-model/participant/Demographics_tes> (  &<AccessControlledRecord_tes> ;
           rdf:type [ <AccessControlledRecord> ] ? ;
@@ -247,13 +260,9 @@ linkml:Sparqlpath xsd:string
 <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/SourceData> CLOSED {
     (  $<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/SourceData_tes> (  &<AccessControlledRecord_tes> ;
           rdf:type [ <AccessControlledRecord> ] ? ;
-          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/code> @linkml:Uriorcurie ? ;
-          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/display> @linkml:String ? ;
-          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_code> @linkml:Uriorcurie ? ;
-          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_display> @linkml:String ? ;
-          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_number> @linkml:Float ? ;
-          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_units> @linkml:Uriorcurie ? ;
-          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_units_display> @linkml:String ?
+          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/data_source>
+          @<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/DataSource> ? ;
+          <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/query_parameter> @linkml:String *
        ) ;
        rdf:type [ <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/SourceData> ]
     )
@@ -321,6 +330,7 @@ linkml:Sparqlpath xsd:string
 
 <Thing>  (
     @<AccessControlledRecord> OR @<https://anvilproject.org/acr-harmonized-data-model/data-access-policy/AccessPolicy> OR
+    @<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/DataSource> OR
     @<https://anvilproject.org/acr-harmonized-data-model/file/FileMetadata> OR
     @<https://anvilproject.org/acr-harmonized-data-model/study/Study>
 )

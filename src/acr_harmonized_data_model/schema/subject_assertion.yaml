@@ -21,21 +21,54 @@ classes:
       - value_units
       - value_units_display 
       - source_data
-# TODO: Perhaps this data should actually end up being references to the originally stored data within the TDR?
-# It should also minimally have some way to link within-row source elements.
+  DataSource:
+    title: Data Source
+    description: Query configuration for specifying a source from which data are pulled.
+    is_a: Thing
+    slots:
+      - snapshot_id
+      - google_data_project
+      - snapshot_dataset
+      - table
+      - parameterized_query
+# Could include columns of interest?
   SourceData:
     title: Source Data 
-    description: Submitted data about a particular Subject.
+    description: Reference to submitted data used to generate harmonized data. Applying the query_parameter(s) to the data_source.parameterized_query should return the specific data of interest.
     is_a: AccessControlledRecord 
     slots:
-      - code
-      - display
-      - value_code
-      - value_display
-      - value_number
-      - value_units
-      - value_units_display 
+      - data_source
+      - query_parameter
 slots: 
+  snapshot_id:
+    title: Snapshot ID
+    description: The Terra Data Repository Snapshot ID.
+    range: string
+  google_data_project:
+    title: Google Data Project
+    description: The Google Data Project needed to query this snapshot in BigQuery.
+    range: string
+  snapshot_dataset:
+    title: Snapshot Dataset
+    description: The Dataset within BigQuery where the table can be queried.
+    range: string
+  table:
+    title: Table
+    description: The table in the dataset that contains the row of interest.
+    range: string
+  parameterized_query:
+    title: Parameterized Query
+    description: A parameterized query that contains the primary key fields and can be used to select specific rows. This should be formatted according to (https://cloud.google.com/bigquery/docs/parameterized-queries)[BigQuery instructions], including using named parameters.
+    range: string
+  data_source:
+    title: Data Source
+    description: Defines the location of data and how to query it.
+    range: DataSource
+  query_parameter:
+    title: Query Parameter 
+    description: One or more query parameters used to select the specific row. It will leverage the parameterized_query defined by a data_source. This should be formatted according to (https://cloud.google.com/bigquery/docs/parameterized-queries)[BigQuery instructions], specifically the bq CLI version with named parameters, ie, "<parameter name>:<data type>:<value>".
+    range: string
+    multivalued: true
   assertion_type:
     title: Assertion Type
     description: The semantic type of the resource, eg, Condition.

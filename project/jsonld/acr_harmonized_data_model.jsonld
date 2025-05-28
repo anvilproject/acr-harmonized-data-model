@@ -1268,6 +1268,105 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "snapshot_id",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/snapshot_id",
+      "description": "The Terra Data Repository Snapshot ID.",
+      "title": "Snapshot ID",
+      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/snapshot_id",
+      "owner": "DataSource",
+      "domain_of": [
+        "DataSource"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "google_data_project",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/google_data_project",
+      "description": "The Google Data Project needed to query this snapshot in BigQuery.",
+      "title": "Google Data Project",
+      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/google_data_project",
+      "owner": "DataSource",
+      "domain_of": [
+        "DataSource"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "snapshot_dataset",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/snapshot_dataset",
+      "description": "The Dataset within BigQuery where the table can be queried.",
+      "title": "Snapshot Dataset",
+      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/snapshot_dataset",
+      "owner": "DataSource",
+      "domain_of": [
+        "DataSource"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "table",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/table",
+      "description": "The table in the dataset that contains the row of interest.",
+      "title": "Table",
+      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/table",
+      "owner": "DataSource",
+      "domain_of": [
+        "DataSource"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "parameterized_query",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/parameterized_query",
+      "description": "A parameterized query that contains the primary key fields and can be used to select specific rows. This should be formatted according to (https://cloud.google.com/bigquery/docs/parameterized-queries)[BigQuery instructions], including using named parameters.",
+      "title": "Parameterized Query",
+      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/parameterized_query",
+      "owner": "DataSource",
+      "domain_of": [
+        "DataSource"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "data_source",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/data_source",
+      "description": "Defines the location of data and how to query it.",
+      "title": "Data Source",
+      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/data_source",
+      "owner": "SourceData",
+      "domain_of": [
+        "SourceData"
+      ],
+      "range": "DataSource",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "query_parameter",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/query_parameter",
+      "description": "One or more query parameters used to select the specific row. It will leverage the parameterized_query defined by a data_source. This should be formatted according to (https://cloud.google.com/bigquery/docs/parameterized-queries)[BigQuery instructions], specifically the bq CLI version with named parameters, ie, \"<parameter name>:<data type>:<value>\".",
+      "title": "Query Parameter",
+      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
+      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/query_parameter",
+      "owner": "SourceData",
+      "domain_of": [
+        "SourceData"
+      ],
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "assertion_type",
       "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/assertion_type",
       "description": "The semantic type of the resource, eg, Condition.",
@@ -1361,7 +1460,6 @@
       "owner": "FileMetadata",
       "domain_of": [
         "SubjectAssertion",
-        "SourceData",
         "FileMetadata"
       ],
       "range": "uriorcurie",
@@ -1377,7 +1475,6 @@
       "owner": "FileMetadata",
       "domain_of": [
         "SubjectAssertion",
-        "SourceData",
         "FileMetadata"
       ],
       "range": "string",
@@ -1393,7 +1490,6 @@
       "owner": "FileMetadata",
       "domain_of": [
         "SubjectAssertion",
-        "SourceData",
         "FileMetadata"
       ],
       "range": "uriorcurie",
@@ -1409,7 +1505,6 @@
       "owner": "FileMetadata",
       "domain_of": [
         "SubjectAssertion",
-        "SourceData",
         "FileMetadata"
       ],
       "range": "string",
@@ -1422,10 +1517,9 @@
       "title": "Value Number",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
       "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_number",
-      "owner": "SourceData",
+      "owner": "SubjectAssertion",
       "domain_of": [
-        "SubjectAssertion",
-        "SourceData"
+        "SubjectAssertion"
       ],
       "range": "float",
       "@type": "SlotDefinition"
@@ -1437,10 +1531,9 @@
       "title": "Value Units",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
       "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_units",
-      "owner": "SourceData",
+      "owner": "SubjectAssertion",
       "domain_of": [
-        "SubjectAssertion",
-        "SourceData"
+        "SubjectAssertion"
       ],
       "range": "uriorcurie",
       "@type": "SlotDefinition"
@@ -1452,10 +1545,9 @@
       "title": "Value Units",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
       "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_units_display",
-      "owner": "SourceData",
+      "owner": "SubjectAssertion",
       "domain_of": [
-        "SubjectAssertion",
-        "SourceData"
+        "SubjectAssertion"
       ],
       "range": "string",
       "@type": "SlotDefinition"
@@ -1670,7 +1762,7 @@
     {
       "name": "family_role",
       "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/family/family_role",
-      "description": "The \"role\" of this indiviudal in this family.",
+      "description": "The \"role\" of this individual in this family. Could include terms like \"proband\", \"mother\", etc.",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/family",
       "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/family/family_role",
       "owner": "FamilyMember",
@@ -2147,9 +2239,29 @@
       "@type": "ClassDefinition"
     },
     {
+      "name": "DataSource",
+      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/DataSource",
+      "description": "Query configuration for specifying a source from which data are pulled.",
+      "title": "Data Source",
+      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
+      "is_a": "Thing",
+      "slots": [
+        "id",
+        "external_id",
+        "snapshot_id",
+        "google_data_project",
+        "snapshot_dataset",
+        "table",
+        "parameterized_query"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/DataSource",
+      "@type": "ClassDefinition"
+    },
+    {
       "name": "SourceData",
       "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/SourceData",
-      "description": "Submitted data about a particular Subject.",
+      "description": "Reference to submitted data used to generate harmonized data. Applying the query_parameter(s) to the data_source.parameterized_query should return the specific data of interest.",
       "title": "Source Data",
       "from_schema": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion",
       "is_a": "AccessControlledRecord",
@@ -2157,13 +2269,8 @@
         "id",
         "external_id",
         "has_access_policy",
-        "code",
-        "display",
-        "value_code",
-        "value_display",
-        "value_number",
-        "value_units",
-        "value_units_display"
+        "data_source",
+        "query_parameter"
       ],
       "slot_usage": {},
       "class_uri": "https://anvilproject.org/acr-harmonized-data-model/condition_assertion/SourceData",
@@ -2360,9 +2467,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "acr_harmonized_data_model.yaml",
-  "source_file_date": "2025-05-20T13:49:28",
+  "source_file_date": "2025-05-20T13:56:55",
   "source_file_size": 2092,
-  "generation_date": "2025-05-20T13:51:39",
+  "generation_date": "2025-05-28T11:15:49",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/acr_harmonized_data_model.context.jsonld",
