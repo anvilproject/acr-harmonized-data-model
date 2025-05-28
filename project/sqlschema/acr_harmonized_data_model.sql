@@ -40,14 +40,15 @@
 --     * Slot: has_access_policy Description: Which access policy applies to this element?
 --     * Slot: id Description: ID associated with a class
 --     * Slot: Subject_id Description: Autocreated FK slot
--- # Class: "SourceData" Description: "Submitted data about a particular Subject."
---     * Slot: code Description: The structured term defining the meaning of the assertion.
---     * Slot: display Description: The friendly display string of the coded term
---     * Slot: value_code Description: The structured term defining the value of the assertion.
---     * Slot: value_display Description: The friendly display string of the coded term for the value of the assertion.
---     * Slot: value_number Description: The numeric value of the assertion.
---     * Slot: value_units Description: The structured term defining the units of the value.
---     * Slot: value_units_display Description: The friendly display string of units of the value.
+-- # Class: "DataSource" Description: "Query configuration for specifying a source from which data are pulled."
+--     * Slot: snapshot_id Description: The Terra Data Repository Snapshot ID.
+--     * Slot: google_data_project Description: The Google Data Project needed to query this snapshot in BigQuery.
+--     * Slot: snapshot_dataset Description: The Dataset within BigQuery where the table can be queried.
+--     * Slot: table Description: The table in the dataset that contains the row of interest.
+--     * Slot: parameterized_query Description: A parameterized query that contains the primary key fields and can be used to select specific rows. This should be formatted according to (https://cloud.google.com/bigquery/docs/parameterized-queries)[BigQuery instructions], including using named parameters.
+--     * Slot: id Description: ID associated with a class
+-- # Class: "SourceData" Description: "Reference to submitted data used to generate harmonized data. Applying the query_parameter(s) to the data_source.parameterized_query should return the specific data of interest."
+--     * Slot: data_source Description: Defines the location of data and how to query it.
 --     * Slot: has_access_policy Description: Which access policy applies to this element?
 --     * Slot: id Description: ID associated with a class
 -- # Class: "AccessPolicy" Description: "Describes the access required for a given element of data."
@@ -70,7 +71,7 @@
 --     * Slot: id Description: ID associated with a class
 -- # Class: "FamilyMember" Description: "Designates a Subject as a member of a family with some specified role."
 --     * Slot: family_member Description: The family member Subject who is the relationship "subject".
---     * Slot: family_role Description: The "role" of this indiviudal in this family.
+--     * Slot: family_role Description: The "role" of this individual in this family. Could include terms like "proband", "mother", etc.
 --     * Slot: has_access_policy Description: Which access policy applies to this element?
 --     * Slot: id Description: ID associated with a class
 --     * Slot: Family_id Description: Autocreated FK slot
@@ -152,6 +153,12 @@
 -- # Class: "SubjectAssertion_external_id" Description: ""
 --     * Slot: SubjectAssertion_id Description: Autocreated FK slot
 --     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
+-- # Class: "DataSource_external_id" Description: ""
+--     * Slot: DataSource_id Description: Autocreated FK slot
+--     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
+-- # Class: "SourceData_query_parameter" Description: ""
+--     * Slot: SourceData_id Description: Autocreated FK slot
+--     * Slot: query_parameter Description: One or more query parameters used to select the specific row. It will leverage the parameterized_query defined by a data_source. This should be formatted according to (https://cloud.google.com/bigquery/docs/parameterized-queries)[BigQuery instructions], specifically the bq CLI version with named parameters, ie, "<parameter name>:<data type>:<value>".
 -- # Class: "SourceData_external_id" Description: ""
 --     * Slot: SourceData_id Description: Autocreated FK slot
 --     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
@@ -215,6 +222,15 @@ CREATE TABLE "Study" (
 	PRIMARY KEY (id), 
 	FOREIGN KEY(parent_study_id) REFERENCES "Study" (id)
 );
+CREATE TABLE "DataSource" (
+	snapshot_id TEXT, 
+	google_data_project TEXT, 
+	snapshot_dataset TEXT, 
+	"table" TEXT, 
+	parameterized_query TEXT, 
+	id TEXT NOT NULL, 
+	PRIMARY KEY (id)
+);
 CREATE TABLE "AccessPolicy" (
 	disease_limitation TEXT, 
 	description TEXT NOT NULL, 
@@ -252,16 +268,11 @@ CREATE TABLE "Demographics" (
 	FOREIGN KEY(has_access_policy) REFERENCES "AccessPolicy" (id)
 );
 CREATE TABLE "SourceData" (
-	code TEXT, 
-	display TEXT, 
-	value_code TEXT, 
-	value_display TEXT, 
-	value_number FLOAT, 
-	value_units TEXT, 
-	value_units_display TEXT, 
+	data_source TEXT, 
 	has_access_policy TEXT, 
 	id TEXT NOT NULL, 
 	PRIMARY KEY (id), 
+	FOREIGN KEY(data_source) REFERENCES "DataSource" (id), 
 	FOREIGN KEY(has_access_policy) REFERENCES "AccessPolicy" (id)
 );
 CREATE TABLE "Family" (
@@ -328,6 +339,12 @@ CREATE TABLE "Study_external_id" (
 	PRIMARY KEY ("Study_id", external_id), 
 	FOREIGN KEY("Study_id") REFERENCES "Study" (id)
 );
+CREATE TABLE "DataSource_external_id" (
+	"DataSource_id" TEXT, 
+	external_id TEXT, 
+	PRIMARY KEY ("DataSource_id", external_id), 
+	FOREIGN KEY("DataSource_id") REFERENCES "DataSource" (id)
+);
 CREATE TABLE "AccessPolicy_data_access_type" (
 	"AccessPolicy_id" TEXT, 
 	data_access_type VARCHAR(14), 
@@ -386,6 +403,12 @@ CREATE TABLE "Demographics_external_id" (
 	external_id TEXT, 
 	PRIMARY KEY ("Demographics_id", external_id), 
 	FOREIGN KEY("Demographics_id") REFERENCES "Demographics" (id)
+);
+CREATE TABLE "SourceData_query_parameter" (
+	"SourceData_id" TEXT, 
+	query_parameter TEXT, 
+	PRIMARY KEY ("SourceData_id", query_parameter), 
+	FOREIGN KEY("SourceData_id") REFERENCES "SourceData" (id)
 );
 CREATE TABLE "SourceData_external_id" (
 	"SourceData_id" TEXT, 

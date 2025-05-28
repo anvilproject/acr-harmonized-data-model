@@ -162,6 +162,17 @@ type BiospecimenCollection
     laterality: EnumLaterality
   }
 
+type DataSource
+  {
+    id: String!
+    externalId: [Uriorcurie]
+    snapshotId: String
+    googleDataProject: String
+    snapshotDataset: String
+    table: String
+    parameterizedQuery: String
+  }
+
 type Demographics
   {
     id: String!
@@ -258,13 +269,8 @@ type SourceData
     id: String!
     externalId: [Uriorcurie]
     hasAccessPolicy: AccessPolicy
-    code: Uriorcurie
-    display: String
-    valueCode: Uriorcurie
-    valueDisplay: String
-    valueNumber: Float
-    valueUnits: Uriorcurie
-    valueUnitsDisplay: String
+    dataSource: DataSource
+    queryParameter: [String]
   }
 
 type Study

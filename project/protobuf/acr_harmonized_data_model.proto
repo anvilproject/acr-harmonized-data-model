@@ -43,6 +43,17 @@ message BiospecimenCollection
   enumSpatialQualifiers spatialQualifier = 0
   enumLaterality laterality = 0
  }
+// Query configuration for specifying a source from which data are pulled.
+message DataSource
+ {
+  string id = 0
+ repeated  uriorcurie externalId = 0
+  string snapshotId = 0
+  string googleDataProject = 0
+  string snapshotDataset = 0
+  string table = 0
+  string parameterizedQuery = 0
+ }
 // Basic participant demographics summary
 message Demographics
  {
@@ -134,19 +145,14 @@ message Sample
   uriorcurie quantityUnits = 0
  repeated  aliquot aliquots = 0
  }
-// Submitted data about a particular Subject.
+// Reference to submitted data used to generate harmonized data. Applying the query_parameter(s) to the data_source.parameterized_query should return the specific data of interest.
 message SourceData
  {
   string id = 0
  repeated  uriorcurie externalId = 0
   accessPolicy hasAccessPolicy = 0
-  uriorcurie code = 0
-  string display = 0
-  uriorcurie valueCode = 0
-  string valueDisplay = 0
-  float valueNumber = 0
-  uriorcurie valueUnits = 0
-  string valueUnitsDisplay = 0
+  dataSource dataSource = 0
+ repeated  string queryParameter = 0
  }
 // Study Meta Data
 message Study

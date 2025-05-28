@@ -1,5 +1,5 @@
 # Auto generated from acr_harmonized_data_model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-05-20T13:51:40
+# Generation date: 2025-05-28T11:15:50
 # Schema: acr-harmonized-data-model
 #
 # id: https://anvilproject.org/acr-harmonized-data-model
@@ -106,6 +106,10 @@ class StudyId(ThingId):
 
 
 class SubjectAssertionId(AccessControlledRecordId):
+    pass
+
+
+class DataSourceId(ThingId):
     pass
 
 
@@ -450,9 +454,53 @@ class SubjectAssertion(AccessControlledRecord):
 
 
 @dataclass(repr=False)
+class DataSource(Thing):
+    """
+    Query configuration for specifying a source from which data are pulled.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ANVIL["condition_assertion/DataSource"]
+    class_class_curie: ClassVar[str] = "anvil:condition_assertion/DataSource"
+    class_name: ClassVar[str] = "DataSource"
+    class_model_uri: ClassVar[URIRef] = ANVIL.DataSource
+
+    id: Union[str, DataSourceId] = None
+    snapshot_id: Optional[str] = None
+    google_data_project: Optional[str] = None
+    snapshot_dataset: Optional[str] = None
+    table: Optional[str] = None
+    parameterized_query: Optional[str] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, DataSourceId):
+            self.id = DataSourceId(self.id)
+
+        if self.snapshot_id is not None and not isinstance(self.snapshot_id, str):
+            self.snapshot_id = str(self.snapshot_id)
+
+        if self.google_data_project is not None and not isinstance(self.google_data_project, str):
+            self.google_data_project = str(self.google_data_project)
+
+        if self.snapshot_dataset is not None and not isinstance(self.snapshot_dataset, str):
+            self.snapshot_dataset = str(self.snapshot_dataset)
+
+        if self.table is not None and not isinstance(self.table, str):
+            self.table = str(self.table)
+
+        if self.parameterized_query is not None and not isinstance(self.parameterized_query, str):
+            self.parameterized_query = str(self.parameterized_query)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
 class SourceData(AccessControlledRecord):
     """
-    Submitted data about a particular Subject.
+    Reference to submitted data used to generate harmonized data. Applying the query_parameter(s) to the
+    data_source.parameterized_query should return the specific data of interest.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -462,13 +510,8 @@ class SourceData(AccessControlledRecord):
     class_model_uri: ClassVar[URIRef] = ANVIL.SourceData
 
     id: Union[str, SourceDataId] = None
-    code: Optional[Union[str, URIorCURIE]] = None
-    display: Optional[str] = None
-    value_code: Optional[Union[str, URIorCURIE]] = None
-    value_display: Optional[str] = None
-    value_number: Optional[float] = None
-    value_units: Optional[Union[str, URIorCURIE]] = None
-    value_units_display: Optional[str] = None
+    data_source: Optional[Union[str, DataSourceId]] = None
+    query_parameter: Optional[Union[str, List[str]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -476,26 +519,12 @@ class SourceData(AccessControlledRecord):
         if not isinstance(self.id, SourceDataId):
             self.id = SourceDataId(self.id)
 
-        if self.code is not None and not isinstance(self.code, URIorCURIE):
-            self.code = URIorCURIE(self.code)
+        if self.data_source is not None and not isinstance(self.data_source, DataSourceId):
+            self.data_source = DataSourceId(self.data_source)
 
-        if self.display is not None and not isinstance(self.display, str):
-            self.display = str(self.display)
-
-        if self.value_code is not None and not isinstance(self.value_code, URIorCURIE):
-            self.value_code = URIorCURIE(self.value_code)
-
-        if self.value_display is not None and not isinstance(self.value_display, str):
-            self.value_display = str(self.value_display)
-
-        if self.value_number is not None and not isinstance(self.value_number, float):
-            self.value_number = float(self.value_number)
-
-        if self.value_units is not None and not isinstance(self.value_units, URIorCURIE):
-            self.value_units = URIorCURIE(self.value_units)
-
-        if self.value_units_display is not None and not isinstance(self.value_units_display, str):
-            self.value_units_display = str(self.value_units_display)
+        if not isinstance(self.query_parameter, list):
+            self.query_parameter = [self.query_parameter] if self.query_parameter is not None else []
+        self.query_parameter = [v if isinstance(v, str) else str(v) for v in self.query_parameter]
 
         super().__post_init__(**kwargs)
 
@@ -1418,6 +1447,27 @@ slots.principal_investigator = Slot(uri=ANVIL['study/principal_investigator'], n
 
 slots.study_title = Slot(uri=ANVIL['study/study_title'], name="study_title", curie=ANVIL.curie('study/study_title'),
                    model_uri=ANVIL.study_title, domain=None, range=str)
+
+slots.snapshot_id = Slot(uri=ANVIL['condition_assertion/snapshot_id'], name="snapshot_id", curie=ANVIL.curie('condition_assertion/snapshot_id'),
+                   model_uri=ANVIL.snapshot_id, domain=None, range=Optional[str])
+
+slots.google_data_project = Slot(uri=ANVIL['condition_assertion/google_data_project'], name="google_data_project", curie=ANVIL.curie('condition_assertion/google_data_project'),
+                   model_uri=ANVIL.google_data_project, domain=None, range=Optional[str])
+
+slots.snapshot_dataset = Slot(uri=ANVIL['condition_assertion/snapshot_dataset'], name="snapshot_dataset", curie=ANVIL.curie('condition_assertion/snapshot_dataset'),
+                   model_uri=ANVIL.snapshot_dataset, domain=None, range=Optional[str])
+
+slots.table = Slot(uri=ANVIL['condition_assertion/table'], name="table", curie=ANVIL.curie('condition_assertion/table'),
+                   model_uri=ANVIL.table, domain=None, range=Optional[str])
+
+slots.parameterized_query = Slot(uri=ANVIL['condition_assertion/parameterized_query'], name="parameterized_query", curie=ANVIL.curie('condition_assertion/parameterized_query'),
+                   model_uri=ANVIL.parameterized_query, domain=None, range=Optional[str])
+
+slots.data_source = Slot(uri=ANVIL['condition_assertion/data_source'], name="data_source", curie=ANVIL.curie('condition_assertion/data_source'),
+                   model_uri=ANVIL.data_source, domain=None, range=Optional[Union[str, DataSourceId]])
+
+slots.query_parameter = Slot(uri=ANVIL['condition_assertion/query_parameter'], name="query_parameter", curie=ANVIL.curie('condition_assertion/query_parameter'),
+                   model_uri=ANVIL.query_parameter, domain=None, range=Optional[Union[str, List[str]]])
 
 slots.assertion_type = Slot(uri=ANVIL['condition_assertion/assertion_type'], name="assertion_type", curie=ANVIL.curie('condition_assertion/assertion_type'),
                    model_uri=ANVIL.assertion_type, domain=None, range=Optional[Union[str, "EnumAssertionType"]])

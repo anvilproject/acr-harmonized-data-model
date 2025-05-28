@@ -275,6 +275,66 @@
             "title": "BiospecimenCollection",
             "type": "object"
         },
+        "DataSource": {
+            "additionalProperties": false,
+            "description": "Query configuration for specifying a source from which data are pulled.",
+            "properties": {
+                "external_id": {
+                    "description": "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "google_data_project": {
+                    "description": "The Google Data Project needed to query this snapshot in BigQuery.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "ID associated with a class",
+                    "type": "string"
+                },
+                "parameterized_query": {
+                    "description": "A parameterized query that contains the primary key fields and can be used to select specific rows. This should be formatted according to (https://cloud.google.com/bigquery/docs/parameterized-queries)[BigQuery instructions], including using named parameters.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "snapshot_dataset": {
+                    "description": "The Dataset within BigQuery where the table can be queried.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "snapshot_id": {
+                    "description": "The Terra Data Repository Snapshot ID.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "table": {
+                    "description": "The table in the dataset that contains the row of interest.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "DataSource",
+            "type": "object"
+        },
         "Demographics": {
             "additionalProperties": false,
             "description": "Basic participant demographics summary",
@@ -666,7 +726,7 @@
                     "type": "string"
                 },
                 "family_role": {
-                    "description": "The \"role\" of this indiviudal in this family.",
+                    "description": "The \"role\" of this individual in this family. Could include terms like \"proband\", \"mother\", etc.",
                     "type": [
                         "string",
                         "null"
@@ -710,7 +770,7 @@
                     "type": "string"
                 },
                 "family_role": {
-                    "description": "The \"role\" of this indiviudal in this family.",
+                    "description": "The \"role\" of this individual in this family. Could include terms like \"proband\", \"mother\", etc.",
                     "type": [
                         "string",
                         "null"
@@ -1143,17 +1203,10 @@
         },
         "SourceData": {
             "additionalProperties": false,
-            "description": "Submitted data about a particular Subject.",
+            "description": "Reference to submitted data used to generate harmonized data. Applying the query_parameter(s) to the data_source.parameterized_query should return the specific data of interest.",
             "properties": {
-                "code": {
-                    "description": "The structured term defining the meaning of the assertion.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "display": {
-                    "description": "The friendly display string of the coded term",
+                "data_source": {
+                    "description": "Defines the location of data and how to query it.",
                     "type": [
                         "string",
                         "null"
@@ -1180,38 +1233,13 @@
                     "description": "ID associated with a class",
                     "type": "string"
                 },
-                "value_code": {
-                    "description": "The structured term defining the value of the assertion.",
+                "query_parameter": {
+                    "description": "One or more query parameters used to select the specific row. It will leverage the parameterized_query defined by a data_source. This should be formatted according to (https://cloud.google.com/bigquery/docs/parameterized-queries)[BigQuery instructions], specifically the bq CLI version with named parameters, ie, \"<parameter name>:<data type>:<value>\".",
+                    "items": {
+                        "type": "string"
+                    },
                     "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "value_display": {
-                    "description": "The friendly display string of the coded term for the value of the assertion.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "value_number": {
-                    "description": "The numeric value of the assertion.",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
-                },
-                "value_units": {
-                    "description": "The structured term defining the units of the value.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "value_units_display": {
-                    "description": "The friendly display string of units of the value.",
-                    "type": [
-                        "string",
+                        "array",
                         "null"
                     ]
                 }
