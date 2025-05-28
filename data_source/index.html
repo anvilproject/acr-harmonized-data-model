@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://anvilproject.github.io/acr-harmonized-data-model/quantity_units/">
+        <link rel="canonical" href="https://anvilproject.github.io/acr-harmonized-data-model/data_source/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Slot: Quantity Units (quantity_units) - acr-harmonized-data-model</title>
+        <title>Slot: Data Source (data_source) - acr-harmonized-data-model</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-quantity-units-quantity_units" class="md-skip">
+        <a href="#slot-data-source-data_source" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: Quantity Units (quantity_units)
+              Slot: Data Source (data_source)
             
           </span>
         </div>
@@ -359,10 +359,10 @@
   
 
 
-<h1 id="slot-quantity-units-quantity_units">Slot: Quantity Units (quantity_units)</h1>
-<p><em>The structured term defining the units of the quantity.</em></p>
-<p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/quantity_units">anvil:quantity_units</a>
-Alias: quantity_units</p>
+<h1 id="slot-data-source-data_source">Slot: Data Source (data_source)</h1>
+<p><em>Defines the location of data and how to query it.</em></p>
+<p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/data_source">anvil:data_source</a>
+Alias: data_source</p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="applicable-classes">Applicable Classes</h2>
@@ -376,20 +376,15 @@ Alias: quantity_units</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="../Sample/">Sample</a></td>
-<td>Biospecimen data</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Aliquot/">Aliquot</a></td>
-<td>Specific tubes or details of a Sample</td>
+<td><a href="../SourceData/">SourceData</a></td>
+<td>Reference to submitted data used to generate harmonized data</td>
 <td>no</td>
 </tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../Uriorcurie/">Uriorcurie</a></li>
+<li>Range: <a href="../DataSource/">DataSource</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -407,27 +402,26 @@ Alias: quantity_units</p>
 <tbody>
 <tr>
 <td>self</td>
-<td>anvil:quantity_units</td>
+<td>anvil:data_source</td>
 </tr>
 <tr>
 <td>native</td>
-<td>anvil:quantity_units</td>
+<td>anvil:data_source</td>
 </tr>
 </tbody>
 </table>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
-<pre><code class="language-yaml">name: quantity_units
-description: The structured term defining the units of the quantity.
-title: Quantity Units
+<pre><code class="language-yaml">name: data_source
+description: Defines the location of data and how to query it.
+title: Data Source
 from_schema: https://anvilproject.org/acr-harmonized-data-model
 rank: 1000
-alias: quantity_units
+alias: data_source
 domain_of:
-- Sample
-- Aliquot
-range: uriorcurie
+- SourceData
+range: DataSource
 
 </code></pre>
 

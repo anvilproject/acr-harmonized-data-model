@@ -487,7 +487,7 @@
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="SourceData/">SourceData</a></td>
-<td>Submitted data about a particular Subject</td>
+<td>Reference to submitted data used to generate harmonized data</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Subject/">Subject</a></td>
@@ -500,6 +500,10 @@
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="AccessPolicy/">AccessPolicy</a></td>
 <td>Describes the access required for a given element of data</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="DataSource/">DataSource</a></td>
+<td>Query configuration for specifying a source from which data are pulled</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="FileMetadata/">FileMetadata</a></td>
@@ -579,6 +583,10 @@
 <tr>
 <td><a href="data_access_type/">data_access_type</a></td>
 <td>Data Access Type</td>
+</tr>
+<tr>
+<td><a href="data_source/">data_source</a></td>
+<td>Defines the location of data and how to query it</td>
 </tr>
 <tr>
 <td><a href="data_type/">data_type</a></td>
@@ -669,6 +677,10 @@
 <td>Funding Source</td>
 </tr>
 <tr>
+<td><a href="google_data_project/">google_data_project</a></td>
+<td>The Google Data Project needed to query this snapshot in BigQuery</td>
+</tr>
+<tr>
 <td><a href="has_access_policy/">has_access_policy</a></td>
 <td>Which access policy applies to this element?</td>
 </tr>
@@ -709,6 +721,10 @@
 <td>The family member Subject for the relationship "object"</td>
 </tr>
 <tr>
+<td><a href="parameterized_query/">parameterized_query</a></td>
+<td>A parameterized query that contains the primary key fields and can be used to...</td>
+</tr>
+<tr>
 <td><a href="parent_sample/">parent_sample</a></td>
 <td>Sample from which this sample is derived</td>
 </tr>
@@ -731,6 +747,10 @@
 <tr>
 <td><a href="quantity_units/">quantity_units</a></td>
 <td>The structured term defining the units of the quantity</td>
+</tr>
+<tr>
+<td><a href="query_parameter/">query_parameter</a></td>
+<td>One or more query parameters used to select the specific row</td>
 </tr>
 <tr>
 <td><a href="race/">race</a></td>
@@ -769,6 +789,14 @@
 <td>Size of the file, in Bytes</td>
 </tr>
 <tr>
+<td><a href="snapshot_dataset/">snapshot_dataset</a></td>
+<td>The Dataset within BigQuery where the table can be queried</td>
+</tr>
+<tr>
+<td><a href="snapshot_id/">snapshot_id</a></td>
+<td>The Terra Data Repository Snapshot ID</td>
+</tr>
+<tr>
 <td><a href="source_data/">source_data</a></td>
 <td>The sources from which this assertion was derived</td>
 </tr>
@@ -791,6 +819,10 @@
 <tr>
 <td><a href="subject_type/">subject_type</a></td>
 <td>Type of entity this record represents</td>
+</tr>
+<tr>
+<td><a href="table/">table</a></td>
+<td>The table in the dataset that contains the row of interest</td>
 </tr>
 <tr>
 <td><a href="value_code/">value_code</a></td>

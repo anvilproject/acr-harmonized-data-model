@@ -229,7 +229,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-source-data-sourcedata">Class: Source Data (SourceData)</h1>
-<p><em>Submitted data about a particular Subject.</em></p>
+<p><em>Reference to submitted data used to generate harmonized data. Applying the query_parameter(s) to the data_source.parameterized_query should return the specific data of interest.</em></p>
 <p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/SourceData">anvil:SourceData</a></p>
 <div class="mermaid"> classDiagram
     class SourceData
@@ -237,9 +237,16 @@
       AccessControlledRecord &lt;|-- SourceData
         click AccessControlledRecord href "../AccessControlledRecord"
 
-      SourceData : code
+      SourceData : data_source
 
-      SourceData : display
+
+
+
+
+        SourceData --&gt; "0..1" DataSource : data_source
+        click DataSource href "../DataSource"
+
+
 
       SourceData : external_id
 
@@ -256,15 +263,7 @@
 
       SourceData : id
 
-      SourceData : value_code
-
-      SourceData : value_display
-
-      SourceData : value_number
-
-      SourceData : value_units
-
-      SourceData : value_units_display
+      SourceData : query_parameter
 
 
 </div>
@@ -290,45 +289,15 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../code/">code</a></td>
-<td>0..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
-<td>The structured term defining the meaning of the assertion</td>
+<td><a href="../data_source/">data_source</a></td>
+<td>0..1 <br/> <a href="../DataSource/">DataSource</a></td>
+<td>Defines the location of data and how to query it</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../display/">display</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The friendly display string of the coded term</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../value_code/">value_code</a></td>
-<td>0..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
-<td>The structured term defining the value of the assertion</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../value_display/">value_display</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The friendly display string of the coded term for the value of the assertion</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../value_number/">value_number</a></td>
-<td>0..1 <br/> <a href="../Float/">Float</a></td>
-<td>The numeric value of the assertion</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../value_units/">value_units</a></td>
-<td>0..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
-<td>The structured term defining the units of the value</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../value_units_display/">value_units_display</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The friendly display string of units of the value</td>
+<td><a href="../query_parameter/">query_parameter</a></td>
+<td>* <br/> <a href="../String/">String</a></td>
+<td>One or more query parameters used to select the specific row</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -405,118 +374,55 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: SourceData
-description: Submitted data about a particular Subject.
+description: Reference to submitted data used to generate harmonized data. Applying
+  the query_parameter(s) to the data_source.parameterized_query should return the
+  specific data of interest.
 title: Source Data
 from_schema: https://anvilproject.org/acr-harmonized-data-model
 is_a: AccessControlledRecord
 slots:
-- code
-- display
-- value_code
-- value_display
-- value_number
-- value_units
-- value_units_display
+- data_source
+- query_parameter
 
 </code></pre>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: SourceData
-description: Submitted data about a particular Subject.
+description: Reference to submitted data used to generate harmonized data. Applying
+  the query_parameter(s) to the data_source.parameterized_query should return the
+  specific data of interest.
 title: Source Data
 from_schema: https://anvilproject.org/acr-harmonized-data-model
 is_a: AccessControlledRecord
 attributes:
-  code:
-    name: code
-    description: The structured term defining the meaning of the assertion.
-    title: Assertion Code
+  data_source:
+    name: data_source
+    description: Defines the location of data and how to query it.
+    title: Data Source
     from_schema: https://anvilproject.org/acr-harmonized-data-model
     rank: 1000
-    alias: code
+    alias: data_source
     owner: SourceData
     domain_of:
-    - SubjectAssertion
     - SourceData
-    - FileMetadata
-    range: uriorcurie
-  display:
-    name: display
-    description: The friendly display string of the coded term
-    title: Display String
+    range: DataSource
+  query_parameter:
+    name: query_parameter
+    description: One or more query parameters used to select the specific row. It
+      will leverage the parameterized_query defined by a data_source. This should
+      be formatted according to (https://cloud.google.com/bigquery/docs/parameterized-queries)[BigQuery
+      instructions], specifically the bq CLI version with named parameters, ie, "&lt;parameter
+      name&gt;:&lt;data type&gt;:&lt;value&gt;".
+    title: Query Parameter
     from_schema: https://anvilproject.org/acr-harmonized-data-model
     rank: 1000
-    alias: display
+    alias: query_parameter
     owner: SourceData
     domain_of:
-    - SubjectAssertion
-    - SourceData
-    - FileMetadata
-    range: string
-  value_code:
-    name: value_code
-    description: The structured term defining the value of the assertion.
-    title: Value Code
-    from_schema: https://anvilproject.org/acr-harmonized-data-model
-    rank: 1000
-    alias: value_code
-    owner: SourceData
-    domain_of:
-    - SubjectAssertion
-    - SourceData
-    - FileMetadata
-    range: uriorcurie
-  value_display:
-    name: value_display
-    description: The friendly display string of the coded term for the value of the
-      assertion.
-    title: Value Display String
-    from_schema: https://anvilproject.org/acr-harmonized-data-model
-    rank: 1000
-    alias: value_display
-    owner: SourceData
-    domain_of:
-    - SubjectAssertion
-    - SourceData
-    - FileMetadata
-    range: string
-  value_number:
-    name: value_number
-    description: The numeric value of the assertion.
-    title: Value Number
-    from_schema: https://anvilproject.org/acr-harmonized-data-model
-    rank: 1000
-    alias: value_number
-    owner: SourceData
-    domain_of:
-    - SubjectAssertion
-    - SourceData
-    range: float
-  value_units:
-    name: value_units
-    description: The structured term defining the units of the value.
-    title: Value Units
-    from_schema: https://anvilproject.org/acr-harmonized-data-model
-    rank: 1000
-    alias: value_units
-    owner: SourceData
-    domain_of:
-    - SubjectAssertion
-    - SourceData
-    range: uriorcurie
-  value_units_display:
-    name: value_units_display
-    description: The friendly display string of units of the value.
-    title: Value Units
-    from_schema: https://anvilproject.org/acr-harmonized-data-model
-    rank: 1000
-    alias: value_units_display
-    owner: SourceData
-    domain_of:
-    - SubjectAssertion
     - SourceData
     range: string
+    multivalued: true
   has_access_policy:
     name: has_access_policy
     description: Which access policy applies to this element?

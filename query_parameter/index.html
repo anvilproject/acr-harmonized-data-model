@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://anvilproject.github.io/acr-harmonized-data-model/quantity_units/">
+        <link rel="canonical" href="https://anvilproject.github.io/acr-harmonized-data-model/query_parameter/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Slot: Quantity Units (quantity_units) - acr-harmonized-data-model</title>
+        <title>Slot: Query Parameter (query_parameter) - acr-harmonized-data-model</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-quantity-units-quantity_units" class="md-skip">
+        <a href="#slot-query-parameter-query_parameter" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: Quantity Units (quantity_units)
+              Slot: Query Parameter (query_parameter)
             
           </span>
         </div>
@@ -359,10 +359,10 @@
   
 
 
-<h1 id="slot-quantity-units-quantity_units">Slot: Quantity Units (quantity_units)</h1>
-<p><em>The structured term defining the units of the quantity.</em></p>
-<p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/quantity_units">anvil:quantity_units</a>
-Alias: quantity_units</p>
+<h1 id="slot-query-parameter-query_parameter">Slot: Query Parameter (query_parameter)</h1>
+<p><em>One or more query parameters used to select the specific row. It will leverage the parameterized_query defined by a data_source. This should be formatted according to (https://cloud.google.com/bigquery/docs/parameterized-queries)[BigQuery instructions], specifically the bq CLI version with named parameters, ie, "<parameter name>:<data type>:<value>".</em></p>
+<p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/query_parameter">anvil:query_parameter</a>
+Alias: query_parameter</p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="applicable-classes">Applicable Classes</h2>
@@ -376,20 +376,20 @@ Alias: quantity_units</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="../Sample/">Sample</a></td>
-<td>Biospecimen data</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Aliquot/">Aliquot</a></td>
-<td>Specific tubes or details of a Sample</td>
+<td><a href="../SourceData/">SourceData</a></td>
+<td>Reference to submitted data used to generate harmonized data</td>
 <td>no</td>
 </tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../Uriorcurie/">Uriorcurie</a></li>
+<li>
+<p>Range: <a href="../String/">String</a></p>
+</li>
+<li>
+<p>Multivalued: True</p>
+</li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -407,27 +407,31 @@ Alias: quantity_units</p>
 <tbody>
 <tr>
 <td>self</td>
-<td>anvil:quantity_units</td>
+<td>anvil:query_parameter</td>
 </tr>
 <tr>
 <td>native</td>
-<td>anvil:quantity_units</td>
+<td>anvil:query_parameter</td>
 </tr>
 </tbody>
 </table>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
-<pre><code class="language-yaml">name: quantity_units
-description: The structured term defining the units of the quantity.
-title: Quantity Units
+<pre><code class="language-yaml">name: query_parameter
+description: One or more query parameters used to select the specific row. It will
+  leverage the parameterized_query defined by a data_source. This should be formatted
+  according to (https://cloud.google.com/bigquery/docs/parameterized-queries)[BigQuery
+  instructions], specifically the bq CLI version with named parameters, ie, &quot;&lt;parameter
+  name&gt;:&lt;data type&gt;:&lt;value&gt;&quot;.
+title: Query Parameter
 from_schema: https://anvilproject.org/acr-harmonized-data-model
 rank: 1000
-alias: quantity_units
+alias: query_parameter
 domain_of:
-- Sample
-- Aliquot
-range: uriorcurie
+- SourceData
+range: string
+multivalued: true
 
 </code></pre>
 
