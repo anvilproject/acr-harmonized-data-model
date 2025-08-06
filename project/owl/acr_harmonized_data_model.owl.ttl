@@ -16,1685 +16,1914 @@
 @prefix snomed_ct: <http://snomed.info/id/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://anvilproject.org/acr-harmonized-data-model.owl.ttl> a owl:Ontology ;
-    rdfs:label "acr-harmonized-data-model" ;
-    dcterms:license "MIT" ;
-    dcterms:title "ACR Harmonized Data Model" ;
-    rdfs:seeAlso <https://anvilproject.github.io/acr-harmonized-data-model> ;
-    skos:definition "LinkML Schema for ACR Harmonized Data." .
+anvil:EnumConditionCode a owl:Class,
+        linkml:EnumDefinition .
 
-anvil:EnumConditionCode a owl:Class .
-
-<https://anvilproject.org/acr-harmonized-data-model/family/:Family> a owl:Class ;
+<https://anvilproject.org/acr-harmonized-data-model/family/Family> a owl:Class,
+        linkml:ClassDefinition ;
     rdfs:label "Family" ;
     dcterms:title "Family" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/:family_relationships> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/:family_type> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/:family_study_focus> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/:family_type> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/:family_members> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://anvilproject.org/acr-harmonized-data-model/family/:FamilyMember> ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/:family_members> ],
-        [ a owl:Restriction ;
             owl:allValuesFrom anvil:EnumConsanguinityAssertion ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/:consanguinity> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/consanguinity> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/:family_description> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/family_study_focus> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://anvilproject.org/acr-harmonized-data-model/family/:FamilyRelationship> ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/:family_relationships> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/:family_description> ],
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/family_description> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/:consanguinity> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/family_relationships> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/:family_study_focus> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/family_study_focus> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/:consanguinity> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/consanguinity> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://anvilproject.org/acr-harmonized-data-model/family/FamilyMember> ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/family_members> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/consanguinity> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/family_type> ],
         [ a owl:Restriction ;
             owl:allValuesFrom anvil:EnumFamilyType ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/:family_type> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/family_type> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/:family_study_focus> ],
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/family_type> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/:family_description> ],
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/family_study_focus> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/family_description> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/family_members> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/family_description> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://anvilproject.org/acr-harmonized-data-model/family/FamilyRelationship> ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/family_relationships> ],
         anvil:AccessControlledRecord ;
     skos:definition "A group of individuals of some relation who are grouped together in the study." ;
     skos:inScheme anvil:family .
 
-<https://anvilproject.org/acr-harmonized-data-model/file/:File> a owl:Class ;
+<https://anvilproject.org/acr-harmonized-data-model/file/File> a owl:Class,
+        linkml:ClassDefinition ;
     rdfs:label "File" ;
     dcterms:title "File" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/:filename> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://anvilproject.org/acr-harmonized-data-model/sample/:Sample> ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/:sample> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/:filename> ],
+            owl:allValuesFrom linkml:Integer ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/size> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/:drs_uri> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/sample> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/:size> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/drs_uri> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/:subject> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/:size> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/filename> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/:drs_uri> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom anvil:EDAMFormats ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/:format> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/format> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/:file_metadata> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://anvilproject.org/acr-harmonized-data-model/participant/:Subject> ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/:subject> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/:file_metadata> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/:data_type> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/:format> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://anvilproject.org/acr-harmonized-data-model/file/:FileMetadata> ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/:file_metadata> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/:sample> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/drs_uri> ],
         [ a owl:Restriction ;
             owl:allValuesFrom anvil:EDAMDataTypes ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/:data_type> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/data_type> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/format> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/:format> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/file_metadata> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:integer ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/:size> ],
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/filename> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/subject> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/:data_type> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/data_type> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/file_metadata> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/:filename> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/size> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/:drs_uri> ],
+            owl:allValuesFrom <https://anvilproject.org/acr-harmonized-data-model/participant/Subject> ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/subject> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/drs_uri> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/data_type> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom anvil:EDAMFormats ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/format> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/filename> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://anvilproject.org/acr-harmonized-data-model/file/FileMetadata> ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/file_metadata> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://anvilproject.org/acr-harmonized-data-model/sample/Sample> ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/sample> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/file/size> ],
         anvil:AccessControlledRecord ;
     skos:definition "File" ;
     skos:inScheme anvil:file .
 
-<https://anvilproject.org/acr-harmonized-data-model/participant/:in_study> a owl:ObjectProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/participant/in_study> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "in_study" ;
     dcterms:title "in study" ;
-    rdfs:range <https://anvilproject.org/acr-harmonized-data-model/study/:Study> ;
+    rdfs:range <https://anvilproject.org/acr-harmonized-data-model/study/Study> ;
     skos:definition "With which study is this class associated?" ;
     skos:inScheme anvil:participant .
 
-admin_gender:female a owl:Class ;
+admin_gender:female a owl:Class,
+        anvil:EnumSex ;
     rdfs:label "female" ;
     rdfs:subClassOf anvil:EnumSex .
 
-admin_gender:male a owl:Class ;
+admin_gender:male a owl:Class,
+        anvil:EnumSex ;
     rdfs:label "male" ;
     rdfs:subClassOf anvil:EnumSex .
 
-admin_gender:unknown a owl:Class ;
+admin_gender:unknown a owl:Class,
+        anvil:EnumSex ;
     rdfs:label "unknown" ;
     rdfs:subClassOf anvil:EnumSex .
 
-<http://hl7.org/fhir/us/mcode/ValueSet/mcode-body-location-qualifier-vs> a owl:Class .
+<http://hl7.org/fhir/us/mcode/ValueSet/mcode-body-location-qualifier-vs> a owl:Class,
+        linkml:EnumDefinition .
 
-snomed_ct:261665006 a owl:Class ;
+snomed_ct:261665006 a owl:Class,
+        anvil:EnumConsanguinityAssertion ;
     rdfs:label "unknown" ;
     rdfs:subClassOf anvil:EnumConsanguinityAssertion .
 
-snomed_ct:410515003 a owl:Class ;
+snomed_ct:410515003 a owl:Class,
+        anvil:EnumConsanguinityAssertion ;
     rdfs:label "known_present" ;
     rdfs:subClassOf anvil:EnumConsanguinityAssertion .
 
-snomed_ct:415684004 a owl:Class ;
+snomed_ct:415684004 a owl:Class,
+        anvil:EnumConsanguinityAssertion ;
     rdfs:label "suspected" ;
     rdfs:subClassOf anvil:EnumConsanguinityAssertion .
 
-snomed_ct:428263003 a owl:Class ;
+snomed_ct:428263003 a owl:Class,
+        anvil:EnumConsanguinityAssertion ;
     rdfs:label "not_suspected" ;
     rdfs:subClassOf anvil:EnumConsanguinityAssertion .
 
-anvil:EDAMDataTypes a owl:Class .
+anvil:EDAMDataTypes a owl:Class,
+        linkml:EnumDefinition .
 
-anvil:EDAMFormats a owl:Class .
+anvil:EDAMFormats a owl:Class,
+        linkml:EnumDefinition .
 
-<https://anvilproject.org/acr-harmonized-data-model/EnumAssertionType#ehr_billing_code> a owl:Class ;
+<https://anvilproject.org/acr-harmonized-data-model/EnumAssertionType#ehr_billing_code> a owl:Class,
+        anvil:EnumAssertionType ;
     rdfs:label "ehr_billing_code" ;
     rdfs:subClassOf anvil:EnumAssertionType .
 
-<https://anvilproject.org/acr-harmonized-data-model/EnumConditionAssertion#absent> a owl:Class ;
+<https://anvilproject.org/acr-harmonized-data-model/EnumConditionAssertion#absent> a owl:Class,
+        anvil:EnumConditionAssertion ;
     rdfs:label "absent" ;
     rdfs:subClassOf anvil:EnumConditionAssertion .
 
-<https://anvilproject.org/acr-harmonized-data-model/EnumConditionAssertion#present> a owl:Class ;
+<https://anvilproject.org/acr-harmonized-data-model/EnumConditionAssertion#present> a owl:Class,
+        anvil:EnumConditionAssertion ;
     rdfs:label "present" ;
     rdfs:subClassOf anvil:EnumConditionAssertion .
 
-<https://anvilproject.org/acr-harmonized-data-model/EnumConditionAssertion#unknown> a owl:Class ;
+<https://anvilproject.org/acr-harmonized-data-model/EnumConditionAssertion#unknown> a owl:Class,
+        anvil:EnumConditionAssertion ;
     rdfs:label "unknown" ;
     rdfs:subClassOf anvil:EnumConditionAssertion .
 
-<https://anvilproject.org/acr-harmonized-data-model/EnumConditionAssertion#unsure> a owl:Class ;
+<https://anvilproject.org/acr-harmonized-data-model/EnumConditionAssertion#unsure> a owl:Class,
+        anvil:EnumConditionAssertion ;
     rdfs:label "unsure" ;
     rdfs:subClassOf anvil:EnumConditionAssertion .
 
-<https://anvilproject.org/acr-harmonized-data-model/EnumFamilyType#control_only> a owl:Class ;
+<https://anvilproject.org/acr-harmonized-data-model/EnumFamilyType#control_only> a owl:Class,
+        anvil:EnumFamilyType ;
     rdfs:label "control_only" ;
     rdfs:subClassOf anvil:EnumFamilyType .
 
-<https://anvilproject.org/acr-harmonized-data-model/EnumFamilyType#duo> a owl:Class ;
+<https://anvilproject.org/acr-harmonized-data-model/EnumFamilyType#duo> a owl:Class,
+        anvil:EnumFamilyType ;
     rdfs:label "duo" ;
     rdfs:subClassOf anvil:EnumFamilyType .
 
-<https://anvilproject.org/acr-harmonized-data-model/EnumFamilyType#other> a owl:Class ;
+<https://anvilproject.org/acr-harmonized-data-model/EnumFamilyType#other> a owl:Class,
+        anvil:EnumFamilyType ;
     rdfs:label "other" ;
     rdfs:subClassOf anvil:EnumFamilyType .
 
-<https://anvilproject.org/acr-harmonized-data-model/EnumFamilyType#proband_only> a owl:Class ;
+<https://anvilproject.org/acr-harmonized-data-model/EnumFamilyType#proband_only> a owl:Class,
+        anvil:EnumFamilyType ;
     rdfs:label "proband_only" ;
     rdfs:subClassOf anvil:EnumFamilyType .
 
-<https://anvilproject.org/acr-harmonized-data-model/EnumFamilyType#trio> a owl:Class ;
+<https://anvilproject.org/acr-harmonized-data-model/EnumFamilyType#trio> a owl:Class,
+        anvil:EnumFamilyType ;
     rdfs:label "trio" ;
     rdfs:subClassOf anvil:EnumFamilyType .
 
-<https://anvilproject.org/acr-harmonized-data-model/EnumFamilyType#trio_plus> a owl:Class ;
+<https://anvilproject.org/acr-harmonized-data-model/EnumFamilyType#trio_plus> a owl:Class,
+        anvil:EnumFamilyType ;
     rdfs:label "trio_plus" ;
     rdfs:subClassOf anvil:EnumFamilyType .
 
-anvil:EnumLaterality a owl:Class .
+anvil:EnumLaterality a owl:Class,
+        linkml:EnumDefinition .
 
-anvil:EnumSampleCollectionMethod a owl:Class .
+anvil:EnumSampleCollectionMethod a owl:Class,
+        linkml:EnumDefinition .
 
-<https://anvilproject.org/acr-harmonized-data-model/EnumSex#intersex> a owl:Class ;
+<https://anvilproject.org/acr-harmonized-data-model/EnumSex#intersex> a owl:Class,
+        anvil:EnumSex ;
     rdfs:label "intersex" ;
     rdfs:subClassOf anvil:EnumSex .
 
-anvil:EnumSite a owl:Class .
+anvil:EnumSite a owl:Class,
+        linkml:EnumDefinition .
 
-<https://anvilproject.org/acr-harmonized-data-model/EnumSubjectType#animal_model> a owl:Class ;
+<https://anvilproject.org/acr-harmonized-data-model/EnumSubjectType#animal_model> a owl:Class,
+        anvil:EnumSubjectType ;
     rdfs:label "animal_model" ;
     rdfs:subClassOf anvil:EnumSubjectType .
 
-<https://anvilproject.org/acr-harmonized-data-model/EnumSubjectType#cell_line> a owl:Class ;
+<https://anvilproject.org/acr-harmonized-data-model/EnumSubjectType#cell_line> a owl:Class,
+        anvil:EnumSubjectType ;
     rdfs:label "cell_line" ;
     rdfs:subClassOf anvil:EnumSubjectType .
 
-<https://anvilproject.org/acr-harmonized-data-model/EnumSubjectType#group> a owl:Class ;
+<https://anvilproject.org/acr-harmonized-data-model/EnumSubjectType#group> a owl:Class,
+        anvil:EnumSubjectType ;
     rdfs:label "group" ;
     rdfs:subClassOf anvil:EnumSubjectType .
 
-<https://anvilproject.org/acr-harmonized-data-model/EnumSubjectType#non_participant> a owl:Class ;
+<https://anvilproject.org/acr-harmonized-data-model/EnumSubjectType#non_participant> a owl:Class,
+        anvil:EnumSubjectType ;
     rdfs:label "non_participant" ;
     rdfs:subClassOf anvil:EnumSubjectType .
 
-<https://anvilproject.org/acr-harmonized-data-model/EnumSubjectType#other> a owl:Class ;
+<https://anvilproject.org/acr-harmonized-data-model/EnumSubjectType#other> a owl:Class,
+        anvil:EnumSubjectType ;
     rdfs:label "other" ;
     rdfs:subClassOf anvil:EnumSubjectType .
 
-<https://anvilproject.org/acr-harmonized-data-model/EnumSubjectType#participant> a owl:Class ;
+<https://anvilproject.org/acr-harmonized-data-model/EnumSubjectType#participant> a owl:Class,
+        anvil:EnumSubjectType ;
     rdfs:label "participant" ;
     rdfs:subClassOf anvil:EnumSubjectType .
 
-<https://anvilproject.org/acr-harmonized-data-model/EnumVitalStatus#alive> a owl:Class ;
+<https://anvilproject.org/acr-harmonized-data-model/EnumVitalStatus#alive> a owl:Class,
+        anvil:EnumVitalStatus ;
     rdfs:label "alive" ;
     rdfs:subClassOf anvil:EnumVitalStatus .
 
-<https://anvilproject.org/acr-harmonized-data-model/EnumVitalStatus#dead> a owl:Class ;
+<https://anvilproject.org/acr-harmonized-data-model/EnumVitalStatus#dead> a owl:Class,
+        anvil:EnumVitalStatus ;
     rdfs:label "dead" ;
     rdfs:subClassOf anvil:EnumVitalStatus .
 
-<https://anvilproject.org/acr-harmonized-data-model/EnumVitalStatus#not_reported> a owl:Class ;
+<https://anvilproject.org/acr-harmonized-data-model/EnumVitalStatus#not_reported> a owl:Class,
+        anvil:EnumVitalStatus ;
     rdfs:label "not_reported" ;
     rdfs:subClassOf anvil:EnumVitalStatus .
 
-<https://anvilproject.org/acr-harmonized-data-model/EnumVitalStatus#unknown> a owl:Class ;
+<https://anvilproject.org/acr-harmonized-data-model/EnumVitalStatus#unknown> a owl:Class,
+        anvil:EnumVitalStatus ;
     rdfs:label "unknown" ;
     rdfs:subClassOf anvil:EnumVitalStatus .
 
-<https://anvilproject.org/acr-harmonized-data-model/EnumVitalStatus#unspecified> a owl:Class ;
+<https://anvilproject.org/acr-harmonized-data-model/EnumVitalStatus#unspecified> a owl:Class,
+        anvil:EnumVitalStatus ;
     rdfs:label "unspecified" ;
     rdfs:subClassOf anvil:EnumVitalStatus .
 
-<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:DataSource> a owl:Class ;
+<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/DataSource> a owl:Class,
+        linkml:ClassDefinition ;
     rdfs:label "DataSource" ;
     dcterms:title "Data Source" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:snapshot_dataset> ],
+            owl:minCardinality 0 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/snapshot_id> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:google_data_project> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/parameterized_query> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:parameterized_query> ],
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/table> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:google_data_project> ],
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/snapshot_id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/parameterized_query> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/snapshot_dataset> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/google_data_project> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:table> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/google_data_project> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/google_data_project> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/snapshot_id> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:parameterized_query> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:snapshot_id> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/table> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:snapshot_id> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/snapshot_dataset> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/parameterized_query> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:snapshot_dataset> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/snapshot_dataset> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:snapshot_dataset> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:parameterized_query> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:google_data_project> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:table> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:table> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:snapshot_id> ],
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/table> ],
         anvil:Thing ;
     skos:definition "Query configuration for specifying a source from which data are pulled." ;
     skos:inScheme anvil:condition_assertion .
 
-<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:SubjectAssertion> a owl:Class ;
+<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/SubjectAssertion> a owl:Class,
+        linkml:ClassDefinition ;
     rdfs:label "SubjectAssertion" ;
     dcterms:title "Subject Assertion" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:float ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:value_number> ],
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_resolution> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Float ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_event> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:value_number> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:value_units> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/assertion_type> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:value_number> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_number> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:age_at_resolution> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:assertion_type> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:SourceData> ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:source_data> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:display> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:value_units_display> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:float ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:age_at_resolution> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:value_units> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:value_code> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_display> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:display> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/assertion_type> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_code> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:age_at_event> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_number> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_display> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/SourceData> ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/source_data> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/display> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Float ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_number> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/source_data> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:age_at_event> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_assertion> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:display> ],
+            owl:allValuesFrom linkml:Float ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_assertion> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:value_units_display> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:value_display> ],
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/code> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:value_units_display> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_event> ],
         [ a owl:Restriction ;
             owl:allValuesFrom anvil:EnumAssertionType ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:assertion_type> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:code> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/assertion_type> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:age_at_assertion> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:float ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:age_at_assertion> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/code> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:age_at_assertion> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_units> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:value_units> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_units_display> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:code> ],
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_units_display> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_display> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_assertion> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_units> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_event> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:value_code> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:float ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:age_at_event> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/display> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:code> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:age_at_resolution> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/display> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:value_display> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/code> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Float ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_resolution> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_resolution> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_units_display> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_units> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_code> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:assertion_type> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:value_display> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:value_code> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:source_data> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_code> ],
         anvil:AccessControlledRecord ;
     skos:definition "Assertion about a particular Subject. May include Conditions, Measurements, etc." ;
     skos:inScheme anvil:condition_assertion .
 
-<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:query_parameter> a owl:DatatypeProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/query_parameter> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "query_parameter" ;
     dcterms:title "Query Parameter" ;
-    rdfs:range xsd:string ;
+    rdfs:range linkml:String ;
     skos:definition "One or more query parameters used to select the specific row. It will leverage the parameterized_query defined by a data_source. This should be formatted according to (https://cloud.google.com/bigquery/docs/parameterized-queries)[BigQuery instructions], specifically the bq CLI version with named parameters, ie, \"<parameter name>:<data type>:<value>\"." ;
     skos:inScheme anvil:condition_assertion .
 
-<https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:AccessPolicy> a owl:Class ;
+<https://anvilproject.org/acr-harmonized-data-model/data-access-policy/AccessPolicy> a owl:Class,
+        linkml:ClassDefinition ;
     rdfs:label "AccessPolicy" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/description> ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:description> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/description> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:description> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:access_policy_code> ],
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/disease_limitation> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:data_access_type> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/disease_limitation> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:website> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:disease_limitation> ],
+            owl:minCardinality 0 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/website> ],
         [ a owl:Restriction ;
             owl:allValuesFrom anvil:EnumAccessCode ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:access_policy_code> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/access_policy_code> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:description> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/access_policy_code> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:website> ],
+            owl:minCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/description> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/website> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/disease_limitation> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:website> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:disease_limitation> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/data_access_type> ],
         [ a owl:Restriction ;
             owl:allValuesFrom anvil:EnumAccessType ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:data_access_type> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/data_access_type> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:disease_limitation> ],
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/website> ],
         anvil:Thing ;
     skos:definition "Describes the access required for a given element of data." ;
     skos:inScheme anvil:data-access-policy .
 
-<https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:access_policy_code> a owl:ObjectProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/data-access-policy/access_policy_code> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "access_policy_code" ;
     rdfs:range anvil:EnumAccessCode ;
     skos:definition "Access Policy Code" ;
     skos:inScheme anvil:data-access-policy .
 
-<https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:data_access_type> a owl:ObjectProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/data-access-policy/data_access_type> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "data_access_type" ;
     rdfs:range anvil:EnumAccessType ;
     skos:definition "Data Access Type" ;
     skos:inScheme anvil:data-access-policy .
 
-anvil:external_id a owl:DatatypeProperty ;
+anvil:external_id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "external_id" ;
     dcterms:title "External Identifiers" ;
-    rdfs:range xsd:anyURI ;
+    rdfs:range linkml:Uriorcurie ;
     skos:definition "Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP" ;
     skos:inScheme <https://anvilproject.org/acr-harmonized-data-model> .
 
-<https://anvilproject.org/acr-harmonized-data-model/family/:FamilyMember> a owl:Class ;
+<https://anvilproject.org/acr-harmonized-data-model/family/FamilyMember> a owl:Class,
+        linkml:ClassDefinition ;
     rdfs:label "FamilyMember" ;
     dcterms:title "Family Member" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/family_role> ],
+        [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/:family_role> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/family_role> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/:family_member> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/:family_role> ],
+            owl:allValuesFrom <https://anvilproject.org/acr-harmonized-data-model/participant/Subject> ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/family_member> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/:family_member> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/family_member> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/:family_role> ],
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/family_member> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://anvilproject.org/acr-harmonized-data-model/participant/:Subject> ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/:family_member> ],
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/family_role> ],
         anvil:AccessControlledRecord ;
     skos:definition "Designates a Subject as a member of a family with some specified role." ;
     skos:inScheme anvil:family .
 
-<https://anvilproject.org/acr-harmonized-data-model/family/:FamilyRelationship> a owl:Class ;
+<https://anvilproject.org/acr-harmonized-data-model/family/FamilyRelationship> a owl:Class,
+        linkml:ClassDefinition ;
     rdfs:label "FamilyRelationship" ;
     dcterms:title "Family Member Relationship" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/:other_family_member> ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/:relationship_code> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://anvilproject.org/acr-harmonized-data-model/participant/:Subject> ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/:family_member> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/:family_member> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://anvilproject.org/acr-harmonized-data-model/participant/:Subject> ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/:other_family_member> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/family_member> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/:relationship_code> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/family_member> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/:relationship_code> ],
+            owl:allValuesFrom <https://anvilproject.org/acr-harmonized-data-model/participant/Subject> ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/other_family_member> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/:family_member> ],
+            owl:allValuesFrom <https://anvilproject.org/acr-harmonized-data-model/participant/Subject> ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/family_member> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/relationship_code> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/:other_family_member> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/other_family_member> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/relationship_code> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/relationship_code> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/family/other_family_member> ],
         anvil:AccessControlledRecord ;
     skos:definition "A relationship between two Subjects." ;
     skos:inScheme anvil:family .
 
-<https://anvilproject.org/acr-harmonized-data-model/family/:family_members> a owl:ObjectProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/family/family_members> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "family_members" ;
-    rdfs:range <https://anvilproject.org/acr-harmonized-data-model/family/:FamilyMember> ;
+    rdfs:range <https://anvilproject.org/acr-harmonized-data-model/family/FamilyMember> ;
     skos:definition "The Subjects who are included in this family and their roles." ;
     skos:inScheme anvil:family .
 
-<https://anvilproject.org/acr-harmonized-data-model/family/:family_relationships> a owl:ObjectProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/family/family_relationships> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "family_relationships" ;
-    rdfs:range <https://anvilproject.org/acr-harmonized-data-model/family/:FamilyRelationship> ;
+    rdfs:range <https://anvilproject.org/acr-harmonized-data-model/family/FamilyRelationship> ;
     skos:definition "Family relationships associated with this family." ;
     skos:inScheme anvil:family .
 
-<https://anvilproject.org/acr-harmonized-data-model/file/:FileMetadata> a owl:Class ;
+<https://anvilproject.org/acr-harmonized-data-model/file/FileMetadata> a owl:Class,
+        linkml:ClassDefinition ;
     rdfs:label "FileMetadata" ;
     dcterms:title "File Metadata" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:value_display> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:display> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:value_code> ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:code> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:value_code> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:display> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:value_display> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:display> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:code> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/display> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:code> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/code> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:value_display> ],
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/display> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_code> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:value_code> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_code> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/code> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/display> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_code> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_display> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_display> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_display> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/code> ],
         anvil:Thing ;
     skos:definition "Metadata about the contents of the file." ;
     skos:inScheme anvil:file .
 
-<https://anvilproject.org/acr-harmonized-data-model/file/:sample> a owl:ObjectProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/file/sample> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "sample" ;
     dcterms:title "Sample(s) related to file" ;
-    rdfs:range <https://anvilproject.org/acr-harmonized-data-model/sample/:Sample> ;
+    rdfs:range <https://anvilproject.org/acr-harmonized-data-model/sample/Sample> ;
     skos:definition "The Samples(s) used to generate data in this file." ;
     skos:inScheme anvil:file .
 
-<https://anvilproject.org/acr-harmonized-data-model/file/:subject> a owl:ObjectProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/file/subject> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "subject" ;
     dcterms:title "Subject(s) of file" ;
-    rdfs:range <https://anvilproject.org/acr-harmonized-data-model/participant/:Subject> ;
+    rdfs:range <https://anvilproject.org/acr-harmonized-data-model/participant/Subject> ;
     skos:definition "The Subject(s) which this file describes." ;
     skos:inScheme anvil:file .
 
-<https://anvilproject.org/acr-harmonized-data-model/participant/:Demographics> a owl:Class ;
+<https://anvilproject.org/acr-harmonized-data-model/participant/Demographics> a owl:Class,
+        linkml:ClassDefinition ;
     rdfs:label "Demographics" ;
     dcterms:title "Demographics" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:race_display> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:race_display> ],
+            owl:minCardinality 0 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/vital_status> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:ethnicity> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/ethnicity_display> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/date_of_birth_type> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/date_of_birth> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:age_at_last_vital_status> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:race_display> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom anvil:EnumSex ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:sex> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:sex_display> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:sex_display> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:integer ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:date_of_birth> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:date_of_birth_type> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:age_at_last_vital_status> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:sex_display> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom anvil:EnumRace ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:race> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom anvil:EnumEthnicity ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:ethnicity> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:race> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:sex> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:integer ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:age_at_last_vital_status> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:vital_status> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:vital_status> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:sex> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:date_of_birth> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:ethnicity> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:date_of_birth> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/date_of_birth> ],
         [ a owl:Restriction ;
             owl:allValuesFrom anvil:EnumDateOfBirthType ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:date_of_birth_type> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/date_of_birth_type> ],
         [ a owl:Restriction ;
             owl:allValuesFrom anvil:EnumVitalStatus ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:vital_status> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/vital_status> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:SourceData> ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:source_data> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:ethnicity_display> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:date_of_birth_type> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:ethnicity_display> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:ethnicity_display> ],
+            owl:allValuesFrom linkml:Integer ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/age_at_last_vital_status> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:source_data> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/date_of_birth_type> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/SourceData> ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/source_data> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/sex_display> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/age_at_last_vital_status> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Integer ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/date_of_birth> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/sex_display> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/race_display> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/ethnicity_display> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/race> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/source_data> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/race_display> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom anvil:EnumSex ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/sex> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/ethnicity> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/sex> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/sex> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom anvil:EnumEthnicity ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/ethnicity> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/sex_display> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/ethnicity> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/age_at_last_vital_status> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/vital_status> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/race_display> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/ethnicity_display> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom anvil:EnumRace ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/race> ],
         anvil:AccessControlledRecord ;
     skos:definition "Basic participant demographics summary" ;
     skos:inScheme anvil:participant .
 
-<https://anvilproject.org/acr-harmonized-data-model/participant/:has_assertion> a owl:ObjectProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/participant/has_assertion> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "has_assertion" ;
     dcterms:title "Has assertion" ;
-    rdfs:range <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:SubjectAssertion> ;
+    rdfs:range <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/SubjectAssertion> ;
     skos:definition "Which assertions are made about this Subject?" ;
     skos:inScheme anvil:participant .
 
-<https://anvilproject.org/acr-harmonized-data-model/participant/:has_sample> a owl:ObjectProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/participant/has_sample> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "has_sample" ;
     dcterms:title "Has sample" ;
-    rdfs:range <https://anvilproject.org/acr-harmonized-data-model/sample/:Sample> ;
+    rdfs:range <https://anvilproject.org/acr-harmonized-data-model/sample/Sample> ;
     skos:definition "Which samples were collected or processed for this Subject?" ;
     skos:inScheme anvil:participant .
 
-<https://anvilproject.org/acr-harmonized-data-model/participant/:race> a owl:ObjectProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/participant/race> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "race" ;
     dcterms:title "Race" ;
     rdfs:range anvil:EnumRace ;
     skos:definition "Reported race as defined by the 1997 OMB directives." ;
     skos:inScheme anvil:participant .
 
-<https://anvilproject.org/acr-harmonized-data-model/sample/:Aliquot> a owl:Class ;
+<https://anvilproject.org/acr-harmonized-data-model/sample/Aliquot> a owl:Class,
+        linkml:ClassDefinition ;
     rdfs:label "Aliquot" ;
     dcterms:title "Aliquot" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:concentration_number> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:quantity_units> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/concentration_unit> ],
         [ a owl:Restriction ;
             owl:allValuesFrom anvil:EnumAvailabilityStatus ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:availablity_status> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:float ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:quantity_number> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:concentration_number> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:concentration_unit> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:quantity_units> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/availablity_status> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:availablity_status> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:concentration_unit> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:concentration_unit> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/concentration_number> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:quantity_number> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/concentration_number> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:availablity_status> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:float ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:concentration_number> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/quantity_units> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:quantity_units> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/quantity_units> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:quantity_number> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/quantity_number> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Float ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/concentration_number> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/quantity_units> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/concentration_unit> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/availablity_status> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/quantity_number> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Float ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/quantity_number> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/availablity_status> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/concentration_unit> ],
         anvil:AccessControlledRecord ;
     skos:definition "Specific tubes or details of a Sample." ;
     skos:inScheme anvil:sample .
 
-<https://anvilproject.org/acr-harmonized-data-model/sample/:BiospecimenCollection> a owl:Class ;
+<https://anvilproject.org/acr-harmonized-data-model/sample/BiospecimenCollection> a owl:Class,
+        linkml:ClassDefinition ;
     rdfs:label "BiospecimenCollection" ;
     dcterms:title "BiospecimenCollection" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:integer ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:age_at_collection> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:method> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:site> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom anvil:EnumSampleCollectionMethod ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:method> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:method> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:age_at_collection> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom anvil:EnumLaterality ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:laterality> ],
-        [ a owl:Restriction ;
             owl:allValuesFrom <http://hl7.org/fhir/us/mcode/ValueSet/mcode-body-location-qualifier-vs> ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:spatial_qualifier> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/spatial_qualifier> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:age_at_collection> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/laterality> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:spatial_qualifier> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/site> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:spatial_qualifier> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/method> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:site> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/age_at_collection> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:laterality> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/spatial_qualifier> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/laterality> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/age_at_collection> ],
         [ a owl:Restriction ;
             owl:allValuesFrom anvil:EnumSite ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:site> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/site> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:laterality> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/spatial_qualifier> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom anvil:EnumLaterality ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/laterality> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom anvil:EnumSampleCollectionMethod ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/method> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Integer ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/age_at_collection> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/method> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/site> ],
         anvil:AccessControlledRecord ;
     skos:definition "Biospecimen Collection" ;
     skos:inScheme anvil:sample .
 
-<https://anvilproject.org/acr-harmonized-data-model/sample/:aliquots> a owl:ObjectProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/sample/aliquots> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "aliquots" ;
-    rdfs:range <https://anvilproject.org/acr-harmonized-data-model/sample/:Aliquot> ;
+    rdfs:range <https://anvilproject.org/acr-harmonized-data-model/sample/Aliquot> ;
     skos:definition "Aliquot(s) from this Sample." ;
     skos:inScheme anvil:sample .
 
-<https://anvilproject.org/acr-harmonized-data-model/sample/:processing> a owl:DatatypeProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/sample/processing> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "processing" ;
-    rdfs:range xsd:anyURI ;
+    rdfs:range linkml:Uriorcurie ;
     skos:definition "Processing that was applied to the Parent Sample or from the Biospecimen Collection that yielded this distinct sample" ;
     skos:inScheme anvil:sample .
 
-<https://anvilproject.org/acr-harmonized-data-model/sample/:storage_method> a owl:DatatypeProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/sample/storage_method> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "storage_method" ;
-    rdfs:range xsd:anyURI ;
+    rdfs:range linkml:Uriorcurie ;
     skos:definition "Sample storage method, eg, Frozen or with additives" ;
     skos:inScheme anvil:sample .
 
-<https://anvilproject.org/acr-harmonized-data-model/study/:external_study_id> a owl:DatatypeProperty ;
-    rdfs:label "external_study_id" ;
-    rdfs:range xsd:string ;
-    skos:definition "External Study ID" ;
-    skos:inScheme anvil:study .
-
-<https://anvilproject.org/acr-harmonized-data-model/study/:funding_source> a owl:DatatypeProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/study/funding_source> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "funding_source" ;
-    rdfs:range xsd:string ;
+    rdfs:range linkml:String ;
     skos:definition "Funding Source" ;
     skos:inScheme anvil:study .
 
-<https://anvilproject.org/acr-harmonized-data-model/study/:principal_investigator> a owl:DatatypeProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/study/principal_investigator> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "principal_investigator" ;
-    rdfs:range xsd:string ;
+    rdfs:range linkml:String ;
     skos:definition "Principal Investigator" ;
     skos:inScheme anvil:study .
 
-ig2_biospecimen_availability:available a owl:Class ;
+ig2_biospecimen_availability:available a owl:Class,
+        anvil:EnumAvailabilityStatus ;
     rdfs:label "available" ;
     rdfs:subClassOf anvil:EnumAvailabilityStatus .
 
-ig2_biospecimen_availability:unavailable a owl:Class ;
+ig2_biospecimen_availability:unavailable a owl:Class,
+        anvil:EnumAvailabilityStatus ;
     rdfs:label "unavailable" ;
     rdfs:subClassOf anvil:EnumAvailabilityStatus .
 
-igcondtype:Clinical-Finding a owl:Class ;
+igcondtype:Clinical-Finding a owl:Class,
+        anvil:EnumAssertionType ;
     rdfs:label "clinical_finding" ;
     rdfs:subClassOf anvil:EnumAssertionType .
 
-igcondtype:Comorbidity a owl:Class ;
+igcondtype:Comorbidity a owl:Class,
+        anvil:EnumAssertionType ;
     rdfs:label "comorbidity" ;
     rdfs:subClassOf anvil:EnumAssertionType .
 
-igcondtype:Disease a owl:Class ;
+igcondtype:Disease a owl:Class,
+        anvil:EnumAssertionType ;
     rdfs:label "disease" ;
     rdfs:subClassOf anvil:EnumAssertionType .
 
-igcondtype:Histology a owl:Class ;
+igcondtype:Histology a owl:Class,
+        anvil:EnumAssertionType ;
     rdfs:label "histology" ;
     rdfs:subClassOf anvil:EnumAssertionType .
 
-igcondtype:Phenotypic-Feature a owl:Class ;
+igcondtype:Phenotypic-Feature a owl:Class,
+        anvil:EnumAssertionType ;
     rdfs:label "phenotypic_feature" ;
     rdfs:subClassOf anvil:EnumAssertionType .
 
-ig2dac:COL a owl:Class ;
+ig2dac:COL a owl:Class,
+        anvil:EnumAccessCode ;
     rdfs:label "col" ;
     rdfs:subClassOf anvil:EnumAccessCode .
 
-ig2dac:DS a owl:Class ;
+ig2dac:DS a owl:Class,
+        anvil:EnumAccessCode ;
     rdfs:label "ds" ;
     rdfs:subClassOf anvil:EnumAccessCode .
 
-ig2dac:GRU a owl:Class ;
+ig2dac:GRU a owl:Class,
+        anvil:EnumAccessCode ;
     rdfs:label "gru" ;
     rdfs:subClassOf anvil:EnumAccessCode .
 
-ig2dac:GSO a owl:Class ;
+ig2dac:GSO a owl:Class,
+        anvil:EnumAccessCode ;
     rdfs:label "gso" ;
     rdfs:subClassOf anvil:EnumAccessCode .
 
-ig2dac:GSR a owl:Class ;
+ig2dac:GSR a owl:Class,
+        anvil:EnumAccessCode ;
     rdfs:label "gsr" ;
     rdfs:subClassOf anvil:EnumAccessCode .
 
-ig2dac:HMB a owl:Class ;
+ig2dac:HMB a owl:Class,
+        anvil:EnumAccessCode ;
     rdfs:label "hmb" ;
     rdfs:subClassOf anvil:EnumAccessCode .
 
-ig2dac:IRB a owl:Class ;
+ig2dac:IRB a owl:Class,
+        anvil:EnumAccessCode ;
     rdfs:label "irb" ;
     rdfs:subClassOf anvil:EnumAccessCode .
 
-ig2dac:MDS a owl:Class ;
+ig2dac:MDS a owl:Class,
+        anvil:EnumAccessCode ;
     rdfs:label "mds" ;
     rdfs:subClassOf anvil:EnumAccessCode .
 
-ig2dac:NPU a owl:Class ;
+ig2dac:NPU a owl:Class,
+        anvil:EnumAccessCode ;
     rdfs:label "npu" ;
     rdfs:subClassOf anvil:EnumAccessCode .
 
-ig2dac:PUB a owl:Class ;
+ig2dac:PUB a owl:Class,
+        anvil:EnumAccessCode ;
     rdfs:label "pub" ;
     rdfs:subClassOf anvil:EnumAccessCode .
 
-ig2dat:controlled a owl:Class ;
+ig2dat:controlled a owl:Class,
+        anvil:EnumAccessType ;
     rdfs:label "controlled" ;
     rdfs:subClassOf anvil:EnumAccessType .
 
-ig2dat:gsr-allowed a owl:Class ;
+ig2dat:gsr-allowed a owl:Class,
+        anvil:EnumAccessType ;
     rdfs:label "gsr_allowed" ;
     rdfs:subClassOf anvil:EnumAccessType .
 
-ig2dat:gsr-restricted a owl:Class ;
+ig2dat:gsr-restricted a owl:Class,
+        anvil:EnumAccessType ;
     rdfs:label "gsr_restricted" ;
     rdfs:subClassOf anvil:EnumAccessType .
 
-ig2dat:open a owl:Class ;
+ig2dat:open a owl:Class,
+        anvil:EnumAccessType ;
     rdfs:label "open" ;
     rdfs:subClassOf anvil:EnumAccessType .
 
-ig2dat:registered a owl:Class ;
+ig2dat:registered a owl:Class,
+        anvil:EnumAccessType ;
     rdfs:label "registered" ;
     rdfs:subClassOf anvil:EnumAccessType .
 
-ig_dob_method:decade-only a owl:Class ;
+ig_dob_method:decade-only a owl:Class,
+        anvil:EnumDateOfBirthType ;
     rdfs:label "decade_only" ;
     rdfs:subClassOf anvil:EnumDateOfBirthType .
 
-ig_dob_method:exact a owl:Class ;
+ig_dob_method:exact a owl:Class,
+        anvil:EnumDateOfBirthType ;
     rdfs:label "exact" ;
     rdfs:subClassOf anvil:EnumDateOfBirthType .
 
-ig_dob_method:other a owl:Class ;
+ig_dob_method:other a owl:Class,
+        anvil:EnumDateOfBirthType ;
     rdfs:label "other" ;
     rdfs:subClassOf anvil:EnumDateOfBirthType .
 
-ig_dob_method:shifted a owl:Class ;
+ig_dob_method:shifted a owl:Class,
+        anvil:EnumDateOfBirthType ;
     rdfs:label "shifted" ;
     rdfs:subClassOf anvil:EnumDateOfBirthType .
 
-ig_dob_method:year-only a owl:Class ;
+ig_dob_method:year-only a owl:Class,
+        anvil:EnumDateOfBirthType ;
     rdfs:label "year_only" ;
     rdfs:subClassOf anvil:EnumDateOfBirthType .
 
-cdc_race_eth:1002-5 a owl:Class ;
+cdc_race_eth:1002-5 a owl:Class,
+        anvil:EnumRace ;
     rdfs:label "american_indian_or_alaskan_native" ;
     rdfs:subClassOf anvil:EnumRace .
 
-cdc_race_eth:2028-9 a owl:Class ;
+cdc_race_eth:2028-9 a owl:Class,
+        anvil:EnumRace ;
     rdfs:label "asian" ;
     rdfs:subClassOf anvil:EnumRace .
 
-cdc_race_eth:2054-5 a owl:Class ;
+cdc_race_eth:2054-5 a owl:Class,
+        anvil:EnumRace ;
     rdfs:label "black_or_african_american" ;
     rdfs:subClassOf anvil:EnumRace .
 
-cdc_race_eth:2076-8 a owl:Class ;
+cdc_race_eth:2076-8 a owl:Class,
+        anvil:EnumRace ;
     rdfs:label "native_hawaiian_or_pacific_islander" ;
     rdfs:subClassOf anvil:EnumRace .
 
-cdc_race_eth:2106-3 a owl:Class ;
+cdc_race_eth:2106-3 a owl:Class,
+        anvil:EnumRace ;
     rdfs:label "white" ;
     rdfs:subClassOf anvil:EnumRace .
 
-cdc_race_eth:2131-1 a owl:Class ;
+cdc_race_eth:2131-1 a owl:Class,
+        anvil:EnumRace ;
     rdfs:label "other_race" ;
     rdfs:subClassOf anvil:EnumRace .
 
-cdc_race_eth:2135-2 a owl:Class ;
+cdc_race_eth:2135-2 a owl:Class,
+        anvil:EnumEthnicity ;
     rdfs:label "hispanic_or_latino" ;
     rdfs:subClassOf anvil:EnumEthnicity .
 
-cdc_race_eth:2186-5 a owl:Class ;
+cdc_race_eth:2186-5 a owl:Class,
+        anvil:EnumEthnicity ;
     rdfs:label "not_hispanic_or_latino" ;
     rdfs:subClassOf anvil:EnumEthnicity .
 
-<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:SourceData> a owl:Class ;
+<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/SourceData> a owl:Class,
+        linkml:ClassDefinition ;
     rdfs:label "SourceData" ;
     dcterms:title "Source Data" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:query_parameter> ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:data_source> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:DataSource> ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:data_source> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/data_source> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:data_source> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/query_parameter> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:query_parameter> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/data_source> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/DataSource> ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/data_source> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/query_parameter> ],
         anvil:AccessControlledRecord ;
     skos:definition "Reference to submitted data used to generate harmonized data. Applying the query_parameter(s) to the data_source.parameterized_query should return the specific data of interest." ;
     skos:inScheme anvil:condition_assertion .
 
-<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:age_at_assertion> a owl:DatatypeProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_assertion> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "age_at_assertion" ;
     dcterms:title "Age at assertion" ;
-    rdfs:range xsd:float ;
+    rdfs:range linkml:Float ;
     skos:definition "The age in decimal years of the Subject when the assertion was made." ;
     skos:inScheme anvil:condition_assertion .
 
-<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:age_at_event> a owl:DatatypeProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_event> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "age_at_event" ;
     dcterms:title "Age at event" ;
-    rdfs:range xsd:float ;
+    rdfs:range linkml:Float ;
     skos:definition "The age in decimal years of the Subject at the time point which the assertion describes, | eg, age of onset or when a measurement was performed." ;
     skos:inScheme anvil:condition_assertion .
 
-<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:age_at_resolution> a owl:DatatypeProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_resolution> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "age_at_resolution" ;
     dcterms:title "Age at resolution" ;
-    rdfs:range xsd:float ;
+    rdfs:range linkml:Float ;
     skos:definition "The age in decimal years of the Subject when the asserted state was resolved." ;
     skos:inScheme anvil:condition_assertion .
 
-<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:assertion_type> a owl:ObjectProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/assertion_type> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "assertion_type" ;
     dcterms:title "Assertion Type" ;
     rdfs:range anvil:EnumAssertionType ;
     skos:definition "The semantic type of the resource, eg, Condition." ;
     skos:inScheme anvil:condition_assertion .
 
-<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:data_source> a owl:ObjectProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/data_source> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "data_source" ;
     dcterms:title "Data Source" ;
-    rdfs:range <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:DataSource> ;
+    rdfs:range <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/DataSource> ;
     skos:definition "Defines the location of data and how to query it." ;
     skos:inScheme anvil:condition_assertion .
 
-<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:google_data_project> a owl:DatatypeProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/google_data_project> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "google_data_project" ;
     dcterms:title "Google Data Project" ;
-    rdfs:range xsd:string ;
+    rdfs:range linkml:String ;
     skos:definition "The Google Data Project needed to query this snapshot in BigQuery." ;
     skos:inScheme anvil:condition_assertion .
 
-<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:parameterized_query> a owl:DatatypeProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/parameterized_query> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "parameterized_query" ;
     dcterms:title "Parameterized Query" ;
-    rdfs:range xsd:string ;
+    rdfs:range linkml:String ;
     skos:definition "A parameterized query that contains the primary key fields and can be used to select specific rows. This should be formatted according to (https://cloud.google.com/bigquery/docs/parameterized-queries)[BigQuery instructions], including using named parameters." ;
     skos:inScheme anvil:condition_assertion .
 
-<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:snapshot_dataset> a owl:DatatypeProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/snapshot_dataset> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "snapshot_dataset" ;
     dcterms:title "Snapshot Dataset" ;
-    rdfs:range xsd:string ;
+    rdfs:range linkml:String ;
     skos:definition "The Dataset within BigQuery where the table can be queried." ;
     skos:inScheme anvil:condition_assertion .
 
-<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:snapshot_id> a owl:DatatypeProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/snapshot_id> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "snapshot_id" ;
     dcterms:title "Snapshot ID" ;
-    rdfs:range xsd:string ;
+    rdfs:range linkml:String ;
     skos:definition "The Terra Data Repository Snapshot ID." ;
     skos:inScheme anvil:condition_assertion .
 
-<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:table> a owl:DatatypeProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/table> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "table" ;
     dcterms:title "Table" ;
-    rdfs:range xsd:string ;
+    rdfs:range linkml:String ;
     skos:definition "The table in the dataset that contains the row of interest." ;
     skos:inScheme anvil:condition_assertion .
 
-<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:value_number> a owl:DatatypeProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_number> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "value_number" ;
     dcterms:title "Value Number" ;
-    rdfs:range xsd:float ;
+    rdfs:range linkml:Float ;
     skos:definition "The numeric value of the assertion." ;
     skos:inScheme anvil:condition_assertion .
 
-<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:value_units> a owl:DatatypeProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_units> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "value_units" ;
     dcterms:title "Value Units" ;
-    rdfs:range xsd:anyURI ;
+    rdfs:range linkml:Uriorcurie ;
     skos:definition "The structured term defining the units of the value." ;
     skos:inScheme anvil:condition_assertion .
 
-<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:value_units_display> a owl:DatatypeProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_units_display> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "value_units_display" ;
     dcterms:title "Value Units" ;
-    rdfs:range xsd:string ;
+    rdfs:range linkml:String ;
     skos:definition "The friendly display string of units of the value." ;
     skos:inScheme anvil:condition_assertion .
 
-<https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:description> a owl:DatatypeProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/data-access-policy/description> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "description" ;
-    rdfs:range xsd:string ;
+    rdfs:range linkml:String ;
     skos:definition "Description" ;
     skos:inScheme anvil:data-access-policy .
 
-<https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:disease_limitation> a owl:DatatypeProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/data-access-policy/disease_limitation> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "disease_limitation" ;
-    rdfs:range xsd:string ;
+    rdfs:range linkml:String ;
     skos:definition "Disease Use Limitations" ;
     skos:inScheme anvil:data-access-policy .
 
-<https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:has_access_policy> a owl:ObjectProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/data-access-policy/has_access_policy> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "has_access_policy" ;
-    rdfs:range <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:AccessPolicy> ;
+    rdfs:range <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/AccessPolicy> ;
     skos:definition "Which access policy applies to this element?" ;
     skos:inScheme anvil:data-access-policy .
 
-<https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:website> a owl:DatatypeProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/data-access-policy/website> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "website" ;
-    rdfs:range xsd:string ;
+    rdfs:range linkml:String ;
     skos:definition "Website" ;
     skos:inScheme anvil:data-access-policy .
 
-<https://anvilproject.org/acr-harmonized-data-model/family/:consanguinity> a owl:ObjectProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/family/consanguinity> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "consanguinity" ;
     rdfs:range anvil:EnumConsanguinityAssertion ;
     skos:definition "Is there known or suspected consanguinity in this study family?" ;
     skos:inScheme anvil:family .
 
-<https://anvilproject.org/acr-harmonized-data-model/family/:family_description> a owl:DatatypeProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/family/family_description> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "family_description" ;
-    rdfs:range xsd:string ;
+    rdfs:range linkml:String ;
     skos:definition "Free title describing the study family, such as potential inheritance or details about consanguinity" ;
     skos:inScheme anvil:family .
 
-<https://anvilproject.org/acr-harmonized-data-model/family/:family_role> a owl:DatatypeProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/family/family_role> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "family_role" ;
-    rdfs:range xsd:anyURI ;
+    rdfs:range linkml:Uriorcurie ;
     skos:definition "The \"role\" of this individual in this family. Could include terms like \"proband\", \"mother\", etc." ;
     skos:inScheme anvil:family .
 
-<https://anvilproject.org/acr-harmonized-data-model/family/:family_study_focus> a owl:DatatypeProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/family/family_study_focus> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "family_study_focus" ;
-    rdfs:range xsd:string ;
+    rdfs:range linkml:String ;
     skos:definition """What is this study family investigating? EG, a specific condition. The code should be prefixed with a recognizable curie. 
 """ ;
     skos:inScheme anvil:family .
 
-<https://anvilproject.org/acr-harmonized-data-model/family/:family_type> a owl:ObjectProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/family/family_type> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "family_type" ;
     rdfs:range anvil:EnumFamilyType ;
     skos:definition "Describes the 'type' of study family, eg, trio." ;
     skos:inScheme anvil:family .
 
-<https://anvilproject.org/acr-harmonized-data-model/family/:other_family_member> a owl:ObjectProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/family/other_family_member> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "other_family_member" ;
-    rdfs:range <https://anvilproject.org/acr-harmonized-data-model/participant/:Subject> ;
+    rdfs:range <https://anvilproject.org/acr-harmonized-data-model/participant/Subject> ;
     skos:definition "The family member Subject for the relationship \"object\"." ;
     skos:inScheme anvil:family .
 
-<https://anvilproject.org/acr-harmonized-data-model/family/:relationship_code> a owl:DatatypeProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/family/relationship_code> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "relationship_code" ;
-    rdfs:range xsd:anyURI ;
+    rdfs:range linkml:Uriorcurie ;
     skos:definition """Code definting the relationship predicate. Relationship of the "Family Member" to the "Other Family Member" (i.e. mother, father, etc). Code must be from the HL7 [FamilyMember ValueSet](https://terminology.hl7.org/6.2.0/ValueSet-v3-FamilyMember.html)
 """ ;
     skos:inScheme anvil:family .
 
-<https://anvilproject.org/acr-harmonized-data-model/file/:data_type> a owl:ObjectProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/file/data_type> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "data_type" ;
     dcterms:title "Data Type" ;
     rdfs:range anvil:EDAMDataTypes ;
     skos:definition "The type of data within this file." ;
     skos:inScheme anvil:file .
 
-<https://anvilproject.org/acr-harmonized-data-model/file/:drs_uri> a owl:DatatypeProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/file/drs_uri> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "drs_uri" ;
     dcterms:title "DRS URI" ;
-    rdfs:range xsd:anyURI ;
+    rdfs:range linkml:Uriorcurie ;
     skos:definition "DRS location to access the data." ;
     skos:inScheme anvil:file .
 
-<https://anvilproject.org/acr-harmonized-data-model/file/:file_metadata> a owl:ObjectProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/file/file_metadata> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "file_metadata" ;
     dcterms:title "File Metadata" ;
-    rdfs:range <https://anvilproject.org/acr-harmonized-data-model/file/:FileMetadata> ;
+    rdfs:range <https://anvilproject.org/acr-harmonized-data-model/file/FileMetadata> ;
     skos:definition "Additional metadata about the contents of the file, eg, genome reference build." ;
     skos:inScheme anvil:file .
 
-<https://anvilproject.org/acr-harmonized-data-model/file/:filename> a owl:DatatypeProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/file/filename> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "filename" ;
     dcterms:title "Filename" ;
-    rdfs:range xsd:string ;
+    rdfs:range linkml:String ;
     skos:definition "The name of the file." ;
     skos:inScheme anvil:file .
 
-<https://anvilproject.org/acr-harmonized-data-model/file/:format> a owl:ObjectProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/file/format> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "format" ;
     dcterms:title "File Format" ;
     rdfs:range anvil:EDAMFormats ;
     skos:definition "The format of the file." ;
     skos:inScheme anvil:file .
 
-<https://anvilproject.org/acr-harmonized-data-model/file/:size> a owl:DatatypeProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/file/size> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "size" ;
     dcterms:title "File Size" ;
-    rdfs:range xsd:integer ;
+    rdfs:range linkml:Integer ;
     skos:definition "Size of the file, in Bytes." ;
     skos:inScheme anvil:file .
 
-anvil:id a owl:DatatypeProperty ;
+anvil:id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "id" ;
     dcterms:title "ID" ;
-    rdfs:range xsd:string ;
+    rdfs:range linkml:String ;
     skos:definition "ID associated with a class" ;
     skos:inScheme <https://anvilproject.org/acr-harmonized-data-model> .
 
-<https://anvilproject.org/acr-harmonized-data-model/participant/:age_at_last_vital_status> a owl:DatatypeProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/participant/age_at_last_vital_status> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "age_at_last_vital_status" ;
     dcterms:title "Age at Last Vital Status" ;
-    rdfs:range xsd:integer ;
+    rdfs:range linkml:Integer ;
     skos:definition "Age at last vital status in decimal years." ;
     skos:inScheme anvil:participant .
 
-<https://anvilproject.org/acr-harmonized-data-model/participant/:date_of_birth> a owl:DatatypeProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/participant/date_of_birth> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "date_of_birth" ;
     dcterms:title "Date of Birth" ;
-    rdfs:range xsd:integer ;
+    rdfs:range linkml:Integer ;
     skos:definition "Date at which the individual was born. May be impacted by privacy rules described in date_of_birth_type." ;
     skos:inScheme anvil:participant .
 
-<https://anvilproject.org/acr-harmonized-data-model/participant/:date_of_birth_type> a owl:ObjectProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/participant/date_of_birth_type> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "date_of_birth_type" ;
     dcterms:title "Date of Birth Type" ;
     rdfs:range anvil:EnumDateOfBirthType ;
     skos:definition "Privacy rule modification applied to date_of_birth." ;
     skos:inScheme anvil:participant .
 
-<https://anvilproject.org/acr-harmonized-data-model/participant/:ethnicity> a owl:ObjectProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/participant/ethnicity> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "ethnicity" ;
     dcterms:title "Ethnicity" ;
     rdfs:range anvil:EnumEthnicity ;
     skos:definition "Reported ethnicity as defined by the 1997 OMB directives." ;
     skos:inScheme anvil:participant .
 
-<https://anvilproject.org/acr-harmonized-data-model/participant/:ethnicity_display> a owl:DatatypeProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/participant/ethnicity_display> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "ethnicity_display" ;
     dcterms:title "Ethnicity display string" ;
-    rdfs:range xsd:string ;
+    rdfs:range linkml:String ;
     skos:definition "The friendly display string of the coded term for Ethnicity" ;
     skos:inScheme anvil:participant .
 
-<https://anvilproject.org/acr-harmonized-data-model/participant/:has_demographics> a owl:ObjectProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/participant/has_demographics> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "has_demographics" ;
     dcterms:title "Has demographics" ;
-    rdfs:range <https://anvilproject.org/acr-harmonized-data-model/participant/:Demographics> ;
+    rdfs:range <https://anvilproject.org/acr-harmonized-data-model/participant/Demographics> ;
     skos:definition "A demographic summary of the participant." ;
     skos:inScheme anvil:participant .
 
-<https://anvilproject.org/acr-harmonized-data-model/participant/:organism_type> a owl:DatatypeProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/participant/organism_type> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "organism_type" ;
     dcterms:title "Organism Type" ;
-    rdfs:range xsd:string ;
+    rdfs:range linkml:String ;
     skos:definition "Organism Type Label" ;
     skos:inScheme anvil:participant .
 
-<https://anvilproject.org/acr-harmonized-data-model/participant/:race_display> a owl:DatatypeProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/participant/race_display> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "race_display" ;
     dcterms:title "Race display string" ;
-    rdfs:range xsd:string ;
+    rdfs:range linkml:String ;
     skos:definition "The friendly display string of the coded term(s) for Race" ;
     skos:inScheme anvil:participant .
 
-<https://anvilproject.org/acr-harmonized-data-model/participant/:sex> a owl:ObjectProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/participant/sex> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "sex" ;
     dcterms:title "Sex" ;
     rdfs:range anvil:EnumSex ;
     skos:definition "Sex of the individual" ;
     skos:inScheme anvil:participant .
 
-<https://anvilproject.org/acr-harmonized-data-model/participant/:sex_display> a owl:DatatypeProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/participant/sex_display> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "sex_display" ;
     dcterms:title "Sex display string" ;
-    rdfs:range xsd:string ;
+    rdfs:range linkml:String ;
     skos:definition "The friendly display string of the coded term for Sex" ;
     skos:inScheme anvil:participant .
 
-<https://anvilproject.org/acr-harmonized-data-model/participant/:subject_type> a owl:ObjectProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/participant/subject_type> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "subject_type" ;
     dcterms:title "Subject Type" ;
     rdfs:range anvil:EnumSubjectType ;
     skos:definition "Type of entity this record represents" ;
     skos:inScheme anvil:participant .
 
-<https://anvilproject.org/acr-harmonized-data-model/participant/:vital_status> a owl:ObjectProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/participant/vital_status> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "vital_status" ;
     dcterms:title "VitalStatus" ;
     rdfs:range anvil:EnumVitalStatus ;
     skos:definition "Vital Status" ;
     skos:inScheme anvil:participant .
 
-<https://anvilproject.org/acr-harmonized-data-model/sample/:age_at_collection> a owl:DatatypeProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/sample/age_at_collection> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "age_at_collection" ;
     dcterms:title "age_at_collection" ;
-    rdfs:range xsd:integer ;
+    rdfs:range linkml:Integer ;
     skos:definition "The age at which this biospecimen was collected." ;
     skos:inScheme anvil:sample .
 
-<https://anvilproject.org/acr-harmonized-data-model/sample/:biospecimen_collection> a owl:ObjectProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/sample/biospecimen_collection> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "biospecimen_collection" ;
-    rdfs:range <https://anvilproject.org/acr-harmonized-data-model/sample/:BiospecimenCollection> ;
+    rdfs:range <https://anvilproject.org/acr-harmonized-data-model/sample/BiospecimenCollection> ;
     skos:definition "Biospecimen Collection that generated this sample." ;
     skos:inScheme anvil:sample .
 
-<https://anvilproject.org/acr-harmonized-data-model/sample/:concentration_number> a owl:DatatypeProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/sample/concentration_number> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "concentration_number" ;
-    rdfs:range xsd:float ;
+    rdfs:range linkml:Float ;
     skos:definition "What is the concentration of the analyte in the Aliquot?" ;
     skos:inScheme anvil:sample .
 
-<https://anvilproject.org/acr-harmonized-data-model/sample/:concentration_unit> a owl:DatatypeProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/sample/concentration_unit> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "concentration_unit" ;
-    rdfs:range xsd:anyURI ;
+    rdfs:range linkml:Uriorcurie ;
     skos:definition "Units associated with the concentration of the analyte in the Aliquot? UCUM coding preferred (with curie, UCUM)" ;
     skos:inScheme anvil:sample .
 
-<https://anvilproject.org/acr-harmonized-data-model/sample/:laterality> a owl:ObjectProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/sample/laterality> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "laterality" ;
     dcterms:title "laterality" ;
     rdfs:range anvil:EnumLaterality ;
     skos:definition "Laterality information for the site" ;
     skos:inScheme anvil:sample .
 
-<https://anvilproject.org/acr-harmonized-data-model/sample/:method> a owl:ObjectProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/sample/method> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "method" ;
     dcterms:title "method" ;
     rdfs:range anvil:EnumSampleCollectionMethod ;
     skos:definition "The approach used to collect the biospecimen." ;
     skos:inScheme anvil:sample .
 
-<https://anvilproject.org/acr-harmonized-data-model/sample/:parent_sample> a owl:ObjectProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/sample/parent_sample> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "parent_sample" ;
-    rdfs:range <https://anvilproject.org/acr-harmonized-data-model/sample/:Sample> ;
+    rdfs:range <https://anvilproject.org/acr-harmonized-data-model/sample/Sample> ;
     skos:definition "Sample from which this sample is derived" ;
     skos:inScheme anvil:sample .
 
-<https://anvilproject.org/acr-harmonized-data-model/sample/:sample_type> a owl:DatatypeProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/sample/sample_type> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "sample_type" ;
-    rdfs:range xsd:anyURI ;
+    rdfs:range linkml:Uriorcurie ;
     skos:definition "Type of material of which this Sample is comprised" ;
     skos:inScheme anvil:sample .
 
-<https://anvilproject.org/acr-harmonized-data-model/sample/:site> a owl:ObjectProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/sample/site> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "site" ;
     dcterms:title "site" ;
     rdfs:range anvil:EnumSite ;
     skos:definition "The location of the specimen collection." ;
     skos:inScheme anvil:sample .
 
-<https://anvilproject.org/acr-harmonized-data-model/sample/:spatial_qualifier> a owl:ObjectProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/sample/spatial_qualifier> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "spatial_qualifier" ;
     dcterms:title "spatial_qualifier" ;
     rdfs:range <http://hl7.org/fhir/us/mcode/ValueSet/mcode-body-location-qualifier-vs> ;
     skos:definition "Any spatial/location qualifiers" ;
     skos:inScheme anvil:sample .
 
-<https://anvilproject.org/acr-harmonized-data-model/study/:Study> a owl:Class ;
+<https://anvilproject.org/acr-harmonized-data-model/study/Study> a owl:Class,
+        linkml:ClassDefinition ;
     rdfs:label "Study" ;
     dcterms:title "Study" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/study/:study_title> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/study/:parent_study_id> ],
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/study/principal_investigator> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/study/:study_title> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/study/:principal_investigator> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/study/study_title> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/study/:parent_study_id> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/study/funding_source> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://anvilproject.org/acr-harmonized-data-model/study/:Study> ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/study/:parent_study_id> ],
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/study/study_title> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/study/:external_study_id> ],
+            owl:allValuesFrom <https://anvilproject.org/acr-harmonized-data-model/study/Study> ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/study/parent_study_id> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/study/:funding_source> ],
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/study/funding_source> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/study/:principal_investigator> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/study/principal_investigator> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/study/:study_title> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/study/parent_study_id> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/study/:funding_source> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/study/parent_study_id> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/study/:external_study_id> ],
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/study/study_title> ],
         anvil:Thing ;
     skos:definition "Study Meta Data" ;
     skos:inScheme anvil:study .
 
-<https://anvilproject.org/acr-harmonized-data-model/study/:parent_study_id> a owl:ObjectProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/study/parent_study_id> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "parent_study_id" ;
-    rdfs:range <https://anvilproject.org/acr-harmonized-data-model/study/:Study> ;
+    rdfs:range <https://anvilproject.org/acr-harmonized-data-model/study/Study> ;
     skos:definition "Parent Study ID" ;
     skos:inScheme anvil:study .
 
-<https://anvilproject.org/acr-harmonized-data-model/study/:study_title> a owl:DatatypeProperty ;
+<https://anvilproject.org/acr-harmonized-data-model/study/study_title> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
     rdfs:label "study_title" ;
-    rdfs:range xsd:string ;
+    rdfs:range linkml:String ;
     skos:definition "Study Title" ;
     skos:inScheme anvil:study .
 
-hl7_null:ASKU a owl:Class ;
+hl7_null:ASKU a owl:Class,
+        anvil:EnumEthnicity,
+        anvil:EnumRace ;
     rdfs:label "asked_but_unknown" ;
     rdfs:subClassOf anvil:EnumEthnicity,
         anvil:EnumRace .
 
-hl7_null:UNK a owl:Class ;
+hl7_null:UNK a owl:Class,
+        anvil:EnumEthnicity,
+        anvil:EnumRace ;
     rdfs:label "unknown" ;
     rdfs:subClassOf anvil:EnumEthnicity,
         anvil:EnumRace .
 
-anvil:EnumConditionAssertion a owl:Class ;
+<https://anvilproject.org/acr-harmonized-data-model> a owl:Ontology ;
+    rdfs:label "acr-harmonized-data-model" ;
+    dcterms:license "MIT" ;
+    dcterms:title "ACR Harmonized Data Model" ;
+    rdfs:seeAlso <https://anvilproject.github.io/acr-harmonized-data-model> ;
+    skos:definition "LinkML Schema for ACR Harmonized Data." .
+
+<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/source_data> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "source_data" ;
+    dcterms:title "Source Assertion" ;
+    rdfs:range <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/SourceData> ;
+    skos:definition "The sources from which this assertion was derived" ;
+    skos:inScheme anvil:condition_assertion .
+
+anvil:Thing a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Thing" ;
+    dcterms:title "Thing" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty anvil:id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty anvil:id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty anvil:id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty anvil:external_id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty anvil:external_id ] ;
+    skos:definition "Highest Level Class" ;
+    skos:inScheme <https://anvilproject.org/acr-harmonized-data-model> .
+
+<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/code> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "code" ;
+    dcterms:title "Assertion Code" ;
+    rdfs:range linkml:Uriorcurie ;
+    skos:definition "The structured term defining the meaning of the assertion." ;
+    skos:inScheme anvil:condition_assertion .
+
+<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/display> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "display" ;
+    dcterms:title "Display String" ;
+    rdfs:range linkml:String ;
+    skos:definition "The friendly display string of the coded term" ;
+    skos:inScheme anvil:condition_assertion .
+
+<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_code> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "value_code" ;
+    dcterms:title "Value Code" ;
+    rdfs:range linkml:Uriorcurie ;
+    skos:definition "The structured term defining the value of the assertion." ;
+    skos:inScheme anvil:condition_assertion .
+
+<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/value_display> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "value_display" ;
+    dcterms:title "Value Display String" ;
+    rdfs:range linkml:String ;
+    skos:definition "The friendly display string of the coded term for the value of the assertion." ;
+    skos:inScheme anvil:condition_assertion .
+
+<https://anvilproject.org/acr-harmonized-data-model/family/family_member> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "family_member" ;
+    rdfs:range <https://anvilproject.org/acr-harmonized-data-model/participant/Subject> ;
+    skos:definition "The family member Subject who is the relationship \"subject\"." ;
+    skos:inScheme anvil:family .
+
+<https://anvilproject.org/acr-harmonized-data-model/sample/Sample> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Sample" ;
+    dcterms:title "Sample" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/sample_type> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/quantity_number> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/storage_method> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/quantity_units> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/quantity_units> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/processing> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/availablity_status> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/availablity_status> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/sample_type> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://anvilproject.org/acr-harmonized-data-model/sample/BiospecimenCollection> ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/biospecimen_collection> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/biospecimen_collection> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/parent_sample> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/storage_method> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/quantity_units> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/sample_type> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://anvilproject.org/acr-harmonized-data-model/sample/Sample> ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/parent_sample> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom anvil:EnumAvailabilityStatus ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/availablity_status> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/quantity_number> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/biospecimen_collection> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://anvilproject.org/acr-harmonized-data-model/sample/Aliquot> ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/aliquots> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/aliquots> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/parent_sample> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/processing> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Float ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/quantity_number> ],
+        anvil:AccessControlledRecord ;
+    skos:definition "Biospecimen data" ;
+    skos:inScheme anvil:sample .
+
+<https://anvilproject.org/acr-harmonized-data-model/sample/availablity_status> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "availablity_status" ;
+    rdfs:range anvil:EnumAvailabilityStatus ;
+    skos:definition "Can this Sample be requested for further analysis?" ;
+    skos:inScheme anvil:sample .
+
+<https://anvilproject.org/acr-harmonized-data-model/sample/quantity_number> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "quantity_number" ;
+    dcterms:title "Quantity" ;
+    rdfs:range linkml:Float ;
+    skos:definition "The total quantity of the specimen" ;
+    skos:inScheme anvil:sample .
+
+<https://anvilproject.org/acr-harmonized-data-model/sample/quantity_units> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "quantity_units" ;
+    dcterms:title "Quantity Units" ;
+    rdfs:range linkml:Uriorcurie ;
+    skos:definition "The structured term defining the units of the quantity." ;
+    skos:inScheme anvil:sample .
+
+anvil:EnumAvailabilityStatus a owl:Class,
+        linkml:EnumDefinition ;
+    owl:unionOf ( ig2_biospecimen_availability:available ig2_biospecimen_availability:unavailable ) ;
+    linkml:permissible_values ig2_biospecimen_availability:available,
+        ig2_biospecimen_availability:unavailable .
+
+<https://anvilproject.org/acr-harmonized-data-model/participant/Subject> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Subject" ;
+    dcterms:title "Subject of data" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <https://anvilproject.org/acr-harmonized-data-model/participant/Demographics> ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/has_demographics> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://anvilproject.org/acr-harmonized-data-model/sample/Sample> ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/has_sample> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/subject_type> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/organism_type> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/organism_type> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/organism_type> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom anvil:EnumSubjectType ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/subject_type> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/has_sample> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/has_demographics> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/has_assertion> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/has_demographics> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/subject_type> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/SubjectAssertion> ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/has_assertion> ],
+        anvil:AccessControlledRecord ;
+    skos:definition "This entity is the subject about which data or references are recorded. | This includes the idea of a human participant in a study, a cell line, an animal model, | or any other similar entity." ;
+    skos:inScheme anvil:participant .
+
+anvil:EnumConditionAssertion a owl:Class,
+        linkml:EnumDefinition ;
     owl:unionOf ( <https://anvilproject.org/acr-harmonized-data-model/EnumConditionAssertion#present> <https://anvilproject.org/acr-harmonized-data-model/EnumConditionAssertion#absent> <https://anvilproject.org/acr-harmonized-data-model/EnumConditionAssertion#unsure> <https://anvilproject.org/acr-harmonized-data-model/EnumConditionAssertion#unknown> ) ;
     linkml:permissible_values <https://anvilproject.org/acr-harmonized-data-model/EnumConditionAssertion#absent>,
         <https://anvilproject.org/acr-harmonized-data-model/EnumConditionAssertion#present>,
         <https://anvilproject.org/acr-harmonized-data-model/EnumConditionAssertion#unknown>,
         <https://anvilproject.org/acr-harmonized-data-model/EnumConditionAssertion#unsure> .
 
-<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:source_data> a owl:ObjectProperty ;
-    rdfs:label "source_data" ;
-    dcterms:title "Source Assertion" ;
-    rdfs:range <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:SourceData> ;
-    skos:definition "The sources from which this assertion was derived" ;
-    skos:inScheme anvil:condition_assertion .
-
-anvil:EnumAvailabilityStatus a owl:Class ;
-    owl:unionOf ( ig2_biospecimen_availability:available ig2_biospecimen_availability:unavailable ) ;
-    linkml:permissible_values ig2_biospecimen_availability:available,
-        ig2_biospecimen_availability:unavailable .
-
-anvil:Thing a owl:Class ;
-    rdfs:label "Thing" ;
-    dcterms:title "Thing" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty anvil:external_id ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty anvil:external_id ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty anvil:id ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty anvil:id ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty anvil:id ] ;
-    skos:definition "Highest Level Class" ;
-    skos:inScheme <https://anvilproject.org/acr-harmonized-data-model> .
-
-anvil:EnumConsanguinityAssertion a owl:Class ;
+anvil:EnumConsanguinityAssertion a owl:Class,
+        linkml:EnumDefinition ;
     owl:unionOf ( snomed_ct:428263003 snomed_ct:415684004 snomed_ct:410515003 snomed_ct:261665006 ) ;
     linkml:permissible_values snomed_ct:261665006,
         snomed_ct:410515003,
         snomed_ct:415684004,
         snomed_ct:428263003 .
 
-anvil:EnumEthnicity a owl:Class ;
+anvil:EnumEthnicity a owl:Class,
+        linkml:EnumDefinition ;
     owl:unionOf ( cdc_race_eth:2135-2 cdc_race_eth:2186-5 hl7_null:UNK hl7_null:ASKU ) ;
     linkml:permissible_values hl7_null:ASKU,
         hl7_null:UNK,
         cdc_race_eth:2135-2,
         cdc_race_eth:2186-5 .
 
-anvil:EnumSex a owl:Class ;
+anvil:EnumSex a owl:Class,
+        linkml:EnumDefinition ;
     owl:unionOf ( admin_gender:female admin_gender:male admin_gender:unknown <https://anvilproject.org/acr-harmonized-data-model/EnumSex#intersex> ) ;
     linkml:permissible_values admin_gender:female,
         admin_gender:male,
         admin_gender:unknown,
         <https://anvilproject.org/acr-harmonized-data-model/EnumSex#intersex> .
 
-<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:code> a owl:DatatypeProperty ;
-    rdfs:label "code" ;
-    dcterms:title "Assertion Code" ;
-    rdfs:range xsd:anyURI ;
-    skos:definition "The structured term defining the meaning of the assertion." ;
-    skos:inScheme anvil:condition_assertion .
-
-<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:display> a owl:DatatypeProperty ;
-    rdfs:label "display" ;
-    dcterms:title "Display String" ;
-    rdfs:range xsd:string ;
-    skos:definition "The friendly display string of the coded term" ;
-    skos:inScheme anvil:condition_assertion .
-
-<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:value_code> a owl:DatatypeProperty ;
-    rdfs:label "value_code" ;
-    dcterms:title "Value Code" ;
-    rdfs:range xsd:anyURI ;
-    skos:definition "The structured term defining the value of the assertion." ;
-    skos:inScheme anvil:condition_assertion .
-
-<https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:value_display> a owl:DatatypeProperty ;
-    rdfs:label "value_display" ;
-    dcterms:title "Value Display String" ;
-    rdfs:range xsd:string ;
-    skos:definition "The friendly display string of the coded term for the value of the assertion." ;
-    skos:inScheme anvil:condition_assertion .
-
-<https://anvilproject.org/acr-harmonized-data-model/family/:family_member> a owl:ObjectProperty ;
-    rdfs:label "family_member" ;
-    rdfs:range <https://anvilproject.org/acr-harmonized-data-model/participant/:Subject> ;
-    skos:definition "The family member Subject who is the relationship \"subject\"." ;
-    skos:inScheme anvil:family .
-
-<https://anvilproject.org/acr-harmonized-data-model/sample/:Sample> a owl:Class ;
-    rdfs:label "Sample" ;
-    dcterms:title "Sample" ;
+anvil:AccessControlledRecord a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "AccessControlledRecord" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:storage_method> ],
+            owl:allValuesFrom <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/AccessPolicy> ;
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/has_access_policy> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:availablity_status> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:storage_method> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:sample_type> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:quantity_units> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom anvil:EnumAvailabilityStatus ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:availablity_status> ],
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/has_access_policy> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:availablity_status> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://anvilproject.org/acr-harmonized-data-model/sample/:BiospecimenCollection> ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:biospecimen_collection> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:quantity_units> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:processing> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:aliquots> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://anvilproject.org/acr-harmonized-data-model/sample/:Sample> ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:parent_sample> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:float ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:quantity_number> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:sample_type> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:quantity_number> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:quantity_number> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:biospecimen_collection> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:biospecimen_collection> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:sample_type> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:parent_sample> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:quantity_units> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://anvilproject.org/acr-harmonized-data-model/sample/:Aliquot> ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:aliquots> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:processing> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/sample/:parent_sample> ],
-        anvil:AccessControlledRecord ;
-    skos:definition "Biospecimen data" ;
-    skos:inScheme anvil:sample .
+            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/has_access_policy> ],
+        anvil:Thing ;
+    skos:definition "Element for which specific access control restrictions apply." ;
+    skos:inScheme <https://anvilproject.org/acr-harmonized-data-model> .
 
-<https://anvilproject.org/acr-harmonized-data-model/sample/:availablity_status> a owl:ObjectProperty ;
-    rdfs:label "availablity_status" ;
-    rdfs:range anvil:EnumAvailabilityStatus ;
-    skos:definition "Can this Sample be requested for further analysis?" ;
-    skos:inScheme anvil:sample .
-
-<https://anvilproject.org/acr-harmonized-data-model/sample/:quantity_number> a owl:DatatypeProperty ;
-    rdfs:label "quantity_number" ;
-    dcterms:title "Quantity" ;
-    rdfs:range xsd:float ;
-    skos:definition "The total quantity of the specimen" ;
-    skos:inScheme anvil:sample .
-
-<https://anvilproject.org/acr-harmonized-data-model/sample/:quantity_units> a owl:DatatypeProperty ;
-    rdfs:label "quantity_units" ;
-    dcterms:title "Quantity Units" ;
-    rdfs:range xsd:anyURI ;
-    skos:definition "The structured term defining the units of the quantity." ;
-    skos:inScheme anvil:sample .
-
-anvil:EnumAccessType a owl:Class ;
+anvil:EnumAccessType a owl:Class,
+        linkml:EnumDefinition ;
     owl:unionOf ( ig2dat:open ig2dat:registered ig2dat:controlled ig2dat:gsr-restricted ig2dat:gsr-allowed ) ;
     linkml:permissible_values ig2dat:controlled,
         ig2dat:gsr-allowed,
@@ -1702,7 +1931,8 @@ anvil:EnumAccessType a owl:Class ;
         ig2dat:open,
         ig2dat:registered .
 
-anvil:EnumDateOfBirthType a owl:Class ;
+anvil:EnumDateOfBirthType a owl:Class,
+        linkml:EnumDefinition ;
     owl:unionOf ( ig_dob_method:exact ig_dob_method:year-only ig_dob_method:shifted ig_dob_method:decade-only ig_dob_method:other ) ;
     linkml:permissible_values ig_dob_method:decade-only,
         ig_dob_method:exact,
@@ -1710,7 +1940,8 @@ anvil:EnumDateOfBirthType a owl:Class ;
         ig_dob_method:shifted,
         ig_dob_method:year-only .
 
-anvil:EnumVitalStatus a owl:Class ;
+anvil:EnumVitalStatus a owl:Class,
+        linkml:EnumDefinition ;
     owl:unionOf ( <https://anvilproject.org/acr-harmonized-data-model/EnumVitalStatus#alive> <https://anvilproject.org/acr-harmonized-data-model/EnumVitalStatus#dead> <https://anvilproject.org/acr-harmonized-data-model/EnumVitalStatus#not_reported> <https://anvilproject.org/acr-harmonized-data-model/EnumVitalStatus#unknown> <https://anvilproject.org/acr-harmonized-data-model/EnumVitalStatus#unspecified> ) ;
     linkml:permissible_values <https://anvilproject.org/acr-harmonized-data-model/EnumVitalStatus#alive>,
         <https://anvilproject.org/acr-harmonized-data-model/EnumVitalStatus#dead>,
@@ -1718,53 +1949,8 @@ anvil:EnumVitalStatus a owl:Class ;
         <https://anvilproject.org/acr-harmonized-data-model/EnumVitalStatus#unknown>,
         <https://anvilproject.org/acr-harmonized-data-model/EnumVitalStatus#unspecified> .
 
-<https://anvilproject.org/acr-harmonized-data-model/participant/:Subject> a owl:Class ;
-    rdfs:label "Subject" ;
-    dcterms:title "Subject of data" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:organism_type> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:has_demographics> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:organism_type> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://anvilproject.org/acr-harmonized-data-model/participant/:Demographics> ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:has_demographics> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://anvilproject.org/acr-harmonized-data-model/sample/:Sample> ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:has_sample> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:organism_type> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:has_assertion> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:has_demographics> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/:SubjectAssertion> ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:has_assertion> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:subject_type> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:subject_type> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom anvil:EnumSubjectType ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:subject_type> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/participant/:has_sample> ],
-        anvil:AccessControlledRecord ;
-    skos:definition "This entity is the subject about which data or references are recorded. | This includes the idea of a human participant in a study, a cell line, an animal model, | or any other similar entity." ;
-    skos:inScheme anvil:participant .
-
-anvil:EnumAssertionType a owl:Class ;
+anvil:EnumAssertionType a owl:Class,
+        linkml:EnumDefinition ;
     owl:unionOf ( igcondtype:Phenotypic-Feature igcondtype:Disease igcondtype:Comorbidity igcondtype:Histology igcondtype:Clinical-Finding <https://anvilproject.org/acr-harmonized-data-model/EnumAssertionType#ehr_billing_code> ) ;
     linkml:permissible_values <https://anvilproject.org/acr-harmonized-data-model/EnumAssertionType#ehr_billing_code>,
         igcondtype:Clinical-Finding,
@@ -1773,7 +1959,8 @@ anvil:EnumAssertionType a owl:Class ;
         igcondtype:Histology,
         igcondtype:Phenotypic-Feature .
 
-anvil:EnumFamilyType a owl:Class ;
+anvil:EnumFamilyType a owl:Class,
+        linkml:EnumDefinition ;
     owl:unionOf ( <https://anvilproject.org/acr-harmonized-data-model/EnumFamilyType#control_only> <https://anvilproject.org/acr-harmonized-data-model/EnumFamilyType#duo> <https://anvilproject.org/acr-harmonized-data-model/EnumFamilyType#proband_only> <https://anvilproject.org/acr-harmonized-data-model/EnumFamilyType#trio> <https://anvilproject.org/acr-harmonized-data-model/EnumFamilyType#trio_plus> <https://anvilproject.org/acr-harmonized-data-model/EnumFamilyType#other> ) ;
     linkml:permissible_values <https://anvilproject.org/acr-harmonized-data-model/EnumFamilyType#control_only>,
         <https://anvilproject.org/acr-harmonized-data-model/EnumFamilyType#duo>,
@@ -1782,7 +1969,8 @@ anvil:EnumFamilyType a owl:Class ;
         <https://anvilproject.org/acr-harmonized-data-model/EnumFamilyType#trio>,
         <https://anvilproject.org/acr-harmonized-data-model/EnumFamilyType#trio_plus> .
 
-anvil:EnumSubjectType a owl:Class ;
+anvil:EnumSubjectType a owl:Class,
+        linkml:EnumDefinition ;
     owl:unionOf ( <https://anvilproject.org/acr-harmonized-data-model/EnumSubjectType#participant> <https://anvilproject.org/acr-harmonized-data-model/EnumSubjectType#non_participant> <https://anvilproject.org/acr-harmonized-data-model/EnumSubjectType#cell_line> <https://anvilproject.org/acr-harmonized-data-model/EnumSubjectType#animal_model> <https://anvilproject.org/acr-harmonized-data-model/EnumSubjectType#group> <https://anvilproject.org/acr-harmonized-data-model/EnumSubjectType#other> ) ;
     linkml:permissible_values <https://anvilproject.org/acr-harmonized-data-model/EnumSubjectType#animal_model>,
         <https://anvilproject.org/acr-harmonized-data-model/EnumSubjectType#cell_line>,
@@ -1791,7 +1979,8 @@ anvil:EnumSubjectType a owl:Class ;
         <https://anvilproject.org/acr-harmonized-data-model/EnumSubjectType#other>,
         <https://anvilproject.org/acr-harmonized-data-model/EnumSubjectType#participant> .
 
-anvil:EnumRace a owl:Class ;
+anvil:EnumRace a owl:Class,
+        linkml:EnumDefinition ;
     owl:unionOf ( cdc_race_eth:1002-5 cdc_race_eth:2028-9 cdc_race_eth:2054-5 cdc_race_eth:2076-8 cdc_race_eth:2106-3 cdc_race_eth:2131-1 hl7_null:UNK hl7_null:ASKU ) ;
     linkml:permissible_values hl7_null:ASKU,
         hl7_null:UNK,
@@ -1802,22 +1991,8 @@ anvil:EnumRace a owl:Class ;
         cdc_race_eth:2106-3,
         cdc_race_eth:2131-1 .
 
-anvil:AccessControlledRecord a owl:Class ;
-    rdfs:label "AccessControlledRecord" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:has_access_policy> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:AccessPolicy> ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:has_access_policy> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/:has_access_policy> ],
-        anvil:Thing ;
-    skos:definition "Element for which specific access control restrictions apply." ;
-    skos:inScheme <https://anvilproject.org/acr-harmonized-data-model> .
-
-anvil:EnumAccessCode a owl:Class ;
+anvil:EnumAccessCode a owl:Class,
+        linkml:EnumDefinition ;
     owl:unionOf ( ig2dac:GRU ig2dac:HMB ig2dac:DS ig2dac:IRB ig2dac:PUB ig2dac:COL ig2dac:NPU ig2dac:MDS ig2dac:GSO ig2dac:GSR ) ;
     linkml:permissible_values ig2dac:COL,
         ig2dac:DS,
@@ -1829,5 +2004,4 @@ anvil:EnumAccessCode a owl:Class ;
         ig2dac:MDS,
         ig2dac:NPU,
         ig2dac:PUB .
-
 

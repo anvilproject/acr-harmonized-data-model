@@ -1,0 +1,3 @@
+variable_name,description,data_type,min,max,units,enumerations,comment
+SourceData_id,Autocreated FK slot,string,,,,,Foreign Key: SourceData.id
+query_parameter,"One or more query parameters used to select the specific row. It will leverage the parameterized_query defined by a data_source. This should be formatted according to (https://cloud.google.com/bigquery/docs/parameterized-queries)[BigQuery instructions], specifically the bq CLI version with named parameters, ie, ""<parameter name>:<data type>:<value>"".",string,,,,,

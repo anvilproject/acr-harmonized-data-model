@@ -1264,16 +1264,6 @@
                         "null"
                     ]
                 },
-                "external_study_id": {
-                    "description": "External Study ID",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
                 "funding_source": {
                     "description": "Funding Source",
                     "items": {

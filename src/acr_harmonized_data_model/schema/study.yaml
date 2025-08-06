@@ -9,18 +9,11 @@ classes:
     description: Study Meta Data 
     is_a: Thing 
     slots: 
-      - external_study_id
       - parent_study_id 
       - funding_source
       - principal_investigator 
       - study_title 
 slots:
-  external_study_id: 
-    # DbGAP ID, pubmed id, etc
-    description: External Study ID 
-    required: false 
-    range: string 
-    multivalued: true
   parent_study_id:
     description: Parent Study ID 
     required: false 

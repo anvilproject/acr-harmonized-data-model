@@ -1,4 +1,4 @@
--- # Class: "Thing" Description: "Highest Level Class"
+-- # Abstract Class: "Thing" Description: "Highest Level Class"
 --     * Slot: id Description: ID associated with a class
 -- # Class: "AccessControlledRecord" Description: "Element for which specific access control restrictions apply."
 --     * Slot: has_access_policy Description: Which access policy applies to this element?
@@ -135,9 +135,6 @@
 -- # Class: "Demographics_external_id" Description: ""
 --     * Slot: Demographics_id Description: Autocreated FK slot
 --     * Slot: external_id Description: Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
--- # Class: "Study_external_study_id" Description: ""
---     * Slot: Study_id Description: Autocreated FK slot
---     * Slot: external_study_id Description: External Study ID
 -- # Class: "Study_funding_source" Description: ""
 --     * Slot: Study_id Description: Autocreated FK slot
 --     * Slot: funding_source Description: Funding Source
@@ -314,12 +311,6 @@ CREATE TABLE "Thing_external_id" (
 	external_id TEXT, 
 	PRIMARY KEY ("Thing_id", external_id), 
 	FOREIGN KEY("Thing_id") REFERENCES "Thing" (id)
-);
-CREATE TABLE "Study_external_study_id" (
-	"Study_id" TEXT, 
-	external_study_id TEXT, 
-	PRIMARY KEY ("Study_id", external_study_id), 
-	FOREIGN KEY("Study_id") REFERENCES "Study" (id)
 );
 CREATE TABLE "Study_funding_source" (
 	"Study_id" TEXT, 
