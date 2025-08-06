@@ -159,7 +159,6 @@ message Study
  {
   string id = 0
  repeated  uriorcurie externalId = 0
- repeated  string externalStudyId = 0
   study parentStudyId = 0
  repeated  string fundingSource = 0
  repeated  string principalInvestigator = 0

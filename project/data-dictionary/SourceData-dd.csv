@@ -1,10 +1,4 @@
 variable_name,description,data_type,min,max,units,enumerations,comment
-code,The structured term defining the meaning of the assertion.,string,,,,,
-display,The friendly display string of the coded term,string,,,,,
-value_code,The structured term defining the value of the assertion.,string,,,,,
-value_display,The friendly display string of the coded term for the value of the assertion.,string,,,,,
-value_number,The numeric value of the assertion.,number,,,,,
-value_units,The structured term defining the units of the value.,string,,,,,
-value_units_display,The friendly display string of units of the value.,string,,,,,
+data_source,Defines the location of data and how to query it.,string,,,,,Foreign Key: DataSource.id
 has_access_policy,Which access policy applies to this element?,string,,,,,Foreign Key: AccessPolicy.id
 id,ID associated with a class,string,,,,,

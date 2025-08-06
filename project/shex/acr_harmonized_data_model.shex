@@ -271,7 +271,6 @@ linkml:Sparqlpath xsd:string
 <https://anvilproject.org/acr-harmonized-data-model/study/Study> CLOSED {
     (  $<https://anvilproject.org/acr-harmonized-data-model/study/Study_tes> (  &<Thing_tes> ;
           rdf:type [ <Thing> ] ? ;
-          <https://anvilproject.org/acr-harmonized-data-model/study/external_study_id> @linkml:String * ;
           <https://anvilproject.org/acr-harmonized-data-model/study/parent_study_id>
           @<https://anvilproject.org/acr-harmonized-data-model/study/Study> ? ;
           <https://anvilproject.org/acr-harmonized-data-model/study/funding_source> @linkml:String * ;

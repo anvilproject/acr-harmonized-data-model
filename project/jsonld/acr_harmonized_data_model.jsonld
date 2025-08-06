@@ -1199,20 +1199,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "external_study_id",
-      "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/study/external_study_id",
-      "description": "External Study ID",
-      "from_schema": "https://anvilproject.org/acr-harmonized-data-model/study",
-      "slot_uri": "https://anvilproject.org/acr-harmonized-data-model/study/external_study_id",
-      "owner": "Study",
-      "domain_of": [
-        "Study"
-      ],
-      "range": "string",
-      "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "parent_study_id",
       "definition_uri": "https://anvilproject.org/acr-harmonized-data-model/study/parent_study_id",
       "description": "Parent Study ID",
@@ -2200,7 +2186,6 @@
       "slots": [
         "id",
         "external_id",
-        "external_study_id",
         "parent_study_id",
         "funding_source",
         "principal_investigator",
@@ -2467,9 +2452,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "acr_harmonized_data_model.yaml",
-  "source_file_date": "2025-05-20T13:56:55",
-  "source_file_size": 2092,
-  "generation_date": "2025-05-28T11:15:49",
+  "source_file_date": "2025-08-06T09:20:42",
+  "source_file_size": 2025,
+  "generation_date": "2025-08-06T09:29:10",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/acr_harmonized_data_model.context.jsonld",
