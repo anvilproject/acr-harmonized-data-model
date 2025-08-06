@@ -239,8 +239,6 @@
 
       Study : external_id
 
-      Study : external_study_id
-
       Study : funding_source
 
       Study : id
@@ -280,12 +278,6 @@
 </tr>
 </thead>
 <tbody>
-<tr>
-<td><a href="../external_study_id/">external_study_id</a></td>
-<td>* <br/> <a href="../String/">String</a></td>
-<td>External Study ID</td>
-<td>direct</td>
-</tr>
 <tr>
 <td><a href="../parent_study_id/">parent_study_id</a></td>
 <td>0..1 <br/> <a href="./">Study</a></td>
@@ -377,7 +369,6 @@ title: Study
 from_schema: https://anvilproject.org/acr-harmonized-data-model
 is_a: Thing
 slots:
-- external_study_id
 - parent_study_id
 - funding_source
 - principal_investigator
@@ -393,18 +384,6 @@ title: Study
 from_schema: https://anvilproject.org/acr-harmonized-data-model
 is_a: Thing
 attributes:
-  external_study_id:
-    name: external_study_id
-    description: External Study ID
-    from_schema: https://anvilproject.org/acr-harmonized-data-model
-    rank: 1000
-    alias: external_study_id
-    owner: Study
-    domain_of:
-    - Study
-    range: string
-    required: false
-    multivalued: true
   parent_study_id:
     name: parent_study_id
     description: Parent Study ID
