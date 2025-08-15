@@ -155,6 +155,10 @@ enums:
         title: EHR Billing Code 
         description: From an EHR billing record, which may indicate only investigation into a possible diagnosis.
         #meaning: igcondtype:EHR-Condition-Code
+      measurement:
+        title: Measurement
+        description: A measurement of some feature, eg, height or glucose.
+        #meaning: 
   EnumConditionAssertion:
     description: Enumerations for Condition Assertion 
     permissible_values: 
