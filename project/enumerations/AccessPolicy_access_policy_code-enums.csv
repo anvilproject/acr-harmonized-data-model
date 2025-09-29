@@ -1,0 +1,2 @@
+variable_name,enumerations
+access_policy_code,gru=General Research Use;hmb=Health/Medical/Biomedical;ds=Disease-Specific (Disease/Trait/Exposure);irb=IRB Approval Required;pub=Publication Required;col=Collaboration Required;npu=Not-for-profit use only;mds=Methods;gso=Genetic Studies only;gsr=Genomic Summary Results

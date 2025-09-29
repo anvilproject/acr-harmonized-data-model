@@ -1,0 +1,5 @@
+variable_name,enumerations
+date_of_birth_type,exact=Exact;year_only=Year Only;shifted=Shifted;decade_only=Decade Only;other=Other
+sex,female=Female;male=Male;unknown=Unknown;intersex=Intersex
+ethnicity,hispanic_or_latino=Hispanic or Latino;not_hispanic_or_latino=Not Hispanic or Latino;unknown=unknown;asked_but_unknown=asked but unknown
+vital_status,alive=Alive;dead=Dead;not_reported=Not Reported;unknown=Unknown;unspecified=Unspecified

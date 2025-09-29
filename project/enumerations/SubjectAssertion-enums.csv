@@ -1,0 +1,2 @@
+variable_name,enumerations
+assertion_type,"phenotypic_feature=This is a phenotypic feature;disease=Disease;comorbidity=Comorbidity;histology=Histology;clinical_finding=Clinical Finding;ehr_billing_code=From an EHR billing record, which may indicate only investigation into a possible diagnosis.;measurement=A measurement of some feature, eg, height or glucose."
