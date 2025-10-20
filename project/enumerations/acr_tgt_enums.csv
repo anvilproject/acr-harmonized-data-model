@@ -1,0 +1,69 @@
+table_name,variable_name,enumeration_code,enumeration_display
+Subject,subject_type,participant,"Study participant with consent, assent, or waiver of consent."
+Subject,subject_type,non_participant,"An individual associated with a study who was not explictly consented, eg, the subject | of a reported family history."
+Subject,subject_type,cell_line,Cell Line
+Subject,subject_type,animal_model,Animal model
+Subject,subject_type,group,A group of individuals or entities.
+Subject,subject_type,other,A different entity type- ideally this will be resolved!
+Demographics,date_of_birth_type,exact,Exact
+Demographics,date_of_birth_type,year_only,Year Only
+Demographics,date_of_birth_type,shifted,Shifted
+Demographics,date_of_birth_type,decade_only,Decade Only
+Demographics,date_of_birth_type,other,Other
+Demographics,sex,female,Female
+Demographics,sex,male,Male
+Demographics,sex,unknown,Unknown
+Demographics,sex,intersex,Intersex
+Demographics,ethnicity,hispanic_or_latino,Hispanic or Latino
+Demographics,ethnicity,not_hispanic_or_latino,Not Hispanic or Latino
+Demographics,ethnicity,unknown,unknown
+Demographics,ethnicity,asked_but_unknown,asked but unknown
+Demographics,vital_status,alive,Alive
+Demographics,vital_status,dead,Dead
+Demographics,vital_status,not_reported,Not Reported
+Demographics,vital_status,unknown,Unknown
+Demographics,vital_status,unspecified,Unspecified
+SubjectAssertion,assertion_type,phenotypic_feature,This is a phenotypic feature
+SubjectAssertion,assertion_type,disease,Disease
+SubjectAssertion,assertion_type,comorbidity,Comorbidity
+SubjectAssertion,assertion_type,histology,Histology
+SubjectAssertion,assertion_type,clinical_finding,Clinical Finding
+SubjectAssertion,assertion_type,ehr_billing_code,"From an EHR billing record, which may indicate only investigation into a possible diagnosis."
+SubjectAssertion,assertion_type,measurement,"A measurement of some feature, eg, height or glucose."
+Family,family_type,control_only,Control Only
+Family,family_type,duo,Duo
+Family,family_type,proband_only,Proband Only
+Family,family_type,trio,Trio (2 parents and affected child)
+Family,family_type,trio_plus,2 Parents and 2 or more children
+Family,family_type,other,Other
+Family,consanguinity,not_suspected,Not suspected
+Family,consanguinity,suspected,Suspected
+Family,consanguinity,known_present,Known Present
+Family,consanguinity,unknown,Unknown
+Sample,availablity_status,available,Biospecimen is Available
+Sample,availablity_status,unavailable,Biospecimen is Unavailable
+Aliquot,availablity_status,available,Biospecimen is Available
+Aliquot,availablity_status,unavailable,Biospecimen is Unavailable
+Demographics_race,race,american_indian_or_alaskan_native,American Indian or Alaskan Native
+Demographics_race,race,asian,Asian
+Demographics_race,race,black_or_african_american,Black or African American
+Demographics_race,race,native_hawaiian_or_pacific_islander,Native Hawaiian or Other Pacific Islander
+Demographics_race,race,white,White
+Demographics_race,race,other_race,Other Race
+Demographics_race,race,unknown,unknown
+Demographics_race,race,asked_but_unknown,asked but unknown
+AccessPolicy_data_access_type,data_access_type,open,Open Access
+AccessPolicy_data_access_type,data_access_type,registered,Registered Access
+AccessPolicy_data_access_type,data_access_type,controlled,Controlled
+AccessPolicy_data_access_type,data_access_type,gsr_restricted,GSR Restricted
+AccessPolicy_data_access_type,data_access_type,gsr_allowed,GSR Allowed
+AccessPolicy_access_policy_code,access_policy_code,gru,General Research Use
+AccessPolicy_access_policy_code,access_policy_code,hmb,Health/Medical/Biomedical
+AccessPolicy_access_policy_code,access_policy_code,ds,Disease-Specific (Disease/Trait/Exposure)
+AccessPolicy_access_policy_code,access_policy_code,irb,IRB Approval Required
+AccessPolicy_access_policy_code,access_policy_code,pub,Publication Required
+AccessPolicy_access_policy_code,access_policy_code,col,Collaboration Required
+AccessPolicy_access_policy_code,access_policy_code,npu,Not-for-profit use only
+AccessPolicy_access_policy_code,access_policy_code,mds,Methods
+AccessPolicy_access_policy_code,access_policy_code,gso,Genetic Studies only
+AccessPolicy_access_policy_code,access_policy_code,gsr,Genomic Summary Results

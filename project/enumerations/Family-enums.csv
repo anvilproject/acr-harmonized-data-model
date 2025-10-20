@@ -1,3 +1,0 @@
-variable_name,enumerations
-family_type,control_only=Control Only;duo=Duo;proband_only=Proband Only;trio=Trio (2 parents and affected child);trio_plus=2 Parents and 2 or more children;other=Other
-consanguinity,not_suspected=Not suspected;suspected=Suspected;known_present=Known Present;unknown=Unknown
