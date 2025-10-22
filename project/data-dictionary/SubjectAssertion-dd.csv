@@ -1,5 +1,5 @@
 variable_name,description,data_type,min,max,units,enumerations,comment
-assertion_type,"The semantic type of the resource, eg, Condition.",enumeration,,,,"phenotypic_feature=This is a phenotypic feature;disease=Disease;comorbidity=Comorbidity;histology=Histology;clinical_finding=Clinical Finding;ehr_billing_code=From an EHR billing record, which may indicate only investigation into a possible diagnosis.",
+assertion_type,"The semantic type of the resource, eg, Condition.",enumeration,,,,"phenotypic_feature=This is a phenotypic feature;disease=Disease;comorbidity=Comorbidity;histology=Histology;clinical_finding=Clinical Finding;ehr_billing_code=From an EHR billing record, which may indicate only investigation into a possible diagnosis.;measurement=A measurement of some feature, eg, height or glucose.",
 age_at_assertion,The age in decimal years of the Subject when the assertion was made.,number,,,UCUM:a,,
 age_at_event,"The age in decimal years of the Subject at the time point which the assertion describes, | eg, age of onset or when a measurement was performed.",number,,,UCUM:a,,
 age_at_resolution,The age in decimal years of the Subject when the asserted state was resolved.,number,,,UCUM:a,,
