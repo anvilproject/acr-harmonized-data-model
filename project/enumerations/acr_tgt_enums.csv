@@ -1,69 +1,69 @@
-table_name,variable_name,enumeration_code,enumeration_display,enumeration_title,enumeration_meaning
-Subject,subject_type,participant,"Study participant with consent, assent, or waiver of consent.",,
-Subject,subject_type,non_participant,"An individual associated with a study who was not explictly consented, eg, the subject | of a reported family history.",,
-Subject,subject_type,cell_line,Cell Line,,
-Subject,subject_type,animal_model,Animal model,,
-Subject,subject_type,group,A group of individuals or entities.,,
-Subject,subject_type,other,A different entity type- ideally this will be resolved!,,
-Demographics,date_of_birth_type,exact,Exact,,ig_dob_method:exact
-Demographics,date_of_birth_type,year_only,Year Only,,ig_dob_method:year-only
-Demographics,date_of_birth_type,shifted,Shifted,,ig_dob_method:shifted
-Demographics,date_of_birth_type,decade_only,Decade Only,,ig_dob_method:decade-only
-Demographics,date_of_birth_type,other,Other,,ig_dob_method:other
-Demographics,sex,female,Female,,admin_gender:female
-Demographics,sex,male,Male,,admin_gender:male
-Demographics,sex,unknown,Unknown,,admin_gender:unknown
-Demographics,sex,intersex,Intersex,,
-Demographics,ethnicity,hispanic_or_latino,Hispanic or Latino,,cdc_race_eth:2135-2
-Demographics,ethnicity,not_hispanic_or_latino,Not Hispanic or Latino,,cdc_race_eth:2186-5
-Demographics,ethnicity,unknown,unknown,,hl7_null:UNK
-Demographics,ethnicity,asked_but_unknown,asked but unknown,,hl7_null:ASKU
-Demographics,vital_status,alive,Alive,,
-Demographics,vital_status,dead,Dead,,
-Demographics,vital_status,not_reported,Not Reported,,
-Demographics,vital_status,unknown,Unknown,,
-Demographics,vital_status,unspecified,Unspecified,,
-SubjectAssertion,assertion_type,phenotypic_feature,This is a phenotypic feature,Phenotypic Feature,igcondtype:Phenotypic-Feature
-SubjectAssertion,assertion_type,disease,Disease,disease,igcondtype:Disease
-SubjectAssertion,assertion_type,comorbidity,Comorbidity,comorbidity,igcondtype:Comorbidity
-SubjectAssertion,assertion_type,histology,Histology,histology,igcondtype:Histology
-SubjectAssertion,assertion_type,clinical_finding,Clinical Finding,clinical-finding,igcondtype:Clinical-Finding
-SubjectAssertion,assertion_type,ehr_billing_code,"From an EHR billing record, which may indicate only investigation into a possible diagnosis.",EHR Billing Code,
-SubjectAssertion,assertion_type,measurement,"A measurement of some feature, eg, height or glucose.",Measurement,
-Family,family_type,control_only,Control Only,Control-only,
-Family,family_type,duo,Duo,,
-Family,family_type,proband_only,Proband Only,Proband-only,
-Family,family_type,trio,Trio (2 parents and affected child),Trio,
-Family,family_type,trio_plus,2 Parents and 2 or more children,Trio+,
-Family,family_type,other,Other,,
-Family,consanguinity,not_suspected,Not suspected,not-suspected,snomed_ct:428263003
-Family,consanguinity,suspected,Suspected,suspected,snomed_ct:415684004
-Family,consanguinity,known_present,Known Present,known-present,snomed_ct:410515003
-Family,consanguinity,unknown,Unknown,unknown,snomed_ct:261665006
-Sample,availablity_status,available,Biospecimen is Available,Available,ig2_biospecimen_availability:available
-Sample,availablity_status,unavailable,Biospecimen is Unavailable,Unavailable,ig2_biospecimen_availability:unavailable
-Aliquot,availablity_status,available,Biospecimen is Available,Available,ig2_biospecimen_availability:available
-Aliquot,availablity_status,unavailable,Biospecimen is Unavailable,Unavailable,ig2_biospecimen_availability:unavailable
-Demographics_race,race,american_indian_or_alaskan_native,American Indian or Alaskan Native,,cdc_race_eth:1002-5
-Demographics_race,race,asian,Asian,,cdc_race_eth:2028-9
-Demographics_race,race,black_or_african_american,Black or African American,,cdc_race_eth:2054-5
-Demographics_race,race,native_hawaiian_or_pacific_islander,Native Hawaiian or Other Pacific Islander,,cdc_race_eth:2076-8
-Demographics_race,race,white,White,,cdc_race_eth:2106-3
-Demographics_race,race,other_race,Other Race,,cdc_race_eth:2131-1
-Demographics_race,race,unknown,unknown,,hl7_null:UNK
-Demographics_race,race,asked_but_unknown,asked but unknown,,hl7_null:ASKU
-AccessPolicy_data_access_type,data_access_type,open,Open Access,open,ig2dat:open
-AccessPolicy_data_access_type,data_access_type,registered,Registered Access,registered,ig2dat:registered
-AccessPolicy_data_access_type,data_access_type,controlled,Controlled,controlled,ig2dat:controlled
-AccessPolicy_data_access_type,data_access_type,gsr_restricted,GSR Restricted,gsr_restricted,ig2dat:gsr-restricted
-AccessPolicy_data_access_type,data_access_type,gsr_allowed,GSR Allowed,gsr_allowed,ig2dat:gsr-allowed
-AccessPolicy_access_policy_code,access_policy_code,gru,General Research Use,GRU,ig2dac:GRU
-AccessPolicy_access_policy_code,access_policy_code,hmb,Health/Medical/Biomedical,HMB,ig2dac:HMB
-AccessPolicy_access_policy_code,access_policy_code,ds,Disease-Specific (Disease/Trait/Exposure),DS,ig2dac:DS
-AccessPolicy_access_policy_code,access_policy_code,irb,IRB Approval Required,IRB,ig2dac:IRB
-AccessPolicy_access_policy_code,access_policy_code,pub,Publication Required,PUB,ig2dac:PUB
-AccessPolicy_access_policy_code,access_policy_code,col,Collaboration Required,COL,ig2dac:COL
-AccessPolicy_access_policy_code,access_policy_code,npu,Not-for-profit use only,NPU,ig2dac:NPU
-AccessPolicy_access_policy_code,access_policy_code,mds,Methods,MDS,ig2dac:MDS
-AccessPolicy_access_policy_code,access_policy_code,gso,Genetic Studies only,GSO,ig2dac:GSO
-AccessPolicy_access_policy_code,access_policy_code,gsr,Genomic Summary Results,GSR,ig2dac:GSR
+table_name,variable_name,enumeration_code,enumeration_display,enumeration_title,enumeration_meaning,enumeration_system,enumeration_group
+Subject,subject_type,participant,"Study participant with consent, assent, or waiver of consent.",,,https://anvilproject.github.io/EnumSubjectType,EnumSubjectType
+Subject,subject_type,non_participant,"An individual associated with a study who was not explictly consented, eg, the subject | of a reported family history.",,,https://anvilproject.github.io/EnumSubjectType,EnumSubjectType
+Subject,subject_type,cell_line,Cell Line,,,https://anvilproject.github.io/EnumSubjectType,EnumSubjectType
+Subject,subject_type,animal_model,Animal model,,,https://anvilproject.github.io/EnumSubjectType,EnumSubjectType
+Subject,subject_type,group,A group of individuals or entities.,,,https://anvilproject.github.io/EnumSubjectType,EnumSubjectType
+Subject,subject_type,other,A different entity type- ideally this will be resolved!,,,https://anvilproject.github.io/EnumSubjectType,EnumSubjectType
+Demographics,date_of_birth_type,exact,Exact,,ig_dob_method:exact,https://anvilproject.github.io/EnumDateOfBirthType,EnumDateOfBirthType
+Demographics,date_of_birth_type,year_only,Year Only,,ig_dob_method:year-only,https://anvilproject.github.io/EnumDateOfBirthType,EnumDateOfBirthType
+Demographics,date_of_birth_type,shifted,Shifted,,ig_dob_method:shifted,https://anvilproject.github.io/EnumDateOfBirthType,EnumDateOfBirthType
+Demographics,date_of_birth_type,decade_only,Decade Only,,ig_dob_method:decade-only,https://anvilproject.github.io/EnumDateOfBirthType,EnumDateOfBirthType
+Demographics,date_of_birth_type,other,Other,,ig_dob_method:other,https://anvilproject.github.io/EnumDateOfBirthType,EnumDateOfBirthType
+Demographics,sex,female,Female,,admin_gender:female,https://anvilproject.github.io/EnumSex,EnumSex
+Demographics,sex,male,Male,,admin_gender:male,https://anvilproject.github.io/EnumSex,EnumSex
+Demographics,sex,unknown,Unknown,,admin_gender:unknown,https://anvilproject.github.io/EnumSex,EnumSex
+Demographics,sex,intersex,Intersex,,,https://anvilproject.github.io/EnumSex,EnumSex
+Demographics,ethnicity,hispanic_or_latino,Hispanic or Latino,,cdc_race_eth:2135-2,https://anvilproject.github.io/EnumEthnicity,EnumEthnicity
+Demographics,ethnicity,not_hispanic_or_latino,Not Hispanic or Latino,,cdc_race_eth:2186-5,https://anvilproject.github.io/EnumEthnicity,EnumEthnicity
+Demographics,ethnicity,unknown,unknown,,hl7_null:UNK,https://anvilproject.github.io/EnumEthnicity,EnumEthnicity
+Demographics,ethnicity,asked_but_unknown,asked but unknown,,hl7_null:ASKU,https://anvilproject.github.io/EnumEthnicity,EnumEthnicity
+Demographics,vital_status,alive,Alive,,,https://anvilproject.github.io/EnumVitalStatus,EnumVitalStatus
+Demographics,vital_status,dead,Dead,,,https://anvilproject.github.io/EnumVitalStatus,EnumVitalStatus
+Demographics,vital_status,not_reported,Not Reported,,,https://anvilproject.github.io/EnumVitalStatus,EnumVitalStatus
+Demographics,vital_status,unknown,Unknown,,,https://anvilproject.github.io/EnumVitalStatus,EnumVitalStatus
+Demographics,vital_status,unspecified,Unspecified,,,https://anvilproject.github.io/EnumVitalStatus,EnumVitalStatus
+SubjectAssertion,assertion_type,phenotypic_feature,This is a phenotypic feature,Phenotypic Feature,igcondtype:Phenotypic-Feature,https://anvilproject.github.io/EnumAssertionType,EnumAssertionType
+SubjectAssertion,assertion_type,disease,Disease,disease,igcondtype:Disease,https://anvilproject.github.io/EnumAssertionType,EnumAssertionType
+SubjectAssertion,assertion_type,comorbidity,Comorbidity,comorbidity,igcondtype:Comorbidity,https://anvilproject.github.io/EnumAssertionType,EnumAssertionType
+SubjectAssertion,assertion_type,histology,Histology,histology,igcondtype:Histology,https://anvilproject.github.io/EnumAssertionType,EnumAssertionType
+SubjectAssertion,assertion_type,clinical_finding,Clinical Finding,clinical-finding,igcondtype:Clinical-Finding,https://anvilproject.github.io/EnumAssertionType,EnumAssertionType
+SubjectAssertion,assertion_type,ehr_billing_code,"From an EHR billing record, which may indicate only investigation into a possible diagnosis.",EHR Billing Code,,https://anvilproject.github.io/EnumAssertionType,EnumAssertionType
+SubjectAssertion,assertion_type,measurement,"A measurement of some feature, eg, height or glucose.",Measurement,,https://anvilproject.github.io/EnumAssertionType,EnumAssertionType
+Family,family_type,control_only,Control Only,Control-only,,https://anvilproject.github.io/EnumFamilyType,EnumFamilyType
+Family,family_type,duo,Duo,,,https://anvilproject.github.io/EnumFamilyType,EnumFamilyType
+Family,family_type,proband_only,Proband Only,Proband-only,,https://anvilproject.github.io/EnumFamilyType,EnumFamilyType
+Family,family_type,trio,Trio (2 parents and affected child),Trio,,https://anvilproject.github.io/EnumFamilyType,EnumFamilyType
+Family,family_type,trio_plus,2 Parents and 2 or more children,Trio+,,https://anvilproject.github.io/EnumFamilyType,EnumFamilyType
+Family,family_type,other,Other,,,https://anvilproject.github.io/EnumFamilyType,EnumFamilyType
+Family,consanguinity,not_suspected,Not suspected,not-suspected,snomed_ct:428263003,https://anvilproject.github.io/EnumConsanguinityAssertion,EnumConsanguinityAssertion
+Family,consanguinity,suspected,Suspected,suspected,snomed_ct:415684004,https://anvilproject.github.io/EnumConsanguinityAssertion,EnumConsanguinityAssertion
+Family,consanguinity,known_present,Known Present,known-present,snomed_ct:410515003,https://anvilproject.github.io/EnumConsanguinityAssertion,EnumConsanguinityAssertion
+Family,consanguinity,unknown,Unknown,unknown,snomed_ct:261665006,https://anvilproject.github.io/EnumConsanguinityAssertion,EnumConsanguinityAssertion
+Sample,availablity_status,available,Biospecimen is Available,Available,ig2_biospecimen_availability:available,https://anvilproject.github.io/EnumAvailabilityStatus,EnumAvailabilityStatus
+Sample,availablity_status,unavailable,Biospecimen is Unavailable,Unavailable,ig2_biospecimen_availability:unavailable,https://anvilproject.github.io/EnumAvailabilityStatus,EnumAvailabilityStatus
+Aliquot,availablity_status,available,Biospecimen is Available,Available,ig2_biospecimen_availability:available,https://anvilproject.github.io/EnumAvailabilityStatus,EnumAvailabilityStatus
+Aliquot,availablity_status,unavailable,Biospecimen is Unavailable,Unavailable,ig2_biospecimen_availability:unavailable,https://anvilproject.github.io/EnumAvailabilityStatus,EnumAvailabilityStatus
+Demographics_race,race,american_indian_or_alaskan_native,American Indian or Alaskan Native,,cdc_race_eth:1002-5,https://anvilproject.github.io/EnumRace,EnumRace
+Demographics_race,race,asian,Asian,,cdc_race_eth:2028-9,https://anvilproject.github.io/EnumRace,EnumRace
+Demographics_race,race,black_or_african_american,Black or African American,,cdc_race_eth:2054-5,https://anvilproject.github.io/EnumRace,EnumRace
+Demographics_race,race,native_hawaiian_or_pacific_islander,Native Hawaiian or Other Pacific Islander,,cdc_race_eth:2076-8,https://anvilproject.github.io/EnumRace,EnumRace
+Demographics_race,race,white,White,,cdc_race_eth:2106-3,https://anvilproject.github.io/EnumRace,EnumRace
+Demographics_race,race,other_race,Other Race,,cdc_race_eth:2131-1,https://anvilproject.github.io/EnumRace,EnumRace
+Demographics_race,race,unknown,unknown,,hl7_null:UNK,https://anvilproject.github.io/EnumRace,EnumRace
+Demographics_race,race,asked_but_unknown,asked but unknown,,hl7_null:ASKU,https://anvilproject.github.io/EnumRace,EnumRace
+AccessPolicy_data_access_type,data_access_type,open,Open Access,open,ig2dat:open,https://anvilproject.github.io/EnumAccessType,EnumAccessType
+AccessPolicy_data_access_type,data_access_type,registered,Registered Access,registered,ig2dat:registered,https://anvilproject.github.io/EnumAccessType,EnumAccessType
+AccessPolicy_data_access_type,data_access_type,controlled,Controlled,controlled,ig2dat:controlled,https://anvilproject.github.io/EnumAccessType,EnumAccessType
+AccessPolicy_data_access_type,data_access_type,gsr_restricted,GSR Restricted,gsr_restricted,ig2dat:gsr-restricted,https://anvilproject.github.io/EnumAccessType,EnumAccessType
+AccessPolicy_data_access_type,data_access_type,gsr_allowed,GSR Allowed,gsr_allowed,ig2dat:gsr-allowed,https://anvilproject.github.io/EnumAccessType,EnumAccessType
+AccessPolicy_access_policy_code,access_policy_code,gru,General Research Use,GRU,ig2dac:GRU,https://anvilproject.github.io/EnumAccessCode,EnumAccessCode
+AccessPolicy_access_policy_code,access_policy_code,hmb,Health/Medical/Biomedical,HMB,ig2dac:HMB,https://anvilproject.github.io/EnumAccessCode,EnumAccessCode
+AccessPolicy_access_policy_code,access_policy_code,ds,Disease-Specific (Disease/Trait/Exposure),DS,ig2dac:DS,https://anvilproject.github.io/EnumAccessCode,EnumAccessCode
+AccessPolicy_access_policy_code,access_policy_code,irb,IRB Approval Required,IRB,ig2dac:IRB,https://anvilproject.github.io/EnumAccessCode,EnumAccessCode
+AccessPolicy_access_policy_code,access_policy_code,pub,Publication Required,PUB,ig2dac:PUB,https://anvilproject.github.io/EnumAccessCode,EnumAccessCode
+AccessPolicy_access_policy_code,access_policy_code,col,Collaboration Required,COL,ig2dac:COL,https://anvilproject.github.io/EnumAccessCode,EnumAccessCode
+AccessPolicy_access_policy_code,access_policy_code,npu,Not-for-profit use only,NPU,ig2dac:NPU,https://anvilproject.github.io/EnumAccessCode,EnumAccessCode
+AccessPolicy_access_policy_code,access_policy_code,mds,Methods,MDS,ig2dac:MDS,https://anvilproject.github.io/EnumAccessCode,EnumAccessCode
+AccessPolicy_access_policy_code,access_policy_code,gso,Genetic Studies only,GSO,ig2dac:GSO,https://anvilproject.github.io/EnumAccessCode,EnumAccessCode
+AccessPolicy_access_policy_code,access_policy_code,gsr,Genomic Summary Results,GSR,ig2dac:GSR,https://anvilproject.github.io/EnumAccessCode,EnumAccessCode
