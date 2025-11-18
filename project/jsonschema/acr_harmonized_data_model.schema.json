@@ -454,7 +454,8 @@
                 "npu",
                 "mds",
                 "gso",
-                "gsr"
+                "gsr",
+                "rd"
             ],
             "title": "EnumAccessCode",
             "type": "string"
@@ -479,7 +480,8 @@
                 "comorbidity",
                 "histology",
                 "clinical_finding",
-                "ehr_billing_code"
+                "ehr_billing_code",
+                "measurement"
             ],
             "title": "EnumAssertionType",
             "type": "string"

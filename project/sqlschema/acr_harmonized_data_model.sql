@@ -1,4 +1,4 @@
--- # Abstract Class: "Thing" Description: "Highest Level Class"
+-- # Class: "Thing" Description: "Highest Level Class"
 --     * Slot: id Description: ID associated with a class
 -- # Class: "AccessControlledRecord" Description: "Element for which specific access control restrictions apply."
 --     * Slot: has_access_policy Description: Which access policy applies to this element?

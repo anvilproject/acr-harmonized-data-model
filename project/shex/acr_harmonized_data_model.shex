@@ -80,7 +80,8 @@ linkml:Sparqlpath xsd:string
           <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/data_access_type> [ ig2dat:open ig2dat:registered
              ig2dat:controlled ig2dat:gsr-restricted ig2dat:gsr-allowed ] * ;
           <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/access_policy_code> [ ig2dac:GRU ig2dac:HMB
-             ig2dac:DS ig2dac:IRB ig2dac:PUB ig2dac:COL ig2dac:NPU ig2dac:MDS ig2dac:GSO ig2dac:GSR ] + ;
+             ig2dac:DS ig2dac:IRB ig2dac:PUB ig2dac:COL ig2dac:NPU ig2dac:MDS ig2dac:GSO ig2dac:GSR
+             <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/EnumAccessCode#rd> ] + ;
           <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/disease_limitation> @linkml:String ? ;
           <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/description> @linkml:String ;
           <https://anvilproject.org/acr-harmonized-data-model/data-access-policy/website> @linkml:String ?
@@ -309,7 +310,8 @@ linkml:Sparqlpath xsd:string
           rdf:type [ <AccessControlledRecord> ] ? ;
           <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/assertion_type> [ igcondtype:Phenotypic-Feature
              igcondtype:Disease igcondtype:Comorbidity igcondtype:Histology igcondtype:Clinical-Finding
-             <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/EnumAssertionType#ehr_billing_code> ] ? ;
+             <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/EnumAssertionType#ehr_billing_code>
+             <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/EnumAssertionType#measurement> ] ? ;
           <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_assertion> @linkml:Float ? ;
           <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_event> @linkml:Float ? ;
           <https://anvilproject.org/acr-harmonized-data-model/condition_assertion/age_at_resolution> @linkml:Float ? ;

@@ -110,4 +110,7 @@ enums:
       gsr: 
         title: GSR 
         meaning: ig2dac:GSR 
-        description: Genomic Summary Results 
+        description: Genomic Summary Results
+      rd:
+        title: RD
+        description: Related Diseases

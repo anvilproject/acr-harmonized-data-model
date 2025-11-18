@@ -11,6 +11,7 @@ enum EnumAccessCode
     mds
     gso
     gsr
+    rd
   }
 
 enum EnumAccessType
@@ -30,6 +31,7 @@ enum EnumAssertionType
     histology
     clinical_finding
     ehr_billing_code
+    measurement
   }
 
 enum EnumAvailabilityStatus
