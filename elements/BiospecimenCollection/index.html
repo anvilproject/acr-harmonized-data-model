@@ -362,7 +362,7 @@
 <tr>
 <td><a href="../age_at_collection/">age_at_collection</a></td>
 <td>0..1 <br/> <a href="../Float/">Float</a></td>
-<td>The age at which this biospecimen was collected</td>
+<td>The age at which this biospecimen was collected in decimal years</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -480,7 +480,7 @@ is_a: AccessControlledRecord
 attributes:
   age_at_collection:
     name: age_at_collection
-    description: The age at which this biospecimen was collected.
+    description: The age at which this biospecimen was collected in decimal years.
     title: age_at_collection
     from_schema: https://anvilproject.org/acr-harmonized-data-model
     rank: 1000
@@ -491,6 +491,8 @@ attributes:
     range: float
     required: false
     multivalued: false
+    unit:
+      ucum_code: a
   method:
     name: method
     description: The approach used to collect the biospecimen.

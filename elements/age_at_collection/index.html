@@ -417,7 +417,7 @@
 
 
 <h1 id="slot-age_at_collection-age_at_collection">Slot: age_at_collection (age_at_collection)</h1>
-<p><em>The age at which this biospecimen was collected.</em></p>
+<p><em>The age at which this biospecimen was collected in decimal years.</em></p>
 <p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/age_at_collection">anvil:age_at_collection</a>
 Alias: age_at_collection</p>
 <!-- no inheritance hierarchy -->
@@ -471,7 +471,7 @@ Alias: age_at_collection</p>
 <details>
 
 <pre><code class="language-yaml">name: age_at_collection
-description: The age at which this biospecimen was collected.
+description: The age at which this biospecimen was collected in decimal years.
 title: age_at_collection
 from_schema: https://anvilproject.org/acr-harmonized-data-model
 rank: 1000
@@ -481,6 +481,8 @@ domain_of:
 range: float
 required: false
 multivalued: false
+unit:
+  ucum_code: a
 
 </code></pre>
 
