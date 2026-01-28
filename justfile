@@ -120,6 +120,8 @@ gen-project:
   @if [ ! ${{gen_ts_args}} ]; then \
     uv run gen-typescript {{gen_ts_args}} {{source_schema_path}} > {{dest}}/typescript/{{schema_name}}.ts || true ; \
   fi
+  # Add MD DD
+  uv run linkml_extract_dd  {{source_schema_path}}
 
 # ============== Migrations recipes for Copier ==============
 
