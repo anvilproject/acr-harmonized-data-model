@@ -99,11 +99,13 @@ slots:
     range: uriorcurie 
     required: false 
   age_at_collection:
-    description: The age at which this biospecimen was collected.
+    description: The age at which this biospecimen was collected in decimal years.
     title: age_at_collection 
     range: float 
     required: false 
     multivalued: false 
+    unit:
+      ucum_code: a   
   method: 
     description: The approach used to collect the biospecimen.
     title: method 
