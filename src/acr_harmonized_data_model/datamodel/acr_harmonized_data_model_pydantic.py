@@ -741,7 +741,7 @@ class BiospecimenCollection(AccessControlledRecord):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://anvilproject.org/acr-harmonized-data-model/sample',
          'title': 'BiospecimenCollection'})
 
-    age_at_collection: Optional[float] = Field(default=None, title="age_at_collection", description="""The age at which this biospecimen was collected.""", json_schema_extra = { "linkml_meta": {'domain_of': ['BiospecimenCollection']} })
+    age_at_collection: Optional[float] = Field(default=None, title="age_at_collection", description="""The age at which this biospecimen was collected in decimal years.""", json_schema_extra = { "linkml_meta": {'domain_of': ['BiospecimenCollection'], 'unit': {'ucum_code': 'a'}} })
     method: Optional[EnumSampleCollectionMethod] = Field(default=None, title="method", description="""The approach used to collect the biospecimen.""", json_schema_extra = { "linkml_meta": {'domain_of': ['BiospecimenCollection']} })
     site: Optional[EnumSite] = Field(default=None, title="site", description="""The location of the specimen collection.""", json_schema_extra = { "linkml_meta": {'domain_of': ['BiospecimenCollection']} })
     spatial_qualifier: Optional[EnumSpatialQualifiers] = Field(default=None, title="spatial_qualifier", description="""Any spatial/location qualifiers""", json_schema_extra = { "linkml_meta": {'domain_of': ['BiospecimenCollection']} })
