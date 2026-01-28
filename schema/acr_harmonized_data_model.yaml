@@ -2105,7 +2105,7 @@ classes:
     class_uri: https://anvilproject.org/acr-harmonized-data-model/file/FileMetadata
 metamodel_version: 1.7.0
 source_file: acr_harmonized_data_model.yaml
-source_file_date: '2026-01-28T22:38:32'
+source_file_date: '2026-01-28T22:38:56'
 source_file_size: 2025
-generation_date: '2026-01-28T22:38:42'
+generation_date: '2026-01-28T22:39:05'
 
