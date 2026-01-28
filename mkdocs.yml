@@ -7,31 +7,16 @@ theme:
   #  primary: cyan
   features:
     - content.tabs.link
-
-# for adding extra css/js see https://www.mkdocs.org/user-guide/customizing-your-theme/
-
 plugins:
   - search
   - mknotebooks:
       execute: false
   - mermaid2:
       version: 11.4.1
-  # TODO rebuild docs on schema change (https://github.com/dalito/linkml-project-copier/issues/39)
-  # - gen-files:
-  #     scripts:
-  #       - gen_pages.py  # or any other name or path
-
-watch:
-  - src/acr_harmonized_data_model/schema
-
 nav:
-  - Home: index.md
-  - Schema: elements/index.md
+  # - Home: home.md
+  - Index: index.md
   - About: about.md
-
-exclude_docs: |
-  /templates-linkml/
-
 site_url: https://anvilproject.github.io/acr-harmonized-data-model
 repo_url: https://github.com/anvilproject/acr-harmonized-data-model
 

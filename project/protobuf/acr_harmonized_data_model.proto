@@ -1,0 +1,197 @@
+ syntax="proto3";
+ package
+// metamodel_version: 1.7.0
+// Element for which specific access control restrictions apply.
+message AccessControlledRecord
+ {
+  string id = 0
+ repeated  uriorcurie externalId = 0
+  accessPolicy hasAccessPolicy = 0
+ }
+// Describes the access required for a given element of data.
+message AccessPolicy
+ {
+  string id = 0
+ repeated  uriorcurie externalId = 0
+ repeated  enumAccessType dataAccessType = 0
+ repeated  enumAccessCode accessPolicyCode = 0
+  string diseaseLimitation = 0
+  string description = 0
+  string website = 0
+ }
+// Specific tubes or details of a Sample.
+message Aliquot
+ {
+  string id = 0
+ repeated  uriorcurie externalId = 0
+  accessPolicy hasAccessPolicy = 0
+  enumAvailabilityStatus availablityStatus = 0
+  float quantityNumber = 0
+  uriorcurie quantityUnits = 0
+  float concentrationNumber = 0
+  uriorcurie concentrationUnit = 0
+ }
+// Biospecimen Collection
+message BiospecimenCollection
+ {
+  string id = 0
+ repeated  uriorcurie externalId = 0
+  accessPolicy hasAccessPolicy = 0
+  integer ageAtCollection = 0
+  enumSampleCollectionMethod method = 0
+  enumSite site = 0
+  enumSpatialQualifiers spatialQualifier = 0
+  enumLaterality laterality = 0
+ }
+// Query configuration for specifying a source from which data are pulled.
+message DataSource
+ {
+  string id = 0
+ repeated  uriorcurie externalId = 0
+  string snapshotId = 0
+  string googleDataProject = 0
+  string snapshotDataset = 0
+  string table = 0
+  string parameterizedQuery = 0
+ }
+// Basic participant demographics summary
+message Demographics
+ {
+  string id = 0
+ repeated  uriorcurie externalId = 0
+  accessPolicy hasAccessPolicy = 0
+  integer dateOfBirth = 0
+  enumDateOfBirthType dateOfBirthType = 0
+  enumSex sex = 0
+  string sexDisplay = 0
+ repeated  enumRace race = 0
+  string raceDisplay = 0
+  enumEthnicity ethnicity = 0
+  string ethnicityDisplay = 0
+  integer ageAtLastVitalStatus = 0
+  enumVitalStatus vitalStatus = 0
+ repeated  sourceData sourceData = 0
+ }
+// A group of individuals of some relation who are grouped together in the study.
+message Family
+ {
+  string id = 0
+ repeated  uriorcurie externalId = 0
+  accessPolicy hasAccessPolicy = 0
+  enumFamilyType familyType = 0
+  string familyDescription = 0
+  enumConsanguinityAssertion consanguinity = 0
+  string familyStudyFocus = 0
+ repeated  familyMember familyMembers = 0
+ repeated  familyRelationship familyRelationships = 0
+ }
+// Designates a Subject as a member of a family with some specified role.
+message FamilyMember
+ {
+  string id = 0
+ repeated  uriorcurie externalId = 0
+  accessPolicy hasAccessPolicy = 0
+  subject familyMember = 0
+  uriorcurie familyRole = 0
+ }
+// A relationship between two Subjects.
+message FamilyRelationship
+ {
+  string id = 0
+ repeated  uriorcurie externalId = 0
+  accessPolicy hasAccessPolicy = 0
+  subject familyMember = 0
+  subject otherFamilyMember = 0
+  uriorcurie relationshipCode = 0
+ }
+// File
+message File
+ {
+  string id = 0
+ repeated  uriorcurie externalId = 0
+  accessPolicy hasAccessPolicy = 0
+ repeated  subject subject = 0
+ repeated  sample sample = 0
+  string filename = 0
+  eDAMFormats format = 0
+  eDAMDataTypes dataType = 0
+  integer size = 0
+  uriorcurie drsUri = 0
+  fileMetadata fileMetadata = 0
+ }
+// Metadata about the contents of the file.
+message FileMetadata
+ {
+  string id = 0
+ repeated  uriorcurie externalId = 0
+  uriorcurie code = 0
+  string display = 0
+  uriorcurie valueCode = 0
+  string valueDisplay = 0
+ }
+// Biospecimen data
+message Sample
+ {
+  string id = 0
+ repeated  uriorcurie externalId = 0
+  accessPolicy hasAccessPolicy = 0
+  biospecimenCollection biospecimenCollection = 0
+  sample parentSample = 0
+  uriorcurie sampleType = 0
+ repeated  uriorcurie processing = 0
+  enumAvailabilityStatus availablityStatus = 0
+ repeated  uriorcurie storageMethod = 0
+  float quantityNumber = 0
+  uriorcurie quantityUnits = 0
+ repeated  aliquot aliquots = 0
+ }
+// Reference to submitted data used to generate harmonized data. Applying the query_parameter(s) to the data_source.parameterized_query should return the specific data of interest.
+message SourceData
+ {
+  string id = 0
+ repeated  uriorcurie externalId = 0
+  accessPolicy hasAccessPolicy = 0
+  dataSource dataSource = 0
+ repeated  string queryParameter = 0
+ }
+// Study Meta Data
+message Study
+ {
+  string id = 0
+ repeated  uriorcurie externalId = 0
+  study parentStudyId = 0
+ repeated  string fundingSource = 0
+ repeated  string principalInvestigator = 0
+  string studyTitle = 0
+ }
+// This entity is the subject about which data or references are recorded. | This includes the idea of a human participant in a study, a cell line, an animal model, | or any other similar entity.
+message Subject
+ {
+  string id = 0
+ repeated  uriorcurie externalId = 0
+  accessPolicy hasAccessPolicy = 0
+  enumSubjectType subjectType = 0
+  string organismType = 0
+ repeated  sample hasSample = 0
+ repeated  subjectAssertion hasAssertion = 0
+  demographics hasDemographics = 0
+ }
+// Assertion about a particular Subject. May include Conditions, Measurements, etc.
+message SubjectAssertion
+ {
+  string id = 0
+ repeated  uriorcurie externalId = 0
+  accessPolicy hasAccessPolicy = 0
+  enumAssertionType assertionType = 0
+  float ageAtAssertion = 0
+  float ageAtEvent = 0
+  float ageAtResolution = 0
+  uriorcurie code = 0
+  string display = 0
+  uriorcurie valueCode = 0
+  string valueDisplay = 0
+  float valueNumber = 0
+  uriorcurie valueUnits = 0
+  string valueUnitsDisplay = 0
+ repeated  sourceData sourceData = 0
+ }

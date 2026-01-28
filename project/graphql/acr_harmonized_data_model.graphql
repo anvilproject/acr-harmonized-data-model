@@ -1,0 +1,324 @@
+# metamodel_version: 1.7.0
+enum EnumAccessCode
+  {
+    gru
+    hmb
+    ds
+    irb
+    pub
+    col
+    npu
+    mds
+    gso
+    gsr
+    rd
+  }
+
+enum EnumAccessType
+  {
+    open
+    registered
+    controlled
+    gsr_restricted
+    gsr_allowed
+  }
+
+enum EnumAssertionType
+  {
+    phenotypic_feature
+    disease
+    comorbidity
+    histology
+    clinical_finding
+    ehr_billing_code
+    measurement
+  }
+
+enum EnumAvailabilityStatus
+  {
+    available
+    unavailable
+  }
+
+enum EnumConditionAssertion
+  {
+    present
+    absent
+    unsure
+    unknown
+  }
+
+enum EnumConsanguinityAssertion
+  {
+    not_suspected
+    suspected
+    known_present
+    unknown
+  }
+
+enum EnumDateOfBirthType
+  {
+    exact
+    year_only
+    shifted
+    decade_only
+    other
+  }
+
+enum EnumEthnicity
+  {
+    hispanic_or_latino
+    not_hispanic_or_latino
+    unknown
+    asked_but_unknown
+  }
+
+enum EnumFamilyType
+  {
+    control_only
+    duo
+    proband_only
+    trio
+    trio_plus
+    other
+  }
+
+enum EnumRace
+  {
+    american_indian_or_alaskan_native
+    asian
+    black_or_african_american
+    native_hawaiian_or_pacific_islander
+    white
+    other_race
+    unknown
+    asked_but_unknown
+  }
+
+enum EnumSex
+  {
+    female
+    male
+    unknown
+    intersex
+  }
+
+enum EnumSubjectType
+  {
+    participant
+    non_participant
+    cell_line
+    animal_model
+    group
+    other
+  }
+
+enum EnumVitalStatus
+  {
+    alive
+    dead
+    not_reported
+    unknown
+    unspecified
+  }
+
+type AccessControlledRecord
+  {
+    id: String!
+    externalId: [Uriorcurie]
+    hasAccessPolicy: AccessPolicy
+  }
+
+type AccessPolicy
+  {
+    id: String!
+    externalId: [Uriorcurie]
+    dataAccessType: [EnumAccessType]
+    accessPolicyCode: [EnumAccessCode]!
+    diseaseLimitation: String
+    description: String!
+    website: String
+  }
+
+type Aliquot
+  {
+    id: String!
+    externalId: [Uriorcurie]
+    hasAccessPolicy: AccessPolicy
+    availablityStatus: EnumAvailabilityStatus
+    quantityNumber: Float
+    quantityUnits: Uriorcurie
+    concentrationNumber: Float
+    concentrationUnit: Uriorcurie
+  }
+
+type BiospecimenCollection
+  {
+    id: String!
+    externalId: [Uriorcurie]
+    hasAccessPolicy: AccessPolicy
+    ageAtCollection: Integer
+    method: EnumSampleCollectionMethod
+    site: EnumSite
+    spatialQualifier: EnumSpatialQualifiers
+    laterality: EnumLaterality
+  }
+
+type DataSource
+  {
+    id: String!
+    externalId: [Uriorcurie]
+    snapshotId: String
+    googleDataProject: String
+    snapshotDataset: String
+    table: String
+    parameterizedQuery: String
+  }
+
+type Demographics
+  {
+    id: String!
+    externalId: [Uriorcurie]
+    hasAccessPolicy: AccessPolicy
+    dateOfBirth: Integer
+    dateOfBirthType: EnumDateOfBirthType
+    sex: EnumSex!
+    sexDisplay: String!
+    race: [EnumRace]!
+    raceDisplay: String!
+    ethnicity: EnumEthnicity!
+    ethnicityDisplay: String!
+    ageAtLastVitalStatus: Integer
+    vitalStatus: EnumVitalStatus
+    sourceData: [SourceData]
+  }
+
+type Family
+  {
+    id: String!
+    externalId: [Uriorcurie]
+    hasAccessPolicy: AccessPolicy
+    familyType: EnumFamilyType
+    familyDescription: String
+    consanguinity: EnumConsanguinityAssertion
+    familyStudyFocus: String
+    familyMembers: [FamilyMember]!
+    familyRelationships: [FamilyRelationship]
+  }
+
+type FamilyMember
+  {
+    id: String!
+    externalId: [Uriorcurie]
+    hasAccessPolicy: AccessPolicy
+    familyMember: Subject!
+    familyRole: Uriorcurie
+  }
+
+type FamilyRelationship
+  {
+    id: String!
+    externalId: [Uriorcurie]
+    hasAccessPolicy: AccessPolicy
+    familyMember: Subject!
+    otherFamilyMember: Subject!
+    relationshipCode: Uriorcurie!
+  }
+
+type File
+  {
+    id: String!
+    externalId: [Uriorcurie]
+    hasAccessPolicy: AccessPolicy
+    subject: [Subject]
+    sample: [Sample]
+    filename: String
+    format: EDAMFormats
+    dataType: EDAMDataTypes
+    size: Integer
+    drsUri: Uriorcurie
+    fileMetadata: FileMetadata
+  }
+
+type FileMetadata
+  {
+    id: String!
+    externalId: [Uriorcurie]
+    code: Uriorcurie
+    display: String
+    valueCode: Uriorcurie
+    valueDisplay: String
+  }
+
+type Sample
+  {
+    id: String!
+    externalId: [Uriorcurie]
+    hasAccessPolicy: AccessPolicy
+    biospecimenCollection: BiospecimenCollection
+    parentSample: Sample
+    sampleType: Uriorcurie!
+    processing: [Uriorcurie]
+    availablityStatus: EnumAvailabilityStatus
+    storageMethod: [Uriorcurie]
+    quantityNumber: Float
+    quantityUnits: Uriorcurie
+    aliquots: [Aliquot]
+  }
+
+type SourceData
+  {
+    id: String!
+    externalId: [Uriorcurie]
+    hasAccessPolicy: AccessPolicy
+    dataSource: DataSource
+    queryParameter: [String]
+  }
+
+type Study
+  {
+    id: String!
+    externalId: [Uriorcurie]
+    parentStudyId: Study
+    fundingSource: [String]
+    principalInvestigator: [String]
+    studyTitle: String!
+  }
+
+type Subject
+  {
+    id: String!
+    externalId: [Uriorcurie]
+    hasAccessPolicy: AccessPolicy
+    subjectType: EnumSubjectType!
+    organismType: String
+    hasSample: [Sample]
+    hasAssertion: [SubjectAssertion]
+    hasDemographics: Demographics
+  }
+
+type SubjectAssertion
+  {
+    id: String!
+    externalId: [Uriorcurie]
+    hasAccessPolicy: AccessPolicy
+    assertionType: EnumAssertionType
+    ageAtAssertion: Float
+    ageAtEvent: Float
+    ageAtResolution: Float
+    code: Uriorcurie
+    display: String
+    valueCode: Uriorcurie
+    valueDisplay: String
+    valueNumber: Float
+    valueUnits: Uriorcurie
+    valueUnitsDisplay: String
+    sourceData: [SourceData]
+  }
+
+interface Thing
+  {
+    id: String!
+    externalId: [Uriorcurie]
+  }
+
