@@ -1,5 +1,5 @@
 # Auto generated from acr_harmonized_data_model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-01-28T16:22:06
+# Generation date: 2026-01-28T16:35:05
 # Schema: acr-harmonized-data-model
 #
 # id: https://anvilproject.org/acr-harmonized-data-model
@@ -269,7 +269,7 @@ class Demographics(AccessControlledRecord):
     ethnicity_display: str = None
     date_of_birth: Optional[int] = None
     date_of_birth_type: Optional[Union[str, "EnumDateOfBirthType"]] = None
-    age_at_last_vital_status: Optional[int] = None
+    age_at_last_vital_status: Optional[float] = None
     vital_status: Optional[Union[str, "EnumVitalStatus"]] = None
     source_data: Optional[Union[Union[str, SourceDataId], list[Union[str, SourceDataId]]]] = empty_list()
 
@@ -316,8 +316,8 @@ class Demographics(AccessControlledRecord):
         if self.date_of_birth_type is not None and not isinstance(self.date_of_birth_type, EnumDateOfBirthType):
             self.date_of_birth_type = EnumDateOfBirthType(self.date_of_birth_type)
 
-        if self.age_at_last_vital_status is not None and not isinstance(self.age_at_last_vital_status, int):
-            self.age_at_last_vital_status = int(self.age_at_last_vital_status)
+        if self.age_at_last_vital_status is not None and not isinstance(self.age_at_last_vital_status, float):
+            self.age_at_last_vital_status = float(self.age_at_last_vital_status)
 
         if self.vital_status is not None and not isinstance(self.vital_status, EnumVitalStatus):
             self.vital_status = EnumVitalStatus(self.vital_status)
@@ -767,7 +767,7 @@ class BiospecimenCollection(AccessControlledRecord):
     class_model_uri: ClassVar[URIRef] = ANVIL.BiospecimenCollection
 
     id: Union[str, BiospecimenCollectionId] = None
-    age_at_collection: Optional[int] = None
+    age_at_collection: Optional[float] = None
     method: Optional[Union[str, "EnumSampleCollectionMethod"]] = None
     site: Optional[Union[str, "EnumSite"]] = None
     spatial_qualifier: Optional[Union[str, "EnumSpatialQualifiers"]] = None
@@ -779,8 +779,8 @@ class BiospecimenCollection(AccessControlledRecord):
         if not isinstance(self.id, BiospecimenCollectionId):
             self.id = BiospecimenCollectionId(self.id)
 
-        if self.age_at_collection is not None and not isinstance(self.age_at_collection, int):
-            self.age_at_collection = int(self.age_at_collection)
+        if self.age_at_collection is not None and not isinstance(self.age_at_collection, float):
+            self.age_at_collection = float(self.age_at_collection)
 
         super().__post_init__(**kwargs)
 
@@ -1472,7 +1472,7 @@ slots.ethnicity_display = Slot(uri=ANVIL['participant/ethnicity_display'], name=
                    model_uri=ANVIL.ethnicity_display, domain=None, range=str)
 
 slots.age_at_last_vital_status = Slot(uri=ANVIL['participant/age_at_last_vital_status'], name="age_at_last_vital_status", curie=ANVIL.curie('participant/age_at_last_vital_status'),
-                   model_uri=ANVIL.age_at_last_vital_status, domain=None, range=Optional[int])
+                   model_uri=ANVIL.age_at_last_vital_status, domain=None, range=Optional[float])
 
 slots.vital_status = Slot(uri=ANVIL['participant/vital_status'], name="vital_status", curie=ANVIL.curie('participant/vital_status'),
                    model_uri=ANVIL.vital_status, domain=None, range=Optional[Union[str, "EnumVitalStatus"]])
@@ -1637,7 +1637,7 @@ slots.concentration_unit = Slot(uri=ANVIL['sample/concentration_unit'], name="co
                    model_uri=ANVIL.concentration_unit, domain=None, range=Optional[Union[str, URIorCURIE]])
 
 slots.age_at_collection = Slot(uri=ANVIL['sample/age_at_collection'], name="age_at_collection", curie=ANVIL.curie('sample/age_at_collection'),
-                   model_uri=ANVIL.age_at_collection, domain=None, range=Optional[int])
+                   model_uri=ANVIL.age_at_collection, domain=None, range=Optional[float])
 
 slots.method = Slot(uri=ANVIL['sample/method'], name="method", curie=ANVIL.curie('sample/method'),
                    model_uri=ANVIL.method, domain=None, range=Optional[Union[str, "EnumSampleCollectionMethod"]])

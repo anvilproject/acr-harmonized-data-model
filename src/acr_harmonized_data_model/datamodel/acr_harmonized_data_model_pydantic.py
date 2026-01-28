@@ -618,7 +618,7 @@ class Demographics(AccessControlledRecord):
     race_display: str = Field(default=..., title="Race display string", description="""The friendly display string of the coded term(s) for Race""", json_schema_extra = { "linkml_meta": {'domain_of': ['Demographics']} })
     ethnicity: EnumEthnicity = Field(default=..., title="Ethnicity", description="""Reported ethnicity as defined by the 1997 OMB directives.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Demographics']} })
     ethnicity_display: str = Field(default=..., title="Ethnicity display string", description="""The friendly display string of the coded term for Ethnicity""", json_schema_extra = { "linkml_meta": {'domain_of': ['Demographics']} })
-    age_at_last_vital_status: Optional[int] = Field(default=None, title="Age at Last Vital Status", description="""Age at last vital status in decimal years.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Demographics'], 'unit': {'ucum_code': 'a'}} })
+    age_at_last_vital_status: Optional[float] = Field(default=None, title="Age at Last Vital Status", description="""Age at last vital status in decimal years.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Demographics'], 'unit': {'ucum_code': 'a'}} })
     vital_status: Optional[EnumVitalStatus] = Field(default=None, title="VitalStatus", description="""Vital Status""", json_schema_extra = { "linkml_meta": {'domain_of': ['Demographics']} })
     source_data: Optional[list[str]] = Field(default=[], title="Source Assertion", description="""The sources from which this assertion was derived""", json_schema_extra = { "linkml_meta": {'domain_of': ['Demographics', 'SubjectAssertion']} })
     has_access_policy: Optional[str] = Field(default=None, description="""Which access policy applies to this element?""", json_schema_extra = { "linkml_meta": {'domain_of': ['AccessControlledRecord']} })
@@ -741,7 +741,7 @@ class BiospecimenCollection(AccessControlledRecord):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://anvilproject.org/acr-harmonized-data-model/sample',
          'title': 'BiospecimenCollection'})
 
-    age_at_collection: Optional[int] = Field(default=None, title="age_at_collection", description="""The age at which this biospecimen was collected.""", json_schema_extra = { "linkml_meta": {'domain_of': ['BiospecimenCollection']} })
+    age_at_collection: Optional[float] = Field(default=None, title="age_at_collection", description="""The age at which this biospecimen was collected.""", json_schema_extra = { "linkml_meta": {'domain_of': ['BiospecimenCollection']} })
     method: Optional[EnumSampleCollectionMethod] = Field(default=None, title="method", description="""The approach used to collect the biospecimen.""", json_schema_extra = { "linkml_meta": {'domain_of': ['BiospecimenCollection']} })
     site: Optional[EnumSite] = Field(default=None, title="site", description="""The location of the specimen collection.""", json_schema_extra = { "linkml_meta": {'domain_of': ['BiospecimenCollection']} })
     spatial_qualifier: Optional[EnumSpatialQualifiers] = Field(default=None, title="spatial_qualifier", description="""Any spatial/location qualifiers""", json_schema_extra = { "linkml_meta": {'domain_of': ['BiospecimenCollection']} })
