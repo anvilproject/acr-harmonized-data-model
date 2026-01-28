@@ -970,7 +970,7 @@ slots:
     owner: Demographics
     domain_of:
     - Demographics
-    range: integer
+    range: float
     required: false
     unit:
       ucum_code: a
@@ -1664,7 +1664,7 @@ slots:
     owner: BiospecimenCollection
     domain_of:
     - BiospecimenCollection
-    range: integer
+    range: float
     required: false
     multivalued: false
   method:
@@ -2105,7 +2105,7 @@ classes:
     class_uri: https://anvilproject.org/acr-harmonized-data-model/file/FileMetadata
 metamodel_version: 1.7.0
 source_file: acr_harmonized_data_model.yaml
-source_file_date: '2026-01-28T22:29:04'
+source_file_date: '2026-01-28T22:37:21'
 source_file_size: 2025
-generation_date: '2026-01-28T22:29:13'
+generation_date: '2026-01-28T22:37:30'
 
