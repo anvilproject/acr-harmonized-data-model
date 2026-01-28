@@ -9,22 +9,16 @@ theme:
     - content.tabs.link
 plugins:
   - search
-  - mermaid2
   - mknotebooks:
       execute: false
   - mermaid2:
-      version: 10.9.0
+      version: 11.4.1
 nav:
   # - Home: home.md
   - Index: index.md
   - About: about.md
 site_url: https://anvilproject.github.io/acr-harmonized-data-model
 repo_url: https://github.com/anvilproject/acr-harmonized-data-model
-markdown_extensions:
-  - tables
-extra_javascript:
-  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
-  - javascripts/tablesort.js
 
 # Uncomment this block to enable use of Google Analytics.
 # Replace the property value with your own ID.

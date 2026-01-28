@@ -92,15 +92,13 @@ install:
 # ---
 #
 # check we are up to date
-check: cruft-check
-cruft-check:
-	cruft check
-cruft-diff:
-	cruft diff
+check: copier-check
+copier-check:
+	copier update --trust --skip-answered --skip-tasks --pretend
 
 update: update-template update-linkml
 update-template:
-	cruft update
+	copier update --trust --skip-answered --skip-tasks
 
 # todo: consider pinning to template
 update-linkml:
@@ -126,7 +124,6 @@ gen-examples:
 
 gen-project: $(PYMODEL)
 	$(RUN) gen-project ${CONFIG_YAML} -d $(DEST) $(SOURCE_SCHEMA_PATH) && mv $(DEST)/*.py $(PYMODEL)
-	$(RUN) linkml_extract_dd  $(SOURCE_SCHEMA_PATH)
 
 
 # non-empty arg triggers owl (workaround https://github.com/linkml/linkml/issues/1453)
@@ -208,17 +205,11 @@ mkd-%:
 git-init-add: git-init git-add git-commit git-status
 git-init:
 	git init
-git-add: .cruft.json
 	git add .
 git-commit:
 	git commit -m 'chore: make setup was run' -a
 git-status:
 	git status
-
-# only necessary if setting up via cookiecutter
-.cruft.json:
-	echo "creating a stub for .cruft.json. IMPORTANT: setup via cruft not cookiecutter recommended!" ; \
-	touch $@
 
 clean:
 	rm -rf $(DEST)

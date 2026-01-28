@@ -1,4 +1,4 @@
-# On Windows the bash shell that comes with Git for Windows should be used.
+# On Windows the "sh" shell that comes with Git for Windows should be used.
 # If it is not on path, give the path to the executable in the following line.
 #set windows-shell := ["C:/Program Files/Git/usr/bin/sh", "-cu"]
 
@@ -52,9 +52,11 @@ _status: _check-config
     @echo "Source: {{source_schema_path}}"
 
 # Run initial setup (run this first)
+[group('project management')]
 setup: _check-config _git-init install _gen-project _gen-examples _gendoc _git-add _git-commit
 
 # Install project dependencies
+[group('project management')]
 install:
     poetry install
 
@@ -69,27 +71,23 @@ _check-config:
     print('Project-status: Ok')
 
 # Updates project template and LinkML package
+[group('project management')]
 update: _update-template _update-linkml
 
 # Update project template
 _update-template:
-    cruft update
+    copier update --trust --skip-answered --skip-tasks
 
 # Update LinkML to latest version
 _update-linkml:
     poetry add -D linkml@latest
 
-# Create data harmonizer
-_create-data-harmonizer:
-    npm init data-harmonizer {{source_schema_path}}
-
-# Generate all project files
-alias all := site
-
 # Generate site locally
+[group('model development')]
 site: _gen-project _gendoc
 
-# Deploy site
+# Deploy documentation site
+[group('deployment')]
 deploy: site
   mkd-gh-deploy
 
@@ -120,6 +118,7 @@ _gen-project: _ensure_pymodel_dir _compile_sheets
     fi
 
 # Run all tests
+[group('model development')]
 test: _test-schema _test-python _test-examples
 
 # Test schema generation
@@ -141,6 +140,7 @@ _test-examples: _ensure_examples_output
         --schema {{source_schema_path}} > examples/output/README.md
 
 # Run linting
+[group('model development')]
 lint:
     poetry run linkml-lint {{source_schema_path}}
 
@@ -150,6 +150,7 @@ _gendoc: _ensure_docdir
     poetry run gen-doc {{gen_doc_args}} -d {{docdir}} {{source_schema_path}}
 
 # Build docs and run test server
+[group('model development')]
 testdoc: _gendoc _serve
 
 # Run documentation server
@@ -165,23 +166,39 @@ _git-init:
 
 # Add files to git
 _git-add:
-    touch .cruft.json
     git add .
 
 # Commit files to git
 _git-commit:
-    git commit -m 'chore: make setup was run' -a
+    git commit -m 'chore: just setup was run' -a
 
 # Show git status
 _git-status:
     git status
 
+_clean_project:
+    #!{{shebang}}
+    import shutil, pathlib
+    # remove the generated project files
+    for d in pathlib.Path("{{dest}}").iterdir():
+        if d.is_dir():
+            print(f'removing "{d}"')
+            shutil.rmtree(d, ignore_errors=True)
+    # remove the generated python data model
+    for d in pathlib.Path("{{pymodel}}").iterdir():
+        if d.name == "__init__.py":
+            continue
+        print(f'removing "{d}"')
+        if d.is_dir():
+            shutil.rmtree(d, ignore_errors=True)
+        else:
+            d.unlink()
+
 # Clean all generated files
-clean:
-    rm -rf {{dest}}
+[group('project management')]
+clean: _clean_project
     rm -rf tmp
     rm -rf {{docdir}}/*
-    rm -rf {{pymodel}}
 
 # Private recipes
 _ensure_pymodel_dir:
@@ -193,4 +210,5 @@ _ensure_docdir:
 _ensure_examples_output:
     -mkdir -p examples/output
 
+# Include project-specific recipes
 import "project.justfile"

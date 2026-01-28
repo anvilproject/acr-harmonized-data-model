@@ -8,18 +8,17 @@ description = "LinkML Schema for ACR Harmonized Data."
 authors = [
   {name = "Robert Carroll", email = "Robert.Carroll@vumc.org"},
 ]
-license = "MIT"
+license = {text = "MIT"}
 readme = "README.md"
 include = ["README.md", "src/acr_harmonized_data_model/schema", "project"]
 
-requires-python = ">=3.10,<4.0"
+# We can't use caret ^ requirement specifiers here. They are a Poetry speciality.
+requires-python = ">=3.11,<4.0"
 
 dynamic = ["version"]
 
 dependencies = [
-  "linkml-runtime >=1.1.24",
-  "pytest (>=8.3.5,<9.0.0)",
-  "ftd-dd @ git+https://github.com/carrollaboratory/ftd-dd"
+  "linkml-runtime >=1.8.0",
 ]
 
 [tool.poetry]
@@ -27,7 +26,7 @@ requires-poetry = ">=2.0"
 version = "0.0.0"
 
 [tool.poetry.requires-plugins]
-poetry-dynamic-versioning = ">=1.5.2"
+poetry-dynamic-versioning = ">=1.7.0"
 
 [tool.poetry-dynamic-versioning]
 enable = true
@@ -41,4 +40,3 @@ mkdocs-mermaid2-plugin = ">=1.1.1"
 schemasheets = ">=0.1.14"
 jupyter = ">=1.0.0"
 mknotebooks = ">= 0.8.0"
-
