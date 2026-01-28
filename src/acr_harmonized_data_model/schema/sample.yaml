@@ -101,7 +101,7 @@ slots:
   age_at_collection:
     description: The age at which this biospecimen was collected.
     title: age_at_collection 
-    range: integer 
+    range: float 
     required: false 
     multivalued: false 
   method: 

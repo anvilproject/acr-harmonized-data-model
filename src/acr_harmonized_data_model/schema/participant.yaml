@@ -107,7 +107,7 @@ slots:
   age_at_last_vital_status: 
     title: Age at Last Vital Status  
     description: Age at last vital status in decimal years.
-    range: integer
+    range: float
     required: false
     unit:
       ucum_code: a     
