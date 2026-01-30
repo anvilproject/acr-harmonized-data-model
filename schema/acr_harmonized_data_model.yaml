@@ -1832,6 +1832,7 @@ classes:
     description: Element for which specific access control restrictions apply.
     from_schema: https://anvilproject.org/acr-harmonized-data-model
     is_a: Thing
+    abstract: true
     slots:
     - id
     - external_id
@@ -2107,7 +2108,7 @@ classes:
     class_uri: https://anvilproject.org/acr-harmonized-data-model/file/FileMetadata
 metamodel_version: 1.7.0
 source_file: acr_harmonized_data_model.yaml
-source_file_date: '2026-01-28T22:50:09'
-source_file_size: 2025
-generation_date: '2026-01-28T22:50:18'
+source_file_date: '2026-01-30T21:00:01'
+source_file_size: 2044
+generation_date: '2026-01-30T21:00:11'
 

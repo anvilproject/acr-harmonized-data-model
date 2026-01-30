@@ -259,6 +259,9 @@
 <article class="md-content__inner md-typeset">
 <h1 id="class-accesscontrolledrecord">Class: AccessControlledRecord</h1>
 <p><em>Element for which specific access control restrictions apply.</em></p>
+<ul>
+<li><strong>NOTE</strong>: this is an abstract class and should not be instantiated directly</li>
+</ul>
 <p>URI: <a href="https://anvilproject.org/acr-harmonized-data-model/AccessControlledRecord">anvil:AccessControlledRecord</a></p>
 <div class="mermaid"> classDiagram
     class AccessControlledRecord
@@ -391,6 +394,7 @@
 description: Element for which specific access control restrictions apply.
 from_schema: https://anvilproject.org/acr-harmonized-data-model
 is_a: Thing
+abstract: true
 slots:
 - has_access_policy
 
@@ -402,6 +406,7 @@ slots:
 description: Element for which specific access control restrictions apply.
 from_schema: https://anvilproject.org/acr-harmonized-data-model
 is_a: Thing
+abstract: true
 attributes:
   has_access_policy:
     name: has_access_policy
