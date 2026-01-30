@@ -49,6 +49,7 @@ classes:
   AccessControlledRecord:
     description: Element for which specific access control restrictions apply.
     is_a: Thing
+    abstract: true
     slots:
       - has_access_policy
 slots: 
