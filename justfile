@@ -87,7 +87,10 @@ _create-data-harmonizer:
 alias all := site
 
 # Generate site locally
-site: _gen-project _gendoc
+site: _gen-project _gendoc _gen_ftddd _gen_sqla
+
+
+gensqla: _gen_sqla
 
 # Deploy site
 deploy: site
@@ -104,10 +107,14 @@ _gen-examples:
     mkdir -p {{exampledir}}
     cp -r src/data/examples/* {{exampledir}}
 
+_gen_sqla:
+    poetry run gen-sqla {{source_schema_path}} --declarative > {{dest}}/sqlalchemy/{{schema_name}}.py
+
 # Generate project files
 _gen-project: _ensure_pymodel_dir _compile_sheets
     poetry run gen-project {{config_yaml}} -d {{dest}} {{source_schema_path}} && \
     mv {{dest}}/*.py {{pymodel}}
+
     @if [ ! -z "${{gen_owl_args}}" ]; then \
       mkdir -p {{dest}}/owl || true && \
       poetry run gen-owl {{gen_owl_args}} {{source_schema_path}} > {{dest}}/owl/{{schema_name}}.owl.ttl || true ; \
