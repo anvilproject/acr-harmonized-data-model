@@ -1,3 +1,8 @@
+# Direnv related support
+.bash_history_local
+.direnv
+.envrc
+
 # generated part of documentation
 /docs/elements/*.md
 # linkml-run-examples output (not useful to have in git in its current form)
