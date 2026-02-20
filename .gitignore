@@ -7,6 +7,8 @@
 tmp/
 project/
 !project/README.md
+!project/data-dictionary
+!project/sqlachemy
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
