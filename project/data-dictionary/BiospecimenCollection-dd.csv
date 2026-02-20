@@ -1,5 +1,5 @@
 variable_name,description,data_type,min,max,units,enumerations,comment
-age_at_collection,The age at which this biospecimen was collected.,integer,,,,,
+age_at_collection,The age at which this biospecimen was collected in decimal years.,number,,,UCUM:a,,
 method,The approach used to collect the biospecimen.,enumeration,,,,,The approach used to collect the biospecimen. Recommend ontology: [LOINC](https://loinc.org).
 site,The location of the specimen collection.,enumeration,,,,,The location of the specimen collection. Recommended ontology: [SNOMED Body Site](https://hl7.org/fhir/R4B/valueset-body-site.html)
 spatial_qualifier,Any spatial/location qualifiers,enumeration,,,,,Any spatial/location qualifiers.

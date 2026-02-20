@@ -1,5 +1,5 @@
 # Auto generated from acr_harmonized_data_model.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-01-28T16:48:37
+# Generation date: 2026-02-20T08:54:20
 # Schema: acr-harmonized-data-model
 #
 # id: https://anvilproject.org/acr-harmonized-data-model
@@ -193,11 +193,6 @@ class AccessControlledRecord(Thing):
     has_access_policy: Optional[Union[str, AccessPolicyId]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, AccessControlledRecordId):
-            self.id = AccessControlledRecordId(self.id)
-
         if self.has_access_policy is not None and not isinstance(self.has_access_policy, AccessPolicyId):
             self.has_access_policy = AccessPolicyId(self.has_access_policy)
 

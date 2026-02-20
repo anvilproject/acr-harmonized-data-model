@@ -6,7 +6,7 @@ sex_display,The friendly display string of the coded term for Sex,string,,,,,
 race_display,The friendly display string of the coded term(s) for Race,string,,,,,
 ethnicity,Reported ethnicity as defined by the 1997 OMB directives.,enumeration,,,,hispanic_or_latino=Hispanic or Latino;not_hispanic_or_latino=Not Hispanic or Latino;unknown=unknown;asked_but_unknown=asked but unknown,
 ethnicity_display,The friendly display string of the coded term for Ethnicity,string,,,,,
-age_at_last_vital_status,Age at last vital status in decimal years.,integer,,,UCUM:a,,
+age_at_last_vital_status,Age at last vital status in decimal years.,number,,,UCUM:a,,
 vital_status,Vital Status,enumeration,,,,alive=Alive;dead=Dead;not_reported=Not Reported;unknown=Unknown;unspecified=Unspecified,
 has_access_policy,Which access policy applies to this element?,string,,,,,Foreign Key: AccessPolicy.id
 id,ID associated with a class,string,,,,,

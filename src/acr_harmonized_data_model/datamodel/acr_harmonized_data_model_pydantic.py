@@ -579,7 +579,8 @@ class AccessControlledRecord(Thing):
     """
     Element for which specific access control restrictions apply.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://anvilproject.org/acr-harmonized-data-model'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True,
+         'from_schema': 'https://anvilproject.org/acr-harmonized-data-model'})
 
     has_access_policy: Optional[str] = Field(default=None, description="""Which access policy applies to this element?""", json_schema_extra = { "linkml_meta": {'domain_of': ['AccessControlledRecord']} })
     id: str = Field(default=..., title="ID", description="""ID associated with a class""", json_schema_extra = { "linkml_meta": {'domain_of': ['Thing']} })
