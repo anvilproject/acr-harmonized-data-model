@@ -67,3 +67,4 @@ AccessPolicy_access_policy_code,access_policy_code,npu,Not-for-profit use only,N
 AccessPolicy_access_policy_code,access_policy_code,mds,Methods,MDS,ig2dac:MDS,https://anvilproject.github.io/acr-harmonized-data-model/EnumAccessCode,EnumAccessCode
 AccessPolicy_access_policy_code,access_policy_code,gso,Genetic Studies only,GSO,ig2dac:GSO,https://anvilproject.github.io/acr-harmonized-data-model/EnumAccessCode,EnumAccessCode
 AccessPolicy_access_policy_code,access_policy_code,gsr,Genomic Summary Results,GSR,ig2dac:GSR,https://anvilproject.github.io/acr-harmonized-data-model/EnumAccessCode,EnumAccessCode
+AccessPolicy_access_policy_code,access_policy_code,rd,Related Diseases,RD,,https://anvilproject.github.io/acr-harmonized-data-model/EnumAccessCode,EnumAccessCode
