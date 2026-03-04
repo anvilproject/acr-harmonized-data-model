@@ -1,5 +1,10 @@
 ---
 site_name: "acr-harmonized-data-model"
+
+# Hoping this forces the path I am writing files to, since that
+# appears to be where just test-site looks
+docs_dir: docs
+
 theme:
   name: material
   # palette:
