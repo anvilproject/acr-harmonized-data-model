@@ -1,0 +1,49 @@
+local_code,text,table_name,parent_varname,local_code_system,code,display,code_system,comment
+Demographics,LinkML gen-harmony,EnumDateOfBirthType,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-date-of-birth-method/,exact,date_of_birth_type,Exact
+Demographics,LinkML gen-harmony,Year Only,EnumDateOfBirthType,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-date-of-birth-method/,year_only,date_of_birth_type,year-only
+Demographics,Shifted,LinkML gen-harmony,EnumDateOfBirthType,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-date-of-birth-method/,shifted,date_of_birth_type
+Demographics,Decade Only,LinkML gen-harmony,decade_only,EnumDateOfBirthType,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-date-of-birth-method/,decade-only,date_of_birth_type
+Demographics,LinkML gen-harmony,other,EnumDateOfBirthType,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-date-of-birth-method/,date_of_birth_type,Other
+Demographics,LinkML gen-harmony,sex,EnumSex,female,http://hl7.org/fhir/administrative-gender/,Female
+Demographics,LinkML gen-harmony,male,sex,EnumSex,http://hl7.org/fhir/administrative-gender/,Male
+unknown,Demographics,LinkML gen-harmony,Unknown,sex,EnumSex,http://hl7.org/fhir/administrative-gender/
+Demographics,,LinkML gen-harmony,race,urn:oid:2.16.840.1.113883.6.238/,American Indian or Alaskan Native,1002-5,EnumRace,american_indian_or_alaskan_native
+Demographics,,LinkML gen-harmony,asian,race,2028-9,urn:oid:2.16.840.1.113883.6.238/,Asian,EnumRace
+Demographics,,LinkML gen-harmony,race,2054-5,Black or African American,urn:oid:2.16.840.1.113883.6.238/,EnumRace,black_or_african_american
+Demographics,,LinkML gen-harmony,native_hawaiian_or_pacific_islander,race,urn:oid:2.16.840.1.113883.6.238/,Native Hawaiian or Other Pacific Islander,EnumRace,2076-8
+Demographics,,White,LinkML gen-harmony,race,white,2106-3,urn:oid:2.16.840.1.113883.6.238/,EnumRace
+Demographics,,LinkML gen-harmony,race,Other Race,urn:oid:2.16.840.1.113883.6.238/,2131-1,EnumRace,other_race
+unknown,Demographics,,LinkML gen-harmony,UNK,race,EnumRace,http://terminology.hl7.org/CodeSystem/v3-NullFlavor/
+Demographics,,LinkML gen-harmony,race,ASKU,asked_but_unknown,EnumRace,http://terminology.hl7.org/CodeSystem/v3-NullFlavor/,asked but unknown
+Demographics,hispanic_or_latino,LinkML gen-harmony,ethnicity,2135-2,Hispanic or Latino,urn:oid:2.16.840.1.113883.6.238/,EnumEthnicity
+Demographics,LinkML gen-harmony,ethnicity,not_hispanic_or_latino,2186-5,urn:oid:2.16.840.1.113883.6.238/,Not Hispanic or Latino,EnumEthnicity
+unknown,Demographics,LinkML gen-harmony,UNK,ethnicity,http://terminology.hl7.org/CodeSystem/v3-NullFlavor/,EnumEthnicity
+Demographics,LinkML gen-harmony,ethnicity,ASKU,asked_but_unknown,http://terminology.hl7.org/CodeSystem/v3-NullFlavor/,asked but unknown,EnumEthnicity
+assertion_type,LinkML gen-harmony,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/condition-type/,EnumAssertionType,phenotypic_feature,SubjectAssertion,Phenotypic Feature,This is a phenotypic feature,Phenotypic-Feature
+assertion_type,LinkML gen-harmony,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/condition-type/,EnumAssertionType,SubjectAssertion,Disease,disease
+assertion_type,LinkML gen-harmony,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/condition-type/,EnumAssertionType,SubjectAssertion,comorbidity,Comorbidity
+assertion_type,Histology,LinkML gen-harmony,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/condition-type/,EnumAssertionType,SubjectAssertion,histology
+assertion_type,clinical-finding,LinkML gen-harmony,Clinical-Finding,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/condition-type/,EnumAssertionType,SubjectAssertion,clinical_finding,Clinical Finding
+open,LinkML gen-harmony,Open Access,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-type/,EnumAccessType,AccessPolicy,data_access_type
+LinkML gen-harmony,registered,Registered Access,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-type/,EnumAccessType,AccessPolicy,data_access_type
+Controlled,LinkML gen-harmony,controlled,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-type/,EnumAccessType,AccessPolicy,data_access_type
+GSR Restricted,gsr-restricted,LinkML gen-harmony,gsr_restricted,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-type/,EnumAccessType,AccessPolicy,data_access_type
+gsr_allowed,LinkML gen-harmony,gsr-allowed,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-type/,GSR Allowed,EnumAccessType,AccessPolicy,data_access_type
+GRU,LinkML gen-harmony,General Research Use,access_policy_code,gru,EnumAccessCode,AccessPolicy,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-code/
+LinkML gen-harmony,HMB,access_policy_code,Health/Medical/Biomedical,hmb,EnumAccessCode,AccessPolicy,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-code/
+LinkML gen-harmony,DS,access_policy_code,Disease-Specific (Disease/Trait/Exposure),ds,EnumAccessCode,AccessPolicy,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-code/
+irb,LinkML gen-harmony,access_policy_code,IRB,EnumAccessCode,AccessPolicy,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-code/,IRB Approval Required
+LinkML gen-harmony,pub,Publication Required,access_policy_code,EnumAccessCode,AccessPolicy,PUB,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-code/
+LinkML gen-harmony,col,access_policy_code,Collaboration Required,COL,EnumAccessCode,AccessPolicy,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-code/
+LinkML gen-harmony,NPU,npu,Not-for-profit use only,access_policy_code,EnumAccessCode,AccessPolicy,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-code/
+LinkML gen-harmony,MDS,access_policy_code,mds,Methods,EnumAccessCode,AccessPolicy,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-code/
+LinkML gen-harmony,gso,Genetic Studies only,access_policy_code,EnumAccessCode,AccessPolicy,GSO,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-code/
+LinkML gen-harmony,access_policy_code,gsr,Genomic Summary Results,EnumAccessCode,AccessPolicy,GSR,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-code/
+LinkML gen-harmony,http://snomed.info/id/,EnumConsanguinityAssertion,not-suspected,not_suspected,Family,Not suspected,428263003,consanguinity
+LinkML gen-harmony,http://snomed.info/id/,EnumConsanguinityAssertion,suspected,415684004,Suspected,Family,consanguinity
+known_present,http://snomed.info/id/,LinkML gen-harmony,EnumConsanguinityAssertion,known-present,Known Present,Family,410515003,consanguinity
+unknown,LinkML gen-harmony,http://snomed.info/id/,EnumConsanguinityAssertion,261665006,Unknown,Family,consanguinity
+availablity_status,LinkML gen-harmony,Available,available,EnumAvailabilityStatus,Sample,Biospecimen is Available,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/biospecimen-availability/
+availablity_status,LinkML gen-harmony,Aliquot,Available,available,EnumAvailabilityStatus,Biospecimen is Available,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/biospecimen-availability/
+availablity_status,Biospecimen is Unavailable,LinkML gen-harmony,unavailable,EnumAvailabilityStatus,Sample,Unavailable,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/biospecimen-availability/
+availablity_status,Biospecimen is Unavailable,LinkML gen-harmony,Aliquot,unavailable,EnumAvailabilityStatus,Unavailable,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/biospecimen-availability/
