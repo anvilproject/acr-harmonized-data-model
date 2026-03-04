@@ -11,8 +11,6 @@
         <link rel="canonical" href="https://anvilproject.github.io/acr-harmonized-data-model/harmony/">
       
       
-        <link rel="prev" href="..">
-      
       
       
         
@@ -23,7 +21,7 @@
     
     
       
-        <title>Mappings - acr-harmonized-data-model</title>
+        <title>Harmony Mappings - acr-harmonized-data-model</title>
       
     
     
@@ -108,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Mappings
+              Harmony Mappings
             
           </span>
         </div>
@@ -188,6 +186,8 @@
         <div class="md-main__inner md-grid">
           
             
+              
+                
               
               <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
@@ -279,19 +279,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../elements/harmony.md" class="md-nav__link">
         
   
   
@@ -307,7 +298,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -320,7 +310,9 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -344,6 +336,8 @@
               <article class="md-content__inner md-typeset">
                 
                   
+  
+
 
 
   
@@ -351,387 +345,403 @@
 
 
 <h1 id="harmony-mappings">Harmony Mappings</h1>
-<p>Mappings between internal Enums and external terminologies for Whistle.</p>
-<p><a href="../harmony.csv">Download Raw CSV</a></p>
+<p>Mappings between internal Enums and external terminologies for DBT FHIR ETL.</p>
+<p><a href="../harmony.csv">Download Contents in Map Dragon Harmony CSV format</a></p>
 <table>
 <thead>
 <tr>
 <th>Local Code</th>
 <th>Local Display</th>
-<th>Local System</th>
+<th>Class Name</th>
+<th>Slot Name</th>
 <th>Target Code</th>
 <th>Target System</th>
-<th>Target Display</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>exact</td>
 <td>Exact</td>
-<td>EnumDateOfBirthType</td>
+<td>Demographics</td>
+<td>date_of_birth_type</td>
 <td>exact</td>
 <td><a href="https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem-research-data-date-of-birth-method">https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-date-of-birth-method/</a></td>
-<td>Exact</td>
 </tr>
 <tr>
 <td>year_only</td>
 <td>Year Only</td>
-<td>EnumDateOfBirthType</td>
+<td>Demographics</td>
+<td>date_of_birth_type</td>
 <td>year-only</td>
 <td><a href="https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem-research-data-date-of-birth-method">https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-date-of-birth-method/</a></td>
-<td>Year Only</td>
 </tr>
 <tr>
 <td>shifted</td>
 <td>Shifted</td>
-<td>EnumDateOfBirthType</td>
+<td>Demographics</td>
+<td>date_of_birth_type</td>
 <td>shifted</td>
 <td><a href="https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem-research-data-date-of-birth-method">https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-date-of-birth-method/</a></td>
-<td>Shifted</td>
 </tr>
 <tr>
 <td>decade_only</td>
 <td>Decade Only</td>
-<td>EnumDateOfBirthType</td>
+<td>Demographics</td>
+<td>date_of_birth_type</td>
 <td>decade-only</td>
 <td><a href="https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem-research-data-date-of-birth-method">https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-date-of-birth-method/</a></td>
-<td>Decade Only</td>
 </tr>
 <tr>
 <td>other</td>
 <td>Other</td>
-<td>EnumDateOfBirthType</td>
+<td>Demographics</td>
+<td>date_of_birth_type</td>
 <td>other</td>
 <td><a href="https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem-research-data-date-of-birth-method">https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-date-of-birth-method/</a></td>
-<td>Other</td>
 </tr>
 <tr>
 <td>female</td>
 <td>Female</td>
-<td>EnumSex</td>
+<td>Demographics</td>
+<td>sex</td>
 <td>female</td>
 <td><a href="http://hl7.org/fhir/administrative-gender/">http://hl7.org/fhir/administrative-gender/</a></td>
-<td>Female</td>
 </tr>
 <tr>
 <td>male</td>
 <td>Male</td>
-<td>EnumSex</td>
+<td>Demographics</td>
+<td>sex</td>
 <td>male</td>
 <td><a href="http://hl7.org/fhir/administrative-gender/">http://hl7.org/fhir/administrative-gender/</a></td>
-<td>Male</td>
 </tr>
 <tr>
 <td>unknown</td>
 <td>Unknown</td>
-<td>EnumSex</td>
+<td>Demographics</td>
+<td>sex</td>
 <td>unknown</td>
 <td><a href="http://hl7.org/fhir/administrative-gender/">http://hl7.org/fhir/administrative-gender/</a></td>
-<td>Unknown</td>
 </tr>
 <tr>
 <td>american_indian_or_alaskan_native</td>
 <td>American Indian or Alaskan Native</td>
-<td>EnumRace</td>
+<td>Demographics</td>
+<td>race</td>
 <td>1002-5</td>
 <td>urn:oid:2.16.840.1.113883.6.238/</td>
-<td></td>
 </tr>
 <tr>
 <td>asian</td>
 <td>Asian</td>
-<td>EnumRace</td>
+<td>Demographics</td>
+<td>race</td>
 <td>2028-9</td>
 <td>urn:oid:2.16.840.1.113883.6.238/</td>
-<td></td>
 </tr>
 <tr>
 <td>black_or_african_american</td>
 <td>Black or African American</td>
-<td>EnumRace</td>
+<td>Demographics</td>
+<td>race</td>
 <td>2054-5</td>
 <td>urn:oid:2.16.840.1.113883.6.238/</td>
-<td></td>
 </tr>
 <tr>
 <td>native_hawaiian_or_pacific_islander</td>
 <td>Native Hawaiian or Other Pacific Islander</td>
-<td>EnumRace</td>
+<td>Demographics</td>
+<td>race</td>
 <td>2076-8</td>
 <td>urn:oid:2.16.840.1.113883.6.238/</td>
-<td></td>
 </tr>
 <tr>
 <td>white</td>
 <td>White</td>
-<td>EnumRace</td>
+<td>Demographics</td>
+<td>race</td>
 <td>2106-3</td>
 <td>urn:oid:2.16.840.1.113883.6.238/</td>
-<td></td>
 </tr>
 <tr>
 <td>other_race</td>
 <td>Other Race</td>
-<td>EnumRace</td>
+<td>Demographics</td>
+<td>race</td>
 <td>2131-1</td>
 <td>urn:oid:2.16.840.1.113883.6.238/</td>
-<td></td>
 </tr>
 <tr>
 <td>unknown</td>
 <td>unknown</td>
-<td>EnumRace</td>
+<td>Demographics</td>
+<td>race</td>
 <td>UNK</td>
 <td><a href="http://terminology.hl7.org/CodeSystem/v3-NullFlavor/">http://terminology.hl7.org/CodeSystem/v3-NullFlavor/</a></td>
-<td></td>
 </tr>
 <tr>
 <td>asked_but_unknown</td>
 <td>asked but unknown</td>
-<td>EnumRace</td>
+<td>Demographics</td>
+<td>race</td>
 <td>ASKU</td>
 <td><a href="http://terminology.hl7.org/CodeSystem/v3-NullFlavor/">http://terminology.hl7.org/CodeSystem/v3-NullFlavor/</a></td>
-<td></td>
 </tr>
 <tr>
 <td>hispanic_or_latino</td>
 <td>hispanic_or_latino</td>
-<td>EnumEthnicity</td>
+<td>Demographics</td>
+<td>ethnicity</td>
 <td>2135-2</td>
 <td>urn:oid:2.16.840.1.113883.6.238/</td>
-<td>Hispanic or Latino</td>
 </tr>
 <tr>
 <td>not_hispanic_or_latino</td>
 <td>not_hispanic_or_latino</td>
-<td>EnumEthnicity</td>
+<td>Demographics</td>
+<td>ethnicity</td>
 <td>2186-5</td>
 <td>urn:oid:2.16.840.1.113883.6.238/</td>
-<td>Not Hispanic or Latino</td>
 </tr>
 <tr>
 <td>unknown</td>
 <td>unknown</td>
-<td>EnumEthnicity</td>
+<td>Demographics</td>
+<td>ethnicity</td>
 <td>UNK</td>
 <td><a href="http://terminology.hl7.org/CodeSystem/v3-NullFlavor/">http://terminology.hl7.org/CodeSystem/v3-NullFlavor/</a></td>
-<td>unknown</td>
 </tr>
 <tr>
 <td>asked_but_unknown</td>
 <td>asked_but_unknown</td>
-<td>EnumEthnicity</td>
+<td>Demographics</td>
+<td>ethnicity</td>
 <td>ASKU</td>
 <td><a href="http://terminology.hl7.org/CodeSystem/v3-NullFlavor/">http://terminology.hl7.org/CodeSystem/v3-NullFlavor/</a></td>
-<td>asked but unknown</td>
 </tr>
 <tr>
 <td>phenotypic_feature</td>
 <td>Phenotypic Feature</td>
-<td>EnumAssertionType</td>
+<td>SubjectAssertion</td>
+<td>assertion_type</td>
 <td>Phenotypic-Feature</td>
 <td><a href="https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem-condition-type">https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/condition-type/</a></td>
-<td>This is a phenotypic feature</td>
 </tr>
 <tr>
 <td>disease</td>
 <td>disease</td>
-<td>EnumAssertionType</td>
+<td>SubjectAssertion</td>
+<td>assertion_type</td>
 <td>Disease</td>
 <td><a href="https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem-condition-type">https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/condition-type/</a></td>
-<td>Disease</td>
 </tr>
 <tr>
 <td>comorbidity</td>
 <td>comorbidity</td>
-<td>EnumAssertionType</td>
+<td>SubjectAssertion</td>
+<td>assertion_type</td>
 <td>Comorbidity</td>
 <td><a href="https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem-condition-type">https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/condition-type/</a></td>
-<td>Comorbidity</td>
 </tr>
 <tr>
 <td>histology</td>
 <td>histology</td>
-<td>EnumAssertionType</td>
+<td>SubjectAssertion</td>
+<td>assertion_type</td>
 <td>Histology</td>
 <td><a href="https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem-condition-type">https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/condition-type/</a></td>
-<td>Histology</td>
 </tr>
 <tr>
 <td>clinical_finding</td>
 <td>clinical-finding</td>
-<td>EnumAssertionType</td>
+<td>SubjectAssertion</td>
+<td>assertion_type</td>
 <td>Clinical-Finding</td>
 <td><a href="https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem-condition-type">https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/condition-type/</a></td>
-<td>Clinical Finding</td>
 </tr>
 <tr>
 <td>open</td>
 <td>open</td>
-<td>EnumAccessType</td>
+<td>AccessPolicy</td>
+<td>data_access_type</td>
 <td>open</td>
 <td><a href="https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem-research-data-access-type">https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-type/</a></td>
-<td>Open Access</td>
 </tr>
 <tr>
 <td>registered</td>
 <td>registered</td>
-<td>EnumAccessType</td>
+<td>AccessPolicy</td>
+<td>data_access_type</td>
 <td>registered</td>
 <td><a href="https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem-research-data-access-type">https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-type/</a></td>
-<td>Registered Access</td>
 </tr>
 <tr>
 <td>controlled</td>
 <td>controlled</td>
-<td>EnumAccessType</td>
+<td>AccessPolicy</td>
+<td>data_access_type</td>
 <td>controlled</td>
 <td><a href="https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem-research-data-access-type">https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-type/</a></td>
-<td>Controlled</td>
 </tr>
 <tr>
 <td>gsr_restricted</td>
 <td>gsr_restricted</td>
-<td>EnumAccessType</td>
+<td>AccessPolicy</td>
+<td>data_access_type</td>
 <td>gsr-restricted</td>
 <td><a href="https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem-research-data-access-type">https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-type/</a></td>
-<td>GSR Restricted</td>
 </tr>
 <tr>
 <td>gsr_allowed</td>
 <td>gsr_allowed</td>
-<td>EnumAccessType</td>
+<td>AccessPolicy</td>
+<td>data_access_type</td>
 <td>gsr-allowed</td>
 <td><a href="https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem-research-data-access-type">https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-type/</a></td>
-<td>GSR Allowed</td>
 </tr>
 <tr>
 <td>gru</td>
 <td>GRU</td>
-<td>EnumAccessCode</td>
+<td>AccessPolicy</td>
+<td>access_policy_code</td>
 <td>GRU</td>
 <td><a href="https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem-research-data-access-code">https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-code/</a></td>
-<td>General Research Use</td>
 </tr>
 <tr>
 <td>hmb</td>
 <td>HMB</td>
-<td>EnumAccessCode</td>
+<td>AccessPolicy</td>
+<td>access_policy_code</td>
 <td>HMB</td>
 <td><a href="https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem-research-data-access-code">https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-code/</a></td>
-<td>Health/Medical/Biomedical</td>
 </tr>
 <tr>
 <td>ds</td>
 <td>DS</td>
-<td>EnumAccessCode</td>
+<td>AccessPolicy</td>
+<td>access_policy_code</td>
 <td>DS</td>
 <td><a href="https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem-research-data-access-code">https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-code/</a></td>
-<td>Disease-Specific (Disease/Trait/Exposure)</td>
 </tr>
 <tr>
 <td>irb</td>
 <td>IRB</td>
-<td>EnumAccessCode</td>
+<td>AccessPolicy</td>
+<td>access_policy_code</td>
 <td>IRB</td>
 <td><a href="https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem-research-data-access-code">https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-code/</a></td>
-<td>IRB Approval Required</td>
 </tr>
 <tr>
 <td>pub</td>
 <td>PUB</td>
-<td>EnumAccessCode</td>
+<td>AccessPolicy</td>
+<td>access_policy_code</td>
 <td>PUB</td>
 <td><a href="https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem-research-data-access-code">https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-code/</a></td>
-<td>Publication Required</td>
 </tr>
 <tr>
 <td>col</td>
 <td>COL</td>
-<td>EnumAccessCode</td>
+<td>AccessPolicy</td>
+<td>access_policy_code</td>
 <td>COL</td>
 <td><a href="https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem-research-data-access-code">https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-code/</a></td>
-<td>Collaboration Required</td>
 </tr>
 <tr>
 <td>npu</td>
 <td>NPU</td>
-<td>EnumAccessCode</td>
+<td>AccessPolicy</td>
+<td>access_policy_code</td>
 <td>NPU</td>
 <td><a href="https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem-research-data-access-code">https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-code/</a></td>
-<td>Not-for-profit use only</td>
 </tr>
 <tr>
 <td>mds</td>
 <td>MDS</td>
-<td>EnumAccessCode</td>
+<td>AccessPolicy</td>
+<td>access_policy_code</td>
 <td>MDS</td>
 <td><a href="https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem-research-data-access-code">https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-code/</a></td>
-<td>Methods</td>
 </tr>
 <tr>
 <td>gso</td>
 <td>GSO</td>
-<td>EnumAccessCode</td>
+<td>AccessPolicy</td>
+<td>access_policy_code</td>
 <td>GSO</td>
 <td><a href="https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem-research-data-access-code">https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-code/</a></td>
-<td>Genetic Studies only</td>
 </tr>
 <tr>
 <td>gsr</td>
 <td>GSR</td>
-<td>EnumAccessCode</td>
+<td>AccessPolicy</td>
+<td>access_policy_code</td>
 <td>GSR</td>
 <td><a href="https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem-research-data-access-code">https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-code/</a></td>
-<td>Genomic Summary Results</td>
 </tr>
 <tr>
 <td>not_suspected</td>
 <td>not-suspected</td>
-<td>EnumConsanguinityAssertion</td>
+<td>Family</td>
+<td>consanguinity</td>
 <td>428263003</td>
 <td><a href="http://snomed.info/id/">http://snomed.info/id/</a></td>
-<td>Not suspected</td>
 </tr>
 <tr>
 <td>suspected</td>
 <td>suspected</td>
-<td>EnumConsanguinityAssertion</td>
+<td>Family</td>
+<td>consanguinity</td>
 <td>415684004</td>
 <td><a href="http://snomed.info/id/">http://snomed.info/id/</a></td>
-<td>Suspected</td>
 </tr>
 <tr>
 <td>known_present</td>
 <td>known-present</td>
-<td>EnumConsanguinityAssertion</td>
+<td>Family</td>
+<td>consanguinity</td>
 <td>410515003</td>
 <td><a href="http://snomed.info/id/">http://snomed.info/id/</a></td>
-<td>Known Present</td>
 </tr>
 <tr>
 <td>unknown</td>
 <td>unknown</td>
-<td>EnumConsanguinityAssertion</td>
+<td>Family</td>
+<td>consanguinity</td>
 <td>261665006</td>
 <td><a href="http://snomed.info/id/">http://snomed.info/id/</a></td>
-<td>Unknown</td>
 </tr>
 <tr>
 <td>available</td>
 <td>Available</td>
-<td>EnumAvailabilityStatus</td>
+<td>Sample</td>
+<td>availablity_status</td>
 <td>available</td>
 <td><a href="https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem-biospecimen-availability">https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/biospecimen-availability/</a></td>
-<td>Biospecimen is Available</td>
+</tr>
+<tr>
+<td>available</td>
+<td>Available</td>
+<td>Aliquot</td>
+<td>availablity_status</td>
+<td>available</td>
+<td><a href="https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem-biospecimen-availability">https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/biospecimen-availability/</a></td>
 </tr>
 <tr>
 <td>unavailable</td>
 <td>Unavailable</td>
-<td>EnumAvailabilityStatus</td>
+<td>Sample</td>
+<td>availablity_status</td>
 <td>unavailable</td>
 <td><a href="https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem-biospecimen-availability">https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/biospecimen-availability/</a></td>
-<td>Biospecimen is Unavailable</td>
+</tr>
+<tr>
+<td>unavailable</td>
+<td>Unavailable</td>
+<td>Aliquot</td>
+<td>availablity_status</td>
+<td>unavailable</td>
+<td><a href="https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem-biospecimen-availability">https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/biospecimen-availability/</a></td>
 </tr>
 </tbody>
 </table>
@@ -742,8 +752,13 @@
 
 
 
+  
+  
 
 
+
+
+  
 
 
 
