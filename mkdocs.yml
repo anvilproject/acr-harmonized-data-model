@@ -26,7 +26,7 @@ watch:
   - src/acr_harmonized_data_model/schema
 
 nav:
-  - Schema: elements/index.md
+  - Schema: elements
   - Mappings: elements/harmony.md
   - About: index.md
 
