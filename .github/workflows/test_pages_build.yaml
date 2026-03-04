@@ -50,7 +50,7 @@ jobs:
       - name: Build documentation
         run: |
           # Make sure any dependencies are found
-          uv run just site
+          uv run python scripts/gen_harmony.py src/acr_harmonized_data_model/schema/acr_harmonized_data_model.yaml docs/harmony
           uv run mkdocs build -d site
           touch site/.nojekyll
 
