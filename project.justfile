@@ -11,4 +11,4 @@ _gen_sqla:
 
 [group('model development')]
 _gen_harmony:
-  python scripts/gen_harmony.py {{source_schema_path}} docs/harmony
+  python scripts/gen_harmony.py {{source_schema_path}} docs/elements/harmony

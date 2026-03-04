@@ -1,10 +1,6 @@
 ---
 site_name: "acr-harmonized-data-model"
 
-# Hoping this forces the path I am writing files to, since that
-# appears to be where just test-site looks
-docs_dir: docs
-
 theme:
   name: material
   # palette:
@@ -32,7 +28,7 @@ watch:
 nav:
   - Home: index.md
   - Schema: elements/index.md
-  - Mappings: harmony.md
+  - Mappings: elements/harmony.md
   # - About: about.md
 
 exclude_docs: |
