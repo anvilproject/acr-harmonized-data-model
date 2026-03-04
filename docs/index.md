@@ -5,3 +5,5 @@ LinkML Schema for ACR Harmonized Data. This model under development is intended 
 ## Website
 
 [https://anvilproject.github.io/acr-harmonized-data-model](https://anvilproject.github.io/acr-harmonized-data-model)
+
+- Auto-generated [schema documentation](elements/index.md)

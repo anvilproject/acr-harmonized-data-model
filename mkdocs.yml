@@ -23,11 +23,10 @@ plugins:
 
 watch:
   - src/acr_harmonized_data_model/schema
-
+#   - Home: index.md
 nav:
-  - Home: index.md
   - Schema: elements/index.md
-  - About: about.md
+  - About: index.md
 
 exclude_docs: |
   /templates-linkml/
