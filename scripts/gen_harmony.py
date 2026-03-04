@@ -1,9 +1,135 @@
 import csv
 import re
 import sys
+from collections import defaultdict
 from pathlib import Path
+from typing import NamedTuple, Optional
 
 from linkml_runtime.utils.schemaview import SchemaView
+
+
+class SlotInfo(NamedTuple):
+    slot_name: str
+    class_name: str
+    enum_range: str
+    description: Optional[str] = None
+    title: Optional[str] = None
+
+
+class EnumeratedValue:
+    def __init__(self, local_code, local_display, local_system, **kwargs):
+        self.local_code = local_code
+        self.local_display = local_display
+        self.local_system = local_system
+
+        # Support for more than one mapping
+        self.mappings = []
+
+        # SlotInfo 0..*
+        self.slots = []
+
+    @classmethod
+    def harmony_header(cls):
+        return [
+            "local_code",
+            "text",
+            "table_name",
+            "parent_varname",
+            "local_code_system",
+            "code",
+            "display",
+            "code_system",
+            "comment",
+        ]
+
+    def write_harmony(
+        self, writer, mapped_code, mapped_system, mapped_display, slot_details=None
+    ):
+        writer.writerow(
+            {
+                self.local_code,
+                self.local_display,
+                self.local_system,
+                "" if slot_details is None else slot_details.class_name,
+                "" if slot_details is None else slot_details.slot_name,
+                mapped_code,
+                mapped_system,
+                mapped_display,
+                "LinkML gen-harmony",
+            }
+        )
+
+    def append_to_harmony(self, writer):
+        if len(self.mappings) > 0:
+            for mapping in self.mappings:
+                if len(self.slots) > 0:
+                    for slot in self.slots:
+                        self.write_harmony(
+                            writer,
+                            mapped_code=mapping["code"],
+                            mapped_system=mapping["system"],
+                            mapped_display=mapping["display"],
+                            slot_details=slot,
+                        )
+                else:
+                    self.write_harmony(
+                        writer,
+                        mapped_code=mapping["code"],
+                        mapped_system=mapping["system"],
+                        mapped_display=mapping["display"],
+                    )
+
+    @classmethod
+    def md_header(cls):
+        return [
+            "Local Code",
+            "Local Display",
+            "Class Name",
+            "Slot Name",
+            "Target Code",
+            "Target System",
+        ]
+
+    def write_markdown(
+        self, writer, mapped_code, mapped_display, mapped_system, slot_details=None
+    ):
+        writer.write(
+            "| "
+            + " | ".join(
+                [
+                    self.local_code,
+                    self.local_display,
+                    "" if slot_details is None else slot_details.class_name,
+                    "" if slot_details is None else slot_details.slot_name,
+                    mapped_code,
+                    mapped_system,
+                ]
+            )
+            + "\n"
+        )
+
+    def append_to_markdown(self, writer):
+        # We can skip anything that has no mappings
+        if len(self.mappings) > 0:
+            for mapping in self.mappings:
+                if len(self.slots) > 0:
+                    for slot in self.slots:
+                        self.write_markdown(
+                            writer,
+                            mapped_code=mapping["code"],
+                            mapped_system=mapping["md_link"],
+                            mapped_display=mapping["display"],
+                            slot_details=slot,
+                        )
+                else:
+                    self.write_harmony(
+                        writer,
+                        mapped_code=mapping["code"],
+                        mapped_system=mapping["md_link"],
+                        mapped_display=mapping["display"],
+                    )
+        else:
+            print(f"No mappings for {self.local_code}, {self.local_display}")
 
 
 def generate_harmony_files(schema_path, output_base):
@@ -11,18 +137,29 @@ def generate_harmony_files(schema_path, output_base):
     csv_path = Path(f"{output_base}.csv")
     md_path = Path(f"{output_base}.md")
 
-    headers = [
-        "local_code",
-        "local_display",
-        "local_system",
-        "target_code",
-        "target_system",
-        "target_display",
-    ]
+    enumerated_slots = defaultdict(list)
+
+    # Gather slots associated with enums to tag our enums correctly
+    for class_name, class_def in view.all_classes().items():
+        for slot_name in view.class_slots(class_name):
+            slot_def = view.induced_slot(slot_name, class_name)
+
+            if slot_def.range in view.all_enums():
+                enumerated_slots[slot_def.range].append(
+                    SlotInfo(
+                        slot_name=slot_name,
+                        class_name=class_name,
+                        enum_range=slot_def.range,
+                        description=slot_def.description,
+                        title=slot_def.title,
+                    )
+                )
 
     find_ncpi_ig = re.compile(r"^https://nih-ncpi\.github\.io/ncpi-fhir-ig-2")
     is_http = re.compile(r"^http")
-    data_rows = []
+
+    enumerated_values = []
+    # data_rows = []
 
     # 1. Extract data from Schema
     for enum_name, enum_def in view.all_enums().items():
@@ -55,46 +192,58 @@ def generate_harmony_files(schema_path, output_base):
                         md_link = f"[{system}]({system})"
                     else:
                         md_link = system
-                data_rows.append(
+
+                enum_val = EnumeratedValue(
+                    local_code=pv_name,
+                    local_display=pv_def.title or pv_name,
+                    local_system=enum_name,
+                )
+                enum_val.mappings.append(
                     {
-                        "local_code": pv_name,
-                        "local_display": pv_def.title or pv_name,
-                        "local_system": enum_name,
-                        "target_code": code,
-                        "target_system": system,
-                        "system_link": md_link,
-                        "target_display": pv_def.description or "",
+                        "code": code,
+                        "display": pv_def.description or "",
+                        "system": system,
+                        "md_link": md_link,
                     }
                 )
-    pretty_headers = [
-        "Local Code",
-        "Local Display",
-        "Local System",
-        "Target Code",
-        "Target System",
-        "Target Display",
-    ]
-    # 2. Write CSV File
+
+                # Find any slots that use this enum
+                if enum_name in enumerated_slots:
+                    enum_val.slots = enumerated_slots[enum_name]
+
+                enumerated_values.append(enum_val)
+
     with open(csv_path, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=headers, extrasaction="ignore")
-        writer.writeheader()
-        writer.writerows(data_rows)
+        writer = csv.writer(f)
+        # writer = csv.DictWriter(f, fieldnames=headers, extrasaction="ignore")
+        writer.writerow(EnumeratedValue.harmony_header())
+
+        for ev in enumerated_values:
+            ev.append_to_harmony(writer)
 
     # Get the link for the MD page
-    headers = ["system_link" if x == "target_system" else x for x in headers]
+    # headers = ["system_link" if x == "target_system" else x for x in headers]
     # 3. Write Markdown File for MkDocs
     with open(md_path, "w", encoding="utf-8") as f:
+        f.write("---\n")
+        f.write("hide:\n")
+        f.write(" - toc\n")
+        f.write("---\n\n")
         f.write("# Harmony Mappings\n\n")
         f.write(
-            "Mappings between internal Enums and external terminologies for Whistle.\n\n"
+            "Mappings between internal Enums and external terminologies for DBT FHIR ETL.\n\n"
         )
-        f.write(f"[Download Raw CSV](./{csv_path.name})\n\n")
+        f.write(
+            f"[Download Contents in Map Dragon Harmony CSV format](./{csv_path.name})\n\n"
+        )
 
         # Build Markdown Table
-        f.write("| " + " | ".join(pretty_headers) + " |\n")
-        f.write("| " + " | ".join(["---"] * len(pretty_headers)) + " |\n")
-        for row in data_rows:
-            f.write("| " + " | ".join(str(row[h]) for h in headers) + " |\n")
+        md_headers = EnumeratedValue.md_header()
+
+        f.write("| " + " | ".join(md_headers) + " |\n")
+        f.write("| " + " | ".join(["---"] * len(md_headers)) + " |\n")
+        for ev in enumerated_values:
+            ev.append_to_markdown(f)
 
     print(f"Generated: {csv_path} and {md_path}")
 
