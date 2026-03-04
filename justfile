@@ -80,7 +80,7 @@ site: gen-project gen-doc _gen_ftddd _gen_sqla
 
 # Deploy documentation site to Github Pages
 [group('deployment')]
-deploy: site
+deploy: site _gen_harmony
   mkd-gh-deploy
 
 # Run all tests
