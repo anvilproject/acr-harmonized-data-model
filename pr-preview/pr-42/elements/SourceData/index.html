@@ -330,13 +330,13 @@
 <tr>
 <td><a href="../data_source/">data_source</a></td>
 <td>0..1 <br/> <a href="../DataSource/">DataSource</a></td>
-<td>Defines the location of data and how to query it</td>
+<td>Defines the location of data and how to query it.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../query_parameter/">query_parameter</a></td>
 <td>* <br/> <a href="../String/">String</a></td>
-<td>One or more query parameters used to select the specific row</td>
+<td>One or more query parameters used to select the specific row. It will leverage the parameterized_query defined by a data_source. This should be formatted according to (https://cloud.google.com/bigquery/docs/parameterized-queries)[BigQuery instructions], specifically the bq CLI version with named parameters, ie, "<parameter name="">:<data type="">:<value>".</value></data></parameter></td>
 <td>direct</td>
 </tr>
 <tr>
@@ -354,7 +354,7 @@
 <tr>
 <td><a href="../external_id/">external_id</a></td>
 <td>* <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
-<td>Other identifiers for this entity, eg, from the submitting study or in system...</td>
+<td>Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP</td>
 <td><a href="../Thing/">Thing</a></td>
 </tr>
 </tbody>
