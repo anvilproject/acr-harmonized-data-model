@@ -94,7 +94,7 @@ lint:
 
 # Generate md documentation for the schema
 [group('model development')]
-gen-doc: _gen-yaml
+gen-doc: _gen-yaml _gen_harmony
   uv run gen-doc {{gen_doc_args}} -d {{docdir}} {{source_schema_path}}
 
 # Build docs and run test server

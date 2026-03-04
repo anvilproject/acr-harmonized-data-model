@@ -27,7 +27,8 @@ watch:
 nav:
   - Home: index.md
   - Schema: elements/index.md
-  - About: about.md
+  - Mappings: harmony.md
+  # - About: about.md
 
 exclude_docs: |
   /templates-linkml/
@@ -41,3 +42,5 @@ repo_url: https://github.com/anvilproject/acr-harmonized-data-model
 #   analytics:
 #     provider: google
 #     property: G-XXXXXXXXXX
+extra_css:
+  - stylesheets/extra.css
