@@ -14,3 +14,17 @@
 .md-typeset__table td {
   word-wrap: break-word; /* Ensures long words/text wrap within cell boundaries */
 }
+
+/* Prevent breaking words for class columns (we can expand this to others if we need */
+.md-typeset table:not([class]) td:first-child,
+.md-typeset table:not([class]) th:first-child {
+    white-space: nowrap;
+    word-break: keep-all;
+    min-width: 120px; /* Ensures a baseline width to prevent squeezing */
+}
+
+
+
+[url$="classes/"] td:first-child {
+    white-space: nowrap;
+}
