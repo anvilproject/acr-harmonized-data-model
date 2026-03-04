@@ -1,0 +1,47 @@
+local_code,local_display,local_system,target_code,target_system,target_display
+exact,Exact,EnumDateOfBirthType,exact,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-date-of-birth-method/,Exact
+year_only,Year Only,EnumDateOfBirthType,year-only,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-date-of-birth-method/,Year Only
+shifted,Shifted,EnumDateOfBirthType,shifted,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-date-of-birth-method/,Shifted
+decade_only,Decade Only,EnumDateOfBirthType,decade-only,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-date-of-birth-method/,Decade Only
+other,Other,EnumDateOfBirthType,other,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-date-of-birth-method/,Other
+female,Female,EnumSex,female,http://hl7.org/fhir/administrative-gender/,Female
+male,Male,EnumSex,male,http://hl7.org/fhir/administrative-gender/,Male
+unknown,Unknown,EnumSex,unknown,http://hl7.org/fhir/administrative-gender/,Unknown
+american_indian_or_alaskan_native,American Indian or Alaskan Native,EnumRace,1002-5,urn:oid:2.16.840.1.113883.6.238/,
+asian,Asian,EnumRace,2028-9,urn:oid:2.16.840.1.113883.6.238/,
+black_or_african_american,Black or African American,EnumRace,2054-5,urn:oid:2.16.840.1.113883.6.238/,
+native_hawaiian_or_pacific_islander,Native Hawaiian or Other Pacific Islander,EnumRace,2076-8,urn:oid:2.16.840.1.113883.6.238/,
+white,White,EnumRace,2106-3,urn:oid:2.16.840.1.113883.6.238/,
+other_race,Other Race,EnumRace,2131-1,urn:oid:2.16.840.1.113883.6.238/,
+unknown,unknown,EnumRace,UNK,http://terminology.hl7.org/CodeSystem/v3-NullFlavor/,
+asked_but_unknown,asked but unknown,EnumRace,ASKU,http://terminology.hl7.org/CodeSystem/v3-NullFlavor/,
+hispanic_or_latino,hispanic_or_latino,EnumEthnicity,2135-2,urn:oid:2.16.840.1.113883.6.238/,Hispanic or Latino
+not_hispanic_or_latino,not_hispanic_or_latino,EnumEthnicity,2186-5,urn:oid:2.16.840.1.113883.6.238/,Not Hispanic or Latino
+unknown,unknown,EnumEthnicity,UNK,http://terminology.hl7.org/CodeSystem/v3-NullFlavor/,unknown
+asked_but_unknown,asked_but_unknown,EnumEthnicity,ASKU,http://terminology.hl7.org/CodeSystem/v3-NullFlavor/,asked but unknown
+phenotypic_feature,Phenotypic Feature,EnumAssertionType,Phenotypic-Feature,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/condition-type/,This is a phenotypic feature
+disease,disease,EnumAssertionType,Disease,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/condition-type/,Disease
+comorbidity,comorbidity,EnumAssertionType,Comorbidity,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/condition-type/,Comorbidity
+histology,histology,EnumAssertionType,Histology,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/condition-type/,Histology
+clinical_finding,clinical-finding,EnumAssertionType,Clinical-Finding,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/condition-type/,Clinical Finding
+open,open,EnumAccessType,open,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-type/,Open Access
+registered,registered,EnumAccessType,registered,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-type/,Registered Access
+controlled,controlled,EnumAccessType,controlled,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-type/,Controlled
+gsr_restricted,gsr_restricted,EnumAccessType,gsr-restricted,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-type/,GSR Restricted
+gsr_allowed,gsr_allowed,EnumAccessType,gsr-allowed,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-type/,GSR Allowed
+gru,GRU,EnumAccessCode,GRU,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-code/,General Research Use
+hmb,HMB,EnumAccessCode,HMB,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-code/,Health/Medical/Biomedical
+ds,DS,EnumAccessCode,DS,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-code/,Disease-Specific (Disease/Trait/Exposure)
+irb,IRB,EnumAccessCode,IRB,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-code/,IRB Approval Required
+pub,PUB,EnumAccessCode,PUB,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-code/,Publication Required
+col,COL,EnumAccessCode,COL,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-code/,Collaboration Required
+npu,NPU,EnumAccessCode,NPU,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-code/,Not-for-profit use only
+mds,MDS,EnumAccessCode,MDS,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-code/,Methods
+gso,GSO,EnumAccessCode,GSO,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-code/,Genetic Studies only
+gsr,GSR,EnumAccessCode,GSR,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/research-data-access-code/,Genomic Summary Results
+not_suspected,not-suspected,EnumConsanguinityAssertion,428263003,http://snomed.info/id/,Not suspected
+suspected,suspected,EnumConsanguinityAssertion,415684004,http://snomed.info/id/,Suspected
+known_present,known-present,EnumConsanguinityAssertion,410515003,http://snomed.info/id/,Known Present
+unknown,unknown,EnumConsanguinityAssertion,261665006,http://snomed.info/id/,Unknown
+available,Available,EnumAvailabilityStatus,available,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/biospecimen-availability/,Biospecimen is Available
+unavailable,Unavailable,EnumAvailabilityStatus,unavailable,https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem/biospecimen-availability/,Biospecimen is Unavailable
