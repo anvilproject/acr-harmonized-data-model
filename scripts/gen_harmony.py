@@ -54,8 +54,8 @@ class EnumeratedValue:
                 "" if slot_details is None else slot_details.class_name,
                 "" if slot_details is None else slot_details.slot_name,
                 mapped_code,
+                mapped_display if mapped_display else self.local_display,
                 mapped_system,
-                mapped_display,
                 "LinkML gen-harmony",
             ]
         )
