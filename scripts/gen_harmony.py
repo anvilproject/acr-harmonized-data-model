@@ -18,6 +18,7 @@ class SlotInfo(NamedTuple):
 
 class EnumeratedValue:
     def __init__(self, local_code, local_display, local_system, **kwargs):
+
         self.local_code = local_code
         self.local_display = local_display
         self.local_system = local_system
@@ -46,7 +47,7 @@ class EnumeratedValue:
         self, writer, mapped_code, mapped_system, mapped_display, slot_details=None
     ):
         writer.writerow(
-            {
+            [
                 self.local_code,
                 self.local_display,
                 self.local_system,
@@ -56,7 +57,7 @@ class EnumeratedValue:
                 mapped_system,
                 mapped_display,
                 "LinkML gen-harmony",
-            }
+            ]
         )
 
     def append_to_harmony(self, writer):
@@ -183,9 +184,6 @@ def generate_harmony_files(schema_path, output_base):
                     igsystem = system
                     if system[-1] == "/":
                         igsystem = system[0:-1]
-                    # import pdb
-
-                    # pdb.set_trace()
                     md_link = f"[{system}](https://nih-ncpi.github.io/ncpi-fhir-ig-2/CodeSystem-{igsystem.split('/')[-1]})"
                 else:
                     if is_http.match(system):
