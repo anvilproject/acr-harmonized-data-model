@@ -183,7 +183,7 @@ enums:
     description: OMB Codes describing race.
     permissible_values:
       american_indian_or_alaskan_native:
-        title: American Indian or Alaskan Native
+        title: American Indian or Alaska Native
         meaning: cdc_race_eth:1002-5
       asian: 
         title: Asian

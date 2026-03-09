@@ -76,11 +76,11 @@ clean: _clean_project
 
 # (Re-)Generate project and documentation locally
 [group('model development')]
-site: gen-project gen-doc _gen_ftddd _gen_sqla
+site: gen-project gen-doc _gen_ftddd _gen_sqla _gen_harmony
 
 # Deploy documentation site to Github Pages
 [group('deployment')]
-deploy: site
+deploy: site _gen_harmony
   mkd-gh-deploy
 
 # Run all tests
@@ -94,7 +94,7 @@ lint:
 
 # Generate md documentation for the schema
 [group('model development')]
-gen-doc: _gen-yaml
+gen-doc: _gen-yaml _gen_harmony
   uv run gen-doc {{gen_doc_args}} -d {{docdir}} {{source_schema_path}}
 
 # Build docs and run test server

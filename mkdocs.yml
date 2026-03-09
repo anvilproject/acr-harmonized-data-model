@@ -1,5 +1,6 @@
 ---
 site_name: "acr-harmonized-data-model"
+
 theme:
   name: material
   # palette:
@@ -25,9 +26,9 @@ watch:
   - src/acr_harmonized_data_model/schema
 
 nav:
-  - Home: index.md
-  - Schema: elements/index.md
-  - About: about.md
+  - Schema: elements
+  - Mappings: elements/harmony.md
+  - About: index.md
 
 exclude_docs: |
   /templates-linkml/
@@ -41,3 +42,5 @@ repo_url: https://github.com/anvilproject/acr-harmonized-data-model
 #   analytics:
 #     provider: google
 #     property: G-XXXXXXXXXX
+extra_css:
+  - stylesheets/extra.css

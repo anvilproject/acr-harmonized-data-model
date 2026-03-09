@@ -8,3 +8,7 @@ _gen_ftddd:
 _gen_sqla:
     mkdir -p {{dest}}/sqlalchemy && \
     uv run gen-sqla {{source_schema_path}} --declarative > {{dest}}/sqlalchemy/{{schema_name}}.py
+
+[group('model development')]
+_gen_harmony:
+  python scripts/gen_harmony.py {{source_schema_path}} docs/elements/harmony
