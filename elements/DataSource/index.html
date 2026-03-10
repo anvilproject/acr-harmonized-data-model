@@ -13,6 +13,7 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
 <link href="../../css/ansi-colours.css" rel="stylesheet"/>
 <link href="../../css/jupyter-cells.css" rel="stylesheet"/>
 <link href="../../css/pandas-dataframe.css" rel="stylesheet"/>
@@ -121,19 +122,7 @@
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../index.md">
-<span class="md-ellipsis">
-    
-  
-    Home
-  
-
-    
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../">
+<a class="md-nav__link" href="..">
 <span class="md-ellipsis">
     
   
@@ -145,7 +134,19 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../about.md">
+<a class="md-nav__link" href="../harmony/">
+<span class="md-ellipsis">
+    
+  
+    Mappings
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
 <span class="md-ellipsis">
     
   
@@ -312,31 +313,31 @@
 <tr>
 <td><a href="../snapshot_id/">snapshot_id</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The Terra Data Repository Snapshot ID</td>
+<td>The Terra Data Repository Snapshot ID.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../google_data_project/">google_data_project</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The Google Data Project needed to query this snapshot in BigQuery</td>
+<td>The Google Data Project needed to query this snapshot in BigQuery.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../snapshot_dataset/">snapshot_dataset</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The Dataset within BigQuery where the table can be queried</td>
+<td>The Dataset within BigQuery where the table can be queried.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../table/">table</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The table in the dataset that contains the row of interest</td>
+<td>The table in the dataset that contains the row of interest.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../parameterized_query/">parameterized_query</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A parameterized query that contains the primary key fields and can be used to...</td>
+<td>A parameterized query that contains the primary key fields and can be used to select specific rows. This should be formatted according to (https://cloud.google.com/bigquery/docs/parameterized-queries)[BigQuery instructions], including using named parameters.</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -348,7 +349,7 @@
 <tr>
 <td><a href="../external_id/">external_id</a></td>
 <td>* <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
-<td>Other identifiers for this entity, eg, from the submitting study or in system...</td>
+<td>Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP</td>
 <td><a href="../Thing/">Thing</a></td>
 </tr>
 </tbody>

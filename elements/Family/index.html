@@ -13,6 +13,7 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
 <link href="../../css/ansi-colours.css" rel="stylesheet"/>
 <link href="../../css/jupyter-cells.css" rel="stylesheet"/>
 <link href="../../css/pandas-dataframe.css" rel="stylesheet"/>
@@ -121,19 +122,7 @@
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../index.md">
-<span class="md-ellipsis">
-    
-  
-    Home
-  
-
-    
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../">
+<a class="md-nav__link" href="..">
 <span class="md-ellipsis">
     
   
@@ -145,7 +134,19 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../about.md">
+<a class="md-nav__link" href="../harmony/">
+<span class="md-ellipsis">
+    
+  
+    Mappings
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
 <span class="md-ellipsis">
     
   
@@ -355,13 +356,13 @@
 <tr>
 <td><a href="../family_type/">family_type</a></td>
 <td>0..1 <br/> <a href="../EnumFamilyType/">EnumFamilyType</a></td>
-<td>Describes the 'type' of study family, eg, trio</td>
+<td>Describes the 'type' of study family, eg, trio.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../family_description/">family_description</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>Free title describing the study family, such as potential inheritance or deta...</td>
+<td>Free title describing the study family, such as potential inheritance or details about consanguinity</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -373,19 +374,19 @@
 <tr>
 <td><a href="../family_study_focus/">family_study_focus</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>What is this study family investigating? EG, a specific condition</td>
+<td>What is this study family investigating? EG, a specific condition. The code should be prefixed with a recognizable curie.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../family_members/">family_members</a></td>
 <td>1..* <br/> <a href="../FamilyMember/">FamilyMember</a></td>
-<td>The Subjects who are included in this family and their roles</td>
+<td>The Subjects who are included in this family and their roles.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../family_relationships/">family_relationships</a></td>
 <td>* <br/> <a href="../FamilyRelationship/">FamilyRelationship</a></td>
-<td>Family relationships associated with this family</td>
+<td>Family relationships associated with this family.</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -403,7 +404,7 @@
 <tr>
 <td><a href="../external_id/">external_id</a></td>
 <td>* <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
-<td>Other identifiers for this entity, eg, from the submitting study or in system...</td>
+<td>Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP</td>
 <td><a href="../Thing/">Thing</a></td>
 </tr>
 </tbody>
