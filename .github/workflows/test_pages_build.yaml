@@ -46,7 +46,7 @@ jobs:
 
       # Possible Chicken/egg issue with the packaging stuff
       - name: Generate build products
-        run: just sqla
+        run: just _gen_sqla
 
       - name: Install dependencies
         run: uv sync --dev --no-progress
