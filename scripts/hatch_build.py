@@ -44,3 +44,13 @@ class CustomBuildHook(BuildHookInterface):
         # Tell hatchling to include it
         build_data["artifacts"].append(str(dest_file))
         build_data["force_include"][str(dest_file)] = f"{schema_name}/{schema_name}.py"
+
+        # Harmony files
+        harmony_src = root / "project" / "harmony"
+        for csv_file in harmony_src.glob("*.csv"):
+            dest_csv = root / schema_name / csv_file.name
+            shutil.copy(csv_file, dest_csv)
+            build_data["artifacts"].append(str(dest_csv))
+            build_data["force_include"][str(dest_csv)] = (
+                f"{schema_name}/{csv_file.name}"
+            )

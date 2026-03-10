@@ -47,6 +47,7 @@ path = "scripts/hatch_build.py"
 
 [tool.hatch.build.targets.wheel]
 packages = ["acr_harmonized_data_model"]
+include = ["acr_harmonized_data_model/*.csv"]
 
 # Ref.: https://docs.pytest.org/en/stable/reference/reference.html#configuration-options
 [tool.pytest.ini_options]

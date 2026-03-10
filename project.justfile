@@ -12,3 +12,5 @@ _gen_sqla:
 [group('model development')]
 _gen_harmony:
   python scripts/gen_harmony.py {{source_schema_path}} docs/elements/harmony
+  mkdir -p {{dest}}/harmony && \
+  python scripts/gen_harmony.py {{source_schema_path}} {{dest}}/harmony/harmony

@@ -46,5 +46,5 @@ jobs:
           PACKAGE_REPOSITORY: "python-packages"
         run: |
           uv tool run twine upload \
-            --repository-url https://pypi.pkg.github.com/$PACKAGE_OWNER/ \
+            --repository-url https://api.github.com/orgs/$PACKAGE_OWNER/packages/pypi/upload \
             dist/*
