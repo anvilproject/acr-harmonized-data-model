@@ -37,6 +37,9 @@ jobs:
         # Installs linkml (gen-sqla, gen-project, etc.) into .venv
         # hatch_build.py will find gen-sqla at .venv/bin/gen-sqla
 
+      - name: Install just
+        uses: extractions/setup-just@v2
+
       - name: Generate all model artifacts
         run: just site
         # Runs gen-project, gen-doc, _gen_ftddd, _gen_sqla, _gen_harmony
