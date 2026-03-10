@@ -50,7 +50,10 @@ jobs:
           uv tool install rust-just
 
       - name: Install dependencies
-        run: uv sync --dev --no-progress
+        run: uv sync --dev --no-progress 
+
+      - name: install linkml for sqla
+        run: pip install linkml_runtime
 
       - name: Generate schema documentation
         run: |
