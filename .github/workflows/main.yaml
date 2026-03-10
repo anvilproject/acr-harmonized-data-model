@@ -48,6 +48,10 @@ jobs:
         run: |
           uv tool install rust-just
 
+      # Possible Chicken/egg issue with the packaging stuff
+      - name: Generate build products
+        run: just sqla
+
       - name: Install project
         run: uv sync --dev
 
