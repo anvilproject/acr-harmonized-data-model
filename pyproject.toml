@@ -41,6 +41,13 @@ vcs = "git"
 style = "pep440"
 fallback-version = "0.0.0"
 
+# Release the SQL Alchemy files
+[tool.hatch.build.targets.sdist.force-include]
+"project/sqlalchemy/acr_harmonized_data_model.py" = "acr_harmonized_data_model/acr_harmonized_data_model.py"
+
+[tool.hatch.build.targets.wheel.force-include]
+"acr_harmonized_data_model/acr_harmonized_data_model.py" = "acr_harmonized_data_model/acr_harmonized_data_model.py"
+
 # Ref.: https://docs.pytest.org/en/stable/reference/reference.html#configuration-options
 [tool.pytest.ini_options]
 testpaths = ["tests"]
