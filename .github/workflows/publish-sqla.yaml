@@ -41,8 +41,10 @@ jobs:
       - name: Publish to GitHub Packages
         env:
           TWINE_USERNAME: ${{ github.actor }}
-          TWINE_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+          TWINE_PASSWORD: ${{ secrets.CARROLLABORATORY_PACKAGES_TOKEN }}
+          PACKAGE_OWNER: "carrollaboratory"
+          PACKAGE_REPOSITORY: "python-packages"
         run: |
           uv tool run twine upload \
-            --repository-url https://pypi.pkg.github.com/${{ github.repository_owner }}/${{ github.event.repository.name }}/ \
+            --repository-url https://pypi.pkg.github.com/$PACKAGE_OWNER/$PACKAGE_REPOSITORY/ \
             dist/*
