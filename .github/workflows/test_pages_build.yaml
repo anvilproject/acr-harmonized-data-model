@@ -44,10 +44,6 @@ jobs:
         with:
           python-version: 3.13
 
-      # Possible Chicken/egg issue with the packaging stuff
-      - name: Generate build products
-        run: just sqla
-
       - name: Install dependencies
         run: uv sync --dev --no-progress
 

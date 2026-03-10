@@ -1,5 +1,5 @@
 [build-system]
-requires = ["hatchling", "uv-dynamic-versioning"]
+requires = ["hatchling", "uv-dynamic-versioning", "linkml"]
 build-backend = "hatchling.build"
 
 [project]
@@ -40,6 +40,13 @@ source = "uv-dynamic-versioning"
 vcs = "git"
 style = "pep440"
 fallback-version = "0.0.0"
+
+# Release the SQL Alchemy files
+[tool.hatch.build.hooks.custom]
+path = "scripts/hatch_build.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["acr_harmonized_data_model"]
 
 # Ref.: https://docs.pytest.org/en/stable/reference/reference.html#configuration-options
 [tool.pytest.ini_options]
