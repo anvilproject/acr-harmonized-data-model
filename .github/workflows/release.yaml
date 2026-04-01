@@ -38,7 +38,7 @@ jobs:
         # hatch_build.py will find gen-sqla at .venv/bin/gen-sqla
 
       - name: Install just
-        uses: extractions/setup-just@v2
+        uses: extractions/setup-just@v3
 
       - name: Generate all model artifacts
         run: just site
