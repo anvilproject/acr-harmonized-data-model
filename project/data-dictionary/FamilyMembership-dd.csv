@@ -1,0 +1,7 @@
+variable_name,description,data_type,min,max,units,enumerations,comment
+family_membership_id,ID for the Family Relationship,string,,,,,
+family_id,Global ID for the Family,string,,,,,Foreign Key: Family.family_id
+subject_id,INCLUDE Global ID for the Subject,string,,,,,Foreign Key: Subject.subject_id
+family_role,"The ""role"" of this individual in this family. Could include terms like ""proband"", ""mother"", etc.",string,,,,,
+access_policy_id,Global identifier for the access policy that applies to this row of data.,string,,,,,Foreign Key: AccessPolicy.access_policy_id
+study_id,INCLUDE Global ID for the study,string,,,,,Foreign Key: Study.study_id

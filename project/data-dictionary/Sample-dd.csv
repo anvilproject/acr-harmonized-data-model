@@ -1,10 +1,10 @@
 variable_name,description,data_type,min,max,units,enumerations,comment
-parent_sample,Sample from which this sample is derived,string,,,,,Foreign Key: Sample.id
-sample_type,Type of material of which this Sample is comprised,string,,,,,
-availablity_status,Can this Sample be requested for further analysis?,enumeration,,,,available=Biospecimen is Available;unavailable=Biospecimen is Unavailable,
+sample_id,The unique identifier for this Sample.,string,,,,,
+biospecimen_collection_id,Biospecimen Collection during which this sample was generated.,string,,,,,Foreign Key: BiospecimenCollection.biospecimen_collection_id
+parent_sample_id,Sample from which this sample is derived,string,,,,,Foreign Key: Sample.sample_id
+sample_type,Type of material of which this Sample is comprised. UBERON is recommended.,string,,,,,
+availability_status,Can this Sample be requested for further analysis?,enumeration,,,,"snomedct:103328004=The item is available to users, authorization/request permitting.;snomedct:103329007=The item is not available to users.",
 quantity_number,The total quantity of the specimen,number,,,,,
-quantity_units,The structured term defining the units of the quantity.,string,,,,,
-has_access_policy,Which access policy applies to this element?,string,,,,,Foreign Key: AccessPolicy.id
-id,ID associated with a class,string,,,,,
-Subject_id,Autocreated FK slot,string,,,,,Foreign Key: Subject.id
-biospecimen_collection_id,Biospecimen Collection that generated this sample.,string,,,,,Foreign Key: BiospecimenCollection.id
+quantity_unit,The structured term defining the units of the quantity.,string,,,,,Foreign Key: Concept.concept_curie
+access_policy_id,Global identifier for the access policy that applies to this row of data.,string,,,,,Foreign Key: AccessPolicy.access_policy_id
+study_id,INCLUDE Global ID for the study,string,,,,,Foreign Key: Study.study_id

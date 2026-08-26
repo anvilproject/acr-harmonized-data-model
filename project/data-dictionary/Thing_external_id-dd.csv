@@ -1,3 +1,0 @@
-variable_name,description,data_type,min,max,units,enumerations,comment
-Thing_id,Autocreated FK slot,string,,,,,Foreign Key: Thing.id
-external_id,"Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",string,,,,,

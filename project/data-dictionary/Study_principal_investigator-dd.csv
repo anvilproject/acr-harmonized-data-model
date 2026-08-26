@@ -1,3 +1,3 @@
 variable_name,description,data_type,min,max,units,enumerations,comment
-Study_id,Autocreated FK slot,string,,,,,Foreign Key: Study.id
-principal_investigator,Principal Investigator,string,,,,,
+Study_study_id,Autocreated FK slot,string,,,,,Foreign Key: Study.study_id
+principal_investigator_id,The Principal Investigator(s) responsible for the study.,integer,,,,,Foreign Key: Investigator.id

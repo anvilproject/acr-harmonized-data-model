@@ -1,0 +1,3 @@
+variable_name,description,data_type,min,max,units,enumerations,comment
+Dataset_dataset_id,Autocreated FK slot,string,,,,,Foreign Key: Dataset.dataset_id
+file_id_file_id,The list of files comprising this dataset.,string,,,,,Foreign Key: File.file_id

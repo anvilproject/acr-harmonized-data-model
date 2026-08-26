@@ -1,22 +1,27 @@
 """Data test."""
+
 import os
 import glob
-import unittest
+import pytest
+from pathlib import Path
 
+import acr_harmonized_data_model.datamodel.acr_harmonized_data_model
 from linkml_runtime.loaders import yaml_loader
-from src.acr_harmonized_data_model.datamodel.acr_harmonized_data_model import Subject
 
-ROOT = os.path.join(os.path.dirname(__file__), '..')
-DATA_DIR = os.path.join(ROOT, "src", "data", "examples")
+DATA_DIR_VALID = Path(__file__).parent / "data" / "valid"
+DATA_DIR_INVALID = Path(__file__).parent / "data" / "invalid"
 
-EXAMPLE_FILES = glob.glob(os.path.join(DATA_DIR, '*.yaml'))
+VALID_EXAMPLE_FILES = glob.glob(os.path.join(DATA_DIR_VALID, "*.yaml"))
+INVALID_EXAMPLE_FILES = glob.glob(os.path.join(DATA_DIR_INVALID, "*.yaml"))
 
 
-class TestData(unittest.TestCase):
-    """Test data and datamodel."""
-
-    def test_data(self):
-        """Data test."""
-        for path in EXAMPLE_FILES:
-            obj = yaml_loader.load(path, target_class=Subject)
-            assert obj
+@pytest.mark.parametrize("filepath", VALID_EXAMPLE_FILES)
+def test_valid_data_files(filepath):
+    """Test loading of all valid data files."""
+    target_class_name = Path(filepath).stem.split("-")[0]
+    tgt_class = getattr(
+        acr_harmonized_data_model.datamodel.acr_harmonized_data_model,
+        target_class_name,
+    )
+    obj = yaml_loader.load(filepath, target_class=tgt_class)
+    assert obj

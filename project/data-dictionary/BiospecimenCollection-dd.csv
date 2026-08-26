@@ -1,8 +1,10 @@
 variable_name,description,data_type,min,max,units,enumerations,comment
+biospecimen_collection_id,Unique identifier for this Biospecimen Collection.,string,,,,,
 age_at_collection,The age at which this biospecimen was collected in decimal years.,number,,,UCUM:a,,
-method,The approach used to collect the biospecimen.,enumeration,,,,,The approach used to collect the biospecimen. Recommend ontology: [LOINC](https://loinc.org).
-site,The location of the specimen collection.,enumeration,,,,,The location of the specimen collection. Recommended ontology: [SNOMED Body Site](https://hl7.org/fhir/R4B/valueset-body-site.html)
-spatial_qualifier,Any spatial/location qualifiers,enumeration,,,,,Any spatial/location qualifiers.
-laterality,Laterality information for the site,enumeration,,,,,Laterality information for the site
-has_access_policy,Which access policy applies to this element?,string,,,,,Foreign Key: AccessPolicy.id
-id,ID associated with a class,string,,,,,
+method,The approach used to collect the biospecimen.,enumeration,,,,,The approach used to collect the biospecimen.
+site,The location of the specimen collection.,string,,,,,Foreign Key: Concept.concept_curie
+spatial_qualifier,Qualifier that further refine the specific location of biospecimen collection,string,,,,,Foreign Key: Concept.concept_curie
+laterality,Laterality that further refine the specific location of biospecimen collection,enumeration,,,,,Laterality information for the site
+encounter_id,Unique identifier for this Encounter.,string,,,,,Foreign Key: Encounter.encounter_id
+access_policy_id,Global identifier for the access policy that applies to this row of data.,string,,,,,Foreign Key: AccessPolicy.access_policy_id
+study_id,INCLUDE Global ID for the study,string,,,,,Foreign Key: Study.study_id

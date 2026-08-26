@@ -1,0 +1,8 @@
+variable_name,description,data_type,min,max,units,enumerations,comment
+id,,integer,,,,,
+name,Name of the entity.,string,,,,,
+institution,Name of the institution this record is associated with.,string,,,,,
+investigator_title,"The title of the Investigator, eg, ""Assistant Professor""",string,,,,,
+email,An email address to reach the entity.,string,,,,,
+access_policy_id,Global identifier for the access policy that applies to this row of data.,string,,,,,Foreign Key: AccessPolicy.access_policy_id
+study_id,INCLUDE Global ID for the study,string,,,,,Foreign Key: Study.study_id

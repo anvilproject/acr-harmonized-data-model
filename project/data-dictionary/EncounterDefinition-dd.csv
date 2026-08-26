@@ -1,0 +1,6 @@
+variable_name,description,data_type,min,max,units,enumerations,comment
+encounter_definition_id,Unique identifier for this Encounter Definition.,string,,,,,
+name,Name of the entity.,string,,,,,
+description,Description for this entity.,string,,,,,
+access_policy_id,Global identifier for the access policy that applies to this row of data.,string,,,,,Foreign Key: AccessPolicy.access_policy_id
+study_id,INCLUDE Global ID for the study,string,,,,,Foreign Key: Study.study_id

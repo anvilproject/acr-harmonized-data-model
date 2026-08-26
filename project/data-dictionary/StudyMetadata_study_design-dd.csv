@@ -1,0 +1,3 @@
+variable_name,description,data_type,min,max,units,enumerations,comment
+StudyMetadata_study_id,Autocreated FK slot,string,,,,,Foreign Key: StudyMetadata.study_id
+study_design_concept_curie,"Overall design of study, including whether it is longitudinal and whether family members/unrelated controls are also enrolled",string,,,,,Foreign Key: Concept.concept_curie

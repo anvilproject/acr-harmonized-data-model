@@ -1,0 +1,309 @@
+ syntax="proto3";
+ package
+// metamodel_version: 1.11.0
+// The access policy that describes the controls around use of data
+message AccessPolicy
+ {
+  coGlobalID accessPolicyId = 0
+  uriorcurie dataUseAccession = 0
+  enumDataUsePermission dataUsePermission = 0
+  enumDataUseModifier dataUseModifier = 0
+  string diseaseLimitation = 0
+  string accessDescription = 0
+  uri website = 0
+ }
+// A definition of an activity in this study, eg, a biospecimen collection, assay, intervention, survey, or assessment.
+message ActivityDefinition
+ {
+  adGlobalID activityDefinitionId = 0
+  string name = 0
+  string description = 0
+ repeated  uriorcurie externalId = 0
+  accessPolicy accessPolicyId = 0
+  study studyId = 0
+ }
+// A specific tube or amount of a biospecimen associated with a Sample.
+message Aliquot
+ {
+  string aliquotId = 0
+  sample sampleId = 0
+  enumAvailabilityStatus availabilityStatus = 0
+  float quantityNumber = 0
+  concept quantityUnit = 0
+  float concentrationNumber = 0
+  concept concentrationUnit = 0
+ repeated  uriorcurie externalId = 0
+  accessPolicy accessPolicyId = 0
+  study studyId = 0
+ }
+// A specific assay that was performed on given subject(s) or sample(s).
+message Assay
+ {
+  diGlobalID assayId = 0
+ repeated  subject subjectId = 0
+ repeated  sample sampleId = 0
+ repeated  file fileId = 0
+  enumAssayType assayType = 0
+  string assaySource = 0
+  activityDefinition activityDefinitionId = 0
+ repeated  uriorcurie externalId = 0
+  accessPolicy accessPolicyId = 0
+  study studyId = 0
+ }
+// A biospecimen collection event which yields one or more Samples.
+message BiospecimenCollection
+ {
+  string biospecimenCollectionId = 0
+  float ageAtCollection = 0
+  enumSampleCollectionMethod method = 0
+  concept site = 0
+  concept spatialQualifier = 0
+  concept laterality = 0
+  encounter encounterId = 0
+ repeated  uriorcurie externalId = 0
+  accessPolicy accessPolicyId = 0
+  study studyId = 0
+ }
+// A standardized concept with display information.
+message Concept
+ {
+  uriorcurie conceptCurie = 0
+  string display = 0
+ }
+// Set of files grouped together for release.
+message Dataset
+ {
+  lsGlobalID datasetId = 0
+  string name = 0
+  string description = 0
+  dOI doId = 0
+ repeated  file fileId = 0
+ repeated  publication publication = 0
+  string dataCollectionStart = 0
+  string dataCollectionEnd = 0
+ }
+// Basic participant demographics summary
+message Demographics
+ {
+  subject subjectId = 0
+  concept sex = 0
+ repeated  concept race = 0
+  concept ethnicity = 0
+  integer ageAtLastVitalStatus = 0
+  concept vitalStatus = 0
+  integer ageAtFirstEngagement = 0
+ repeated  uriorcurie externalId = 0
+  accessPolicy accessPolicyId = 0
+  study studyId = 0
+ }
+// A DOI is a permanent reference with metadata about a digital object.
+message DOI
+ {
+  string doId = 0
+  string bibliographicReference = 0
+ repeated  uriorcurie externalId = 0
+  accessPolicy accessPolicyId = 0
+  study studyId = 0
+ }
+// An event at which data was collected about a participant, an intervention was made, or information about a participant was recorded.
+message Encounter
+ {
+  enGlobalID encounterId = 0
+  subject subjectId = 0
+  encounterDefinition encounterDefinitionId = 0
+  integer ageAtEvent = 0
+ repeated  uriorcurie externalId = 0
+  accessPolicy accessPolicyId = 0
+  study studyId = 0
+ }
+// A definition of an encounter type in this study, ie, an event at which data was collected about a participant, an intervention was made, or information about a participant was recorded. This may be something planned by a study or a type of data collection.
+message EncounterDefinition
+ {
+  pdGlobalID encounterDefinitionId = 0
+  string name = 0
+  string description = 0
+ repeated  activityDefinition activityDefinitionId = 0
+ repeated  uriorcurie externalId = 0
+  accessPolicy accessPolicyId = 0
+  study studyId = 0
+ }
+// A group of individuals of some relation who are grouped together in a study.
+message Family
+ {
+  grGlobalID familyId = 0
+  enumFamilyType familyType = 0
+  string familyDescription = 0
+  enumPresentAbsent consanguinity = 0
+  uriorcurie familyStudyFocus = 0
+ repeated  uriorcurie externalId = 0
+  accessPolicy accessPolicyId = 0
+  study studyId = 0
+ }
+// Designates a Subject as a member of a family with a specified role.
+message FamilyMembership
+ {
+  string familyMembershipId = 0
+  family familyId = 0
+  subject subjectId = 0
+  concept familyRole = 0
+ repeated  uriorcurie externalId = 0
+  accessPolicy accessPolicyId = 0
+  study studyId = 0
+ }
+// A relationship between two Subjects. Directed as follows <family_member_id> <relationship> <subject_id> <Mother's id> <KIN:027 "isBiologicalMotherOf"> <subject_id>
+message FamilyRelationship
+ {
+  fmGlobalID familyRelationshipId = 0
+  subject familyMemberId = 0
+  concept relation = 0
+  subject subjectId = 0
+ repeated  uriorcurie externalId = 0
+  accessPolicy accessPolicyId = 0
+  study studyId = 0
+ }
+// File
+message File
+ {
+  drGlobalID fileId = 0
+ repeated  subject subjectId = 0
+ repeated  sample sampleId = 0
+  string filename = 0
+  enumEDAMFormats format = 0
+  string fileExtension = 0
+  concept dataCategory = 0
+  enumEDAMDataTypes dataType = 0
+  integer size = 0
+  uriorcurie internalUri = 0
+  uriorcurie releaseUri = 0
+  uriorcurie drsUri = 0
+  string storageClass = 0
+ repeated  fileHash hash = 0
+  enumAvailabilityStatus availability = 0
+ repeated  uriorcurie externalId = 0
+  accessPolicy accessPolicyId = 0
+  study studyId = 0
+ }
+// Type and value of a file content hash.
+message FileHash
+ {
+  enumFileHashType hashType = 0
+  string hashValue = 0
+ }
+// An individual who made contributions to the collection, analysis, or sharing of data.
+message Investigator
+ {
+  string name = 0
+  string institution = 0
+  string investigatorTitle = 0
+  string email = 0
+ repeated  uriorcurie externalId = 0
+  accessPolicy accessPolicyId = 0
+  study studyId = 0
+ }
+// Information about a specific publication.
+message Publication
+ {
+  string bibliographicReference = 0
+  uri website = 0
+ repeated  uriorcurie externalId = 0
+  accessPolicy accessPolicyId = 0
+  study studyId = 0
+ }
+// A functionally equivalent specimen taken from a participant or processed from such a sample.
+message Sample
+ {
+  bsGlobalID sampleId = 0
+  biospecimenCollection biospecimenCollectionId = 0
+  sample parentSampleId = 0
+  uriorcurie sampleType = 0
+ repeated  uriorcurie processing = 0
+  enumAvailabilityStatus availabilityStatus = 0
+ repeated  uriorcurie storageMethod = 0
+  float quantityNumber = 0
+  concept quantityUnit = 0
+ repeated  uriorcurie externalId = 0
+  accessPolicy accessPolicyId = 0
+  study studyId = 0
+ }
+// Study Metadata
+message Study
+ {
+  study parentStudy = 0
+  string studyTitle = 0
+  string studyCode = 0
+  string studyShortName = 0
+ repeated  uriorcurie program = 0
+ repeated  string fundingSource = 0
+ repeated  investigator principalInvestigator = 0
+ repeated  investigator contact = 0
+  string studyDescription = 0
+  uri website = 0
+ repeated  publication publication = 0
+  string acknowledgments = 0
+  string citationStatement = 0
+  dOI doId = 0
+  sdGlobalID studyId = 0
+ repeated  uriorcurie externalId = 0
+  accessPolicy accessPolicyId = 0
+ }
+// Additional features about studies that may not apply to all studies
+message StudyMetadata
+ {
+  study studyId = 0
+ repeated  enumParticipantLifespanStage participantLifespanStage = 0
+  string selectionCriteria = 0
+ repeated  concept studyDesign = 0
+ repeated  enumDataSourceType clinicalDataSourceType = 0
+ repeated  concept dataCategory = 0
+  virtualBiorepository vbrId = 0
+ repeated  concept researchDomain = 0
+  integer expectedNumberOfParticipants = 0
+  integer actualNumberOfParticipants = 0
+ repeated  uriorcurie externalId = 0
+  accessPolicy accessPolicyId = 0
+ }
+// This entity is the subject about which data or references are recorded. This includes the idea of a human participant in a study, a cell line, an animal model, or any other similar entity.
+message Subject
+ {
+  ptGlobalID subjectId = 0
+  concept subjectType = 0
+  uriorcurie organismType = 0
+ repeated  uriorcurie externalId = 0
+  accessPolicy accessPolicyId = 0
+  study studyId = 0
+ }
+// Assertion about a particular Subject. May include Conditions, Measurements, etc.
+message SubjectAssertion
+ {
+  string assertionId = 0
+  subject subjectId = 0
+  encounter encounterId = 0
+  enumAsserterType asserterType = 0
+  enumDataSourceType assertionSourceType = 0
+  integer ageAtAssertion = 0
+  integer ageAtEvent = 0
+  integer ageAtResolution = 0
+ repeated  concept concept = 0
+  string conceptSource = 0
+ repeated  concept valueConcept = 0
+  float valueNumber = 0
+  string valueSource = 0
+  concept valueUnit = 0
+  string valueUnitSource = 0
+ repeated  uriorcurie externalId = 0
+  accessPolicy accessPolicyId = 0
+  study studyId = 0
+ }
+// An organization that can provide access to specimen for further analysis.
+message VirtualBiorepository
+ {
+  orGlobalID vbrId = 0
+  string name = 0
+  string institution = 0
+ repeated  investigator contact = 0
+  uri website = 0
+  string vbrReadme = 0
+ repeated  uriorcurie externalId = 0
+  accessPolicy accessPolicyId = 0
+  study studyId = 0
+ }

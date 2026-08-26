@@ -1,3 +1,3 @@
 variable_name,description,data_type,min,max,units,enumerations,comment
-Sample_id,Autocreated FK slot,string,,,,,Foreign Key: Sample.id
-storage_method,"Sample storage method, eg, Frozen or with additives",string,,,,,
+Sample_sample_id,Autocreated FK slot,string,,,,,Foreign Key: Sample.sample_id
+storage_method,"Sample storage method, eg, Frozen or with additives. OBI may be suitable, or ChEBI for additives.",string,,,,,

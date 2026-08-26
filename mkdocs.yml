@@ -1,15 +1,26 @@
 ---
 site_name: "acr-harmonized-data-model"
-
 theme:
+  # https://www.mkdocs.org/user-guide/configuration/#theme
   name: material
+  icon:
+    logo: material/book-open-page-variant
   # palette:
   #  scheme: slate
   #  primary: cyan
   features:
     - content.tabs.link
+    - header.autohide      # maximum screen space during scrolling
+    - navigation.expand    # optimize user experience
+    - navigation.instant   # optimize user experience
+    - navigation.instant.progress
+    - navigation.tracking  # update address bar
+    - search.suggest       # suggest good completions
+    - content.code.copy    # enable copy to clipboard
 
-# for adding extra css/js see https://www.mkdocs.org/user-guide/customizing-your-theme/
+# extra css/js see https://www.mkdocs.org/user-guide/customizing-your-theme/
+extra_css: []
+extra_javascript: []
 
 plugins:
   - search
@@ -17,18 +28,42 @@ plugins:
       execute: false
   - mermaid2:
       version: 11.4.1
-  # TODO rebuild docs on schema change (https://github.com/dalito/linkml-project-copier/issues/39)
-  # - gen-files:
-  #     scripts:
-  #       - gen_pages.py  # or any other name or path
+  # https://pypi.org/project/mkdocs-pymdownx-material-extras
+  - mkdocs_pymdownx_material_extras:
+
+markdown_extensions:
+  - pymdownx.superfences:
+      # https://mkdocs-mermaid2.readthedocs.io/en/latest/superfences
+      # custom code highlighting rules
+      custom_fences:
+        - name: mermaid
+          # disable code highlighting to display diagrams
+          format: !!python/name:pymdownx.superfences.fence_code_format
+          class: mermaid
+  # https://facelessuser.github.io/pymdown-extensions/extensions/magiclink/
+  # auto-link HTML, FTP, and email links
+  - pymdownx.magiclink
+  # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/#admonition
+  # support for call-outs
+  - admonition
+  # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/#tables
+  # create tables
+  - tables
+  # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/#attribute-lists
+  # enables use of HTML attributes and CSS classes to applicable elements
+  - attr_list
+  # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/#markdown-in-html
+  # write markdown inside of HTML
+  - md_in_html
 
 watch:
   - src/acr_harmonized_data_model/schema
 
 nav:
-  - Schema: elements
-  - Mappings: elements/harmony.md
-  - About: index.md
+  - Home: index.md
+  - Schema: elements/index.md
+  - dbt: dbt_artifacts.md
+  - About: about.md
 
 exclude_docs: |
   /templates-linkml/
@@ -42,5 +77,3 @@ repo_url: https://github.com/anvilproject/acr-harmonized-data-model
 #   analytics:
 #     provider: google
 #     property: G-XXXXXXXXXX
-extra_css:
-  - stylesheets/extra.css

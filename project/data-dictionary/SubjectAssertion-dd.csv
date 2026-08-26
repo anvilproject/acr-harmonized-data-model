@@ -1,15 +1,16 @@
 variable_name,description,data_type,min,max,units,enumerations,comment
-assertion_type,"The semantic type of the resource, eg, Condition.",enumeration,,,,"phenotypic_feature=This is a phenotypic feature;disease=Disease;comorbidity=Comorbidity;histology=Histology;clinical_finding=Clinical Finding;ehr_billing_code=From an EHR billing record, which may indicate only investigation into a possible diagnosis.;measurement=A measurement of some feature, eg, height or glucose.",
-age_at_assertion,The age in decimal years of the Subject when the assertion was made.,number,,,UCUM:a,,
-age_at_event,"The age in decimal years of the Subject at the time point which the assertion describes, | eg, age of onset or when a measurement was performed.",number,,,UCUM:a,,
-age_at_resolution,The age in decimal years of the Subject when the asserted state was resolved.,number,,,UCUM:a,,
-code,The structured term defining the meaning of the assertion.,string,,,,,
-display,The friendly display string of the coded term,string,,,,,
-value_code,The structured term defining the value of the assertion.,string,,,,,
-value_display,The friendly display string of the coded term for the value of the assertion.,string,,,,,
+assertion_id,INCLUDE Global ID for the Assertion,string,,,,,
+subject_id,INCLUDE Global ID for the Subject,string,,,,,Foreign Key: Subject.subject_id
+encounter_id,Unique identifier for this Encounter.,string,,,,,Foreign Key: Encounter.encounter_id
+asserter_type,The original asserter of this information,enumeration,,,,"CAMO:0000016=Assertion made by research staff.;CAMO:0000017=Assertion documented by a healthcare system or provider.;CAMO:0000018=Assertion made by a study participant, their representative, or some combination.;CAMO:0000019=Assertion made by a study participant.;CAMO:0000020=Assertion made by a study participant's representative or representatives.;CAMO:0000021=Assertion made by a study participant's caregiver or caregivers.",
+assertion_source_type,The source of this assertion from the original data,enumeration,,,,"CAMO:0000014=Data obtained directly from an Electronic Health Record.;CAMO:0000010=Data obtained from a survey or questionnaire given to a participant or their representative.;CAMO:0000011=Data obtained by research staff for the study.;CAMO:0000012=Data obtained by research staff interviewing participants, representatives, or others.;CAMO:0000013=Data obtained directly by research staff examining the participant.",
+age_at_assertion,The age in days of the Subject when the assertion was made.,integer,,,UCUM:d,,
+age_at_event,"The age in days of the Subject at the time point which the assertion describes, eg, age of onset or when a measurement was performed.",integer,,,UCUM:d,,
+age_at_resolution,The age in days of the Subject when the asserted state was resolved.,integer,,,UCUM:d,,
+concept_source,The source text yielding the standardized concept.,string,,,,,
 value_number,The numeric value of the assertion.,number,,,,,
-value_units,The structured term defining the units of the value.,string,,,,,
-value_units_display,The friendly display string of units of the value.,string,,,,,
-has_access_policy,Which access policy applies to this element?,string,,,,,Foreign Key: AccessPolicy.id
-id,ID associated with a class,string,,,,,
-Subject_id,Autocreated FK slot,string,,,,,Foreign Key: Subject.id
+value_source,The source text yielding the value.,string,,,,,
+value_unit,The structured term defining the units of the value.,string,,,,,Foreign Key: Concept.concept_curie
+value_unit_source,The source text yielding the value's units.,string,,,,,
+access_policy_id,Global identifier for the access policy that applies to this row of data.,string,,,,,Foreign Key: AccessPolicy.access_policy_id
+study_id,INCLUDE Global ID for the study,string,,,,,Foreign Key: Study.study_id
