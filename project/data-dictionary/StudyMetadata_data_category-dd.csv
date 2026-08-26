@@ -1,3 +1,0 @@
-variable_name,description,data_type,min,max,units,enumerations,comment
-StudyMetadata_study_id,Autocreated FK slot,string,,,,,Foreign Key: StudyMetadata.study_id
-data_category,"General category of data in this Record (e.g. Clinical, Genomics, etc)",string,,,,,

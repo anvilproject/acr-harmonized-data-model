@@ -1,3 +1,0 @@
-variable_name,description,data_type,min,max,units,enumerations,comment
-Study_study_id,Autocreated FK slot,string,,,,,Foreign Key: Study.study_id
-funding_source,The funding source(s) of the study.,string,,,,,

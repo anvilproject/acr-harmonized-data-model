@@ -1,8 +1,0 @@
-variable_name,description,data_type,min,max,units,enumerations,comment
-family_id,Global ID for the Family,string,,,,,
-family_type,"Describes the 'type' of study family, eg, trio.",enumeration,,,,CAMO:0000002=This family study includes at a minimum one parent and one child.;CAMO:0000003=This family study includes at a minimum one parent and one affected child.;CAMO:0000004=This family study includes at a minimum two parents of one affected child.;CAMO:0000005=This family study includes at a minimum two parents of one affected child and at least one other child.;CAMO:0000006=This family study includes only one or more cases.;CAMO:0000007=This family study includes only one or more probands.;CAMO:0000008=This family study includes only one or more controls.,
-family_description,"Free text describing the study family, such as potential inheritance or details about consanguinity",string,,,,,
-consanguinity,Is there known or suspected consanguinity in this study family?,enumeration,,,,snomedct:410515003=Known present;snomedct:410516002=Known absent;snomedct:410590009=Known possible;snomedct:410591008=Definitely present;snomedct:410592001=Probably present;snomedct:410593006=Probably not present;snomedct:410594000=Definitely not present;snomedct:410605003=Confirmed present;snomedct:415684004=Suspected;snomedct:428263003=Not suspected;snomedct:723511001=Refuted,
-family_study_focus,"The specific focus of the investigation, eg, a condition.",string,,,,,
-access_policy_id,Global identifier for the access policy that applies to this row of data.,string,,,,,Foreign Key: AccessPolicy.access_policy_id
-study_id,INCLUDE Global ID for the study,string,,,,,Foreign Key: Study.study_id

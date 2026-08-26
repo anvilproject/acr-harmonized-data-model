@@ -1,3 +1,0 @@
-variable_name,description,data_type,min,max,units,enumerations,comment
-Sample_sample_id,Autocreated FK slot,string,,,,,Foreign Key: Sample.sample_id
-processing,Processing that was applied to the Parent Sample or from the Biospecimen Collection that yielded this distinct sample. OBI is recommended.,string,,,,,

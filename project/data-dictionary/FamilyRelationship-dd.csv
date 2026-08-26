@@ -1,7 +1,0 @@
-variable_name,description,data_type,min,max,units,enumerations,comment
-family_relationship_id,Global ID for the Family Relationship,string,,,,,
-family_member_id,"The family member Subject who is the relationship ""subject"".",string,,,,,Foreign Key: Subject.subject_id
-relation,"Code definting the relationship predicate. Relationship of the ""Family Member"" to the ""Subject"", eg, mother of. Ideally uses KIN ontology.",string,,,,,Foreign Key: Concept.concept_curie
-subject_id,"The family member Subject who is the relationship ""object"".",string,,,,,Foreign Key: Subject.subject_id
-access_policy_id,Global identifier for the access policy that applies to this row of data.,string,,,,,Foreign Key: AccessPolicy.access_policy_id
-study_id,INCLUDE Global ID for the study,string,,,,,Foreign Key: Study.study_id

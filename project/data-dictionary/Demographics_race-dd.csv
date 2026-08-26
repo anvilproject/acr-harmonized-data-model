@@ -1,3 +1,0 @@
-variable_name,description,data_type,min,max,units,enumerations,comment
-Demographics_subject_id,Autocreated FK slot,string,,,,,Foreign Key: Demographics.subject_id
-race_concept_curie,Race of Participant,string,,,,,Foreign Key: Concept.concept_curie

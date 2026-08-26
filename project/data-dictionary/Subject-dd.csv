@@ -1,6 +1,0 @@
-variable_name,description,data_type,min,max,units,enumerations,comment
-subject_id,INCLUDE Global ID for the Subject,string,,,,,
-subject_type,Type of entity this record represents,string,,,,,Foreign Key: Concept.concept_curie
-organism_type,"Organism Type, typically from NCBITaxon.",string,,,,,
-access_policy_id,Global identifier for the access policy that applies to this row of data.,string,,,,,Foreign Key: AccessPolicy.access_policy_id
-study_id,INCLUDE Global ID for the study,string,,,,,Foreign Key: Study.study_id
