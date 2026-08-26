@@ -1,3 +1,0 @@
-variable_name,description,data_type,min,max,units,enumerations,comment
-Dataset_dataset_id,Autocreated FK slot,string,,,,,Foreign Key: Dataset.dataset_id
-publication_id,Publications associated with this Record.,integer,,,,,Foreign Key: Publication.id

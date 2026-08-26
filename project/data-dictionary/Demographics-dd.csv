@@ -1,9 +1,0 @@
-variable_name,description,data_type,min,max,units,enumerations,comment
-subject_id,INCLUDE Global ID for the Subject,string,,,,,Foreign Key: Subject.subject_id
-sex,Sex of Participant,string,,,,,Foreign Key: Concept.concept_curie
-ethnicity,Ethnicity of Participant,string,,,,,Foreign Key: Concept.concept_curie
-age_at_last_vital_status,Age in days when participant's vital status was last recorded,integer,,,UCUM:d,,
-vital_status,Whether participant is alive or dead,string,,,,,Foreign Key: Concept.concept_curie
-age_at_first_engagement,"Age in days of Participant at first recorded study event (enrollment, visit, observation, sample collection, survey completion, etc.). Age at enrollment is preferred, if available.",integer,,,UCUM:d,,
-access_policy_id,Global identifier for the access policy that applies to this row of data.,string,,,,,Foreign Key: AccessPolicy.access_policy_id
-study_id,INCLUDE Global ID for the study,string,,,,,Foreign Key: Study.study_id
