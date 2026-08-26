@@ -12,7 +12,7 @@ authors = [
 license = "MIT"
 license-files = ["LICENSE"]
 readme = "README.md"
-requires-python = ">=3.10,<4.0"
+requires-python = ">=3.12,<4.0"
 dynamic = ["version"]
 
 dependencies = [
@@ -20,6 +20,7 @@ dependencies = [
   "linkml>=1.11.0",
   "linkml-runtime>=1.11.0",
   "the-caddie",
+  "term-weaver"
 ]
 
 [dependency-groups]
@@ -29,6 +30,7 @@ dev = [
     "mkdocs-pymdownx-material-extras>=2.5.6",
     "jupyter>=1.0.0",
     "mknotebooks>= 0.8.0",
+    "term-weaver"
 ]
 
 # See https://hatch.pypa.io/latest/config/build/#file-selection for how to
@@ -87,3 +89,4 @@ extend-exclude = [
 
 [tool.uv.sources]
 the-caddie = { git = "https://github.com/carrollaboratory/the-caddie" }
+term-weaver = { git = "https://github.com/include-dcc/term-weaver" }

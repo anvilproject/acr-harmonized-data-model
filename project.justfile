@@ -14,6 +14,14 @@ gen-sqla:
     mkdir -p {{dest}}/sqlalchemy && \
     uv run gen-sqla {{source_schema_path}} --declarative > {{dest}}/sqlalchemy/{{schema_name}}.py
 
+# Expand enum files
+expand:
+  uv run weaver -s src/{{schema_name}}/schema
+
+# Deletes permissible_values block from enum file so it can be re-expanded
+clear file_path:
+  uv run weaver --clear src/common_access_model/schema/enums/{{file_path}}.yaml
+
 
 [group('model development')]
 gen-ftddd:
@@ -22,6 +30,10 @@ gen-ftddd:
 [group('model development')]
 gen-dbtmodel:
   uv run gen-dbtmodel
+
+[group('model development')]
+gen-monolith:
+  uv run gen-monolith
 
 [group('model development')]
 update-cam:
