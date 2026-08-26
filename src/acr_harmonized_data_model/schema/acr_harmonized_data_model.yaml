@@ -1,4 +1,3 @@
----
 id: https://w3id.org/anvilproject/acr-harmonized-data-model
 name: acr-harmonized-data-model
 title: acr-harmonized-data-model
@@ -6,7 +5,7 @@ description: |-
   LinkML Schema for ACR Harmonized Data. This model under development is intended to capture useful cross-study data in the AnVIL data repository.
 license: MIT
 see_also:
-  - https://anvilproject.github.io/acr-harmonized-data-model
+- https://anvilproject.github.io/acr-harmonized-data-model
 
 prefixes:
   acr_harmonized_data_model: https://w3id.org/anvilproject/acr-harmonized-data-model/
@@ -77,8 +76,5 @@ default_prefix: acr_harmonized_data_model
 # default_range: string
 
 imports:
-  #- linkml:types
-  - upstream-models/common_access_model
-  #- common_access_model/src/common_access_model/schema/common_access_model
-
+- upstream-models/common_access_model-0.0.7
 classes:
