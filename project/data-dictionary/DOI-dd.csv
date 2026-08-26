@@ -1,0 +1,5 @@
+variable_name,description,data_type,min,max,units,enumerations,comment
+do_id,Digital Object Identifier (DOI) for this Record.,string,,,,,
+bibliographic_reference,Text use to reference this Record.,string,,,,,
+access_policy_id,Global identifier for the access policy that applies to this row of data.,string,,,,,Foreign Key: AccessPolicy.access_policy_id
+study_id,INCLUDE Global ID for the study,string,,,,,Foreign Key: Study.study_id

@@ -1,0 +1,7 @@
+variable_name,description,data_type,min,max,units,enumerations,comment
+study_id,INCLUDE Global ID for the study,string,,,,,Foreign Key: Study.study_id
+selection_criteria,Brief description of inclusion and/or exclusion criteria for the study,string,,,,,
+vbr_id,"Information about the study's Virtual Biorepository, if participating",string,,,,,Foreign Key: VirtualBiorepository.vbr_id
+expected_number_of_participants,Total expected number of participants to be recruited.,integer,,,,,
+actual_number_of_participants,Total participants included at this time.,integer,,,,,
+access_policy_id,Global identifier for the access policy that applies to this row of data.,string,,,,,Foreign Key: AccessPolicy.access_policy_id

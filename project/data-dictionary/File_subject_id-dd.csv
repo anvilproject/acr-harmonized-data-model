@@ -1,0 +1,3 @@
+variable_name,description,data_type,min,max,units,enumerations,comment
+File_file_id,Autocreated FK slot,string,,,,,Foreign Key: File.file_id
+subject_id_subject_id,INCLUDE Global ID for the Subject,string,,,,,Foreign Key: Subject.subject_id

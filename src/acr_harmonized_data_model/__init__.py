@@ -1,3 +1,8 @@
+"""acr-harmonized-data-model.
+
+LinkML Schema for ACR Harmonized Data. This model under development is intended to capture useful cross-study data in the AnVIL data repository.
+"""
+
 try:
     from acr_harmonized_data_model._version import __version__, __version_tuple__
 except ImportError:  # pragma: no cover

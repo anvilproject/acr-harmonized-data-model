@@ -1,0 +1,102 @@
+{
+   "CDCREC": "urn:oid:2.16.840.1.113883.6.238/",
+   "CHMO": "http://purl.obolibrary.org/obo/CHMO_",
+   "DUO": "http://purl.obolibrary.org/obo/DUO_",
+   "HP": "http://purl.obolibrary.org/obo/HP_",
+   "KIN": "http://purl.org/ga4gh/kin.owl#",
+   "MONDO": "http://purl.obolibrary.org/obo/MONDO_",
+   "MS": "http://purl.obolibrary.org/obo/MS_",
+   "NCBITaxon": "http://purl.obolibrary.org/obo/NCBITaxon_",
+   "NCIT": "http://purl.obolibrary.org/obo/NCIT_",
+   "OBI": "http://purl.obolibrary.org/obo/OBI_",
+   "PATO": "http://purl.obolibrary.org/obo/PATO_",
+   "acr_harmonized_data_model": "https://w3id.org/anvilproject/acr-harmonized-data-model/",
+   "cam": "https://includedcc.org/common-access-model/",
+   "edam": "http://edamontology.org",
+   "hl7_null": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor/",
+   "linkml": "https://w3id.org/linkml/",
+   "loinc": "https://loinc.org/",
+   "mesh": "http://id.nlm.nih.gov/mesh/",
+   "schema": "http://schema.org/",
+   "shex": "http://www.w3.org/ns/shex#",
+   "snomedct": "http://snomed.info/id/",
+   "xsd": "http://www.w3.org/2001/XMLSchema#",
+   "AccessPolicy": {
+      "@id": "cam:AccessPolicy"
+   },
+   "ActivityDefinition": {
+      "@id": "cam:ActivityDefinition"
+   },
+   "Aliquot": {
+      "@id": "cam:Aliquot"
+   },
+   "Any": {
+      "@id": "linkml:Any"
+   },
+   "Assay": {
+      "@id": "cam:Assay"
+   },
+   "BiospecimenCollection": {
+      "@id": "cam:BiospecimenCollection"
+   },
+   "Concept": {
+      "@id": "cam:Concept"
+   },
+   "Dataset": {
+      "@id": "cam:Dataset"
+   },
+   "Demographics": {
+      "@id": "cam:Demographics"
+   },
+   "DOI": {
+      "@id": "cam:DOI"
+   },
+   "Encounter": {
+      "@id": "cam:Encounter"
+   },
+   "EncounterDefinition": {
+      "@id": "cam:EncounterDefinition"
+   },
+   "Family": {
+      "@id": "cam:Family"
+   },
+   "FamilyMembership": {
+      "@id": "cam:FamilyMembership"
+   },
+   "FamilyRelationship": {
+      "@id": "cam:FamilyRelationship"
+   },
+   "File": {
+      "@id": "cam:File"
+   },
+   "FileHash": {
+      "@id": "cam:FileHash"
+   },
+   "Investigator": {
+      "@id": "cam:Investigator"
+   },
+   "Publication": {
+      "@id": "cam:Publication"
+   },
+   "Record": {
+      "@id": "cam:Record"
+   },
+   "Sample": {
+      "@id": "cam:Sample"
+   },
+   "Study": {
+      "@id": "cam:Study"
+   },
+   "StudyMetadata": {
+      "@id": "cam:StudyMetadata"
+   },
+   "Subject": {
+      "@id": "cam:Subject"
+   },
+   "SubjectAssertion": {
+      "@id": "cam:SubjectAssertion"
+   },
+   "VirtualBiorepository": {
+      "@id": "cam:VirtualBiorepository"
+   }
+}

@@ -1,0 +1,3 @@
+variable_name,description,data_type,min,max,units,enumerations,comment
+StudyMetadata_study_id,Autocreated FK slot,string,,,,,Foreign Key: StudyMetadata.study_id
+clinical_data_source_type,Source(s) of data collected from study participants,enumeration,,,,"CAMO:0000014=Data obtained directly from an Electronic Health Record.;CAMO:0000010=Data obtained from a survey or questionnaire given to a participant or their representative.;CAMO:0000011=Data obtained by research staff for the study.;CAMO:0000012=Data obtained by research staff interviewing participants, representatives, or others.;CAMO:0000013=Data obtained directly by research staff examining the participant.",

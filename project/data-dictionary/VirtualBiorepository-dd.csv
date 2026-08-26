@@ -1,0 +1,8 @@
+variable_name,description,data_type,min,max,units,enumerations,comment
+vbr_id,"Information about the study's Virtual Biorepository, if participating",string,,,,,
+name,Name of the entity.,string,,,,,
+institution,Name of the institution this record is associated with.,string,,,,,
+website,Website with more information about this entity.,string,,,,,
+vbr_readme,"Instructions for contacting or requesting samples from Virtual Biorepository, if participating",string,,,,,
+access_policy_id,Global identifier for the access policy that applies to this row of data.,string,,,,,Foreign Key: AccessPolicy.access_policy_id
+study_id,INCLUDE Global ID for the study,string,,,,,Foreign Key: Study.study_id

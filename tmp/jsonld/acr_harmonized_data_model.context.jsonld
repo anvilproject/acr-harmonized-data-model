@@ -1,0 +1,669 @@
+{
+   "@context": {
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "CDCREC": "urn:oid:2.16.840.1.113883.6.238/",
+      "CHMO": {
+         "@id": "http://purl.obolibrary.org/obo/CHMO_",
+         "@prefix": true
+      },
+      "DUO": {
+         "@id": "http://purl.obolibrary.org/obo/DUO_",
+         "@prefix": true
+      },
+      "HP": {
+         "@id": "http://purl.obolibrary.org/obo/HP_",
+         "@prefix": true
+      },
+      "KIN": "http://purl.org/ga4gh/kin.owl#",
+      "MONDO": {
+         "@id": "http://purl.obolibrary.org/obo/MONDO_",
+         "@prefix": true
+      },
+      "MS": {
+         "@id": "http://purl.obolibrary.org/obo/MS_",
+         "@prefix": true
+      },
+      "NCBITaxon": {
+         "@id": "http://purl.obolibrary.org/obo/NCBITaxon_",
+         "@prefix": true
+      },
+      "NCIT": {
+         "@id": "http://purl.obolibrary.org/obo/NCIT_",
+         "@prefix": true
+      },
+      "OBI": {
+         "@id": "http://purl.obolibrary.org/obo/OBI_",
+         "@prefix": true
+      },
+      "PATO": {
+         "@id": "http://purl.obolibrary.org/obo/PATO_",
+         "@prefix": true
+      },
+      "acr_harmonized_data_model": "https://w3id.org/anvilproject/acr-harmonized-data-model/",
+      "cam": "https://includedcc.org/common-access-model/",
+      "edam": {
+         "@id": "http://edamontology.org",
+         "@prefix": true
+      },
+      "hl7_null": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor/",
+      "linkml": "https://w3id.org/linkml/",
+      "loinc": "https://loinc.org/",
+      "mesh": "http://id.nlm.nih.gov/mesh/",
+      "schema": "http://schema.org/",
+      "shex": "http://www.w3.org/ns/shex#",
+      "skos": "http://www.w3.org/2004/02/skos/core#",
+      "snomedct": "http://snomed.info/id/",
+      "@vocab": "https://w3id.org/anvilproject/acr-harmonized-data-model/",
+      "access_description": {
+         "@id": "cam:access_description"
+      },
+      "access_policy_id": "@id",
+      "acknowledgments": {
+         "@id": "cam:acknowledgments"
+      },
+      "activity_definition_id": "@id",
+      "actual_number_of_participants": {
+         "@type": "xsd:integer",
+         "@id": "cam:actual_number_of_participants"
+      },
+      "age_at_assertion": {
+         "@type": "xsd:integer",
+         "@id": "cam:age_at_assertion"
+      },
+      "age_at_collection": {
+         "@type": "xsd:float",
+         "@id": "cam:age_at_collection"
+      },
+      "age_at_event": {
+         "@type": "xsd:integer",
+         "@id": "cam:age_at_event"
+      },
+      "age_at_first_engagement": {
+         "@type": "xsd:integer",
+         "@id": "cam:age_at_first_engagement"
+      },
+      "age_at_last_vital_status": {
+         "@type": "xsd:integer",
+         "@id": "cam:age_at_last_vital_status"
+      },
+      "age_at_resolution": {
+         "@type": "xsd:integer",
+         "@id": "cam:age_at_resolution"
+      },
+      "aliquot_id": {
+         "@type": "@id",
+         "@id": "cam:aliquot_id"
+      },
+      "assay_id": {
+         "@type": "@id",
+         "@id": "cam:assay_id"
+      },
+      "assay_source": {
+         "@id": "cam:assay_source"
+      },
+      "assay_type": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "cam:assay_type"
+      },
+      "asserter_type": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "cam:asserter_type"
+      },
+      "assertion_id": "@id",
+      "assertion_source_type": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "cam:assertion_source_type"
+      },
+      "availability": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "cam:availability"
+      },
+      "availability_status": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "cam:availability_status"
+      },
+      "bibliographic_reference": {
+         "@id": "cam:bibliographic_reference"
+      },
+      "biospecimen_collection_id": "@id",
+      "citation_statement": {
+         "@id": "cam:citation_statement"
+      },
+      "clinical_data_source_type": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "cam:clinical_data_source_type"
+      },
+      "concentration_number": {
+         "@type": "xsd:float",
+         "@id": "cam:concentration_number"
+      },
+      "concentration_unit": {
+         "@type": "@id",
+         "@id": "cam:concentration_unit"
+      },
+      "concept": {
+         "@type": "@id",
+         "@id": "cam:concept"
+      },
+      "concept_curie": {
+         "@type": "xsd:anyURI",
+         "@id": "cam:concept_curie"
+      },
+      "concept_source": {
+         "@id": "cam:concept_source"
+      },
+      "consanguinity": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "cam:consanguinity"
+      },
+      "contact": {
+         "@type": "@id",
+         "@id": "cam:contact"
+      },
+      "data_category": {
+         "@type": "@id",
+         "@id": "cam:data_category"
+      },
+      "data_collection_end": {
+         "@id": "cam:data_collection_end"
+      },
+      "data_collection_start": {
+         "@id": "cam:data_collection_start"
+      },
+      "data_type": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "cam:data_type"
+      },
+      "data_use_accession": {
+         "@type": "xsd:anyURI",
+         "@id": "cam:data_use_accession"
+      },
+      "data_use_modifier": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "cam:data_use_modifier"
+      },
+      "data_use_permission": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "cam:data_use_permission"
+      },
+      "dataset_id": {
+         "@type": "@id",
+         "@id": "cam:dataset_id"
+      },
+      "subject_id": "@id",
+      "description": {
+         "@id": "cam:description"
+      },
+      "disease_limitation": {
+         "@id": "cam:disease_limitation"
+      },
+      "display": {
+         "@id": "cam:display"
+      },
+      "do_id": "@id",
+      "drs_uri": {
+         "@type": "xsd:anyURI",
+         "@id": "cam:drs_uri"
+      },
+      "email": {
+         "@id": "cam:email"
+      },
+      "encounter_definition_id": "@id",
+      "encounter_id": {
+         "@type": "@id",
+         "@id": "cam:encounter_id"
+      },
+      "ethnicity": {
+         "@type": "@id",
+         "@id": "cam:ethnicity"
+      },
+      "expected_number_of_participants": {
+         "@type": "xsd:integer",
+         "@id": "cam:expected_number_of_participants"
+      },
+      "external_id": {
+         "@type": "xsd:anyURI",
+         "@id": "cam:external_id"
+      },
+      "family_description": {
+         "@id": "cam:family_description"
+      },
+      "family_id": {
+         "@type": "@id",
+         "@id": "cam:family_id"
+      },
+      "family_member_id": {
+         "@type": "@id",
+         "@id": "cam:family_member_id"
+      },
+      "family_membership_id": "@id",
+      "family_relationship_id": "@id",
+      "family_role": {
+         "@type": "@id",
+         "@id": "cam:family_role"
+      },
+      "family_study_focus": {
+         "@type": "xsd:anyURI",
+         "@id": "cam:family_study_focus"
+      },
+      "family_type": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "cam:family_type"
+      },
+      "file_extension": {
+         "@id": "cam:file_extension"
+      },
+      "file_id": {
+         "@type": "@id",
+         "@id": "cam:file_id"
+      },
+      "filename": {
+         "@id": "cam:filename"
+      },
+      "format": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "cam:format"
+      },
+      "funding_source": {
+         "@id": "cam:funding_source"
+      },
+      "hash": {
+         "@type": "@id",
+         "@id": "cam:hash"
+      },
+      "hash_type": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "cam:hash_type"
+      },
+      "hash_value": {
+         "@id": "cam:hash_value"
+      },
+      "institution": {
+         "@id": "cam:institution"
+      },
+      "internal_uri": {
+         "@type": "xsd:anyURI",
+         "@id": "cam:internal_uri"
+      },
+      "investigator_title": {
+         "@id": "cam:investigator_title"
+      },
+      "laterality": {
+         "@type": "@id",
+         "@id": "cam:laterality"
+      },
+      "method": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "cam:method"
+      },
+      "name": {
+         "@id": "cam:name"
+      },
+      "organism_type": {
+         "@type": "xsd:anyURI",
+         "@id": "cam:organism_type"
+      },
+      "parent_sample_id": {
+         "@type": "@id",
+         "@id": "cam:parent_sample_id"
+      },
+      "parent_study": {
+         "@type": "@id",
+         "@id": "cam:parent_study"
+      },
+      "participant_lifespan_stage": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "cam:participant_lifespan_stage"
+      },
+      "principal_investigator": {
+         "@type": "@id",
+         "@id": "cam:principal_investigator"
+      },
+      "processing": {
+         "@type": "xsd:anyURI",
+         "@id": "cam:processing"
+      },
+      "program": {
+         "@type": "xsd:anyURI",
+         "@id": "cam:program"
+      },
+      "publication": {
+         "@type": "@id",
+         "@id": "cam:publication"
+      },
+      "quantity_number": {
+         "@type": "xsd:float",
+         "@id": "cam:quantity_number"
+      },
+      "quantity_unit": {
+         "@type": "@id",
+         "@id": "cam:quantity_unit"
+      },
+      "race": {
+         "@type": "@id",
+         "@id": "cam:race"
+      },
+      "relation": {
+         "@type": "@id",
+         "@id": "cam:relation"
+      },
+      "release_uri": {
+         "@type": "xsd:anyURI",
+         "@id": "cam:release_uri"
+      },
+      "research_domain": {
+         "@type": "@id",
+         "@id": "cam:research_domain"
+      },
+      "sample_id": "@id",
+      "sample_type": {
+         "@type": "xsd:anyURI",
+         "@id": "cam:sample_type"
+      },
+      "selection_criteria": {
+         "@id": "cam:selection_criteria"
+      },
+      "sex": {
+         "@type": "@id",
+         "@id": "cam:sex"
+      },
+      "site": {
+         "@type": "@id",
+         "@id": "cam:site"
+      },
+      "size": {
+         "@type": "xsd:integer",
+         "@id": "cam:size"
+      },
+      "spatial_qualifier": {
+         "@type": "@id",
+         "@id": "cam:spatial_qualifier"
+      },
+      "storage_class": {
+         "@id": "cam:storage_class"
+      },
+      "storage_method": {
+         "@type": "xsd:anyURI",
+         "@id": "cam:storage_method"
+      },
+      "study_code": {
+         "@id": "cam:study_code"
+      },
+      "study_description": {
+         "@id": "cam:study_description"
+      },
+      "study_design": {
+         "@type": "@id",
+         "@id": "cam:study_design"
+      },
+      "study_id": "@id",
+      "study_short_name": {
+         "@id": "cam:study_short_name"
+      },
+      "study_title": {
+         "@id": "cam:study_title"
+      },
+      "subject_type": {
+         "@type": "@id",
+         "@id": "cam:subject_type"
+      },
+      "value_concept": {
+         "@type": "@id",
+         "@id": "cam:value_concept"
+      },
+      "value_number": {
+         "@type": "xsd:float",
+         "@id": "cam:value_number"
+      },
+      "value_source": {
+         "@id": "cam:value_source"
+      },
+      "value_unit": {
+         "@type": "@id",
+         "@id": "cam:value_unit"
+      },
+      "value_unit_source": {
+         "@id": "cam:value_unit_source"
+      },
+      "vbr_id": "@id",
+      "vbr_readme": {
+         "@id": "cam:vbr_readme"
+      },
+      "vital_status": {
+         "@type": "@id",
+         "@id": "cam:vital_status"
+      },
+      "website": {
+         "@type": "xsd:anyURI",
+         "@id": "cam:website"
+      },
+      "AccessPolicy": {
+         "@id": "cam:AccessPolicy",
+         "@context": {
+            "access_policy_id": {
+               "@id": "cam:access_policy_id"
+            }
+         }
+      },
+      "ActivityDefinition": {
+         "@id": "cam:ActivityDefinition",
+         "@context": {
+            "activity_definition_id": {
+               "@id": "cam:activity_definition_id"
+            }
+         }
+      },
+      "Aliquot": {
+         "@id": "cam:Aliquot",
+         "@context": {
+            "aliquot_id": {
+               "@id": "cam:aliquot_id"
+            }
+         }
+      },
+      "Any": {
+         "@id": "linkml:Any"
+      },
+      "Assay": {
+         "@id": "cam:Assay",
+         "@context": {
+            "assay_id": {
+               "@id": "cam:assay_id"
+            }
+         }
+      },
+      "BiospecimenCollection": {
+         "@id": "cam:BiospecimenCollection",
+         "@context": {
+            "biospecimen_collection_id": {
+               "@id": "cam:biospecimen_collection_id"
+            }
+         }
+      },
+      "Concept": {
+         "@id": "cam:Concept"
+      },
+      "Dataset": {
+         "@id": "cam:Dataset",
+         "@context": {
+            "dataset_id": {
+               "@id": "cam:dataset_id"
+            }
+         }
+      },
+      "Demographics": {
+         "@id": "cam:Demographics"
+      },
+      "DOI": {
+         "@id": "cam:DOI",
+         "@context": {
+            "do_id": {
+               "@id": "cam:do_id"
+            }
+         }
+      },
+      "Encounter": {
+         "@id": "cam:Encounter",
+         "@context": {
+            "encounter_id": {
+               "@id": "cam:encounter_id"
+            }
+         }
+      },
+      "EncounterDefinition": {
+         "@id": "cam:EncounterDefinition",
+         "@context": {
+            "encounter_definition_id": {
+               "@id": "cam:encounter_definition_id"
+            }
+         }
+      },
+      "Family": {
+         "@id": "cam:Family",
+         "@context": {
+            "family_id": {
+               "@id": "cam:family_id"
+            }
+         }
+      },
+      "FamilyMembership": {
+         "@id": "cam:FamilyMembership",
+         "@context": {
+            "family_membership_id": {
+               "@id": "cam:family_membership_id"
+            }
+         }
+      },
+      "FamilyRelationship": {
+         "@id": "cam:FamilyRelationship",
+         "@context": {
+            "family_relationship_id": {
+               "@id": "cam:family_relationship_id"
+            }
+         }
+      },
+      "File": {
+         "@id": "cam:File",
+         "@context": {
+            "file_id": {
+               "@id": "cam:file_id"
+            }
+         }
+      },
+      "FileHash": {
+         "@id": "cam:FileHash"
+      },
+      "Investigator": {
+         "@id": "cam:Investigator"
+      },
+      "Publication": {
+         "@id": "cam:Publication"
+      },
+      "Record": {
+         "@id": "cam:Record"
+      },
+      "Sample": {
+         "@id": "cam:Sample",
+         "@context": {
+            "sample_id": {
+               "@id": "cam:sample_id"
+            }
+         }
+      },
+      "Study": {
+         "@id": "cam:Study",
+         "@context": {
+            "study_id": {
+               "@id": "cam:study_id"
+            }
+         }
+      },
+      "StudyMetadata": {
+         "@id": "cam:StudyMetadata"
+      },
+      "Subject": {
+         "@id": "cam:Subject",
+         "@context": {
+            "subject_id": {
+               "@id": "cam:subject_id"
+            }
+         }
+      },
+      "SubjectAssertion": {
+         "@id": "cam:SubjectAssertion",
+         "@context": {
+            "assertion_id": {
+               "@id": "cam:assertion_id"
+            }
+         }
+      },
+      "VirtualBiorepository": {
+         "@id": "cam:VirtualBiorepository",
+         "@context": {
+            "vbr_id": {
+               "@id": "cam:vbr_id"
+            }
+         }
+      }
+   }
+}

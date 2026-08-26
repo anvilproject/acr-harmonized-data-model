@@ -1,0 +1,7 @@
+variable_name,description,data_type,min,max,units,enumerations,comment
+dataset_id,Unique identifier for a Dataset.,string,,,,,
+name,Name of the entity.,string,,,,,
+description,Description for this entity.,string,,,,,
+do_id,Digital Object Identifier (DOI) for this Record.,string,,,,,Foreign Key: DOI.do_id
+data_collection_start,The date that data collection started. May include only a year.,string,,,,,
+data_collection_end,The date that data collection started. May include only a year.,string,,,,,

@@ -1,0 +1,3 @@
+variable_name,description,data_type,min,max,units,enumerations,comment
+Study_study_id,Autocreated FK slot,string,,,,,Foreign Key: Study.study_id
+contact_id,The individual to contact with questions about this record.,integer,,,,,Foreign Key: Investigator.id

@@ -1,5 +1,7 @@
+"""Data model package for acr-harmonized-data-model."""
+
 from pathlib import Path
-from .acr_harmonized_data_model import *
+from .acr_harmonized_data_model import *  # noqa: F403
 
 THIS_PATH = Path(__file__).parent
 
