@@ -9,7 +9,7 @@ on:  # yamllint disable-line rule:truthy
   pull_request:
 
 env:
-  FORCE_COLOR: "1" # Make tools pretty.
+  FORCE_COLOR: "1"  # Make tools pretty.
 
 permissions: {}
 
@@ -19,20 +19,20 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.10", "3.11", "3.12", "3.13"]
+        python-version: ["3.10", "3.11", "3.12", "3.13", "3.14"]
       fail-fast: false
 
     steps:
 
       # https://github.com/actions/checkout
       - name: Check out repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v6.0.2
         with:
           persist-credentials: false
 
       # https://github.com/astral-sh/setup-uv
       - name: Install uv
-        uses: astral-sh/setup-uv@v7
+        uses: astral-sh/setup-uv@v8.1.0
         with:
           python-version: ${{ matrix.python-version }}
           enable-cache: true
@@ -40,7 +40,7 @@ jobs:
 
       # https://github.com/actions/setup-python
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v6.2.0
         with:
           python-version: ${{ matrix.python-version }}
 
@@ -48,12 +48,8 @@ jobs:
         run: |
           uv tool install rust-just
 
-      # Possible Chicken/egg issue with the packaging stuff
-      - name: Generate build products
-        run: just _gen_sqla
-
       - name: Install project
-        run: uv sync --dev
+        run: uv sync --group dev
 
       - name: Run test suite
         run: just test

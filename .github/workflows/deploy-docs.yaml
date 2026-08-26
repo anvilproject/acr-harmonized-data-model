@@ -11,6 +11,10 @@ jobs:
   build-docs:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        pyversion: ["3.13"]
+
     # Grant GITHUB_TOKEN the permissions required to make a gh-pages deployment
     permissions:
       contents: write  # to let mkdocs write the new docs
@@ -20,7 +24,7 @@ jobs:
     steps:
       # https://github.com/actions/checkout
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v6.0.2
         with:
           fetch-depth: 0  # otherwise, you will fail to push refs to dest repo
 
@@ -33,29 +37,26 @@ jobs:
 
       # https://github.com/astral-sh/setup-uv
       - name: Install uv
-        uses: astral-sh/setup-uv@v7
+        uses: astral-sh/setup-uv@v8.1.0
         with:
-          python-version: 3.13
+          python-version: ${{ matrix.pyversion }}
           enable-cache: true
           cache-dependency-glob: "uv.lock"
 
       # https://github.com/actions/setup-python
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v6.2.0
         with:
-          python-version: 3.13
+          python-version: ${{ matrix.pyversion }}
 
       - name: Install just
         run: |
           uv tool install rust-just
 
       - name: Install dependencies
-        run: uv sync --dev --no-progress 
-
-      - name: install linkml for sqla
-        run: pip install linkml_runtime
+        run: uv sync --group dev --no-progress
 
       - name: Generate schema documentation
         run: |
           just gen-doc
-          uv run mkdocs gh-deploy
+          uv run mkdocs gh-deploy --force
