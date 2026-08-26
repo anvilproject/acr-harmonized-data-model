@@ -117,7 +117,7 @@ test: _test-schema _test-python _test-examples
 
 # Run linting
 [group('model development')]
-lint:
+lint: expand
   uv run linkml-lint --config .linkml-linter.yaml {{source_schema_dir}}
 
 # Generate md documentation for the schema and add artifacts
@@ -212,7 +212,7 @@ _update-linkml:
   uv lock --upgrade-package linkml-runtime --upgrade-package linkml
 
 # Test schema generation
-_test-schema:
+_test-schema: expand
   uv run gen-project {{config_yaml}} -d tmp {{source_schema_path}}
 
 # Run Python unit tests with pytest
