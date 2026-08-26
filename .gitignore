@@ -1,7 +1,7 @@
-# Direnv related support
+# Local stuff
 .bash_history_local
-.direnv
 .envrc
+
 
 # generated part of documentation
 /docs/elements/*.md
@@ -12,8 +12,6 @@
 tmp/
 project/
 !project/README.md
-!project/data-dictionary
-!project/sqlachemy
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

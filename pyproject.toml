@@ -1,32 +1,36 @@
 [build-system]
-requires = ["hatchling", "uv-dynamic-versioning", "linkml"]
+requires = ["hatchling",
+"the-caddie", "uv-dynamic-versioning"]
 build-backend = "hatchling.build"
 
 [project]
 name = "acr_harmonized_data_model"
-description = "LinkML Schema for ACR Harmonized Data."
+description = "LinkML Schema for ACR Harmonized Data. This model under development is intended to capture useful cross-study data in the AnVIL data repository."
 authors = [
-  {name = "Robert Carroll", email = "Robert.Carroll@vumc.org"},
+  {name = "Robert Carroll", email = "robert.carroll@vumc.org"},
 ]
 license = "MIT"
 license-files = ["LICENSE"]
 readme = "README.md"
-requires-python = ">=3.10,<4.0"
+requires-python = ">=3.12,<4.0"
 dynamic = ["version"]
 
 dependencies = [
-  "linkml-runtime >=1.9.4",
+  "hatchling>=1.32.0",
+  "linkml>=1.11.0",
+  "linkml-runtime>=1.11.0",
+  "the-caddie",
+  "term-weaver"
 ]
 
 [dependency-groups]
 dev = [
-    "linkml>=1.9.3",
-    "linkml-runtime>=1.9.5",
     "mkdocs-material>=8.2.8",
     "mkdocs-mermaid2-plugin>=1.1.1",
+    "mkdocs-pymdownx-material-extras>=2.5.6",
     "jupyter>=1.0.0",
     "mknotebooks>= 0.8.0",
-    "ftd-dd @ git+https://github.com/carrollaboratory/ftd-dd",
+    "term-weaver"
 ]
 
 # See https://hatch.pypa.io/latest/config/build/#file-selection for how to
@@ -39,19 +43,20 @@ source = "uv-dynamic-versioning"
 [tool.uv-dynamic-versioning]
 vcs = "git"
 style = "pep440"
+pattern = "^v?(?P<base>\\d+\\.\\d+\\.\\d+)"
 fallback-version = "0.0.0"
-
-# Release the SQL Alchemy files
-[tool.hatch.build.hooks.custom]
-path = "scripts/hatch_build.py"
-
-[tool.hatch.build.targets.wheel]
-packages = ["acr_harmonized_data_model"]
-include = ["acr_harmonized_data_model/*.csv"]
 
 # Ref.: https://docs.pytest.org/en/stable/reference/reference.html#configuration-options
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+# https://docs.astral.sh/ruff/configuration/
+[tool.ruff]
+exclude = [
+    "src/acr_harmonized_data_model/_version.py",
+]
+# Set oldest supported Python version
+target-version = "py310"
 
 # Ref.: https://github.com/codespell-project/codespell
 [tool.codespell]
@@ -71,6 +76,7 @@ quiet-level = 3
 # Ref.: https://github.com/crate-ci/typos (spell checker)
 [tool.typos.default.extend-words]
 linke = "linke"
+
 [tool.typos.files]
 extend-exclude = [
   "LICENSE",
@@ -80,3 +86,7 @@ extend-exclude = [
   "src/acr_harmonized_data_model/datamodel/acr_harmonized_data_model_pydantic.py",
   "src/acr_harmonized_data_model/datamodel/acr_harmonized_data_model.py",
 ]
+
+[tool.uv.sources]
+the-caddie = { git = "https://github.com/carrollaboratory/the-caddie" }
+term-weaver = { git = "https://github.com/include-dcc/term-weaver" }

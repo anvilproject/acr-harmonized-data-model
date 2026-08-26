@@ -1,6 +1,6 @@
 name: Preview documentation build
 
-on: # yamllint disable-line rule:truthy
+on:  # yamllint disable-line rule:truthy
   pull_request:
     types:
       - opened
@@ -16,13 +16,20 @@ permissions: {}
 
 jobs:
   run:
+    # Don't run for PRs from forks which fails due to lack of permissions.
+    if: github.event.pull_request.head.repo.full_name == github.repository
     # Grant GITHUB_TOKEN the permissions required to make a gh-pages deployment
     permissions:
-      contents: write # to let mkdocs write the new docs
-      pages: write # to deploy to Pages
-      id-token: write # allow to generate an OpenID Connect (OIDC) token
-      pull-requests: write # add comment on the PR with the preview URL
+      contents: write  # to let mkdocs write the new docs
+      pages: write     # to deploy to Pages
+      id-token: write  # allow to generate an OpenID Connect (OIDC) token
+      pull-requests: write  # add comment on the PR with the preview URL
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        pyversion: ["3.13"]
+
     steps:
       # https://github.com/actions/checkout
       - name: Checkout
@@ -30,34 +37,35 @@ jobs:
         with:
           fetch-depth: 0
 
+      # https://github.com/actions/setup-python
+      - name: Set up Python
+        uses: actions/setup-python@v7.0.0
+        with:
+          python-version: ${{ matrix.pyversion }}
       # https://github.com/astral-sh/setup-uv
       - name: Install uv
-        uses: astral-sh/setup-uv@v7
+        uses: astral-sh/setup-uv@v7.1.2
         with:
-          python-version: 3.13
+          python-version: ${{ matrix.pyversion }}
           enable-cache: true
           cache-dependency-glob: "uv.lock"
 
-      # https://github.com/actions/setup-python
-      - name: Set up Python 3
-        uses: actions/setup-python@v6
-        with:
-          python-version: 3.13
+      - name: Install just
+        run: |
+          uv tool install rust-just
 
       - name: Install dependencies
         run: uv sync --dev --no-progress
 
       - name: Build documentation
         run: |
-          # Make sure any dependencies are found
-          uv run gen-doc -d docs/elements --truncate-descriptions=False src/acr_harmonized_data_model/schema/acr_harmonized_data_model.yaml
-          uv run python scripts/gen_harmony.py src/acr_harmonized_data_model/schema/acr_harmonized_data_model.yaml docs/elements/harmony
+          just gen-doc
           uv run mkdocs build -d site
           touch site/.nojekyll
 
       # https://github.com/rossjrw/pr-preview-action
       - name: Deploy preview
-        uses: rossjrw/pr-preview-action@v1.8.1
+        uses: rossjrw/pr-preview-action@v1.6.2
         with:
           source-dir: site/
           preview-branch: gh-pages
