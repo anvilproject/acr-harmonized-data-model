@@ -25,4 +25,4 @@ gen-dbtmodel:
 
 [group('model development')]
 update-cam:
-  uv run update-cam -d src/acr_harmonized_data_model/schema/upstream-models
+  uv run update-cam -d src/acr_harmonized_data_model/schema/upstream-models -l src/acr_harmonized_data_model/schema/acr_harmonized_data_model.yaml

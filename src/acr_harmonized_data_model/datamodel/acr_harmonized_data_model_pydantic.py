@@ -71,7 +71,7 @@ linkml_meta = LinkMLMeta({'default_prefix': 'acr_harmonized_data_model',
                     'development is intended to capture useful cross-study data in '
                     'the AnVIL data repository.',
      'id': 'https://w3id.org/anvilproject/acr-harmonized-data-model',
-     'imports': ['upstream-models/common_access_model'],
+     'imports': ['upstream-models/common_access_model-0.0.7'],
      'license': 'MIT',
      'name': 'acr-harmonized-data-model',
      'prefixes': {'CDCREC': {'prefix_prefix': 'CDCREC',
