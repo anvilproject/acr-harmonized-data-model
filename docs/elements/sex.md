@@ -3,6 +3,8 @@ search:
   boost: 5.0
 ---
 
+
+
 # Slot: Sex (sex) 
 
 
@@ -38,7 +40,7 @@ URI: [acr_harmonized_data_model:sex](https://w3id.org/anvilproject/acr-harmonize
 
 | Property | Value |
 | --- | --- |
-| Range | [Concept](Concept.md)&nbsp;or&nbsp;<br />[EnumSex](EnumSex.md)&nbsp;or&nbsp;<br />[EnumUnknownOther](EnumUnknownOther.md) |
+| Range | [EnumSex](EnumSex.md)&nbsp;or&nbsp;<br />[EnumUnknownOther](EnumUnknownOther.md) |
 | Domain Of | [Demographics](Demographics.md) |
 
 ### Cardinality and Requirements
@@ -46,16 +48,6 @@ URI: [acr_harmonized_data_model:sex](https://w3id.org/anvilproject/acr-harmonize
 | Property | Value |
 | --- | --- |
 | Required | Yes |
-<details>
-<summary>Expressions & Logic</summary>
-#### Any Of
-
-Value must satisfy at least one of:
-- AnonymousSlotExpression({'range': 'EnumSex'})
-- AnonymousSlotExpression({'range': 'EnumUnknownOther'})
-
-</details>
-
 
 
 

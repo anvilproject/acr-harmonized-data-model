@@ -103,7 +103,7 @@ URI: [acr_harmonized_data_model:FamilyRelationship](https://w3id.org/anvilprojec
 | ---  | --- | --- | --- |
 | [family_relationship_id](family_relationship_id.md) | 1 <br/> [FmGlobalID](FmGlobalID.md) | Global ID for the Family Relationship | direct |
 | [family_member_id](family_member_id.md) | 1 <br/> [Subject](Subject.md) | The family member Subject who is the relationship "subject" | direct |
-| [relation](relation.md) | 1 <br/> [Concept](Concept.md)&nbsp;or&nbsp;<br />[EnumFamilyRelation](EnumFamilyRelation.md)&nbsp;or&nbsp;<br />[EnumUnknown](EnumUnknown.md) | Code definting the relationship predicate | direct |
+| [relation](relation.md) | 1 <br/> [EnumFamilyRelation](EnumFamilyRelation.md)&nbsp;or&nbsp;<br />[EnumUnknown](EnumUnknown.md) | Code definting the relationship predicate | direct |
 | [subject_id](subject_id.md) | 1 <br/> [Subject](Subject.md) | The family member Subject who is the relationship "object" | direct |
 | [external_id](external_id.md) | * <br/> [Uriorcurie](Uriorcurie.md) | Other identifiers for this entity, eg, from the submitting study or in system... | [Record](Record.md) |
 | [access_policy_id](access_policy_id.md) | 0..1 <br/> [AccessPolicy](AccessPolicy.md) | Global identifier for the access policy that applies to this row of data | [Record](Record.md) |

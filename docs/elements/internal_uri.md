@@ -3,6 +3,8 @@ search:
   boost: 5.0
 ---
 
+
+
 # Slot: Internal Staging Location (internal_uri) 
 
 

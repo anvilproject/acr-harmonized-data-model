@@ -3,6 +3,8 @@ search:
   boost: 5.0
 ---
 
+
+
 # Slot: Spatial Qualifier (spatial_qualifier) 
 
 
@@ -45,16 +47,6 @@ URI: [acr_harmonized_data_model:spatial_qualifier](https://w3id.org/anvilproject
 
 | Property | Value |
 | --- | --- |
-<details>
-<summary>Expressions & Logic</summary>
-#### Any Of
-
-Value must satisfy at least one of:
-- AnonymousSlotExpression({'range': 'Concept'})
-- AnonymousSlotExpression({'range': 'EnumSpatialQualifiers'})
-
-</details>
-
 
 
 

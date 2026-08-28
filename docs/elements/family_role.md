@@ -3,6 +3,8 @@ search:
   boost: 5.0
 ---
 
+
+
 # Slot: family_role 
 
 
@@ -45,16 +47,6 @@ URI: [acr_harmonized_data_model:family_role](https://w3id.org/anvilproject/acr-h
 
 | Property | Value |
 | --- | --- |
-<details>
-<summary>Expressions & Logic</summary>
-#### Any Of
-
-Value must satisfy at least one of:
-- AnonymousSlotExpression({'range': 'Concept'})
-- AnonymousSlotExpression({'range': 'EnumFamilyRole'})
-
-</details>
-
 
 
 

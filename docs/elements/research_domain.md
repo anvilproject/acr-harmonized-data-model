@@ -3,6 +3,8 @@ search:
   boost: 5.0
 ---
 
+
+
 # Slot: research_domain 
 
 
@@ -47,16 +49,6 @@ URI: [acr_harmonized_data_model:research_domain](https://w3id.org/anvilproject/a
 | --- | --- |
 | Required | Yes |
 | Multivalued | Yes |
-<details>
-<summary>Expressions & Logic</summary>
-#### Any Of
-
-Value must satisfy at least one of:
-- AnonymousSlotExpression({'range': 'Concept'})
-- AnonymousSlotExpression({'range': 'EnumResearchDomain'})
-
-</details>
-
 
 
 

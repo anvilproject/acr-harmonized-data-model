@@ -3,6 +3,8 @@ search:
   boost: 5.0
 ---
 
+
+
 # Slot: Study Design (study_design) 
 
 
@@ -47,16 +49,6 @@ URI: [acr_harmonized_data_model:study_design](https://w3id.org/anvilproject/acr-
 | --- | --- |
 | Required | Yes |
 | Multivalued | Yes |
-<details>
-<summary>Expressions & Logic</summary>
-#### Any Of
-
-Value must satisfy at least one of:
-- AnonymousSlotExpression({'range': 'Concept'})
-- AnonymousSlotExpression({'range': 'EnumStudyDesign'})
-
-</details>
-
 
 
 

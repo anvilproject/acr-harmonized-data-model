@@ -3,6 +3,8 @@ search:
   boost: 5.0
 ---
 
+
+
 # Slot: Subject Type (subject_type) 
 
 
@@ -38,7 +40,7 @@ URI: [acr_harmonized_data_model:subject_type](https://w3id.org/anvilproject/acr-
 
 | Property | Value |
 | --- | --- |
-| Range | [Concept](Concept.md)&nbsp;or&nbsp;<br />[EnumSubjectType](EnumSubjectType.md)&nbsp;or&nbsp;<br />[EnumUnknownOther](EnumUnknownOther.md) |
+| Range | [EnumSubjectType](EnumSubjectType.md)&nbsp;or&nbsp;<br />[EnumUnknownOther](EnumUnknownOther.md) |
 | Domain Of | [Subject](Subject.md) |
 
 ### Cardinality and Requirements
@@ -46,16 +48,6 @@ URI: [acr_harmonized_data_model:subject_type](https://w3id.org/anvilproject/acr-
 | Property | Value |
 | --- | --- |
 | Required | Yes |
-<details>
-<summary>Expressions & Logic</summary>
-#### Any Of
-
-Value must satisfy at least one of:
-- AnonymousSlotExpression({'range': 'EnumSubjectType'})
-- AnonymousSlotExpression({'range': 'EnumUnknownOther'})
-
-</details>
-
 
 
 

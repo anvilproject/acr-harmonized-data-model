@@ -3,6 +3,8 @@ search:
   boost: 5.0
 ---
 
+
+
 # Slot: Race (race) 
 
 
@@ -38,7 +40,7 @@ URI: [acr_harmonized_data_model:race](https://w3id.org/anvilproject/acr-harmoniz
 
 | Property | Value |
 | --- | --- |
-| Range | [Concept](Concept.md)&nbsp;or&nbsp;<br />[EnumRace](EnumRace.md)&nbsp;or&nbsp;<br />[EnumUnknownOther](EnumUnknownOther.md) |
+| Range | [EnumRace](EnumRace.md)&nbsp;or&nbsp;<br />[EnumUnknownOther](EnumUnknownOther.md) |
 | Domain Of | [Demographics](Demographics.md) |
 
 ### Cardinality and Requirements
@@ -47,16 +49,6 @@ URI: [acr_harmonized_data_model:race](https://w3id.org/anvilproject/acr-harmoniz
 | --- | --- |
 | Required | Yes |
 | Multivalued | Yes |
-<details>
-<summary>Expressions & Logic</summary>
-#### Any Of
-
-Value must satisfy at least one of:
-- AnonymousSlotExpression({'range': 'EnumRace'})
-- AnonymousSlotExpression({'range': 'EnumUnknownOther'})
-
-</details>
-
 
 
 

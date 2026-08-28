@@ -159,7 +159,7 @@ URI: [acr_harmonized_data_model:SubjectAssertion](https://w3id.org/anvilproject/
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [assertion_id](assertion_id.md) | 1 <br/> [String](String.md)&nbsp;or&nbsp;<br />[ObGlobalID](ObGlobalID.md)&nbsp;or&nbsp;<br />[DeGlobalID](DeGlobalID.md)&nbsp;or&nbsp;<br />[MsGlobalID](MsGlobalID.md) | INCLUDE Global ID for the Assertion | direct |
+| [assertion_id](assertion_id.md) | 1 <br/> [ObGlobalID](ObGlobalID.md)&nbsp;or&nbsp;<br />[DeGlobalID](DeGlobalID.md)&nbsp;or&nbsp;<br />[MsGlobalID](MsGlobalID.md) | INCLUDE Global ID for the Assertion | direct |
 | [subject_id](subject_id.md) | 0..1 <br/> [Subject](Subject.md) | INCLUDE Global ID for the Subject | direct |
 | [encounter_id](encounter_id.md) | 0..1 <br/> [Encounter](Encounter.md) | Unique identifier for this Encounter | direct |
 | [asserter_type](asserter_type.md) | 0..1 <br/> [EnumAsserterType](EnumAsserterType.md) | The original asserter of this information | direct |

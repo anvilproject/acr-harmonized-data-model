@@ -3,6 +3,8 @@ search:
   boost: 5.0
 ---
 
+
+
 # Slot: Ethnicity (ethnicity) 
 
 
@@ -38,7 +40,7 @@ URI: [acr_harmonized_data_model:ethnicity](https://w3id.org/anvilproject/acr-har
 
 | Property | Value |
 | --- | --- |
-| Range | [Concept](Concept.md)&nbsp;or&nbsp;<br />[EnumEthnicity](EnumEthnicity.md)&nbsp;or&nbsp;<br />[EnumUnknownOther](EnumUnknownOther.md) |
+| Range | [EnumEthnicity](EnumEthnicity.md)&nbsp;or&nbsp;<br />[EnumUnknownOther](EnumUnknownOther.md) |
 | Domain Of | [Demographics](Demographics.md) |
 
 ### Cardinality and Requirements
@@ -46,16 +48,6 @@ URI: [acr_harmonized_data_model:ethnicity](https://w3id.org/anvilproject/acr-har
 | Property | Value |
 | --- | --- |
 | Required | Yes |
-<details>
-<summary>Expressions & Logic</summary>
-#### Any Of
-
-Value must satisfy at least one of:
-- AnonymousSlotExpression({'range': 'EnumEthnicity'})
-- AnonymousSlotExpression({'range': 'EnumUnknownOther'})
-
-</details>
-
 
 
 

@@ -3,6 +3,8 @@ search:
   boost: 5.0
 ---
 
+
+
 # Slot: Encounter Definition ID (encounter_definition_id) 
 
 
