@@ -104,7 +104,7 @@ clean: _wsl2_compat_check _clean_project
 
 # (Re-)Generate project and documentation locally
 [group('model development')]
-site: gen-project gen-doc
+site: gen-project gen-doc dbt
 
 # Deploy documentation site to Github Pages
 [group('deployment')]

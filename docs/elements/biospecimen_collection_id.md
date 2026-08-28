@@ -3,6 +3,8 @@ search:
   boost: 5.0
 ---
 
+
+
 # Slot: Biospecimen Collection ID (biospecimen_collection_id) 
 
 

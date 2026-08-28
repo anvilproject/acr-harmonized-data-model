@@ -82,7 +82,7 @@ URI: [acr_harmonized_data_model:Subject](https://w3id.org/anvilproject/acr-harmo
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [subject_id](subject_id.md) | 1 <br/> [PtGlobalID](PtGlobalID.md) | INCLUDE Global ID for the Subject | direct |
-| [subject_type](subject_type.md) | 1 <br/> [Concept](Concept.md)&nbsp;or&nbsp;<br />[EnumSubjectType](EnumSubjectType.md)&nbsp;or&nbsp;<br />[EnumUnknownOther](EnumUnknownOther.md) | Type of entity this record represents | direct |
+| [subject_type](subject_type.md) | 1 <br/> [EnumSubjectType](EnumSubjectType.md)&nbsp;or&nbsp;<br />[EnumUnknownOther](EnumUnknownOther.md) | Type of entity this record represents | direct |
 | [organism_type](organism_type.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md)&nbsp;or&nbsp;<br />[EnumOrganism](EnumOrganism.md) | Organism Type, typically from NCBITaxon | direct |
 | [external_id](external_id.md) | * <br/> [Uriorcurie](Uriorcurie.md) | Other identifiers for this entity, eg, from the submitting study or in system... | [Record](Record.md) |
 | [access_policy_id](access_policy_id.md) | 0..1 <br/> [AccessPolicy](AccessPolicy.md) | Global identifier for the access policy that applies to this row of data | [Record](Record.md) |

@@ -126,11 +126,11 @@ URI: [acr_harmonized_data_model:Demographics](https://w3id.org/anvilproject/acr-
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [subject_id](subject_id.md) | 1 <br/> [Subject](Subject.md) | INCLUDE Global ID for the Subject | direct |
-| [sex](sex.md) | 1 <br/> [Concept](Concept.md)&nbsp;or&nbsp;<br />[EnumSex](EnumSex.md)&nbsp;or&nbsp;<br />[EnumUnknownOther](EnumUnknownOther.md) | Sex of Participant | direct |
-| [race](race.md) | 1..* <br/> [Concept](Concept.md)&nbsp;or&nbsp;<br />[EnumRace](EnumRace.md)&nbsp;or&nbsp;<br />[EnumUnknownOther](EnumUnknownOther.md) | Race of Participant | direct |
-| [ethnicity](ethnicity.md) | 1 <br/> [Concept](Concept.md)&nbsp;or&nbsp;<br />[EnumEthnicity](EnumEthnicity.md)&nbsp;or&nbsp;<br />[EnumUnknownOther](EnumUnknownOther.md) | Ethnicity of Participant | direct |
+| [sex](sex.md) | 1 <br/> [EnumSex](EnumSex.md)&nbsp;or&nbsp;<br />[EnumUnknownOther](EnumUnknownOther.md) | Sex of Participant | direct |
+| [race](race.md) | 1..* <br/> [EnumRace](EnumRace.md)&nbsp;or&nbsp;<br />[EnumUnknownOther](EnumUnknownOther.md) | Race of Participant | direct |
+| [ethnicity](ethnicity.md) | 1 <br/> [EnumEthnicity](EnumEthnicity.md)&nbsp;or&nbsp;<br />[EnumUnknownOther](EnumUnknownOther.md) | Ethnicity of Participant | direct |
 | [age_at_last_vital_status](age_at_last_vital_status.md) | 0..1 <br/> [Integer](Integer.md) | Age in days when participant's vital status was last recorded | direct |
-| [vital_status](vital_status.md) | 0..1 <br/> [Concept](Concept.md)&nbsp;or&nbsp;<br />[EnumVitalStatus](EnumVitalStatus.md)&nbsp;or&nbsp;<br />[EnumUnknown](EnumUnknown.md) | Whether participant is alive or dead | direct |
+| [vital_status](vital_status.md) | 0..1 <br/> [EnumVitalStatus](EnumVitalStatus.md)&nbsp;or&nbsp;<br />[EnumUnknown](EnumUnknown.md) | Whether participant is alive or dead | direct |
 | [age_at_first_engagement](age_at_first_engagement.md) | 0..1 <br/> [Integer](Integer.md) | Age in days of Participant at first recorded study event (enrollment, visit, ... | direct |
 | [external_id](external_id.md) | * <br/> [Uriorcurie](Uriorcurie.md) | Other identifiers for this entity, eg, from the submitting study or in system... | [Record](Record.md) |
 | [access_policy_id](access_policy_id.md) | 0..1 <br/> [AccessPolicy](AccessPolicy.md) | Global identifier for the access policy that applies to this row of data | [Record](Record.md) |

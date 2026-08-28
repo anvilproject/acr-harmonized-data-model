@@ -3,6 +3,8 @@ search:
   boost: 5.0
 ---
 
+
+
 # Slot: Clinical Data Source Type (clinical_data_source_type) 
 
 

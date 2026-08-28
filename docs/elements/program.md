@@ -3,6 +3,8 @@ search:
   boost: 5.0
 ---
 
+
+
 # Slot: Program (program) 
 
 
@@ -47,16 +49,6 @@ URI: [acr_harmonized_data_model:program](https://w3id.org/anvilproject/acr-harmo
 | --- | --- |
 | Required | Yes |
 | Multivalued | Yes |
-<details>
-<summary>Expressions & Logic</summary>
-#### Any Of
-
-Value must satisfy at least one of:
-- AnonymousSlotExpression({'range': 'uriorcurie'})
-- AnonymousSlotExpression({'range': 'EnumProgram'})
-
-</details>
-
 
 
 

@@ -3,6 +3,8 @@ search:
   boost: 5.0
 ---
 
+
+
 # Slot: Data Category (data_category) 
 
 
@@ -46,16 +48,6 @@ URI: [acr_harmonized_data_model:data_category](https://w3id.org/anvilproject/acr
 
 | Property | Value |
 | --- | --- |
-<details>
-<summary>Expressions & Logic</summary>
-#### Any Of
-
-Value must satisfy at least one of:
-- AnonymousSlotExpression({'range': 'Concept'})
-- AnonymousSlotExpression({'range': 'EnumDataCategory'})
-
-</details>
-
 
 
 

@@ -3,6 +3,8 @@ search:
   boost: 5.0
 ---
 
+
+
 # Slot: relation 
 
 
@@ -38,7 +40,7 @@ URI: [acr_harmonized_data_model:relation](https://w3id.org/anvilproject/acr-harm
 
 | Property | Value |
 | --- | --- |
-| Range | [Concept](Concept.md)&nbsp;or&nbsp;<br />[EnumFamilyRelation](EnumFamilyRelation.md)&nbsp;or&nbsp;<br />[EnumUnknown](EnumUnknown.md) |
+| Range | [EnumFamilyRelation](EnumFamilyRelation.md)&nbsp;or&nbsp;<br />[EnumUnknown](EnumUnknown.md) |
 | Domain Of | [FamilyRelationship](FamilyRelationship.md) |
 
 ### Cardinality and Requirements
@@ -46,16 +48,6 @@ URI: [acr_harmonized_data_model:relation](https://w3id.org/anvilproject/acr-harm
 | Property | Value |
 | --- | --- |
 | Required | Yes |
-<details>
-<summary>Expressions & Logic</summary>
-#### Any Of
-
-Value must satisfy at least one of:
-- AnonymousSlotExpression({'range': 'EnumFamilyRelation'})
-- AnonymousSlotExpression({'range': 'EnumUnknown'})
-
-</details>
-
 
 
 
