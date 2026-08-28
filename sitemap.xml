@@ -21,15 +21,7 @@
          <lastmod>2026-08-28</lastmod>
     </url>
     <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/AccessPolicy_access_policy_id/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/ActivityDefinition/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/ActivityDefinition_activity_definition_id/</loc>
          <lastmod>2026-08-28</lastmod>
     </url>
     <url>
@@ -41,10 +33,6 @@
          <lastmod>2026-08-28</lastmod>
     </url>
     <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/Aliquot_aliquot_id/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/Any/</loc>
          <lastmod>2026-08-28</lastmod>
     </url>
@@ -53,31 +41,7 @@
          <lastmod>2026-08-28</lastmod>
     </url>
     <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/Assay_assay_id/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/Assay_assay_type/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/Assay_file_id/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/Assay_sample_id/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/Assay_subject_id/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/BiospecimenCollection/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/BiospecimenCollection_biospecimen_collection_id/</loc>
          <lastmod>2026-08-28</lastmod>
     </url>
     <url>
@@ -97,10 +61,6 @@
          <lastmod>2026-08-28</lastmod>
     </url>
     <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/Concept_concept_curie/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/Curie/</loc>
          <lastmod>2026-08-28</lastmod>
     </url>
@@ -109,19 +69,7 @@
          <lastmod>2026-08-28</lastmod>
     </url>
     <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/DOI_do_id/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/Dataset/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/Dataset_dataset_id/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/Dataset_file_id/</loc>
          <lastmod>2026-08-28</lastmod>
     </url>
     <url>
@@ -149,10 +97,6 @@
          <lastmod>2026-08-28</lastmod>
     </url>
     <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/Demographics_subject_id/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/DiGlobalID/</loc>
          <lastmod>2026-08-28</lastmod>
     </url>
@@ -177,18 +121,6 @@
          <lastmod>2026-08-28</lastmod>
     </url>
     <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/EncounterDefinition_activity_definition_id/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/EncounterDefinition_encounter_definition_id/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/Encounter_encounter_id/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/EnumAssayType/</loc>
          <lastmod>2026-08-28</lastmod>
     </url>
@@ -197,19 +129,7 @@
          <lastmod>2026-08-28</lastmod>
     </url>
     <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/EnumAssertionProvenance/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/EnumAvailabilityStatus/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/EnumClinicalDataSourceType/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/EnumConsanguinityAssertion/</loc>
          <lastmod>2026-08-28</lastmod>
     </url>
     <url>
@@ -253,19 +173,11 @@
          <lastmod>2026-08-28</lastmod>
     </url>
     <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/EnumFileAvailability/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/EnumFileHashType/</loc>
          <lastmod>2026-08-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/EnumLaterality/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/EnumNull/</loc>
          <lastmod>2026-08-28</lastmod>
     </url>
     <url>
@@ -337,31 +249,7 @@
          <lastmod>2026-08-28</lastmod>
     </url>
     <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/FamilyMembership_family_id/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/FamilyMembership_family_membership_id/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/FamilyMembership_subject_id/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/FamilyRelationship/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/FamilyRelationship_family_relationship_id/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/FamilyRelationship_subject_id/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/Family_family_id/</loc>
          <lastmod>2026-08-28</lastmod>
     </url>
     <url>
@@ -370,18 +258,6 @@
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/FileHash/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/File_file_id/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/File_sample_id/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/File_subject_id/</loc>
          <lastmod>2026-08-28</lastmod>
     </url>
     <url>
@@ -421,10 +297,6 @@
          <lastmod>2026-08-28</lastmod>
     </url>
     <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/NamedThing/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/Ncname/</loc>
          <lastmod>2026-08-28</lastmod>
     </url>
@@ -449,18 +321,6 @@
          <lastmod>2026-08-28</lastmod>
     </url>
     <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/Person/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/PersonCollection/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/PersonStatus/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/PtGlobalID/</loc>
          <lastmod>2026-08-28</lastmod>
     </url>
@@ -474,14 +334,6 @@
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/Sample/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/Sample_biospecimen_collection_id/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/Sample_sample_id/</loc>
          <lastmod>2026-08-28</lastmod>
     </url>
     <url>
@@ -505,31 +357,11 @@
          <lastmod>2026-08-28</lastmod>
     </url>
     <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/StudyMetadata_data_category/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/StudyMetadata_study_id/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/Study_study_id/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/Subject/</loc>
          <lastmod>2026-08-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/SubjectAssertion/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/SubjectAssertion_assertion_id/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/Subject_subject_id/</loc>
          <lastmod>2026-08-28</lastmod>
     </url>
     <url>
@@ -546,10 +378,6 @@
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/VirtualBiorepository/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/VirtualBiorepository_vbr_id/</loc>
          <lastmod>2026-08-28</lastmod>
     </url>
     <url>
@@ -601,10 +429,6 @@
          <lastmod>2026-08-28</lastmod>
     </url>
     <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/age_in_years/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/aliquot_id/</loc>
          <lastmod>2026-08-28</lastmod>
     </url>
@@ -629,10 +453,6 @@
          <lastmod>2026-08-28</lastmod>
     </url>
     <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/assertion_provenance/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/assertion_source_type/</loc>
          <lastmod>2026-08-28</lastmod>
     </url>
@@ -645,19 +465,11 @@
          <lastmod>2026-08-28</lastmod>
     </url>
     <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/availablity_status/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/bibliographic_reference/</loc>
          <lastmod>2026-08-28</lastmod>
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/biospecimen_collection_id/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/birth_date/</loc>
          <lastmod>2026-08-28</lastmod>
     </url>
     <url>
@@ -837,10 +649,6 @@
          <lastmod>2026-08-28</lastmod>
     </url>
     <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/id/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/institution/</loc>
          <lastmod>2026-08-28</lastmod>
     </url>
@@ -878,14 +686,6 @@
     </url>
     <url>
          <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/participant_lifespan_stage/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/people/</loc>
-         <lastmod>2026-08-28</lastmod>
-    </url>
-    <url>
-         <loc>https://anvilproject.github.io/acr-harmonized-data-model/elements/primary_email/</loc>
          <lastmod>2026-08-28</lastmod>
     </url>
     <url>
