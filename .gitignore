@@ -5,6 +5,12 @@
 
 # generated part of documentation
 /docs/elements/*.md
+
+# Ignore the datamodel since they are part of the artifacts
+/src/acr_harmonized_data_model/datamodel/acr_harmonized_data_model.py
+/src/acr_harmonized_data_model/datamodel/acr_harmonized_data_model_pydantic.py
+/src/acr_harmonized_data_model/datamodel/acr_harmonized_data_model_sqla.py
+
 # linkml-run-examples output (not useful to have in git in its current form)
 /examples/output/
 

@@ -1,7 +1,6 @@
 [build-system]
 requires = [
     "hatchling>=1.32.0",
-    "the-caddie",
     "uv-dynamic-versioning"]
 build-backend = "hatchling.build"
 
@@ -77,6 +76,14 @@ quiet-level = 3
 # Ref.: https://github.com/crate-ci/typos (spell checker)
 [tool.typos.default.extend-words]
 linke = "linke"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/acr_harmonized_data_model"]
+artifacts = ["src/acr_harmonized_data_model/datamodel/*.py"]
+
+[tool.hatch.build.targets.sdist]
+artifacts = ["src/acr_harmonized_data_model/datamodel/*.py"]
+
 
 [tool.typos.files]
 extend-exclude = [
