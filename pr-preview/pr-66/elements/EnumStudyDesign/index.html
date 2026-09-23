@@ -1,0 +1,1204 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://anvilproject.github.io/acr-harmonized-data-model/elements/EnumStudyDesign/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Enum: Study Design (EnumStudyDesign) - acr-harmonized-data-model</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+
+      
+    
+<script src="../../assets/pymdownx-extras/material-extra-theme-2ek1P7jT.js" type="text/javascript"></script>
+<script src="../../assets/pymdownx-extras/material-extra-3rdparty-BUCF4rjN.js" type="text/javascript"></script>
+
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../../css/jupyter-cells.css">
+    
+      <link rel="stylesheet" href="../../css/pandas-dataframe.css">
+    
+      <link rel="stylesheet" href="../../assets/pymdownx-extras/extra-c6ab11540a.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#enum-study-design-enumstudydesign" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+
+<header class="md-header" data-md-component="header">
+  <nav
+    class="md-header__inner md-grid"
+    aria-label="header.title"
+  >
+    <a
+      href="https://anvilproject.github.io/acr-harmonized-data-model/"
+      title="acr-harmonized-data-model"
+      class="md-header__button md-logo"
+      aria-label="acr-harmonized-data-model"
+    >
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            acr-harmonized-data-model
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Enum: Study Design (EnumStudyDesign)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      <div class="md-header-nav__scheme md-header-nav__button md-source__icon md-icon">
+          <a
+            href="javascript:toggleScheme();"
+            title="Light mode"
+            class="light-mode"
+          >
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+          </a>
+          <a
+            href="javascript:toggleScheme();"
+            title="Dark mode"
+            class="dark-mode"
+          >
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+          </a>
+          <a
+            href="javascript:toggleScheme();"
+            title="System preference"
+            class="system-mode"
+          >
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07zm-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13zm-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87zM19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35zm4.33-2.7 1.15-2.77 2.2 2.54zm1.15-4.96-1.14-2.78 3.34.24zM9.63 18.93l2.77 1.15-2.53 2.19z"/></svg>
+          </a>
+           <a
+            href="javascript:toggleScheme();"
+            title="Unknown scheme"
+            class="unknown-mode"
+          >
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m15.07 11.25-.9.92C13.45 12.89 13 13.5 13 15h-2v-.5c0-1.11.45-2.11 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41a2 2 0 0 0-2-2 2 2 0 0 0-2 2H8a4 4 0 0 1 4-4 4 4 0 0 1 4 4 3.2 3.2 0 0 1-.93 2.25M13 19h-2v-2h2M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10c0-5.53-4.5-10-10-10"/></svg>
+          </a>
+      </div>
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/anvilproject/acr-harmonized-data-model" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="acr-harmonized-data-model" class="md-nav__button md-logo" aria-label="acr-harmonized-data-model" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+    </a>
+    acr-harmonized-data-model
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/anvilproject/acr-harmonized-data-model" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dbt_artifacts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dbt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#enumeration-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enumeration Source
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#permissible-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permissible Values
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identifier-and-mapping-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identifier and Mapping Information
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Identifier and Mapping Information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schema-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schema Source
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linkml-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LinkML Source
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+
+  
+  
+
+
+<h1 id="enum-study-design-enumstudydesign">Enum: Study Design (EnumStudyDesign)</h1>
+<p><em>Approaches for collecting data, investigating interventions, and/or analyzing data.</em></p>
+<div>
+<p>URI: <a href="https://w3id.org/anvilproject/acr-harmonized-data-model/EnumStudyDesign">acr_harmonized_data_model:EnumStudyDesign</a></p>
+<h2 id="enumeration-source">Enumeration Source</h2>
+<p><strong>Reachable From:</strong>
+- <strong>Source:</strong> NONE
+- <strong>Nodes:</strong> mesh:D016021, mesh:D052182
+- <strong>Via:</strong> rdfs:subClassOf</p>
+<h2 id="permissible-values">Permissible Values</h2>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+<th>Description</th>
+<th>Additional Info</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mesh:D003430</td>
+<td>mesh:D003430</td>
+<td>Studies in which the presence or absence of disease or other health-related v...</td>
+<td>Title: Cross-Sectional Studies<br></td>
+</tr>
+<tr>
+<td>mesh:D005500</td>
+<td>mesh:D005500</td>
+<td>Studies in which individuals or populations are followed to assess the outcom...</td>
+<td>Title: Follow-Up Studies<br></td>
+</tr>
+<tr>
+<td>mesh:D008137</td>
+<td>mesh:D008137</td>
+<td>Studies in which variables relating to an individual or group of individuals ...</td>
+<td>Title: Longitudinal Studies<br></td>
+</tr>
+<tr>
+<td>mesh:D011446</td>
+<td>mesh:D011446</td>
+<td>Observation of a population for a sufficient number of persons over a suffici...</td>
+<td>Title: Prospective Studies<br></td>
+</tr>
+<tr>
+<td>mesh:D012189</td>
+<td>mesh:D012189</td>
+<td>Studies used to test etiologic hypotheses in which inferences about an exposu...</td>
+<td>Title: Retrospective Studies<br></td>
+</tr>
+<tr>
+<td>mesh:D015331</td>
+<td>mesh:D015331</td>
+<td>Studies in which subsets of a defined population are identified</td>
+<td>Title: Cohort Studies<br></td>
+</tr>
+<tr>
+<td>mesh:D015528</td>
+<td>mesh:D015528</td>
+<td>Studies of the number of cases where human immunodeficiency virus (HIV) is pr...</td>
+<td>Title: HIV Seroprevalence<br></td>
+</tr>
+<tr>
+<td>mesh:D016022</td>
+<td>mesh:D016022</td>
+<td>Comparisons that start with the identification of persons with the disease or...</td>
+<td>Title: Case-Control Studies<br></td>
+</tr>
+<tr>
+<td>mesh:D016036</td>
+<td>mesh:D016036</td>
+<td>EPIDEMIOLOGIC STUDIES based on the detection through serological testing of c...</td>
+<td>Title: Seroepidemiologic Studies<br></td>
+</tr>
+<tr>
+<td>mesh:D063588</td>
+<td>mesh:D063588</td>
+<td>Longitudinal study of a nationally representative sample of adolescents in gr...</td>
+<td>Title: National Longitudinal Study of Adolescent Health<br></td>
+</tr>
+<tr>
+<td>mesh:D065186</td>
+<td>mesh:D065186</td>
+<td>A study that uses observations at multiple time points before and after an in...</td>
+<td>Title: Interrupted Time Series Analysis<br></td>
+</tr>
+<tr>
+<td>mesh:D065187</td>
+<td>mesh:D065187</td>
+<td>A study in which observations are made before and after an intervention, both...</td>
+<td>Title: Controlled Before-After Studies<br></td>
+</tr>
+<tr>
+<td>mesh:D065386</td>
+<td>mesh:D065386</td>
+<td>A study that compares a group of participants receiving an intervention with ...</td>
+<td>Title: Historically Controlled Study<br></td>
+</tr>
+<tr>
+<td>mesh:D000068397</td>
+<td>mesh:D000068397</td>
+<td>A work that reports on the results of a research study to evaluate interventi...</td>
+<td>Title: Clinical Study<br></td>
+</tr>
+<tr>
+<td>mesh:D000073843</td>
+<td>mesh:D000073843</td>
+<td>Trial that aims to show a new treatment is no better and no worse than the st...</td>
+<td>Title: Equivalence Trial<br></td>
+</tr>
+<tr>
+<td>mesh:D000076362</td>
+<td>mesh:D000076362</td>
+<td>Clinical study in which a prospectively planned opportunity is included to mo...</td>
+<td>Title: Adaptive Clinical Trial<br></td>
+</tr>
+<tr>
+<td>mesh:D000077522</td>
+<td>mesh:D000077522</td>
+<td>A work in which animal participants are assigned to receive one or more inter...</td>
+<td>Title: Clinical Trial, Veterinary<br></td>
+</tr>
+<tr>
+<td>mesh:D000078182</td>
+<td>mesh:D000078182</td>
+<td>A review of primary literature in health and health policy that attempts to i...</td>
+<td>Title: Systematic Review<br></td>
+</tr>
+<tr>
+<td>mesh:D000078323</td>
+<td>mesh:D000078323</td>
+<td>Reports on studies of the results of a clinical study in which animal subject...</td>
+<td>Title: Observational Study, Veterinary<br></td>
+</tr>
+<tr>
+<td>mesh:D000078325</td>
+<td>mesh:D000078325</td>
+<td>The written description of a clinical study</td>
+<td>Title: Clinical Trial Protocol<br></td>
+</tr>
+<tr>
+<td>mesh:D000081262</td>
+<td>mesh:D000081262</td>
+<td>A work that reports on a clinical trial with animal subjects that involves at...</td>
+<td>Title: Randomized Controlled Trial, Veterinary<br></td>
+</tr>
+<tr>
+<td>mesh:D000098368</td>
+<td>mesh:D000098368</td>
+<td>Trials in which participants are intentionally challenged (whether or not the...</td>
+<td>Title: Human Challenge Trials<br></td>
+</tr>
+<tr>
+<td>mesh:D000098583</td>
+<td>mesh:D000098583</td>
+<td>Review to identify knowledge gaps, scope a body of literature, clarify concep...</td>
+<td>Title: Scoping Review<br></td>
+</tr>
+<tr>
+<td>mesh:D000099094</td>
+<td>mesh:D000099094</td>
+<td>Works consisting of meta-analysis of randomized trials in which estimates of ...</td>
+<td>Title: Network Meta-Analysis<br></td>
+</tr>
+<tr>
+<td>mesh:D002363</td>
+<td>mesh:D002363</td>
+<td>Clinical presentations that may be followed by evaluative studies that eventu...</td>
+<td>Title: Case Reports<br></td>
+</tr>
+<tr>
+<td>mesh:D003160</td>
+<td>mesh:D003160</td>
+<td>Comparison of outcomes, results, responses, etc for different techniques, the...</td>
+<td>Title: Comparative Study<br></td>
+</tr>
+<tr>
+<td>mesh:D016426</td>
+<td>mesh:D016426</td>
+<td>Work consisting of reports by the United States Office of Research Integrity,...</td>
+<td>Title: Scientific Integrity Review<br></td>
+</tr>
+<tr>
+<td>mesh:D016429</td>
+<td>mesh:D016429</td>
+<td>Work that consists of a conference of physicians on their observations of a p...</td>
+<td>Title: Clinical Conference<br></td>
+</tr>
+<tr>
+<td>mesh:D016430</td>
+<td>mesh:D016430</td>
+<td>A work that reports on the results of a clinical study in which participants ...</td>
+<td>Title: Clinical Trial<br></td>
+</tr>
+<tr>
+<td>mesh:D016446</td>
+<td>mesh:D016446</td>
+<td>Official statements of the findings or recommendations expressing the outcome...</td>
+<td>Title: Consensus Development Conference<br></td>
+</tr>
+<tr>
+<td>mesh:D016447</td>
+<td>mesh:D016447</td>
+<td>Official statements of the finding or recommendations expressing the outcome ...</td>
+<td>Title: Consensus Development Conference, NIH<br></td>
+</tr>
+<tr>
+<td>mesh:D016448</td>
+<td>mesh:D016448</td>
+<td>A work that reports on a study executed by several cooperating institutions</td>
+<td>Title: Multicenter Study<br></td>
+</tr>
+<tr>
+<td>mesh:D016449</td>
+<td>mesh:D016449</td>
+<td>A work that reports on a clinical trial that involves at least one test treat...</td>
+<td>Title: Randomized Controlled Trial<br></td>
+</tr>
+<tr>
+<td>mesh:D017418</td>
+<td>mesh:D017418</td>
+<td>Works consisting of studies using a quantitative method of combining the resu...</td>
+<td>Title: Meta-Analysis<br></td>
+</tr>
+<tr>
+<td>mesh:D017426</td>
+<td>mesh:D017426</td>
+<td>Work that is the report of a pre-planned, usually controlled, clinical study ...</td>
+<td>Title: Clinical Trial, Phase I<br></td>
+</tr>
+<tr>
+<td>mesh:D017427</td>
+<td>mesh:D017427</td>
+<td>Work that is a report of a pre-planned, usually controlled, clinical study of...</td>
+<td>Title: Clinical Trial, Phase II<br></td>
+</tr>
+<tr>
+<td>mesh:D017428</td>
+<td>mesh:D017428</td>
+<td>Work that is a report of a pre-planned, usually controlled, clinical study of...</td>
+<td>Title: Clinical Trial, Phase III<br></td>
+</tr>
+<tr>
+<td>mesh:D017429</td>
+<td>mesh:D017429</td>
+<td>Work that is a report of a planned post-marketing study of diagnostic, therap...</td>
+<td>Title: Clinical Trial, Phase IV<br></td>
+</tr>
+<tr>
+<td>mesh:D018486</td>
+<td>mesh:D018486</td>
+<td>Work consisting of reporting using a method of detecting genetic causes in hu...</td>
+<td>Title: Twin Study<br></td>
+</tr>
+<tr>
+<td>mesh:D018848</td>
+<td>mesh:D018848</td>
+<td>A work that reports on a clinical trial involving one or more test treatments...</td>
+<td>Title: Controlled Clinical Trial<br></td>
+</tr>
+<tr>
+<td>mesh:D023361</td>
+<td>mesh:D023361</td>
+<td>Works consisting of research using processes by which the reliability and rel...</td>
+<td>Title: Validation Study<br></td>
+</tr>
+<tr>
+<td>mesh:D023362</td>
+<td>mesh:D023362</td>
+<td>Works consisting of studies determining the effectiveness or utility of proce...</td>
+<td>Title: Evaluation Study<br></td>
+</tr>
+<tr>
+<td>mesh:D064888</td>
+<td>mesh:D064888</td>
+<td>A work that reports on the results of a clinical study in which participants ...</td>
+<td>Title: Observational Study<br></td>
+</tr>
+<tr>
+<td>mesh:D065007</td>
+<td>mesh:D065007</td>
+<td>Randomized clinical trials that compare interventions in clinical settings an...</td>
+<td>Title: Pragmatic Clinical Trial<br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: <a href="https://w3id.org/anvilproject/acr-harmonized-data-model">https://w3id.org/anvilproject/acr-harmonized-data-model</a></li>
+</ul>
+<h2 id="linkml-source">LinkML Source</h2>
+<details>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EnumStudyDesign</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Approaches for collecting data, investigating interventions, and/or analyzing</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">data.</span>
+<span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Study Design</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/anvilproject/acr-harmonized-data-model</span>
+<span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="nt">permissible_values</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">mesh:D003430</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D003430</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Studies in which the presence or absence of disease or other health-related</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">variables are determined in each member of the study population or in a representative</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">sample at one particular time. This contrasts with LONGITUDINAL STUDIES which</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">are followed over a period of time.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D003430</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Cross-Sectional Studies</span>
+<span class="w">  </span><span class="nt">mesh:D005500</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D005500</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Studies in which individuals or populations are followed to assess</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the outcome of exposures, procedures, or effects of a characteristic, e.g.,</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">occurrence of disease.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D005500</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Follow-Up Studies</span>
+<span class="w">  </span><span class="nt">mesh:D008137</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D008137</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Studies in which variables relating to an individual or group of</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">individuals are assessed over a period of time.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D008137</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Longitudinal Studies</span>
+<span class="w">  </span><span class="nt">mesh:D011446</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D011446</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Observation of a population for a sufficient number of persons over</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">a sufficient number of years to generate incidence or mortality rates subsequent</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">to the selection of the study group.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D011446</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Prospective Studies</span>
+<span class="w">  </span><span class="nt">mesh:D012189</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D012189</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Studies used to test etiologic hypotheses in which inferences about</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">an exposure to putative causal factors are derived from data relating to characteristics</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">of persons under study or to events or experiences in their past. The essential</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">feature is that some of the persons under study have the disease or outcome</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">of interest and their characteristics are compared with those of unaffected</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">persons.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D012189</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Retrospective Studies</span>
+<span class="w">  </span><span class="nt">mesh:D015331</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D015331</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Studies in which subsets of a defined population are identified.</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">These groups may or may not be exposed to factors hypothesized to influence</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the probability of the occurrence of a particular disease or other outcome.</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">Cohorts are defined populations which, as a whole, are followed in an attempt</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">to determine distinguishing subgroup characteristics.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D015331</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Cohort Studies</span>
+<span class="w">  </span><span class="nt">mesh:D015528</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D015528</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Studies of the number of cases where human immunodeficiency virus</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">(HIV) is present in a specific population at a designated time. The presence</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">in a given individual is determined by the finding of HIV antibodies in the</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">serum (HIV SEROPOSITIVITY).</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D015528</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HIV Seroprevalence</span>
+<span class="w">  </span><span class="nt">mesh:D016022</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D016022</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Comparisons that start with the identification of persons with the</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">disease or outcome of interest and a control (comparison, referent) group without</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the disease or outcome of interest. The relationship of an attribute is examined</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">by comparing both groups with regard to the frequency or levels of outcome over</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">time.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D016022</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Case-Control Studies</span>
+<span class="w">  </span><span class="nt">mesh:D016036</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D016036</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EPIDEMIOLOGIC STUDIES based on the detection through serological</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">testing of characteristic change in the serum level of specific ANTIBODIES.</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">Latent subclinical infections and carrier states can thus be detected in addition</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">to clinically overt cases.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D016036</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Seroepidemiologic Studies</span>
+<span class="w">  </span><span class="nt">mesh:D063588</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D063588</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Longitudinal study of a nationally representative sample of adolescents</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">in grades 7-12 in the United States during the 1994-95 school year. The Add</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">Health cohort has been followed into young adulthood. (from http://www.cpc.unc.edu/projects/addhealth</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">accessed 08/2012)</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D063588</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">National Longitudinal Study of Adolescent Health</span>
+<span class="w">  </span><span class="nt">mesh:D065186</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D065186</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A study that uses observations at multiple time points before and</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">after an intervention (the interruption), in an attempt to detect whether the</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">intervention has had an effect significantly greater than any underlying trend</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">over time.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D065186</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Interrupted Time Series Analysis</span>
+<span class="w">  </span><span class="nt">mesh:D065187</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D065187</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A study in which observations are made before and after an intervention,</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">both in a group that receives the intervention and in a control group that does</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">not.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D065187</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Controlled Before-After Studies</span>
+<span class="w">  </span><span class="nt">mesh:D065386</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D065386</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A study that compares a group of participants receiving an intervention</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">with a similar group from the past who did not.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D065386</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Historically Controlled Study</span>
+<span class="w">  </span><span class="nt">mesh:D000068397</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D000068397</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A work that reports on the results of a research study to evaluate</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">interventions or exposures on biomedical or health-related outcomes.  The two</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">main types of clinical studies are interventional studies (clinical trials)</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">and observational studies. While most clinical studies concern humans, this</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">publication type may be used for clinical veterinary articles meeting the requisites</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">for humans.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D000068397</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Clinical Study</span>
+<span class="w">  </span><span class="nt">mesh:D000073843</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D000073843</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Trial that aims to show a new treatment is no better and no worse</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">than the standard treatment.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D000073843</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Equivalence Trial</span>
+<span class="w">  </span><span class="nt">mesh:D000076362</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D000076362</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Clinical study in which a prospectively planned opportunity is included</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">to modify trial designs and hypotheses based on analysis of data from subjects</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">in the study.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D000076362</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Adaptive Clinical Trial</span>
+<span class="w">  </span><span class="nt">mesh:D000077522</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D000077522</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A work in which animal participants are assigned to receive one or</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">more interventions so that researchers can evaluate the interventions on biomedical</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">or health-related outcomes. The assignments are determined by the study protocol.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D000077522</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Clinical Trial, Veterinary</span>
+<span class="w">  </span><span class="nt">mesh:D000078182</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D000078182</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A review of primary literature in health and health policy that attempts</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">to identify, appraise, and synthesize all the empirical evidence that meets</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">specified eligibility criteria to answer a given research question.  Its conduct</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">uses explicit methods aimed at minimizing bias in order to produce more reliable</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">findings regarding the effects of interventions for prevention, treatment, and</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">rehabilitation that can be used to inform decision making.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D000078182</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Systematic Review</span>
+<span class="w">  </span><span class="nt">mesh:D000078323</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D000078323</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reports on studies of the results of a clinical study in which animal</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">subjects may receive diagnostic, therapeutic, or other types of interventions,</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">where the investigator does not assign participants to specific interventions.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D000078323</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Observational Study, Veterinary</span>
+<span class="w">  </span><span class="nt">mesh:D000078325</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D000078325</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The written description of a clinical study. It contains the study's</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">objectives, design, and methods including subject target and/or enrollment criteria.</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">It may also present relevant scientific background and statistical information.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D000078325</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Clinical Trial Protocol</span>
+<span class="w">  </span><span class="nt">mesh:D000081262</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D000081262</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A work that reports on a clinical trial with animal subjects that</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">involves at least one test treatment and one control treatment, concurrent enrollment</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">and follow-up of the test- and control-treated groups, and in which the treatments</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">to be administered are selected by a random process, such as the use of a random-numbers</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">table.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D000081262</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Randomized Controlled Trial, Veterinary</span>
+<span class="w">  </span><span class="nt">mesh:D000098368</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D000098368</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Trials in which participants are intentionally challenged (whether</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">or not they have been vaccinated) with exposure to an infectious disease organism.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D000098368</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Human Challenge Trials</span>
+<span class="w">  </span><span class="nt">mesh:D000098583</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D000098583</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Review to identify knowledge gaps, scope a body of literature, clarify</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">concepts or to investigate research conduct.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D000098583</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Scoping Review</span>
+<span class="w">  </span><span class="nt">mesh:D000099094</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D000099094</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Works consisting of meta-analysis of randomized trials in which estimates</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">of comparative treatment effects are visualized and interpreted from a network</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">of interventions that may or may not have been evaluated directly against each</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">other. Common considerations in network meta-analysis include conceptual and</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">statistical heterogeneity and incoherence.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D000099094</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Network Meta-Analysis</span>
+<span class="w">  </span><span class="nt">mesh:D002363</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D002363</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Clinical presentations that may be followed by evaluative studies</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">that eventually lead to a diagnosis.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D002363</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Case Reports</span>
+<span class="w">  </span><span class="nt">mesh:D003160</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D003160</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Comparison of outcomes, results, responses, etc for different techniques,</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">therapeutic approaches or other inputs.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D003160</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Comparative Study</span>
+<span class="w">  </span><span class="nt">mesh:D016426</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D016426</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Work consisting of reports by the United States Office of Research</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">Integrity, identifying questionable research published in articles or books.</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">Notification of the questionable data is carried in the NIH Guide for Grants</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">and Contracts.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D016426</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Scientific Integrity Review</span>
+<span class="w">  </span><span class="nt">mesh:D016429</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D016429</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Work that consists of a conference of physicians on their observations</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">of a patient at the bedside, regarding the physical state, laboratory and other</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">diagnostic findings, clinical manifestations, results of current therapy, etc.</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">A clinical conference usually ends with a confirmation or correction of clinical</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">findings by a pathological diagnosis performed by a pathologist. Clinical conference</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">is often referred to as a clinico-pathological conference.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D016429</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Clinical Conference</span>
+<span class="w">  </span><span class="nt">mesh:D016430</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D016430</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A work that reports on the results of a clinical study in which participants</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">are assigned to receive one or more interventions so that researchers can evaluate</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the interventions on biomedical or health-related outcomes. The assignments</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">are determined by the study protocol. Participants may receive diagnostic, therapeutic,</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">or other types of interventions. For clinical trials on  veterinary animals</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">see CLINICAL TRIAL, VETERINARY. Clinical Trials was used for both humans and</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">non-humans prior to 2019.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D016430</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Clinical Trial</span>
+<span class="w">  </span><span class="nt">mesh:D016446</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D016446</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Official statements of the findings or recommendations expressing</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the outcome of a meeting convened to evaluate current thought and research on</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">a subject of interest.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D016446</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Consensus Development Conference</span>
+<span class="w">  </span><span class="nt">mesh:D016447</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D016447</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Official statements of the finding or recommendations expressing</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the outcome from a conference sponsored by NIH.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D016447</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Consensus Development Conference, NIH</span>
+<span class="w">  </span><span class="nt">mesh:D016448</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D016448</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A work that reports on a study executed by several cooperating institutions.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D016448</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Multicenter Study</span>
+<span class="w">  </span><span class="nt">mesh:D016449</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D016449</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A work that reports on a clinical trial that involves at least one</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">test treatment and one control treatment, concurrent enrollment and follow-up</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">of the test- and control-treated groups, and in which the treatments to be administered</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">are selected by a random process, such as the use of a random-numbers table.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D016449</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Randomized Controlled Trial</span>
+<span class="w">  </span><span class="nt">mesh:D017418</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D017418</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Works consisting of studies using a quantitative method of combining</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the results of independent studies (usually drawn from the published literature)</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">and synthesizing summaries and conclusions which may be used to evaluate therapeutic</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">effectiveness, plan new studies, etc. It is often an overview of clinical trials.</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">It is usually called a meta-analysis by the author or sponsoring body and should</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">be differentiated from reviews of literature.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D017418</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Meta-Analysis</span>
+<span class="w">  </span><span class="nt">mesh:D017426</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D017426</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Work that is the report of a pre-planned, usually controlled, clinical</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">study of the safety and efficacy of diagnostic, therapeutic, or prophylactic</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">drugs, devices, or techniques based on a small number of healthy persons and</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">conducted over the period of about a year in either the United States or a foreign</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">country.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D017426</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Clinical Trial, Phase I</span>
+<span class="w">  </span><span class="nt">mesh:D017427</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D017427</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Work that is a report of a pre-planned, usually controlled, clinical</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">study of the safety and efficacy of diagnostic, therapeutic, or prophylactic</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">drugs, devices, or techniques based on several hundred volunteers, including</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">a limited number of patients, and conducted over a period of about two years</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">in either the United States or a foreign country.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D017427</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Clinical Trial, Phase II</span>
+<span class="w">  </span><span class="nt">mesh:D017428</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D017428</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Work that is a report of a pre-planned, usually controlled, clinical</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">study of the safety and efficacy of diagnostic, therapeutic, or prophylactic</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">drugs, devices, or techniques after phase II trials. A large enough group of</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">patients is studied and closely monitored by physicians for adverse response</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">to long-term exposure, over a period of about three years in either the United</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">States or a foreign country.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D017428</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Clinical Trial, Phase III</span>
+<span class="w">  </span><span class="nt">mesh:D017429</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D017429</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Work that is a report of a planned post-marketing study of diagnostic,</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">therapeutic, or prophylactic drugs, devices, or techniques that have been approved</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">for general sale after clinical trials, phases I, II, and III. These studies,</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">conducted in the United States or a foreign country, often garner additional</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">data about the safety and efficacy of a product.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D017429</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Clinical Trial, Phase IV</span>
+<span class="w">  </span><span class="nt">mesh:D018486</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D018486</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Work consisting of reporting using a method of detecting genetic</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">causes in human traits and genetic factors in behavior using sets of twins.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D018486</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Twin Study</span>
+<span class="w">  </span><span class="nt">mesh:D018848</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D018848</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A work that reports on a clinical trial involving one or more test</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">treatments, at least one control treatment, specified outcome measures for evaluating</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the studied intervention, and a bias-free method for assigning patients to the</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">test treatment. The treatment may be drugs, devices, or procedures studied for</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">diagnostic, therapeutic, or prophylactic effectiveness. Control measures include</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">placebos, active medicine, no-treatment, dosage forms and regimens, historical</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">comparisons, etc. When randomization using mathematical techniques, such as</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the use of a random numbers table, is employed to assign patients to test or</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">control treatments, the trial is characterized as a RANDOMIZED CONTROLLED TRIAL.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D018848</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Controlled Clinical Trial</span>
+<span class="w">  </span><span class="nt">mesh:D023361</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D023361</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Works consisting of research using processes by which the reliability</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">and relevance of a procedure for a specific purpose are established.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D023361</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Validation Study</span>
+<span class="w">  </span><span class="nt">mesh:D023362</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D023362</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Works consisting of studies determining the effectiveness or utility</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">of processes, personnel, and equipment.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D023362</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Evaluation Study</span>
+<span class="w">  </span><span class="nt">mesh:D064888</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D064888</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A work that reports on the results of a clinical study in which participants</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">may receive diagnostic, therapeutic, or other types of interventions, but the</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">investigator does not assign participants to specific interventions (as in an</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">interventional study).</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D064888</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Observational Study</span>
+<span class="w">  </span><span class="nt">mesh:D065007</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D065007</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Randomized clinical trials that compare interventions in clinical</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">settings and which look at a range of effectiveness outcomes and impacts.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D065007</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Pragmatic Clinical Trial</span>
+<span class="nt">reachable_from</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">source_ontology</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bioregistry:mesh</span>
+<span class="w">  </span><span class="nt">source_nodes</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D016021</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh:D052182</span>
+<span class="w">  </span><span class="nt">relationship_types</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rdfs:subClassOf</span>
+<span class="w">  </span><span class="nt">is_direct</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">  </span><span class="nt">include_self</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+</code></pre></div>
+</details>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+  
+
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        
+
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        with emoji by
+        <a href="https://github.com/twitter/twemoji" target="_blank" rel="noopener">
+          Twemoji
+        </a>
+      </div>
+      
+<div class="md-social">
+  
+</div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.tabs.link", "header.autohide", "navigation.expand", "navigation.tracking", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../assets/pymdownx-extras/extra-loader-B5CKpNQx.js"></script>
+      
+    
+  </body>
+</html>
