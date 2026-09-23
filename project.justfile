@@ -12,7 +12,7 @@ dbt: gen-sqla gen-ftddd gen-dbtmodel
 [group('model development')]
 gen-sqla:
     mkdir -p {{dest}}/sqlalchemy && \
-    uv run gen-sqla {{source_schema_path}} --declarative > {{dest}}/sqlalchemy/{{schema_name}}.py
+    uv run gen-sqla {{source_schema_path}} --declarative > {{pymodel}}/{{schema_name}}_sqla.py
 
 # Expand enum files
 expand:
