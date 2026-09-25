@@ -76,5 +76,5 @@ default_prefix: acr_harmonized_data_model
 # default_range: string
 
 imports:
-- upstream-models/common_access_model-0.0.7
+- upstream-models/common_access_model-0.2.0
 classes:

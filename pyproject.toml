@@ -65,9 +65,12 @@ skip = [
   "pyproject.toml",
   "uv.lock",
   "project/*",
+  "_typos.toml",
   "src/acr_harmonized_data_model/datamodel/acr_harmonized_data_model_pydantic.py",
   "src/acr_harmonized_data_model/datamodel/acr_harmonized_data_model.py",
+  "./src/acr_harmonized_data_model/schema/upstream-models/*.yaml"
 ]
+ignore-words = ".codespell-ignore.txt"
 
 # Reminder: words have to be lowercased for the ignore-words-list
 ignore-words-list = "linke"

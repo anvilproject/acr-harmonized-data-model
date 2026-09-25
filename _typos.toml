@@ -1,0 +1,15 @@
+[files]
+extend-exclude = [
+  "_typos.toml",
+  ".git*",
+]
+
+# These were caught as typos
+[default.extend-words]
+NAMD = "NAMD"
+BA = "BA"
+
+# Real typos that are encountered from other sources
+# (currently one from OBI, specify) and an unrecognized acronym, NAMD
+[default.extend-identifiers]
+specificy = "specificy"
