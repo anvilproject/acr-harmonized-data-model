@@ -89,7 +89,7 @@ _setup_part2: gen-project gen-doc
 
 # Install project dependencies
 [group('project management')]
-install:
+install: precommit
   uv sync --group dev
 
 # Updates project template and LinkML package

@@ -38,3 +38,7 @@ gen-monolith:
 [group('model development')]
 update-cam:
   uv run update-cam -d src/acr_harmonized_data_model/schema/upstream-models -l src/acr_harmonized_data_model/schema/acr_harmonized_data_model.yaml
+
+[group('project management')]
+precommit:
+  pre-commit install
