@@ -6,7 +6,7 @@ see_also:
 - https://anvilproject.github.io/acr-harmonized-data-model
 id: https://w3id.org/anvilproject/acr-harmonized-data-model
 imports:
-- upstream-models/common_access_model-0.0.7
+- upstream-models/common_access_model-0.2.0
 license: MIT
 prefixes:
   acr_harmonized_data_model:
@@ -23487,6 +23487,294 @@ enums:
     definition_uri: https://includedcc.org/common-access-model/EnumFamilyRelation
     description: Definitions of family relations as provided by KIN Ontology.
     from_schema: https://includedcc.org/common-access-model
+    permissible_values:
+      KIN:KIN_001:
+        text: KIN:KIN_001
+        description: A relation that indicates that a person is connected to another
+          biologically or through a socio-legal relationship.
+        meaning: KIN:KIN_001
+        title: isRelativeOf
+      KIN:KIN_053:
+        text: KIN:KIN_053
+        description: A relation between a person and a child of that person's son.
+        meaning: KIN:KIN_053
+        title: isPaternalGrandparentOf
+      KIN:KIN_022:
+        text: KIN:KIN_022
+        description: A legal relation between a person and a child that is adopted
+          by that person. The adopted child is given the rights, privileges, and duties
+          of a biological child by the adoptive person.
+        meaning: KIN:KIN_022
+        title: isAdoptiveParentOf
+      KIN:KIN_027:
+        text: KIN:KIN_027
+        description: A relation that indicates that a person is the biological mother
+          of another person.
+        meaning: KIN:KIN_027
+        title: isBiologicalMotherOf
+      KIN:KIN_039:
+        text: KIN:KIN_039
+        description: A relation between the child and a woman who carried a fertilised
+          egg in her womb and gave birth to a child on behalf of the mother.
+        meaning: KIN:KIN_039
+        title: hasGestationalCarrier
+      KIN:KIN_038:
+        text: KIN:KIN_038
+        description: A relation between a fertile woman who donated an egg to another
+          woman to help her conceive and the child.
+        meaning: KIN:KIN_038
+        title: isOvumDonorOf
+      KIN:KIN_051:
+        text: KIN:KIN_051
+        description: A socio-legal relationship between two people who used to live
+          together, share a common domestic life and are closely related biologically
+          (second cousins or closer), and have now separated.
+        meaning: KIN:KIN_051
+        title: isSeparatedConsanguineousPartnerOf
+      KIN:KIN_010:
+        text: KIN:KIN_010
+        description: A relation between two people born at the same birth from a single
+          fertilised ovum that splits.
+        meaning: KIN:KIN_010
+        title: isMonozygoticMultipleBirthSiblingOf
+      KIN:KIN_055:
+        text: KIN:KIN_055
+        description: A relation between two people that share the same biological
+          father.
+        meaning: KIN:KIN_055
+        title: isPaternalHalfSiblingOf
+      KIN:KIN_008:
+        text: KIN:KIN_008
+        description: A relation between two people that have both biological parents
+          in common.
+        meaning: KIN:KIN_008
+        title: isFullsiblingOf
+      KIN:KIN_052:
+        text: KIN:KIN_052
+        description: A relation between a person and a child of that person's daughter.
+        meaning: KIN:KIN_052
+        title: isMaternalGrandparentOf
+      KIN:KIN_028:
+        text: KIN:KIN_028
+        description: A relation that indicates that a person is the biological father
+          of another person.
+        meaning: KIN:KIN_028
+        title: isBiologicalFatherOf
+      KIN:KIN_013:
+        text: KIN:KIN_013
+        description: A relation that indicates that a person is the sibling of a parent
+          of another person.
+        meaning: KIN:KIN_013
+        title: isParentalSiblingOf
+      KIN:KIN_003:
+        text: KIN:KIN_003
+        description: A relation that indicates that a person is the biological parent
+          of another person.
+        meaning: KIN:KIN_003
+        title: isBiologicalParentOf
+      KIN:KIN_059:
+        text: KIN:KIN_059
+        description: A relation between a man and the child of that man's brother.
+        meaning: KIN:KIN_059
+        title: isPaternalUncleOf
+      KIN:KIN_005:
+        text: KIN:KIN_005
+        description: A relation between the woman who carried a fertilised egg in
+          her womb and gave birth to a child on behalf of the mother, and the child.
+        meaning: KIN:KIN_005
+        title: isGestationalCarrierOf
+      KIN:KIN_023:
+        text: KIN:KIN_023
+        description: A relation between a person and a child, where the person is
+          married to the father or mother of a child but who is not that child's own
+          father or mother.
+        meaning: KIN:KIN_023
+        title: isStepParentOf
+      KIN:KIN_036:
+        text: KIN:KIN_036
+        description: A relation between a person and a parent of that person's parent.
+        meaning: KIN:KIN_036
+        title: isGrandchildOf
+      KIN:KIN_025:
+        text: KIN:KIN_025
+        description: A relation between children born of two different families who
+          have been joined by marriage, defacto or otherwise, of at least one of their
+          respective parents.
+        meaning: KIN:KIN_025
+        title: isStepSiblingOf
+      KIN:KIN_058:
+        text: KIN:KIN_058
+        description: A relation between a man and the child of that man's sister.
+        meaning: KIN:KIN_058
+        title: isMaternalUncleOf
+      KIN:KIN_004:
+        text: KIN:KIN_004
+        description: A relation between a man who donated his sperm and the child.
+        meaning: KIN:KIN_004
+        title: isSpermDonorOf
+      KIN:KIN_024:
+        text: KIN:KIN_024
+        description: A relation between two people that has all or some of the characteristics
+          of a sibling relationship.
+        meaning: KIN:KIN_024
+        title: isSiblingFigureOf
+      KIN:KIN_009:
+        text: KIN:KIN_009
+        description: A relation between two people born at the same birth.
+        meaning: KIN:KIN_009
+        title: isMultipleBirthSiblingOf
+      KIN:KIN_061:
+        text: KIN:KIN_061
+        description: A relation between a woman and the child of that woman's brother.
+        meaning: KIN:KIN_061
+        title: isPaternalAuntOf
+      KIN:KIN_060:
+        text: KIN:KIN_060
+        description: A relation between a woman and the child of that woman's sister.
+        meaning: KIN:KIN_060
+        title: isMaternalAuntOf
+      KIN:KIN_029:
+        text: KIN:KIN_029
+        description: "A relation between a woman that has donated mitochondria and\
+          \ a child. Mitochondrial donation involves removing the nuclear DNA from\
+          \ a woman\u2019s ovum containing faulty mitochondria and inserting it into\
+          \ a healthy donor ovum, which has had its nuclear DNA removed."
+        meaning: KIN:KIN_029
+        title: isMitochondrialDonorOf
+      KIN:KIN_047:
+        text: KIN:KIN_047
+        description: A relation between a person and a parent of that person's grandparent.
+        meaning: KIN:KIN_047
+        title: isGreatGrandchildOf
+      KIN:KIN_021:
+        text: KIN:KIN_021
+        description: A relation between a person and a child that temporarily enters
+          into his or her family for a period of time, without becoming the child's
+          legal parent.
+        meaning: KIN:KIN_021
+        title: isFosterParentOf
+      KIN:KIN_057:
+        text: KIN:KIN_057
+        description: A relation between children born of two different families who
+          have been joined by marriage, defacto or otherwise. One is a biological
+          child and the other is a step child of the same man.
+        meaning: KIN:KIN_057
+        title: isPaternalStepSiblingOf
+      KIN:KIN_030:
+        text: KIN:KIN_030
+        description: A socio-legal relationship between two people who live together,
+          share a common domestic life and are closely related biologically (second
+          cousins or closer).
+        meaning: KIN:KIN_030
+        title: isConsanguineousPartnerOf
+      KIN:KIN_046:
+        text: KIN:KIN_046
+        description: A relation that indicates that a person has a parental sibling
+          relationship with another person, i.e., the other person is the sibling
+          of a parent.
+        meaning: KIN:KIN_046
+        title: hasParentalSibling
+      KIN:KIN_012:
+        text: KIN:KIN_012
+        description: A relation between two people that have a single biological parent
+          in common.
+        meaning: KIN:KIN_012
+        title: isHalfSiblingOf
+      KIN:KIN_014:
+        text: KIN:KIN_014
+        description: A relation between a person and a child of that person's uncle
+          or aunt.
+        meaning: KIN:KIN_014
+        title: isCousinOf
+      KIN:KIN_015:
+        text: KIN:KIN_015
+        description: A relation between a person and a child of that person's mother's
+          sibling.
+        meaning: KIN:KIN_015
+        title: isMaternalCousinOf
+      KIN:KIN_050:
+        text: KIN:KIN_050
+        description: A socio-legal relationship between two people who used to live
+          together and share a common domestic life, but have now separated.
+        meaning: KIN:KIN_050
+        title: isSeparatedPartnerOf
+      KIN:KIN_056:
+        text: KIN:KIN_056
+        description: A relation between children born of two different families who
+          have been joined by marriage, defacto or otherwise. One is a biological
+          child and the other is a step child of the same woman.
+        meaning: KIN:KIN_056
+        title: isMaternalStepSiblingOf
+      KIN:KIN_032:
+        text: KIN:KIN_032
+        description: A relation that indicates that a person is the biological child
+          of another person.
+        meaning: KIN:KIN_032
+        title: isBiologicalChildOf
+      KIN:KIN_020:
+        text: KIN:KIN_020
+        description: A relation between a person who is regarded as having all or
+          some of the characteristics of a parent and the child.
+        meaning: KIN:KIN_020
+        title: isParentFigureOf
+      KIN:KIN_007:
+        text: KIN:KIN_007
+        description: A relation between two people that have one or both biological
+          parents in common.
+        meaning: KIN:KIN_007
+        title: isBiologicalSiblingOf
+      KIN:KIN_002:
+        text: KIN:KIN_002
+        description: A relation that indicates that a person is related to another
+          person biologically.
+        meaning: KIN:KIN_002
+        title: isBiologicalRelativeOf
+      KIN:KIN_018:
+        text: KIN:KIN_018
+        description: A relation between a person and a child of that person's grandchild.
+        meaning: KIN:KIN_018
+        title: isGreatGrandparentOf
+      KIN:KIN_011:
+        text: KIN:KIN_011
+        description: A relation between two people born at the same birth from fertilisation
+          of more than two ovums discharged in a single ovarian cycle.
+        meaning: KIN:KIN_011
+        title: isPolyzygoticMultipleBirthSiblingOf
+      KIN:KIN_006:
+        text: KIN:KIN_006
+        description: A relation between the woman who carried her fertilised egg in
+          her womb and gave birth to a child on behalf of the mother, and the child.
+        meaning: KIN:KIN_006
+        title: isSurrogateOvumDonorOf
+      KIN:KIN_017:
+        text: KIN:KIN_017
+        description: A relation between a person and a child of that person's child.
+        meaning: KIN:KIN_017
+        title: isGrandparentOf
+      KIN:KIN_016:
+        text: KIN:KIN_016
+        description: A relation between a person and a child of that person's father's
+          sibling.
+        meaning: KIN:KIN_016
+        title: isPaternalCousinOf
+      KIN:KIN_026:
+        text: KIN:KIN_026
+        description: A socio-legal relationship between two people who live together
+          and share a common domestic life.
+        meaning: KIN:KIN_026
+        title: isPartnerOf
+      KIN:KIN_019:
+        text: KIN:KIN_019
+        description: A social or legal relationship between two people, for example,
+          an adoptive parent.
+        meaning: KIN:KIN_019
+        title: isSocialLegalRelativeOf
+      KIN:KIN_054:
+        text: KIN:KIN_054
+        description: A relation between two people that share the same biological
+          mother.
+        meaning: KIN:KIN_054
+        title: isMaternalHalfSiblingOf
     reachable_from:
       source_ontology: http://purl.org/ga4gh/kin.owl
       source_nodes:
@@ -23621,6 +23909,35 @@ enums:
     definition_uri: https://includedcc.org/common-access-model/EnumLaterality
     description: Laterality information for the site
     from_schema: https://includedcc.org/common-access-model
+    permissible_values:
+      HP:0012832:
+        text: HP:0012832
+        description: Being present on both sides of the body.
+        meaning: HP:0012832
+        title: Bilateral
+      HP:0012833:
+        text: HP:0012833
+        description: Being present on only the left or only the right side of the
+          body.
+        meaning: HP:0012833
+        title: Unilateral
+      HP:0012834:
+        text: HP:0012834
+        description: Being located on the right side of the body.
+        meaning: HP:0012834
+        title: Right
+      HP:0012835:
+        text: HP:0012835
+        description: Being located on the left side of the body.
+        meaning: HP:0012835
+        title: Left
+      HP:4000152:
+        text: HP:4000152
+        description: Occurring on the left and right in succession. This term can
+          refer to alternating sides of the body (e.g., Alternating hemiplegia) or
+          alternative sides of the visual field (e.g., some migraine auras).
+        meaning: HP:4000152
+        title: Alternating laterality
     reachable_from:
       source_ontology: bioregistry:hp
       source_nodes:
@@ -23653,6 +23970,121 @@ enums:
       Pediatric Terminology. https://evs.nci.nih.gov/ftp1/Pediatric_Terminologies/NICHD/About.html
     title: Participant Lifespan Stage
     from_schema: https://includedcc.org/common-access-model
+    permissible_values:
+      NCIT:C176390:
+        text: NCIT:C176390
+        description: The transitional period of life between immature and mature reproductive
+          states.
+        meaning: NCIT:C176390
+        title: Peripubertal
+      NCIT:C199314:
+        text: NCIT:C199314
+        description: A time period in the human lifespan when full physical and intellectual
+          maturity have been attained, which generally follows adolescence.
+        meaning: NCIT:C199314
+        title: Adulthood
+      NCIT:C39298:
+        text: NCIT:C39298
+        description: A human life stage that begins at twelve years of age and continues
+          until twenty-one complete years of age, generally marked by the beginning
+          of puberty and lasting to the beginning of adulthood.
+        meaning: NCIT:C39298
+        title: Adolescence
+      NCIT:C89331:
+        text: NCIT:C89331
+        description: A human life stage that begins at twelve years of age and continues
+          until eighteen complete years of age. This phase marks the start of physical,
+          physiological and psychological changes that characterize pubertal growth
+          and development.
+        meaning: NCIT:C89331
+        title: Early Adolescence
+      NCIT:C89344:
+        text: NCIT:C89344
+        description: A human life stage that begins at nineteen years of age and continues
+          until twenty-one complete years of age. This phase includes the final stages
+          of pubertal growth and development as well as the attainment of significant
+          psycho-social milestones.
+        meaning: NCIT:C89344
+        title: Late Adolescence
+      NCIT:C89345:
+        text: NCIT:C89345
+        description: A time period that begins at the beginning of the human embryonic
+          stage and continues until the end of adolescence.
+        meaning: NCIT:C89345
+        title: Childhood
+      NCIT:C89346:
+        text: NCIT:C89346
+        description: A human life stage that begins at two years of age and continues
+          until five complete years of age.
+        meaning: NCIT:C89346
+        title: Early Childhood
+      NCIT:C89347:
+        text: NCIT:C89347
+        description: A human life stage that begins at six years of age and continues
+          until eleven complete years of age.
+        meaning: NCIT:C89347
+        title: Middle Childhood
+      NCIT:C89885:
+        text: NCIT:C89885
+        description: A human life stage, during prenatal development, that typically
+          begins at the beginning of nine weeks after fertilization (full formation
+          of the embryo) and continues until birth.
+        meaning: NCIT:C89885
+        title: Fetal Stage
+      NCIT:C89887:
+        text: NCIT:C89887
+        description: A human life stage that begins at full term birth and continues
+          until twenty-seven complete days of age.
+        meaning: NCIT:C89887
+        title: Full Term Neonatal Stage
+      NCIT:C89888:
+        text: NCIT:C89888
+        description: A human life stage that begins at birth prior to thirty-seven
+          weeks of full gestation (full term) and continues until twenty-seven complete
+          days after birth.
+        meaning: NCIT:C89888
+        title: Preterm Neonatal Stage
+      NCIT:C89889:
+        text: NCIT:C89889
+        description: A human life stage that begins at birth and continues until twelve
+          complete months of age.
+        meaning: NCIT:C89889
+        title: Infancy
+      NCIT:C89890:
+        text: NCIT:C89890
+        description: A human life stage that begins at thirteen months of age and
+          continues until twenty-four complete months of age.
+        meaning: NCIT:C89890
+        title: Toddler Stage
+      NCIT:C90337:
+        text: NCIT:C90337
+        description: The period of time during a female's reproductive years that
+          she functions as a mother.
+        meaning: NCIT:C90337
+        title: Maternal Life Stage
+      NCIT:C90338:
+        text: NCIT:C90338
+        description: The stage in the life of a mother after she has given birth.
+        meaning: NCIT:C90338
+        title: Maternal Postnatal Stage
+      NCIT:C90339:
+        text: NCIT:C90339
+        description: The stage in the life of a mother during which she is pregnant.
+        meaning: NCIT:C90339
+        title: Maternal Prenatal Stage
+      NCIT:C90340:
+        text: NCIT:C90340
+        description: The stage in the life of a female during which she is attempting
+          to get pregnant.
+        meaning: NCIT:C90340
+        title: Maternal Preconception Stage
+      NCIT:C99135:
+        text: NCIT:C99135
+        description: A human life stage, during prenatal development, that begins
+          at fertilization and typically continues until the end of eight weeks after
+          fertilization, with full formation of the embryo.
+        meaning: NCIT:C99135
+        title: Embryonic Stage
     reachable_from:
       source_ontology: bioregistry:ncit
       source_nodes:
@@ -23838,6 +24270,554 @@ enums:
     definition_uri: https://includedcc.org/common-access-model/EnumSampleCollectionMethod
     description: The approach used to collect the biospecimen.
     from_schema: https://includedcc.org/common-access-model
+    permissible_values:
+      snomedct:1048003:
+        text: snomedct:1048003
+        meaning: snomedct:1048003
+        title: Capillary specimen collection
+      snomedct:113031002:
+        text: snomedct:113031002
+        meaning: snomedct:113031002
+        title: Urine specimen collection, 2 hours
+      snomedct:115985003:
+        text: snomedct:115985003
+        meaning: snomedct:115985003
+        title: Sweat collection by iontophoresis procedure
+      snomedct:1202027002:
+        text: snomedct:1202027002
+        meaning: snomedct:1202027002
+        title: Collection of esophageal cells via swallowable cell collection sponge
+          in capsule (procedure)
+      snomedct:1230332003:
+        text: snomedct:1230332003
+        meaning: snomedct:1230332003
+        title: Collection of blood from umbilical cord immediately after delivery
+      snomedct:1255865009:
+        text: snomedct:1255865009
+        meaning: snomedct:1255865009
+        title: Aspiration of seminal fluid from seminal vesicle using ultrasonographic
+          guidance (procedure)
+      snomedct:1285339005:
+        text: snomedct:1285339005
+        meaning: snomedct:1285339005
+        title: Aspiration of seminal fluid from testis
+      snomedct:1359755003:
+        text: snomedct:1359755003
+        meaning: snomedct:1359755003
+        title: Taking eye swab
+      snomedct:13677008:
+        text: snomedct:13677008
+        meaning: snomedct:13677008
+        title: Urine specimen collection, closed drainage
+      snomedct:16631761000119104:
+        text: snomedct:16631761000119104
+        meaning: snomedct:16631761000119104
+        title: Collection of blood via implanted venous access device
+      snomedct:174653005:
+        text: snomedct:174653005
+        meaning: snomedct:174653005
+        title: Endoscopic retrograde pancreatography with collection of pancreatic
+          juice
+      snomedct:19867003:
+        text: snomedct:19867003
+        meaning: snomedct:19867003
+        title: Collection of sputum, Lukens tube
+      snomedct:21217000:
+        text: snomedct:21217000
+        meaning: snomedct:21217000
+        title: Collection of pinworm specimen
+      snomedct:225098009:
+        text: snomedct:225098009
+        meaning: snomedct:225098009
+        title: Collection of sample of saliva
+      snomedct:225105004:
+        text: snomedct:225105004
+        meaning: snomedct:225105004
+        title: Collection of stool specimen
+      snomedct:225109005:
+        text: snomedct:225109005
+        meaning: snomedct:225109005
+        title: Collection of nephrostomy urine specimen
+      snomedct:225110000:
+        text: snomedct:225110000
+        meaning: snomedct:225110000
+        title: Collection of ureterostomy urine specimen
+      snomedct:225111001:
+        text: snomedct:225111001
+        meaning: snomedct:225111001
+        title: Collection of early morning urine specimen
+      snomedct:225112008:
+        text: snomedct:225112008
+        meaning: snomedct:225112008
+        title: Overnight collection of urine
+      snomedct:225113003:
+        text: snomedct:225113003
+        meaning: snomedct:225113003
+        title: Timed urine collection
+      snomedct:225271002:
+        text: snomedct:225271002
+        meaning: snomedct:225271002
+        title: Collection of mid-stream specimen of urine
+      snomedct:225709000:
+        text: snomedct:225709000
+        meaning: snomedct:225709000
+        title: Taking cough swab
+      snomedct:225711009:
+        text: snomedct:225711009
+        meaning: snomedct:225711009
+        title: Collection of nasal pharyngeal aspirate
+      snomedct:225997002:
+        text: snomedct:225997002
+        meaning: snomedct:225997002
+        title: Taking wound swab
+      snomedct:23248003:
+        text: snomedct:23248003
+        meaning: snomedct:23248003
+        title: Taking swab for microbiology
+      snomedct:235488002:
+        text: snomedct:235488002
+        meaning: snomedct:235488002
+        title: Collection of pancreatic juice
+      snomedct:235569007:
+        text: snomedct:235569007
+        meaning: snomedct:235569007
+        title: Collection of bile
+      snomedct:236363003:
+        text: snomedct:236363003
+        meaning: snomedct:236363003
+        title: Semen aspiration
+      snomedct:236364009:
+        text: snomedct:236364009
+        meaning: snomedct:236364009
+        title: Micro-epididymal spermatozoa aspiration
+      snomedct:243772004:
+        text: snomedct:243772004
+        meaning: snomedct:243772004
+        title: Thumb-prick sampling
+      snomedct:243776001:
+        text: snomedct:243776001
+        meaning: snomedct:243776001
+        title: Blood sampling from extracorporeal blood circuit
+      snomedct:243777005:
+        text: snomedct:243777005
+        meaning: snomedct:243777005
+        title: Blood sampling from hemodialysis circuit (procedure)
+      snomedct:243778000:
+        text: snomedct:243778000
+        meaning: snomedct:243778000
+        title: Arterial port blood sampling during hemodialysis (procedure)
+      snomedct:243779008:
+        text: snomedct:243779008
+        meaning: snomedct:243779008
+        title: Venous port blood sampling during hemodialysis (procedure)
+      snomedct:243780006:
+        text: snomedct:243780006
+        meaning: snomedct:243780006
+        title: Blood sampling from cardiopulmonary bypass circuit
+      snomedct:243781005:
+        text: snomedct:243781005
+        meaning: snomedct:243781005
+        title: Blood sampling from ECMO circuit
+      snomedct:24469009:
+        text: snomedct:24469009
+        meaning: snomedct:24469009
+        title: Collection of routine urine specimen for laboratory
+      snomedct:2475000:
+        text: snomedct:2475000
+        meaning: snomedct:2475000
+        title: Urine specimen collection, 24 hours
+      snomedct:276907003:
+        text: snomedct:276907003
+        meaning: snomedct:276907003
+        title: Percutaneous aspiration of spermatozoa
+      snomedct:278450005:
+        text: snomedct:278450005
+        meaning: snomedct:278450005
+        title: Finger stick
+      snomedct:285570007:
+        text: snomedct:285570007
+        meaning: snomedct:285570007
+        title: Taking of swab
+      snomedct:285586000:
+        text: snomedct:285586000
+        meaning: snomedct:285586000
+        title: Taking swab for Chlamydia test
+      snomedct:285589007:
+        text: snomedct:285589007
+        meaning: snomedct:285589007
+        title: Endocervical swab
+      snomedct:301805004:
+        text: snomedct:301805004
+        meaning: snomedct:301805004
+        title: Taking high vaginal swab
+      snomedct:301874004:
+        text: snomedct:301874004
+        meaning: snomedct:301874004
+        title: Taking vaginal swab
+      snomedct:304991003:
+        text: snomedct:304991003
+        meaning: snomedct:304991003
+        title: Take mouth swab
+      snomedct:310216004:
+        text: snomedct:310216004
+        meaning: snomedct:310216004
+        title: Collection of sample from mouth
+      snomedct:310217008:
+        text: snomedct:310217008
+        meaning: snomedct:310217008
+        title: Collection of gingival crevicular fluid sample
+      snomedct:312645003:
+        text: snomedct:312645003
+        meaning: snomedct:312645003
+        title: Percutaneous epididymal aspiration of spermatozoa
+      snomedct:312855001:
+        text: snomedct:312855001
+        meaning: snomedct:312855001
+        title: Taking conjunctival swab
+      snomedct:312873003:
+        text: snomedct:312873003
+        meaning: snomedct:312873003
+        title: Taking vulval swab
+      snomedct:312874009:
+        text: snomedct:312874009
+        meaning: snomedct:312874009
+        title: Taking penile swab
+      snomedct:312875005:
+        text: snomedct:312875005
+        meaning: snomedct:312875005
+        title: Taking cervical swab
+      snomedct:312876006:
+        text: snomedct:312876006
+        meaning: snomedct:312876006
+        title: Taking urethral swab
+      snomedct:312877002:
+        text: snomedct:312877002
+        meaning: snomedct:312877002
+        title: Taking low vaginal swab
+      snomedct:312878007:
+        text: snomedct:312878007
+        meaning: snomedct:312878007
+        title: Taking postnasal swab
+      snomedct:312879004:
+        text: snomedct:312879004
+        meaning: snomedct:312879004
+        title: Taking ear swab
+      snomedct:312880001:
+        text: snomedct:312880001
+        meaning: snomedct:312880001
+        title: Taking throat swab
+      snomedct:312881002:
+        text: snomedct:312881002
+        meaning: snomedct:312881002
+        title: Taking skin swab
+      snomedct:312882009:
+        text: snomedct:312882009
+        meaning: snomedct:312882009
+        title: Taking nasal swab
+      snomedct:313273004:
+        text: snomedct:313273004
+        meaning: snomedct:313273004
+        title: Taking swab for Bordetella pertussis test
+      snomedct:313274005:
+        text: snomedct:313274005
+        meaning: snomedct:313274005
+        title: Taking swab for Respiratory syncytial virus test
+      snomedct:31507001:
+        text: snomedct:31507001
+        meaning: snomedct:31507001
+        title: Specimen collection for microbiology
+      snomedct:32564009:
+        text: snomedct:32564009
+        meaning: snomedct:32564009
+        title: Arterial specimen collection for laboratory test
+      snomedct:34532003:
+        text: snomedct:34532003
+        meaning: snomedct:34532003
+        title: Semen specimen collection
+      snomedct:37020001:
+        text: snomedct:37020001
+        meaning: snomedct:37020001
+        title: Collection of urine and strain for calculus
+      snomedct:37705003:
+        text: snomedct:37705003
+        meaning: snomedct:37705003
+        title: Collection of sputum
+      snomedct:386087005:
+        text: snomedct:386087005
+        meaning: snomedct:386087005
+        title: Collection of aspirated sputum
+      snomedct:386088000:
+        text: snomedct:386088000
+        meaning: snomedct:386088000
+        title: Collection of induced sputum
+      snomedct:386089008:
+        text: snomedct:386089008
+        meaning: snomedct:386089008
+        title: Collection of coughed sputum
+      snomedct:386099003:
+        text: snomedct:386099003
+        meaning: snomedct:386099003
+        title: Spot urine procedure
+      snomedct:390784004:
+        text: snomedct:390784004
+        meaning: snomedct:390784004
+        title: Taking endocervical swab for Chlamydia test
+      snomedct:390785003:
+        text: snomedct:390785003
+        meaning: snomedct:390785003
+        title: Taking urethral swab for Chlamydia test
+      snomedct:400993006:
+        text: snomedct:400993006
+        meaning: snomedct:400993006
+        title: Taking cervical swab for Neisseria gonorrhoeae test
+      snomedct:400994000:
+        text: snomedct:400994000
+        meaning: snomedct:400994000
+        title: Taking swab for Neisseria gonorrhoeae test
+      snomedct:401002001:
+        text: snomedct:401002001
+        meaning: snomedct:401002001
+        title: Taking urethral swab for Neisseria gonorrhoeae test
+      snomedct:40597003:
+        text: snomedct:40597003
+        meaning: snomedct:40597003
+        title: Urine specimen collection, 12 hours
+      snomedct:406173008:
+        text: snomedct:406173008
+        meaning: snomedct:406173008
+        title: 'Phlebotomy: cannulated vessel'
+      snomedct:418622002:
+        text: snomedct:418622002
+        meaning: snomedct:418622002
+        title: Taking oral swab
+      snomedct:42311007:
+        text: snomedct:42311007
+        meaning: snomedct:42311007
+        title: Radial artery puncture for laboratory test
+      snomedct:427133003:
+        text: snomedct:427133003
+        meaning: snomedct:427133003
+        title: Endoscopic retrograde cholangiopancreatography with collection of bile
+      snomedct:439599008:
+        text: snomedct:439599008
+        meaning: snomedct:439599008
+        title: Collection of specimen by device
+      snomedct:441136006:
+        text: snomedct:441136006
+        meaning: snomedct:441136006
+        title: Collection of specimen by glass slide
+      snomedct:441266008:
+        text: snomedct:441266008
+        meaning: snomedct:441266008
+        title: Specimen collection by endometrial suction curette
+      snomedct:441378005:
+        text: snomedct:441378005
+        meaning: snomedct:441378005
+        title: Collection of specimen by culture plate
+      snomedct:444171005:
+        text: snomedct:444171005
+        meaning: snomedct:444171005
+        title: Collection of biliary drainage by gravity
+      snomedct:446232000:
+        text: snomedct:446232000
+        meaning: snomedct:446232000
+        title: Collection of bile via biliary T-tube
+      snomedct:446775007:
+        text: snomedct:446775007
+        meaning: snomedct:446775007
+        title: Collection of urine via indwelling urinary catheter
+      snomedct:44733008:
+        text: snomedct:44733008
+        meaning: snomedct:44733008
+        title: Collection of string test
+      snomedct:450874000:
+        text: snomedct:450874000
+        meaning: snomedct:450874000
+        title: Collection of first stream urine specimen
+      snomedct:45240002:
+        text: snomedct:45240002
+        meaning: snomedct:45240002
+        title: Ear lobe stick
+      snomedct:472859009:
+        text: snomedct:472859009
+        meaning: snomedct:472859009
+        title: Taking anal swab for Chlamydia test
+      snomedct:472860004:
+        text: snomedct:472860004
+        meaning: snomedct:472860004
+        title: Taking anal swab for gonorrhea (procedure)
+      snomedct:472917009:
+        text: snomedct:472917009
+        meaning: snomedct:472917009
+        title: Collection of device for submission as specimen
+      snomedct:473363001:
+        text: snomedct:473363001
+        meaning: snomedct:473363001
+        title: Taking of culture from cervix
+      snomedct:50576009:
+        text: snomedct:50576009
+        meaning: snomedct:50576009
+        title: Specimen collection by drainage
+      snomedct:50753008:
+        text: snomedct:50753008
+        meaning: snomedct:50753008
+        title: Brachial artery puncture for laboratory test
+      snomedct:57617002:
+        text: snomedct:57617002
+        meaning: snomedct:57617002
+        title: Urine specimen collection
+      snomedct:58088002:
+        text: snomedct:58088002
+        meaning: snomedct:58088002
+        title: Urine specimen collection via suprapubic approach
+      snomedct:64860001:
+        text: snomedct:64860001
+        meaning: snomedct:64860001
+        title: Collection of sweat test
+      snomedct:66904006:
+        text: snomedct:66904006
+        meaning: snomedct:66904006
+        title: Collection of expired gas, quantitative
+      snomedct:698007008:
+        text: snomedct:698007008
+        meaning: snomedct:698007008
+        title: Collection of early morning mid stream specimen of urine by clean catch
+      snomedct:698086002:
+        text: snomedct:698086002
+        meaning: snomedct:698086002
+        title: Collection of urine via pediatric urine collection bag (procedure)
+      snomedct:698087006:
+        text: snomedct:698087006
+        meaning: snomedct:698087006
+        title: Collection of urine via indwelling suprapubic catheter
+      snomedct:699873000:
+        text: snomedct:699873000
+        meaning: snomedct:699873000
+        title: Collection of blood via arterial catheter
+      snomedct:70347009:
+        text: snomedct:70347009
+        meaning: snomedct:70347009
+        title: Collection of specimen for culture by laboratory
+      snomedct:705084002:
+        text: snomedct:705084002
+        meaning: snomedct:705084002
+        title: Collection of fluid specimen via closed suction drain
+      snomedct:705156009:
+        text: snomedct:705156009
+        meaning: snomedct:705156009
+        title: Collection of urine via straight catheter
+      snomedct:705172001:
+        text: snomedct:705172001
+        meaning: snomedct:705172001
+        title: Collection of cystostomy tube urine specimen
+      snomedct:707982002:
+        text: snomedct:707982002
+        meaning: snomedct:707982002
+        title: Taking throat swab for Chlamydia test
+      snomedct:707983007:
+        text: snomedct:707983007
+        meaning: snomedct:707983007
+        title: Taking throat swab for gonorrhea (procedure)
+      snomedct:708015008:
+        text: snomedct:708015008
+        meaning: snomedct:708015008
+        title: Plucking of hair for microscopy and culture
+      snomedct:709500005:
+        text: snomedct:709500005
+        meaning: snomedct:709500005
+        title: Collection of specimen by cough culture plate
+      snomedct:71197008:
+        text: snomedct:71197008
+        meaning: snomedct:71197008
+        title: Femoral artery puncture for laboratory test
+      snomedct:713143008:
+        text: snomedct:713143008
+        meaning: snomedct:713143008
+        title: Collection of arterial blood specimen
+      snomedct:720450003:
+        text: snomedct:720450003
+        meaning: snomedct:720450003
+        title: Preoperative urine specimen collection
+      snomedct:722501003:
+        text: snomedct:722501003
+        meaning: snomedct:722501003
+        title: Postoperative urine specimen collection
+      snomedct:732218007:
+        text: snomedct:732218007
+        meaning: snomedct:732218007
+        title: Urine specimen collection, 8 hours
+      snomedct:732221009:
+        text: snomedct:732221009
+        meaning: snomedct:732221009
+        title: Urine specimen collection, 48 hours
+      snomedct:732223007:
+        text: snomedct:732223007
+        meaning: snomedct:732223007
+        title: Urine specimen collection, 72 hours
+      snomedct:732224001:
+        text: snomedct:732224001
+        meaning: snomedct:732224001
+        title: Timed stool collection
+      snomedct:732228003:
+        text: snomedct:732228003
+        meaning: snomedct:732228003
+        title: Stool specimen collection, 24 hours
+      snomedct:732292007:
+        text: snomedct:732292007
+        meaning: snomedct:732292007
+        title: Stool specimen collection, 48 hours
+      snomedct:733478009:
+        text: snomedct:733478009
+        meaning: snomedct:733478009
+        title: Collection of specimen by adhesive slide
+      snomedct:733481004:
+        text: snomedct:733481004
+        meaning: snomedct:733481004
+        title: Collection of second void urine specimen
+      snomedct:73416001:
+        text: snomedct:73416001
+        meaning: snomedct:73416001
+        title: Urine specimen collection, clean catch
+      snomedct:738796001:
+        text: snomedct:738796001
+        meaning: snomedct:738796001
+        title: Collection of dried blood spot specimen
+      snomedct:764928002:
+        text: snomedct:764928002
+        meaning: snomedct:764928002
+        title: Collection of fluid specimen
+      snomedct:764929005:
+        text: snomedct:764929005
+        meaning: snomedct:764929005
+        title: Collection of exhaled breath specimen
+      snomedct:768966009:
+        text: snomedct:768966009
+        meaning: snomedct:768966009
+        title: Collection of device tip
+      snomedct:769401004:
+        text: snomedct:769401004
+        meaning: snomedct:769401004
+        title: Collection of body fluid from surgical drain
+      snomedct:77262006:
+        text: snomedct:77262006
+        meaning: snomedct:77262006
+        title: Heel stick
+      snomedct:82078001:
+        text: snomedct:82078001
+        meaning: snomedct:82078001
+        title: Collection of blood specimen for laboratory
+      snomedct:83917009:
+        text: snomedct:83917009
+        meaning: snomedct:83917009
+        title: Specimen collection for microbiology, anaerobic
+      snomedct:840566006:
+        text: snomedct:840566006
+        meaning: snomedct:840566006
+        title: Specimen collection for biobank
+      snomedct:86326008:
+        text: snomedct:86326008
+        meaning: snomedct:86326008
+        title: Collection of sweat test, pediatric overnight (procedure)
     reachable_from:
       source_ontology: bioregistry:snomedct
       source_nodes:
@@ -23862,19 +24842,25 @@ enums:
         title: Male
         aliases:
         - male
-  EnumSite:
-    name: EnumSite
-    definition_uri: https://includedcc.org/common-access-model/EnumSite
-    description: The location of the specimen collection.
+  EnumSiteExamples:
+    name: EnumSiteExamples
+    definition_uri: https://includedcc.org/common-access-model/EnumSiteExamples
+    description: Example locations of specimen collection. Full list of options can
+      be found below snomedct:442083009 .
     from_schema: https://includedcc.org/common-access-model
-    reachable_from:
-      source_ontology: bioregistry:snomedct
-      source_nodes:
-      - snomedct:442083009
-      relationship_types:
-      - rdfs:subClassOf
-      is_direct: false
-      include_self: false
+    permissible_values:
+      snomedct:78277001:
+        text: snomedct:78277001
+        meaning: snomedct:78277001
+        title: Temporal lobe structure
+      snomedct:5798000:
+        text: snomedct:5798000
+        meaning: snomedct:5798000
+        title: Diaphragm structure
+      snomedct:71341001:
+        text: snomedct:71341001
+        meaning: snomedct:71341001
+        title: Bone structure of femur
   EnumSpatialQualifiers:
     name: EnumSpatialQualifiers
     definition_uri: https://includedcc.org/common-access-model/EnumSpatialQualifiers
@@ -27694,6 +28680,7 @@ slots:
     domain_of:
     - VirtualBiorepository
     - Investigator
+    - Vocabulary
     - EncounterDefinition
     - ActivityDefinition
     - Dataset
@@ -28289,9 +29276,12 @@ slots:
     title: Concept Curie
     from_schema: https://includedcc.org/common-access-model
     slot_uri: cam:concept_curie
-    owner: Concept
+    owner: ConceptRelationship
     domain_of:
     - Concept
+    - Synonym
+    - DeprecatedConcept
+    - ConceptRelationship
     range: uriorcurie
   display:
     name: display
@@ -28300,10 +29290,186 @@ slots:
     title: Display String
     from_schema: https://includedcc.org/common-access-model
     slot_uri: cam:display
+    owner: Synonym
+    domain_of:
+    - Concept
+    - Synonym
+    range: string
+  display_type:
+    name: display_type
+    definition_uri: https://includedcc.org/common-access-model/display_type
+    description: The type of display name, eg, "Preferred".
+    title: Display Type
+    from_schema: https://includedcc.org/common-access-model
+    slot_uri: cam:display_type
+    owner: Synonym
+    domain_of:
+    - Synonym
+    range: string
+  deprecation_type:
+    name: deprecation_type
+    definition_uri: https://includedcc.org/common-access-model/deprecation_type
+    description: The type of or reason for deprecation, if known.
+    title: Deprecation Type
+    from_schema: https://includedcc.org/common-access-model
+    slot_uri: cam:deprecation_type
+    owner: DeprecatedConcept
+    domain_of:
+    - DeprecatedConcept
+    range: string
+  replacement_curie:
+    name: replacement_curie
+    definition_uri: https://includedcc.org/common-access-model/replacement_curie
+    description: A replacement curie for this deprecated concept, if applicable.
+    title: Replacement CURIE
+    from_schema: https://includedcc.org/common-access-model
+    slot_uri: cam:replacement_curie
+    owner: DeprecatedConcept
+    domain_of:
+    - DeprecatedConcept
+    range: string
+  language:
+    name: language
+    definition_uri: https://includedcc.org/common-access-model/language
+    description: The ISO 639 language code of this entity.
+    title: Language
+    from_schema: https://includedcc.org/common-access-model
+    slot_uri: cam:language
+    owner: Synonym
+    domain_of:
+    - Synonym
+    range: string
+  concept_code:
+    name: concept_code
+    definition_uri: https://includedcc.org/common-access-model/concept_code
+    description: Identifier as it is defined within the ontology
+    title: Concept Code
+    from_schema: https://includedcc.org/common-access-model
+    slot_uri: cam:concept_code
     owner: Concept
     domain_of:
     - Concept
     range: string
+    required: true
+  concept_id:
+    name: concept_id
+    definition_uri: https://includedcc.org/common-access-model/concept_id
+    description: The OMOP Concept ID for the term, if applicable
+    title: OMOP Concept ID
+    from_schema: https://includedcc.org/common-access-model
+    slot_uri: cam:concept_id
+    owner: Concept
+    domain_of:
+    - Concept
+    range: integer
+  definition:
+    name: definition
+    definition_uri: https://includedcc.org/common-access-model/definition
+    description: Detailed definition or description for the term
+    title: Definition
+    from_schema: https://includedcc.org/common-access-model
+    slot_uri: cam:definition
+    owner: Concept
+    domain_of:
+    - Concept
+    range: string
+  vocabulary_id:
+    name: vocabulary_id
+    definition_uri: https://includedcc.org/common-access-model/vocabulary_id
+    description: The OMOP Vocabulary ID associated with the vocabulary, if applicable
+    title: OMOP Vocabulary ID
+    from_schema: https://includedcc.org/common-access-model
+    slot_uri: cam:vocabulary_id
+    owner: Vocabulary
+    domain_of:
+    - Vocabulary
+    range: string
+  vocabulary_uri:
+    name: vocabulary_uri
+    definition_uri: https://includedcc.org/common-access-model/vocabulary_uri
+    description: Official URI associated with the vocabulary
+    title: Vocabulary URI
+    from_schema: https://includedcc.org/common-access-model
+    slot_uri: cam:vocabulary_uri
+    owner: Vocabulary
+    domain_of:
+    - Vocabulary
+    range: uri
+    required: true
+  fhir_system:
+    name: fhir_system
+    definition_uri: https://includedcc.org/common-access-model/fhir_system
+    description: System used within FHIR valuesets and codings
+    title: FHIR System
+    from_schema: https://includedcc.org/common-access-model
+    slot_uri: cam:fhir_system
+    owner: Vocabulary
+    domain_of:
+    - Vocabulary
+    range: uri
+    required: true
+  vocabulary_prefix:
+    name: vocabulary_prefix
+    definition_uri: https://includedcc.org/common-access-model/vocabulary_prefix
+    description: The authoritative namespace prefix allocated to the vocabulary. Used
+      to resolve compact identifiers (CURIEs) to their full semantic URIs or FHIR
+      system URLs.
+    title: Canonical Curie Prefix
+    from_schema: https://includedcc.org/common-access-model
+    slot_uri: cam:vocabulary_prefix
+    owner: Vocabulary
+    domain_of:
+    - Concept
+    - Vocabulary
+    range: Vocabulary
+  version:
+    name: version
+    definition_uri: https://includedcc.org/common-access-model/version
+    description: Version associated with the current vocabulary content
+    title: Version
+    from_schema: https://includedcc.org/common-access-model
+    slot_uri: cam:version
+    owner: Vocabulary
+    domain_of:
+    - Vocabulary
+    range: string
+  vocabulary_source:
+    name: vocabulary_source
+    definition_uri: https://includedcc.org/common-access-model/vocabulary_source
+    description: Source used for accessing the vocabulary's content
+    title: Vocabulary data source
+    comments:
+    - This is currently poorly defined because we haven't fully defined the nature
+      of the data pulls. Most likely it will end up as a filename (.owl, .obo, etc)
+      or another tool, etc
+    from_schema: https://includedcc.org/common-access-model
+    slot_uri: cam:vocabulary_source
+    owner: Vocabulary
+    domain_of:
+    - Vocabulary
+    range: string
+  target_concept_curie:
+    name: target_concept_curie
+    definition_uri: https://includedcc.org/common-access-model/target_concept_curie
+    description: The concept to which this term relates
+    title: Target Concept ID
+    from_schema: https://includedcc.org/common-access-model
+    slot_uri: cam:target_concept_curie
+    owner: ConceptRelationship
+    domain_of:
+    - ConceptRelationship
+    range: Concept
+  relationship_curie:
+    name: relationship_curie
+    definition_uri: https://includedcc.org/common-access-model/relationship_curie
+    description: The relationship between the subject (this term) and the object (target_concept_id).
+    title: Mapping Relationship
+    from_schema: https://includedcc.org/common-access-model
+    slot_uri: cam:relationship_curie
+    owner: ConceptRelationship
+    domain_of:
+    - ConceptRelationship
+    range: uriorcurie
   concept_source:
     name: concept_source
     definition_uri: https://includedcc.org/common-access-model/concept_source
@@ -28556,7 +29722,7 @@ slots:
     range: Concept
     any_of:
     - range: Concept
-    - range: EnumSite
+    - range: EnumSiteExamples
   spatial_qualifier:
     name: spatial_qualifier
     definition_uri: https://includedcc.org/common-access-model/spatial_qualifier
@@ -28609,6 +29775,7 @@ slots:
     slot_uri: cam:description
     owner: Dataset
     domain_of:
+    - Vocabulary
     - EncounterDefinition
     - ActivityDefinition
     - Dataset
@@ -28775,7 +29942,7 @@ slots:
     owner: File
     domain_of:
     - File
-    range: FileHash
+    range: HashDigest
     multivalued: true
     inlined: true
     inlined_as_list: true
@@ -28786,9 +29953,9 @@ slots:
     title: File Hash Type
     from_schema: https://includedcc.org/common-access-model
     slot_uri: cam:hash_type
-    owner: FileHash
+    owner: HashDigest
     domain_of:
-    - FileHash
+    - HashDigest
     range: EnumFileHashType
   hash_value:
     name: hash_value
@@ -28797,9 +29964,9 @@ slots:
     title: File Hash Value
     from_schema: https://includedcc.org/common-access-model
     slot_uri: cam:hash_value
-    owner: FileHash
+    owner: HashDigest
     domain_of:
-    - FileHash
+    - HashDigest
     range: string
   assay_id:
     name: assay_id
@@ -29169,6 +30336,34 @@ slots:
     usage_slot_name: concept_curie
     range: uriorcurie
     required: true
+  Vocabulary_vocabulary_prefix:
+    name: Vocabulary_vocabulary_prefix
+    definition_uri: https://includedcc.org/common-access-model/vocabulary_prefix
+    description: The authoritative namespace prefix allocated to the vocabulary. Used
+      to resolve compact identifiers (CURIEs) to their full semantic URIs or FHIR
+      system URLs.
+    title: Canonical Curie Prefix
+    todos:
+    - Ensure that MapDragon and TermWeaver both rely on the same rules for prefixes
+    comments:
+    - Must start with a letter; thereafter allows letters, digits, underscores, hyphens,
+      and dots to accommodate OLS/UMLS source variability.
+    - 'RISK: In order for all of our data to correctly join, the format of the prefix
+      must always align with the prefix used in this table.'
+    from_schema: https://includedcc.org/common-access-model
+    is_a: vocabulary_prefix
+    domain: Vocabulary
+    slot_uri: cam:vocabulary_prefix
+    identifier: true
+    alias: vocabulary_prefix
+    owner: Vocabulary
+    domain_of:
+    - Vocabulary
+    is_usage_slot: true
+    usage_slot_name: vocabulary_prefix
+    range: string
+    required: true
+    pattern: ^[A-Za-z][A-Za-z0-9_\-\.]*$
   Sample_sample_id:
     name: Sample_sample_id
     definition_uri: https://includedcc.org/common-access-model/sample_id
@@ -29845,13 +31040,79 @@ classes:
     from_schema: https://includedcc.org/common-access-model
     slots:
     - Concept_concept_curie
+    - concept_id
+    - vocabulary_prefix
+    - concept_code
     - display
+    - definition
     slot_usage:
       concept_curie:
         name: concept_curie
         identifier: true
+        range: uriorcurie
         required: true
     class_uri: cam:Concept
+  Synonym:
+    name: Synonym
+    definition_uri: https://includedcc.org/common-access-model/Synonym
+    description: Alternate display names for concepts.
+    title: Concept Synonym
+    from_schema: https://includedcc.org/common-access-model
+    slots:
+    - concept_curie
+    - display
+    - display_type
+    - language
+    class_uri: cam:Synonym
+  DeprecatedConcept:
+    name: DeprecatedConcept
+    definition_uri: https://includedcc.org/common-access-model/DeprecatedConcept
+    description: Identifies concepts that are not currently valid.
+    title: Deprecated Concept
+    from_schema: https://includedcc.org/common-access-model
+    slots:
+    - concept_curie
+    - deprecation_type
+    - replacement_curie
+    class_uri: cam:DeprecatedConcept
+  Vocabulary:
+    name: Vocabulary
+    definition_uri: https://includedcc.org/common-access-model/Vocabulary
+    description: Flat table containing each of the ontologies used for dataset annotations
+    from_schema: https://includedcc.org/common-access-model
+    slots:
+    - Vocabulary_vocabulary_prefix
+    - name
+    - vocabulary_uri
+    - vocabulary_id
+    - fhir_system
+    - description
+    - version
+    - vocabulary_source
+    slot_usage:
+      vocabulary_prefix:
+        name: vocabulary_prefix
+        todos:
+        - Ensure that MapDragon and TermWeaver both rely on the same rules for prefixes
+        comments:
+        - Must start with a letter; thereafter allows letters, digits, underscores,
+          hyphens, and dots to accommodate OLS/UMLS source variability.
+        - 'RISK: In order for all of our data to correctly join, the format of the
+          prefix must always align with the prefix used in this table.'
+        identifier: true
+        range: string
+        pattern: ^[A-Za-z][A-Za-z0-9_\-\.]*$
+    class_uri: cam:Vocabulary
+  ConceptRelationship:
+    name: ConceptRelationship
+    definition_uri: https://includedcc.org/common-access-model/ConceptRelationship
+    description: Relationships between two terms.
+    from_schema: https://includedcc.org/common-access-model
+    slots:
+    - concept_curie
+    - target_concept_curie
+    - relationship_curie
+    class_uri: cam:ConceptRelationship
   Sample:
     name: Sample
     definition_uri: https://includedcc.org/common-access-model/Sample
@@ -30053,16 +31314,16 @@ classes:
         name: sample_id
         multivalued: true
     class_uri: cam:File
-  FileHash:
-    name: FileHash
-    definition_uri: https://includedcc.org/common-access-model/FileHash
+  HashDigest:
+    name: HashDigest
+    definition_uri: https://includedcc.org/common-access-model/HashDigest
     description: Type and value of a file content hash.
-    title: File Hash
+    title: Hash Digest
     from_schema: https://includedcc.org/common-access-model
     slots:
     - hash_type
     - hash_value
-    class_uri: cam:FileHash
+    class_uri: cam:HashDigest
   Assay:
     name: Assay
     definition_uri: https://includedcc.org/common-access-model/Assay
@@ -30129,7 +31390,7 @@ classes:
     class_uri: cam:Dataset
 metamodel_version: 1.11.0
 source_file: acr_harmonized_data_model.yaml
-source_file_date: '2026-09-23T21:20:59'
+source_file_date: '2026-09-25T21:25:42'
 source_file_size: 2447
-generation_date: '2026-09-23T21:21:09'
+generation_date: '2026-09-25T21:25:51'
 

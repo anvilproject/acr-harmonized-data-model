@@ -615,12 +615,20 @@
 <td>A standardized concept with display information</td>
 </tr>
 <tr>
+<td><a href="ConceptRelationship/">ConceptRelationship</a></td>
+<td>Relationships between two terms</td>
+</tr>
+<tr>
 <td><a href="Dataset/">Dataset</a></td>
 <td>Set of files grouped together for release</td>
 </tr>
 <tr>
 <td><a href="Demographics/">Demographics</a></td>
 <td>Basic participant demographics summary</td>
+</tr>
+<tr>
+<td><a href="DeprecatedConcept/">DeprecatedConcept</a></td>
+<td>Identifies concepts that are not currently valid</td>
 </tr>
 <tr>
 <td><a href="DOI/">DOI</a></td>
@@ -651,7 +659,7 @@
 <td>File</td>
 </tr>
 <tr>
-<td><a href="FileHash/">FileHash</a></td>
+<td><a href="HashDigest/">HashDigest</a></td>
 <td>Type and value of a file content hash</td>
 </tr>
 <tr>
@@ -687,8 +695,16 @@
 <td>Assertion about a particular Subject</td>
 </tr>
 <tr>
+<td><a href="Synonym/">Synonym</a></td>
+<td>Alternate display names for concepts</td>
+</tr>
+<tr>
 <td><a href="VirtualBiorepository/">VirtualBiorepository</a></td>
 <td>An organization that can provide access to specimen for further analysis</td>
+</tr>
+<tr>
+<td><a href="Vocabulary/">Vocabulary</a></td>
+<td>Flat table containing each of the ontologies used for dataset annotations</td>
 </tr>
 </tbody>
 </table>
@@ -810,8 +826,16 @@
 <td>The structured term defining the meaning of the assertion</td>
 </tr>
 <tr>
+<td><a href="concept_code/">concept_code</a></td>
+<td>Identifier as it is defined within the ontology</td>
+</tr>
+<tr>
 <td><a href="concept_curie/">concept_curie</a></td>
 <td>The standardized curie for the term</td>
+</tr>
+<tr>
+<td><a href="concept_id/">concept_id</a></td>
+<td>The OMOP Concept ID for the term, if applicable</td>
 </tr>
 <tr>
 <td><a href="concept_source/">concept_source</a></td>
@@ -858,6 +882,14 @@
 <td>Unique identifier for a Dataset</td>
 </tr>
 <tr>
+<td><a href="definition/">definition</a></td>
+<td>Detailed definition or description for the term</td>
+</tr>
+<tr>
+<td><a href="deprecation_type/">deprecation_type</a></td>
+<td>The type of or reason for deprecation, if known</td>
+</tr>
+<tr>
 <td><a href="description/">description</a></td>
 <td>Description for this entity</td>
 </tr>
@@ -868,6 +900,10 @@
 <tr>
 <td><a href="display/">display</a></td>
 <td>The friendly display string of the coded term</td>
+</tr>
+<tr>
+<td><a href="display_type/">display_type</a></td>
+<td>The type of display name, eg, "Preferred"</td>
 </tr>
 <tr>
 <td><a href="do_id/">do_id</a></td>
@@ -934,6 +970,10 @@
 <td>Describes the 'type' of study family, eg, trio</td>
 </tr>
 <tr>
+<td><a href="fhir_system/">fhir_system</a></td>
+<td>System used within FHIR valuesets and codings</td>
+</tr>
+<tr>
 <td><a href="file_extension/">file_extension</a></td>
 <td>Typically a 3-4 letter code at the end of a filename that identifies the file...</td>
 </tr>
@@ -976,6 +1016,10 @@
 <tr>
 <td><a href="investigator_title/">investigator_title</a></td>
 <td>The title of the Investigator, eg, "Assistant Professor"</td>
+</tr>
+<tr>
+<td><a href="language/">language</a></td>
+<td>The ISO 639 language code of this entity</td>
 </tr>
 <tr>
 <td><a href="laterality/">laterality</a></td>
@@ -1038,8 +1082,16 @@
 <td>Code definting the relationship predicate</td>
 </tr>
 <tr>
+<td><a href="relationship_curie/">relationship_curie</a></td>
+<td>The relationship between the subject (this term) and the object (target_conce...</td>
+</tr>
+<tr>
 <td><a href="release_uri/">release_uri</a></td>
 <td>URI/URL for controlled or open access to the data</td>
+</tr>
+<tr>
+<td><a href="replacement_curie/">replacement_curie</a></td>
+<td>A replacement curie for this deprecated concept, if applicable</td>
 </tr>
 <tr>
 <td><a href="research_domain/">research_domain</a></td>
@@ -1114,6 +1166,10 @@
 <td>Type of entity this record represents</td>
 </tr>
 <tr>
+<td><a href="target_concept_curie/">target_concept_curie</a></td>
+<td>The concept to which this term relates</td>
+</tr>
+<tr>
 <td><a href="value_concept/">value_concept</a></td>
 <td>The structured term defining the value of the assertion</td>
 </tr>
@@ -1142,8 +1198,28 @@
 <td>Instructions for contacting or requesting samples from Virtual Biorepository,...</td>
 </tr>
 <tr>
+<td><a href="version/">version</a></td>
+<td>Version associated with the current vocabulary content</td>
+</tr>
+<tr>
 <td><a href="vital_status/">vital_status</a></td>
 <td>Whether participant is alive or dead</td>
+</tr>
+<tr>
+<td><a href="vocabulary_id/">vocabulary_id</a></td>
+<td>The OMOP Vocabulary ID associated with the vocabulary, if applicable</td>
+</tr>
+<tr>
+<td><a href="vocabulary_prefix/">vocabulary_prefix</a></td>
+<td>The authoritative namespace prefix allocated to the vocabulary</td>
+</tr>
+<tr>
+<td><a href="vocabulary_source/">vocabulary_source</a></td>
+<td>Source used for accessing the vocabulary's content</td>
+</tr>
+<tr>
+<td><a href="vocabulary_uri/">vocabulary_uri</a></td>
+<td>Official URI associated with the vocabulary</td>
 </tr>
 <tr>
 <td><a href="website/">website</a></td>
@@ -1253,8 +1329,8 @@
 <td>Subject Sex</td>
 </tr>
 <tr>
-<td><a href="EnumSite/">EnumSite</a></td>
-<td>The location of the specimen collection</td>
+<td><a href="EnumSiteExamples/">EnumSiteExamples</a></td>
+<td>Example locations of specimen collection</td>
 </tr>
 <tr>
 <td><a href="EnumSpatialQualifiers/">EnumSpatialQualifiers</a></td>
