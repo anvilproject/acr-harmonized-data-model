@@ -1,0 +1,1981 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://anvilproject.github.io/acr-harmonized-data-model/elements/EnumSampleCollectionMethod/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Enum: EnumSampleCollectionMethod - acr-harmonized-data-model</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+
+      
+    
+<script src="../../assets/pymdownx-extras/material-extra-theme-2ek1P7jT.js" type="text/javascript"></script>
+<script src="../../assets/pymdownx-extras/material-extra-3rdparty-BUCF4rjN.js" type="text/javascript"></script>
+
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../../css/jupyter-cells.css">
+    
+      <link rel="stylesheet" href="../../css/pandas-dataframe.css">
+    
+      <link rel="stylesheet" href="../../assets/pymdownx-extras/extra-c6ab11540a.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#enum-enumsamplecollectionmethod" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+
+<header class="md-header" data-md-component="header">
+  <nav
+    class="md-header__inner md-grid"
+    aria-label="header.title"
+  >
+    <a
+      href="https://anvilproject.github.io/acr-harmonized-data-model/"
+      title="acr-harmonized-data-model"
+      class="md-header__button md-logo"
+      aria-label="acr-harmonized-data-model"
+    >
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            acr-harmonized-data-model
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Enum: EnumSampleCollectionMethod
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      <div class="md-header-nav__scheme md-header-nav__button md-source__icon md-icon">
+          <a
+            href="javascript:toggleScheme();"
+            title="Light mode"
+            class="light-mode"
+          >
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+          </a>
+          <a
+            href="javascript:toggleScheme();"
+            title="Dark mode"
+            class="dark-mode"
+          >
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+          </a>
+          <a
+            href="javascript:toggleScheme();"
+            title="System preference"
+            class="system-mode"
+          >
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07zm-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13zm-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87zM19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35zm4.33-2.7 1.15-2.77 2.2 2.54zm1.15-4.96-1.14-2.78 3.34.24zM9.63 18.93l2.77 1.15-2.53 2.19z"/></svg>
+          </a>
+           <a
+            href="javascript:toggleScheme();"
+            title="Unknown scheme"
+            class="unknown-mode"
+          >
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m15.07 11.25-.9.92C13.45 12.89 13 13.5 13 15h-2v-.5c0-1.11.45-2.11 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41a2 2 0 0 0-2-2 2 2 0 0 0-2 2H8a4 4 0 0 1 4-4 4 4 0 0 1 4 4 3.2 3.2 0 0 1-.93 2.25M13 19h-2v-2h2M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10c0-5.53-4.5-10-10-10"/></svg>
+          </a>
+      </div>
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/anvilproject/acr-harmonized-data-model" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="acr-harmonized-data-model" class="md-nav__button md-logo" aria-label="acr-harmonized-data-model" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+    </a>
+    acr-harmonized-data-model
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/anvilproject/acr-harmonized-data-model" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dbt_artifacts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dbt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#enumeration-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enumeration Source
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#permissible-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permissible Values
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Slots
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identifier-and-mapping-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identifier and Mapping Information
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Identifier and Mapping Information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schema-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schema Source
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linkml-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LinkML Source
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+
+  
+  
+
+
+<h1 id="enum-enumsamplecollectionmethod">Enum: EnumSampleCollectionMethod</h1>
+<p><em>The approach used to collect the biospecimen.</em></p>
+<div>
+<p>URI: <a href="https://w3id.org/anvilproject/acr-harmonized-data-model/EnumSampleCollectionMethod">acr_harmonized_data_model:EnumSampleCollectionMethod</a></p>
+<h2 id="enumeration-source">Enumeration Source</h2>
+<p><strong>Reachable From:</strong>
+- <strong>Source:</strong> NONE
+- <strong>Nodes:</strong> snomedct:17636008
+- <strong>Via:</strong> rdfs:subClassOf</p>
+<h2 id="permissible-values">Permissible Values</h2>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+<th>Description</th>
+<th>Additional Info</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>snomedct:1048003</td>
+<td>snomedct:1048003</td>
+<td></td>
+<td>Title: Capillary specimen collection<br></td>
+</tr>
+<tr>
+<td>snomedct:113031002</td>
+<td>snomedct:113031002</td>
+<td></td>
+<td>Title: Urine specimen collection, 2 hours<br></td>
+</tr>
+<tr>
+<td>snomedct:115985003</td>
+<td>snomedct:115985003</td>
+<td></td>
+<td>Title: Sweat collection by iontophoresis procedure<br></td>
+</tr>
+<tr>
+<td>snomedct:1202027002</td>
+<td>snomedct:1202027002</td>
+<td></td>
+<td>Title: Collection of esophageal cells via swallowable cell collection sponge in capsule (procedure)<br></td>
+</tr>
+<tr>
+<td>snomedct:1230332003</td>
+<td>snomedct:1230332003</td>
+<td></td>
+<td>Title: Collection of blood from umbilical cord immediately after delivery<br></td>
+</tr>
+<tr>
+<td>snomedct:1255865009</td>
+<td>snomedct:1255865009</td>
+<td></td>
+<td>Title: Aspiration of seminal fluid from seminal vesicle using ultrasonographic guidance (procedure)<br></td>
+</tr>
+<tr>
+<td>snomedct:1285339005</td>
+<td>snomedct:1285339005</td>
+<td></td>
+<td>Title: Aspiration of seminal fluid from testis<br></td>
+</tr>
+<tr>
+<td>snomedct:1359755003</td>
+<td>snomedct:1359755003</td>
+<td></td>
+<td>Title: Taking eye swab<br></td>
+</tr>
+<tr>
+<td>snomedct:13677008</td>
+<td>snomedct:13677008</td>
+<td></td>
+<td>Title: Urine specimen collection, closed drainage<br></td>
+</tr>
+<tr>
+<td>snomedct:16631761000119104</td>
+<td>snomedct:16631761000119104</td>
+<td></td>
+<td>Title: Collection of blood via implanted venous access device<br></td>
+</tr>
+<tr>
+<td>snomedct:174653005</td>
+<td>snomedct:174653005</td>
+<td></td>
+<td>Title: Endoscopic retrograde pancreatography with collection of pancreatic juice<br></td>
+</tr>
+<tr>
+<td>snomedct:19867003</td>
+<td>snomedct:19867003</td>
+<td></td>
+<td>Title: Collection of sputum, Lukens tube<br></td>
+</tr>
+<tr>
+<td>snomedct:21217000</td>
+<td>snomedct:21217000</td>
+<td></td>
+<td>Title: Collection of pinworm specimen<br></td>
+</tr>
+<tr>
+<td>snomedct:225098009</td>
+<td>snomedct:225098009</td>
+<td></td>
+<td>Title: Collection of sample of saliva<br></td>
+</tr>
+<tr>
+<td>snomedct:225105004</td>
+<td>snomedct:225105004</td>
+<td></td>
+<td>Title: Collection of stool specimen<br></td>
+</tr>
+<tr>
+<td>snomedct:225109005</td>
+<td>snomedct:225109005</td>
+<td></td>
+<td>Title: Collection of nephrostomy urine specimen<br></td>
+</tr>
+<tr>
+<td>snomedct:225110000</td>
+<td>snomedct:225110000</td>
+<td></td>
+<td>Title: Collection of ureterostomy urine specimen<br></td>
+</tr>
+<tr>
+<td>snomedct:225111001</td>
+<td>snomedct:225111001</td>
+<td></td>
+<td>Title: Collection of early morning urine specimen<br></td>
+</tr>
+<tr>
+<td>snomedct:225112008</td>
+<td>snomedct:225112008</td>
+<td></td>
+<td>Title: Overnight collection of urine<br></td>
+</tr>
+<tr>
+<td>snomedct:225113003</td>
+<td>snomedct:225113003</td>
+<td></td>
+<td>Title: Timed urine collection<br></td>
+</tr>
+<tr>
+<td>snomedct:225271002</td>
+<td>snomedct:225271002</td>
+<td></td>
+<td>Title: Collection of mid-stream specimen of urine<br></td>
+</tr>
+<tr>
+<td>snomedct:225709000</td>
+<td>snomedct:225709000</td>
+<td></td>
+<td>Title: Taking cough swab<br></td>
+</tr>
+<tr>
+<td>snomedct:225711009</td>
+<td>snomedct:225711009</td>
+<td></td>
+<td>Title: Collection of nasal pharyngeal aspirate<br></td>
+</tr>
+<tr>
+<td>snomedct:225997002</td>
+<td>snomedct:225997002</td>
+<td></td>
+<td>Title: Taking wound swab<br></td>
+</tr>
+<tr>
+<td>snomedct:23248003</td>
+<td>snomedct:23248003</td>
+<td></td>
+<td>Title: Taking swab for microbiology<br></td>
+</tr>
+<tr>
+<td>snomedct:235488002</td>
+<td>snomedct:235488002</td>
+<td></td>
+<td>Title: Collection of pancreatic juice<br></td>
+</tr>
+<tr>
+<td>snomedct:235569007</td>
+<td>snomedct:235569007</td>
+<td></td>
+<td>Title: Collection of bile<br></td>
+</tr>
+<tr>
+<td>snomedct:236363003</td>
+<td>snomedct:236363003</td>
+<td></td>
+<td>Title: Semen aspiration<br></td>
+</tr>
+<tr>
+<td>snomedct:236364009</td>
+<td>snomedct:236364009</td>
+<td></td>
+<td>Title: Micro-epididymal spermatozoa aspiration<br></td>
+</tr>
+<tr>
+<td>snomedct:243772004</td>
+<td>snomedct:243772004</td>
+<td></td>
+<td>Title: Thumb-prick sampling<br></td>
+</tr>
+<tr>
+<td>snomedct:243776001</td>
+<td>snomedct:243776001</td>
+<td></td>
+<td>Title: Blood sampling from extracorporeal blood circuit<br></td>
+</tr>
+<tr>
+<td>snomedct:243777005</td>
+<td>snomedct:243777005</td>
+<td></td>
+<td>Title: Blood sampling from hemodialysis circuit (procedure)<br></td>
+</tr>
+<tr>
+<td>snomedct:243778000</td>
+<td>snomedct:243778000</td>
+<td></td>
+<td>Title: Arterial port blood sampling during hemodialysis (procedure)<br></td>
+</tr>
+<tr>
+<td>snomedct:243779008</td>
+<td>snomedct:243779008</td>
+<td></td>
+<td>Title: Venous port blood sampling during hemodialysis (procedure)<br></td>
+</tr>
+<tr>
+<td>snomedct:243780006</td>
+<td>snomedct:243780006</td>
+<td></td>
+<td>Title: Blood sampling from cardiopulmonary bypass circuit<br></td>
+</tr>
+<tr>
+<td>snomedct:243781005</td>
+<td>snomedct:243781005</td>
+<td></td>
+<td>Title: Blood sampling from ECMO circuit<br></td>
+</tr>
+<tr>
+<td>snomedct:24469009</td>
+<td>snomedct:24469009</td>
+<td></td>
+<td>Title: Collection of routine urine specimen for laboratory<br></td>
+</tr>
+<tr>
+<td>snomedct:2475000</td>
+<td>snomedct:2475000</td>
+<td></td>
+<td>Title: Urine specimen collection, 24 hours<br></td>
+</tr>
+<tr>
+<td>snomedct:276907003</td>
+<td>snomedct:276907003</td>
+<td></td>
+<td>Title: Percutaneous aspiration of spermatozoa<br></td>
+</tr>
+<tr>
+<td>snomedct:278450005</td>
+<td>snomedct:278450005</td>
+<td></td>
+<td>Title: Finger stick<br></td>
+</tr>
+<tr>
+<td>snomedct:285570007</td>
+<td>snomedct:285570007</td>
+<td></td>
+<td>Title: Taking of swab<br></td>
+</tr>
+<tr>
+<td>snomedct:285586000</td>
+<td>snomedct:285586000</td>
+<td></td>
+<td>Title: Taking swab for Chlamydia test<br></td>
+</tr>
+<tr>
+<td>snomedct:285589007</td>
+<td>snomedct:285589007</td>
+<td></td>
+<td>Title: Endocervical swab<br></td>
+</tr>
+<tr>
+<td>snomedct:301805004</td>
+<td>snomedct:301805004</td>
+<td></td>
+<td>Title: Taking high vaginal swab<br></td>
+</tr>
+<tr>
+<td>snomedct:301874004</td>
+<td>snomedct:301874004</td>
+<td></td>
+<td>Title: Taking vaginal swab<br></td>
+</tr>
+<tr>
+<td>snomedct:304991003</td>
+<td>snomedct:304991003</td>
+<td></td>
+<td>Title: Take mouth swab<br></td>
+</tr>
+<tr>
+<td>snomedct:310216004</td>
+<td>snomedct:310216004</td>
+<td></td>
+<td>Title: Collection of sample from mouth<br></td>
+</tr>
+<tr>
+<td>snomedct:310217008</td>
+<td>snomedct:310217008</td>
+<td></td>
+<td>Title: Collection of gingival crevicular fluid sample<br></td>
+</tr>
+<tr>
+<td>snomedct:312645003</td>
+<td>snomedct:312645003</td>
+<td></td>
+<td>Title: Percutaneous epididymal aspiration of spermatozoa<br></td>
+</tr>
+<tr>
+<td>snomedct:312855001</td>
+<td>snomedct:312855001</td>
+<td></td>
+<td>Title: Taking conjunctival swab<br></td>
+</tr>
+<tr>
+<td>snomedct:312873003</td>
+<td>snomedct:312873003</td>
+<td></td>
+<td>Title: Taking vulval swab<br></td>
+</tr>
+<tr>
+<td>snomedct:312874009</td>
+<td>snomedct:312874009</td>
+<td></td>
+<td>Title: Taking penile swab<br></td>
+</tr>
+<tr>
+<td>snomedct:312875005</td>
+<td>snomedct:312875005</td>
+<td></td>
+<td>Title: Taking cervical swab<br></td>
+</tr>
+<tr>
+<td>snomedct:312876006</td>
+<td>snomedct:312876006</td>
+<td></td>
+<td>Title: Taking urethral swab<br></td>
+</tr>
+<tr>
+<td>snomedct:312877002</td>
+<td>snomedct:312877002</td>
+<td></td>
+<td>Title: Taking low vaginal swab<br></td>
+</tr>
+<tr>
+<td>snomedct:312878007</td>
+<td>snomedct:312878007</td>
+<td></td>
+<td>Title: Taking postnasal swab<br></td>
+</tr>
+<tr>
+<td>snomedct:312879004</td>
+<td>snomedct:312879004</td>
+<td></td>
+<td>Title: Taking ear swab<br></td>
+</tr>
+<tr>
+<td>snomedct:312880001</td>
+<td>snomedct:312880001</td>
+<td></td>
+<td>Title: Taking throat swab<br></td>
+</tr>
+<tr>
+<td>snomedct:312881002</td>
+<td>snomedct:312881002</td>
+<td></td>
+<td>Title: Taking skin swab<br></td>
+</tr>
+<tr>
+<td>snomedct:312882009</td>
+<td>snomedct:312882009</td>
+<td></td>
+<td>Title: Taking nasal swab<br></td>
+</tr>
+<tr>
+<td>snomedct:313273004</td>
+<td>snomedct:313273004</td>
+<td></td>
+<td>Title: Taking swab for Bordetella pertussis test<br></td>
+</tr>
+<tr>
+<td>snomedct:313274005</td>
+<td>snomedct:313274005</td>
+<td></td>
+<td>Title: Taking swab for Respiratory syncytial virus test<br></td>
+</tr>
+<tr>
+<td>snomedct:31507001</td>
+<td>snomedct:31507001</td>
+<td></td>
+<td>Title: Specimen collection for microbiology<br></td>
+</tr>
+<tr>
+<td>snomedct:32564009</td>
+<td>snomedct:32564009</td>
+<td></td>
+<td>Title: Arterial specimen collection for laboratory test<br></td>
+</tr>
+<tr>
+<td>snomedct:34532003</td>
+<td>snomedct:34532003</td>
+<td></td>
+<td>Title: Semen specimen collection<br></td>
+</tr>
+<tr>
+<td>snomedct:37020001</td>
+<td>snomedct:37020001</td>
+<td></td>
+<td>Title: Collection of urine and strain for calculus<br></td>
+</tr>
+<tr>
+<td>snomedct:37705003</td>
+<td>snomedct:37705003</td>
+<td></td>
+<td>Title: Collection of sputum<br></td>
+</tr>
+<tr>
+<td>snomedct:386087005</td>
+<td>snomedct:386087005</td>
+<td></td>
+<td>Title: Collection of aspirated sputum<br></td>
+</tr>
+<tr>
+<td>snomedct:386088000</td>
+<td>snomedct:386088000</td>
+<td></td>
+<td>Title: Collection of induced sputum<br></td>
+</tr>
+<tr>
+<td>snomedct:386089008</td>
+<td>snomedct:386089008</td>
+<td></td>
+<td>Title: Collection of coughed sputum<br></td>
+</tr>
+<tr>
+<td>snomedct:386099003</td>
+<td>snomedct:386099003</td>
+<td></td>
+<td>Title: Spot urine procedure<br></td>
+</tr>
+<tr>
+<td>snomedct:390784004</td>
+<td>snomedct:390784004</td>
+<td></td>
+<td>Title: Taking endocervical swab for Chlamydia test<br></td>
+</tr>
+<tr>
+<td>snomedct:390785003</td>
+<td>snomedct:390785003</td>
+<td></td>
+<td>Title: Taking urethral swab for Chlamydia test<br></td>
+</tr>
+<tr>
+<td>snomedct:400993006</td>
+<td>snomedct:400993006</td>
+<td></td>
+<td>Title: Taking cervical swab for Neisseria gonorrhoeae test<br></td>
+</tr>
+<tr>
+<td>snomedct:400994000</td>
+<td>snomedct:400994000</td>
+<td></td>
+<td>Title: Taking swab for Neisseria gonorrhoeae test<br></td>
+</tr>
+<tr>
+<td>snomedct:401002001</td>
+<td>snomedct:401002001</td>
+<td></td>
+<td>Title: Taking urethral swab for Neisseria gonorrhoeae test<br></td>
+</tr>
+<tr>
+<td>snomedct:40597003</td>
+<td>snomedct:40597003</td>
+<td></td>
+<td>Title: Urine specimen collection, 12 hours<br></td>
+</tr>
+<tr>
+<td>snomedct:406173008</td>
+<td>snomedct:406173008</td>
+<td></td>
+<td>Title: Phlebotomy: cannulated vessel<br></td>
+</tr>
+<tr>
+<td>snomedct:418622002</td>
+<td>snomedct:418622002</td>
+<td></td>
+<td>Title: Taking oral swab<br></td>
+</tr>
+<tr>
+<td>snomedct:42311007</td>
+<td>snomedct:42311007</td>
+<td></td>
+<td>Title: Radial artery puncture for laboratory test<br></td>
+</tr>
+<tr>
+<td>snomedct:427133003</td>
+<td>snomedct:427133003</td>
+<td></td>
+<td>Title: Endoscopic retrograde cholangiopancreatography with collection of bile<br></td>
+</tr>
+<tr>
+<td>snomedct:439599008</td>
+<td>snomedct:439599008</td>
+<td></td>
+<td>Title: Collection of specimen by device<br></td>
+</tr>
+<tr>
+<td>snomedct:441136006</td>
+<td>snomedct:441136006</td>
+<td></td>
+<td>Title: Collection of specimen by glass slide<br></td>
+</tr>
+<tr>
+<td>snomedct:441266008</td>
+<td>snomedct:441266008</td>
+<td></td>
+<td>Title: Specimen collection by endometrial suction curette<br></td>
+</tr>
+<tr>
+<td>snomedct:441378005</td>
+<td>snomedct:441378005</td>
+<td></td>
+<td>Title: Collection of specimen by culture plate<br></td>
+</tr>
+<tr>
+<td>snomedct:444171005</td>
+<td>snomedct:444171005</td>
+<td></td>
+<td>Title: Collection of biliary drainage by gravity<br></td>
+</tr>
+<tr>
+<td>snomedct:446232000</td>
+<td>snomedct:446232000</td>
+<td></td>
+<td>Title: Collection of bile via biliary T-tube<br></td>
+</tr>
+<tr>
+<td>snomedct:446775007</td>
+<td>snomedct:446775007</td>
+<td></td>
+<td>Title: Collection of urine via indwelling urinary catheter<br></td>
+</tr>
+<tr>
+<td>snomedct:44733008</td>
+<td>snomedct:44733008</td>
+<td></td>
+<td>Title: Collection of string test<br></td>
+</tr>
+<tr>
+<td>snomedct:450874000</td>
+<td>snomedct:450874000</td>
+<td></td>
+<td>Title: Collection of first stream urine specimen<br></td>
+</tr>
+<tr>
+<td>snomedct:45240002</td>
+<td>snomedct:45240002</td>
+<td></td>
+<td>Title: Ear lobe stick<br></td>
+</tr>
+<tr>
+<td>snomedct:472859009</td>
+<td>snomedct:472859009</td>
+<td></td>
+<td>Title: Taking anal swab for Chlamydia test<br></td>
+</tr>
+<tr>
+<td>snomedct:472860004</td>
+<td>snomedct:472860004</td>
+<td></td>
+<td>Title: Taking anal swab for gonorrhea (procedure)<br></td>
+</tr>
+<tr>
+<td>snomedct:472917009</td>
+<td>snomedct:472917009</td>
+<td></td>
+<td>Title: Collection of device for submission as specimen<br></td>
+</tr>
+<tr>
+<td>snomedct:473363001</td>
+<td>snomedct:473363001</td>
+<td></td>
+<td>Title: Taking of culture from cervix<br></td>
+</tr>
+<tr>
+<td>snomedct:50576009</td>
+<td>snomedct:50576009</td>
+<td></td>
+<td>Title: Specimen collection by drainage<br></td>
+</tr>
+<tr>
+<td>snomedct:50753008</td>
+<td>snomedct:50753008</td>
+<td></td>
+<td>Title: Brachial artery puncture for laboratory test<br></td>
+</tr>
+<tr>
+<td>snomedct:57617002</td>
+<td>snomedct:57617002</td>
+<td></td>
+<td>Title: Urine specimen collection<br></td>
+</tr>
+<tr>
+<td>snomedct:58088002</td>
+<td>snomedct:58088002</td>
+<td></td>
+<td>Title: Urine specimen collection via suprapubic approach<br></td>
+</tr>
+<tr>
+<td>snomedct:64860001</td>
+<td>snomedct:64860001</td>
+<td></td>
+<td>Title: Collection of sweat test<br></td>
+</tr>
+<tr>
+<td>snomedct:66904006</td>
+<td>snomedct:66904006</td>
+<td></td>
+<td>Title: Collection of expired gas, quantitative<br></td>
+</tr>
+<tr>
+<td>snomedct:698007008</td>
+<td>snomedct:698007008</td>
+<td></td>
+<td>Title: Collection of early morning mid stream specimen of urine by clean catch<br></td>
+</tr>
+<tr>
+<td>snomedct:698086002</td>
+<td>snomedct:698086002</td>
+<td></td>
+<td>Title: Collection of urine via pediatric urine collection bag (procedure)<br></td>
+</tr>
+<tr>
+<td>snomedct:698087006</td>
+<td>snomedct:698087006</td>
+<td></td>
+<td>Title: Collection of urine via indwelling suprapubic catheter<br></td>
+</tr>
+<tr>
+<td>snomedct:699873000</td>
+<td>snomedct:699873000</td>
+<td></td>
+<td>Title: Collection of blood via arterial catheter<br></td>
+</tr>
+<tr>
+<td>snomedct:70347009</td>
+<td>snomedct:70347009</td>
+<td></td>
+<td>Title: Collection of specimen for culture by laboratory<br></td>
+</tr>
+<tr>
+<td>snomedct:705084002</td>
+<td>snomedct:705084002</td>
+<td></td>
+<td>Title: Collection of fluid specimen via closed suction drain<br></td>
+</tr>
+<tr>
+<td>snomedct:705156009</td>
+<td>snomedct:705156009</td>
+<td></td>
+<td>Title: Collection of urine via straight catheter<br></td>
+</tr>
+<tr>
+<td>snomedct:705172001</td>
+<td>snomedct:705172001</td>
+<td></td>
+<td>Title: Collection of cystostomy tube urine specimen<br></td>
+</tr>
+<tr>
+<td>snomedct:707982002</td>
+<td>snomedct:707982002</td>
+<td></td>
+<td>Title: Taking throat swab for Chlamydia test<br></td>
+</tr>
+<tr>
+<td>snomedct:707983007</td>
+<td>snomedct:707983007</td>
+<td></td>
+<td>Title: Taking throat swab for gonorrhea (procedure)<br></td>
+</tr>
+<tr>
+<td>snomedct:708015008</td>
+<td>snomedct:708015008</td>
+<td></td>
+<td>Title: Plucking of hair for microscopy and culture<br></td>
+</tr>
+<tr>
+<td>snomedct:709500005</td>
+<td>snomedct:709500005</td>
+<td></td>
+<td>Title: Collection of specimen by cough culture plate<br></td>
+</tr>
+<tr>
+<td>snomedct:71197008</td>
+<td>snomedct:71197008</td>
+<td></td>
+<td>Title: Femoral artery puncture for laboratory test<br></td>
+</tr>
+<tr>
+<td>snomedct:713143008</td>
+<td>snomedct:713143008</td>
+<td></td>
+<td>Title: Collection of arterial blood specimen<br></td>
+</tr>
+<tr>
+<td>snomedct:720450003</td>
+<td>snomedct:720450003</td>
+<td></td>
+<td>Title: Preoperative urine specimen collection<br></td>
+</tr>
+<tr>
+<td>snomedct:722501003</td>
+<td>snomedct:722501003</td>
+<td></td>
+<td>Title: Postoperative urine specimen collection<br></td>
+</tr>
+<tr>
+<td>snomedct:732218007</td>
+<td>snomedct:732218007</td>
+<td></td>
+<td>Title: Urine specimen collection, 8 hours<br></td>
+</tr>
+<tr>
+<td>snomedct:732221009</td>
+<td>snomedct:732221009</td>
+<td></td>
+<td>Title: Urine specimen collection, 48 hours<br></td>
+</tr>
+<tr>
+<td>snomedct:732223007</td>
+<td>snomedct:732223007</td>
+<td></td>
+<td>Title: Urine specimen collection, 72 hours<br></td>
+</tr>
+<tr>
+<td>snomedct:732224001</td>
+<td>snomedct:732224001</td>
+<td></td>
+<td>Title: Timed stool collection<br></td>
+</tr>
+<tr>
+<td>snomedct:732228003</td>
+<td>snomedct:732228003</td>
+<td></td>
+<td>Title: Stool specimen collection, 24 hours<br></td>
+</tr>
+<tr>
+<td>snomedct:732292007</td>
+<td>snomedct:732292007</td>
+<td></td>
+<td>Title: Stool specimen collection, 48 hours<br></td>
+</tr>
+<tr>
+<td>snomedct:733478009</td>
+<td>snomedct:733478009</td>
+<td></td>
+<td>Title: Collection of specimen by adhesive slide<br></td>
+</tr>
+<tr>
+<td>snomedct:733481004</td>
+<td>snomedct:733481004</td>
+<td></td>
+<td>Title: Collection of second void urine specimen<br></td>
+</tr>
+<tr>
+<td>snomedct:73416001</td>
+<td>snomedct:73416001</td>
+<td></td>
+<td>Title: Urine specimen collection, clean catch<br></td>
+</tr>
+<tr>
+<td>snomedct:738796001</td>
+<td>snomedct:738796001</td>
+<td></td>
+<td>Title: Collection of dried blood spot specimen<br></td>
+</tr>
+<tr>
+<td>snomedct:764928002</td>
+<td>snomedct:764928002</td>
+<td></td>
+<td>Title: Collection of fluid specimen<br></td>
+</tr>
+<tr>
+<td>snomedct:764929005</td>
+<td>snomedct:764929005</td>
+<td></td>
+<td>Title: Collection of exhaled breath specimen<br></td>
+</tr>
+<tr>
+<td>snomedct:768966009</td>
+<td>snomedct:768966009</td>
+<td></td>
+<td>Title: Collection of device tip<br></td>
+</tr>
+<tr>
+<td>snomedct:769401004</td>
+<td>snomedct:769401004</td>
+<td></td>
+<td>Title: Collection of body fluid from surgical drain<br></td>
+</tr>
+<tr>
+<td>snomedct:77262006</td>
+<td>snomedct:77262006</td>
+<td></td>
+<td>Title: Heel stick<br></td>
+</tr>
+<tr>
+<td>snomedct:82078001</td>
+<td>snomedct:82078001</td>
+<td></td>
+<td>Title: Collection of blood specimen for laboratory<br></td>
+</tr>
+<tr>
+<td>snomedct:83917009</td>
+<td>snomedct:83917009</td>
+<td></td>
+<td>Title: Specimen collection for microbiology, anaerobic<br></td>
+</tr>
+<tr>
+<td>snomedct:840566006</td>
+<td>snomedct:840566006</td>
+<td></td>
+<td>Title: Specimen collection for biobank<br></td>
+</tr>
+<tr>
+<td>snomedct:86326008</td>
+<td>snomedct:86326008</td>
+<td></td>
+<td>Title: Collection of sweat test, pediatric overnight (procedure)<br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../method/">method</a></td>
+<td>The approach used to collect the biospecimen</td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: <a href="https://w3id.org/anvilproject/acr-harmonized-data-model">https://w3id.org/anvilproject/acr-harmonized-data-model</a></li>
+</ul>
+<h2 id="linkml-source">LinkML Source</h2>
+<details>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EnumSampleCollectionMethod</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The approach used to collect the biospecimen.</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/anvilproject/acr-harmonized-data-model</span>
+<span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="nt">permissible_values</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">snomedct:1048003</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:1048003</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:1048003</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Capillary specimen collection</span>
+<span class="w">  </span><span class="nt">snomedct:113031002</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:113031002</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:113031002</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Urine specimen collection, 2 hours</span>
+<span class="w">  </span><span class="nt">snomedct:115985003</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:115985003</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:115985003</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Sweat collection by iontophoresis procedure</span>
+<span class="w">  </span><span class="nt">snomedct:1202027002</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:1202027002</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:1202027002</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of esophageal cells via swallowable cell collection sponge in</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">capsule (procedure)</span>
+<span class="w">  </span><span class="nt">snomedct:1230332003</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:1230332003</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:1230332003</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of blood from umbilical cord immediately after delivery</span>
+<span class="w">  </span><span class="nt">snomedct:1255865009</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:1255865009</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:1255865009</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Aspiration of seminal fluid from seminal vesicle using ultrasonographic</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">guidance (procedure)</span>
+<span class="w">  </span><span class="nt">snomedct:1285339005</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:1285339005</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:1285339005</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Aspiration of seminal fluid from testis</span>
+<span class="w">  </span><span class="nt">snomedct:1359755003</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:1359755003</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:1359755003</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Taking eye swab</span>
+<span class="w">  </span><span class="nt">snomedct:13677008</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:13677008</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:13677008</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Urine specimen collection, closed drainage</span>
+<span class="w">  </span><span class="nt">snomedct:16631761000119104</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:16631761000119104</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:16631761000119104</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of blood via implanted venous access device</span>
+<span class="w">  </span><span class="nt">snomedct:174653005</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:174653005</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:174653005</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Endoscopic retrograde pancreatography with collection of pancreatic juice</span>
+<span class="w">  </span><span class="nt">snomedct:19867003</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:19867003</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:19867003</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of sputum, Lukens tube</span>
+<span class="w">  </span><span class="nt">snomedct:21217000</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:21217000</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:21217000</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of pinworm specimen</span>
+<span class="w">  </span><span class="nt">snomedct:225098009</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:225098009</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:225098009</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of sample of saliva</span>
+<span class="w">  </span><span class="nt">snomedct:225105004</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:225105004</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:225105004</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of stool specimen</span>
+<span class="w">  </span><span class="nt">snomedct:225109005</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:225109005</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:225109005</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of nephrostomy urine specimen</span>
+<span class="w">  </span><span class="nt">snomedct:225110000</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:225110000</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:225110000</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of ureterostomy urine specimen</span>
+<span class="w">  </span><span class="nt">snomedct:225111001</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:225111001</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:225111001</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of early morning urine specimen</span>
+<span class="w">  </span><span class="nt">snomedct:225112008</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:225112008</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:225112008</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Overnight collection of urine</span>
+<span class="w">  </span><span class="nt">snomedct:225113003</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:225113003</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:225113003</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Timed urine collection</span>
+<span class="w">  </span><span class="nt">snomedct:225271002</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:225271002</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:225271002</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of mid-stream specimen of urine</span>
+<span class="w">  </span><span class="nt">snomedct:225709000</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:225709000</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:225709000</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Taking cough swab</span>
+<span class="w">  </span><span class="nt">snomedct:225711009</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:225711009</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:225711009</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of nasal pharyngeal aspirate</span>
+<span class="w">  </span><span class="nt">snomedct:225997002</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:225997002</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:225997002</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Taking wound swab</span>
+<span class="w">  </span><span class="nt">snomedct:23248003</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:23248003</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:23248003</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Taking swab for microbiology</span>
+<span class="w">  </span><span class="nt">snomedct:235488002</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:235488002</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:235488002</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of pancreatic juice</span>
+<span class="w">  </span><span class="nt">snomedct:235569007</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:235569007</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:235569007</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of bile</span>
+<span class="w">  </span><span class="nt">snomedct:236363003</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:236363003</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:236363003</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Semen aspiration</span>
+<span class="w">  </span><span class="nt">snomedct:236364009</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:236364009</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:236364009</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Micro-epididymal spermatozoa aspiration</span>
+<span class="w">  </span><span class="nt">snomedct:243772004</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:243772004</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:243772004</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Thumb-prick sampling</span>
+<span class="w">  </span><span class="nt">snomedct:243776001</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:243776001</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:243776001</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Blood sampling from extracorporeal blood circuit</span>
+<span class="w">  </span><span class="nt">snomedct:243777005</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:243777005</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:243777005</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Blood sampling from hemodialysis circuit (procedure)</span>
+<span class="w">  </span><span class="nt">snomedct:243778000</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:243778000</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:243778000</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Arterial port blood sampling during hemodialysis (procedure)</span>
+<span class="w">  </span><span class="nt">snomedct:243779008</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:243779008</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:243779008</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Venous port blood sampling during hemodialysis (procedure)</span>
+<span class="w">  </span><span class="nt">snomedct:243780006</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:243780006</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:243780006</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Blood sampling from cardiopulmonary bypass circuit</span>
+<span class="w">  </span><span class="nt">snomedct:243781005</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:243781005</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:243781005</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Blood sampling from ECMO circuit</span>
+<span class="w">  </span><span class="nt">snomedct:24469009</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:24469009</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:24469009</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of routine urine specimen for laboratory</span>
+<span class="w">  </span><span class="nt">snomedct:2475000</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:2475000</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:2475000</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Urine specimen collection, 24 hours</span>
+<span class="w">  </span><span class="nt">snomedct:276907003</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:276907003</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:276907003</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Percutaneous aspiration of spermatozoa</span>
+<span class="w">  </span><span class="nt">snomedct:278450005</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:278450005</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:278450005</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Finger stick</span>
+<span class="w">  </span><span class="nt">snomedct:285570007</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:285570007</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:285570007</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Taking of swab</span>
+<span class="w">  </span><span class="nt">snomedct:285586000</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:285586000</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:285586000</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Taking swab for Chlamydia test</span>
+<span class="w">  </span><span class="nt">snomedct:285589007</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:285589007</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:285589007</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Endocervical swab</span>
+<span class="w">  </span><span class="nt">snomedct:301805004</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:301805004</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:301805004</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Taking high vaginal swab</span>
+<span class="w">  </span><span class="nt">snomedct:301874004</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:301874004</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:301874004</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Taking vaginal swab</span>
+<span class="w">  </span><span class="nt">snomedct:304991003</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:304991003</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:304991003</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Take mouth swab</span>
+<span class="w">  </span><span class="nt">snomedct:310216004</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:310216004</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:310216004</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of sample from mouth</span>
+<span class="w">  </span><span class="nt">snomedct:310217008</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:310217008</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:310217008</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of gingival crevicular fluid sample</span>
+<span class="w">  </span><span class="nt">snomedct:312645003</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:312645003</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:312645003</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Percutaneous epididymal aspiration of spermatozoa</span>
+<span class="w">  </span><span class="nt">snomedct:312855001</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:312855001</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:312855001</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Taking conjunctival swab</span>
+<span class="w">  </span><span class="nt">snomedct:312873003</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:312873003</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:312873003</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Taking vulval swab</span>
+<span class="w">  </span><span class="nt">snomedct:312874009</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:312874009</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:312874009</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Taking penile swab</span>
+<span class="w">  </span><span class="nt">snomedct:312875005</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:312875005</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:312875005</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Taking cervical swab</span>
+<span class="w">  </span><span class="nt">snomedct:312876006</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:312876006</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:312876006</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Taking urethral swab</span>
+<span class="w">  </span><span class="nt">snomedct:312877002</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:312877002</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:312877002</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Taking low vaginal swab</span>
+<span class="w">  </span><span class="nt">snomedct:312878007</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:312878007</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:312878007</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Taking postnasal swab</span>
+<span class="w">  </span><span class="nt">snomedct:312879004</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:312879004</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:312879004</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Taking ear swab</span>
+<span class="w">  </span><span class="nt">snomedct:312880001</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:312880001</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:312880001</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Taking throat swab</span>
+<span class="w">  </span><span class="nt">snomedct:312881002</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:312881002</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:312881002</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Taking skin swab</span>
+<span class="w">  </span><span class="nt">snomedct:312882009</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:312882009</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:312882009</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Taking nasal swab</span>
+<span class="w">  </span><span class="nt">snomedct:313273004</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:313273004</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:313273004</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Taking swab for Bordetella pertussis test</span>
+<span class="w">  </span><span class="nt">snomedct:313274005</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:313274005</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:313274005</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Taking swab for Respiratory syncytial virus test</span>
+<span class="w">  </span><span class="nt">snomedct:31507001</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:31507001</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:31507001</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Specimen collection for microbiology</span>
+<span class="w">  </span><span class="nt">snomedct:32564009</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:32564009</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:32564009</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Arterial specimen collection for laboratory test</span>
+<span class="w">  </span><span class="nt">snomedct:34532003</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:34532003</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:34532003</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Semen specimen collection</span>
+<span class="w">  </span><span class="nt">snomedct:37020001</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:37020001</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:37020001</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of urine and strain for calculus</span>
+<span class="w">  </span><span class="nt">snomedct:37705003</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:37705003</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:37705003</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of sputum</span>
+<span class="w">  </span><span class="nt">snomedct:386087005</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:386087005</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:386087005</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of aspirated sputum</span>
+<span class="w">  </span><span class="nt">snomedct:386088000</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:386088000</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:386088000</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of induced sputum</span>
+<span class="w">  </span><span class="nt">snomedct:386089008</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:386089008</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:386089008</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of coughed sputum</span>
+<span class="w">  </span><span class="nt">snomedct:386099003</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:386099003</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:386099003</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Spot urine procedure</span>
+<span class="w">  </span><span class="nt">snomedct:390784004</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:390784004</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:390784004</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Taking endocervical swab for Chlamydia test</span>
+<span class="w">  </span><span class="nt">snomedct:390785003</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:390785003</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:390785003</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Taking urethral swab for Chlamydia test</span>
+<span class="w">  </span><span class="nt">snomedct:400993006</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:400993006</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:400993006</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Taking cervical swab for Neisseria gonorrhoeae test</span>
+<span class="w">  </span><span class="nt">snomedct:400994000</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:400994000</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:400994000</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Taking swab for Neisseria gonorrhoeae test</span>
+<span class="w">  </span><span class="nt">snomedct:401002001</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:401002001</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:401002001</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Taking urethral swab for Neisseria gonorrhoeae test</span>
+<span class="w">  </span><span class="nt">snomedct:40597003</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:40597003</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:40597003</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Urine specimen collection, 12 hours</span>
+<span class="w">  </span><span class="nt">snomedct:406173008</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:406173008</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:406173008</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">'Phlebotomy:</span><span class="nv"> </span><span class="s">cannulated</span><span class="nv"> </span><span class="s">vessel'</span>
+<span class="w">  </span><span class="nt">snomedct:418622002</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:418622002</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:418622002</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Taking oral swab</span>
+<span class="w">  </span><span class="nt">snomedct:42311007</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:42311007</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:42311007</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Radial artery puncture for laboratory test</span>
+<span class="w">  </span><span class="nt">snomedct:427133003</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:427133003</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:427133003</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Endoscopic retrograde cholangiopancreatography with collection of bile</span>
+<span class="w">  </span><span class="nt">snomedct:439599008</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:439599008</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:439599008</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of specimen by device</span>
+<span class="w">  </span><span class="nt">snomedct:441136006</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:441136006</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:441136006</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of specimen by glass slide</span>
+<span class="w">  </span><span class="nt">snomedct:441266008</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:441266008</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:441266008</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Specimen collection by endometrial suction curette</span>
+<span class="w">  </span><span class="nt">snomedct:441378005</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:441378005</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:441378005</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of specimen by culture plate</span>
+<span class="w">  </span><span class="nt">snomedct:444171005</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:444171005</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:444171005</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of biliary drainage by gravity</span>
+<span class="w">  </span><span class="nt">snomedct:446232000</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:446232000</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:446232000</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of bile via biliary T-tube</span>
+<span class="w">  </span><span class="nt">snomedct:446775007</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:446775007</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:446775007</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of urine via indwelling urinary catheter</span>
+<span class="w">  </span><span class="nt">snomedct:44733008</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:44733008</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:44733008</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of string test</span>
+<span class="w">  </span><span class="nt">snomedct:450874000</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:450874000</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:450874000</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of first stream urine specimen</span>
+<span class="w">  </span><span class="nt">snomedct:45240002</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:45240002</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:45240002</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ear lobe stick</span>
+<span class="w">  </span><span class="nt">snomedct:472859009</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:472859009</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:472859009</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Taking anal swab for Chlamydia test</span>
+<span class="w">  </span><span class="nt">snomedct:472860004</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:472860004</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:472860004</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Taking anal swab for gonorrhea (procedure)</span>
+<span class="w">  </span><span class="nt">snomedct:472917009</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:472917009</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:472917009</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of device for submission as specimen</span>
+<span class="w">  </span><span class="nt">snomedct:473363001</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:473363001</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:473363001</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Taking of culture from cervix</span>
+<span class="w">  </span><span class="nt">snomedct:50576009</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:50576009</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:50576009</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Specimen collection by drainage</span>
+<span class="w">  </span><span class="nt">snomedct:50753008</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:50753008</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:50753008</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Brachial artery puncture for laboratory test</span>
+<span class="w">  </span><span class="nt">snomedct:57617002</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:57617002</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:57617002</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Urine specimen collection</span>
+<span class="w">  </span><span class="nt">snomedct:58088002</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:58088002</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:58088002</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Urine specimen collection via suprapubic approach</span>
+<span class="w">  </span><span class="nt">snomedct:64860001</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:64860001</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:64860001</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of sweat test</span>
+<span class="w">  </span><span class="nt">snomedct:66904006</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:66904006</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:66904006</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of expired gas, quantitative</span>
+<span class="w">  </span><span class="nt">snomedct:698007008</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:698007008</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:698007008</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of early morning mid stream specimen of urine by clean catch</span>
+<span class="w">  </span><span class="nt">snomedct:698086002</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:698086002</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:698086002</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of urine via pediatric urine collection bag (procedure)</span>
+<span class="w">  </span><span class="nt">snomedct:698087006</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:698087006</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:698087006</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of urine via indwelling suprapubic catheter</span>
+<span class="w">  </span><span class="nt">snomedct:699873000</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:699873000</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:699873000</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of blood via arterial catheter</span>
+<span class="w">  </span><span class="nt">snomedct:70347009</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:70347009</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:70347009</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of specimen for culture by laboratory</span>
+<span class="w">  </span><span class="nt">snomedct:705084002</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:705084002</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:705084002</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of fluid specimen via closed suction drain</span>
+<span class="w">  </span><span class="nt">snomedct:705156009</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:705156009</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:705156009</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of urine via straight catheter</span>
+<span class="w">  </span><span class="nt">snomedct:705172001</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:705172001</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:705172001</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of cystostomy tube urine specimen</span>
+<span class="w">  </span><span class="nt">snomedct:707982002</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:707982002</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:707982002</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Taking throat swab for Chlamydia test</span>
+<span class="w">  </span><span class="nt">snomedct:707983007</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:707983007</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:707983007</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Taking throat swab for gonorrhea (procedure)</span>
+<span class="w">  </span><span class="nt">snomedct:708015008</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:708015008</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:708015008</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Plucking of hair for microscopy and culture</span>
+<span class="w">  </span><span class="nt">snomedct:709500005</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:709500005</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:709500005</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of specimen by cough culture plate</span>
+<span class="w">  </span><span class="nt">snomedct:71197008</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:71197008</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:71197008</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Femoral artery puncture for laboratory test</span>
+<span class="w">  </span><span class="nt">snomedct:713143008</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:713143008</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:713143008</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of arterial blood specimen</span>
+<span class="w">  </span><span class="nt">snomedct:720450003</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:720450003</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:720450003</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Preoperative urine specimen collection</span>
+<span class="w">  </span><span class="nt">snomedct:722501003</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:722501003</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:722501003</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Postoperative urine specimen collection</span>
+<span class="w">  </span><span class="nt">snomedct:732218007</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:732218007</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:732218007</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Urine specimen collection, 8 hours</span>
+<span class="w">  </span><span class="nt">snomedct:732221009</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:732221009</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:732221009</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Urine specimen collection, 48 hours</span>
+<span class="w">  </span><span class="nt">snomedct:732223007</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:732223007</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:732223007</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Urine specimen collection, 72 hours</span>
+<span class="w">  </span><span class="nt">snomedct:732224001</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:732224001</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:732224001</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Timed stool collection</span>
+<span class="w">  </span><span class="nt">snomedct:732228003</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:732228003</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:732228003</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Stool specimen collection, 24 hours</span>
+<span class="w">  </span><span class="nt">snomedct:732292007</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:732292007</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:732292007</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Stool specimen collection, 48 hours</span>
+<span class="w">  </span><span class="nt">snomedct:733478009</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:733478009</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:733478009</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of specimen by adhesive slide</span>
+<span class="w">  </span><span class="nt">snomedct:733481004</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:733481004</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:733481004</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of second void urine specimen</span>
+<span class="w">  </span><span class="nt">snomedct:73416001</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:73416001</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:73416001</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Urine specimen collection, clean catch</span>
+<span class="w">  </span><span class="nt">snomedct:738796001</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:738796001</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:738796001</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of dried blood spot specimen</span>
+<span class="w">  </span><span class="nt">snomedct:764928002</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:764928002</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:764928002</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of fluid specimen</span>
+<span class="w">  </span><span class="nt">snomedct:764929005</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:764929005</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:764929005</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of exhaled breath specimen</span>
+<span class="w">  </span><span class="nt">snomedct:768966009</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:768966009</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:768966009</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of device tip</span>
+<span class="w">  </span><span class="nt">snomedct:769401004</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:769401004</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:769401004</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of body fluid from surgical drain</span>
+<span class="w">  </span><span class="nt">snomedct:77262006</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:77262006</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:77262006</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Heel stick</span>
+<span class="w">  </span><span class="nt">snomedct:82078001</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:82078001</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:82078001</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of blood specimen for laboratory</span>
+<span class="w">  </span><span class="nt">snomedct:83917009</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:83917009</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:83917009</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Specimen collection for microbiology, anaerobic</span>
+<span class="w">  </span><span class="nt">snomedct:840566006</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:840566006</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:840566006</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Specimen collection for biobank</span>
+<span class="w">  </span><span class="nt">snomedct:86326008</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:86326008</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:86326008</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of sweat test, pediatric overnight (procedure)</span>
+<span class="nt">reachable_from</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">source_ontology</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bioregistry:snomedct</span>
+<span class="w">  </span><span class="nt">source_nodes</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snomedct:17636008</span>
+<span class="w">  </span><span class="nt">relationship_types</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rdfs:subClassOf</span>
+<span class="w">  </span><span class="nt">is_direct</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">  </span><span class="nt">include_self</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+</code></pre></div>
+</details>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+  
+
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        
+
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        with emoji by
+        <a href="https://github.com/twitter/twemoji" target="_blank" rel="noopener">
+          Twemoji
+        </a>
+      </div>
+      
+<div class="md-social">
+  
+</div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.tabs.link", "header.autohide", "navigation.expand", "navigation.tracking", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../assets/pymdownx-extras/extra-loader-B5CKpNQx.js"></script>
+      
+    
+  </body>
+</html>
