@@ -100,4 +100,5 @@ extend-exclude = [
 
 [tool.uv.sources]
 the-caddie = { git = "https://github.com/carrollaboratory/the-caddie" }
+# the-caddie = { path = "/home/torstees/dev/the-caddie", editable=true }
 term-weaver = { git = "https://github.com/include-dcc/term-weaver" }

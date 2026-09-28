@@ -6,7 +6,7 @@
 
 # Support for various dbt related tasks
 [group('model development')]
-dbt: gen-sqla gen-ftddd gen-dbtmodel
+dbt: gen-sqla gen-ftddd gen-dbtmodel gen-monolith
 
 # SQL Alchemy model
 [group('model development')]
