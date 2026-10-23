@@ -50,10 +50,10 @@ prefixes:
     prefix_reference: https://loinc.org/
   KIN:
     prefix_prefix: KIN
-    prefix_reference: http://purl.org/ga4gh/kin.owl#
+    prefix_reference: http://purl.org/ga4gh/kin.owl#KIN_
   edam:
     prefix_prefix: edam
-    prefix_reference: http://edamontology.org
+    prefix_reference: http://edamontology.org/
   OBI:
     prefix_prefix: OBI
     prefix_reference: http://purl.obolibrary.org/obo/OBI_
@@ -76,5 +76,5 @@ default_prefix: acr_harmonized_data_model
 # default_range: string
 
 imports:
-- upstream-models/common_access_model-0.2.0
+- upstream-models/common_access_model-0.2.2
 classes:
