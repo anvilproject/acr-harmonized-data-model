@@ -50,10 +50,10 @@ prefixes:
     prefix_reference: https://loinc.org/
   KIN:
     prefix_prefix: KIN
-    prefix_reference: http://purl.org/ga4gh/kin.owl#
+    prefix_reference: http://purl.org/ga4gh/kin.owl#KIN_
   edam:
     prefix_prefix: edam
-    prefix_reference: http://edamontology.org
+    prefix_reference: http://edamontology.org/
   OBI:
     prefix_prefix: OBI
     prefix_reference: http://purl.obolibrary.org/obo/OBI_
