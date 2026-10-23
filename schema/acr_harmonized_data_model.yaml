@@ -6,7 +6,7 @@ see_also:
 - https://anvilproject.github.io/acr-harmonized-data-model
 id: https://w3id.org/anvilproject/acr-harmonized-data-model
 imports:
-- upstream-models/common_access_model-0.2.0
+- upstream-models/common_access_model-0.2.2
 license: MIT
 prefixes:
   acr_harmonized_data_model:
@@ -53,10 +53,10 @@ prefixes:
     prefix_reference: https://loinc.org/
   KIN:
     prefix_prefix: KIN
-    prefix_reference: http://purl.org/ga4gh/kin.owl#
+    prefix_reference: http://purl.org/ga4gh/kin.owl#KIN_
   edam:
     prefix_prefix: edam
-    prefix_reference: http://edamontology.org
+    prefix_reference: http://edamontology.org/
   OBI:
     prefix_prefix: OBI
     prefix_reference: http://purl.obolibrary.org/obo/OBI_
@@ -82,6 +82,13 @@ types:
     name: ptGlobalID
     definition_uri: https://includedcc.org/common-access-model/PtGlobalID
     description: Dewrangle pt global ID. For FHIR Patient Resources.
+    from_schema: https://includedcc.org/common-access-model
+    base: str
+    uri: xsd:string
+  pnGlobalID:
+    name: pnGlobalID
+    definition_uri: https://includedcc.org/common-access-model/PnGlobalID
+    description: Dewrangle pn global ID. For FHIR Person Resources.
     from_schema: https://includedcc.org/common-access-model
     base: str
     uri: xsd:string
@@ -511,7 +518,7 @@ enums:
         title: protein-protein interaction detection assay
       OBI:0000291:
         text: OBI:0000291
-        description: An assay tthat determines DNA regions specifically recognized
+        description: An assay that determines DNA regions specifically recognized
           by proteins that function as transcription factors
         meaning: OBI:0000291
         title: transcription factor binding site assay
@@ -680,7 +687,7 @@ enums:
         title: chain termination sequencing assay
       OBI:0000697:
         text: OBI:0000697
-        description: A DNA sequencing by synthesis assay that identifiies the sequnece
+        description: A DNA sequencing by synthesis assay that identifiies the sequence
           of billions of DNA molecules immobilized to a surface using DNA polymerase
           and fluorescently labeled nucleotides added one at a time. The sequencing
           process does not require an amplification step and is typically able to
@@ -839,7 +846,7 @@ enums:
       OBI:0000854:
         text: OBI:0000854
         description: An analyte assay that detects specific peptides in an input material
-          by separating it using gel electrophoresis, transfering the separated molecules
+          by separating it using gel electrophoresis, transferring the separated molecules
           to a membrane, and staining them with_ antibodies specific to the analyte
           molecules.
         meaning: OBI:0000854
@@ -848,7 +855,7 @@ enums:
         text: OBI:0000860
         description: An assay that determines the presence of gene transcripts by
           hybridizing labeled RNA or DNA probes against messenger RNAs isolated from
-          tissue or cell cultures, resolved on denaturing gel, transfered by a blotting
+          tissue or cell cultures, resolved on denaturing gel, transferred by a blotting
           procedure to a solid support. Detection of hybridization signals is carried
           out by immunofluorescence or radioactivity measurements using photographic
           films or digital imaging devices such as Phosphor Imager.
@@ -864,7 +871,7 @@ enums:
         text: OBI:0000870
         description: An assay that provides information about the secondary structure
           of nucleic acids using chemical or enzymatic probing to establish the extent
-          of base-pairing or solvent accessiblity.
+          of base-pairing or solvent accessibility.
         meaning: OBI:0000870
         title: single-nucleotide-resolution nucleic acid structure mapping assay
       OBI:0000871:
@@ -912,7 +919,7 @@ enums:
         title: in vivo cell killing assay
       OBI:0000891:
         text: OBI:0000891
-        description: A cytometry assay which measures the degreee to which input cells
+        description: A cytometry assay which measures the degree to which input cells
           are replicating.
         meaning: OBI:0000891
         title: cell proliferation assay
@@ -1108,8 +1115,8 @@ enums:
       OBI:0001015:
         text: OBI:0001015
         description: A single-nucleotide-resolution nucleic acid structure mapping
-          assay which determins nucleic acid secondary structure at a nucleotide resolution
-          scale using DMS as reagent and chemical probe
+          assay which determines nucleic acid secondary structure at a nucleotide
+          resolution scale using DMS as reagent and chemical probe
         meaning: OBI:0001015
         title: DMS structure mapping assay
       OBI:0001016:
@@ -1233,7 +1240,7 @@ enums:
       OBI:0001145:
         text: OBI:0001145
         description: A 3D molecular structure determination assay in which a complex
-          of 2 or more molecular enties is characterized which provides information
+          of 2 or more molecular entries is characterized which provides information
           on their binding configuration.
         meaning: OBI:0001145
         title: 3D structure determination of bound molecular complex assay
@@ -1545,7 +1552,7 @@ enums:
           cytokine production by T cells
       OBI:0001247:
         text: OBI:0001247
-        description: A genotyping assay that uses a high througput sequencer
+        description: A genotyping assay that uses a high throughput sequencer
         meaning: OBI:0001247
         title: genotyping by high throughput sequencing assay
       OBI:0001248:
@@ -2848,7 +2855,7 @@ enums:
       OBI:0001591:
         text: OBI:0001591
         description: A binding assay that measures the formation or disassociation
-          of a complex of 2 material entities directly without use of a competitve
+          of a complex of 2 material entities directly without use of a competitive
           ligand.
         meaning: OBI:0001591
         title: direct binding assay
@@ -3070,7 +3077,7 @@ enums:
       OBI:0001646:
         text: OBI:0001646
         description: An electron-microscopy 3D molecular structure determination assay
-          that characterizes the 3-dimensional molecular structrue of a B cell epitope:antibody
+          that characterizes the 3-dimensional molecular structure of a B cell epitope:antibody
           complex
         meaning: OBI:0001646
         title: electron microscopy assay determining the 3D structure of a B cell
@@ -3236,7 +3243,7 @@ enums:
       OBI:0001669:
         text: OBI:0001669
         description: An assay that measures protein-protein interactions by separating
-          target proteins on an SDS-PAGE gel, transfering them to a solid substrate,
+          target proteins on an SDS-PAGE gel, transferring them to a solid substrate,
           hybridizing with a protein probe and visualizing bound proteins using a
           probe-directed antibody. This is a adaptation on the western blot assay.
         meaning: OBI:0001669
@@ -3607,7 +3614,7 @@ enums:
       OBI:0001738:
         text: OBI:0001738
         description: A X-ray crystallography 3D molecular structure determination
-          assay that characterizes the 3-dimensional molecular structrue of a B cell
+          assay that characterizes the 3-dimensional molecular structure of a B cell
           epitope:antibody complex.
         meaning: OBI:0001738
         title: X-ray crystallography assay determining the 3D structure of a B cell
@@ -4453,7 +4460,7 @@ enums:
       OBI:0001954:
         text: OBI:0001954
         description: An assay in which portions of chromatin, the ordered and organized
-          complex of DNA and its interaction partners that make up a chormosome, is
+          complex of DNA and its interaction partners that make up a chromosome, is
           extracted and purified by immunoprecipitation with antibodies or tags, and
           subsequently analyzed
         meaning: OBI:0001954
@@ -4486,7 +4493,7 @@ enums:
       OBI:0001978:
         text: OBI:0001978
         description: An analyte assay that detects specific molecules in an input
-          material by separating it using gel electrophoresis, transfering the separated
+          material by separating it using gel electrophoresis, transferring the separated
           molecules to a membrane, and staining them with_ antibodies specific to
           the analyte molecules.
         meaning: OBI:0001978
@@ -4830,7 +4837,7 @@ enums:
         text: OBI:0002055
         description: A T cell epitope recognition assay that measures the immune response
           process resulting from the binding of a T cell receptor to epitope or the
-          recongition of the epitope.
+          recognition of the epitope.
         meaning: OBI:0002055
         title: assay measuring biological activity resulting from T cell epitope:MHC:TCR
           binding
@@ -4962,7 +4969,7 @@ enums:
         title: assay measuring T cell epitope specific suppression in vitro
       OBI:0002075:
         text: OBI:0002075
-        description: An immune epitope assay that characterizes the structrue of a
+        description: An immune epitope assay that characterizes the structure of a
           MHC-ligand complex, or detects the processing and presentation of a ligand
           by an antigen presenting cell, or the binding of a ligand to an MHC molecule.
         meaning: OBI:0002075
@@ -5449,7 +5456,7 @@ enums:
         text: OBI:0002176
         description: An assay that measures the electrical properties of biological
           cells or tissues. Typically, this assay will generate measurements of voltage
-          changes or electric current (or other associated variables such as impedence
+          changes or electric current (or other associated variables such as impedance
           or capacitance).
         meaning: OBI:0002176
         title: electrophysiology assay
@@ -5800,7 +5807,7 @@ enums:
       OBI:0002635:
         text: OBI:0002635
         description: An efficacy of T cell epitope intervention experiment that detects
-          a decrease in disease after adoptive transfer of epitope specfic T cells.
+          a decrease in disease after adoptive transfer of epitope specific T cells.
         meaning: OBI:0002635
         title: in vivo assay measuring T cell epitope specific disease reduction resulting
           from the adoptive transfer of epitope specific T cells
@@ -5815,7 +5822,7 @@ enums:
       OBI:0002637:
         text: OBI:0002637
         description: An efficacy of T cell epitope intervention experiment that uses
-          a epitope protection experiment after adoptive transfer of epitope specfic
+          a epitope protection experiment after adoptive transfer of epitope specific
           T cells.
         meaning: OBI:0002637
         title: in vivo assay measuring T cell epitope specific protection from challenge
@@ -5886,7 +5893,7 @@ enums:
         text: OBI:0002645
         description: An efficacy of T cell epitope intervention experiment that uses
           a tolerance induction intervention experiment after adoptive transfer of
-          epitope specfic T cells.
+          epitope specific T cells.
         meaning: OBI:0002645
         title: in vivo assay measuring T cell epitope specific tolerance induction
           resulting from the adoptive transfer of epitope specific T cells
@@ -5937,14 +5944,14 @@ enums:
         text: OBI:0002667
         description: An efficacy of T cell epitope intervention experiment that detects
           epitope specific type IV hypersensitivity after adoptive transfer of epitope
-          specfic T cells.
+          specific T cells.
         meaning: OBI:0002667
         title: in vivo skin test assay measuring T cell epitope specific type IV hypersensitivity
           resulting from the adoptive transfer of epitope specific T cells
       OBI:0002668:
         text: OBI:0002668
         description: A T cell epitope specific proliferation assay that is performed
-          in vivo after adoptive transfer of epitope specfic T cells.
+          in vivo after adoptive transfer of epitope specific T cells.
         meaning: OBI:0002668
         title: in vivo assay measuring epitope specific proliferation of T cells resulting
           from the adoptive transfer of epitope specific T cells
@@ -5952,7 +5959,7 @@ enums:
         text: OBI:0002669
         description: A T cell epitope specific helper activity assay that detects
           the ability of a T cell epitope to enhance an antibody response after adoptive
-          transfer of epitope specfic T cells.
+          transfer of epitope specific T cells.
         meaning: OBI:0002669
         title: assay measuring epitope specific helper T cell enhancement of a B cell
           mediated immune response resulting from the adoptive transfer of epitope
@@ -5961,7 +5968,7 @@ enums:
         text: OBI:0002670
         description: A T cell epitope specific helper activity assay that detects
           the ability of a T cell epitope to enhance a T cell response after adoptive
-          transfer of epitope specfic T cells.
+          transfer of epitope specific T cells.
         meaning: OBI:0002670
         title: assay measuring epitope specific helper T cell enhancement of a T cell
           mediated immune response resulting from the adoptive transfer of epitope
@@ -5990,7 +5997,7 @@ enums:
       OBI:0002676:
         text: OBI:0002676
         description: An efficacy of T cell epitope intervention experiment that is
-          performed after adoptive transfer of epitope specfic T cells.
+          performed after adoptive transfer of epitope specific T cells.
         meaning: OBI:0002676
         title: in vivo assay measuring a T cell epitope specific response after adoptive
           transfer of epitope specific T cells
@@ -6005,7 +6012,7 @@ enums:
         text: OBI:0002678
         description: An efficacy of T cell epitope intervention experiment that uses
           a disease exacerbation in vivo intervention experiment after adoptive transfer
-          of epitope specfic T cells.
+          of epitope specific T cells.
         meaning: OBI:0002678
         title: in vivo assay measuring T cell epitope specific disease exacerbation
           resulting from the adoptive transfer of epitope specific T cells
@@ -6557,7 +6564,7 @@ enums:
         description: A type of proprietary in situ kinase inhibitor assay that employs
           biotinylated acyl phosphates of ATP and ADP.
         meaning: OBI:0002964
-        title: KiNativ assay
+        title: KiNative assay
       OBI:0002965:
         text: OBI:0002965
         description: A type of transcription profiling assay in which a set of landmark
@@ -7004,7 +7011,7 @@ enums:
       OBI:0003106:
         text: OBI:0003106
         description: "A fluorescence in-situ hybridization assay that involves ultra-resolution\
-          \ imaging of cell activity by targetting thousands of single molecules with\
+          \ imaging of cell activity by targeting thousands of single molecules with\
           \ fluorescent probes which find and hybridize with complementary DNA or\
           \ RNA sequences in the tissue sample, thus enabling identification of those\
           \ molecules directly in single cells with their spatial\_context preserved."
@@ -7038,7 +7045,7 @@ enums:
         description: An analyte assay that uses aptamers to detect protein analytes
           in serum.
         meaning: OBI:0003111
-        title: SOMAscan assay
+        title: SOMEAscan assay
       OBI:0003112:
         text: OBI:0003112
         description: "A proximity extension assay that uses quantitative polymerase\
@@ -7120,7 +7127,7 @@ enums:
         title: neuron morphology reconstruction assay
       OBI:0003127:
         text: OBI:0003127
-        description: An immune epitope assay that characterizes the structrue of an
+        description: An immune epitope assay that characterizes the structure of an
           antibody-epitope complex, or measures the binding of an antibody receptor
           to epitope, or the immune response process resulting from such a binding
           event or the recognition of the epitope.
@@ -7128,7 +7135,7 @@ enums:
         title: B cell epitope assay
       OBI:0003128:
         text: OBI:0003128
-        description: An immune epitope assay that characterizes the structrue of an
+        description: An immune epitope assay that characterizes the structure of an
           epitope-T cell receptor complex, or measures the binding of a T cell receptor
           to epitope, or the immune response process resulting from such a binding
           event or the recognition of the epitope.
@@ -8409,14 +8416,14 @@ enums:
         title: heel to shin assessment
       OBI:0003513:
         text: OBI:0003513
-        description: An observational assesment of an individual's muscle tissue loss
-          due to inactivity or disease.
+        description: An observational assessment of an individual's muscle tissue
+          loss due to inactivity or disease.
         meaning: OBI:0003513
         title: muscle atrophy assessment
       OBI:0003514:
         text: OBI:0003514
         description: A functional assessment of an individual's ability to perform
-          muscle movement to overcome gravity or physical resistence.
+          muscle movement to overcome gravity or physical resistance.
         meaning: OBI:0003514
         title: muscle weakness assessment
       OBI:0003515:
@@ -8532,7 +8539,7 @@ enums:
         title: lower limb coordination assessment
       OBI:0003533:
         text: OBI:0003533
-        description: A functional assesment of an individual's nerve performance.
+        description: A functional assessment of an individual's nerve performance.
           Specifically the nerves connecting the sensory and motor structures with
           the central nervous system.
         meaning: OBI:0003533
@@ -8551,7 +8558,7 @@ enums:
         title: deep tendon reflex assessment of the knee joint
       OBI:0003536:
         text: OBI:0003536
-        description: A physical examination of an organism through visual assesment.
+        description: A physical examination of an organism through visual assessment.
         meaning: OBI:0003536
         title: observational assessment of individual
       OBI:0003537:
@@ -8720,7 +8727,7 @@ enums:
       OBI:0003612:
         text: OBI:0003612
         description: An electron-microscopy 3D molecular structure determination assay
-          that characterizes the 3-dimensional molecular structrue of a T cell epitope:MHC:TCR
+          that characterizes the 3-dimensional molecular structure of a T cell epitope:MHC:TCR
           complex.
         meaning: OBI:0003612
         title: electron microscopy assay determining the 3D structure of a T cell
@@ -8728,7 +8735,7 @@ enums:
       OBI:0003613:
         text: OBI:0003613
         description: An electron-microscopy 3D molecular structure determination assay
-          that characterizes the 3-dimensional molecular structrue of a MHC:ligand
+          that characterizes the 3-dimensional molecular structure of a MHC:ligand
           complex.
         meaning: OBI:0003613
         title: electron microscopy assay determining the 3D structure of a MHC:ligand
@@ -9767,7 +9774,7 @@ enums:
         text: OBI:1110128
         description: An assay that detects the binding of an epitope to an adaptive
           immune receptor, or an immune process resulting from such a binding event,
-          or characterizes the structrue of the complex resulting from such a binding
+          or characterizes the structure of the complex resulting from such a binding
           event.
         meaning: OBI:1110128
         title: immune epitope assay
@@ -11548,75 +11555,75 @@ enums:
       OBI:2100271:
         text: OBI:2100271
         description: An analyte assay that measures the abundance of sodium in arterial
-          blood as part of a ABL90 panel order
+          blood as part of a ABLE90 panel order
         meaning: OBI:2100271
-        title: ABL90 panel arterial blood sodium assay
+        title: ABLE90 panel arterial blood sodium assay
       OBI:2100272:
         text: OBI:2100272
         description: An analyte assay that measures the abundance of oxygen in arterial
-          blood as part of a ABL90 panel order
+          blood as part of a ABLE90 panel order
         meaning: OBI:2100272
-        title: ABL90 panel arterial blood oxygen assay
+        title: ABLE90 panel arterial blood oxygen assay
       OBI:2100273:
         text: OBI:2100273
         description: An analyte assay that measures the abundance of glucose in arterial
-          blood as part of a ABL90 panel order
+          blood as part of a ABLE90 panel order
         meaning: OBI:2100273
-        title: ABL90 panel arterial blood glucose assay
+        title: ABLE90 panel arterial blood glucose assay
       OBI:2100274:
         text: OBI:2100274
         description: An assay that measures lactic acid in arterial blood as part
-          of a ABL90 panel order
+          of a ABLE90 panel order
         meaning: OBI:2100274
-        title: ABL90 panel arterial blood lactic acid assay
+        title: ABLE90 panel arterial blood lactic acid assay
       OBI:2100275:
         text: OBI:2100275
         description: An analyte assay that measures the abundance of hemoglobin in
-          arterial blood as part of a ABL90 panel order
+          arterial blood as part of a ABLE90 panel order
         meaning: OBI:2100275
-        title: ABL90 panel arterial blood hemoglobin assay
+        title: ABLE90 panel arterial blood hemoglobin assay
       OBI:2100276:
         text: OBI:2100276
         description: An analyte assay that measures the abundance of chloride in arterial
-          blood as part of a ABL90 panel order
+          blood as part of a ABLE90 panel order
         meaning: OBI:2100276
-        title: ABL90 panel arterial blood chloride assay
+        title: ABLE90 panel arterial blood chloride assay
       OBI:2100277:
         text: OBI:2100277
         description: An analyte assay that measures the abundance of carbon dioxide
-          in arterial blood as part of a ABL90 panel order
+          in arterial blood as part of a ABLE90 panel order
         meaning: OBI:2100277
-        title: ABL90 panel arterial blood carbon dioxide assay
+        title: ABLE90 panel arterial blood carbon dioxide assay
       OBI:2100278:
         text: OBI:2100278
         description: A cytometry assay that measures the proportion of red blood cells
-          in arterial blood as part of a ABL90 panel order
+          in arterial blood as part of a ABLE90 panel order
         meaning: OBI:2100278
-        title: ABL90 panel arterial blood hematocrit assay
+        title: ABLE90 panel arterial blood hematocrit assay
       OBI:2100279:
         text: OBI:2100279
         description: An analyte assay that measures the abundance of calcium in arterial
-          blood as part of a ABL90 panel order
+          blood as part of a ABLE90 panel order
         meaning: OBI:2100279
-        title: ABL90 panel arterial blood calcium assay
+        title: ABLE90 panel arterial blood calcium assay
       OBI:2100280:
         text: OBI:2100280
         description: An assay that measures temperature in arterial blood as part
-          of a ABL90 panel order
+          of a ABLE90 panel order
         meaning: OBI:2100280
-        title: ABL90 panel arterial blood temperature assay
+        title: ABLE90 panel arterial blood temperature assay
       OBI:2100281:
         text: OBI:2100281
         description: An analyte assay that measures the abundance of bicarbonate in
-          arterial blood as part of a ABL90 panel order
+          arterial blood as part of a ABLE90 panel order
         meaning: OBI:2100281
-        title: ABL90 panel arterial blood bicarbonate assay
+        title: ABLE90 panel arterial blood bicarbonate assay
       OBI:2100282:
         text: OBI:2100282
         description: An analyte assay that measures the abundance of potassium in
-          arterial blood as part of a ABL90 panel order
+          arterial blood as part of a ABLE90 panel order
         meaning: OBI:2100282
-        title: ABL90 panel arterial blood potassium assay
+        title: ABLE90 panel arterial blood potassium assay
       OBI:2100283:
         text: OBI:2100283
         description: A cytometry assay that measures the count of promyelocytes in
@@ -11626,63 +11633,63 @@ enums:
       OBI:2100284:
         text: OBI:2100284
         description: An analyte assay that measures the abundance of glucose in venous
-          blood as part of a ABL90 panel order
+          blood as part of a ABLE90 panel order
         meaning: OBI:2100284
-        title: ABL90 panel venous blood glucose assay
+        title: ABLE90 panel venous blood glucose assay
       OBI:2100285:
         text: OBI:2100285
         description: An analyte assay that measures the abundance of hemoglobin in
-          venous blood as part of a ABL90 panel order
+          venous blood as part of a ABLE90 panel order
         meaning: OBI:2100285
-        title: ABL90 panel venous blood hemoglobin assay
+        title: ABLE90 panel venous blood hemoglobin assay
       OBI:2100286:
         text: OBI:2100286
         description: An analyte assay that measures the abundance of ionized calcium
-          in venous blood as part of a ABL90 panel order
+          in venous blood as part of a ABLE90 panel order
         meaning: OBI:2100286
-        title: ABL90 panel venous blood ionized calcium assay
+        title: ABLE90 panel venous blood ionized calcium assay
       OBI:2100287:
         text: OBI:2100287
         description: An analyte assay that measures the abundance of carbon dioxide
-          in venous blood as part of a ABL90 panel order
+          in venous blood as part of a ABLE90 panel order
         meaning: OBI:2100287
-        title: ABL90 panel venous blood carbon dioxide assay
+        title: ABLE90 panel venous blood carbon dioxide assay
       OBI:2100288:
         text: OBI:2100288
         description: A cytometry assay that measures the proportion of red blood cells
-          in venous blood as part of a ABL90 panel order
+          in venous blood as part of a ABLE90 panel order
         meaning: OBI:2100288
-        title: ABL90 panel venous blood hematocrit assay
+        title: ABLE90 panel venous blood hematocrit assay
       OBI:2100289:
         text: OBI:2100289
         description: An analyte assay that measures the abundance of sodium in venous
-          blood as part of a ABL90 panel order
+          blood as part of a ABLE90 panel order
         meaning: OBI:2100289
-        title: ABL90 panel venous blood sodium assay
+        title: ABLE90 panel venous blood sodium assay
       OBI:2100290:
         text: OBI:2100290
         description: An analyte assay that measures the abundance of oxygen in venous
-          blood as part of a ABL90 panel order
+          blood as part of a ABLE90 panel order
         meaning: OBI:2100290
-        title: ABL90 panel venous blood oxygen assay
+        title: ABLE90 panel venous blood oxygen assay
       OBI:2100291:
         text: OBI:2100291
         description: An analyte assay that measures the abundance of bicarbonate in
-          venous blood as part of a ABL90 panel order
+          venous blood as part of a ABLE90 panel order
         meaning: OBI:2100291
-        title: ABL90 panel venous blood bicarbonate assay
+        title: ABLE90 panel venous blood bicarbonate assay
       OBI:2100292:
         text: OBI:2100292
         description: An assay that measures lactic acid in venous blood as part of
-          a ABL90 panel order
+          a ABLE90 panel order
         meaning: OBI:2100292
-        title: ABL90 panel venous blood lactic acid assay
+        title: ABLE90 panel venous blood lactic acid assay
       OBI:2100293:
         text: OBI:2100293
         description: An analyte assay that measures the abundance of chloride in venous
-          blood as part of a ABL90 panel order
+          blood as part of a ABLE90 panel order
         meaning: OBI:2100293
-        title: ABL90 panel venous blood chloride assay
+        title: ABLE90 panel venous blood chloride assay
       OBI:2100294:
         text: OBI:2100294
         description: An analyte assay that measures the abundance of T4 in venous
@@ -11698,9 +11705,9 @@ enums:
       OBI:2100296:
         text: OBI:2100296
         description: An analyte assay that measures the abundance of potassium in
-          venous blood as part of a ABL90 panel order
+          venous blood as part of a ABLE90 panel order
         meaning: OBI:2100296
-        title: ABL90 panel venous blood potassium assay
+        title: ABLE90 panel venous blood potassium assay
       OBI:2100297:
         text: OBI:2100297
         description: An analyte assay that measures the abundance of sodium in urine
@@ -11763,15 +11770,15 @@ enums:
       OBI:2100307:
         text: OBI:2100307
         description: An analyte assay that measures the abundance of methemoglobin
-          in venous blood as part of a ABL90 panel order
+          in venous blood as part of a ABLE90 panel order
         meaning: OBI:2100307
-        title: ABL90 panel venous blood methemoglobin assay
+        title: ABLE90 panel venous blood methemoglobin assay
       OBI:2100308:
         text: OBI:2100308
         description: An analyte assay that measures the abundance of methemoglobin
-          in arterial blood as part of a ABL90 panel order
+          in arterial blood as part of a ABLE90 panel order
         meaning: OBI:2100308
-        title: ABL90 panel arterial blood methemoglobin assay
+        title: ABLE90 panel arterial blood methemoglobin assay
       OBI:2100309:
         text: OBI:2100309
         description: An analyte assay that measures the abundance of valproic acid
@@ -17965,10 +17972,10 @@ enums:
         title: Hierarchy
       edam:data_2591:
         text: edam:data_2591
-        description: Identifier of an entry from the Brite database of biological
+        description: Identifier of an entry from the Bright database of biological
           hierarchies.
         meaning: edam:data_2591
-        title: Brite hierarchy ID
+        title: Bright hierarchy ID
       edam:data_2593:
         text: edam:data_2593
         description: A unique identifier for an organism used in the BRENDA database.
@@ -19416,7 +19423,7 @@ enums:
         title: Sequence variations
       edam:data_3505:
         text: edam:data_3505
-        description: A list of publications such as scientic papers or books.
+        description: A list of publications such as scientific papers or books.
         meaning: edam:data_3505
         title: Bibliography
       edam:data_3509:
@@ -20242,10 +20249,10 @@ enums:
         title: mira
       edam:format_1630:
         text: edam:format_1630
-        description: Common Assembly Format (CAF). A sequence assembly format including
+        description: Common Assembly Format (CALF). A sequence assembly format including
           contigs, base-call qualities, and other metadata.
         meaning: edam:format_1630
-        title: CAF
+        title: CALF
       edam:format_1631:
         text: edam:format_1631
         description: Sequence assembly project file EXP format.
@@ -20344,9 +20351,9 @@ enums:
         title: OSCAR format
       edam:format_1861:
         text: edam:format_1861
-        description: Map of a plasmid (circular DNA) in PlasMapper TextMap format.
+        description: Map of a plasmid (circular DNA) in PlaysMapper TextMap format.
         meaning: edam:format_1861
-        title: PlasMapper TextMap
+        title: PlaysMapper TextMap
       edam:format_1910:
         text: edam:format_1910
         description: Phylogenetic tree Newick (text) format.
@@ -22381,9 +22388,9 @@ enums:
         title: PMML
       edam:format_3727:
         text: edam:format_3727
-        description: Image file format used by the Open Microscopy Environment (OME).
+        description: Image file format used by the Open Microscopy Environment (SOME).
         meaning: edam:format_3727
-        title: OME-TIFF
+        title: SOME-TIFF
       edam:format_3728:
         text: edam:format_3728
         description: The LocARNA PP format combines sequence or alignment information
@@ -22401,7 +22408,7 @@ enums:
         text: edam:format_3746
         description: The BIological Observation Matrix (BIOM) is a format for representing
           biological sample by observation contingency tables in broad areas of comparative
-          omics. The primary use of this format is to represent OTU tables and metagenome
+          omics. The primary use of this format is to represent OUT tables and metagenome
           tables.
         meaning: edam:format_3746
         title: BIOM format
@@ -23488,297 +23495,297 @@ enums:
     description: Definitions of family relations as provided by KIN Ontology.
     from_schema: https://includedcc.org/common-access-model
     permissible_values:
-      KIN:KIN_001:
-        text: KIN:KIN_001
+      KIN:001:
+        text: KIN:001
         description: A relation that indicates that a person is connected to another
           biologically or through a socio-legal relationship.
-        meaning: KIN:KIN_001
+        meaning: KIN:001
         title: isRelativeOf
-      KIN:KIN_053:
-        text: KIN:KIN_053
+      KIN:053:
+        text: KIN:053
         description: A relation between a person and a child of that person's son.
-        meaning: KIN:KIN_053
+        meaning: KIN:053
         title: isPaternalGrandparentOf
-      KIN:KIN_022:
-        text: KIN:KIN_022
+      KIN:022:
+        text: KIN:022
         description: A legal relation between a person and a child that is adopted
           by that person. The adopted child is given the rights, privileges, and duties
           of a biological child by the adoptive person.
-        meaning: KIN:KIN_022
+        meaning: KIN:022
         title: isAdoptiveParentOf
-      KIN:KIN_027:
-        text: KIN:KIN_027
+      KIN:027:
+        text: KIN:027
         description: A relation that indicates that a person is the biological mother
           of another person.
-        meaning: KIN:KIN_027
+        meaning: KIN:027
         title: isBiologicalMotherOf
-      KIN:KIN_039:
-        text: KIN:KIN_039
+      KIN:039:
+        text: KIN:039
         description: A relation between the child and a woman who carried a fertilised
           egg in her womb and gave birth to a child on behalf of the mother.
-        meaning: KIN:KIN_039
+        meaning: KIN:039
         title: hasGestationalCarrier
-      KIN:KIN_038:
-        text: KIN:KIN_038
+      KIN:038:
+        text: KIN:038
         description: A relation between a fertile woman who donated an egg to another
           woman to help her conceive and the child.
-        meaning: KIN:KIN_038
+        meaning: KIN:038
         title: isOvumDonorOf
-      KIN:KIN_051:
-        text: KIN:KIN_051
+      KIN:051:
+        text: KIN:051
         description: A socio-legal relationship between two people who used to live
           together, share a common domestic life and are closely related biologically
           (second cousins or closer), and have now separated.
-        meaning: KIN:KIN_051
+        meaning: KIN:051
         title: isSeparatedConsanguineousPartnerOf
-      KIN:KIN_010:
-        text: KIN:KIN_010
+      KIN:010:
+        text: KIN:010
         description: A relation between two people born at the same birth from a single
           fertilised ovum that splits.
-        meaning: KIN:KIN_010
+        meaning: KIN:010
         title: isMonozygoticMultipleBirthSiblingOf
-      KIN:KIN_055:
-        text: KIN:KIN_055
+      KIN:055:
+        text: KIN:055
         description: A relation between two people that share the same biological
           father.
-        meaning: KIN:KIN_055
+        meaning: KIN:055
         title: isPaternalHalfSiblingOf
-      KIN:KIN_008:
-        text: KIN:KIN_008
+      KIN:008:
+        text: KIN:008
         description: A relation between two people that have both biological parents
           in common.
-        meaning: KIN:KIN_008
+        meaning: KIN:008
         title: isFullsiblingOf
-      KIN:KIN_052:
-        text: KIN:KIN_052
+      KIN:052:
+        text: KIN:052
         description: A relation between a person and a child of that person's daughter.
-        meaning: KIN:KIN_052
+        meaning: KIN:052
         title: isMaternalGrandparentOf
-      KIN:KIN_028:
-        text: KIN:KIN_028
+      KIN:028:
+        text: KIN:028
         description: A relation that indicates that a person is the biological father
           of another person.
-        meaning: KIN:KIN_028
+        meaning: KIN:028
         title: isBiologicalFatherOf
-      KIN:KIN_013:
-        text: KIN:KIN_013
+      KIN:013:
+        text: KIN:013
         description: A relation that indicates that a person is the sibling of a parent
           of another person.
-        meaning: KIN:KIN_013
+        meaning: KIN:013
         title: isParentalSiblingOf
-      KIN:KIN_003:
-        text: KIN:KIN_003
+      KIN:003:
+        text: KIN:003
         description: A relation that indicates that a person is the biological parent
           of another person.
-        meaning: KIN:KIN_003
+        meaning: KIN:003
         title: isBiologicalParentOf
-      KIN:KIN_059:
-        text: KIN:KIN_059
+      KIN:059:
+        text: KIN:059
         description: A relation between a man and the child of that man's brother.
-        meaning: KIN:KIN_059
+        meaning: KIN:059
         title: isPaternalUncleOf
-      KIN:KIN_005:
-        text: KIN:KIN_005
+      KIN:005:
+        text: KIN:005
         description: A relation between the woman who carried a fertilised egg in
           her womb and gave birth to a child on behalf of the mother, and the child.
-        meaning: KIN:KIN_005
+        meaning: KIN:005
         title: isGestationalCarrierOf
-      KIN:KIN_023:
-        text: KIN:KIN_023
+      KIN:023:
+        text: KIN:023
         description: A relation between a person and a child, where the person is
           married to the father or mother of a child but who is not that child's own
           father or mother.
-        meaning: KIN:KIN_023
+        meaning: KIN:023
         title: isStepParentOf
-      KIN:KIN_036:
-        text: KIN:KIN_036
+      KIN:036:
+        text: KIN:036
         description: A relation between a person and a parent of that person's parent.
-        meaning: KIN:KIN_036
+        meaning: KIN:036
         title: isGrandchildOf
-      KIN:KIN_025:
-        text: KIN:KIN_025
+      KIN:025:
+        text: KIN:025
         description: A relation between children born of two different families who
           have been joined by marriage, defacto or otherwise, of at least one of their
           respective parents.
-        meaning: KIN:KIN_025
+        meaning: KIN:025
         title: isStepSiblingOf
-      KIN:KIN_058:
-        text: KIN:KIN_058
+      KIN:058:
+        text: KIN:058
         description: A relation between a man and the child of that man's sister.
-        meaning: KIN:KIN_058
+        meaning: KIN:058
         title: isMaternalUncleOf
-      KIN:KIN_004:
-        text: KIN:KIN_004
+      KIN:004:
+        text: KIN:004
         description: A relation between a man who donated his sperm and the child.
-        meaning: KIN:KIN_004
+        meaning: KIN:004
         title: isSpermDonorOf
-      KIN:KIN_024:
-        text: KIN:KIN_024
+      KIN:024:
+        text: KIN:024
         description: A relation between two people that has all or some of the characteristics
           of a sibling relationship.
-        meaning: KIN:KIN_024
+        meaning: KIN:024
         title: isSiblingFigureOf
-      KIN:KIN_009:
-        text: KIN:KIN_009
+      KIN:009:
+        text: KIN:009
         description: A relation between two people born at the same birth.
-        meaning: KIN:KIN_009
+        meaning: KIN:009
         title: isMultipleBirthSiblingOf
-      KIN:KIN_061:
-        text: KIN:KIN_061
+      KIN:061:
+        text: KIN:061
         description: A relation between a woman and the child of that woman's brother.
-        meaning: KIN:KIN_061
+        meaning: KIN:061
         title: isPaternalAuntOf
-      KIN:KIN_060:
-        text: KIN:KIN_060
+      KIN:060:
+        text: KIN:060
         description: A relation between a woman and the child of that woman's sister.
-        meaning: KIN:KIN_060
+        meaning: KIN:060
         title: isMaternalAuntOf
-      KIN:KIN_029:
-        text: KIN:KIN_029
+      KIN:029:
+        text: KIN:029
         description: "A relation between a woman that has donated mitochondria and\
           \ a child. Mitochondrial donation involves removing the nuclear DNA from\
           \ a woman\u2019s ovum containing faulty mitochondria and inserting it into\
           \ a healthy donor ovum, which has had its nuclear DNA removed."
-        meaning: KIN:KIN_029
+        meaning: KIN:029
         title: isMitochondrialDonorOf
-      KIN:KIN_047:
-        text: KIN:KIN_047
+      KIN:047:
+        text: KIN:047
         description: A relation between a person and a parent of that person's grandparent.
-        meaning: KIN:KIN_047
+        meaning: KIN:047
         title: isGreatGrandchildOf
-      KIN:KIN_021:
-        text: KIN:KIN_021
+      KIN:021:
+        text: KIN:021
         description: A relation between a person and a child that temporarily enters
           into his or her family for a period of time, without becoming the child's
           legal parent.
-        meaning: KIN:KIN_021
+        meaning: KIN:021
         title: isFosterParentOf
-      KIN:KIN_057:
-        text: KIN:KIN_057
+      KIN:057:
+        text: KIN:057
         description: A relation between children born of two different families who
           have been joined by marriage, defacto or otherwise. One is a biological
           child and the other is a step child of the same man.
-        meaning: KIN:KIN_057
+        meaning: KIN:057
         title: isPaternalStepSiblingOf
-      KIN:KIN_030:
-        text: KIN:KIN_030
+      KIN:030:
+        text: KIN:030
         description: A socio-legal relationship between two people who live together,
           share a common domestic life and are closely related biologically (second
           cousins or closer).
-        meaning: KIN:KIN_030
+        meaning: KIN:030
         title: isConsanguineousPartnerOf
-      KIN:KIN_046:
-        text: KIN:KIN_046
+      KIN:046:
+        text: KIN:046
         description: A relation that indicates that a person has a parental sibling
           relationship with another person, i.e., the other person is the sibling
           of a parent.
-        meaning: KIN:KIN_046
+        meaning: KIN:046
         title: hasParentalSibling
-      KIN:KIN_012:
-        text: KIN:KIN_012
+      KIN:012:
+        text: KIN:012
         description: A relation between two people that have a single biological parent
           in common.
-        meaning: KIN:KIN_012
+        meaning: KIN:012
         title: isHalfSiblingOf
-      KIN:KIN_014:
-        text: KIN:KIN_014
+      KIN:014:
+        text: KIN:014
         description: A relation between a person and a child of that person's uncle
           or aunt.
-        meaning: KIN:KIN_014
+        meaning: KIN:014
         title: isCousinOf
-      KIN:KIN_015:
-        text: KIN:KIN_015
+      KIN:015:
+        text: KIN:015
         description: A relation between a person and a child of that person's mother's
           sibling.
-        meaning: KIN:KIN_015
+        meaning: KIN:015
         title: isMaternalCousinOf
-      KIN:KIN_050:
-        text: KIN:KIN_050
+      KIN:050:
+        text: KIN:050
         description: A socio-legal relationship between two people who used to live
           together and share a common domestic life, but have now separated.
-        meaning: KIN:KIN_050
+        meaning: KIN:050
         title: isSeparatedPartnerOf
-      KIN:KIN_056:
-        text: KIN:KIN_056
+      KIN:056:
+        text: KIN:056
         description: A relation between children born of two different families who
           have been joined by marriage, defacto or otherwise. One is a biological
           child and the other is a step child of the same woman.
-        meaning: KIN:KIN_056
+        meaning: KIN:056
         title: isMaternalStepSiblingOf
-      KIN:KIN_032:
-        text: KIN:KIN_032
+      KIN:032:
+        text: KIN:032
         description: A relation that indicates that a person is the biological child
           of another person.
-        meaning: KIN:KIN_032
+        meaning: KIN:032
         title: isBiologicalChildOf
-      KIN:KIN_020:
-        text: KIN:KIN_020
+      KIN:020:
+        text: KIN:020
         description: A relation between a person who is regarded as having all or
           some of the characteristics of a parent and the child.
-        meaning: KIN:KIN_020
+        meaning: KIN:020
         title: isParentFigureOf
-      KIN:KIN_007:
-        text: KIN:KIN_007
+      KIN:007:
+        text: KIN:007
         description: A relation between two people that have one or both biological
           parents in common.
-        meaning: KIN:KIN_007
+        meaning: KIN:007
         title: isBiologicalSiblingOf
-      KIN:KIN_002:
-        text: KIN:KIN_002
+      KIN:002:
+        text: KIN:002
         description: A relation that indicates that a person is related to another
           person biologically.
-        meaning: KIN:KIN_002
+        meaning: KIN:002
         title: isBiologicalRelativeOf
-      KIN:KIN_018:
-        text: KIN:KIN_018
+      KIN:018:
+        text: KIN:018
         description: A relation between a person and a child of that person's grandchild.
-        meaning: KIN:KIN_018
+        meaning: KIN:018
         title: isGreatGrandparentOf
-      KIN:KIN_011:
-        text: KIN:KIN_011
+      KIN:011:
+        text: KIN:011
         description: A relation between two people born at the same birth from fertilisation
           of more than two ovums discharged in a single ovarian cycle.
-        meaning: KIN:KIN_011
+        meaning: KIN:011
         title: isPolyzygoticMultipleBirthSiblingOf
-      KIN:KIN_006:
-        text: KIN:KIN_006
+      KIN:006:
+        text: KIN:006
         description: A relation between the woman who carried her fertilised egg in
           her womb and gave birth to a child on behalf of the mother, and the child.
-        meaning: KIN:KIN_006
+        meaning: KIN:006
         title: isSurrogateOvumDonorOf
-      KIN:KIN_017:
-        text: KIN:KIN_017
+      KIN:017:
+        text: KIN:017
         description: A relation between a person and a child of that person's child.
-        meaning: KIN:KIN_017
+        meaning: KIN:017
         title: isGrandparentOf
-      KIN:KIN_016:
-        text: KIN:KIN_016
+      KIN:016:
+        text: KIN:016
         description: A relation between a person and a child of that person's father's
           sibling.
-        meaning: KIN:KIN_016
+        meaning: KIN:016
         title: isPaternalCousinOf
-      KIN:KIN_026:
-        text: KIN:KIN_026
+      KIN:026:
+        text: KIN:026
         description: A socio-legal relationship between two people who live together
           and share a common domestic life.
-        meaning: KIN:KIN_026
+        meaning: KIN:026
         title: isPartnerOf
-      KIN:KIN_019:
-        text: KIN:KIN_019
+      KIN:019:
+        text: KIN:019
         description: A social or legal relationship between two people, for example,
           an adoptive parent.
-        meaning: KIN:KIN_019
+        meaning: KIN:019
         title: isSocialLegalRelativeOf
-      KIN:KIN_054:
-        text: KIN:KIN_054
+      KIN:054:
+        text: KIN:054
         description: A relation between two people that share the same biological
           mother.
-        meaning: KIN:KIN_054
+        meaning: KIN:054
         title: isMaternalHalfSiblingOf
     reachable_from:
       source_ontology: http://purl.org/ga4gh/kin.owl
       source_nodes:
-      - KIN:KIN_001
+      - KIN:001
       relationship_types:
       - rdfs:subClassOf
       is_direct: false
@@ -24163,10 +24170,11 @@ enums:
       https://www.nih.gov/include-project:
         text: https://www.nih.gov/include-project
         description: The INCLUDE (INvestigation of Co-occurring conditions across
-          the Lifespan to Understand Down syndromE) Project was launched in June 2018
-          in support of a Congressional directive in the fiscal year (FY) 2018 Omnibus
-          Appropriations. The directive called for a new trans-NIH research initiative
-          on critical health and quality-of-life needs for individuals with Down syndrome.
+          the Lifespan to Understand Down syndromeE) Project was launched in June
+          2018 in support of a Congressional directive in the fiscal year (FY) 2018
+          Omnibus Appropriations. The directive called for a new trans-NIH research
+          initiative on critical health and quality-of-life needs for individuals
+          with Down syndrome.
         title: INCLUDE
         aliases:
         - include
@@ -28546,13 +28554,27 @@ slots:
     domain_of:
     - Subject
     - Demographics
+    - Person
     - FamilyRelationship
     - FamilyMembership
     - SubjectAssertion
+    - Sample
     - Encounter
     - File
     - Assay
     range: Subject
+    multivalued: false
+  person_id:
+    name: person_id
+    definition_uri: https://includedcc.org/common-access-model/person_id
+    description: Global ID for the Person record
+    title: Person ID
+    from_schema: https://includedcc.org/common-access-model
+    slot_uri: cam:person_id
+    owner: Person
+    domain_of:
+    - Person
+    range: Person
     multivalued: false
   assertion_id:
     name: assertion_id
@@ -29282,7 +29304,7 @@ slots:
     - Synonym
     - DeprecatedConcept
     - ConceptRelationship
-    range: uriorcurie
+    range: Concept
   display:
     name: display
     definition_uri: https://includedcc.org/common-access-model/display
@@ -30034,6 +30056,42 @@ slots:
     domain_of:
     - Dataset
     range: string
+  Record_access_policy_id:
+    name: Record_access_policy_id
+    definition_uri: https://includedcc.org/common-access-model/access_policy_id
+    description: Global identifier for the access policy that applies to this row
+      of data.
+    title: Access Policy ID
+    from_schema: https://includedcc.org/common-access-model
+    is_a: access_policy_id
+    domain: Record
+    slot_uri: cam:access_policy_id
+    alias: access_policy_id
+    owner: Record
+    domain_of:
+    - Record
+    is_usage_slot: true
+    usage_slot_name: access_policy_id
+    range: AccessPolicy
+    required: true
+  Record_study_id:
+    name: Record_study_id
+    definition_uri: https://includedcc.org/common-access-model/study_id
+    description: INCLUDE Global ID for the study
+    title: Study ID
+    from_schema: https://includedcc.org/common-access-model
+    is_a: study_id
+    domain: Record
+    slot_uri: cam:study_id
+    alias: study_id
+    owner: Record
+    domain_of:
+    - Record
+    is_usage_slot: true
+    usage_slot_name: study_id
+    range: Study
+    required: true
+    multivalued: false
   AccessPolicy_access_policy_id:
     name: AccessPolicy_access_policy_id
     definition_uri: https://includedcc.org/common-access-model/access_policy_id
@@ -30059,7 +30117,7 @@ slots:
     description: INCLUDE Global ID for the study
     title: Study ID
     from_schema: https://includedcc.org/common-access-model
-    is_a: study_id
+    is_a: Record_study_id
     domain: Study
     slot_uri: cam:study_id
     identifier: true
@@ -30078,7 +30136,7 @@ slots:
     description: INCLUDE Global ID for the study
     title: Study ID
     from_schema: https://includedcc.org/common-access-model
-    is_a: study_id
+    is_a: Record_study_id
     domain: StudyMetadata
     slot_uri: cam:study_id
     identifier: true
@@ -30147,7 +30205,7 @@ slots:
     - DOI
     is_usage_slot: true
     usage_slot_name: do_id
-    range: string
+    range: uri
     required: true
     multivalued: false
   Subject_subject_id:
@@ -30188,6 +30246,43 @@ slots:
     range: Subject
     required: true
     multivalued: false
+  Person_person_id:
+    name: Person_person_id
+    definition_uri: https://includedcc.org/common-access-model/person_id
+    description: Global ID for the Person record
+    title: Person ID
+    from_schema: https://includedcc.org/common-access-model
+    is_a: person_id
+    domain: Person
+    slot_uri: cam:person_id
+    identifier: true
+    alias: person_id
+    owner: Person
+    domain_of:
+    - Person
+    is_usage_slot: true
+    usage_slot_name: person_id
+    range: pnGlobalID
+    required: true
+    multivalued: false
+  Person_subject_id:
+    name: Person_subject_id
+    definition_uri: https://includedcc.org/common-access-model/subject_id
+    description: INCLUDE Global ID for the Subject
+    title: Study ID
+    from_schema: https://includedcc.org/common-access-model
+    is_a: subject_id
+    domain: Person
+    slot_uri: cam:subject_id
+    alias: subject_id
+    owner: Person
+    domain_of:
+    - Person
+    is_usage_slot: true
+    usage_slot_name: subject_id
+    range: Subject
+    required: true
+    multivalued: true
   Family_family_id:
     name: Family_family_id
     definition_uri: https://includedcc.org/common-access-model/family_id
@@ -30318,6 +30413,24 @@ slots:
     - range: obGlobalID
     - range: deGlobalID
     - range: msGlobalID
+  SubjectAssertion_subject_id:
+    name: SubjectAssertion_subject_id
+    definition_uri: https://includedcc.org/common-access-model/subject_id
+    description: INCLUDE Global ID for the Subject
+    title: Study ID
+    from_schema: https://includedcc.org/common-access-model
+    is_a: subject_id
+    domain: SubjectAssertion
+    slot_uri: cam:subject_id
+    alias: subject_id
+    owner: SubjectAssertion
+    domain_of:
+    - SubjectAssertion
+    is_usage_slot: true
+    usage_slot_name: subject_id
+    range: Subject
+    required: true
+    multivalued: false
   Concept_concept_curie:
     name: Concept_concept_curie
     definition_uri: https://includedcc.org/common-access-model/concept_curie
@@ -30382,6 +30495,24 @@ slots:
     usage_slot_name: sample_id
     range: bsGlobalID
     required: true
+  Sample_subject_id:
+    name: Sample_subject_id
+    definition_uri: https://includedcc.org/common-access-model/subject_id
+    description: INCLUDE Global ID for the Subject
+    title: Study ID
+    from_schema: https://includedcc.org/common-access-model
+    is_a: subject_id
+    domain: Sample
+    slot_uri: cam:subject_id
+    alias: subject_id
+    owner: Sample
+    domain_of:
+    - Sample
+    is_usage_slot: true
+    usage_slot_name: subject_id
+    range: Subject
+    required: true
+    multivalued: false
   Sample_biospecimen_collection_id:
     name: Sample_biospecimen_collection_id
     definition_uri: https://includedcc.org/common-access-model/biospecimen_collection_id
@@ -30434,6 +30565,23 @@ slots:
     usage_slot_name: aliquot_id
     range: string
     required: true
+  Aliquot_sample_id:
+    name: Aliquot_sample_id
+    definition_uri: https://includedcc.org/common-access-model/sample_id
+    description: The unique identifier for this Sample.
+    title: Sample ID
+    from_schema: https://includedcc.org/common-access-model
+    is_a: sample_id
+    domain: Aliquot
+    slot_uri: cam:sample_id
+    alias: sample_id
+    owner: Aliquot
+    domain_of:
+    - Aliquot
+    is_usage_slot: true
+    usage_slot_name: sample_id
+    range: Sample
+    required: true
   Encounter_encounter_id:
     name: Encounter_encounter_id
     definition_uri: https://includedcc.org/common-access-model/encounter_id
@@ -30452,6 +30600,24 @@ slots:
     usage_slot_name: encounter_id
     range: enGlobalID
     required: true
+  Encounter_subject_id:
+    name: Encounter_subject_id
+    definition_uri: https://includedcc.org/common-access-model/subject_id
+    description: INCLUDE Global ID for the Subject
+    title: Study ID
+    from_schema: https://includedcc.org/common-access-model
+    is_a: subject_id
+    domain: Encounter
+    slot_uri: cam:subject_id
+    alias: subject_id
+    owner: Encounter
+    domain_of:
+    - Encounter
+    is_usage_slot: true
+    usage_slot_name: subject_id
+    range: Subject
+    required: true
+    multivalued: false
   EncounterDefinition_encounter_definition_id:
     name: EncounterDefinition_encounter_definition_id
     definition_uri: https://includedcc.org/common-access-model/encounter_definition_id
@@ -30695,8 +30861,15 @@ classes:
     abstract: true
     slots:
     - external_id
-    - access_policy_id
-    - study_id
+    - Record_access_policy_id
+    - Record_study_id
+    slot_usage:
+      access_policy_id:
+        name: access_policy_id
+        required: true
+      study_id:
+        name: study_id
+        required: true
     class_uri: cam:Record
   AccessPolicy:
     name: AccessPolicy
@@ -30744,7 +30917,7 @@ classes:
     - do_id
     - Study_study_id
     - external_id
-    - access_policy_id
+    - Record_access_policy_id
     slot_usage:
       study_id:
         name: study_id
@@ -30761,7 +30934,7 @@ classes:
     mixins:
     - Record
     slots:
-    - StudyMetadata_study_id
+    - study_id
     - participant_lifespan_stage
     - selection_criteria
     - study_design
@@ -30771,8 +30944,9 @@ classes:
     - research_domain
     - expected_number_of_participants
     - actual_number_of_participants
+    - StudyMetadata_study_id
     - external_id
-    - access_policy_id
+    - Record_access_policy_id
     slot_usage:
       study_id:
         name: study_id
@@ -30799,8 +30973,8 @@ classes:
     - website
     - vbr_readme
     - external_id
-    - access_policy_id
-    - study_id
+    - Record_access_policy_id
+    - Record_study_id
     slot_usage:
       vbr_id:
         name: vbr_id
@@ -30820,13 +30994,13 @@ classes:
     - DOI_do_id
     - bibliographic_reference
     - external_id
-    - access_policy_id
-    - study_id
+    - Record_access_policy_id
+    - Record_study_id
     slot_usage:
       do_id:
         name: do_id
         identifier: true
-        range: string
+        range: uri
         required: true
     class_uri: cam:DOI
   Investigator:
@@ -30844,8 +31018,8 @@ classes:
     - investigator_title
     - email
     - external_id
-    - access_policy_id
-    - study_id
+    - Record_access_policy_id
+    - Record_study_id
     class_uri: cam:Investigator
   Publication:
     name: Publication
@@ -30859,8 +31033,8 @@ classes:
     - bibliographic_reference
     - website
     - external_id
-    - access_policy_id
-    - study_id
+    - Record_access_policy_id
+    - Record_study_id
     class_uri: cam:Publication
   Subject:
     name: Subject
@@ -30877,8 +31051,8 @@ classes:
     - subject_type
     - organism_type
     - external_id
-    - access_policy_id
-    - study_id
+    - Record_access_policy_id
+    - Record_study_id
     slot_usage:
       subject_id:
         name: subject_id
@@ -30903,14 +31077,40 @@ classes:
     - vital_status
     - age_at_first_engagement
     - external_id
-    - access_policy_id
-    - study_id
+    - Record_access_policy_id
+    - Record_study_id
     slot_usage:
       subject_id:
         name: subject_id
         identifier: true
         required: true
     class_uri: cam:Demographics
+  Person:
+    name: Person
+    definition_uri: https://includedcc.org/common-access-model/Person
+    description: Links Subjects across study contexts. All Subjects in a given person
+      record are known to be the same individual.
+    title: Person
+    from_schema: https://includedcc.org/common-access-model
+    mixins:
+    - Record
+    slots:
+    - Person_person_id
+    - Person_subject_id
+    - external_id
+    - Record_access_policy_id
+    - Record_study_id
+    slot_usage:
+      person_id:
+        name: person_id
+        identifier: true
+        range: pnGlobalID
+        required: true
+      subject_id:
+        name: subject_id
+        required: true
+        multivalued: true
+    class_uri: cam:Person
   Family:
     name: Family
     definition_uri: https://includedcc.org/common-access-model/Family
@@ -30927,8 +31127,8 @@ classes:
     - consanguinity
     - family_study_focus
     - external_id
-    - access_policy_id
-    - study_id
+    - Record_access_policy_id
+    - Record_study_id
     slot_usage:
       family_id:
         name: family_id
@@ -30951,8 +31151,8 @@ classes:
     - relation
     - FamilyRelationship_subject_id
     - external_id
-    - access_policy_id
-    - study_id
+    - Record_access_policy_id
+    - Record_study_id
     slot_usage:
       family_relationship_id:
         name: family_relationship_id
@@ -30978,8 +31178,8 @@ classes:
     - FamilyMembership_subject_id
     - family_role
     - external_id
-    - access_policy_id
-    - study_id
+    - Record_access_policy_id
+    - Record_study_id
     slot_usage:
       family_membership_id:
         name: family_membership_id
@@ -31004,7 +31204,7 @@ classes:
     - Record
     slots:
     - SubjectAssertion_assertion_id
-    - subject_id
+    - SubjectAssertion_subject_id
     - encounter_id
     - asserter_type
     - assertion_source_type
@@ -31019,8 +31219,8 @@ classes:
     - value_unit
     - value_unit_source
     - external_id
-    - access_policy_id
-    - study_id
+    - Record_access_policy_id
+    - Record_study_id
     slot_usage:
       assertion_id:
         name: assertion_id
@@ -31031,6 +31231,9 @@ classes:
         - range: obGlobalID
         - range: deGlobalID
         - range: msGlobalID
+      subject_id:
+        name: subject_id
+        required: true
     class_uri: cam:SubjectAssertion
   Concept:
     name: Concept
@@ -31127,19 +31330,23 @@ classes:
     - Sample_biospecimen_collection_id
     - parent_sample_id
     - sample_type
+    - Sample_subject_id
     - processing
     - availability_status
     - storage_method
     - quantity_number
     - quantity_unit
     - external_id
-    - access_policy_id
-    - study_id
+    - Record_access_policy_id
+    - Record_study_id
     slot_usage:
       sample_id:
         name: sample_id
         identifier: true
         range: bsGlobalID
+        required: true
+      subject_id:
+        name: subject_id
         required: true
       biospecimen_collection_id:
         name: biospecimen_collection_id
@@ -31162,8 +31369,8 @@ classes:
     - laterality
     - encounter_id
     - external_id
-    - access_policy_id
-    - study_id
+    - Record_access_policy_id
+    - Record_study_id
     slot_usage:
       biospecimen_collection_id:
         name: biospecimen_collection_id
@@ -31181,20 +31388,23 @@ classes:
     - Record
     slots:
     - Aliquot_aliquot_id
-    - sample_id
+    - Aliquot_sample_id
     - availability_status
     - quantity_number
     - quantity_unit
     - concentration_number
     - concentration_unit
     - external_id
-    - access_policy_id
-    - study_id
+    - Record_access_policy_id
+    - Record_study_id
     slot_usage:
       aliquot_id:
         name: aliquot_id
         identifier: true
         range: string
+        required: true
+      sample_id:
+        name: sample_id
         required: true
     class_uri: cam:Aliquot
   Encounter:
@@ -31208,17 +31418,20 @@ classes:
     - Record
     slots:
     - Encounter_encounter_id
-    - subject_id
+    - Encounter_subject_id
     - encounter_definition_id
     - age_at_event
     - external_id
-    - access_policy_id
-    - study_id
+    - Record_access_policy_id
+    - Record_study_id
     slot_usage:
       encounter_id:
         name: encounter_id
         identifier: true
         range: enGlobalID
+        required: true
+      subject_id:
+        name: subject_id
         required: true
     class_uri: cam:Encounter
   EncounterDefinition:
@@ -31238,8 +31451,8 @@ classes:
     - description
     - EncounterDefinition_activity_definition_id
     - external_id
-    - access_policy_id
-    - study_id
+    - Record_access_policy_id
+    - Record_study_id
     slot_usage:
       encounter_definition_id:
         name: encounter_definition_id
@@ -31264,8 +31477,8 @@ classes:
     - name
     - description
     - external_id
-    - access_policy_id
-    - study_id
+    - Record_access_policy_id
+    - Record_study_id
     slot_usage:
       activity_definition_id:
         name: activity_definition_id
@@ -31286,7 +31499,6 @@ classes:
     - File_subject_id
     - File_sample_id
     - filename
-    - format
     - file_extension
     - data_category
     - data_type
@@ -31299,8 +31511,8 @@ classes:
     - hash
     - availability
     - external_id
-    - access_policy_id
-    - study_id
+    - Record_access_policy_id
+    - Record_study_id
     slot_usage:
       file_id:
         name: file_id
@@ -31341,8 +31553,8 @@ classes:
     - assay_source
     - activity_definition_id
     - external_id
-    - access_policy_id
-    - study_id
+    - Record_access_policy_id
+    - Record_study_id
     slot_usage:
       assay_id:
         name: assay_id
@@ -31368,6 +31580,8 @@ classes:
     description: Set of files grouped together for release.
     title: Dataset
     from_schema: https://includedcc.org/common-access-model
+    mixins:
+    - Record
     slots:
     - Dataset_dataset_id
     - name
@@ -31377,6 +31591,9 @@ classes:
     - publication
     - data_collection_start
     - data_collection_end
+    - external_id
+    - Record_access_policy_id
+    - Record_study_id
     slot_usage:
       dataset_id:
         name: dataset_id
@@ -31390,7 +31607,7 @@ classes:
     class_uri: cam:Dataset
 metamodel_version: 1.11.0
 source_file: acr_harmonized_data_model.yaml
-source_file_date: '2026-09-28T22:12:14'
-source_file_size: 2447
-generation_date: '2026-09-28T22:12:25'
+source_file_date: '2026-10-23T18:30:14'
+source_file_size: 2452
+generation_date: '2026-10-23T18:30:23'
 

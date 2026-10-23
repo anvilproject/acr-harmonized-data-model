@@ -288,6 +288,15 @@
     click ConceptRelationship href "../ConceptRelationship/"
       ConceptRelationship : concept_curie
 
+
+
+
+
+        ConceptRelationship --&gt; "0..1" Concept : concept_curie
+        click Concept href "../Concept/"
+
+
+
       ConceptRelationship : relationship_curie
 
       ConceptRelationship : target_concept_curie
@@ -316,7 +325,7 @@
 <tbody>
 <tr>
 <td><a href="../concept_curie/">concept_curie</a></td>
-<td>0..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+<td>0..1 <br/> <a href="../Concept/">Concept</a></td>
 <td>The standardized curie for the term</td>
 <td>direct</td>
 </tr>
@@ -389,7 +398,7 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Synonym</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DeprecatedConcept</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConceptRelationship</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uriorcurie</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Concept</span>
 <span class="w">  </span><span class="nt">target_concept_curie</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">target_concept_curie</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The concept to which this term relates</span>
